@@ -3,3 +3,4 @@ prog
 *.o
 *.log
 *~
+*.swp

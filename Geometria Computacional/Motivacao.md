@@ -13,6 +13,8 @@ tais problemas
 com atenção e cuidado;
 1. podem receber WA devido erros de precisão inerentes às variáveis em ponto 
 flutuante;
+1. envolvem operações que são triviais quando feitas com caneta e lápis, mas se
+tornam razoavelmente complicadas quando precisam ser implementadas em computador;
 1. a codificação da solução pode ser longa e tediosa.
 
 Para atacar tais problemas, o competidor tem que se preparar previamente, 
@@ -32,3 +34,5 @@ o teste de igualdades:
 ### Referências
 
 HALIM, Steve; HALIM, Felix. [Competitive Programming 3](http://cpbook.net/), Lulu, 2013.
+
+SKIENA, Steven S.; REVILLA, Miguel A. [Programming Challenges: The Programming Contest Training Manual](http://www.programming-challenges.com/), Springer, 2002.
