@@ -1,6 +1,3 @@
-Geometria Computacional
-=======================
-
 Motivação
 ---------
 
