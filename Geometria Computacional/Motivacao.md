@@ -27,6 +27,8 @@ o teste de igualdades:
     1. _a == b <=> fabs(a - b) < e_;
     1. _a >= 0 <=> a > -e_;
     1. _a <= 0 <=> a < e_;
+1. tomar cuidado com a impressão do zero: em determinados casos, pode ser
+impresso o sinal de negativo!
 
 ### Referências
 

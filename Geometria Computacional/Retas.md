@@ -285,13 +285,45 @@ public:
         Point closest(const Point& p) const // Ponto da reta mais próximo de p
         {
             auto den = a*a + b*b;
-            auto x = (b*(b*to.x - a*to.y) - a*c)/den;
-            auto y = (a*(-b*to.x + a*to.y) - b*c)/den;
+            auto x = (b*(b*p.x - a*p.y) - a*c)/den;
+            auto y = (a*(-b*p.x + a*p.y) - b*c)/den;
 
             return Point(x, y);
         }
 };
 ```
+
+Importante notar que, no caso de segmentos de retas, é preciso considerar os
+extremos do segmento, pois ao usar a abordagem acima o ponto _Q_ pode estar
+fora do segmento. Assim, o ponto mais próximo (e a respectiva distância) será
+o mais próximo entre os dois extremos e _Q_.
+
+```C++
+// Definição das classes Point e Line
+
+// Ponto mais próximo de M no segmento de reta [from, to]
+Point closestToSegment(const Point& from, const Point& to, const Point& M) 
+{
+        Line r(from, to);
+
+        auto Q = r.closest(M);
+        auto min_x = min(from.x, to.x);
+        auto max_x = max(from.x, to.x);
+
+        if (Q.x <= min_x or Q.x >= max_x)      // Q está fora do intervalo
+        {                                      // trocar <= por < resulta em WA! 
+            auto distA = distance(M, from);    // (retas verticais)
+            auto distB = distance(M, to);
+
+            if (distA <= distB)
+                return from;
+            else
+                return to;
+        } else
+            return Q;
+}
+```
+
 
 ### Distância entre duas retas paralelas
 
