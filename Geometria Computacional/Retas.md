@@ -151,6 +151,14 @@ equação reduzida, sendo necessário apenas o cuidado no trato do caso das
 retas verticais.
 
 ```C++
+
+#define EPS 1e-9
+
+bool equals(double a, double b)
+{
+    return fabs(a - b) < EPS;
+}
+
 class Line {
 public:
         double m;
@@ -161,10 +169,10 @@ public:
 
         bool operator==(const Line& r) const    // Verdadeiro se coincidentes
         {
-            if (vertical != r.vertical or m != r.m)
+            if (vertical != r.vertical || !equals(m, r.m))
                 return false;
 
-            return b == r.b;
+            return equals(b, r.b);
         }
 
 
@@ -176,7 +184,7 @@ public:
             if (vertical or r.vertical)
                 return false;
 
-            return (m == r.m) and (b != r.b);
+            return equals(m, r.m) && !equals(b, r.b);
         }
 };
 ```
@@ -188,13 +196,6 @@ ou coincidentes.
 
 ```C++
 // Definição de reta baseada na equação geral
-
-#define EPS 1e-9
-
-bool equals(double a, double b)
-{
-    return fabs(a - b) < EPS;
-}
 
 bool parallel(const Line& r, const Line& s)     // Verdadeiro se coincidentes!
 {
@@ -230,7 +231,7 @@ public:
             if (vertical and r.vertical)
                 return false;
 
-            if ((vertical and r.m == 0) or (m == 0 and r.vertical))
+            if ((vertical && equals(r.m, 0)) || (equals(m, 0) && r.vertical))
                 return true;
 
             if (vertical or r.vertical)
@@ -244,7 +245,88 @@ public:
 
 ### Interseção entre retas
 
+Como dito anteriormente, dado um par de retas, elas podem ser coincidentes
+(infinitas interseções), paralelas (nenhuma interseção) ou concorrentes
+(um único ponto de interseção).
+
+Para encontrar o ponto de interseção, no caso de retas concorrentes, basta
+resolver o sistema linear resultante das equações gerais das duas retas.
+
+```C++
+// Definição da comparação entre doubles (função equals())
+
+// Definições das classes Point e Line
+
+#define INF -1
+
+pair<int, Point> intersections(const Line& r, const Line& s)
+{
+        auto det = r.a * s.b - r.b * s.a;
+
+        if (equals(det, 0))
+        {
+            auto kr = r.a ? r.a : r.b;
+            auto ks = s.a ? s.a : s.b;
+
+            auto ar = r.a / kr;
+            auto br = r.b / kr;
+            auto cr = r.c / kr;
+
+            auto as = s.a / ks;
+            auto bs = s.b / ks;
+            auto cs = s.c / ks;
+
+            // Coincidentes
+            if (equals(ar, as) && equals(br, bs) && equals(cr, cs))
+                return pair<int, Point>(INF, Point());
+            else    
+                return pair<int, Point>(0, Point());    // Paralelas
+        } else  // Concorrentes
+        {
+            double x = (-r.c * s*b + s.c * r.b) / det;
+            double y = (-s.c * r.a + r.c * s.a) / det;
+
+            return pair<int, Point>(1, Point(x, y));
+        }
+}
+```
+
 ### Ângulos entre retas
+
+Para mensurar o ângulo formado por duas retas (ou dois segmentos de reta), é
+preciso identificar os vetores _u_ e _v_ de direção das duas retas e usar o 
+produto interno. Dados dois pontos _P = (x1, y1)_ e _Q = (x2, y2)_, o vetor
+de direção da reta que passa por _P_ e _Q_ é dado por _u = (x1 - x2, y1 - y2)_.
+
+De posse dos vetores de direção, o cosseno ângulo entre as retas é dado pela 
+expressão abaixo:
+
+![Ângulo entre vetores](angle.png)
+
+Para achar o ângulo, basta computar a função inversa do cosseno (`acos`, na
+biblioteca de matemática padrão do C/C++) no lado direito da expressão acima.
+
+```C++
+// Definição da classe Point
+
+// Ângulo entre os segmentos de reta PQ e RS
+double angle(const Point& P, const Point& Q, const Point& R, const Point& S)
+{
+    auto ux = P.x - Q.x;
+    auto uy = P.y - Q.y;
+    
+    auto vx = R.x - S.x;
+    auto vy = R.y - S.y;
+
+    auto num = ux * vx + uy * vy;
+    auto den = hypot(ux, uy) * hypot(vx, vy);
+
+    // Caso especial: se den == 0, algum dos vetores é degenerado: os dois
+    // pontos são iguais. Neste caso, o ângulo não está definido
+
+    return acos(num / denom);
+}
+``` 
 
 ### Distância de um ponto a uma reta
 
@@ -324,8 +406,37 @@ Point closestToSegment(const Point& from, const Point& to, const Point& M)
 }
 ```
 
+### Orientação entre Ponto e Reta
 
-### Distância entre duas retas paralelas
+Conforme dito anteriormente, o determinante utilizado para o cálculo dos 
+coeficientes da equação geral da reta também identifica a orientação de um
+ponto em relação a uma reta. Se _r_ é uma reta que passa pelos pontos _P_ e 
+_Q_, e _R_ é um ponto qualquer, o determinante abaixo permite identificar se
+o ponto _R_ pertence a _R_ (_D = 0_), ou está no  semiplano à esquerda 
+(_D < 0_) ou no semiplano à direita (_D > 0_). A orientação
+(esquerda ou direita) diz respeito à direção que vai de _P_ a _Q_.
+
+![Discriminante](discriminante.png)
+
+```C++
+// Definição da classe Point
+
+// D = 0: R pertence a reta PQ
+// D < 0: R à esquerda da reta PQ
+// D > 0: R à direita da reta PQ
+double D(const Point& P, const Point& Q, const Point& R)
+{
+    return (P.x * Q.y + P.y * R.x + Q.x * R.y) - (R.x * Q.y + R.y * P.x + Q.x * P.y);
+}
+
+```
+### Exercícios
+
+<!--- 378 - Interseção entre retas -->
+<!--- 11068 - Interseção entre retas -->
+1. UVA: 
+    1. [378 - Intersecting Lines](https://uva.onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&category=24&page=show_problem&problem=314)
+    2. [11068 - An Easy Task](https://uva.onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&category=24&page=show_problem&problem=2009)
 
 ### Referências
 
