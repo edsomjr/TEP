@@ -197,7 +197,7 @@ typedef struct _Point {
         double y;
 } Point;
 
-Point rotate(Point& p, double angle)
+Point rotate(const Point& p, double angle)
 {
     auto x = cos(angle) * p.x - sin(angle) * p.y;
     auto y = sin(angle) * p.x + cos(angle) * p.y;

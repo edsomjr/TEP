@@ -133,6 +133,46 @@ public:
 };
 ```
 
+Um mesma reta pode ter infinitas equações gerais associadas: basta multiplicar
+toda a equação por uma número real diferente de zero. Para normalizar a 
+representação, associando uma única equação a cada reta, é necessário dividir
+toda a equação pelo coeficiente _a_ (ou por _b_, caso _a_ seja igual a zero).
+Esta estratégia permite a simplificação de algoritmos de comparação entre
+retas.
+
+```C++
+// Definição da classe Point
+
+class Line {
+public:
+        double a;
+        double b;
+        double c;
+
+        Line(double av, double bv, double cv) : a(av), b(bv), c(cv) {}
+
+        Line(const Point& p, const Point& q)
+        {
+            a = p.y - q.y;
+            b = q.x - p.x;
+            c = p.x * q.y - p.y * q.x;
+
+            auto k = a ? a : b;
+
+            a /= k;
+            b /= k;
+            c /= k;
+        }
+};
+```
+
+Importante notar que, em ambas representações, pode acontecer da reta 
+resultante ser **degenerada**. Isto ocorre quando os pontos _p_ e _q_ são
+idênticos: neste caso, a reta se reduz a um único ponto. O tratamento deste
+caso especiais nos demais algoritmos aumenta o tamanho e complexidade dos
+códigos. Dado o aspecto didático deste material, este caso será ignorado
+deste ponto em diante, mas o leitor é incentivado a tratá-lo em seus códigos.
+
 ### Retas paralelas, concorrentes, coincidentes e perpendiculares
 
 Em relação às possíveis interseções entre duas retas, há três cenários possíveis:
@@ -204,9 +244,8 @@ bool parallel(const Line& r, const Line& s)     // Verdadeiro se coincidentes!
 ```
 
 Nesta abordagem, para verificar se as retas são coincidentes, é necessário 
-dividir todos os coeficientes da reta por _a_ (ou por _b_, se _a_ for igual a 
-zero) e depois comparar os coeficientes de ambas retas: se iguais, as retas
-serão coincidentes.
+comparar também os coeficientes _c_: se _c_ == _r.c_, as retas serão
+coincidentes.
 
 Duas retas serão **perpendiculares** se o produto de seus coeficientes angulares
 for igual a -1. Outra maneira de checar se duas retas são perpendiculares é
@@ -437,6 +476,12 @@ double D(const Point& P, const Point& Q, const Point& R)
 1. UVA: 
     1. [378 - Intersecting Lines](https://uva.onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&category=24&page=show_problem&problem=314)
     2. [11068 - An Easy Task](https://uva.onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&category=24&page=show_problem&problem=2009)
+
+<!--- 1834 - Orientação -->
+<!--- 1631 - Orientação, Distância de Ponto a Reta -->
+1. URI:
+    1. [1631 - O Fantástico Bolo de Bobby](https://www.urionlinejudge.com.br/judge/pt/problems/view/1631)
+    1. [1834 - Vogons!](https://www.urionlinejudge.com.br/judge/pt/problems/view/1834)
 
 ### Referências
 
