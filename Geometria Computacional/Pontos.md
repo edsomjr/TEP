@@ -77,14 +77,16 @@ if (p < q) {    // Ok! Operador < para doubles utilizado
 }
     ```
 
-    Obs: A desvanatagem de notação menos legível pode ser contornada com:
+    A desvantagem de notação menos legível pode ser contornada com o uso
+    de macros, conforme mostrado abaixo.
+
     ```C++
 #define x first
 #define y second
     ```
-    contudo deve se tomar cuidado pois todas as aparições de `x` e `y` serão substituidas 
-    por `first` e `second`, logo a declaração da variavel com nome `x` retorna erro de compilação pois `first`
-    é uma palavra reservada. 
+    Contudo, ao usar tais macros, deve-se tomar cuidado pois todas as aparições 
+    de `x` e `y` serão substituídas por `first` e `second`. Logo a declaração de 
+    uma variável com nome `x` retorna erro de compilação.
 
 1. _arrays_ 
 
@@ -133,8 +135,6 @@ typedef struct _Point {
         double x;
         double y;
 } Point;
-
-// Definição do operador de comparação de forma segura
 
 bool operator<(const Point& p, const Point& q)
 {

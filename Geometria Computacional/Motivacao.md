@@ -28,7 +28,7 @@ o teste de igualdades:
     1. _a == b <=> fabs(a - b) < e_;
     1. _a >= 0 <=> a > -e_;
     1. _a <= 0 <=> a < e_;
-1. caso seja necessário usar variáveis do tipo ponto fluante, utilizar
+1. caso seja necessário usar variáveis do tipo ponto flutuante, utilizar
 **double** ao invés de **float**;
 1. tomar cuidado com a impressão do zero: em determinados casos, pode ser
 impresso o sinal de negativo!

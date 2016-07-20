@@ -63,3 +63,13 @@ public:
 };
 ```
 
+
+### Exercícios
+
+<!--- 10589 - Relação ponto x círculo --->
+1. UVA
+    1. [10589 - Area](https://uva.onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&category=24&page=show_problem&problem=1530)
+
+### Referências
+
+HALIM, Steve; HALIM, Felix. [Competitive Programming 3](http://cpbook.net/), Lulu, 2013.
