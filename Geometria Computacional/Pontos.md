@@ -77,6 +77,15 @@ if (p < q) {    // Ok! Operador < para doubles utilizado
 }
     ```
 
+    Obs: A desvanatagem de notação menos legível pode ser contornada com:
+    ```C++
+#define x first
+#define y second
+    ```
+    contudo deve se tomar cuidado pois todas as aparições de `x` e `y` serão substituidas 
+    por `first` e `second`, logo a declaração da variavel com nome `x` retorna erro de compilação pois `first`
+    é uma palavra reservada. 
+
 1. _arrays_ 
 
     Utilizar _arrays_ para representar pontos permite a representação de 
@@ -85,7 +94,7 @@ if (p < q) {    // Ok! Operador < para doubles utilizado
     para acesso aos membros) e na necessidade de definição dos operadores.
 
     ```C++
-double p[2], q[2];      // Declaração usando _arrays_ bidimensionais
+double p[2], q[2];      // Declaração usando _arrays_ unidimensionais de tamanho 2
 p[0] = 5;
 q[1] = 10;
 
@@ -125,11 +134,11 @@ typedef struct _Point {
         double y;
 } Point;
 
-// Definição do operador de igualdade
+// Definição do operador de comparação de forma segura
 
 bool operator<(const Point& p, const Point& q)
 {
-        return (p.x == q.x) ? p.y < q.y : p.x < q.x;
+        return (fabs(p.x - q.x) < EPS) ? (q.y - p.y) > -EPS : q.x - p.x > -EPS);
 }
 
 ```
@@ -157,7 +166,7 @@ typedef struct _Point {
 
 double distance(const Point& p, const Point& q)
 {
-    return sqrt(pow(p.x - q.x, 2) + pow(p.y - q.y, 2) + pow(p.z - q.z, 2));
+    return sqrt((p.x - q.x)*(p.x - q.x) + (p.y - q.y)*(p.y - q.y) + (p.z - q.z)*(p.z - q.z));
 }
 ```
 

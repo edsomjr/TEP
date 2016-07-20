@@ -3,7 +3,7 @@ Motivação
 
 A Geometria Computacional é um tópico frequente em maratonas de programação. 
 Contudo, os competidores devem postergar a solução de problemas desta área 
-para o meio ou o fim do _contest_, pois a probabilidade de um AC é baixa porque
+para o meio ou o fim do _contest_, pois a probabilidade de um AC é baixa por
 tais problemas
 
 1. possuem muitos _corner cases_, e estes casos especiais devem ser tratados
