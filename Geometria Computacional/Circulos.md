@@ -64,11 +64,121 @@ public:
 ```
 
 
+### Perímetro e Área
+
+Tanto o cálculo do perímetro quanto da área de um círculo envolvem o uso da
+constante PI. Caso o problema não informe o valor a ser utilizado, há duas
+maneira de proceder para determinar o valor desta constante. A primeira é 
+utilizar o valor definido na linguagem python, que pode ser obtido com o 
+script abaixo.
+```Python
+from math import *
+
+print pi
+```
+
+O valor resultante, 3.141592653589793, está correto nas suas 15 casas decimais.
+Outra forma é utilizar a função `acos` da biblioteca de matemática padrão do
+C/C++.
+```C++
+#include <cmath>
+
+const double PI = 2.0 * acos(0.0);
+```
+O valor obtido coincide com aquele fornecido pelo _script_ Python.
+
+O perímetro é o comprimento do contorno do círculo, e é igual a PI vezes o seu
+diâmetro, sendo o diâmetro o dobro do raio do círculo.
+```C++
+// Definição do valor de PI
+
+class Circle {
+public:
+
+    // Membros e construtores
+
+    double perimeter() const
+    {
+        return 2.0 * PI * r;
+    }
+};
+```
+
+O valor da área delimitada pelo círculo é igual a PI vezes o quadrado do raio do
+círculo.
+
+```C++
+// Definição do valor de PI
+
+class Circle {
+public:
+
+    // Membros e construtores
+
+    double area() const
+    {
+        return PI * r * r;
+    }
+};
+```
+
+### Arcos e cordas
+
+Um **arco** de um círculo corresponde a uma seção conectada da circunferência.
+O comprimento do arco pode ser determinado através do ângulo central _a_ 
+(definido pela união dos dois pontos extremos do arco entre si e com o centro
+do círculo) através do produto do perímetro P e a razão entre _a_ e _2PI_ 
+(caso _a_ esteja em radianos).
+
+```C++
+// Definição do valor de PI
+
+class Circle {
+public:
+
+    // Membros e construtores
+    // Perímetro e área
+
+    double arc(double a) const
+    {
+        return (a / (2*PI)) * perimeter();
+    }
+};
+```
+
+Uma **corda** corresponde a qualquer segmento de reta cujos pontos extremos
+estão sob o círculo. O diâmetro é a maior dentre todas as cordas possíveis
+de um círculo. Conhecidos o raio _r_ e o ângulo central _a_ do arco definido
+pela corda, o comprimento _L_ da corda pode ser determinado através da
+Lei dos Cossenos (_L = sqrt(2 * r * r * (1 - cos(a)_) ou pela Trigonometria
+(_L = 2 * r * sin(a/2)_).
+
+```C++
+// Definição do valor de PI
+
+class Circle {
+public:
+
+    // Membros e construtores
+    // Perímetro e área
+
+    double chord(double a) const
+    {
+        return 2 * r * sin(a/2);
+    }
+};
+```
+
+
 ### Exercícios
 
 <!--- 10589 - Relação ponto x círculo --->
+<!--- 10678 - Área de Elipses! --->
+<!--- 12578 - Área de retângulo e círculo --->
 1. UVA
     1. [10589 - Area](https://uva.onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&category=24&page=show_problem&problem=1530)
+    1. [10678 - The Grazing Cow](https://uva.onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&page=show_problem&category=24&problem=1619&mosmsg=Submission+received+with+ID+17708795)
+    1. [12578 - 10:6:2](https://uva.onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&page=show_problem&category=24&problem=4023&mosmsg=Submission+received+with+ID+17708746)
 
 ### Referências
 
