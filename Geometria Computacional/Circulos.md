@@ -169,13 +169,61 @@ public:
 };
 ```
 
+### Setores e Segmentos
+
+Um **setor** de um círculo é a área delimitada por um arco. Assim como no caso
+do arco, a área do setor será a fração da área total correspondente ao ângulo
+central _a_ do arco que delimita o setor.
+
+```C++
+// Definição do valor de PI
+
+class Circle {
+public:
+
+    // Membros e construtores
+    // Perímetro e área
+
+    double sector(double a) const
+    {
+        return (a / (2*PI)) * area();
+    }
+};
+```
+
+Um **segmento** de um círculo, associado a um ângulo central _a_, corresponde à 
+área resultante da diferença entre o setor delimitado por _a_ e do triângulo
+resultante do segmentos de reta que unem os extremos dos arcos ao centro do 
+círculo e os extremos entre si (a corda). A área deste triângulo pode ser
+determinada pela Fórmula de Heron (semiperímetro).
+
+```C++
+class Circle {
+public:
+
+    // Membros e construtores
+    // Setor e corda
+
+    double segment(double a) const
+    {
+        auto c = chord(a);
+        auto s = (r + r + c)/2.0;                   // Semiperímetro
+        auto T = sqrt(s*(s - r)*(s - r)*(s - c));   // Área do triângulo
+
+        return sector(a) - T;
+    }
+};
+```
+
 
 ### Exercícios
 
+<!--- 10209 - Cordas, Setores e Segmentos (Triângulos e Círculos) --->
 <!--- 10589 - Relação ponto x círculo --->
 <!--- 10678 - Área de Elipses! --->
 <!--- 12578 - Área de retângulo e círculo --->
 1. UVA
+    1. [10209 - Is This Integration?](https://uva.onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&category=24&page=show_problem&problem=1150)
     1. [10589 - Area](https://uva.onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&category=24&page=show_problem&problem=1530)
     1. [10678 - The Grazing Cow](https://uva.onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&page=show_problem&category=24&problem=1619&mosmsg=Submission+received+with+ID+17708795)
     1. [12578 - 10:6:2](https://uva.onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&page=show_problem&category=24&problem=4023&mosmsg=Submission+received+with+ID+17708746)
