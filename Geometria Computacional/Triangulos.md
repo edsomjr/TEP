@@ -182,3 +182,35 @@ public:
     } 
 }
 ```
+
+### Lugares geométricos
+
+Um triângulo possui três lugares geométricos notáveis. O primeiro deles é o 
+**baricentro** (centróide ou centro de massa), que é o ponto de interseção entre
+as três **medianas** (segmentos de reta que unem um vértice ao ponto médio do
+lado oposto). O baricentro divide uma mediana na proporção de 2:1, isto é,
+ele está a um terço de distância do lado oposto.
+
+As coordenadas do baricentro podem ser computadas diretamente a partir das
+coordenadas dos vértices: serão a média aritmética entre as mesmas.
+```C++
+// Definição da classe Ponto
+
+class Triangle {
+public:
+    // Membros e construtor
+ 
+    Point barycenter() const
+    {
+        auto x = (A.x + B.x + C.x) / 3.0;
+        auto y = (A.y + B.y + C.y) / 3.0;
+
+        return Point(x, y);
+    }
+};
+```
+
+### Referências
+
+
+HALIM, Steve; HALIM, Felix. [Competitive Programming 3](http://cpbook.net/), Lulu, 2013.
