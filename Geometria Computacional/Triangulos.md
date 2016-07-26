@@ -131,3 +131,54 @@ public:
 ```
 
 A área delimitada pelo triângulo pode ser determinada de três maneiras.
+A primeira delas é computar a metade do produto entre a **base** (o comprimento
+de um dos lados do triângulo) e a **altura** (segmento de reta, ortogonal à base,
+com um ponto sobre a base e o outro no vértice oposto a esta). Contudo,
+na representação por pontos ou pelas medidas, esta abordagem é pouco prática,
+pois envolve o cálculo da altura.
+
+A segunda maneira é utilizar a **Fórmula de Heron**, dada abaixo,
+onde _A_ é a área do triângulo de lados _a, b, c_ e _s_ é o semiperímetro 
+(metade do perímetro). Esta abordagem é a mais 
+apropriada na representação do triângulo pela medida de seus lados.
+
+![Fórmula de Heron](heron.png)
+
+```C++
+class Triangle {
+public:
+    // Membros e construtor
+    
+    // Perímetro
+ 
+    double area() const
+    {
+        auto s = perimetro() / 2.0;
+
+        return sqrt(s*(s - a)*(s - b)*(s - c));
+    }
+}
+```
+
+A terceira maneira é computar a área a partir das coordenadas dos vértices.
+Se os vértices de um triângulo são _P = (x1, y1), Q = (x2, y2), R = (x3, y3)_,
+a área _A_ do triângulo é dada pela metade do módulo do determinante mostrado
+abaixo.
+
+![Área por determinante](detarea.png)
+
+Naturalmente, esta é a melhor abordagem para a representação do triângulo pelas
+coordenadas de seus vértices.
+```C++
+class Triangle {
+public:
+    // Membros e construtor
+    
+    double area() const
+    {
+        double det = (A.x*B.y + A.y*C.x + B.x*C.y) - (C.x*B.y + C.y*A.x + B.x*A.y);
+
+        return 0.5 * fabs(det);
+    } 
+}
+```

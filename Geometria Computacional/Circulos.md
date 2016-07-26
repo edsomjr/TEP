@@ -267,7 +267,7 @@ public:
 
 O método retorna falso se a distância entre os pontos é menor que o diâmetro.
 Nos demais casos, o círculo _c_, passado por referência, contém o centro e o
-raio de um círculo que interceptam ambos _P_ e _Q_.
+raio de um círculo que intercepta ambos _P_ e _Q_.
 
 <!--- Pontos cocirculares - determinante -->
 
