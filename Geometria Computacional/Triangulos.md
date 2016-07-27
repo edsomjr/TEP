@@ -185,7 +185,7 @@ public:
 
 ### Lugares geométricos
 
-Um triângulo possui três lugares geométricos notáveis. O primeiro deles é o 
+Um triângulo possui quatro lugares geométricos notáveis. O primeiro deles é o 
 **baricentro** (centróide ou centro de massa), que é o ponto de interseção entre
 as três **medianas** (segmentos de reta que unem um vértice ao ponto médio do
 lado oposto). O baricentro divide uma mediana na proporção de 2:1, isto é,
@@ -210,7 +210,108 @@ public:
 };
 ```
 
+O **ortocentro** de um triângulo é o ponto de encontro de suas três alturas. O
+ortocentro pode mesmo estar fora do triângulo (no caso de um obtusângulo).
+
+O **incentro** de um triângulo é o ponto de encontro de suas bissetrizes
+(retas que dividem um ângulo interno na metade). Além de ser sempre um ponto
+interior do triângulo, o incentro é o centro do círculo **inscrito** no 
+triângulo, isto é, o maior círculo que cabe dentro do triângulo e que toca todos
+os seus três lados (os lados são tangentes ao círculo inscrito).
+
+O raio do círculo inscrito é dado pela razão entre o dobro da área e o 
+perímetro. As coordenadas do centro _O_ do círculo inscrito são obtidas pela
+média ponderada das coordenadas _x_ e _y_ pelos comprimentos dos lados 
+correspondentes. As fórmulas abaixo sintetizam estas afirmações.
+
+![Círculo Inscrito](incircle.png)
+
+```C++
+// Definição da classe Ponto
+
+class Triangle {
+public:
+    // Membros e construtor
+ 
+    // Área e perímetro
+
+    // Raio do círculo inscrito
+    double inradius() const 
+    {
+        return (2 * area()) / perimeter();
+    }
+
+    // Centro do círculo inscrito
+    Point incenter() const
+    {
+        auto p = perimeter();
+        auto x = (a*A.x + b*B.x + c.C.x)/p;
+        auto y = (a*A.y + b*B.y + c.C.y)/p;
+
+        return Point(x, y);
+    }
+ 
+```
+
+O **circuncentro** é o ponto de encontro entre as retas bisetoras perpendiculares
+(isto é, retas perpendiculares aos lados do triângulo que os interceptam nos
+pontos médios). O circuncentro é o centro do círculo circunscrito do triângulo,
+isto é, o círculo que passa pelos três vértices do triângulo. 
+
+O circuncentro, assim como o ortocentro, pode estar localizado do lado externo
+do triângulo. Um caso especial interessante é o do triângulo retângulo, onde o
+circuncentro se localiza no ponto médio da hipotenusa.
+
+O raio do circuncentro é dado pela razão entre o produto das medidas de seus
+lados e o quádruplo de sua área. As coordenadas do circuncentro podem ser
+determinadas pelas expressões abaixo, onde _|A|² = Ax² + Ay²_.
+
+![Círculo Circunscrito](circumcircle.png)
+
+```C++
+// Definição da classe Ponto
+
+class Triangle {
+public:
+    // Membros e construtor
+ 
+    // Área e perímetro
+
+    // Raio do círculo circunscrito
+    double circumradius() const
+    {
+        return (a * b * c)/(4 * area());
+    }
+
+    // Centro do círculo circunscrito
+    Point circumcenter() const
+    {
+        auto d = 2*(Ax*(By - Cy) + Bx*(Cy - Ay) + Cx*(Ay - By));
+
+        auto A2 = Ax*Ax + Ay*Ay;
+        auto B2 = Bx*Bx + By*By;
+        auto C2 = Cx*Cx + Cy*Cy;
+
+        auto x = (A2*(By - Cy) + B2*(Cy - Ay) + C2(Ay - By))/D;
+        auto y = (A2*(Cx - Bx) + B2*(Ax - Cx) + C2(Bx - Ax))/D;
+
+        return Point(x, y);
+    }
+```
+
+A **reta de Euler** é uma reta especial associada ao triângulo, que passa
+pelo baricentro, ortocentro e circuncentro, que estão sempre alinhados.
+
+### Exercícios
+
+<!--- 11152 - Raios dos círculos inscritos e circunscritos --->
+1. UVA
+    1. [11152 - Colourful Flowers](https://uva.onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&category=24&page=show_problem&problem=2093)
+ 
 ### Referências
 
-
 HALIM, Steve; HALIM, Felix. [Competitive Programming 3](http://cpbook.net/), Lulu, 2013.
+
+Math Open Reference. [Orthocenter of a Triangle](http://www.mathopenref.com/triangleorthocenter.html), acesso em 27/07/2016.
+
+Wikipedia. [Circumscribed Circle](https://en.wikipedia.org/wiki/Circumscribed_circle#Circumcircle_equations), acesso em 27/07/2016.
