@@ -286,14 +286,14 @@ public:
     // Centro do círculo circunscrito
     Point circumcenter() const
     {
-        auto d = 2*(Ax*(By - Cy) + Bx*(Cy - Ay) + Cx*(Ay - By));
+        auto d = 2*(A.x*(B.y - C.y) + B.x*(C.y - A.y) + C.x*(A.y - B.y));
 
-        auto A2 = Ax*Ax + Ay*Ay;
-        auto B2 = Bx*Bx + By*By;
-        auto C2 = Cx*Cx + Cy*Cy;
+        auto A2 = A.x*A.x + A.y*A.y;
+        auto B2 = B.x*B.x + B.y*B.y;
+        auto C2 = C.x*C.x + C.y*C.y;
 
-        auto x = (A2*(By - Cy) + B2*(Cy - Ay) + C2(Ay - By))/D;
-        auto y = (A2*(Cx - Bx) + B2*(Ax - Cx) + C2(Bx - Ax))/D;
+        auto x = (A2*(B.y - C.y) + B2*(C.y - A.y) + C2*(A.y - B.y))/D;
+        auto y = (A2*(C.x - B.x) + B2*(A.x - C.x) + C2*(B.x - A.x))/D;
 
         return Point(x, y);
     }
@@ -304,8 +304,10 @@ pelo baricentro, ortocentro e circuncentro, que estão sempre alinhados.
 
 ### Exercícios
 
+<!--- 10557 - Círculo circunscrito --->
 <!--- 11152 - Raios dos círculos inscritos e circunscritos --->
 1. UVA
+    1. [10577 - Bouding Box](https://uva.onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&category=24&page=show_problem&problem=1518)
     1. [11152 - Colourful Flowers](https://uva.onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&category=24&page=show_problem&problem=2093)
  
 ### Referências
