@@ -302,6 +302,32 @@ public:
 A **reta de Euler** é uma reta especial associada ao triângulo, que passa
 pelo baricentro, ortocentro e circuncentro, que estão sempre alinhados.
 
+### Lei dos senos
+
+A **Lei dos Senos** estipula uma relação entre os ângulos internos de um
+triângulo e seus lados opostos. Se _A, B, C_ são os ângulos internos opostos aos
+lados _a, b, c_, e _R_ é o raio do círculo circunscrito, então a razão entre 
+o lado e o seno do ângulo oposto é igual a 2 vezes o raio _R_.
+
+![Lei dos Senos](sinelaw.png)
+
+```C++
+// Definição da classe Ponto
+
+class Triangle {
+public:
+    // Membros e construtor
+ 
+    // Raio do círculo circunscrito
+    double oposite_angle(double side) const
+    {
+        auto R = circumradius();
+
+        return asin(side/(2*R));
+    }
+};
+```
+
 ### Exercícios
 
 <!--- 10557 - Círculo circunscrito --->
