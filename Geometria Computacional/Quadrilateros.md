@@ -146,13 +146,34 @@ public:
 
 ### Paralelogramos
 
+Um **paralelogramo** é um quadrilátero cujos lados opostos são paralelos. 
+Além do retângulo e do quadrado, outro paralelogramo notável é o 
+**losango**, que é um paralelogramo cujos lados opostos são iguais (mas não
+necessariamente os ângulos internos).
+
+A área de um paralelogramo é dado pelo produto de sua base pela altura. Em geral,
+é preciso determinar a altura, considerando um dos lados como base e usando
+o ângulo formado com um dos lados adjacentes para montar um triângulo, onde a
+altura seria o cateto oposto ao ângulo.
+
+No caso do losango, a área pode ser determinada diretamente se conhecidas as
+medidas das duas diagonais (_D_ e _d_, denominadas diagonal maior e menor,
+respectivamente). Neste caso, a área é a metade do produto das diagonais, isto é,
+_A = (Dd)/2_.
+
 ### Exercícios
 
 <!--- 490 - Interseção de retângulos -->
+<!--- 11207 - Divisão de retângulos em quadrados -->
+<!--- 11834 - Packing círculos em retângulos -->
+<!--- 1A - Divisão de retângulos em quadrados -->
 1. UVA
     1. [490 - Overlapping Rectangles](https://uva.onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&category=24&page=show_problem&problem=401)
+    1. [11207 - The easiest way](https://uva.onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&page=show_problem&category=24&problem=2148&mosmsg=Submission+received+with+ID+17770469)
+    1. [11834 - Elevator](https://uva.onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&page=show_problem&category=24&problem=2934&mosmsg=Submission+received+with+ID+17770779)
+1. Codeforces
+    1. [1A - Theatre Square](http://codeforces.com/problemset/problem/1/A)
 
- 
 ### Referências
 
 HALIM, Steve; HALIM, Felix. [Competitive Programming 3](http://cpbook.net/), Lulu, 2013.
