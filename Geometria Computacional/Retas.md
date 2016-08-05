@@ -451,7 +451,7 @@ Conforme dito anteriormente, o determinante utilizado para o cálculo dos
 coeficientes da equação geral da reta também identifica a orientação de um
 ponto em relação a uma reta. Se _r_ é uma reta que passa pelos pontos _P_ e 
 _Q_, e _R_ é um ponto qualquer, o determinante abaixo permite identificar se
-o ponto _R_ pertence a _R_ (_D = 0_), ou está no  semiplano à esquerda 
+o ponto _R_ pertence a reta (_D = 0_), ou está no  semiplano à esquerda 
 (_D < 0_) ou no semiplano à direita (_D > 0_). A orientação
 (esquerda ou direita) diz respeito à direção que vai de _P_ a _Q_.
 

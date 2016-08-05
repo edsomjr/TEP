@@ -103,6 +103,62 @@ public:
 
 ### Polígonos côncavos e convexos
 
+Um polígono é dito **convexo** se, para quaisquer dois pontos _P_ e _Q_ 
+localizados no interior do polígono, o segmento de reta _PQ_ não intercepta
+nenhuma das arestas do polígono. Caso contrário, o polígono é dito **convexo**.
+
+É possível determinar se um polígono é ou não convexo sem recorrer à busca 
+completa (isto é, testar todos os possíveis pares de pontos interiores ao
+polígono): 
+a rotina de orientação entre pontos e reta (discutida na seção [Retas](Retas.md))
+pode ser utilizada para tal fim. Basta checar se, para quaisquer três pontos 
+consecutivos do polígono, eles tem a mesma orientação (ou sempre a esquerda,
+ou sempre à direita).
+```C++
+// Definição da classe Point
+
+// Implementação da função de orientação D
+
+class Polygon {
+public:
+    // Membros e construtor
+
+    bool is_convex() const
+    {
+        vector<Point> vs(vertices);
+
+        if (n < 3)
+            return false;
+
+        vs.push_back(vs[1]);    // Temporário/inserção evitam um if no laço
+
+        int orientation = 0, i;
+
+        for (i = 0; i < n; ++i)
+        {
+            int d = D(vs[i], vs[i + 1], vs[i + 2]);
+
+            if (d == 0)
+                continue;
+
+            orientation = d;
+        }
+
+        for (; i < n; ++i)
+        {
+            int d = D(vs[i], vs[i + 1], vs[i + 2]);
+
+            if (d == -orientation)
+                return false;
+        }
+
+        return orientation != 0;
+    }
+};
+```
+
+### Relação entre pontos e polígonos
+
 ### Exercícios
 
 <!--- 1C - Área do polígono regular inscrito --->
