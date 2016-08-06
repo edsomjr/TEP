@@ -445,6 +445,25 @@ Point closestToSegment(const Point& from, const Point& to, const Point& M)
 }
 ```
 
+### Reta mediatriz
+
+Dado o segmento de reta _PQ_, a **mediatriz** é a reta perpendicular a _PQ_ que
+passa pelo ponto médio do segmento. Qualquer ponto da reta mediatriz é 
+equidistante de _P_ e _Q_, e esta propriedade permite a dedução dos coeficientes
+_a, b, c_ da mediatriz.
+```C++
+// Definição das classes Point e Line
+
+Line perpendicular_bisector(const Point& P, const  Point& Q)
+{
+    auto a = 2*(Q.x - P.x);
+    auto b = 2*(Q.y - P.y);
+    auto c = (P.x * P.x + P.y * P.y) - (Q.x * Q.x + Q.y * Q.y);
+
+    return Line(a, b, c);
+}
+```
+
 ### Orientação entre Ponto e Reta
 
 Conforme dito anteriormente, o determinante utilizado para o cálculo dos 

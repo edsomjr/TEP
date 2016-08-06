@@ -269,6 +269,127 @@ O método retorna falso se a distância entre os pontos é menor que o diâmetro
 Nos demais casos, o círculo _c_, passado por referência, contém o centro e o
 raio de um círculo que intercepta ambos _P_ e _Q_.
 
+### Interseção entre dois círculos
+
+Dados dois círculos com centros _C1, C2_ e raios _r1, r2_, existem cinco
+cenários possíveis para suas interseções. Seja _d_ a distância entre os pontos
+_C1_ e _C2_. Então
+
+1. se _d > r1 + r2_, então os círculos não se interceptam;
+2. se _d < |r1 - r2|_, então também não há interseção, pois um dos círculos (o de
+menor raio) está contido no outro (o de maior raio);
+3. se _d == 0_ e _r1 == r2_, então os círculos são idênticos: há infinitos pontos
+de interseção;
+4. se _d == r1 + r2_, os círculos se interceptam em um único ponto;
+5. nos demais casos, há dois pontos na interseção entre os círculos.
+
+Se _C1 = (x1, y1)_ e _C2 = (x2, y2)_, então as coordenadas dos pontos de 
+interseção _P1_ e _P2_ são dadas pelas expressões abaixo.
+
+![Interseção entre dois círculos](circle_intersection.png)
+
+```C++
+// Definição das classes Point e Circle
+
+#define INF -1
+
+using pp = pair<Point, Point>;
+using ipp = pair<int, pp>;
+
+ipp intersection(const Circle& c1, const Circle& c2)
+{
+    auto d = c1.C.distance(c2.C);
+
+    if (d > c1.r + c2.r or d < fabs(c1.r - c2.r))
+        return ipp(0, pp(Point(), Point()));
+
+    if (d == 0 and equals(c1.r, c2.r))
+        return ipp(INF, pp(Point(), Point()));
+
+    auto a = (c1.r * c1.r - c2.r * c2.r + d * d)/(2 * d);
+    auto h = sqrt(c1.r * c1.r - d * d);
+
+    auto x = c1.C.x + (a/d)*(c2.C.x - c1.C.x);
+    auto y = c1.C.y + (a/d)*(c2.C.y - c1.C.y);
+
+    auto P = Point(x, y);
+
+    x = P.x + (h/d)*(c2.C.y - c1.C.y);
+    y = P.y - (h/d)*(c2.C.x - c1.C.x);
+
+    auto P1 = Point(x, y);
+
+    x = P.x - (h/d)*(c2.C.y - c1.C.y);
+    y = P.y + (h/d)*(c2.C.x - c1.C.x);
+
+    auto P2 = Point(x, y);
+
+    return ipp(equals(d, c1.r + c2.r) ? 1 : 2, pp(P1, P2));
+}
+```
+
+### Interseção entre círculos e retas
+
+Uma reta que passa pelos pontos _P1_ e _P2_ pode ser representada, na forma
+paramétrica, pela expressão vetorial _P = P1 + u(P2 - P1)_, onde _u_ é uma
+variável real. Assim, a coordenada _x_ de _P_ é dada por _x = x1 + u(x2 - x1)_;
+de forma semelhante, a coordenada _y_ de _P_ é dada por _y = y1 + u(y2 - y1)_.
+
+Se estas coordenadas forem levadas para a equação do círculo de centro
+_C_ e raio _r_ (isto é, _(x - Cx)² + (y - Cy)² = r²)_, obtemos o polinômio
+quadrático _au² + bu + c = 0_, onde
+
+![Coeficientes da interseção entre círculo e reta](coefs.png)
+
+O discriminante _D_ (delta) desta equação caracteriza as possíveis interseções:
+
+1. se _D < 0_, não há interseção entre o círculo e a reta;
+2. se _D == 0_, há um único ponto de interseção (a reta é tangente ao círculo);
+3. se _D > 0_, há dois pontos distintos de interseção.
+
+```C++
+// Definição das classes Point e Circle
+
+// Interseção entre o círculo c e a reta que passa por P e Q
+ipp intersection(const Circle& c, const Point& P, const Point& Q)
+{
+    auto a = pow(Q.x - P.x, 2.0) + pow(Q.y - P.y, 2.0);
+    auto b = 2*((Q.x - P.x) * (P.x - c.C.x) + (Q.y - P.y) * (P.y - c.C.y));
+    auto d = pow(c.C.x, 2.0) + pow(c.C.y, 2.0) + pow(P.x, 2.0) + pow(P.y, 2.0) 
+        + 2*(c.C.x * P.x + c.C.y * P.y);
+
+    auto D = b * b - 4 * a * d;
+
+    if (D < 0)
+        return ipp(0, pp(Point(), Point()));
+    else if (D == 0)
+    {
+        auto u = -b/(2*a);
+
+        auto x = P.x + u*(Q.x - P.x);
+        auto y = P.y + u*(Q.y - P.y);
+
+        return ipp(1, pp(Point(x, y), Point()));
+    } 
+
+    auto u = (-b + sqrt(D))/(2*a);
+
+    auto x = P.x + u*(Q.x - P.x);
+    auto y = P.y + u*(Q.y - P.y);
+
+    auto P1 = Point(x, y);
+
+    u = (-b - sqrt(D))/(2*a);
+
+    x = P.x + u*(Q.x - P.x);
+    y = P.y + u*(Q.y - P.y);
+
+    auto P2 = Point(x, y);
+
+    return ipp(2, pp(P1, P2));
+}
+```
+
 <!--- Pontos cocirculares - determinante -->
 
 ### Exercícios
@@ -288,3 +409,5 @@ raio de um círculo que intercepta ambos _P_ e _Q_.
 ### Referências
 
 HALIM, Steve; HALIM, Felix. [Competitive Programming 3](http://cpbook.net/), Lulu, 2013.
+
+BOURKE, Paul. [Intersection of two circles](http://paulbourke.net/geometry/circlesphere/), acesso em 06/08/2016.
