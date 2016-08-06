@@ -298,7 +298,7 @@ using ipp = pair<int, pp>;
 
 ipp intersection(const Circle& c1, const Circle& c2)
 {
-    auto d = c1.C.distance(c2.C);
+    double d = c1.C.distance(c2.C);
 
     if (d > c1.r + c2.r or d < fabs(c1.r - c2.r))
         return ipp(0, pp(Point(), Point()));
@@ -307,7 +307,7 @@ ipp intersection(const Circle& c1, const Circle& c2)
         return ipp(INF, pp(Point(), Point()));
 
     auto a = (c1.r * c1.r - c2.r * c2.r + d * d)/(2 * d);
-    auto h = sqrt(c1.r * c1.r - d * d);
+    auto h = sqrt(c1.r * c1.r - a * a);
 
     auto x = c1.C.x + (a/d)*(c2.C.x - c1.C.x);
     auto y = c1.C.y + (a/d)*(c2.C.y - c1.C.y);
@@ -316,7 +316,6 @@ ipp intersection(const Circle& c1, const Circle& c2)
 
     x = P.x + (h/d)*(c2.C.y - c1.C.y);
     y = P.y - (h/d)*(c2.C.x - c1.C.x);
-
     auto P1 = Point(x, y);
 
     x = P.x - (h/d)*(c2.C.y - c1.C.y);
@@ -394,11 +393,14 @@ ipp intersection(const Circle& c, const Point& P, const Point& Q)
 
 ### Exercícios
 
+<!--- 2C - Interseção entre círculos, mediatriz, pontos proporcionalmente distantes de dois pontos dados -->
 <!--- 10005 - Empacotamento de pontos -->
 <!--- 10209 - Cordas, Setores e Segmentos (Triângulos e Círculos) --->
 <!--- 10589 - Relação ponto x círculo --->
 <!--- 10678 - Área de Elipses! --->
 <!--- 12578 - Área de retângulo e círculo --->
+1. Codeforces
+    1. [2C - Commentator Problem](http://codeforces.com/problemset/problem/2/C)
 1. UVA
     1. [10005 - Packing Polygons](https://uva.onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&category=24&page=show_problem&problem=946)
     1. [10209 - Is This Integration?](https://uva.onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&category=24&page=show_problem&problem=1150)
