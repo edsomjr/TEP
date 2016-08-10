@@ -37,7 +37,7 @@ public:
     int n;
 
     // O parâmetro deve conter os n vértices do polígono
-    Polygon(vector<Point>& vs) : vertices(vs), n(vs.size())
+    Polygon(const vector<Point>& vs) : vertices(vs), n(vs.size())
     {
         vertices.push_back(vertices[0]);
     }
@@ -159,12 +159,73 @@ public:
 
 ### Relação entre pontos e polígonos
 
+Para se verificar se um ponto _P_ está localizado, ou não, no interior de um
+polígono, basta computar a soma dos ângulos formados por _P_ e dois 
+vértices do polígono (somando-se se o ponto está na mesma orientação do polígono,
+subtraíndo em caso contrário): se a soma totalizar _2PI_, o ponto está no
+interior do polígono. Esta verificação vale tanto para polígonos convexos 
+quanto côncavos.
+```C++
+// Definição da classe Point
+
+// Definição de PI, da função equals() do discriminante D()
+
+// Ângulo APB, em radianos
+double angle(const Point& P, const Point& A, const Point& B)
+{
+    auto ux = P.x - A.x;
+    auto uy = P.y - A.y;
+
+    auto vx = P.x - B.x;
+    auto vy = P.y - B.y;
+
+    auto num = ux * vx + uy * vy;
+    auto den = hypot(ux, uy) * hypot(vx, vy);
+
+    // Caso especial: se den == 0, algum dos vetores é degenerado: os dois
+    // pontos são iguais. Neste caso, o ângulo não está definido
+
+    return acos(num / den);
+}
+
+class Polygon {
+public:
+    // Membros e construtores
+
+    bool contains(const Point& P) const
+    {
+        if (n < 3)
+            return false;
+
+        auto sum = 0.0;
+
+        for (int i = 0; i < n; ++i)
+        {
+            auto d = D(P, vertices[i], vertices[i + 1]);
+
+            // Pontos sobre as arestas ou vértices são considerados interiores
+            if (equals(d, 0))
+                return true;
+
+            auto a = angle(P, vertices[i], vertices[i + 1]);
+
+            sum += d < 0 ? a : -a;
+        } 
+    
+        return equals(fabs(sum), 2*PI);
+    }
+};
+```
+
 ### Exercícios
 
 <!--- 1C - Área do polígono regular inscrito --->
+<!--- 478 - Verificação de pontos no interior de círculos e polígonos -->
 1. Codeforces
     1. [1C - Ancient Berland Circus](http://codeforces.com/problemset/problem/1/C)
- 
+1 UVA
+    1. [478 - Points in Figures: Rectangles, Circles, Triangles](https://uva.onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&category=16&page=show_problem&problem=419)
+
 ### Referências
 
 HALIM, Steve; HALIM, Felix. [Competitive Programming 3](http://cpbook.net/), Lulu, 2013.

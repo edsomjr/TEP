@@ -363,7 +363,7 @@ double angle(const Point& P, const Point& Q, const Point& R, const Point& S)
     // Caso especial: se den == 0, algum dos vetores é degenerado: os dois
     // pontos são iguais. Neste caso, o ângulo não está definido
 
-    return acos(num / denom);
+    return acos(num / den);
 }
 ``` 
 

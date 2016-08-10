@@ -9,4 +9,4 @@ Geometria Computacional
     1. [Círculos](Circulos.md)
     1. [Quadriláteros](Quadrilateros.md)
     1. [Objetos Tridimensionais](3D.md)
-1. [Polígonos](Polygon.md)
+    1. [Polígonos](Polygon.md)
