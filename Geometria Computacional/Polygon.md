@@ -217,6 +217,60 @@ public:
 };
 ```
 
+### Relação entre polígonos e retas
+
+Dada uma reta _r_, que passa pelos pontos _A_ e _B_, e um polígono convexo _P_, 
+com
+_n_ vértices, esta reta secciona o polígono em duas regiões, esquerda e direita,
+que podem ser ou uma vazias e outra contendo _P_ integralmente, ou serem 
+compostas de dois polígonos convexos _P1_ e _P2_, resultantes do corte de _P_
+por _r_.
+
+A rotina `cut_polygon()`, apresentada abaixo e adaptada de 
+[Competitive Programming 3](http://cpbook.net/), retorna a região a esquerda
+do corte, considerando que _P_ está descrito no sentido anti-horário.
+```C++
+// Definição da classe Point, da função equals() e do discriminante D()
+
+// Interseção entre a reta AB e o segmento de reta PQ
+Point intersection(const Point& P, const Point& Q, const Point& A, const Point& B)
+{
+    auto a = B.y - A.y;
+    auto b = A.x - B.x;
+    auto c = B.x * A.y - A.x * B.y;
+    auto u = fabs(a * P.x + b * P.y + c);
+    auto v = fabs(a * Q.x + b * Q.y + c);
+
+    return Point((P.x * v + Q.x * u)/(u + v), Point(P.y * v + Q.y * u)/(u + v));
+}
+
+Polygon cut_polygon(const Polygon& P, const Point& A, const Point& B)
+{
+    vector<Point> points;
+
+    for (int i = 0; i < P.n; ++i)
+    {
+        auto d1 = D(A, B, P.vertices[i]);
+        auto d2 = D(A, B, P.vertices[i + 1]);
+
+        // Vértice à esquerda da reta
+        if (d1 < -EPS)
+            points.push_back(P.vertices[i]);
+
+        // A aresta cruza a reta
+        if (d1 * d2 < -EPS)
+            points.push_back(intersection(P.vertices[i], P.vertices[i+1], A, B);
+    }
+
+    // Torna o último ponto igual ao primeiro
+    if (not points.empty() and not points.back() == points.front())
+        points.push_back(points.front());
+
+    return Polygon(points);
+}
+
+```
+
 ### Exercícios
 
 <!--- 1C - Área do polígono regular inscrito --->
