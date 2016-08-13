@@ -25,10 +25,10 @@ utilizando-se uma classe ou estrutura da seguinte forma:
 ```C++
 class Line {
 public:
-        double m;
-        double b;
+    double m;
+    double b;
 
-        Line(double mv, double bv) : m(mv), b(bv) {}
+    Line(double mv, double bv) : m(mv), b(bv) {}
 };
 ```
 
@@ -41,11 +41,11 @@ qual a reta intercepta o eixo _x_.
 ```C++
 class Line {
 public:
-        double m;
-        double b;
-        bool vertical;
+    double m;
+    double b;
+    bool vertical;
 
-        Line(double mv, double bv, bool v = false) : m(mv), b(bv), vertical(v) {}
+    Line(double mv, double bv, bool v = false) : m(mv), b(bv), vertical(v) {}
 };
 ```
 
@@ -59,25 +59,25 @@ _P_ e _Q_ tem equação reduzida _y = m(x - x1) + y1_.
 
 class Line {
 public:
-        double m;
-        double b;
-        bool vertical;
+    double m;
+    double b;
+    bool vertical;
 
-        Line(double mv, double bv, bool v = false) : m(mv), b(bv), vertical(v) {}
+    Line(double mv, double bv, bool v = false) : m(mv), b(bv), vertical(v) {}
 
-        Line(const Point& p, const Point& q)
+    Line(const Point& p, const Point& q)
+    {
+        if (p.x == q.x)     // Reta vertical
         {
-            if (p.x == q.x)     // Reta vertical
-            {
-                b = p.x;
-                vertical = true;
-            } else
-            {
-                m = (p.y - q.y) / (p.x - q.x);
-                b = p.y - p.x * m;
-                vertical = false;
-            }
+            b = p.x;
+            vertical = true;
+        } else
+        {
+            m = (p.y - q.y) / (p.x - q.x);
+            b = p.y - p.x * m;
+            vertical = false;
         }
+    }
 };
 ```
 
@@ -88,11 +88,11 @@ obter a equação reduzida a partir da equação geral.
 ```C++
 class Line {
 public:
-        double a;
-        double b;
-        double c;
+    double a;
+    double b;
+    double c;
 
-        Line(double av, double bv, double cv) : a(av), b(bv), c(cv) {}
+    Line(double av, double bv, double cv) : a(av), b(bv), c(cv) {}
 };
 ```
 
@@ -118,18 +118,18 @@ conforme será explicado mais adiante.
 
 class Line {
 public:
-        double a;
-        double b;
-        double c;
+    double a;
+    double b;
+    double c;
 
-        Line(double av, double bv, double cv) : a(av), b(bv), c(cv) {}
+    Line(double av, double bv, double cv) : a(av), b(bv), c(cv) {}
 
-        Line(const Point& p, const Point& q)
-        {
-            a = p.y - q.y;
-            b = q.x - p.x;
-            c = p.x * q.y - p.y * q.x;
-        }
+    Line(const Point& p, const Point& q)
+    {
+        a = p.y - q.y;
+        b = q.x - p.x;
+        c = p.x * q.y - p.y * q.x;
+    }
 };
 ```
 
@@ -145,24 +145,24 @@ retas.
 
 class Line {
 public:
-        double a;
-        double b;
-        double c;
+    double a;
+    double b;
+    double c;
 
-        Line(double av, double bv, double cv) : a(av), b(bv), c(cv) {}
+    Line(double av, double bv, double cv) : a(av), b(bv), c(cv) {}
 
-        Line(const Point& p, const Point& q)
-        {
-            a = p.y - q.y;
-            b = q.x - p.x;
-            c = p.x * q.y - p.y * q.x;
+    Line(const Point& p, const Point& q)
+    {
+        a = p.y - q.y;
+        b = q.x - p.x;
+        c = p.x * q.y - p.y * q.x;
 
-            auto k = a ? a : b;
+        auto k = a ? a : b;
 
-            a /= k;
-            b /= k;
-            c /= k;
-        }
+        a /= k;
+        b /= k;
+        c /= k;
+    }
 };
 ```
 
@@ -201,31 +201,31 @@ bool equals(double a, double b)
 
 class Line {
 public:
-        double m;
-        double b;
-        bool vertical;
+    double m;
+    double b;
+    bool vertical;
 
-        // Construtores
+    // Construtores
 
-        bool operator==(const Line& r) const    // Verdadeiro se coincidentes
-        {
-            if (vertical != r.vertical || !equals(m, r.m))
-                return false;
+    bool operator==(const Line& r) const    // Verdadeiro se coincidentes
+    {
+        if (vertical != r.vertical || !equals(m, r.m))
+            return false;
 
-            return equals(b, r.b);
-        }
+        return equals(b, r.b);
+    }
 
 
-        bool parallel(const Line& r) const // Verdadeiro se paralelas
-        {
-            if (vertical and r.vertical)
-                return b != r.b;
+    bool parallel(const Line& r) const // Verdadeiro se paralelas
+    {
+        if (vertical and r.vertical)
+            return b != r.b;
 
-            if (vertical or r.vertical)
-                return false;
+        if (vertical or r.vertical)
+            return false;
 
-            return equals(m, r.m) && !equals(b, r.b);
-        }
+        return equals(m, r.m) && !equals(b, r.b);
+    }
 };
 ```
 
@@ -259,25 +259,25 @@ perpendiculares.
 
 class Line {
 public:
-        double m;
-        double b;
-        bool vertical;
+    double m;
+    double b;
+    bool vertical;
 
-        // Construtores
+    // Construtores
 
-        bool orthogonal(const Line& r) const // Verdadeiro se perpendiculares
-        {
-            if (vertical and r.vertical)
-                return false;
+    bool orthogonal(const Line& r) const // Verdadeiro se perpendiculares
+    {
+        if (vertical and r.vertical)
+            return false;
 
-            if ((vertical && equals(r.m, 0)) || (equals(m, 0) && r.vertical))
-                return true;
+        if ((vertical && equals(r.m, 0)) || (equals(m, 0) && r.vertical))
+            return true;
 
-            if (vertical or r.vertical)
-                return false;
+        if (vertical or r.vertical)
+            return false;
 
-            return equals(m * r.m, -1.0);
-        }
+        return equals(m * r.m, -1.0);
+    }
 };
 ```
 
@@ -300,33 +300,33 @@ resolver o sistema linear resultante das equações gerais das duas retas.
 
 pair<int, Point> intersections(const Line& r, const Line& s)
 {
-        auto det = r.a * s.b - r.b * s.a;
+    auto det = r.a * s.b - r.b * s.a;
 
-        if (equals(det, 0))
-        {
-            auto kr = r.a ? r.a : r.b;
-            auto ks = s.a ? s.a : s.b;
+    if (equals(det, 0))
+    {
+        auto kr = r.a ? r.a : r.b;
+        auto ks = s.a ? s.a : s.b;
 
-            auto ar = r.a / kr;
-            auto br = r.b / kr;
-            auto cr = r.c / kr;
+        auto ar = r.a / kr;
+        auto br = r.b / kr;
+        auto cr = r.c / kr;
 
-            auto as = s.a / ks;
-            auto bs = s.b / ks;
-            auto cs = s.c / ks;
+        auto as = s.a / ks;
+        auto bs = s.b / ks;
+        auto cs = s.c / ks;
 
-            // Coincidentes
-            if (equals(ar, as) && equals(br, bs) && equals(cr, cs))
-                return pair<int, Point>(INF, Point());
-            else    
-                return pair<int, Point>(0, Point());    // Paralelas
-        } else  // Concorrentes
-        {
-            double x = (-r.c * s*b + s.c * r.b) / det;
-            double y = (-s.c * r.a + r.c * s.a) / det;
+        // Coincidentes
+        if (equals(ar, as) && equals(br, bs) && equals(cr, cs))
+            return pair<int, Point>(INF, Point());
+        else    
+            return pair<int, Point>(0, Point());    // Paralelas
+    } else  // Concorrentes
+    {
+        double x = (-r.c * s*b + s.c * r.b) / det;
+        double y = (-s.c * r.a + r.c * s.a) / det;
 
-            return pair<int, Point>(1, Point(x, y));
-        }
+        return pair<int, Point>(1, Point(x, y));
+    }
 }
 ```
 
@@ -392,25 +392,25 @@ Abaixo temos a implementação da distância e do ponto mais próximo em C++.
 
 class Line {
 public:
-        double a;
-        double b;
-        double c;
+    double a;
+    double b;
+    double c;
 
-        // Construtores
+    // Construtores
 
-        double distance(const Point& p) const
-        {
-            return fabs(a*p.x + b*p.y + c)/hypot(a, b);
-        }
+    double distance(const Point& p) const
+    {
+        return fabs(a*p.x + b*p.y + c)/hypot(a, b);
+    }
 
-        Point closest(const Point& p) const // Ponto da reta mais próximo de p
-        {
-            auto den = a*a + b*b;
-            auto x = (b*(b*p.x - a*p.y) - a*c)/den;
-            auto y = (a*(-b*p.x + a*p.y) - b*c)/den;
+    Point closest(const Point& p) const // Ponto da reta mais próximo de p
+    {
+        auto den = a*a + b*b;
+        auto x = (b*(b*p.x - a*p.y) - a*c)/den;
+        auto y = (a*(-b*p.x + a*p.y) - b*c)/den;
 
-            return Point(x, y);
-        }
+        return Point(x, y);
+    }
 };
 ```
 
@@ -425,23 +425,23 @@ o mais próximo entre os dois extremos e _Q_.
 // Ponto mais próximo de M no segmento de reta [from, to]
 Point closestToSegment(const Point& from, const Point& to, const Point& M) 
 {
-        Line r(from, to);
+    Line r(from, to);
 
-        auto Q = r.closest(M);
-        auto min_x = min(from.x, to.x);
-        auto max_x = max(from.x, to.x);
+    auto Q = r.closest(M);
+    auto min_x = min(from.x, to.x);
+    auto max_x = max(from.x, to.x);
 
-        if (Q.x <= min_x or Q.x >= max_x)      // Q está fora do intervalo
-        {                                      // trocar <= por < resulta em WA! 
-            auto distA = distance(M, from);    // (retas verticais)
-            auto distB = distance(M, to);
+    if (Q.x <= min_x or Q.x >= max_x)      // Q está fora do intervalo
+    {                                      // trocar <= por < resulta em WA! 
+        auto distA = M.distance(from);     // (retas verticais)
+        auto distB = M.distance(to);
 
-            if (distA <= distB)
-                return from;
-            else
-                return to;
-        } else
-            return Q;
+        if (distA <= distB)
+            return from;
+        else
+            return to;
+    } else
+        return Q;
 }
 ```
 
@@ -471,7 +471,7 @@ coeficientes da equação geral da reta também identifica a orientação de um
 ponto em relação a uma reta. Se _r_ é uma reta que passa pelos pontos _P_ e 
 _Q_, e _R_ é um ponto qualquer, o determinante abaixo permite identificar se
 o ponto _R_ pertence a reta (_D = 0_), ou está no  semiplano à esquerda 
-(_D < 0_) ou no semiplano à direita (_D > 0_). A orientação
+(_D > 0_) ou no semiplano à direita (_D < 0_). A orientação
 (esquerda ou direita) diz respeito à direção que vai de _P_ a _Q_.
 
 ![Discriminante](discriminante.png)
@@ -480,8 +480,8 @@ o ponto _R_ pertence a reta (_D = 0_), ou está no  semiplano à esquerda
 // Definição da classe Point
 
 // D = 0: R pertence a reta PQ
-// D < 0: R à esquerda da reta PQ
-// D > 0: R à direita da reta PQ
+// D > 0: R à esquerda da reta PQ
+// D < 0: R à direita da reta PQ
 double D(const Point& P, const Point& Q, const Point& R)
 {
     return (P.x * Q.y + P.y * R.x + Q.x * R.y) - (R.x * Q.y + R.y * P.x + Q.x * P.y);

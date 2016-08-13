@@ -92,8 +92,8 @@ public:
 
         for (int i = 0; i < n; ++i)
         {
-            a += vertices[i].x * verticies[i+1].y;
-            a -= vertices[[i+1].x * vertices[i].y;
+            a += vertices[i].x * vertices[i+1].y;
+            a -= vertices[i+1].x * vertices[i].y;
         }
 
         return 0.5 * fabs(a);
@@ -209,7 +209,7 @@ public:
 
             auto a = angle(P, vertices[i], vertices[i + 1]);
 
-            sum += d < 0 ? a : -a;
+            sum += d > 0 ? a : -a;
         } 
     
         return equals(fabs(sum), 2*PI);
@@ -254,7 +254,7 @@ Polygon cut_polygon(const Polygon& P, const Point& A, const Point& B)
         auto d2 = D(A, B, P.vertices[i + 1]);
 
         // Vértice à esquerda da reta
-        if (d1 < -EPS)
+        if (d1 > -EPS)
             points.push_back(P.vertices[i]);
 
         // A aresta cruza a reta
@@ -271,14 +271,139 @@ Polygon cut_polygon(const Polygon& P, const Point& A, const Point& B)
 
 ```
 
+### Envoltório convexo
+
+Dado um conjunto de pontos _P_, o **envoltório convexo** _CH(P)_ de _P_ 
+(_convex hull_) é o menor polígono convexo tal que cada ponto de _P_ ou 
+pertence ao interior de _CH(P)_ ou é um de seus vértices.
+
+Existem vários algoritmos para se determinar o envoltório convexo, e como os
+vértices de _CH(P)_ são pontos de _P_, a essência dos algoritmos é determinar,
+para cada ponto de _P_, se ele pertence ou não ao _CH(P)_.
+
+O algoritmo de Graham iniciamente ordena todos os _n_ pontos de _P_ de acordo
+com o ângulo que eles fazem com um ponto pivô fixado previamente. A escolha
+padrão para o pivô é o ponto de menor coordenada _y_ e, caso exista mais de 
+um ponto com coordenada _y_ mínima, escolhe-se o de maior coordenada _x_ 
+dentre eles. Para simplificar o algoritmo, o pivô é movido para a primeira
+posição do vetor.
+```C++
+// Definição da classe Point
+
+Point pivot(vector<Point>& P)
+{
+    size_t idx = 0;
+ 
+    for (size_t i = 1; i < P.size(); ++i)
+        if (P[i].y < P[idx].y or (equals(P[i].y, P[idx].y) and P[i].x > P[idx].x))
+            idx = i;
+            
+    swap(P[0], P[idx]);
+
+    return P[0];
+}
+```
+
+Para realizar a ordenação, é preciso definir um operador booleano que 
+receba dois pontos _p_ e _q_ e retorne verdadeiro se _p_ antecede _q_ de 
+acordo com a ordenação proposta. Como é necessário o conhecimento do pivô para
+tal ordenação, há três possibilidades para a implementação deste operador:
+
+1. implementar o operator `<` da classe `Point`, tornando o pivô um membro 
+da classe, para que o operador tenha acesso a ele;
+1. tornar o pivô uma variável global;
+1. usar uma função lambda no terceiro parâmetro da ordenação, capturando o
+pivô por referência ou cópia.
+
+Abaixo segue um código que implementa a terceira estratégia.
+```C++
+// Definição da classe Point e do discriminante D()
+
+// Definição da função pivot()
+
+void sort_by_angle(vector<Point>& P)
+{
+    auto P0 = pivot(P);
+
+    sort(P.begin() + 1, P.end(), [&](const Point& A, const Point& B)
+        {
+            // Corner case: pontos colineares. Escolhe-se o mais próximo do pivô
+            if (equals(D(P0, A, B), 0))
+                return A.distance(P0) < B.distance(P0);
+
+            auto dx = A.x - P0.x;
+            auto dy = A.y - P0.y;
+            auto alfa = atan2(dy, dx);
+
+            dx = B.x - P0.x;
+            dy = B.y - P0.y;
+            auto beta = atan2(dy, dx);
+
+            return alfa < beta;
+        }
+    );
+}
+```
+
+Com os pontos ordenados, o algoritmo procede da seguinte forma: ele empilha
+três pontos de _P_ (inicialmente, os índices _n -1, 0, 1_) e mantem a invariante
+de que os três elementos do topo de pilha estão sempre em sentido anti-horário
+(_D() > 0_). Para cada um dos pontos de _P_, verifica-se se este ponto 
+mantem o sentido anti-horário com os dois elementos do topo da pilha: se sim, 
+o ponto é inserido na pilha e segue-se adiante; caso contrário, remove-se o 
+topo da pilha a verificar o invariante. Como cada ponto é ou inserido ou 
+removido uma única vez, este processo tem complexidade _O(n)_, e o algoritmo
+como um todo tem complexidade _O(nlog n)_, por conta da ordenação.
+```C++
+// Definição da classe Point e da função sort_by_angle()
+
+Polygon convex_hull(const vector<Point>& points)
+{
+    vector<Point> P(points);
+    auto n = P.size();
+
+    // Corner case: com 3 vértices ou menos, P é o próprio convex hull
+    if (n <= 3)
+        return Polygon(P);
+
+    sort_by_angle(P);
+
+    vector<Point> s;
+    s.push_back(P[n - 1]);
+    s.push_back(P[0]);
+    s.push_back(P[1]);
+
+    size_t i = 2;
+
+    while (i < n)
+    {
+        auto j = s.size() - 1;
+
+        if (D(s[j - 1], s[j], P[i]) > 0)
+            s.push_back(P[i++]);
+        else
+            s.pop_back();
+    }
+
+    if (s.front() == s.back())
+        s.pop_back();
+
+    return Polygon(s);
+}
+```
+
+Outros algoritmos para o envoltório convexo são o _Andrew's Monotone Chain
+Algorithm_ e o algoritmo _Jarvis's March_.
 ### Exercícios
 
 <!--- 1C - Área do polígono regular inscrito --->
 <!--- 478 - Verificação de pontos no interior de círculos e polígonos -->
+<!--- 1111 - Convex hull, distância entre ponto e reta -->
 1. Codeforces
     1. [1C - Ancient Berland Circus](http://codeforces.com/problemset/problem/1/C)
-1 UVA
+1. UVA
     1. [478 - Points in Figures: Rectangles, Circles, Triangles](https://uva.onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&category=16&page=show_problem&problem=419)
+    1. [1111 - Trash Removal](https://uva.onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&category=24&page=show_problem&problem=3552)
 
 ### Referências
 
