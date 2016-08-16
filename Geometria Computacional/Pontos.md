@@ -223,8 +223,8 @@ _x, y_ e _z_, respectivamente, são dadas abaixo.
 
 ### Exercícios
 
-<!--- 152 - Distância entre dois pontos --->
-<!--- 587 - Distância entre dois pontos --->
+<!--- 152 - Distância entre dois pontos -->
+<!--- 587 - Distância entre dois pontos -->
 1. UVA
     1. [152 - Tree's a Crowd](https://uva.onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&category=24&page=show_problem&problem=88)
     2. [587 - There's treasure everywhere!](https://uva.onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&category=24&page=show_problem&problem=528)

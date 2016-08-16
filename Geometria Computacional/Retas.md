@@ -491,10 +491,16 @@ double D(const Point& P, const Point& Q, const Point& R)
 ### Exercícios
 
 <!--- 378 - Interseção entre retas -->
+<!--- 920 - Interseção entre retas, comprimento de segmentos -->
+<!--- 10263 - Distância entre ponto e segmento de reta -->
+<!--- 10927 - Pontos colineares -->
 <!--- 11068 - Interseção entre retas -->
 1. UVA: 
     1. [378 - Intersecting Lines](https://uva.onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&category=24&page=show_problem&problem=314)
-    2. [11068 - An Easy Task](https://uva.onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&category=24&page=show_problem&problem=2009)
+    1. [920 - Sunny Mountains](https://uva.onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&category=24&page=show_problem&problem=861)
+    1. [10263 - Railway](https://uva.onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&category=24&page=show_problem&problem=1204)
+    1. [10927 - Bright Lights](https://uva.onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&category=24&page=show_problem&problem=1868)
+    1. [11068 - An Easy Task](https://uva.onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&category=24&page=show_problem&problem=2009)
 
 <!--- 1834 - Orientação -->
 <!--- 1631 - Orientação, Distância de Ponto a Reta -->
