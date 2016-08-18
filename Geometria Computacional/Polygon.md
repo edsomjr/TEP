@@ -271,6 +271,8 @@ Polygon cut_polygon(const Polygon& P, const Point& A, const Point& B)
 
 ```
 
+<!-- Área do polígono regular inscrito e circunscrito -->
+
 ### Envoltório convexo
 
 Dado um conjunto de pontos _P_, o **envoltório convexo** _CH(P)_ de _P_ 
@@ -399,12 +401,14 @@ Algorithm_ e o algoritmo _Jarvis's March_.
 <!--- 1C - Área do polígono regular inscrito --->
 <!--- 478 - Verificação de pontos no interior de círculos e polígonos -->
 <!--- 1111 - Convex hull, distância entre ponto e reta -->
+<!--- 10432 - Área do polígono regular inscrito -->
 <!--- 10652 - Convex hull, rotações, área de polígono -->
 1. Codeforces
     1. [1C - Ancient Berland Circus](http://codeforces.com/problemset/problem/1/C)
 1. UVA
     1. [478 - Points in Figures: Rectangles, Circles, Triangles](https://uva.onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&category=16&page=show_problem&problem=419)
     1. [1111 - Trash Removal](https://uva.onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&category=24&page=show_problem&problem=3552)
+    1. [10432 - Polygon Inside A Circle](https://uva.onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&page=show_problem&category=24&problem=1373&mosmsg=Submission+received+with+ID+17856547)
     1. [10652 - Board Wrapping](https://uva.onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&page=show_problem&category=763&problem=1593&mosmsg=Submission+received+with+ID+17845295)
 
 ### Referências
