@@ -241,7 +241,7 @@ Point intersection(const Point& P, const Point& Q, const Point& A, const Point& 
     auto u = fabs(a * P.x + b * P.y + c);
     auto v = fabs(a * Q.x + b * Q.y + c);
 
-    return Point((P.x * v + Q.x * u)/(u + v), Point(P.y * v + Q.y * u)/(u + v));
+    return Point((P.x * v + Q.x * u)/(u + v), (P.y * v + Q.y * u)/(u + v));
 }
 
 Polygon cut_polygon(const Polygon& P, const Point& A, const Point& B)
@@ -259,19 +259,45 @@ Polygon cut_polygon(const Polygon& P, const Point& A, const Point& B)
 
         // A aresta cruza a reta
         if (d1 * d2 < -EPS)
-            points.push_back(intersection(P.vertices[i], P.vertices[i+1], A, B);
+            points.push_back(intersection(P.vertices[i], P.vertices[i+1], A, B));
     }
-
-    // Torna o último ponto igual ao primeiro
-    if (not points.empty() and not points.back() == points.front())
-        points.push_back(points.front());
 
     return Polygon(points);
 }
 
 ```
 
-<!-- Área do polígono regular inscrito e circunscrito -->
+### Relação entre polígonos e círculos
+
+Um polígono **regular** (isto é, com lados de medidas iguais) de _n_ lados possui
+um círculo **circunscrito** (cujos vértices do polígono pertencem ao círculo) e
+um círculo **inscrito** (cujos lados são tangentes ao círculo).
+
+O raio _R_ do círculo circunscrito é igual ao raio do polígono: a distância entre
+o seu centro e um de seus vértices. A área do polígono pode então ser 
+computada a partir de _R_ e de _n_, através da expressão dada abaixo.
+
+![Área do círculo circunscrito](circumarea.png)
+
+```C++
+// Definição da constante PI
+
+// Área do polígono regular de n lados inscrito no círculo de raio R
+double area(double R, int n)
+{
+    return 0.5*n*R*R*sin(2*PI/n);
+}
+```
+
+O raio _r_ do círculo inscrito pode ser determinado a partir da medida _s_ 
+de um dos lados do polígono regular, através da relação abaixo,
+
+![Raio do círculo inscrito](inradius.png)
+
+ou a partir do raio _R_ do círculo circunscrito e _n_, pela relação dada a 
+seguir.
+
+![Raio do círculo inscrito](inradius2.png)
 
 ### Envoltório convexo
 
@@ -402,7 +428,8 @@ Algorithm_ e o algoritmo _Jarvis's March_.
 <!--- 478 - Verificação de pontos no interior de círculos e polígonos -->
 <!--- 1111 - Convex hull, distância entre ponto e reta -->
 <!--- 10432 - Área do polígono regular inscrito -->
-<!--- 10652 - Convex hull, rotações, área de polígono -->
+<!--- 10652 - Convex hull, rotações, área de polígonos -->
+<!--- 11265 - Corte de polígonos por retas, área de polígonos -->
 1. Codeforces
     1. [1C - Ancient Berland Circus](http://codeforces.com/problemset/problem/1/C)
 1. UVA
@@ -410,7 +437,12 @@ Algorithm_ e o algoritmo _Jarvis's March_.
     1. [1111 - Trash Removal](https://uva.onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&category=24&page=show_problem&problem=3552)
     1. [10432 - Polygon Inside A Circle](https://uva.onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&page=show_problem&category=24&problem=1373&mosmsg=Submission+received+with+ID+17856547)
     1. [10652 - Board Wrapping](https://uva.onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&page=show_problem&category=763&problem=1593&mosmsg=Submission+received+with+ID+17845295)
+    1. [11265 - The Sultan's Problem](https://uva.onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&page=show_problem&category=24&problem=2232&mosmsg=Submission+received+with+ID+17859560)
 
 ### Referências
 
 HALIM, Steve; HALIM, Felix. [Competitive Programming 3](http://cpbook.net/), Lulu, 2013.
+
+Math Open Reference. [Incircle of a Polygon](http://www.mathopenref.com/polygonincircle.html). Acesso em 18/08/2016.
+
+Wikipédia. [Regular Polygon](https://en.wikipedia.org/wiki/Regular_polygon#Circumradius). Acesso em 18/08/2016.

@@ -269,6 +269,53 @@ O método retorna falso se a distância entre os pontos é menor que o diâmetro
 Nos demais casos, o círculo _c_, passado por referência, contém o centro e o
 raio de um círculo que intercepta ambos _P_ e _Q_.
 
+Para o caso _N = 3_ há uma interessante relação: se os pontos _P, Q, R_ não são 
+colineares, a equação do círculo que passa por estes três pontos pode ser
+expressa pelo determinante abaixo.
+
+![Equação do círculo que passa por 3 pontos](discriminante4D.png)
+
+Este determinante também pode ser utilizado para determinar se 4 pontos são
+cocirculares, substuindo as coordenadas do quarto ponto nas variáveis da 
+primeira linha.
+
+Contudo, a implementação desta determinante não é trivial, uma vez que é preciso
+recorrer a cofatores, e o resultado final não fica na forma canônica, de onde
+são extraídas as informações sobre o raio e o centro.
+
+Uma outra abordagem é observar que a distância entre os três pontos e o centro
+do círculo são iguais e, das relações _d(P, C) = d(Q, C), d(P, C) = d(R, C)_,
+encontrar um sistema linear em relação as coordenadas do centro. Determinado
+o centro, o raio será a distância entre qualquer um dos pontos e o centro.
+```C++
+// Definição da classe Point e Circle
+
+Circle circle_from_3_points(const Point& P, const Point& Q, const Point& R)
+{
+    auto a = 2*(Q.x - P.x);
+    auto b = 2*(Q.y - P.y);
+    auto c = 2*(R.x - P.x);
+    auto d = 2*(R.y - P.y);
+
+    auto det = a*d - b*c;
+
+    // Pontos colineares
+    if (equals(det, 0))
+        return Circle();
+
+    auto k1 = (Q.x*Q.x + Q.y*Q.y) - (P.x*P.x + P.y*P.y);
+    auto k2 = (R.x*R.x + R.y*R.y) - (P.x*P.x + P.y*P.y);
+
+    auto cx = (k1*d - k2*b)/det;
+    auto cy = (a*k2 - c*k1)/det;
+
+    Point C(cx, cy);
+    auto r = C.distance(P);
+
+    return Circle(C, r);
+}
+```
+    
 ### Interseção entre dois círculos
 
 Dados dois círculos com centros _C1, C2_ e raios _r1, r2_, existem cinco
@@ -394,6 +441,7 @@ ipp intersection(const Circle& c, const Point& P, const Point& Q)
 ### Exercícios
 
 <!--- 2C - Interseção entre círculos, mediatriz, pontos proporcionalmente distantes de dois pontos dados -->
+<!--- 438 - Círculo a partir de 3 pontos -->
 <!--- 10005 - Empacotamento de pontos -->
 <!--- 10209 - Cordas, Setores e Segmentos (Triângulos e Círculos) --->
 <!--- 10589 - Relação ponto x círculo --->
@@ -402,6 +450,7 @@ ipp intersection(const Circle& c, const Point& P, const Point& Q)
 1. Codeforces
     1. [2C - Commentator Problem](http://codeforces.com/problemset/problem/2/C)
 1. UVA
+    1. [438 - The Circumference of the Circle](https://uva.onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&page=show_problem&category=24&problem=379&mosmsg=Submission+received+with+ID+17859473)
     1. [10005 - Packing Polygons](https://uva.onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&category=24&page=show_problem&problem=946)
     1. [10209 - Is This Integration?](https://uva.onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&category=24&page=show_problem&problem=1150)
     1. [10589 - Area](https://uva.onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&category=24&page=show_problem&problem=1530)
@@ -413,3 +462,8 @@ ipp intersection(const Circle& c, const Point& P, const Point& Q)
 HALIM, Steve; HALIM, Felix. [Competitive Programming 3](http://cpbook.net/), Lulu, 2013.
 
 BOURKE, Paul. [Intersection of two circles](http://paulbourke.net/geometry/circlesphere/), acesso em 06/08/2016.
+
+QC.EDU.HK. [Equation of circle passing through 3 givem points](http://www.qc.edu.hk/math/Advanced%20Level/circle%20given%203%20points.htm)
+
+Stack Exchange. [Mathematics: Get the equation of a circle when given 3 points](http://math.stackexchange.com/questions/213658/get-the-equation-of-a-circle-when-given-3-points). Acesso em 18/08/2016.
+
