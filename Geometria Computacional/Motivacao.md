@@ -28,6 +28,15 @@ o teste de igualdades:
     1. _a == b <=> fabs(a - b) < e_;
     1. _a >= 0 <=> a > -e_;
     1. _a <= 0 <=> a < e_;
+    ```C++
+    // Comparação de igualdade entre variáveis do tipo ponto flutuante
+    #define EPS 1e-9
+
+    bool equals(double a, double b)
+    {
+        return fabs(a - b) < EPS;
+    }
+    ```
 1. caso seja necessário usar variáveis do tipo ponto flutuante, utilizar
 **double** ao invés de **float**;
 1. tomar cuidado com a impressão do zero: em determinados casos, pode ser
