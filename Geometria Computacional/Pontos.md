@@ -444,10 +444,14 @@ podem ser utilizados para definir a orientação de uma figura tridimensional
 
 <!--- 152 - Distância entre dois pontos -->
 <!--- 587 - Distância entre dois pontos -->
+<!--- 10585 - Ordenação de pontos, greedy, simetria, soma dos extremos de um vetor ordenado -->
 1. UVA
     1. [152 - Tree's a Crowd](https://uva.onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&category=24&page=show_problem&problem=88)
-    2. [587 - There's treasure everywhere!](https://uva.onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&category=24&page=show_problem&problem=528)
+    1. [587 - There's treasure everywhere!](https://uva.onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&category=24&page=show_problem&problem=528)
+    1. [10585 - Center of symmetry](https://uva.onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&page=show_problem&category=24&problem=1526&mosmsg=Submission+received+with+ID+17867787)
 
 ### Referências
 
 HALIM, Steve; HALIM, Felix. [Competitive Programming 3](http://cpbook.net/), Lulu, 2013.
+
+STRANG, Gilbert. [Introdução à Álgebra Linear](http://www.americanas.com.br/produto/116582671/livro-introducao-a-algebra-linear?opn=YSMESP&WT.srch=1&loja=79065181000194&epar=&WT.srch=1&epar=bp_pl_00_go_liv_todas_geral_gmv&gclid=CKOWs-LGy84CFYEJkQodCMMEew), 4ª edição, LTC, 2013.

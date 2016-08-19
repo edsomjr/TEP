@@ -441,7 +441,8 @@ ipp intersection(const Circle& c, const Point& P, const Point& Q)
 ### Exercícios
 
 <!--- 2C - Interseção entre círculos, mediatriz, pontos proporcionalmente distantes de dois pontos dados -->
-<!--- 438 - Círculo a partir de 3 pontos -->
+<!--- 190 - Equações do círculo a partir de 3 pontos -->
+<!--- 438 - Circunferência do círculo a partir de 3 pontos -->
 <!--- 10005 - Empacotamento de pontos -->
 <!--- 10209 - Cordas, Setores e Segmentos (Triângulos e Círculos) --->
 <!--- 10589 - Relação ponto x círculo --->
@@ -450,6 +451,7 @@ ipp intersection(const Circle& c, const Point& P, const Point& Q)
 1. Codeforces
     1. [2C - Commentator Problem](http://codeforces.com/problemset/problem/2/C)
 1. UVA
+    1. [190 - Circle Through Three Points](https://uva.onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&page=show_problem&category=24&problem=126&mosmsg=Submission+received+with+ID+17867754)
     1. [438 - The Circumference of the Circle](https://uva.onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&page=show_problem&category=24&problem=379&mosmsg=Submission+received+with+ID+17859473)
     1. [10005 - Packing Polygons](https://uva.onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&category=24&page=show_problem&problem=946)
     1. [10209 - Is This Integration?](https://uva.onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&category=24&page=show_problem&problem=1150)
@@ -461,9 +463,9 @@ ipp intersection(const Circle& c, const Point& P, const Point& Q)
 
 HALIM, Steve; HALIM, Felix. [Competitive Programming 3](http://cpbook.net/), Lulu, 2013.
 
-BOURKE, Paul. [Intersection of two circles](http://paulbourke.net/geometry/circlesphere/), acesso em 06/08/2016.
+BOURKE, Paul. [Intersection of two circles](http://paulbourke.net/geometry/circlesphere/). Acesso em 06/08/2016.
 
-QC.EDU.HK. [Equation of circle passing through 3 givem points](http://www.qc.edu.hk/math/Advanced%20Level/circle%20given%203%20points.htm)
+QC.EDU.HK. [Equation of circle passing through 3 givem points](http://www.qc.edu.hk/math/Advanced%20Level/circle%20given%203%20points.htm). Acesso em 18/08/2016.
 
 Stack Exchange. [Mathematics: Get the equation of a circle when given 3 points](http://math.stackexchange.com/questions/213658/get-the-equation-of-a-circle-when-given-3-points). Acesso em 18/08/2016.
 
