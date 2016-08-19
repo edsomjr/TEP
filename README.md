@@ -1,2 +1,2 @@
 # TEP
-Material da disciplina Tópicos Especiais em Programação
+Material da disciplina Tópicos Especiais em Programação.
