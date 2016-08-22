@@ -332,10 +332,12 @@ public:
 
 <!--- 10557 - Círculo circunscrito -->
 <!--- 11152 - Raios dos círculos inscritos e circunscritos -->
+<!--- 11854 - Teorema de Pitágoras -->
 <!--- 11909 - Triângulos semelhantes, área de triângulos, área de retângulos -->
 1. UVA
     1. [10577 - Bouding Box](https://uva.onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&category=24&page=show_problem&problem=1518)
     1. [11152 - Colourful Flowers](https://uva.onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&category=24&page=show_problem&problem=2093)
+    1. [11854 - Egypt](https://uva.onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&page=show_problem&category=24&problem=2954&mosmsg=Submission+received+with+ID+17881809)
     1. [11909 - Soya Milk](https://uva.onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&category=24&page=show_problem&problem=3060)
  
 ### Referências
