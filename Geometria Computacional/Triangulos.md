@@ -222,7 +222,7 @@ os seus três lados (os lados são tangentes ao círculo inscrito).
 O raio do círculo inscrito é dado pela razão entre o dobro da área e o 
 perímetro. As coordenadas do centro _O_ do círculo inscrito são obtidas pela
 média ponderada das coordenadas _x_ e _y_ pelos comprimentos dos lados 
-correspondentes. As fórmulas abaixo sintetizam estas afirmações.
+opostos. As fórmulas abaixo sintetizam estas afirmações.
 
 ![Círculo Inscrito](incircle.png)
 
@@ -344,6 +344,8 @@ public:
 
 HALIM, Steve; HALIM, Felix. [Competitive Programming 3](http://cpbook.net/), Lulu, 2013.
 
-Math Open Reference. [Orthocenter of a Triangle](http://www.mathopenref.com/triangleorthocenter.html), acesso em 27/07/2016.
+Math Open Reference. [Orthocenter of a Triangle](http://www.mathopenref.com/triangleorthocenter.html). Acesso em 27/07/2016.
 
-Wikipedia. [Circumscribed Circle](https://en.wikipedia.org/wiki/Circumscribed_circle#Circumcircle_equations), acesso em 27/07/2016.
+Math Open Reference. [Incenter of a Triangle](http://www.mathopenref.com/coordincenter.html). Acesso em 22/08/2016.
+
+Wikipedia. [Circumscribed Circle](https://en.wikipedia.org/wiki/Circumscribed_circle#Circumcircle_equations). Acesso em 27/07/2016.
