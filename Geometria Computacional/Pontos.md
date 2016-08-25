@@ -445,10 +445,12 @@ podem ser utilizados para definir a orientação de uma figura tridimensional
 <!--- 152 - Distância entre dois pontos -->
 <!--- 587 - Distância entre dois pontos -->
 <!--- 10585 - Ordenação de pontos, greedy, simetria, soma dos extremos de um vetor ordenado -->
+<!--- 11505 - Pontos, vetores, rotação e translação -->
 1. UVA
     1. [152 - Tree's a Crowd](https://uva.onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&category=24&page=show_problem&problem=88)
     1. [587 - There's treasure everywhere!](https://uva.onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&category=24&page=show_problem&problem=528)
     1. [10585 - Center of symmetry](https://uva.onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&page=show_problem&category=24&problem=1526&mosmsg=Submission+received+with+ID+17867787)
+    1. [11505 - Logo](https://uva.onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&category=24&page=show_problem&problem=2500)
 
 ### Referências
 
