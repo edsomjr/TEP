@@ -7,13 +7,13 @@ Contudo, os competidores devem postergar a solução de problemas desta área
 para o meio ou o fim do _contest_, pois a probabilidade de um AC é baixa por
 tais problemas
 
-1. possuem muitos _corner cases_, e estes casos especiais devem ser tratados
+1. possuírem muitos _corner cases_, e estes casos especiais devem ser tratados
 com atenção e cuidado;
-1. podem receber WA devido erros de precisão inerentes às variáveis em ponto 
+1. poderem receber WA devido erros de precisão inerentes às variáveis em ponto 
 flutuante;
-1. envolvem operações que são triviais quando feitas com caneta e lápis, mas se
+1. envolverem operações que são triviais quando feitas com caneta e lápis, mas se
 tornam razoavelmente complicadas quando precisam ser implementadas em computador;
-1. a codificação da solução pode ser longa e tediosa.
+1. apresentarem uma solução cuja codificação pode ser longa e tediosa.
 
 Para atacar tais problemas, o competidor tem que se preparar previamente, 
 registrando, em suas anotações, as fórmulas básicas e implementações testadas
@@ -22,7 +22,7 @@ dos algoritmos clássicos da geometria.
 Na implementação da solução de problemas de Geometria Computacional, valem as
 seguintes observações e dicas:
 
-1. tratar todos os _corner cases_ ou procurar implementações que os evite;
+1. tratar todos os _corner cases_ ou procurar implementações que os evitem;
 1. evitar o uso de variáveis do tipo ponto flutuante sempre que possível;
 1. se não for possível, definir um limiar _e_ (em geral, _e = 10^{-9}_) para
 o teste de igualdades:
@@ -47,7 +47,7 @@ problema.
 
 Há 3 abordagens possíveis para um problema de Geometria Computacional: 
 
-1. **Geometria Analítica**: as figuras geométricas são localizados no espaço 
+1. **Geometria Analítica**: as figuras geométricas são localizadas no espaço 
 através das coordenadas de seus pontos/vértices. São usadas equações para
 representar figuras e relações, e novas relações podem ser deduzidas através
 da combinação e manipulação destas expressões. É a abordagem mais comum das
