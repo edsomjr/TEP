@@ -241,7 +241,7 @@ public:
 
     double angle() const
     {
-        return atan(y / x) + (x < 0) * PI;
+        return atan(y / x) + (x < 0 ? PI : 0);
     }
 };
 ```
