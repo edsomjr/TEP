@@ -151,7 +151,7 @@ caso, basta alterar a implementação para o critério desejado.
 
 ### Distância entre dois pontos
 
-A distância entre dois pontos pode ser utilizado utilizando o Teorema de 
+A distância entre dois pontos pode ser computada utilizando o Teorema de 
 Pitágoras: o quadrado da distância é igual a soma dos quadrados das diferenças
 entre as respectivas coordenadas (tanto em duas quanto três dimensões). Se
 as coordenadas forem inteiras, pode-se comparar o quadrado diretamente, sem
@@ -217,13 +217,16 @@ public:
 };
 ```
 
-O comprimento (ou magnitude) de um vetor é dada pela distância entre seus 
+O comprimento (ou magnitude) de um vetor é dado pela distância entre seus 
 pontos (no caso do vetor-posição, a distância do ponto até a origem). O ângulo
 que o vetor faz com o eixo-x positivo pode ser determinado pelo arco tangente
-da razão entre as coordenadas _y_ e _x_ (atenção aos casos especiais onde
-_x = 0_ ou o ponto está no terceiro ou quarto quadrante). Se o vetor for
-**degenerado** (isto é, liga a origem à origem), o ângulo não estará 
-definido (a função abaixo resultará em `-nan`, isto é, _not a number_).
+da razão entre as coordenadas _y_ e _x_. Vale ressaltar que a função `atan` (
+que computa o arco tangente de um número) opera apenas no primeiro e quarto 
+quadrante do plano cartesiano (onde _x > 0 e -π/2 ≤ θ ≤ π/2_). Para superar 
+esta limitação, basta somar π ao retorno da função caso _x < 0_ (atenção ao
+caso especial onde _x = 0_). Se o vetor for **degenerado** (isto é, liga a
+origem à origem), o ângulo não estará definido (a função abaixo resultará em 
+`-nan`, isto é, _not a number_).
 ```C++
 #define PI 3.141592653589793
 
@@ -238,14 +241,7 @@ public:
 
     double angle() const
     {
-        double a = 0.0;
-
-        if (x < 0)
-            a += PI;
-
-        a += atan(y/x);     
-
-        return a;
+        return atan(y / x) + (x < 0) * PI;
     }
 };
 ```
@@ -275,7 +271,7 @@ Esta matriz pode ser deduzida observando-se que as coordenadas do ponto podem
 ser expressas como `x = r cos a, y = r sin a` (onde _a_ é o ângulo que o vetor
 _v_ faz com o eixo-_x_ e _r_ é a magnitude de _V_) e 
 que as coordenadas do ponto resultante
- da rotação são `x' = r cos (a + b), y = r sin (a + b)`.
+ da rotação são `x' = r cos (a + b), y' = r sin (a + b)`.
 
 O código abaixo ilustra esta rotação em linguagem C/C++.
 
@@ -408,7 +404,7 @@ do ângulo entre os dois vetores:
 1. se _d > 0_, os vetores formam um ângulo obtuso (maior que 90º).
 
 O produto vetorial entre dois vetores pode ser definido pelo vetor resultante
-do determinante abaixo, onde _i, j, k_ são vetores unitário com mesma direção
+do determinante abaixo, onde _i, j, k_ são vetores unitários com mesma direção
 e sentido que os eixos _x, y, z_, respectivamente.
 
 ![Produto vetorial](cross.png)
