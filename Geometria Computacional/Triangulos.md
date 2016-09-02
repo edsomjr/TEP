@@ -330,6 +330,7 @@ public:
 
 ### Exercícios
 
+<!--- 143 - Relação ponto/triângulo, colisão ponto/triângulo -->
 <!--- 375 - Perímetro do círculo inscrito, semelhança de triângulos -->
 <!--- 10195 - Raio do círculo inscrito -->
 <!--- 10557 - Círculo circunscrito -->
@@ -337,6 +338,7 @@ public:
 <!--- 11854 - Teorema de Pitágoras -->
 <!--- 11909 - Triângulos semelhantes, área de triângulos, área de retângulos -->
 1. UVA
+    1. [143 - Orchard Trees](https://uva.onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&page=show_problem&category=24&problem=79&mosmsg=Submission+received+with+ID+17934611)
     1. [375 - Inscribed Circles and Isosceles Triangles](https://uva.onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&page=show_problem&category=24&problem=311&mosmsg=Submission+received+with+ID+17930986)
     1. [10195 - The Knights of the Round Table](https://uva.onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&page=show_problem&category=24&problem=1136&mosmsg=Submission+received+with+ID+17929614)
     1. [10577 - Bouding Box](https://uva.onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&category=24&page=show_problem&problem=1518)

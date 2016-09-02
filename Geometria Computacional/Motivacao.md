@@ -75,5 +75,4 @@ HALIM, Steve; HALIM, Felix. [Competitive Programming 3](http://cpbook.net/), Lul
 
 O'ROURKE, Joseph. [Computational Geometry in C](https://www.amazon.com.br/Computational-Geometry-Associate-Professor-Computer/dp/0521649765/ref=sr_1_1?ie=UTF8&qid=1471650316&sr=8-1&keywords=computational+geometry+in+c), 2nd edition, Cambridge University Press, 1998.
 
-
 SKIENA, Steven S.; REVILLA, Miguel A. [Programming Challenges: The Programming Contest Training Manual](http://www.programming-challenges.com/), Springer, 2002.

@@ -180,7 +180,7 @@ nenhum ponto em comum, um único ponto em comum ou todos os pontos em comum. No
 primeiro caso as retas são ditas **paralelas**; no segundo caso, 
 **concorrentes**; no último, **coincidentes**.
 
-O coeficiente angular é a chava para tal classificação: retas com coeficientes
+O coeficiente angular é a chave para tal classificação: retas com coeficientes
 angulares distintos são concorrentes. Na coincidência destes concorrentes, é
 necessário verificar também o coeficiente linear: se iguais, as retas são
 coincidentes. Retas com coeficientes angulares iguais e coeficientes lineares
@@ -192,20 +192,11 @@ retas verticais.
 
 ```C++
 
-#define EPS 1e-9
-
-bool equals(double a, double b)
-{
-    return fabs(a - b) < EPS;
-}
+// Definição da função equals()
 
 class Line {
 public:
-    double m;
-    double b;
-    bool vertical;
-
-    // Construtores
+    // Membros e construtores
 
     bool operator==(const Line& r) const    // Verdadeiro se coincidentes
     {
@@ -229,41 +220,38 @@ public:
 };
 ```
 
-No caso da representação baseada na equação geral da reta, para checar se retas
-são paralelas (ou coincidentes) basta verificar o determinante dos coeficientes
-do sistema linear formado por ambas retas: se zero, as retas serão paralelas 
-ou coincidentes.
+No caso da representação baseada na equação geral da reta com coeficientes
+normalizados, para checar se retas são paralelas (ou coincidentes) basta 
+comparar os coeficientes da reta.
 
 ```C++
-// Definição de reta baseada na equação geral
-
-bool parallel(const Line& r, const Line& s)     // Verdadeiro se coincidentes!
-{
-    return equals(r.a * s.b - r.b * s.a, 0);
-}
-```
-
-Nesta abordagem, para verificar se as retas são coincidentes, é necessário 
-comparar também os coeficientes _c_: se _c_ == _r.c_, as retas serão
-coincidentes.
-
-Duas retas serão **perpendiculares** se o produto de seus coeficientes angulares
-for igual a -1. Outra maneira de checar se duas retas são perpendiculares é
-escolher dois pontos pertencentes a cada reta e montar dois vetores _u_ e _v_
-cujas coordenadas são a diferença entre as coordenadas dos pontos escolhidos.
-Se o produto interno dos dois vetores for igual a zero, as retas são
-perpendiculares.
-
-```C++
-// Definição da comparação entre doubles (função equals())
+// Definição da função equals
 
 class Line {
 public:
-    double m;
-    double b;
-    bool vertical;
+    // Membros e construtores de uma reta baseada na equação geral com 
+    // coeficientes normalizados
 
-    // Construtores
+    bool operator==(const Line& r) const
+    {
+        return equals(a, r.a) && equals(b, r.b) && equals(c, r.c);
+    }
+
+    bool parallel(const Line& r) const
+    {
+        return equals(a, r.a) && equals(b, r.b) && !equals(c, r.c);
+    }
+};
+```
+
+Duas retas serão **perpendiculares** se o produto de seus coeficientes angulares
+for igual a -1. 
+```C++
+// Definição da função equals()
+
+class Line {
+public:
+    // Membros e construtores, equação reduzida
 
     bool orthogonal(const Line& r) const // Verdadeiro se perpendiculares
     {
@@ -281,6 +269,29 @@ public:
 };
 ```
 
+Outra maneira de checar se duas retas são perpendiculares é
+escolher dois pontos pertencentes a cada reta e montar dois vetores _u_ e _v_
+cujas coordenadas são a diferença entre as coordenadas dos pontos escolhidos.
+Se o produto interno dos dois vetores for igual a zero, as retas são
+perpendiculares.
+
+Importante notar, porém, é que os coeficientes _a, b_ da equação geral de uma
+reta formam um vetor _v = (a, b)_ perpendicular à reta. Tais vetores, 
+denominados **normais**, podem ser utilizados na comparação descrita no
+parágrafo anterior.
+```C++
+// Definição da função equals()
+
+class Line {
+public:
+    // Membros e construtores, equação geral
+
+    bool orthogonal(const Line& r) const
+    {
+        return equals(a * r.a + b * r.b, 0);
+    }
+};
+```
 
 ### Interseção entre retas
 
@@ -292,7 +303,7 @@ Para encontrar o ponto de interseção, no caso de retas concorrentes, basta
 resolver o sistema linear resultante das equações gerais das duas retas.
 
 ```C++
-// Definição da comparação entre doubles (função equals())
+// Definição função equals()
 
 // Definições das classes Point e Line
 
@@ -304,26 +315,15 @@ pair<int, Point> intersections(const Line& r, const Line& s)
 
     if (equals(det, 0))
     {
-        auto kr = r.a ? r.a : r.b;
-        auto ks = s.a ? s.a : s.b;
+        // Coincidentes ou paralelas
+        int qtd = (r == s) ? INF : 0;
 
-        auto ar = r.a / kr;
-        auto br = r.b / kr;
-        auto cr = r.c / kr;
-
-        auto as = s.a / ks;
-        auto bs = s.b / ks;
-        auto cs = s.c / ks;
-
-        // Coincidentes
-        if (equals(ar, as) && equals(br, bs) && equals(cr, cs))
-            return pair<int, Point>(INF, Point());
-        else    
-            return pair<int, Point>(0, Point());    // Paralelas
-    } else  // Concorrentes
+        return pair<int, Point>(qtd, Point()); 
+    } else  
     {
-        double x = (-r.c * s*b + s.c * r.b) / det;
-        double y = (-s.c * r.a + r.c * s.a) / det;
+        // Concorrentes
+        auto x = (-r.c * s*b + s.c * r.b) / det;
+        auto y = (-s.c * r.a + r.c * s.a) / det;
 
         return pair<int, Point>(1, Point(x, y));
     }
@@ -335,7 +335,7 @@ pair<int, Point> intersections(const Line& r, const Line& s)
 Para mensurar o ângulo formado por duas retas (ou dois segmentos de reta), é
 preciso identificar os vetores _u_ e _v_ de direção das duas retas e usar o 
 produto interno. Dados dois pontos _P = (x1, y1)_ e _Q = (x2, y2)_, o vetor
-de direção da reta que passa por _P_ e _Q_ é dado por _u = (x1 - x2, y1 - y2)_.
+direção da reta que passa por _P_ e _Q_ é dado por _u = (x1 - x2, y1 - y2)_.
 
 De posse dos vetores de direção, o cosseno ângulo entre as retas é dado pela 
 expressão abaixo:
@@ -392,11 +392,7 @@ Abaixo temos a implementação da distância e do ponto mais próximo em C++.
 
 class Line {
 public:
-    double a;
-    double b;
-    double c;
-
-    // Construtores
+    // Membros e construtores
 
     double distance(const Point& p) const
     {
@@ -414,36 +410,6 @@ public:
 };
 ```
 
-Importante notar que, no caso de segmentos de retas, é preciso considerar os
-extremos do segmento, pois ao usar a abordagem acima o ponto _Q_ pode estar
-fora do segmento. Assim, o ponto mais próximo (e a respectiva distância) será
-o mais próximo entre os dois extremos e _Q_.
-
-```C++
-// Definição das classes Point e Line
-
-// Ponto mais próximo de M no segmento de reta [from, to]
-Point closestToSegment(const Point& from, const Point& to, const Point& M) 
-{
-    Line r(from, to);
-
-    auto Q = r.closest(M);
-    auto min_x = min(from.x, to.x);
-    auto max_x = max(from.x, to.x);
-
-    if (Q.x <= min_x or Q.x >= max_x)      // Q está fora do intervalo
-    {                                      // trocar <= por < resulta em WA! 
-        auto distA = M.distance(from);     // (retas verticais)
-        auto distB = M.distance(to);
-
-        if (distA <= distB)
-            return from;
-        else
-            return to;
-    } else
-        return Q;
-}
-```
 
 ### Reta mediatriz
 
@@ -488,6 +454,125 @@ double D(const Point& P, const Point& Q, const Point& R)
 }
 
 ```
+
+### Segmentos de Retas
+
+Um segmento de reta é uma seção finita de uma reta _r_, delimitada por dois
+pontos _A_ e _B_ pertencentes a _r_. Um segmento de reta pode ser representado
+justamente por estes dois pontos, e o comprimento do segmento será igual a
+distância entre estes pontos.
+```C++
+// Definição da classe Point
+
+class Segment {
+public:
+    Point A, B;
+
+    Segment(const Point& Av, const Point& Bv) : A(Av), B(Bv) {}
+
+    double length() const
+    {
+        return hypot(A.x - B.x, A.y - B.y);
+    }
+};
+```
+
+Dois problemas, comuns entre pares de retas, requerem maior atenção quando
+envolvem segmentos de retas: ponto mais próximo do segmento e interseção entre
+dois segmentos de reta.
+
+No primeiro problema, determinar o ponto do segmento _AB_ mais próximo de um 
+ponto _P_ dado, é preciso avaliar também os extremos do segmento, pois o ponto 
+_Q_ mais próximo à reta _r_ que contém _AB_ pode estar
+fora do segmento. Assim, o ponto mais próximo (e a respectiva distância) será,
+dentre _A_, _B_ e _Q_,  o mais próximo de _P_ que pertença ao intervalo.
+
+```C++
+// Definição das classes Point e Line
+
+class Segment {
+public:
+
+    // Membros e construtor
+
+    // Verifica se um ponto da reta _r_ que contém _A_ e _B_ pertence ao segmento
+    bool contains(const Point& P) const
+    {
+        if (A.x == B.x)
+            return min(A.y, B.y) <= P.y and P.y <= max(A.y, B.y);
+        else
+            return min(A.x, B.x) <= P.x and P.x <= max(A.x, B.x);
+    }
+
+    // Ponto mais próximo de P no segmento 
+    Point closest(const Point& P)
+    {
+        Line r(A, B);
+
+        auto Q = r.closest(P);
+
+        if (this->contains(Q))
+            return Q;
+
+        auto distA = P.distance(A); 
+        auto distB = P.distance(B);
+
+        if (distA <= distB)
+            return A;
+        else
+            return B;
+    }
+}
+```
+
+A maneira mais comum de resolver o segundo problema, que consistem em determinar
+a interseção entre dois segmentos de reta, é resolver o problema para as duas
+retas que contém os respectivos segmentos e verificar se as interseções 
+pertencem a ambos intervalos. Embora esta abordagem permita conhecer as 
+coordenadas das possíveis interseções, ela traz alguns problemas em potencial:
+
+1. mesmo que as retas sejam coincidentes, não há garantias que os segmentos
+tenham interseção;
+1. a concorrência também não garante interseção: ainda é preciso verificar se
+o ponto pertence a ambos intervalos.
+
+Se a questão fora apenas determinar se há ou não interseção, pode-se utilizar
+um algoritmo diferente, baseado no discriminante _D_. A ideia central é
+que dois segmentos se interceptam se a reta que passa por um segmento separa os 
+dois pontos do outro segmento em semiplanos distintos. É preciso, contudo,
+tomar cuidado com o caso onde um dos pontos de um segmento é colinear ao 
+pontos do outro segmento.
+```C++
+// Definição da classe Point e do discriminante D()
+
+class Segment {
+public:
+    // Membros e construtor
+
+    // Definição do método contains()
+
+    bool intersect(const Segment& s) const
+    {
+        auto d1 = D(A, B, s.A);
+        auto d2 = D(A, B, s.B);
+
+        if ((equals(d1, 0) && contains(s.A)) || (equals(d2, 0) && contains(s.B))
+            return true;
+
+        auto d3 = D(s.A, s.B, A);
+        auto d4 = D(s.A, s.B, B);
+
+        if ((equals(d3, 0) && s.contains(A)) || (equals(d4, 0) && s.contains(B))
+            return true;
+    
+    return (d1 * d2 < 0) && (d3 * d4 < 0);
+}
+```
+
+Uma maneira de evitar um possível _overflow_ no produto dos discriminantes é
+modificar a função _D()_ para que retorne apenas o sinal do discriminante
+(0, -1 ou 1).
+
 ### Exercícios
 
 <!--- 191 - Interseção entre segmentos de retas; interseção entre pontos e retângulos -->
@@ -515,6 +600,8 @@ double D(const Point& P, const Point& Q, const Point& R)
 ### Referências
 
 HALIM, Steve; HALIM, Felix. [Competitive Programming 3](http://cpbook.net/), Lulu, 2013.
+
+O'ROURKE, Joseph. [Computational Geometry in C](https://www.amazon.com.br/Computational-Geometry-Associate-Professor-Computer/dp/0521649765/ref=sr_1_1?ie=UTF8&qid=1471650316&sr=8-1&keywords=computational+geometry+in+c), 2nd edition, Cambridge University Press, 1998.
 
 SKIENA, Steven S.; REVILLA, Miguel A. [Programming Challenges: The Programming Contest Training Manual](http://www.programming-challenges.com/), Springer, 2002.
 
