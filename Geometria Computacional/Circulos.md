@@ -445,6 +445,7 @@ ipp intersection(const Circle& c, const Point& P, const Point& Q)
 <!--- 438 - Circunferência do círculo a partir de 3 pontos -->
 <!--- 10005 - Empacotamento de pontos -->
 <!--- 10209 - Cordas, Setores e Segmentos (Triângulos e Círculos) --->
+<!--- 10221 - Cordas e Arcos -->
 <!--- 10589 - Relação ponto x círculo --->
 <!--- 10678 - Área de Elipses! --->
 <!--- 12578 - Área de retângulo e círculo --->
@@ -455,6 +456,7 @@ ipp intersection(const Circle& c, const Point& P, const Point& Q)
     1. [438 - The Circumference of the Circle](https://uva.onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&page=show_problem&category=24&problem=379&mosmsg=Submission+received+with+ID+17859473)
     1. [10005 - Packing Polygons](https://uva.onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&category=24&page=show_problem&problem=946)
     1. [10209 - Is This Integration?](https://uva.onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&category=24&page=show_problem&problem=1150)
+    1. [10221 - Satellites](https://uva.onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&page=show_problem&category=24&problem=1162&mosmsg=Submission+received+with+ID+17966499)
     1. [10589 - Area](https://uva.onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&category=24&page=show_problem&problem=1530)
     1. [10678 - The Grazing Cow](https://uva.onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&page=show_problem&category=24&problem=1619&mosmsg=Submission+received+with+ID+17708795)
     1. [12578 - 10:6:2](https://uva.onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&page=show_problem&category=24&problem=4023&mosmsg=Submission+received+with+ID+17708746)
