@@ -370,9 +370,9 @@ deste produto não é um vetor, e sim um escalar.
 ```C++
 // Definição da classe Vector
 
-double dot_product(const Vector& v, const Vector& v)
+double dot_product(const Vector& u, const Vector& v)
 {
-    return u.x * v.x + u.y + v.y;
+    return u.x * v.x + u.y * v.y;
 }
 ```
 
