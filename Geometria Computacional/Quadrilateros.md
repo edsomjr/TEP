@@ -165,11 +165,13 @@ _A = (Dd)/2_.
 
 <!--- 490 - Interseção de retângulos -->
 <!--- 11207 - Divisão de retângulos em quadrados -->
+<!--- 11000 - Identificação de quadriláteros, ccw, dot() e cross() -->
 <!--- 11834 - Packing círculos em retângulos -->
 <!--- 1A - Divisão de retângulos em quadrados -->
 1. UVA
     1. [490 - Overlapping Rectangles](https://uva.onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&category=24&page=show_problem&problem=401)
     1. [11207 - The easiest way](https://uva.onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&page=show_problem&category=24&problem=2148&mosmsg=Submission+received+with+ID+17770469)
+    1. [11800 - Determine the Shape](https://uva.onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&page=show_problem&category=24&problem=2900&mosmsg=Submission+received+with+ID+18005326)
     1. [11834 - Elevator](https://uva.onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&page=show_problem&category=24&problem=2934&mosmsg=Submission+received+with+ID+17770779)
 1. Codeforces
     1. [1A - Theatre Square](http://codeforces.com/problemset/problem/1/A)
