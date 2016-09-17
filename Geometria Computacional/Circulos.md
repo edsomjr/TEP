@@ -350,7 +350,7 @@ ipp intersection(const Circle& c1, const Circle& c2)
     if (d > c1.r + c2.r or d < fabs(c1.r - c2.r))
         return ipp(0, pp(Point(), Point()));
 
-    if (d == 0 and equals(c1.r, c2.r))
+    if (equals(d, 0) and equals(c1.r, c2.r))
         return ipp(INF, pp(Point(), Point()));
 
     auto a = (c1.r * c1.r - c2.r * c2.r + d * d)/(2 * d);
@@ -408,7 +408,7 @@ ipp intersection(const Circle& c, const Point& P, const Point& Q)
 
     if (D < 0)
         return ipp(0, pp(Point(), Point()));
-    else if (D == 0)
+    else if (equals(D, 0))
     {
         auto u = -b/(2*a);
 

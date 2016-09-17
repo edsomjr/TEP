@@ -67,7 +67,7 @@ public:
 
     Line(const Point& p, const Point& q)
     {
-        if (p.x == q.x)     // Reta vertical
+        if (equals(p.x, q.x))     // Reta vertical
         {
             b = p.x;
             vertical = true;
@@ -498,7 +498,7 @@ public:
     // Verifica se um ponto da reta _r_ que contém _A_ e _B_ pertence ao segmento
     bool contains(const Point& P) const
     {
-        if (A.x == B.x)
+        if (equals(A.x, B.x))
             return min(A.y, B.y) <= P.y and P.y <= max(A.y, B.y);
         else
             return min(A.x, B.x) <= P.x and P.x <= max(A.x, B.x);
