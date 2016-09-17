@@ -3,12 +3,12 @@ Polígonos
 
 Polígonos são figuras planas delimitadas por caminhos fechados (o vértice de
 partida é o vértice de chegada), compostos por segmentos de retas que une
-pontos (**vértices**) consecutivos. Os segmentos que unem os vértices são 
+pontos (**vértices**) consecutivos. Os segmentos que unem os vértices são
 denominados **arestas**.
 
-A maior parte dos problemas de Geometria Computacional envolvem polígonos. 
+A maior parte dos problemas de Geometria Computacional envolvem polígonos.
 Embora alguns polígonos especiais (triângulos, quadriláteros) já tenham sido
-expostos anteriormente, a abordagem desta seção é mais geral, e pode ser 
+expostos anteriormente, a abordagem desta seção é mais geral, e pode ser
 aplicada a qualquer polígono com qualquer número de vértices.
 
 ### Representação de polígonos
@@ -50,7 +50,7 @@ três vértices.
 
 ### Perímetro e área
 
-O perímetro de um polígono pode ser calculado diretamente da representação 
+O perímetro de um polígono pode ser calculado diretamente da representação
 proposta, pois consiste na medida do contorno do polígono, isto é, a soma dos
 comprimentos de cada aresta.
 ```C++
@@ -60,7 +60,7 @@ class Polygon {
 public:
     // Membros e construtor
 
-    double perimeter() const 
+    double perimeter() const
     {
         double p = 0;
 
@@ -71,11 +71,11 @@ public:
     }
 };
 ```
-Já a área de um polígono pode ser também determinada diretamente da 
-representação dada. Ela corresponde a metade do valor absoluto do 
-"determinante" abaixo (as 
-aspas significam que a notação remete a um determinante, mas não é um 
-determinante de fato, uma vez que a matriz não é quadrada). 
+Já a área de um polígono pode ser também determinada diretamente da
+representação dada. Ela corresponde a metade do valor absoluto do
+"determinante" abaixo (as
+aspas significam que a notação remete a um determinante, mas não é um
+determinante de fato, uma vez que a matriz não é quadrada).
 
 ![Área de um polígono](area.png)
 
@@ -86,7 +86,7 @@ class Polygon {
 public:
     // Membros e construtor
 
-    double area() const 
+    double area() const
     {
         double a = 0;
 
@@ -99,19 +99,19 @@ public:
         return 0.5 * fabs(a);
     }
 };
-```     
+```
 
 ### Polígonos côncavos e convexos
 
-Um polígono é dito **convexo** se, para quaisquer dois pontos _P_ e _Q_ 
+Um polígono é dito **convexo** se, para quaisquer dois pontos _P_ e _Q_
 localizados no interior do polígono, o segmento de reta _PQ_ não intercepta
 nenhuma das arestas do polígono. Caso contrário, o polígono é dito **convexo**.
 
-É possível determinar se um polígono é ou não convexo sem recorrer à busca 
+É possível determinar se um polígono é ou não convexo sem recorrer à busca
 completa (isto é, testar todos os possíveis pares de pontos interiores ao
-polígono): 
+polígono):
 a rotina de orientação entre pontos e reta (discutida na seção [Retas](Retas.md))
-pode ser utilizada para tal fim. Basta checar se, para quaisquer três pontos 
+pode ser utilizada para tal fim. Basta checar se, para quaisquer três pontos
 consecutivos do polígono, eles tem a mesma orientação (ou sempre a esquerda,
 ou sempre à direita).
 ```C++
@@ -160,10 +160,10 @@ public:
 ### Relação entre pontos e polígonos
 
 Para se verificar se um ponto _P_ está localizado, ou não, no interior de um
-polígono, basta computar a soma dos ângulos formados por _P_ e dois 
+polígono, basta computar a soma dos ângulos formados por _P_ e dois
 vértices do polígono (somando-se se o ponto está na mesma orientação do polígono,
 subtraíndo em caso contrário): se a soma totalizar _2PI_, o ponto está no
-interior do polígono. Esta verificação vale tanto para polígonos convexos 
+interior do polígono. Esta verificação vale tanto para polígonos convexos
 quanto côncavos.
 ```C++
 // Definição da classe Point
@@ -210,8 +210,8 @@ public:
             auto a = angle(P, vertices[i], vertices[i + 1]);
 
             sum += d > 0 ? a : -a;
-        } 
-    
+        }
+
         return equals(fabs(sum), 2*PI);
     }
 };
@@ -219,14 +219,14 @@ public:
 
 ### Relação entre polígonos e retas
 
-Dada uma reta _r_, que passa pelos pontos _A_ e _B_, e um polígono convexo _P_, 
+Dada uma reta _r_, que passa pelos pontos _A_ e _B_, e um polígono convexo _P_,
 com
 _n_ vértices, esta reta secciona o polígono em duas regiões, esquerda e direita,
-que podem ser ou uma vazias e outra contendo _P_ integralmente, ou serem 
+que podem ser ou uma vazias e outra contendo _P_ integralmente, ou serem
 compostas de dois polígonos convexos _P1_ e _P2_, resultantes do corte de _P_
 por _r_.
 
-A rotina `cut_polygon()`, apresentada abaixo e adaptada de 
+A rotina `cut_polygon()`, apresentada abaixo e adaptada de
 [Competitive Programming 3](http://cpbook.net/), retorna a região a esquerda
 do corte, considerando que _P_ está descrito no sentido anti-horário.
 ```C++
@@ -274,7 +274,7 @@ um círculo **circunscrito** (cujos vértices do polígono pertencem ao círculo
 um círculo **inscrito** (cujos lados são tangentes ao círculo).
 
 O raio _R_ do círculo circunscrito é igual ao raio do polígono: a distância entre
-o seu centro e um de seus vértices. A área do polígono pode então ser 
+o seu centro e um de seus vértices. A área do polígono pode então ser
 computada a partir de _R_ e de _n_, através da expressão dada abaixo.
 
 ![Área do círculo circunscrito](circumarea.png)
@@ -289,20 +289,20 @@ double area(double R, int n)
 }
 ```
 
-O raio _r_ do círculo inscrito pode ser determinado a partir da medida _s_ 
+O raio _r_ do círculo inscrito pode ser determinado a partir da medida _s_
 de um dos lados do polígono regular, através da relação abaixo,
 
 ![Raio do círculo inscrito](inradius.png)
 
-ou a partir do raio _R_ do círculo circunscrito e _n_, pela relação dada a 
+ou a partir do raio _R_ do círculo circunscrito e _n_, pela relação dada a
 seguir.
 
 ![Raio do círculo inscrito](inradius2.png)
 
 ### Envoltório convexo
 
-Dado um conjunto de pontos _P_, o **envoltório convexo** _CH(P)_ de _P_ 
-(_convex hull_) é o menor polígono convexo tal que cada ponto de _P_ ou 
+Dado um conjunto de pontos _P_, o **envoltório convexo** _CH(P)_ de _P_
+(_convex hull_) é o menor polígono convexo tal que cada ponto de _P_ ou
 pertence ao interior de _CH(P)_ ou é um de seus vértices.
 
 Existem vários algoritmos para se determinar o envoltório convexo, e como os
@@ -311,8 +311,8 @@ para cada ponto de _P_, se ele pertence ou não ao _CH(P)_.
 
 O algoritmo de Graham iniciamente ordena todos os _n_ pontos de _P_ de acordo
 com o ângulo que eles fazem com um ponto pivô fixado previamente. A escolha
-padrão para o pivô é o ponto de menor coordenada _y_ e, caso exista mais de 
-um ponto com coordenada _y_ mínima, escolhe-se o de maior coordenada _x_ 
+padrão para o pivô é o ponto de menor coordenada _y_ e, caso exista mais de
+um ponto com coordenada _y_ mínima, escolhe-se o de maior coordenada _x_
 dentre eles. Para simplificar o algoritmo, o pivô é movido para a primeira
 posição do vetor.
 ```C++
@@ -321,23 +321,23 @@ posição do vetor.
 Point pivot(vector<Point>& P)
 {
     size_t idx = 0;
- 
+
     for (size_t i = 1; i < P.size(); ++i)
         if (P[i].y < P[idx].y or (equals(P[i].y, P[idx].y) and P[i].x > P[idx].x))
             idx = i;
-            
+
     swap(P[0], P[idx]);
 
     return P[0];
 }
 ```
 
-Para realizar a ordenação, é preciso definir um operador booleano que 
-receba dois pontos _p_ e _q_ e retorne verdadeiro se _p_ antecede _q_ de 
+Para realizar a ordenação, é preciso definir um operador booleano que
+receba dois pontos _p_ e _q_ e retorne verdadeiro se _p_ antecede _q_ de
 acordo com a ordenação proposta. Como é necessário o conhecimento do pivô para
 tal ordenação, há três possibilidades para a implementação deste operador:
 
-1. implementar o operator `<` da classe `Point`, tornando o pivô um membro 
+1. implementar o operator `<` da classe `Point`, tornando o pivô um membro
 da classe, para que o operador tenha acesso a ele;
 1. tornar o pivô uma variável global;
 1. usar uma função lambda no terceiro parâmetro da ordenação, capturando o
@@ -376,10 +376,10 @@ void sort_by_angle(vector<Point>& P)
 Com os pontos ordenados, o algoritmo procede da seguinte forma: ele empilha
 três pontos de _P_ (inicialmente, os índices _n -1, 0, 1_) e mantem a invariante
 de que os três elementos do topo de pilha estão sempre em sentido anti-horário
-(_D() > 0_). Para cada um dos pontos de _P_, verifica-se se este ponto 
-mantem o sentido anti-horário com os dois elementos do topo da pilha: se sim, 
-o ponto é inserido na pilha e segue-se adiante; caso contrário, remove-se o 
-topo da pilha a verificar o invariante. Como cada ponto é ou inserido ou 
+(_D() > 0_). Para cada um dos pontos de _P_, verifica-se se este ponto
+mantem o sentido anti-horário com os dois elementos do topo da pilha: se sim,
+o ponto é inserido na pilha e segue-se adiante; caso contrário, remove-se o
+topo da pilha a verificar o invariante. Como cada ponto é ou inserido ou
 removido uma única vez, este processo tem complexidade _O(n)_, e o algoritmo
 como um todo tem complexidade _O(nlog n)_, por conta da ordenação.
 ```C++

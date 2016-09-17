@@ -58,7 +58,7 @@ Point p(5), q(0, 10);     // Exemplos de uso do construtor (p = (5, 0))
     Usar pares do C++ tem a vantagem de herdar os operadores de comparação dos
     tipos definidos. Porém, a desvantagem é a notação, que utiliza `first` e
     `second` ao invés de `x` e `y`, sendo menos legível que o uso de classes e
-    estruturas. Além disso, não podem ser utilizados diretamente para 
+    estruturas. Além disso, não podem ser utilizados diretamente para
     representar pontos tridimensionais.
 
     ```C++
@@ -84,14 +84,14 @@ if (p < q) {    // Ok! Operador < para doubles utilizado
 #define x first
 #define y second
     ```
-    Contudo, ao usar tais macros, deve-se tomar cuidado pois todas as aparições 
-    de `x` e `y` serão substituídas por `first` e `second`. Logo a declaração de 
+    Contudo, ao usar tais macros, deve-se tomar cuidado pois todas as aparições
+    de `x` e `y` serão substituídas por `first` e `second`. Logo a declaração de
     uma variável com nome `x` pode levar a um erro de compilação.
 
-1. _arrays_ 
+1. _arrays_
 
-    Utilizar _arrays_ para representar pontos permite a representação de 
-    conjuntos de pontos com facilidade, além de permitir a travessia via 
+    Utilizar _arrays_ para representar pontos permite a representação de
+    conjuntos de pontos com facilidade, além de permitir a travessia via
     laço `for` por coordenada. Porém, peca na legibilidade (índices inteiros
     para acesso aos membros) e na necessidade de definição dos operadores.
 
@@ -112,7 +112,7 @@ if (p < q) {    // Perigo: comparação entre os endereços dos ponteiros! O
 Caso a representação para pontos escolhida não herde os comparadores padrão do
 C++, é necessário escrever os mesmos para a representação escolhida. Mesmo no
 caso do uso de pares, é necessário escrever ao menos o operador de comparação,
-para que o mesmo utilize o limiar _e_ (EPS) definido (ver seção 
+para que o mesmo utilize o limiar _e_ (EPS) definido (ver seção
 [Motivação](Motivacao.md)).
 
 Abaixo segue um exemplo de implementação do operador de igualdade:
@@ -146,16 +146,16 @@ bool operator<(const Point& p, const Point& q)
 
 Observe que a comparação acima é feita coordenada a coordenada.
 Em certas situações, pode ser necessário
-ordenar pontos por sua distância a origem ou algum outro critério: se for o 
+ordenar pontos por sua distância a origem ou algum outro critério: se for o
 caso, basta alterar a implementação para o critério desejado.
 
 ### Distância entre dois pontos
 
-A distância entre dois pontos pode ser computada utilizando o Teorema de 
+A distância entre dois pontos pode ser computada utilizando o Teorema de
 Pitágoras: o quadrado da distância é igual a soma dos quadrados das diferenças
 entre as respectivas coordenadas (tanto em duas quanto três dimensões). Se
 as coordenadas forem inteiras, pode-se comparar o quadrado diretamente, sem
-a extração da raiz quadrada: isto permite a obtenção da igualdade sem o 
+a extração da raiz quadrada: isto permite a obtenção da igualdade sem o
 recurso do limiar, o que aumenta a velocidade e a precisão do cálculo.
 
 ```C++
@@ -171,10 +171,10 @@ double distance(const Point& P, const Point& Q)
 }
 ```
 
-No caso bidimensional, o melhor é utilizar a função `hypot` da biblioteca 
+No caso bidimensional, o melhor é utilizar a função `hypot` da biblioteca
 matemática padrão do C/C++: além de computar a distância corretamente, ela
 trata de possíveis _underflows_ ou _overflows_ que possam vir a ocorrer
-durante o cálculo. 
+durante o cálculo.
 
 ```C++
 using point = pair<double, double>;
@@ -188,7 +188,7 @@ auto dist = hypot(p.first - q.first, p.second - q.second);  // #include <cmath>
 ### Vetores
 
 Um vetor pode se definido/entendido como um segmento de reta orientado.
-Embora os segmentos de reta sejam discutidos em maiores detalhes na seção 
+Embora os segmentos de reta sejam discutidos em maiores detalhes na seção
 [Retas](Retas.md), vale destacar a relação entre pontos e vetores.
 
 Dados dois pontos _A_ e _B_, denotaremos _AB_ o vetor que parte do ponto _A_ em
@@ -196,13 +196,13 @@ direção ao ponto _B_ (observe que _AB_ e _BA_ tem mesma direção e compriment
 mas orientações distintas).  O **vetor posição** de um ponto
 _P_ é o vetor que une a origem _O_ ao ponto _P_ (_OP_).
 
-Na prática, trabalha-se apenas com vetores-posição: o vetor posição 
-que corresponde ao vetor _AB_ é o vetor _v = (B.x - A.x, B.y - A.y)_. Deste 
+Na prática, trabalha-se apenas com vetores-posição: o vetor posição
+que corresponde ao vetor _AB_ é o vetor _v = (B.x - A.x, B.y - A.y)_. Deste
 modo, embora seja possível definir um tipo de dado para representar vetores,
-é possível utilizar pontos para representar vetores. Esta estratégia pode 
+é possível utilizar pontos para representar vetores. Esta estratégia pode
 dificultar a leitura das rotinas, há a vantagem da velocidade de codificação,
-devido a redução de código semelhante. A título de ilustração, segue uma 
-possível implementação da classe Vector (não confundir com o contêiner 
+devido a redução de código semelhante. A título de ilustração, segue uma
+possível implementação da classe Vector (não confundir com o contêiner
 `vector` da STL).
 ```C++
 // Definição da classe Point
@@ -217,15 +217,15 @@ public:
 };
 ```
 
-O comprimento (ou magnitude) de um vetor é dado pela distância entre seus 
+O comprimento (ou magnitude) de um vetor é dado pela distância entre seus
 pontos (no caso do vetor-posição, a distância do ponto até a origem). O ângulo
 que o vetor faz com o eixo-x positivo pode ser determinado pelo arco tangente
 da razão entre as coordenadas _y_ e _x_. Vale ressaltar que a função `atan` (
-que computa o arco tangente de um número) opera apenas no primeiro e quarto 
-quadrante do plano cartesiano (onde _x > 0 e -π/2 ≤ θ ≤ π/2_). Para superar 
+que computa o arco tangente de um número) opera apenas no primeiro e quarto
+quadrante do plano cartesiano (onde _x > 0 e -π/2 ≤ θ ≤ π/2_). Para superar
 esta limitação, basta somar π ao retorno da função caso _x < 0_ (atenção ao
 caso especial onde _x = 0_). Se o vetor for **degenerado** (isto é, liga a
-origem à origem), o ângulo não estará definido (a função abaixo resultará em 
+origem à origem), o ângulo não estará definido (a função abaixo resultará em
 `-nan`, isto é, _not a number_).
 ```C++
 #define PI 3.141592653589793
@@ -249,8 +249,8 @@ public:
 ### Translações e Rotações
 
 Um ponto _P_ pode ser transladado para outro ponto do espaço, conhecidos os
-deslocamentos _dx, dy_ nas direções paralelas aos eixos-_x_ e _y_, 
-respectivamente (na verdade, a operação acontece no vetor posição 
+deslocamentos _dx, dy_ nas direções paralelas aos eixos-_x_ e _y_,
+respectivamente (na verdade, a operação acontece no vetor posição
 correspondente).
 ```C++
 // Definição da estrutura Point
@@ -261,7 +261,7 @@ Point translate(const Point& P, double dx, double dy)
 }
 ```
 
-Um ponto _P_ pode ser rotacionado _b_ graus radianos em torno da origem (0, 0), 
+Um ponto _P_ pode ser rotacionado _b_ graus radianos em torno da origem (0, 0),
 no sentido anti-horário, através da multiplicação do vetor posição _v_
 de _P_ pela matriz de rotação _R_, dada abaixo.
 
@@ -269,7 +269,7 @@ de _P_ pela matriz de rotação _R_, dada abaixo.
 
 Esta matriz pode ser deduzida observando-se que as coordenadas do ponto podem
 ser expressas como `x = r cos a, y = r sin a` (onde _a_ é o ângulo que o vetor
-_v_ faz com o eixo-_x_ e _r_ é a magnitude de _V_) e 
+_v_ faz com o eixo-_x_ e _r_ é a magnitude de _V_) e
 que as coordenadas do ponto resultante
  da rotação são `x' = r cos (a + b), y' = r sin (a + b)`.
 
@@ -287,7 +287,7 @@ Point rotate(const Point& P, double angle)
 }
 ```
 
-Caso se deseje rotacionar o ponto _P_ em torno de outro ponto _C_ que não 
+Caso se deseje rotacionar o ponto _P_ em torno de outro ponto _C_ que não
 seja a origem
 (mais precisamente, outro eixo paralelo a _z_ que passe pelo ponto dado),
 basta seguir os três passos abaixo:
@@ -298,8 +298,8 @@ _C_, obtendo-se _P'_;
 3. Transladar _P'_, com deslocamentos iguais as coordenadas de _C_.
 
 A translação inicial muda o sistema de coordenadas do problema, o levando a
-um novo sistema onde _C_ é a origem. Assim, pode-se utilizar a rotina de 
-rotação em torno da origem e, ao final do processo, retornar ao sistema 
+um novo sistema onde _C_ é a origem. Assim, pode-se utilizar a rotina de
+rotação em torno da origem e, ao final do processo, retornar ao sistema
 original, com a translação inversa. Importante notar que as três operações
 devem ser realizadas exatamente na ordem descrita.
 ```C++
@@ -316,23 +316,23 @@ Point rotate(const Point& P, double angle, const Point& C)
 ```
 }
 
-O mesmo raciocínio se aplica em três dimensões: as matrizes de rotação 
+O mesmo raciocínio se aplica em três dimensões: as matrizes de rotação
 _Rx, Ry_ e _Rz_, que rotacionam, no sentido anti-horário, em torno dos eixos
 _x, y_ e _z_, respectivamente, são dadas abaixo.
 
 ![Matrizes de Rotação 3D](rotation3D.png)
 
 Dado um conjunto de pontos _P_, as operações de translação e rotação não alteram
-as distâncias entre os pares de pontos. Desta forma, se uma figura é 
+as distâncias entre os pares de pontos. Desta forma, se uma figura é
 descrita por um conjunto de pontos, todas as suas características que são
 baseadas em distâncias (ângulos internos, perímetro, área, volume, etc) são
-invariantes a estas duas transformações. Este importante fato pode ser 
-utilizado para simplificar problemas, como foi feito no caso da rotação de 
+invariantes a estas duas transformações. Este importante fato pode ser
+utilizado para simplificar problemas, como foi feito no caso da rotação de
 torno de um ponto arbitrário.
 
 ### Escala
 
-Outra transformação possível em um ponto (vetor posição) é a escala, que 
+Outra transformação possível em um ponto (vetor posição) é a escala, que
 consiste na multiplicação das coordenadas por um escalar. Se o mesmo escalar
 é utilizado em todos os produtos a escala é dita **uniforme**. Ao contrário
 das transformações anteriores, a escala não preserva as distâncias.
@@ -364,7 +364,7 @@ Vector normalize(const Vector& v)
 
 ### Produto interno e produto vetorial
 
-O **produto interno** entre dois vetores _u_ e _v_ é dado pela soma dos 
+O **produto interno** entre dois vetores _u_ e _v_ é dado pela soma dos
 produtos das coordenadas correspondentes dos dois vetores. Logo, o resultado
 deste produto não é um vetor, e sim um escalar.
 ```C++
@@ -377,7 +377,7 @@ double dot_product(const Vector& u, const Vector& v)
 ```
 
 É possível mostrar que este produto coincide com o produto do tamanho dos
-dois vetores e do cosseno do ângulo formado por estes vetores, conforme 
+dois vetores e do cosseno do ângulo formado por estes vetores, conforme
 mostra a expressão abaixo.
 
 ![Produto Escalar](dot.png)
@@ -414,9 +414,9 @@ a troca da ordem dos vetores altera o sentido do resultado. Para vetores
 bidimensionais, basta fazer a coordenada _z = 0_.
 
 O vetor resultante é perpendicular tanto a _u_ quanto a _v_, e pode-se mostrar
-que a magnitude deste vetor é igual ao produto dos comprimentos dos vetores 
+que a magnitude deste vetor é igual ao produto dos comprimentos dos vetores
 _u_ e _v_ pelo seno do ângulo formado por estes dois vetores, o que coincide
-com a área do paralelogramo (ver seção  [Quadriláteros](Quadrilateros.md)) 
+com a área do paralelogramo (ver seção  [Quadriláteros](Quadrilateros.md))
 formado por _u_ e _v_.
 ```C++
 // Definição da classe Vector

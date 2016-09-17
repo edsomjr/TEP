@@ -1,7 +1,7 @@
 Triângulos
 ----------
 
-Os triângulos são polígonos com três vértices e três arestas. É o mais 
+Os triângulos são polígonos com três vértices e três arestas. É o mais
 simples dos polígonos, mas guarda uma série de propriedades e características
 notáveis.
 
@@ -22,7 +22,7 @@ public:
 }
 ```
 
-A representação através dos vértices pode levar a um caso especial: se os 
+A representação através dos vértices pode levar a um caso especial: se os
 três pontos estiverem alinhados, o triângulo se degenera em um segmento de reta.
 
 ```C++
@@ -38,7 +38,7 @@ public:
 
 Já na representação pelas medidas dos três lados, o número de casos especiais
 aumenta: além do caso degenerado (quanto a soma de dois lados coincide com o
-terceiro), há o perigo das medidas não formarem um triângulo de fato: a 
+terceiro), há o perigo das medidas não formarem um triângulo de fato: a
 **Desigualdade Triangular** garante que, dadas as medidas _a, b, c_ dos lados
 do triâgulo, a soma de duas destas medidas é sempre maior do que a medida
 restante.
@@ -48,15 +48,15 @@ restante.
 Os triângulos podem ser classificados pela medida de seus lados ou de seus
 ângulos internos.
 
-Sejam _a, b, c_ as medidas dos três lados de um triângulo. O triângulo é dito 
-**equilátero** se _a = b = c_; **isósceles** se dois lados são iguais (e 
+Sejam _a, b, c_ as medidas dos três lados de um triângulo. O triângulo é dito
+**equilátero** se _a = b = c_; **isósceles** se dois lados são iguais (e
 diferentes do terceiro); ou **escaleno** se todos os três valores forem
 distintos.
 ```C++
 class Triangle {
 public:
     // Membros e construtor
-    
+
     typedef enum { EQUILATERAL, ISOSCELES, SCALENE } Sides;
 
     Sides classification_by_sides() const
@@ -75,10 +75,10 @@ public:
 Sejam _BC, AC, AB_ os ângulos opostos aos lados _a, b, c_ de um triângulo.
 O triângulo é dito **retângulo** se um dos três ângulo é igual a 90º;
 **obstusângulo** se um dos três ângulo é maior que 90º; ou **acutângulo** se
-todos os três ângulos forem menores que 90º (lembrando que 
+todos os três ângulos forem menores que 90º (lembrando que
 _AB + AC + BC = 180º_).
 
-É possível determinar os ângulos internos de um triângulo através da 
+É possível determinar os ângulos internos de um triângulo através da
 **Lei dos Cossenos**, enunciada abaixo.
 
 ![Lei dos Cossenos](cosine_law.png)
@@ -87,7 +87,7 @@ _AB + AC + BC = 180º_).
 class Triangle {
 public:
     // Membros e construtor
-    
+
     typedef enum { RIGHT, ACUTE, OBTUSE } Angles;
 
     Angles classification_by_angles() const
@@ -112,7 +112,7 @@ public:
 Se for necessário verificar apenas se o triângulo é retângulo ou não, basta
 utilizar o **Teorema de Pitágoras**: o quadrado da hipotenusa (maior lado) é
 igual a soma dos quadrados dos outros lados (catetos). O Teorema de Pitágoras
-pode ser deduzido da Lei dos Cossenos fazendo _c_ igual a hipotenusa e 
+pode ser deduzido da Lei dos Cossenos fazendo _c_ igual a hipotenusa e
 _AB = 90º_.
 
 ### Perímetro e área
@@ -122,7 +122,7 @@ O perímetro de um triângulo é igual a soma das medidas dos seus lados.
 class Triangle {
 public:
     // Membros e construtor
- 
+
     double perimeter() const
     {
         return a + b + c;
@@ -138,8 +138,8 @@ na representação por pontos ou pelas medidas, esta abordagem é pouco prática
 pois envolve o cálculo da altura.
 
 A segunda maneira é utilizar a **Fórmula de Heron**, dada abaixo,
-onde _A_ é a área do triângulo de lados _a, b, c_ e _s_ é o semiperímetro 
-(metade do perímetro). Esta abordagem é a mais 
+onde _A_ é a área do triângulo de lados _a, b, c_ e _s_ é o semiperímetro
+(metade do perímetro). Esta abordagem é a mais
 apropriada na representação do triângulo pela medida de seus lados.
 
 ![Fórmula de Heron](heron.png)
@@ -148,9 +148,9 @@ apropriada na representação do triângulo pela medida de seus lados.
 class Triangle {
 public:
     // Membros e construtor
-    
+
     // Perímetro
- 
+
     double area() const
     {
         auto s = perimetro() / 2.0;
@@ -173,19 +173,19 @@ coordenadas de seus vértices.
 class Triangle {
 public:
     // Membros e construtor
-    
+
     double area() const
     {
         double det = (A.x*B.y + A.y*C.x + B.x*C.y) - (C.x*B.y + C.y*A.x + B.x*A.y);
 
         return 0.5 * fabs(det);
-    } 
+    }
 }
 ```
 
 ### Lugares geométricos
 
-Um triângulo possui quatro lugares geométricos notáveis. O primeiro deles é o 
+Um triângulo possui quatro lugares geométricos notáveis. O primeiro deles é o
 **baricentro** (centróide ou centro de massa), que é o ponto de interseção entre
 as três **medianas** (segmentos de reta que unem um vértice ao ponto médio do
 lado oposto). O baricentro divide uma mediana na proporção de 2:1, isto é,
@@ -199,7 +199,7 @@ coordenadas dos vértices: serão a média aritmética entre as mesmas.
 class Triangle {
 public:
     // Membros e construtor
- 
+
     Point barycenter() const
     {
         auto x = (A.x + B.x + C.x) / 3.0;
@@ -215,13 +215,13 @@ ortocentro pode mesmo estar fora do triângulo (no caso de um obtusângulo).
 
 O **incentro** de um triângulo é o ponto de encontro de suas bissetrizes
 (retas que dividem um ângulo interno na metade). Além de ser sempre um ponto
-interior do triângulo, o incentro é o centro do círculo **inscrito** no 
+interior do triângulo, o incentro é o centro do círculo **inscrito** no
 triângulo, isto é, o maior círculo que cabe dentro do triângulo e que toca todos
 os seus três lados (os lados são tangentes ao círculo inscrito).
 
-O raio do círculo inscrito é dado pela razão entre o dobro da área e o 
+O raio do círculo inscrito é dado pela razão entre o dobro da área e o
 perímetro. As coordenadas do centro _O_ do círculo inscrito são obtidas pela
-média ponderada das coordenadas _x_ e _y_ pelos comprimentos dos lados 
+média ponderada das coordenadas _x_ e _y_ pelos comprimentos dos lados
 opostos. As fórmulas abaixo sintetizam estas afirmações.
 
 ![Círculo Inscrito](incircle.png)
@@ -232,11 +232,11 @@ opostos. As fórmulas abaixo sintetizam estas afirmações.
 class Triangle {
 public:
     // Membros e construtor
- 
+
     // Área e perímetro
 
     // Raio do círculo inscrito
-    double inradius() const 
+    double inradius() const
     {
         return (2 * area()) / perimeter();
     }
@@ -250,13 +250,13 @@ public:
 
         return Point(x, y);
     }
- 
+
 ```
 
 O **circuncentro** é o ponto de encontro entre as retas bisetoras perpendiculares
 (isto é, retas perpendiculares aos lados do triângulo que os interceptam nos
 pontos médios). O circuncentro é o centro do círculo circunscrito do triângulo,
-isto é, o círculo que passa pelos três vértices do triângulo. 
+isto é, o círculo que passa pelos três vértices do triângulo.
 
 O circuncentro, assim como o ortocentro, pode estar localizado do lado externo
 do triângulo. Um caso especial interessante é o do triângulo retângulo, onde o
@@ -274,7 +274,7 @@ determinadas pelas expressões abaixo, onde _|A|² = Ax² + Ay²_.
 class Triangle {
 public:
     // Membros e construtor
- 
+
     // Área e perímetro
 
     // Raio do círculo circunscrito
@@ -306,7 +306,7 @@ pelo baricentro, ortocentro e circuncentro, que estão sempre alinhados.
 
 A **Lei dos Senos** estipula uma relação entre os ângulos internos de um
 triângulo e seus lados opostos. Se _A, B, C_ são os ângulos internos opostos aos
-lados _a, b, c_, e _R_ é o raio do círculo circunscrito, então a razão entre 
+lados _a, b, c_, e _R_ é o raio do círculo circunscrito, então a razão entre
 o lado e o seno do ângulo oposto é igual a 2 vezes o raio _R_.
 
 ![Lei dos Senos](sinelaw.png)
@@ -317,7 +317,7 @@ o lado e o seno do ângulo oposto é igual a 2 vezes o raio _R_.
 class Triangle {
 public:
     // Membros e construtor
- 
+
     // Raio do círculo circunscrito
     double oposite_angle(double side) const
     {
@@ -351,7 +351,7 @@ public:
     1. [11479 - Is this the easiest problem?](https://uva.onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&page=show_problem&category=24&problem=2474&mosmsg=Submission+received+with+ID+17966551)
     1. [11854 - Egypt](https://uva.onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&page=show_problem&category=24&problem=2954&mosmsg=Submission+received+with+ID+17881809)
     1. [11909 - Soya Milk](https://uva.onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&category=24&page=show_problem&problem=3060)
- 
+
 ### Referências
 
 HALIM, Steve; HALIM, Felix. [Competitive Programming 3](http://cpbook.net/), Lulu, 2013.

@@ -1,21 +1,21 @@
 Motivação
 ---------
 
-A Geometria Computacional é uma área recente (anos 70), mas ainda assim é um 
-tópico frequente em maratonas de programação. 
-Contudo, os competidores devem postergar a solução de problemas desta área 
+A Geometria Computacional é uma área recente (anos 70), mas ainda assim é um
+tópico frequente em maratonas de programação.
+Contudo, os competidores devem postergar a solução de problemas desta área
 para o meio ou o fim do _contest_, pois a probabilidade de um AC é baixa por
 tais problemas
 
 1. possuírem muitos _corner cases_, e estes casos especiais devem ser tratados
 com atenção e cuidado;
-1. poderem receber WA devido erros de precisão inerentes às variáveis em ponto 
+1. poderem receber WA devido erros de precisão inerentes às variáveis em ponto
 flutuante;
 1. envolverem operações que são triviais quando feitas com caneta e lápis, mas se
 tornam razoavelmente complicadas quando precisam ser implementadas em computador;
 1. apresentarem uma solução cuja codificação pode ser longa e tediosa.
 
-Para atacar tais problemas, o competidor tem que se preparar previamente, 
+Para atacar tais problemas, o competidor tem que se preparar previamente,
 registrando, em suas anotações, as fórmulas básicas e implementações testadas
 dos algoritmos clássicos da geometria.
 
@@ -42,19 +42,19 @@ o teste de igualdades:
 **double** ao invés de **float**;
 1. tomar cuidado com a impressão do zero: em determinados casos, pode ser
 impresso o sinal de negativo!
-1. atentar às retas verticais, as quais podem constituir casos especiais do 
+1. atentar às retas verticais, as quais podem constituir casos especiais do
 problema.
 
-Há 3 abordagens possíveis para um problema de Geometria Computacional: 
+Há 3 abordagens possíveis para um problema de Geometria Computacional:
 
-1. **Geometria Analítica**: as figuras geométricas são localizadas no espaço 
+1. **Geometria Analítica**: as figuras geométricas são localizadas no espaço
 através das coordenadas de seus pontos/vértices. São usadas equações para
 representar figuras e relações, e novas relações podem ser deduzidas através
 da combinação e manipulação destas expressões. É a abordagem mais comum das
 três;
 1. **Geometria Plana**: as figuras são descritas por suas propriedades, e a
 posição absoluta no espaço não é importante, apenas a distância relativa entre
-duas ou mais figuras. As relações são descobertas através de simetrias e 
+duas ou mais figuras. As relações são descobertas através de simetrias e
 semelhanças. É a abordagem menos comum, mas pode simplificar os problemas
 quando bem utilizada;
 1. **Álgebra Linear**: segmentos de retas são interpretados como vetores, e
@@ -66,7 +66,7 @@ Analítica.
 Um bom competidor deve dominar as três abordagens, principalmente a primeira e
 a última. A primeira leva a fórmulas fechadas em vários casos, e é útil para
 montar o material de consulta. As técnicas da terceira podem ser utilizadas
-nas maratonas para procurar relações, simplificar problemas ou evitar 
+nas maratonas para procurar relações, simplificar problemas ou evitar
 _corner cases_, e deve ser praticada sempre que possível.
 
 ### Referências
