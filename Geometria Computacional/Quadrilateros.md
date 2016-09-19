@@ -163,6 +163,7 @@ _A = (Dd)/2_.
 
 ### Exercícios
 
+<!--- 155 - Padrões, interseção ponto/quadrado -->
 <!--- 490 - Interseção de retângulos -->
 <!--- 11207 - Divisão de retângulos em quadrados -->
 <!--- 11000 - Identificação de quadriláteros, ccw, dot() e cross() -->
@@ -173,6 +174,7 @@ _A = (Dd)/2_.
 <!--- 12256 - Desigualdade "Quadrangular", DP -->
 <!--- 1A - Divisão de retângulos em quadrados -->
 1. UVA
+    1. [155 - All Squares](https://uva.onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&page=show_problem&category=24&problem=91&mosmsg=Submission+received+with+ID+18024857)
     1. [490 - Overlapping Rectangles](https://uva.onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&category=24&page=show_problem&problem=401)
     1. [11207 - The easiest way](https://uva.onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&page=show_problem&category=24&problem=2148&mosmsg=Submission+received+with+ID+17770469)
     1. [11345 - Rectangles](https://uva.onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&page=show_problem&category=24&problem=2320&mosmsg=Submission+received+with+ID+18024702)
