@@ -3,7 +3,7 @@ Quadriláteros
 
 Quadriláteros são figuras geométricas bidimensionais compostas por quatro
 vértices, quatro arestas e quatro ângulos internos. As relações entre o lados
-e os ângulos internos permitem a classificação dos quadriláteros, sendo o 
+e os ângulos internos permitem a classificação dos quadriláteros, sendo o
 retângulo o mais comum dentre eles.
 
 ### Retângulos
@@ -12,7 +12,7 @@ Um **retângulo** é um quadrilátero com os quatro ângulos internos iguais (ca
 ângulo tem 90º: a soma dos ângulos internos de um quadrilátero é igual a
 360º).
 
-Os pares de lados opostos (paralelos) de um retângulo são denominados **base** e 
+Os pares de lados opostos (paralelos) de um retângulo são denominados **base** e
 **altura**. Deste modo, um retângulo pode ser representado de duas formas:
 a primeira dleas é através da medida de sua base e sua altura.
 ```C++
@@ -23,7 +23,7 @@ public:
     Rectangle(double base, double height) : b(base), h(height) {}
 };
 ```
-A segunda maneira é representar o triângulo através das coordenadas de vértices 
+A segunda maneira é representar o triângulo através das coordenadas de vértices
 opostos. Na matemática o mais comum é utilizar o canto inferior esquerdo e o
 canto superior direito; na computação gráfica, é o contrário: o canto superior
 esquerdo e o canto inferior direito. Esta representação tem a vantagem porque
@@ -43,7 +43,7 @@ public:
         h = fabs(P.y - Q.y);
     }
 
-    Rectangle(double base, double height) 
+    Rectangle(double base, double height)
         : P(0, 0), Q(base, height), b(base), h(height) {}
 };
 ```
@@ -65,14 +65,14 @@ public:
     }
 };
 ```
-Um **quadrado** é um retângulo com lados iguais. Não há necessidade de 
+Um **quadrado** é um retângulo com lados iguais. Não há necessidade de
 implementar uma classe à parte para os quadrados, uma vez que todos os
 resultados válidos para os retângulos permanecem válidos para os quadrados.
 
 A interseção entre dois retângulos pode ser determinada a partir da interseção
-entre dos intervalos referentes às projeções dos retângulos nos eixos _x_ e 
+entre dos intervalos referentes às projeções dos retângulos nos eixos _x_ e
 _y_. A interseção pode ser vazia (não há interseção), um segmento de reta ou
-um retângulo. Os últimos dois cenários podem ser diferenciados através da 
+um retângulo. Os últimos dois cenários podem ser diferenciados através da
 área do retângulo resultante (área igual a zero significa um segmento de reta).
 ```C++
 // Definição da classe Point
@@ -95,7 +95,7 @@ public:
 
         I = interval(min(P.y, Q.y), may(P.y, Q.y));
         U = interval(min(r.P.y, r.Q.y), may(r.P.y, r.Q.y));
- 
+
         auto c = max(I.first, U.first);
         auto d = min(I.second, U.second);
 
@@ -107,10 +107,10 @@ public:
         return true;
     }
 };
-``` 
+```
 
 O caso geral, os lados do retângulo não estão alinhados com os eixos _x_ e _y_,
-pode ser tratado interpretando o retângulo como um [polígono](Polygon.md) de 
+pode ser tratado interpretando o retângulo como um [polígono](Polygon.md) de
 quatro lados.
 
 ### Trapézios
@@ -119,7 +119,7 @@ Um **trapézio** é um quadrilátero que possui apenas um par de lados
 paralelos. Quando os lados não-paralelos são iguais, o trapézio é dito
 **isósceles**.
 
-Os lados paralelos são denominados **base maior** (_B_) e **base menor** 
+Os lados paralelos são denominados **base maior** (_B_) e **base menor**
 (_b_). A distância entre os lados paralelos é denominada **altura** (_h_).
 ```C++
 class Trapezium {
@@ -146,8 +146,8 @@ public:
 
 ### Paralelogramos
 
-Um **paralelogramo** é um quadrilátero cujos lados opostos são paralelos. 
-Além do retângulo e do quadrado, outro paralelogramo notável é o 
+Um **paralelogramo** é um quadrilátero cujos lados opostos são paralelos.
+Além do retângulo e do quadrado, outro paralelogramo notável é o
 **losango**, que é um paralelogramo cujos lados opostos são iguais (mas não
 necessariamente os ângulos internos).
 

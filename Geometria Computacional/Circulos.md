@@ -22,7 +22,7 @@ public:
 ```
 
 A equação do círculo pode ser deduzida a partir da expressão _d(P, C) = r_,
-onde _P = (x, y)_ é um ponto do círculo, _C = (x0, y0)_ é o centro do círculo 
+onde _P = (x, y)_ é um ponto do círculo, _C = (x0, y0)_ é o centro do círculo
 e _r_ é o raio. A equação final é dada a seguir.
 
 ![Equação do Círculo](circle.png)
@@ -33,7 +33,7 @@ como veremos a seguir.
 
 ### Relação entre círculos e pontos
 
-Dado um ponto _P_ e um círculo de centro _C_ e raio _r_, uma (e apenas uma) 
+Dado um ponto _P_ e um círculo de centro _C_ e raio _r_, uma (e apenas uma)
 das três afirmações abaixo será verdadeira:
 
 1. _P_ está dentro do círculo;
@@ -68,8 +68,8 @@ public:
 
 Tanto o cálculo do perímetro quanto da área de um círculo envolvem o uso da
 constante PI. Caso o problema não informe o valor a ser utilizado, há duas
-maneira de proceder para determinar o valor desta constante. A primeira é 
-utilizar o valor definido na linguagem python, que pode ser obtido com o 
+maneira de proceder para determinar o valor desta constante. A primeira é
+utilizar o valor definido na linguagem python, que pode ser obtido com o
 script abaixo.
 ```Python
 from math import *
@@ -125,9 +125,9 @@ public:
 ### Arcos e cordas
 
 Um **arco** de um círculo corresponde a uma seção conectada da circunferência.
-O comprimento do arco pode ser determinado através do ângulo central _a_ 
+O comprimento do arco pode ser determinado através do ângulo central _a_
 (definido pela união dos dois pontos extremos do arco entre si e com o centro
-do círculo) através do produto do perímetro P e a razão entre _a_ e _2PI_ 
+do círculo) através do produto do perímetro P e a razão entre _a_ e _2PI_
 (caso _a_ esteja em radianos).
 
 ```C++
@@ -191,9 +191,9 @@ public:
 };
 ```
 
-Um **segmento** de um círculo, associado a um ângulo central _a_, corresponde à 
+Um **segmento** de um círculo, associado a um ângulo central _a_, corresponde à
 área resultante da diferença entre o setor delimitado por _a_ e do triângulo
-resultante do segmentos de reta que unem os extremos dos arcos ao centro do 
+resultante do segmentos de reta que unem os extremos dos arcos ao centro do
 círculo e os extremos entre si (a corda). A área deste triângulo pode ser
 determinada pela Fórmula de Heron (semiperímetro).
 
@@ -217,7 +217,7 @@ public:
 
 ### Construção de círculos a partir de pontos
 
-É possível identificar o(s) círculo(s) que interceptam um conjunto de _N_ 
+É possível identificar o(s) círculo(s) que interceptam um conjunto de _N_
 pontos dados.
 
 No caso de _N = 1_, existem infinitos círculos (com infinitos raios possíveis)
@@ -231,8 +231,8 @@ diâmetro do círculo, existe um único círculo de raio _r_ que passa por _P_ e
 _Q_. O centro deste círculo será o ponto médio do segmento _PQ_;
 1. _dist(P, Q) < 2r_: neste caso, nenhum círculo de _r_ pode passar por ambos
 pontos simultaneamente
-1. _dist(P, Q) > 2r_: neste caso, exatamente dois círculos passam por _P_ e 
-_Q_ com raio _r_. O código abaixo, adaptado do livro 
+1. _dist(P, Q) > 2r_: neste caso, exatamente dois círculos passam por _P_ e
+_Q_ com raio _r_. O código abaixo, adaptado do livro
 [Competitive Programming 3](http://cpbook.net/), permite identificar um destes
 círculos. O outro pode ser encontrado invertendo os parâmetros (passar _Q_
 como primeiro e _P_ como segundo parâmetro).
@@ -269,14 +269,14 @@ O método retorna falso se a distância entre os pontos é menor que o diâmetro
 Nos demais casos, o círculo _c_, passado por referência, contém o centro e o
 raio de um círculo que intercepta ambos _P_ e _Q_.
 
-Para o caso _N = 3_ há uma interessante relação: se os pontos _P, Q, R_ não são 
+Para o caso _N = 3_ há uma interessante relação: se os pontos _P, Q, R_ não são
 colineares, a equação do círculo que passa por estes três pontos pode ser
 expressa pelo determinante abaixo.
 
 ![Equação do círculo que passa por 3 pontos](discriminante4D.png)
 
 Este determinante também pode ser utilizado para determinar se 4 pontos são
-cocirculares, substuindo as coordenadas do quarto ponto nas variáveis da 
+cocirculares, substuindo as coordenadas do quarto ponto nas variáveis da
 primeira linha.
 
 Contudo, a implementação desta determinante não é trivial, uma vez que é preciso
@@ -315,7 +315,7 @@ Circle circle_from_3_points(const Point& P, const Point& Q, const Point& R)
     return Circle(C, r);
 }
 ```
-    
+
 ### Interseção entre dois círculos
 
 Dados dois círculos com centros _C1, C2_ e raios _r1, r2_, existem cinco
@@ -330,7 +330,7 @@ de interseção;
 4. se _d == r1 + r2_, os círculos se interceptam em um único ponto;
 5. nos demais casos, há dois pontos na interseção entre os círculos.
 
-Se _C1 = (x1, y1)_ e _C2 = (x2, y2)_, então as coordenadas dos pontos de 
+Se _C1 = (x1, y1)_ e _C2 = (x2, y2)_, então as coordenadas dos pontos de
 interseção _P1_ e _P2_ são dadas pelas expressões abaixo.
 
 ![Interseção entre dois círculos](circle_intersection.png)
@@ -350,7 +350,7 @@ ipp intersection(const Circle& c1, const Circle& c2)
     if (d > c1.r + c2.r or d < fabs(c1.r - c2.r))
         return ipp(0, pp(Point(), Point()));
 
-    if (d == 0 and equals(c1.r, c2.r))
+    if (equals(d, 0) and equals(c1.r, c2.r))
         return ipp(INF, pp(Point(), Point()));
 
     auto a = (c1.r * c1.r - c2.r * c2.r + d * d)/(2 * d);
@@ -401,14 +401,14 @@ ipp intersection(const Circle& c, const Point& P, const Point& Q)
 {
     auto a = pow(Q.x - P.x, 2.0) + pow(Q.y - P.y, 2.0);
     auto b = 2*((Q.x - P.x) * (P.x - c.C.x) + (Q.y - P.y) * (P.y - c.C.y));
-    auto d = pow(c.C.x, 2.0) + pow(c.C.y, 2.0) + pow(P.x, 2.0) + pow(P.y, 2.0) 
+    auto d = pow(c.C.x, 2.0) + pow(c.C.y, 2.0) + pow(P.x, 2.0) + pow(P.y, 2.0)
         + 2*(c.C.x * P.x + c.C.y * P.y);
 
     auto D = b * b - 4 * a * d;
 
     if (D < 0)
         return ipp(0, pp(Point(), Point()));
-    else if (D == 0)
+    else if (equals(D, 0))
     {
         auto u = -b/(2*a);
 
@@ -416,7 +416,7 @@ ipp intersection(const Circle& c, const Point& P, const Point& Q)
         auto y = P.y + u*(Q.y - P.y);
 
         return ipp(1, pp(Point(x, y), Point()));
-    } 
+    }
 
     auto u = (-b + sqrt(D))/(2*a);
 
