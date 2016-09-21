@@ -101,6 +101,15 @@ public:
 };
 ```
 
+A área também pode ser computada através do conhecimento do número de lados
+_n_ e um dos três valores abaixo:
+
+1. comprimento de um dos lados (_s_);
+1. apótema, ou raio do círculo inscrito (_r_);
+1. raio do círculo circunscrito (_R_);
+
+![Área do Polígono Regular](area_polygon.png)
+
 ### Polígonos côncavos e convexos
 
 Um polígono é dito **convexo** se, para quaisquer dois pontos _P_ e _Q_
@@ -444,5 +453,7 @@ Algorithm_ e o algoritmo _Jarvis's March_.
 HALIM, Steve; HALIM, Felix. [Competitive Programming 3](http://cpbook.net/), Lulu, 2013.
 
 Math Open Reference. [Incircle of a Polygon](http://www.mathopenref.com/polygonincircle.html). Acesso em 18/08/2016.
+
+Mathwords. [Area of a Regular Polygon](http://www.mathwords.com/a/area_regular_polygon.htm). Acesso em 20/09/2016.
 
 Wikipédia. [Regular Polygon](https://en.wikipedia.org/wiki/Regular_polygon#Circumradius). Acesso em 18/08/2016.
