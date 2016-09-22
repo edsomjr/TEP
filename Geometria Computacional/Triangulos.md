@@ -40,7 +40,7 @@ Já na representação pelas medidas dos três lados, o número de casos especia
 aumenta: além do caso degenerado (quanto a soma de dois lados coincide com o
 terceiro), há o perigo das medidas não formarem um triângulo de fato: a
 **Desigualdade Triangular** garante que, dadas as medidas _a, b, c_ dos lados
-do triâgulo, a soma de duas destas medidas é sempre maior do que a medida
+do triângulo, a soma de duas destas medidas é sempre maior do que a medida
 restante.
 
 ### Classificação de triângulos
@@ -49,8 +49,8 @@ Os triângulos podem ser classificados pela medida de seus lados ou de seus
 ângulos internos.
 
 Sejam _a, b, c_ as medidas dos três lados de um triângulo. O triângulo é dito
-**equilátero** se _a = b = c_; **isósceles** se dois lados são iguais (e
-diferentes do terceiro); ou **escaleno** se todos os três valores forem
+**equilátero** se _a = b = c_; **isósceles** se dois lados são iguais; 
+ou **escaleno** se todos os três valores forem
 distintos.
 ```C++
 class Triangle {
@@ -74,7 +74,7 @@ public:
 
 Sejam _BC, AC, AB_ os ângulos opostos aos lados _a, b, c_ de um triângulo.
 O triângulo é dito **retângulo** se um dos três ângulo é igual a 90º;
-**obstusângulo** se um dos três ângulo é maior que 90º; ou **acutângulo** se
+**obtusângulo** se um dos três ângulo é maior que 90º; ou **acutângulo** se
 todos os três ângulos forem menores que 90º (lembrando que
 _AB + AC + BC = 180º_).
 
@@ -92,16 +92,16 @@ public:
 
     Angles classification_by_angles() const
     {
-        auto AB = acos((c*c - a*a - b*b)/(2*a*b));
-        auto AC = acos((b*b - a*a - c*c)/(2*a*c));
-        auto BC = acos((a*a - b*b - c*c)/(2*b*c));
+        auto AB = acos((c*c - a*a - b*b)/(-2*a*b));
+        auto AC = acos((b*b - a*a - c*c)/(-2*a*c));
+        auto BC = acos((a*a - b*b - c*c)/(-2*b*c));
 
         auto right = PI / 2.0;
 
-        if (equals(AB, right) or equals(AC, right) or equals(BC, right))
+        if (equals(AB, right) || equals(AC, right) || equals(BC, right))
             return RIGHT;
 
-        if (AB > right or AC > right or BC > right)
+        if (AB > right || AC > right || BC > right)
             return OBTUSE;
 
         return ACUTE;
@@ -132,7 +132,8 @@ public:
 
 A área delimitada pelo triângulo pode ser determinada de três maneiras.
 A primeira delas é computar a metade do produto entre a **base** (o comprimento
-de um dos lados do triângulo) e a **altura** (segmento de reta, ortogonal à base,
+de um dos lados do triângulo) e a **altura** (segmento de reta, perpendicular
+ à base,
 com um ponto sobre a base e o outro no vértice oposto a esta). Contudo,
 na representação por pontos ou pelas medidas, esta abordagem é pouco prática,
 pois envolve o cálculo da altura.
@@ -160,6 +161,25 @@ public:
 }
 ```
 
+Observe que, caso exista a possibilidade de _overflow_ no produto dos quatro
+termos que estão dentro da raiz, deve-se tirar a raiz de cada fator antes de
+fazer o produto.
+
+Existem variantes da fórmula de Heron que permitem o cálculo da área do 
+triângulo em termos de outras medidas, como as medianas, as alturas ou os
+ângulos internos. Se _ma, mb, mc_ são as medidas das medianas, então
+
+![Área em função das medianas](area_medianas.png)
+
+Se _ha, hb, hc_ são medidas as alturas, então
+
+![Área em função das alturas](area_alturas.png)
+
+Por fim, sendo usando a notação de lados e ângulos já estabelecida, é possível
+computar a área, conhecidos os três ângulos e apenas um dos três lados:
+
+![Área em função dos ângulos](area_angulos.png)
+
 A terceira maneira é computar a área a partir das coordenadas dos vértices.
 Se os vértices de um triângulo são _P = (x1, y1), Q = (x2, y2), R = (x3, y3)_,
 a área _A_ do triângulo é dada pela metade do módulo do determinante mostrado
@@ -186,7 +206,7 @@ public:
 ### Lugares geométricos
 
 Um triângulo possui quatro lugares geométricos notáveis. O primeiro deles é o
-**baricentro** (centróide ou centro de massa), que é o ponto de interseção entre
+**baricentro** (centroide ou centro de massa), que é o ponto de interseção entre
 as três **medianas** (segmentos de reta que unem um vértice ao ponto médio do
 lado oposto). O baricentro divide uma mediana na proporção de 2:1, isto é,
 ele está a um terço de distância do lado oposto.
@@ -253,7 +273,7 @@ public:
 
 ```
 
-O **circuncentro** é o ponto de encontro entre as retas bisetoras perpendiculares
+O **circuncentro** é o ponto de encontro entre as retas bisectoras perpendiculares
 (isto é, retas perpendiculares aos lados do triângulo que os interceptam nos
 pontos médios). O circuncentro é o centro do círculo circunscrito do triângulo,
 isto é, o círculo que passa pelos três vértices do triângulo.
@@ -361,3 +381,5 @@ Math Open Reference. [Orthocenter of a Triangle](http://www.mathopenref.com/tria
 Math Open Reference. [Incenter of a Triangle](http://www.mathopenref.com/coordincenter.html). Acesso em 22/08/2016.
 
 Wikipedia. [Circumscribed Circle](https://en.wikipedia.org/wiki/Circumscribed_circle#Circumcircle_equations). Acesso em 27/07/2016.
+
+Wikipedia. [Heron's formula](https://en.wikipedia.org/wiki/Heron%27s_formula). Acesso em 22/09/2016.
