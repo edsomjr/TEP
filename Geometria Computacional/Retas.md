@@ -322,7 +322,7 @@ pair<int, Point> intersections(const Line& r, const Line& s)
     } else
     {
         // Concorrentes
-        auto x = (-r.c * s*b + s.c * r.b) / det;
+        auto x = (-r.c * s.b + s.c * r.b) / det;
         auto y = (-s.c * r.a + r.c * s.a) / det;
 
         return pair<int, Point>(1, Point(x, y));
