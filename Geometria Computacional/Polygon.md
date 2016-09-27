@@ -435,6 +435,7 @@ Algorithm_ e o algoritmo _Jarvis's March_.
 
 <!--- 1C - Área do polígono regular inscrito --->
 <!--- 478 - Verificação de pontos no interior de círculos e polígonos -->
+<!--- 681 - Convex hull -->
 <!--- 1111 - Convex hull, distância entre ponto e reta -->
 <!--- 10432 - Área do polígono regular inscrito -->
 <!--- 10451 - Área do círculos inscritos e circunscritos -->
@@ -444,6 +445,7 @@ Algorithm_ e o algoritmo _Jarvis's March_.
     1. [1C - Ancient Berland Circus](http://codeforces.com/problemset/problem/1/C)
 1. UVA
     1. [478 - Points in Figures: Rectangles, Circles, Triangles](https://uva.onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&category=16&page=show_problem&problem=419)
+    1. [681 - Convex Hull Finding](https://uva.onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&page=show_problem&category=24&problem=622&mosmsg=Submission+received+with+ID+18073756)
     1. [1111 - Trash Removal](https://uva.onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&category=24&page=show_problem&problem=3552)
     1. [10432 - Polygon Inside A Circle](https://uva.onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&page=show_problem&category=24&problem=1373&mosmsg=Submission+received+with+ID+17856547)
     1. [10451 - Ancient Village Sports](https://uva.onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&category=24&page=show_problem&problem=1392)
