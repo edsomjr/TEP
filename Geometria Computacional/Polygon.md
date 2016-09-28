@@ -434,6 +434,7 @@ Algorithm_ e o algoritmo _Jarvis's March_.
 ### Exercícios
 
 <!--- 1C - Área do polígono regular inscrito --->
+<!--- 218 - Convex hull, impressão, perímetro -->
 <!--- 478 - Verificação de pontos no interior de círculos e polígonos -->
 <!--- 681 - Convex hull -->
 <!--- 1111 - Convex hull, distância entre ponto e reta -->
@@ -444,6 +445,7 @@ Algorithm_ e o algoritmo _Jarvis's March_.
 1. Codeforces
     1. [1C - Ancient Berland Circus](http://codeforces.com/problemset/problem/1/C)
 1. UVA
+    1. [218 - Moth Eradication](https://uva.onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&page=show_problem&category=24&problem=154&mosmsg=Submission+received+with+ID+18082611)
     1. [478 - Points in Figures: Rectangles, Circles, Triangles](https://uva.onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&category=16&page=show_problem&problem=419)
     1. [681 - Convex Hull Finding](https://uva.onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&page=show_problem&category=24&problem=622&mosmsg=Submission+received+with+ID+18073756)
     1. [1111 - Trash Removal](https://uva.onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&category=24&page=show_problem&problem=3552)
