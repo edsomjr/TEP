@@ -442,6 +442,7 @@ Algorithm_ e o algoritmo _Jarvis's March_.
 <!--- 10451 - Área do círculos inscritos e circunscritos -->
 <!--- 10652 - Convex hull, rotações, área de polígonos -->
 <!--- 11265 - Corte de polígonos por retas, área de polígonos -->
+<!--- 11626 - Monotone Chain Convex hull -->
 1. Codeforces
     1. [1C - Ancient Berland Circus](http://codeforces.com/problemset/problem/1/C)
 1. UVA
@@ -453,6 +454,7 @@ Algorithm_ e o algoritmo _Jarvis's March_.
     1. [10451 - Ancient Village Sports](https://uva.onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&category=24&page=show_problem&problem=1392)
     1. [10652 - Board Wrapping](https://uva.onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&page=show_problem&category=763&problem=1593&mosmsg=Submission+received+with+ID+17845295)
     1. [11265 - The Sultan's Problem](https://uva.onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&page=show_problem&category=24&problem=2232&mosmsg=Submission+received+with+ID+17859560)
+    1. [11626 - Convex Hull](https://uva.onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&page=show_problem&category=24&problem=2673&mosmsg=Submission+received+with+ID+18086820)
 
 ### Referências
 
