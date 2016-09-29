@@ -2,7 +2,8 @@ Circulos
 --------
 
 Um círculo é o conjunto de pontos equidistantes de um ponto _C_. A distância
-de um ponto do círculo ao seu **centro** _C_ é denominada **raio** do círculo.
+de um ponto do círculo ao seu **centro** _C_ é denominada **raio** _r_ do 
+círculo.
 
 ### Representação de círculos
 
@@ -67,9 +68,9 @@ public:
 ### Perímetro e Área
 
 Tanto o cálculo do perímetro quanto da área de um círculo envolvem o uso da
-constante PI. Caso o problema não informe o valor a ser utilizado, há duas
+constante _PI_. Caso o problema não informe o valor a ser utilizado, há duas
 maneira de proceder para determinar o valor desta constante. A primeira é
-utilizar o valor definido na linguagem python, que pode ser obtido com o
+utilizar o valor definido na linguagem Python, que pode ser obtido com o
 script abaixo.
 ```Python
 from math import *
@@ -87,8 +88,8 @@ const double PI = 2.0 * acos(0.0);
 ```
 O valor obtido coincide com aquele fornecido pelo _script_ Python.
 
-O perímetro é o comprimento do contorno do círculo, e é igual a PI vezes o seu
-diâmetro, sendo o diâmetro o dobro do raio do círculo.
+O perímetro (circunferência) é o comprimento do contorno do círculo, e é 
+igual a PI vezes o seu diâmetro, sendo o diâmetro o dobro do raio do círculo.
 ```C++
 // Definição do valor de PI
 
@@ -128,7 +129,8 @@ Um **arco** de um círculo corresponde a uma seção conectada da circunferênci
 O comprimento do arco pode ser determinado através do ângulo central _a_
 (definido pela união dos dois pontos extremos do arco entre si e com o centro
 do círculo) através do produto do perímetro P e a razão entre _a_ e _2PI_
-(caso _a_ esteja em radianos).
+(caso _a_ esteja em radianos). A simplificação desta razão nos leva a
+_a*r_.
 
 ```C++
 // Definição do valor de PI
@@ -141,7 +143,7 @@ public:
 
     double arc(double a) const
     {
-        return (a / (2*PI)) * perimeter();
+        return a * r;
     }
 };
 ```
@@ -173,7 +175,8 @@ public:
 
 Um **setor** de um círculo é a área delimitada por um arco. Assim como no caso
 do arco, a área do setor será a fração da área total correspondente ao ângulo
-central _a_ do arco que delimita o setor.
+central _a_ do arco que delimita o setor. A simplificação desta fração nos
+leva a _ar²/2_.
 
 ```C++
 // Definição do valor de PI
@@ -186,7 +189,7 @@ public:
 
     double sector(double a) const
     {
-        return (a / (2*PI)) * area();
+        return a * r * r / 2.0;
     }
 };
 ```
@@ -215,6 +218,24 @@ public:
 };
 ```
 
+Considerando que _T_ é um triângulo com base igual a corda e altura igual a
+_rcos(a/2)_, chegamos a expressão fechada para o segmento:
+_ar²(a - sen a)/2_.
+
+```C++
+class Circle {
+public:
+
+    // Membros e construtores
+    // Setor e corda
+
+    double segment(double a) const
+    {
+        return r*r*(a - sin(a))/2.0;
+    }
+};
+```
+
 ### Construção de círculos a partir de pontos
 
 É possível identificar o(s) círculo(s) que interceptam um conjunto de _N_
@@ -229,9 +250,9 @@ os cenários possíveis são:
 1. _dist(P, Q) = 2r_: se a distância entre os dois pontos dados é igual ao
 diâmetro do círculo, existe um único círculo de raio _r_ que passa por _P_ e
 _Q_. O centro deste círculo será o ponto médio do segmento _PQ_;
-1. _dist(P, Q) < 2r_: neste caso, nenhum círculo de _r_ pode passar por ambos
+1. _dist(P, Q) > 2r_: neste caso, nenhum círculo de _r_ pode passar por ambos
 pontos simultaneamente
-1. _dist(P, Q) > 2r_: neste caso, exatamente dois círculos passam por _P_ e
+1. _dist(P, Q) < 2r_: neste caso, exatamente dois círculos passam por _P_ e
 _Q_ com raio _r_. O código abaixo, adaptado do livro
 [Competitive Programming 3](http://cpbook.net/), permite identificar um destes
 círculos. O outro pode ser encontrado invertendo os parâmetros (passar _Q_
@@ -276,7 +297,7 @@ expressa pelo determinante abaixo.
 ![Equação do círculo que passa por 3 pontos](discriminante4D.png)
 
 Este determinante também pode ser utilizado para determinar se 4 pontos são
-cocirculares, substuindo as coordenadas do quarto ponto nas variáveis da
+cocirculares, substituindo as coordenadas do quarto ponto nas variáveis da
 primeira linha.
 
 Contudo, a implementação desta determinante não é trivial, uma vez que é preciso
