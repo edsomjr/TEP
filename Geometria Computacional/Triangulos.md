@@ -339,7 +339,7 @@ public:
     // Membros e construtor
 
     // Raio do círculo circunscrito
-    double oposite_angle(double side) const
+    double opposite_angle(double side) const
     {
         auto R = circumradius();
 
