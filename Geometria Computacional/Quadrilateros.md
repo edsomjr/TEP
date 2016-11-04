@@ -56,7 +56,7 @@ public:
 
     double perimeter() const
     {
-        return 2 * b * h;
+        return 2 * (b + h);
     }
 
     double area() const
