@@ -116,7 +116,7 @@ _n_ e um dos três valores abaixo:
 
 Um polígono é dito **convexo** se, para quaisquer dois pontos _P_ e _Q_
 localizados no interior do polígono, o segmento de reta _PQ_ não intercepta
-nenhuma das arestas do polígono. Caso contrário, o polígono é dito **convexo**.
+nenhuma das arestas do polígono. Caso contrário, o polígono é dito **côncavo**.
 
 É possível determinar se um polígono é ou não convexo sem recorrer à busca
 completa (isto é, testar todos os possíveis pares de pontos interiores ao
