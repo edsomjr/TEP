@@ -50,7 +50,8 @@ três vértices.
 
 ### Perímetro e área
 
-O perímetro de um polígono pode ser calculado diretamente da representação
+O perímetro de um polígono pode ser calculado diretamente a partir da 
+representação
 proposta, pois consiste na medida do contorno do polígono, isto é, a soma dos
 comprimentos de cada aresta.
 ```C++
@@ -101,7 +102,8 @@ public:
 };
 ```
 
-A área também pode ser computada através do conhecimento do número de lados
+Caso o polígono seja regular (isto é, todos os lados tenham a mesma medida),
+a área também pode ser computada através do conhecimento do número de lados
 _n_ e um dos três valores abaixo:
 
 1. comprimento de um dos lados (_s_);
@@ -151,6 +153,7 @@ public:
                 continue;
 
             orientation = d;
+            break;
         }
 
         for (; i < n; ++i)
@@ -388,7 +391,7 @@ de que os três elementos do topo de pilha estão sempre em sentido anti-horári
 (_D() > 0_). Para cada um dos pontos de _P_, verifica-se se este ponto
 mantem o sentido anti-horário com os dois elementos do topo da pilha: se sim,
 o ponto é inserido na pilha e segue-se adiante; caso contrário, remove-se o
-topo da pilha a verificar o invariante. Como cada ponto é ou inserido ou
+topo da pilha e se verifica o invariante novamente. Como cada ponto é ou inserido ou
 removido uma única vez, este processo tem complexidade _O(n)_, e o algoritmo
 como um todo tem complexidade _O(nlog n)_, por conta da ordenação.
 ```C++
@@ -430,7 +433,64 @@ Polygon convex_hull(const vector<Point>& points)
 ```
 
 Outros algoritmos para o envoltório convexo são o _Andrew's Monotone Chain
-Algorithm_ e o algoritmo _Jarvis's March_.
+Algorithm_ e o algoritmo _Jarvis's March_. Abaixo segue uma implementação
+da cadeia monótona. Os pontos devem ser ordenados pela menor coordenada
+`x` e, em caso de empate, pela menor coordenada `y`.
+```C++
+class Point {
+public:
+    ll x;
+    ll y;
+
+    Point(ll xv = 0, ll yv = 0) : x(xv), y(yv) {}
+
+    bool operator<(const Point& P) const
+    {
+        return x == P.x ? y < P.y : x < P.x;
+    }
+};
+
+ll D(const Point& P, const Point& Q, const Point& R)
+{
+    return (P.x * Q.y + P.y * R.x + Q.x * R.y) - (R.x * Q.y + R.y * P.x + Q.x * P.y);
+}
+
+vector<Point> monotone_chain_ch(vector<Point>& P)
+{
+    sort(P.begin(), P.end());
+
+    vector<Point> L, U;
+
+    for (auto p : P)
+    {
+        while (L.size() >= 2 and D(L[L.size() - 2], L[L.size() -1], p) < 0)
+            L.pop_back();
+
+        L.push_back(p);
+    }
+
+    reverse(P.begin(), P.end());
+
+    for (auto p : P)
+    {
+        while (U.size() >= 2 and D(U[U.size() - 2], U[U.size() -1], p) < 0)
+            U.pop_back();
+
+        U.push_back(p);
+    }
+
+    L.pop_back();
+    U.pop_back();
+
+    L.reserve(L.size() + U.size());
+    L.insert(L.end(), U.begin(), U.end()); 
+
+    return L;
+}
+
+
+```
+
 ### Exercícios
 
 <!--- 1C - Área do polígono regular inscrito --->
