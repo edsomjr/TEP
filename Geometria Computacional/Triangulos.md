@@ -306,7 +306,7 @@ public:
     // Centro do círculo circunscrito
     Point circumcenter() const
     {
-        auto d = 2*(A.x*(B.y - C.y) + B.x*(C.y - A.y) + C.x*(A.y - B.y));
+        auto D = 2*(A.x*(B.y - C.y) + B.x*(C.y - A.y) + C.x*(A.y - B.y));
 
         auto A2 = A.x*A.x + A.y*A.y;
         auto B2 = B.x*B.x + B.y*B.y;
