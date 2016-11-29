@@ -265,8 +265,8 @@ public:
     Point incenter() const
     {
         auto p = perimeter();
-        auto x = (a*A.x + b*B.x + c.C.x)/p;
-        auto y = (a*A.y + b*B.y + c.C.y)/p;
+        auto x = (a*A.x + b*B.x + c*C.x)/p;
+        auto y = (a*A.y + b*B.y + c*C.y)/p;
 
         return Point(x, y);
     }
