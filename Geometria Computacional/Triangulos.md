@@ -231,7 +231,7 @@ public:
 ```
 
 O **ortocentro** de um triângulo é o ponto de encontro de suas três alturas. O
-ortocentro pode mesmo estar fora do triângulo (no caso de um obtusângulo).
+ortocentro pode mesmo estar fora do triângulo (no caso de um obtusângulo). No caso de um triângulo retângulo, o ortocentro sempre coincide com o vértice oposto à hipotenusa.
 
 O **incentro** de um triângulo é o ponto de encontro de suas bissetrizes
 (retas que dividem um ângulo interno na metade). Além de ser sempre um ponto
