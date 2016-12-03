@@ -154,7 +154,7 @@ public:
 
     double area() const
     {
-        auto s = perimetro() / 2.0;
+        auto s = perimeter() / 2.0;
 
         return sqrt(s*(s - a)*(s - b)*(s - c));
     }
