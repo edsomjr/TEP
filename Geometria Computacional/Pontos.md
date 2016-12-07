@@ -139,7 +139,7 @@ typedef struct _Point {
 
 bool operator<(const Point& p, const Point& q)
 {
-    return (equals(p.x - q.x)) ? (q.y - p.y) > EPS : q.x - p.x > EPS);
+    return (equals(p.x,q.x)) ? (q.y - p.y) > EPS : q.x - p.x > EPS);
 }
 
 ```
