@@ -341,7 +341,7 @@ das transformações anteriores, a escala não preserva as distâncias.
 
 Point scale(double sx, double sy)
 {
-    return Point(s.x * P.x, s.y * P.y);
+    return Point(sx * P.x, sy * P.y);
 }
 ```
 
