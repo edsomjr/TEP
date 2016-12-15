@@ -139,7 +139,7 @@ typedef struct _Point {
 
 bool operator<(const Point& p, const Point& q)
 {
-    return (equals(p.x - q.x)) ? (q.y - p.y) > EPS : q.x - p.x > EPS);
+    return (equals(p.x,q.x)) ? (q.y - p.y) > EPS : q.x - p.x > EPS);
 }
 
 ```
@@ -341,7 +341,7 @@ das transformações anteriores, a escala não preserva as distâncias.
 
 Point scale(double sx, double sy)
 {
-    return Point(s.x * P.x, s.y * P.y);
+    return Point(sx * P.x, sy * P.y);
 }
 ```
 
