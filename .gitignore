@@ -4,3 +4,5 @@ prog
 *.log
 *~
 *.swp
+*.d
+*.exe
