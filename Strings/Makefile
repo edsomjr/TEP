@@ -12,14 +12,14 @@ LIBS =
 SRC = ${wildcard *.cpp}
 TESTS = ${SRC:.cpp=.exe}
 
-.PHONY: clean depend dist-clean dist
+.PHONY: clean dist-clean dist
 
 all:
 	$(MAKE) $(TESTS)
 
 %.exe: %.cpp
 	@echo Building $@
-	$(CC) $(CFLAGS) $(INCLUDES) $< -o $@
+	$(CC) $(CFLAGS) $(INCLUDES) $? -o $@
 
 clean:
 	@echo Cleaning...

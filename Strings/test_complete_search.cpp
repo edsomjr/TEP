@@ -29,6 +29,9 @@ SCENARIO( "substring searching by brute force", "[string]" )
 
                 pattern = "abcdf";
                 REQUIRE( occurrences(text, pattern) == 1 );
+
+                pattern = "f";
+                REQUIRE( occurrences(text, pattern) == 1 );
             }
         }
  
