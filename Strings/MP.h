@@ -5,8 +5,8 @@
  * Data: 09/02/2017
  * Licença: LGPL. Sem copyright.
  */
-#ifndef STRING_COMPLETE_SEARCH_H
-#define STRING_COMPLETE_SEARCH_H
+#ifndef STRING_MP_H
+#define STRING_MP_H
 
 #include <string>
 #include <vector>
@@ -15,6 +15,8 @@ using namespace std;
 
 // Computa o tamanho das bordas de pat: bord[j] é o tamanho da borda da
 // substring pat[1..(j-1)]
+//
+// Complexidade: O(m)
 vector<int>
 borders1(const string& pat)
 {
@@ -47,6 +49,8 @@ borders1(const string& pat)
 
 // Computa o tamanho das bordas de pat: bord[j] é o tamanho da borda da
 // substring pat[0..(j-1)]
+//
+// Complexidade: O(m)
 vector<int> borders2(const string& pat)
 {
     int m = pat.size();
@@ -68,6 +72,8 @@ vector<int> borders2(const string& pat)
 }
 
 // Implementação do algoritmo de MP, usando borders1
+//
+// Complexidade: O(n + m)
 int MP1(const string& text, const string& pat)
 {
     int n = text.size();
@@ -80,7 +86,7 @@ int MP1(const string& text, const string& pat)
     {
         while (j < m and pat[j] == text[i + j])
             ++j;
-//printf("i = %d, j = %d, m = %d, pat[%d] = %c, text[%d] = %c\n", i, j, m, j, pat[j], i + j, text[i + j]);
+
         if (j == m)
             ++occ;
 
@@ -88,13 +94,14 @@ int MP1(const string& text, const string& pat)
 
         i += MP_shift;
         j = max(0, j - MP_shift);
-//printf("new i = %d, new j = %d\n", i, j);
     } 
 
     return occ;
 }
 
 // Implementação do algoritmo de MP, usando borders2
+//
+// Complexidade: O(n + m)
 int MP2(const string& text, const string& pat)
 {
     int n = text.size();
@@ -107,7 +114,7 @@ int MP2(const string& text, const string& pat)
     {
         while (j < m and pat[j] == text[i + j])
             ++j;
-//printf("i = %d, j = %d, m = %d, pat[%d] = %c, text[%d] = %c\n", i, j, m, j, pat[j], i + j, text[i + j]);
+
         if (j == m)
             ++occ;
 
@@ -115,7 +122,6 @@ int MP2(const string& text, const string& pat)
 
         i += MP_shift;
         j = max(0, j - MP_shift);
-//printf("new i = %d, new j = %d\n", i, j);
     } 
 
     return occ;
