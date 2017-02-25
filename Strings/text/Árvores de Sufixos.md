@@ -1,3 +1,6 @@
+Árvores de Sufixos
+==================
+
 Árvores de sufixos são estruturas de dados que representam o conjunto 
 `S(text)` de todas as
 substrings de uma string `text` dada. A relação de pertinência (`s` 
@@ -36,7 +39,7 @@ ilustra a trie da palavra "BANANA": os nós pretos são nós essenciais, e os
 números ao lado dos nós essenciais são os índices do caractere inicial do
 sufixo.
 
-![Trie](strings/trie.png)
+![Trie](trie.png)
 
 Observe que é possível usar esta trie para identificar se uma string `s` é ou
 não substring de "BANANA", bastando proceder de forma semelhante à busca binária.
@@ -67,7 +70,7 @@ tais índices.
 
 A figura abaixo ilustra a _suffix tree_ associada a trie anterior.
 
-![Suffix Tree](strings/ST.png)
+![Suffix Tree](ST.png)
 
 Observe que agora, exceto a raiz, todos os nós são essenciais, de modo que o
 armazenamento agora é proporcional ao número de suffixos, e como uma string

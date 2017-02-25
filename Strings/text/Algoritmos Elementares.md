@@ -1,3 +1,6 @@
+Algoritmos Elementares
+======================
+
 Nesta seção são ilustrados algoritmos elementares sobre strings, com o intuito de
 ilustrar a manipulação, identificação e extração de informações de strings. As
 técnicas apresentadas servirão tanto para solidificar os conceitos fundamentais

@@ -1,3 +1,6 @@
+Algoritmos de Busca
+===================
+
 A busca é o algoritmo fundamental dentre os algoritmos de strings e, conforme
 dito anteriormente, se equivalente, em importância, aos algoritmos de ordenação
 no estudo de algoritmos.

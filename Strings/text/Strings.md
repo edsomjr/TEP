@@ -1,3 +1,6 @@
+Strings
+=======
+
 Sequências de caracteres, ou _strings_, constituem uma maneira natural de
 representar informações. As strings aparecem em diversas áreas além da
 computação, como a Biologia (estudo das moléculas e DNA), Letras (ortografia,
