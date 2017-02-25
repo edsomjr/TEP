@@ -623,7 +623,7 @@ Com `S` e `S'` em mãos, calculamos os seus respectivos vetores z: `z` e `z'`. O
 
         i     - 0  1  2  3  4  5  6  7  8  9  10 11 12 13 14 15 16
         S'    - o  c  a  c  #  o  t  o  c  a  c  o  c  o  b  a  c
-        z'[i] - 0  0  0  0  0  1  0  4  0  0  0  2  0  1  0  0  1
+        z'[i] - 0  0  0  0  0  1  0  4  0  0  0  2  0  1  0  0  0
 
 O significado de `z[i]` (nesse caso) já é conhecido por nós: maior prefixo comum entre o padrão de busca `P` e a substring `T[i-(m+1)..n-1]` (isto é, sufixo de `T` começando na posição `i-(m+1)`) do texto `T`; mas e o significado de `z'[i]` em relação à string S, qual é? Em termos abstratos, `z'` armazena os tamanhos dos maiores sufixos comuns do padrão de busca `P` e dos prefixos de `T`.
 
