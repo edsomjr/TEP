@@ -486,6 +486,151 @@ um _hash_ perfeito for utilizado, o algoritmo tem complexidade `O(n + m)`.
 Na prática, para padrões grandes, é melhor utilizar o KMP: o algoritmo de
 Rabin-Karp é uma alternativa mais adequada a padrões pequenos.
 
+Z Function
+----------
+
+A Z Function é uma função que recebe como parâmetro uma string `S` de tamanho `n` (indexada em `0`) e retorna o vetor `z`, onde cada posição `i` do vetor `z` tem o seguinte significado:
+
+        z[i] - maior prefixo comum da string S e da substring S[i..n-1]
+
+Isto é, `z[i]` guarda o tamanho do maior prefixo comum de `S` e do sufixo de `S` que começa na posição `i`. Por definição, `z[0]` tem valor `0`, pois o sufixo de `S` que começa na posição `0` é a própria string `S` (mas isso pode ser ajustado a depender da necessidade do problema). Por exemplo, dada a string `abacaba`, o vetor `z` teria os valores seguintes armazenados:
+
+        i    - 0 1 2 3 4 5 6
+        S    - a b a c a b a
+        z[i] - 0 0 1 0 3 0 1
+
+O sufixo que começa na posição `1` tem como primeira letra o `b`, enquanto a primeira letra de `abacaba` é `a`; logo o maior prefixo comum dessas strings é `0` e, consequentemente, `z[1] = 0`. O sufixo que começa na posição `4` tem como primeira letra o `a`, como segunda o `b` e como terceira o `a`; essas 3 letras são as 3 primeiras letras da string `abacaba`, logo `z[4] = 3`.
+
+### Versão Ingênua O(n²)
+
+A complexidade de computação do vetor `z`, isto é, a complexidade da própria Z Function é `O(n)`, sendo `n` o tamanho de `S`. Antes de mostrar o código da Z Function, vamos analisar uma versão mais ingênua do algoritmo, que tem complexidade `O(n²)`:
+
+```C++
+vector<int> naive_z_function(const string &s) {
+    int n = s.size();
+    vector<int> z(n, 0);
+    for(int i = 1; i < n; i++) {
+        while(i + z[i] < n && s[z[i]] == s[i + z[i]]) {
+            z[i]++;         
+        }
+    }
+    return z;
+}
+```
+
+A ideia do código acima é simples: inicializamos o vetor `z` de tamanho `n` com todas suas posições zeradas. Logo após, para cada posição `i` de `1` a `n-1`, aumentamos o tamanho do maior prefixo comum de `S` e `S[i..n-1]` enquanto o carácter atual não está fora da string e enquanto os caracteres equivalentes forem iguais. Por exemplo: para uma posição `i` qualquer, inicialmente, `z[i] = 0`; logo, verificamos se `s[0]` e `s[i]` são iguais; se forem, incrementamos `z[i]` em `1` e agora verificamos se `s[1]` e `s[i + 1]` são iguais; se forem iguais também, incrementamos `z[i]` novamente; fazemos isso até encontrar dois carácteres diferentes ou até chegarmos ao final da string.
+
+Para cada posição `i`, no máximo `O(n)` operações são feitas (isto acontece quando o sufixo inteiro que começa em `i` é um prefixo de `S`). Como a string `S` tem `n` posições, temos a complexidade final do algoritmo ingênuo: `O(n²) = O(n) * O(n)`.
+
+### Versão Original O(n)
+
+Tendo a função mostrada acima como inspiração, é possível modificá-la para atingirmos a Z Function com complexidade `O(n)`. Abaixo segue o código em C++ da Z Function:
+
+```C++
+vector<int> z_function(const string &s) {
+    int n = s.size();
+    vector<int> z(n, 0);
+    int l = 0, r = 0;
+    for(int i = 1; i < n; i++) {
+        if(i <= r) {
+            z[i] = min(z[i - l], r - i + 1);
+        }
+        while(z[i] + i < n && s[z[i] + i] == s[z[i]]) {
+            z[i]++;
+        }
+        if(r < i + z[i] - 1) {
+            l = i, r = i + z[i] - 1;
+        }
+    }
+    return z;
+}
+```
+
+Perceba que as únicas diferenças da versão original para a ingênua são os dois `ifs` dentro do for e as variáveis `l` e `r`. O `while` é exatamente igual ao da versão ingênua: isso é interessante porque a essência de ambas as abordagens são parecidas, com a sutil diferença de que na original utilizaremos prefixos comuns já calculados para diminuir o número de vezes que o `while` roda.
+
+A bela ideia desse algoritmo é o uso dos dois "ponteiros" `l` e `r`. Quando o `for` está numa posição `i` qualquer, esses ponteiros irão representar o começo e o fim de um maior prefixo comum não nulo (isto é, maior que 0) já encontrado entre `S` e algum sufixo `S[k..n-1]`, para `k < i`. Em específico, os ponteiros representam o começo e o fim de algum sufixo `S[k..n-1]` de tal forma que `r` é o máximo possível.
+
+Por exemplo, seja `S = abacababac`. O vetor `z` de `S` teria a seguinte forma:
+
+        i    - 0 1 2 3 4 5 6 7 8 9
+        S    - a b a c a b a b a c
+        z[i] - 0 0 1 0 3 0 4 0 1 0
+
+Suponha que o `for` está na nona iteração (`i = 8`). Neste ponto, 3 maiores prefixos comuns não nulos já foram encontrados para trás: entre `S` e `S[2..9]` com tamanho 1, entre `S` e `S[4..9]` com tamanho 3 e entre `S` e `S[6..9]` com tamanho 4. Ou seja, respectivamente, a substring `S[2..2]` é igual ao prefixo `S[0..0]`, a substring `S[4..6]` é igual ao prefixo `S[0..2]` e a substring `S[6..9]` é igual ao prefixo `S[0..3]`.
+
+O intervalo de cada uma dessas substrings (`(2, 2)`, `(4, 6)` e `(6, 9)`) seriam candidatos a serem os valores guardados nos ponteiros `l` e `r`; como nesse caso o intervalo que tem maior `r` é o intervalo `(6, 9)` (`9` no caso), então, no começo da nona iteração (`i = 8`), as variáveis terão os valores `l = 6` e `r = 9`. 
+
+Agora é onde entra em ação o primeiro `if`:
+```C++
+    if(i <= r) {
+        z[i] = min(z[i - l], r - i + 1);
+    }
+```
+
+Se esta condição for verdadeira, isto é, se `i` está dentro do intervalo `[l, r]`, quer dizer que a substring `S[i..r]` é exatamente igual à substring `S[i-l..r-l+1]`, pois como `l` e `r` representam as pontas de um prefixo comum já calculado, tem-se que `S[0..r-l+1] = S[l..r]`. A operação `i-l` encontra a posição de `S[0..r-l+1]` equivalente à posição `i` de `S[l..r]`. E como `z[i-l]` já foi calculado, sabemos exatamente qual é o maior prefixo comum entre `S` e `S[i..r]`. Igualamos, então, `z[i]` ao mínimo entre `z[i - l]` e `r-i+1`, pois a única informação que temos é sobre a substring `S[i..r]` e, caso `z[i - l]` seja maior que o tamanho de tal substring, não sabemos se os carácteres depois de `S[r]` serão iguais aos carácteres depois de `S[r-l]`. Então, a ideia básica desse `if` é "adiantar" alguns carácteres para que o `while` rode normalmente mas menos vezes.
+
+O segundo if tem uma função muito simples: atualizar os "ponteiros" `l` e `r` caso a ponta direita da substring `S[i..i+z[i]-1]` vá "mais longe" que a ponta direita da substring armazenada atualmente; ou seja, se `i+z[i]-1` for maior que `r`, então os "ponteiros" passam a "apontar" para a substring `S[i..i+z[i]-1]`.
+
+```C++
+    if(r < i + z[i] - 1) {
+        l = i, r = i + z[i] - 1;
+    }
+
+```
+
+Para analisar a complexidade desse algoritmo, temos que analisar quantas iterações o `while` faz. Para cada iteração que o `while` faz, o `r` cresce, indiretamente, em `1`. Isto acontece porque o `while` só verifica posições depois de `r`, já que o primeiro `if` faz o matching das posições anteriores em `O(1)`. Assim, como o `r` cresce no máximo `n` vezes, o `while` roda no máximo `n` vezes. Então, a complexidade amortizada do algoritmo é `O(n)`.
+
+### Aplicação #1 - Matching de Strings
+
+Uma das aplicações possíveis para a Z Function é, também, o matching de strings. Isto é, dados um texto `T` de tamanho `n` e um padrão de busca `P` de tamanho `m` (ambos indexados em 0), é possível saber todas as ocorrências de `P` em `T`. A ideia da aplicação é a seguinte: definamos a string `S` como:
+
+        S = P + '#' + T
+
+Isto é, a string `S` é formada pelo padrão `P` concatenado a algum carácter separador e concatenado ao texto `T`. Observação: o carácter separador não pode aparecer nem em `P` e nem em `T`.
+
+Tendo `S` em mãos, calculamos o seu respectivo vetor `z` (perceba que, nesse caso, o vetor `z` tem tamanho `n+m+1`, pois `S` é a concatenação de `P`, do carácter separador e de `T`). Um matching de `P` acontece em uma posição `i` de `T` se, e somente se, `z[i + m + 1] = m`. 
+
+Para exemplificar a afirmação acima, peguemos um exemplo: seja `P = "ana"` (`m = 3`) e `T = "banana"` (`n = 6`); concatenamos as strings para obter a string `S = ana#banana`. O vetor `z` de `S` vai ter os seguintes valores:
+
+        i    -  0 1 2 3 4 5 6 7 8 9
+        S    -  a n a # b a n a n a
+        z[i] -  0 0 1 0 0 3 0 3 0 1
+
+As posições que importam nesse caso são as que estão após o carácter separador; portanto, analisemos as posições no intervalo `[4..9]`. Como a Z Function calcula o maior prefixo comum entre a própria string e cada um de seus sufixos, se colocarmos o padrão de busca como prefixo de `S`, e, para algum `i`, `z[i] = m`, então temos certeza que a substring que começa na posição `i` e tem tamanho `m` é exatamente igual ao padrão de busca! No exemplo dado acima, é fácil ver que as substrings que começam nas posições `5` e `7` são matches de `P` e, de fato, `z[5] = z[7] = m = 3`.
+
+Em `S`, temos o padrão `P` e o carácter separador concatenados antes do texto `T`; por esse motivo, os índices de `z` em que um matching ocorre não são os índices verdadeiros de `T`. Para saber as posições exatas dos matchings em `T`, basta subtrair `m+1` dos índices que ocorrem os matches. No exemplo acima, os matchings ocorrem em `5` e `7`, mas os indíces verdadeiros de `T` são `5 - (m+1) = 5 - 4 = 1` e `7 - (m+1) = 7 - 4 = 3`, respectivamente.
+
+Como `S` tem tamanho igual a `n+m+1` e a complexidade da Z Function é linear em relação ao tamanho da string de input, a complexidade da estratégia de string matching descrita acima é `O(n + m)`.
+
+### Aplicação #2 - Matching de Strings com apenas um caractere de diferença
+
+Outro problema bem interessante que pode ser resolvido com a ajuda da Z Function é um problema similar ao anterior: matching de strings com, no máximo, 1 carácter de diferença. Por exemplo, se `P = caco` `(m = 4)` e `T = cabococacoto` (`n = 12`), consideraríamos as substrings em negrito como ocorrências de `P` em `T`: **cabo**cacoto e caboco**caco**to. Na primeira ocorrência, o terceiro carácter do padrão `P` é diferente do terceiro carácter da aparição, mas, como dito anteriormente, é permitido no máximo 1 carácter de diferença. No segundo caso, a aparição é um matching perfeito. Esse tipo de matching é bem útil em problemas do mundo real, quando a busca feita por alguém não precisa ser totalmente perfeita.
+
+Para resolver este problema, precisaremos criar duas strings: `S = P + '#' + T` (igual à `S` do problema anterior) e `S' = rev(P) + '#' + rev(T)`, onde o significado de `rev(A)` é: a string `A` ao contrário. Para `P` e `T` do exemplo acima, teríamos:
+
+        P      = caco
+        rev(P) = ocac
+        T      = cabococacoto
+        rev(T) = otocacocobac
+        S      = caco#cabococacoto
+        S'     = ocac#otocacocobac
+
+Com `S` e `S'` em mãos, calculamos os seus respectivos vetores z: `z` e `z'`. Os valores para `z` e `z'` serão:
+
+        i     - 0  1  2  3  4  5  6  7  8  9  10 11 12 13 14 15 16
+        S     - c  a  c  o  #  c  a  b  o  c  o  c  a  c  o  t  o
+        z[i]  - 0  0  1  0  0  2  0  0  0  1  0  4  0  1  0  0  0
+
+        i     - 0  1  2  3  4  5  6  7  8  9  10 11 12 13 14 15 16
+        S'    - o  c  a  c  #  o  t  o  c  a  c  o  c  o  b  a  c
+        z'[i] - 0  0  0  0  0  1  0  4  0  0  0  2  0  1  0  0  1
+
+O significado de `z[i]` (nesse caso) já é conhecido por nós: maior prefixo comum entre o padrão de busca `P` e a substring `T[i-(m+1)..n-1]` (isto é, sufixo de `T` começando na posição `i-(m+1)`) do texto `T`; mas e o significado de `z'[i]` em relação à string S, qual é? Em termos abstratos, `z'` armazena os tamanhos dos maiores sufixos comuns do padrão de busca `P` e dos prefixos de `T`.
+
+Por exemplo, para clarificar, peguemos o primeiro matching do exemplo acima e o padrão `P`: `cabo` e `P = caco`; é fácil ver que o maior prefixo comum entre os dois tem tamanho `2` (`ca`) e o maior sufixo comum entre os dois tem tamanho 1 (`o`). Ou seja, indo do "começo" para o "fim" de ambas as strings, um "matching" de tamanho `2` é encontrado, enquanto partindo do "fim" das strings para o "começo", um matching de tamanho `1` é encontrado. Em outras palavras, `3` carácteres iguais entre `cabo` e `P = caco` foram encontrados. Os únicos (único, nesse caso) carácteres que não deram matching são os carácteres entre o maior prefixo comum e o maior sufixo comum de ambas as strings (isto é, os carácteres no "meio" das strings). Como `3` carácteres certeiros foram encontrados e o tamanho do padrão `P` é `m = 4`, sabemos que apenas um carácter entre o padrão `P = caco` e a substring `cabo` de `T` são diferentes, o que está dentro das condições do problema. Portanto, consideramos `cabo` como um matching de `caco` (não é um matching perfeito, mas é um matching). Em termos gerais, o números de carácteres "certeiros" entre uma substring `A` de `T` e o padrão `P` é `min(m, tamanho_maior_prefixo_comum(A, P) + tamanho_maior_sufixo_comum(A, P))`; se esse valor for `m` ou `m - 1`, a substring `A` é considerada um matching. Para achar tais tamanho para uma substring de `T` começando em `i` é só usar `z[i]` e `z'[k]`, sendo `k` o índice ajustado (pois `S'` é a concatenação das strings reversas).
+
+Por fim, a Z Function é uma função bem poderosa que pode ser usada para resolver vários tipos de problemas de string (talvez até outro temas?), bastando apenas ter boa criatividade derivada de prática para usar suas propriedades de maneiras inteligentes.
+
 ### Referências
 
 HALIM, Steve; HALIM, Felix. [Competitive Programming 3](http://cpbook.net/), Lulu, 2013.
