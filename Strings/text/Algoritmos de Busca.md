@@ -567,7 +567,7 @@ Agora é onde entra em ação o primeiro `if`:
     }
 ```
 
-Se esta condição for verdadeira, isto é, se `i` está dentro do intervalo `[l, r]`, quer dizer que a substring `S[i..r]` é exatamente igual à substring `S[i-l..r-l+1]`, pois como `l` e `r` representam as pontas de um prefixo comum já calculado, tem-se que `S[0..r-l+1] = S[l..r]`. A operação `i-l` encontra a posição de `S[0..r-l+1]` equivalente à posição `i` de `S[l..r]`. E como `z[i-l]` já foi calculado, sabemos exatamente qual é o maior prefixo comum entre `S` e `S[i..r]`. Igualamos, então, `z[i]` ao mínimo entre `z[i - l]` e `r-i+1`, pois a única informação que temos é sobre a substring `S[i..r]` e, caso `z[i - l]` seja maior que o tamanho de tal substring, não sabemos se os carácteres depois de `S[r]` serão iguais aos carácteres depois de `S[r-l]`. Então, a ideia básica desse `if` é "adiantar" alguns carácteres para que o `while` rode normalmente mas menos vezes.
+Se esta condição for verdadeira, isto é, se `i` está dentro do intervalo `[l, r]`, quer dizer que a substring `S[i..r]` é exatamente igual à substring `S[i-l..r-l]`, pois como `l` e `r` representam as pontas de um prefixo comum já calculado, tem-se que `S[0..r-l] = S[l..r]`. A operação `i-l` encontra a posição de `S[0..r-l]` equivalente à posição `i` de `S[l..r]`. E como `z[i-l]` já foi calculado, sabemos exatamente qual é o maior prefixo comum entre `S` e `S[i..r]`. Igualamos, então, `z[i]` ao mínimo entre `z[i-l]` e `r-i+1`, pois a única informação que temos é sobre a substring `S[i..r]` e, caso `z[i-l]` seja maior que o tamanho de tal substring, não sabemos se os carácteres depois de `S[r]` serão iguais aos carácteres depois de `S[r-l]`. Então, a ideia básica desse `if` é "adiantar" alguns carácteres para que o `while` rode normalmente mas menos vezes.
 
 O segundo if tem uma função muito simples: atualizar os "ponteiros" `l` e `r` caso a ponta direita da substring `S[i..i+z[i]-1]` vá "mais longe" que a ponta direita da substring armazenada atualmente; ou seja, se `i+z[i]-1` for maior que `r`, então os "ponteiros" passam a "apontar" para a substring `S[i..i+z[i]-1]`.
 
@@ -623,7 +623,7 @@ Com `S` e `S'` em mãos, calculamos os seus respectivos vetores z: `z` e `z'`. O
 
         i     - 0  1  2  3  4  5  6  7  8  9  10 11 12 13 14 15 16
         S'    - o  c  a  c  #  o  t  o  c  a  c  o  c  o  b  a  c
-        z'[i] - 0  0  0  0  0  1  0  4  0  0  0  2  0  1  0  0  1
+        z'[i] - 0  0  0  0  0  1  0  4  0  0  0  2  0  1  0  0  0
 
 O significado de `z[i]` (nesse caso) já é conhecido por nós: maior prefixo comum entre o padrão de busca `P` e a substring `T[i-(m+1)..n-1]` (isto é, sufixo de `T` começando na posição `i-(m+1)`) do texto `T`; mas e o significado de `z'[i]` em relação à string S, qual é? Em termos abstratos, `z'` armazena os tamanhos dos maiores sufixos comuns do padrão de busca `P` e dos prefixos de `T`.
 
