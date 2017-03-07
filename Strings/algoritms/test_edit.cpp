@@ -18,10 +18,12 @@ SCENARIO( "edit distance computation", "[string]" )
                 c_i = 2;
 
                 REQUIRE( edit(s, t) == c_i * t.size() );
+                REQUIRE( edit2(s, t) == c_i * t.size() );
 
                 t = "";
 
                 REQUIRE( edit(s, t) == c_i * t.size() );
+                REQUIRE( edit2(s, t) == c_i * t.size() );
             }
         }
 
@@ -35,10 +37,12 @@ SCENARIO( "edit distance computation", "[string]" )
                 c_r = 3;
 
                 REQUIRE( edit(s, t) == c_r * s.size() );
+                REQUIRE( edit2(s, t) == c_r * s.size() );
 
                 s = "";
 
                 REQUIRE( edit(s, t) == c_r * s.size() );
+                REQUIRE( edit2(s, t) == c_r * s.size() );
             }
         }
 
@@ -50,6 +54,7 @@ SCENARIO( "edit distance computation", "[string]" )
             THEN( "then the edit cost is zero" )
             {
                 REQUIRE( edit(s, t) == 0 );
+                REQUIRE( edit2(s, t) == 0 );
             }
         }
 
@@ -63,12 +68,14 @@ SCENARIO( "edit distance computation", "[string]" )
             THEN( "then the edit() is simmetrical" )
             {
                 REQUIRE( edit(s, t) == edit(t, s) );
+                REQUIRE( edit2(s, t) == edit2(t, s) );
 
                 c_i = 1;
                 c_r = 2;
                 c_s = 3;
 
                 REQUIRE( edit(s, t) != edit(t, s) );
+                REQUIRE( edit2(s, t) != edit2(t, s) );
             }
         }
 
@@ -80,6 +87,7 @@ SCENARIO( "edit distance computation", "[string]" )
             THEN( "then the edit cost equals one substitution" )
             {
                 REQUIRE( edit(s, t) == c_s );
+                REQUIRE( edit2(s, t) == c_s );
             }
         }
 
@@ -91,6 +99,7 @@ SCENARIO( "edit distance computation", "[string]" )
             THEN( "then the edit cost equals to the neeed deletions" )
             {
                 REQUIRE( edit(s, t) == c_r * (s.size() - t.size()) );
+                REQUIRE( edit2(s, t) == c_r * (s.size() - t.size()) );
             }
         }
 
@@ -102,6 +111,7 @@ SCENARIO( "edit distance computation", "[string]" )
             THEN( "then the edit cost equals to the neeed insertions" )
             {
                 REQUIRE( edit(s, t) == c_i * (t.size() - s.size()) );
+                REQUIRE( edit2(s, t) == c_i * (t.size() - s.size()) );
             }
         }
 

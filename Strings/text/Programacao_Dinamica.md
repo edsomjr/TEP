@@ -127,7 +127,48 @@ int edit(const string& s, const string& r)
 }
 ```
 
-<!-- Citar a implementação com memória O(n) -->
+Observe que a implementação acima tem custo de memória `O(mn)`. É possível
+implementar o mesmo algoritmo usando apenas `O(n)` de memória, uma vez que
+é necesário apenas a linha anterior para computar os valores da próxima
+linha.
+```C++
+// Implementação _bottom-up_, O(mn), memória O(n)
+int edit2(const string& s, const string& t)
+{
+    int m = s.size();
+    int n = t.size();
+
+    int *prev = a, *line = b;
+
+    for (int j = 0; j <= n; ++j)
+        prev[j] = j*c_i;
+
+    for (int i = 1; i <= m; ++i)
+    {
+        line[0] = i*c_r;
+
+        for (int j = 1; j <= n; ++j)
+        {
+            int insertion = line[j - 1] + c_i;
+            int deletion = prev[j] + c_r; 
+            int substution = prev[j - 1] + c_s * (s[i - 1] == t[j - 1] ? 0 : 1);
+            line[j] = min(insertion, deletion);
+            line[j] = min(line[j], substution);
+        }
+
+        swap(line, prev);
+    }
+
+    return prev[n];
+}
+```
+
+Esta segunda implementação pode ser necessária em competições com limites de
+memória restritos. Porém, esta implementação torna deveras mais complicado 
+determinar as operações necessárias para se obter `t` a partir de `s`: na 
+primeira implementação, basta manter um registro da operação responsável pela
+atualização de cada elemento da tabela `st`.
+
 <!-- Adicionar o algoritmo para recuperar as operações feitas -->
 
 ### Referências
