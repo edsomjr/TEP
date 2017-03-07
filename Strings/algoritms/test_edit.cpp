@@ -65,7 +65,7 @@ SCENARIO( "edit distance computation", "[string]" )
             s = "bacanas";
             t = "banana";
 
-            THEN( "then the edit() is simmetrical" )
+            THEN( "then the edit() is symmetrical" )
             {
                 REQUIRE( edit(s, t) == edit(t, s) );
                 REQUIRE( edit2(s, t) == edit2(t, s) );
@@ -119,3 +119,93 @@ SCENARIO( "edit distance computation", "[string]" )
     }
 }
 
+SCENARIO( "edit distance operations", "[string]" )
+{
+    GIVEN ( "two strings s and t" )
+    {
+        string s, t;
+
+        WHEN ( "s is the empty string and t = \"banana\"" )
+        {
+            s = "";
+            t = "banana";
+
+            THEN( "then the edit operations equals \"banana\"" )
+            {
+                REQUIRE( edit_operations(s, t) == "banana" );
+            }
+        }
+
+        WHEN ( "t is the empty string and s = \"banana\"" )
+        {
+            s = "banana";
+            t = "";
+
+            THEN( "then the edit operations equals \"xxxxxx\"" )
+            {
+                REQUIRE( edit_operations(s, t) == "xxxxxx" );
+            }
+        }
+ 
+        WHEN ( "s and t are equals" )
+        {
+            s = "banana";
+            t = s;
+
+            THEN( "then the edit operations equals \"------\"" )
+            {
+                REQUIRE( edit_operations(s, t) == "------" );
+            }
+        }
+ 
+        WHEN ( "s = \"banana\", t = \"bacana\" and costs are equals" )
+        {
+            s = "banana";
+            t = "bacana";
+
+            c_i = c_r = c_s = 1;
+
+            THEN( "then the edit operations equals \"--[n->c]---\"" )
+            {
+                REQUIRE( edit_operations(s, t) == "--[n->c]---" );
+            }
+        }
+ 
+        WHEN ( "s = \"aspectos\", t = \"seco\" and costs are equals" )
+        {
+            s = "aspectos";
+            t = "seco";
+
+            c_i = c_r = c_s = 1;
+
+            THEN( "then the edit operations equals \"x-x--x-x\"" )
+            {
+                REQUIRE( edit_operations(s, t) == "x-x--x-x" );
+            }
+        }
+ 
+        WHEN ( "s = \"fga\", t = \"formigas\" and costs are equals" )
+        {
+            s = "fga";
+            t = "formigas";
+
+            c_i = c_r = c_s = 1;
+
+            THEN( "then the edit operations equals \"-ormi--s\"" )
+            {
+                REQUIRE( edit_operations(s, t) == "-ormi--s" );
+            }
+        }
+ 
+        WHEN ( "s = \"fga\", t = \"formigas\" and costs are equals" )
+        {
+            s = "fga";
+            t = "formigas";
+
+            THEN( "then the edit operations are not symmetrical" )
+            {
+                REQUIRE( edit_operations(s, t) != edit_operations(t, s) );
+            }
+        }
+    }
+} 
