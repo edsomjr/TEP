@@ -180,7 +180,7 @@ Seja `A = {a, b}`. Existem `2^k` strings de tamanho `k`
 formadas por elementos de `A`. Uma pergunta natural que surge é: qual é o
 comprimento mínimo `gamma(k)` de uma string que contenha todas estas substrings?
 
-Um limite superior é `gamma(k) = 2^k + k - 1` (pois qualquer string menor não
+Um limite inferior é `gamma(k) = 2^k + k - 1` (pois qualquer string menor não
 teria `2^k` substrings de tamanho `k`. Efetivamente, `gamma(k) = 2^k + k - 1`.
 Uma string com este tamanho, contendo todas as substrings de tamanho `k` 
 formadas por elementos de `A` é denominada **string de Bruijin**.
@@ -200,10 +200,23 @@ vez. Seja `a1a2...aN` a sequência de arestas do ciclo de Euler. Temos que
 
 ### Exercícios
 
+<!--- 133A - find -->
 <!--- 177G1 - Strings de Fibonacci -->
+<!--- 266A - sets -->
+<!--- 153 - permutations -->
+<!--- 263 - strings, digits, sorting -->
+<!--- 11483 - string formatting -->
+<!--- 12243 - tokenizing, read lines and words -->
 
 1. Codeforces
+    1. [133A - HQ9+](http://codeforces.com/problemset/problem/133/A)
     1. [177G1 - Fibonacci Strings](http://codeforces.com/problemset/problem/177/G1)
+    1. [266A - Stones on the Table](http://codeforces.com/problemset/problem/266/A)
+1. UVA
+    1. [153 - Permalex](https://uva.onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&category=24&page=show_problem&problem=89)
+    1. [263 - Number Chains](https://uva.onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&category=24&page=show_problem&problem=199)
+    1. [11483 - Code Creator](https://uva.onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&category=24&page=show_problem&problem=2478)
+    1. [12243 - Flowers Flourish from France](https://uva.onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&category=24&page=show_problem&problem=3395)
 
 ### Referências
 
