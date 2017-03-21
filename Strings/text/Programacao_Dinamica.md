@@ -257,6 +257,126 @@ string edit_operations(const string& s, const string& t)
 }
 ```
 
+Maior Subsequência Comum
+------------------------
+
+Dadas duas strings `s` e `t`, o problema de se determinar a maior subsequência
+comum a elas (_Longest Common Subsequence - LCS_) pode ser interpretado como 
+uma variante do _edit distance_.
+
+Basta notar que tal sequência é formada por caracteres comuns às duas strings.
+Se atribuídos pesos iguais a zero às operações de inserção e remoção, peso
+infinitamente negativo à substituição e peso um à opção de manter os caracteres
+iguais, a LCS surge como o caminho com maior custo na tabela da _edit distance_.
+```C++
+#define MAX_M   1001
+#define MAX_N   1001
+
+#define INF 1000000010
+
+int st[MAX_M][MAX_N], a[MAX_N], b[MAX_N];
+int c_i = 0, c_r = 0, c_s = 1;      // Custos adaptados
+char ps[MAX_M][MAX_N];
+
+// Implementação _bottom-up_, O(mn), memória O(mn)
+int lcs(const string& s, const string& t)
+{
+    int m = s.size();
+    int n = t.size();
+
+    for (int i = 0; i <= m; ++i)
+        st[i][0] = i*c_r;
+
+    for (int j = 1; j <= n; ++j)
+        st[0][j] = j*c_i;
+
+    for (int i = 1; i <= m; ++i)
+        for (int j = 1; j <= n; ++j)
+        {
+            int insertion = st[i][j - 1] + c_i;
+            int deletion = st[i - 1][j] + c_r; 
+            int change = st[i - 1][j - 1] + c_s * (s[i - 1] == t[j - 1] ? 1 : -INF);
+            st[i][j] = max(insertion, deletion);
+            st[i][j] = max(st[i][j], change);
+        }
+
+    return st[m][n];
+}
+```
+
+A LCS pode ser recuperada de forma idêntica a utiliza para a recuperação das
+operações da _edit distance_.
+```C++
+string lcs_str(const string& s, const string& t)
+{
+    int m = s.size();
+    int n = t.size();
+
+    for (int i = 0; i <= m; ++i)
+    {
+        st[i][0] = i*c_r;
+        ps[i][0] = 'r';
+    }
+
+    for (int j = 1; j <= n; ++j)
+    {
+        st[0][j] = j*c_i;
+        ps[0][j] = 'i';
+    }
+
+    for (int i = 1; i <= m; ++i)
+        for (int j = 1; j <= n; ++j)
+        {
+            int insertion = st[i][j - 1] + c_i;
+            int deletion = st[i - 1][j] + c_r; 
+            int change = st[i - 1][j - 1] + c_s * (s[i - 1] == t[j - 1] ? 1 : -INF);
+
+            st[i][j] = max(insertion, deletion);
+            st[i][j] = max(st[i][j], change);
+
+            if (insertion >= deletion and insertion >= change)
+                ps[i][j] = 'i';
+            else if (deletion >= change)
+                ps[i][j] = 'r';
+            else
+                ps[i][j] = 's';
+        }
+
+    int i = m, j = n;
+    stack<char> S;
+
+    while (i or j)
+    {
+        switch (ps[i][j]) {
+        case 'i':
+            --j;
+            break;
+
+        case 'r':
+            --i;
+            break;
+
+        case 's':
+            if (s[i-1] == t[j-1])
+                S.push(s[i-1]);
+
+            --i;
+            --j;
+        }
+    }
+
+    ostringstream os;
+
+    while (not S.empty())
+    {
+        os << S.top();
+        S.pop();
+    }
+
+    return os.str();
+}
+``` 
+
 ### Referências
 
 HALIM, Steve; HALIM, Felix. [Competitive Programming 3](http://cpbook.net/), Lulu, 2013.
