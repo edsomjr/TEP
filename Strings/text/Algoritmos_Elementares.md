@@ -670,8 +670,6 @@ CPPREFERENCE. [Transform](http://en.cppreference.com/w/cpp/algorithm/transform),
 
 CROCHEMORE, Maxime; RYTTER, Wojciech. [Jewels of Stringology: Text Algorithms](http://site.ebrary.com/lib/univbrasilia/reader.action?docID=10201155), WSPC, 2002.
 
-Inserir referências ao CPPreference (transform(), copy_if(), accumulate()).
-
 REGEXONE. [Lesson 1: An Introduction, and the ABCs](https://regexone.com/)
 
 WIKIPEDIA. Tokenization [https://en.wikipedia.org/wiki/Tokenization_(lexical_analysis)], acesso em 22/01/17.
