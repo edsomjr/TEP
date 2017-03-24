@@ -662,11 +662,17 @@ e `split()` (que tokeniza a string a partir dos marcadores informados).
 
 HALIM, Steve; HALIM, Felix. [Competitive Programming 3](http://cpbook.net/), Lulu, 2013.
 
+CPPREFERENCE. [Accumulate](http://en.cppreference.com/w/cpp/algorithm/accumulate), acesso em  24/03/2017.
+
+CPPREFERENCE. [Copy](http://en.cppreference.com/w/cpp/algorithm/copy), acesso em  24/03/2017.
+
+CPPREFERENCE. [Transform](http://en.cppreference.com/w/cpp/algorithm/transform), acesso em  24/03/2017.
+
 CROCHEMORE, Maxime; RYTTER, Wojciech. [Jewels of Stringology: Text Algorithms](http://site.ebrary.com/lib/univbrasilia/reader.action?docID=10201155), WSPC, 2002.
 
 Inserir referências ao CPPreference (transform(), copy_if(), accumulate()).
 
 REGEXONE. [Lesson 1: An Introduction, and the ABCs](https://regexone.com/)
 
-WIKIPEDIA. Tokenization [https://en.wikipedia.org/wiki/Tokenization_(lexical_analysis)], Acesso em 22/01/17.
+WIKIPEDIA. Tokenization [https://en.wikipedia.org/wiki/Tokenization_(lexical_analysis)], acesso em 22/01/17.
 
