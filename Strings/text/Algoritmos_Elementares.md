@@ -634,15 +634,30 @@ e `split()` (que tokeniza a string a partir dos marcadores informados).
 
 ### Exercícios
 
+<!--- 5B - String, alignment -->
+<!--- 32B - String, parsing não-recursivo  -->
+<!--- 41A - String, palindromos  -->
+<!--- 58A - String, greedy -->
 <!--- 325 - Regex -->
 <!--- 576 - Regex/split/replaceAll/count -->
 <!--- 12243 - Tokenização de palavras -->
 
+1. Codeforces
+
+    1. [5B - Center Alignment](http://codeforces.com/problemset/problem/5/B)
+    1. [32B - Borze](http://codeforces.com/problemset/problem/32/B)
+    1. [41A - Translation](http://codeforces.com/problemset/problem/41/A)
+    1. [58A - Chat Room](http://codeforces.com/problemset/problem/58/A)
+    
 1. UVA
     1. [325 - Identifying Pascal Real Constants](https://uva.onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&category=24&page=show_problem&problem=261)
+    1. [488 - Triangle Wave](https://uva.onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&category=24&page=show_problem&problem=429)
     1. [576 - Haiku Review](https://uva.onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&page=show_problem&category=24&problem=517&mosmsg=Submission+received+with+ID+18747969)
+    1. [865 - Substitution Cipher](https://uva.onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&category=24&page=show_problem&problem=806)
+    1. [10252 - Common Permutation](https://uva.onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&category=24&page=show_problem&problem=1193)
     1. [12243 - Flowers Flourish from France](https://uva.onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&page=show_problem&category=24&problem=3395&mosmsg=Submission+received+with+ID+18783277) 
 
+1. Codeforces
 ### Referências
 
 HALIM, Steve; HALIM, Felix. [Competitive Programming 3](http://cpbook.net/), Lulu, 2013.
