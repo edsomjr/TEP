@@ -377,6 +377,131 @@ string lcs_str(const string& s, const string& t)
 }
 ``` 
 
+Quando todos os elementos de `s` e de `t` são distintos (isto é, `s[i] != s[j]` 
+se `i != j`, o mesmo para `t`), o problema de se determinar a LCS pode ser
+reduzido ao problema de se determinar a maior sequência crescente (_Longest
+Increasing Subsequence - LIS_). Para tal, basta criar uma sequência de índices
+crescente `{ a_i }` tal que `s[a_i] = t[j]` para algum `j`. Em outras palavras,
+`{ a_i }` é sequência crescente de índices de `s` dos caracteres de `s` que
+coincidem com algum dos caracteres de `t`. Determinada a sequência `{ a_i }`,
+a LIS desta sequência corresponderá a LCS dentre as duas strings.
+
+A vantagem desta abordagem é que, enquanto a LCS tem implementação `O(n^2)`, a
+LIS pode ser implementada em `O(n log n)`. Abaixo segue uma implementação
+possível da LIS com a complexidade `O(n log n)`.
+```C++
+#define MAX 1000010
+
+int dp[MAX];
+
+// Calcula o tamanho da LIS. Complexidade: O(nlog n)
+int lis(const vector<int>& a)
+{
+    dp[0] = -1;
+    int n = 0;
+
+    for (auto x : a)
+    {
+        if (x > dp[n])      // Aumenta a LIS, quando possível
+        {
+            dp[++n] = x;
+        } else              // Melhora os índices para possíveis aumentos futuros
+        {
+            auto it = lower_bound(dp + 1, dp + n, x); 
+            *it = min(*it, x);
+        }
+    }
+
+    return n;
+}
+```
+
+Maior Subsequência Palíndroma
+-----------------------------
+
+Outro problema de string que pode ser resolvido por meio da programação
+dinâmica é o de se encontrar a maior subsequência de uma string `s` que forma
+um palíndromo (_Longest Palindrome Subsequence - LPS_). Outra maneira de se enunciar este mesmo problema é a seguinte:
+qual é o maior palíndromo que pode ser formado removendo `m` (`0 <= m <= n`)
+caracteres, de quaisquer posições, de uma string de tamanho `n`?
+
+Este problema sempre tem solução, pois uma string com apenas um caractere é um
+palíndromo (assim como strings vazias). Esta observação nos dá os casos 
+bases do problema: se `LPS[i,j]` é o tamanho da maior subsequência palíndroma
+da substring `s[i..j]`, então
+
+        LPS[i,i] = 1
+        LPS[i,j] = 0    se i > j
+
+Temos três transições possíveis:
+
+1. Remover o caractere mais à esquerda da string (neste caso, `LPS[i,j] = LPS[i+1,j]`);
+1. Remover o caractere mais à direita da string (neste caso, `LPS[i,j] = LPS[i,j-1]`);
+1. Casos os caracteres que estão nos extremos da strings sejam iguais, removê-los e aumentar em duas unidades o tamanho da LPS (isto é, `LPS[i,j] = LPS[i+1,j-1] + 2`, se `s[i] == s[j]`).
+
+Uma possível implementação para este problema se encontra a seguir:
+```C++
+#define MAX_N   1001
+
+int st[MAX_N][MAX_N];
+
+int lp_dp(const string& s, int i, int j)
+{
+    if (i > j)
+        return 0;
+
+    if (i == j)
+        return 1;
+
+    if (st[i][j] != -1)
+        return st[i][j];
+
+    int res = max(lp_dp(s, i + 1, j), lp_dp(s, i, j - 1));
+
+    if (s[i] == s[j])
+        res = max(res, lp_dp(s, i + 1, j - 1) + 2);
+
+    st[i][j] = res;
+
+    return res;
+}
+
+// Implementação _top-down_, O(n^2), memória O(n^2)
+int longest_palindrome(const string& s)
+{
+    int n = s.size();
+
+    for (int i = 0; i < n; ++i)
+        for (int j = 0; j < n; ++j)
+        st[i][j] = -1;
+
+    return lp_dp(s, 0, n - 1);
+}
+```
+
+Assim como no caso da LCS, é possível recuperar a string correspondente a
+LPS armazendo-se os estados utilizados na atualização de cada estado e usando-se
+recursão ou uma pilha.
+
+### Exercícios
+
+<!--- 526 - Edit distance  -->
+<!--- 1833 - Edit distance com pesos modificados -->
+<!--- 10192 - LCS  -->
+<!--- 10405 - LCS  -->
+<!--- 10635 - LCS to LIS -->
+<!--- 10739 - DP, adaptação do LPS -->
+
+1. URI
+    1. [1833 - Decoração Natalina](https://www.urionlinejudge.com.br/judge/pt/problems/view/1833)
+
+1. UVA
+    1. [526 - String Distance and Transform Process](https://uva.onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&category=24&page=show_problem&problem=467)
+    1. [10192 - Vacation](https://uva.onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&category=24&page=show_problem&problem=1133)
+    1. [10405 - Longest Common Subsequence](https://uva.onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&category=24&page=show_problem&problem=1346)
+    1. [10635 - Prince and Princess](https://uva.onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&category=24&page=show_problem&problem=1576)
+    1. [10739 - String to Palindrome](https://uva.onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&category=24&page=show_problem&problem=1680)
+
 ### Referências
 
 HALIM, Steve; HALIM, Felix. [Competitive Programming 3](http://cpbook.net/), Lulu, 2013.
