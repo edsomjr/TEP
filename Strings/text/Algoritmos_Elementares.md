@@ -640,6 +640,7 @@ e `split()` (que tokeniza a string a partir dos marcadores informados).
 <!--- 58A - String, greedy -->
 <!--- 325 - Regex -->
 <!--- 576 - Regex/split/replaceAll/count -->
+<!--- 1242 - Substr/find -->
 <!--- 12243 - Tokenização de palavras -->
 
 1. Codeforces
@@ -649,6 +650,9 @@ e `split()` (que tokeniza a string a partir dos marcadores informados).
     1. [41A - Translation](http://codeforces.com/problemset/problem/41/A)
     1. [58A - Chat Room](http://codeforces.com/problemset/problem/58/A)
     
+1. URI
+    1. [1242 - Ácido Ribonucleico Alienígena](https://www.urionlinejudge.com.br/judge/pt/problems/view/1242)
+
 1. UVA
     1. [325 - Identifying Pascal Real Constants](https://uva.onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&category=24&page=show_problem&problem=261)
     1. [488 - Triangle Wave](https://uva.onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&category=24&page=show_problem&problem=429)

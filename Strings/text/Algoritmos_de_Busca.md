@@ -631,6 +631,12 @@ Por exemplo, para clarificar, peguemos o primeiro matching do exemplo acima e o 
 
 Por fim, a Z Function é uma função bem poderosa que pode ser usada para resolver vários tipos de problemas de string (talvez até outro temas?), bastando apenas ter boa criatividade derivada de prática para usar suas propriedades de maneiras inteligentes.
 
+### Exercícios
+
+<!-- 2049 - KMP -->
+1. URI
+    1. [2049 - Números de Ahmoc](https://www.urionlinejudge.com.br/judge/pt/problems/view/2049)
+
 ### Referências
 
 HALIM, Steve; HALIM, Felix. [Competitive Programming 3](http://cpbook.net/), Lulu, 2013.

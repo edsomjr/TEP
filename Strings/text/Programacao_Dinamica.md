@@ -491,6 +491,7 @@ recursão ou uma pilha.
 <!--- 10405 - LCS  -->
 <!--- 10635 - LCS to LIS -->
 <!--- 10739 - DP, adaptação do LPS -->
+<!--- 11151 - LPS -->
 
 1. URI
     1. [1833 - Decoração Natalina](https://www.urionlinejudge.com.br/judge/pt/problems/view/1833)
@@ -501,7 +502,7 @@ recursão ou uma pilha.
     1. [10405 - Longest Common Subsequence](https://uva.onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&category=24&page=show_problem&problem=1346)
     1. [10635 - Prince and Princess](https://uva.onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&category=24&page=show_problem&problem=1576)
     1. [10739 - String to Palindrome](https://uva.onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&category=24&page=show_problem&problem=1680)
-
+    1. [11151 - Longest Palindrome](https://uva.onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&page=show_problem&category=24&problem=2092&mosmsg=Submission+received+with+ID+19080129)
 ### Referências
 
 HALIM, Steve; HALIM, Felix. [Competitive Programming 3](http://cpbook.net/), Lulu, 2013.
