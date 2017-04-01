@@ -659,7 +659,7 @@ e `split()` (que tokeniza a string a partir dos marcadores informados).
     1. [576 - Haiku Review](https://uva.onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&page=show_problem&category=24&problem=517&mosmsg=Submission+received+with+ID+18747969)
     1. [865 - Substitution Cipher](https://uva.onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&category=24&page=show_problem&problem=806)
     1. [10252 - Common Permutation](https://uva.onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&category=24&page=show_problem&problem=1193)
-    1. [12243 - Flowers Flourish from France](https://uva.onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&page=show_problem&category=24&problem=3395&mosmsg=Submission+received+with+ID+18783277) 
+   
 
 ### Referências
 
