@@ -122,18 +122,24 @@ int MP(const string& text, const string& pat)
 
 O algoritmo de Morris-Pratt realiza, no máximo, um número de comparações linear 
 em termos dos tamanhos de `text` e `pat`, a saber, `2n - m` comparações. Isto 
-pode ser observado da seguinte maneira: serão feitas, no máximo, a comparação
+pode ser observado da seguinte maneira: a comparação
 `pat[j] == text[i + j]` pode falhar, no máximo, `n - m + 1` vezes (o primeiro
 laço é executado `n - m + 1`  vezes) e pode ter sucesso, no máximo, `n` vezes
-(quando o padrão e o texto são idênticos). Caso a primeira comparação seja 
-bem sucedida, ela não pode falhar no índice 0. Daí o máximo de comparações será
-igual a `n + (n - m) = 2n - m`.
+(quando o texto é período e o padrão é o período). Caso a primeira comparação seja 
+bem sucedida, ela não pode falhar no índice 0. O pior caso, em termos de número
+de comparações, acontece quando o padrão tem apenas duas letras distinas e o 
+texto é uma repetição de `n - 1` vezes a primeira letra do padrão e a última
+letra é igual a segunda letra do padrão (por exemplo, `pat = ab` e 
+`text = aaaaaaaaaaaab`. Neste cenário, a primeira comparação será bem sucedida,
+`n - 1` vezes, haverão `n - 2` falhas (em relação ao último caractere do
+padrão), e uma última comparação bem sucedida no último caractere. Daí o máximo 
+de comparações será igual a `(n  - 1) + (n - 2) + 2 = 2n - 2 = 2n - m`.
 
 Assim, o algoritmo MP é linear em relação ao tamanho do texto.
 Porém, para determinar sua complexidade, falta determinar a complexidade da
 construção do vetor `MP_shift`. Este vetor pode ser construído a partir de uma
 variação do próprio MP, de modo que teremos uma construção também linear em 
-relação ao tamanho do texto. Daí, a complexidade do algoritmo MP é  `O(n)`.
+relação ao tamanho do padrão. Daí, a complexidade do algoritmo MP é `O(n)`.
 
 Para construir `MP_shift`, determinaremos os valores de `border(pat[1..j])` a
 partir de uma variante do algoritmo MP, onde `text == pat`, 
@@ -142,31 +148,25 @@ apresentada a seguir.
 // Computa o tamanho das bordas de pat: bord[j] é o tamanho da borda da
 // substring pat[0..(j-1)]
 vector<int>
-borders(const string& pat)
+borders1(const string& pat)
 {
     int m = pat.size();
     int i = 1, j = 0;
 
-    vector<int> bord(m + 1, -1);    // Inicialmente, bord[j] = -1 para todo j
+    vector<int> bord(m + 1, 0);    // Inicialmente, bord[j] = 0 para todo j
+    bord[0] = -1;
 
     while (i < m + 1)
     {
         while (i + j < m and pat[j] == pat[i + j])
         {
             ++j;
-
-            if (bord[i + j] == -1)
-                bord[i + j] = j;
+            bord[i + j] = max(bord[i + j], j);
         }
 
         i += j - bord[j]; 
         j = max(0, bord[j]);
     } 
-
-    // Ajuste para compatibilidade entre os dois algoritmos de borda
-    for (int i = 1; i <= m; ++i)
-        if (bord[i] == -1)
-            bord[i] = 0;
 
     return bord;
 }
@@ -174,7 +174,7 @@ borders(const string& pat)
 
 Vale notar que, no momento das atualizações de `i`  e `j`, ao final do primeiro
 laço, os valores de `bord[j]` já estão devidamente computados, e que `i` 
-inicia em 1, não em zero (`bord[0] = -1`: uma string de tamanho 1 não tem 
+inicia em 1, não em zero (`bord[0] = -1`: uma string de tamanho zero não tem 
 bordas não triviais e o valor -1 faz com que a atualização de `i` seja igual a,
 no mínimo, um).
 

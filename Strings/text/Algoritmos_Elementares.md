@@ -632,6 +632,8 @@ expressões regulares são o método `replaceAll()` (que substituem os matches d
 regexes pelo texto dado), `trim()` (remove os espaços antes e depois do texto) 
 e `split()` (que tokeniza a string a partir dos marcadores informados).
 
+<!-- Adicionar: Hamming Distance: https://en.wikipedia.org/wiki/Hamming_distance -->
+
 ### Exercícios
 
 <!--- 5B - String, alignment -->

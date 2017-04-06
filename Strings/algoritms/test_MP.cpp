@@ -78,6 +78,19 @@ SCENARIO( "borders computation", "[string]" )
             }
         }
  
+        WHEN ( "pattern equals 'ababaababa'" )
+        {
+            pattern = "ababaababa";
+
+            THEN( "the size of the borders are { 0, 0, 1, 2, 3, 1, 2, 3, 4, 5 } " )
+            {
+                vector<int> bords { -1, 0, 0, 1, 2, 3, 1, 2, 3, 4, 5 };
+
+                REQUIRE( borders1(pattern) == bords );
+                REQUIRE( borders2(pattern) == bords );
+            }
+        }
+ 
         WHEN ( "pattern equals 'seventy seven'" )
         {
             pattern = "seventy seven";

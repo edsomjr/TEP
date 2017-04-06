@@ -23,7 +23,8 @@ borders1(const string& pat)
     int m = pat.size();
     int i = 1, j = 0;
 
-    vector<int> bord(m + 1, -1);    // Inicialmente, bord[j] = -1 para todo j
+    vector<int> bord(m + 1, 0);    // Inicialmente, bord[j] = 0 para todo j
+    bord[0] = -1;
 
     while (i < m + 1)
     {
@@ -31,18 +32,12 @@ borders1(const string& pat)
         {
             ++j;
 
-            if (bord[i + j] == -1)
-                bord[i + j] = j;
+            bord[i + j] = max(bord[i + j], j);
         }
 
         i += j - bord[j]; 
         j = max(0, bord[j]);
     } 
-
-    // Ajuste para compatibilidade entre os dois algoritmos de borda
-    for (int i = 1; i <= m; ++i)
-        if (bord[i] == -1)
-            bord[i] = 0;
 
     return bord;
 }
