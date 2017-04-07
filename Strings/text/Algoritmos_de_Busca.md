@@ -520,7 +520,7 @@ vector<int> naive_z_function(const string &s) {
 
 A ideia do código acima é simples: inicializamos o vetor `z` de tamanho `n` com todas suas posições zeradas. Logo após, para cada posição `i` de `1` a `n-1`, aumentamos o tamanho do maior prefixo comum de `S` e `S[i..n-1]` enquanto o carácter atual não está fora da string e enquanto os caracteres equivalentes forem iguais. Por exemplo: para uma posição `i` qualquer, inicialmente, `z[i] = 0`; logo, verificamos se `s[0]` e `s[i]` são iguais; se forem, incrementamos `z[i]` em `1` e agora verificamos se `s[1]` e `s[i + 1]` são iguais; se forem iguais também, incrementamos `z[i]` novamente; fazemos isso até encontrar dois carácteres diferentes ou até chegarmos ao final da string.
 
-Para cada posição `i`, no máximo `O(n)` operações são feitas (isto acontece quando o sufixo inteiro que começa em `i` é um prefixo de `S`). Como a string `S` tem `n` posições, temos a complexidade final do algoritmo ingênuo: `O(n²) = O(n) * O(n)`.
+Para cada posição `i`, no máximo `O(n)` operações são feitas (isto acontece quando o sufixo inteiro que começa em `i` é um prefixo de `S`). Como a string `S` tem `n` posições, temos a complexidade final do algoritmo ingênuo de `O(n²)`.
 
 ### Versão Original O(n)
 
@@ -530,25 +530,25 @@ Tendo a função mostrada acima como inspiração, é possível modificá-la par
 vector<int> z_function(const string &s) {
     int n = s.size();
     vector<int> z(n, 0);
-    int l = 0, r = 0;
+    int L = 0, R = 0;
     for(int i = 1; i < n; i++) {
-        if(i <= r) {
-            z[i] = min(z[i - l], r - i + 1);
+        if(i <= R) {
+            z[i] = min(z[i - L], R - i + 1);
         }
         while(z[i] + i < n && s[z[i] + i] == s[z[i]]) {
             z[i]++;
         }
-        if(r < i + z[i] - 1) {
-            l = i, r = i + z[i] - 1;
+        if(R < i + z[i] - 1) {
+            L = i, R = i + z[i] - 1;
         }
     }
     return z;
 }
 ```
 
-Perceba que as únicas diferenças da versão original para a ingênua são os dois `ifs` dentro do for e as variáveis `l` e `r`. O `while` é exatamente igual ao da versão ingênua: isso é interessante porque a essência de ambas as abordagens são parecidas, com a sutil diferença de que na original utilizaremos prefixos comuns já calculados para diminuir o número de vezes que o `while` roda.
+Perceba que as únicas diferenças da versão original para a ingênua são os dois `ifs` dentro do for e as variáveis `L` e `R`. O `while` é exatamente igual ao da versão ingênua: isso é interessante porque a essência de ambas as abordagens são parecidas, com a sutil diferença de que na original utilizaremos prefixos comuns já calculados para diminuir o número de vezes que o `while` roda.
 
-A bela ideia desse algoritmo é o uso dos dois "ponteiros" `l` e `r`. Quando o `for` está numa posição `i` qualquer, esses ponteiros irão representar o começo e o fim de um maior prefixo comum não nulo (isto é, maior que 0) já encontrado entre `S` e algum sufixo `S[k..n-1]`, para `k < i`. Em específico, os ponteiros representam o começo e o fim de algum sufixo `S[k..n-1]` de tal forma que `r` é o máximo possível.
+A bela ideia desse algoritmo é o uso dos dois "ponteiros" `L` e `R`. Quando o `for` está numa posição `i` qualquer, esses ponteiros irão representar o começo e o fim de um maior prefixo comum não nulo (isto é, maior que 0) já encontrado entre `S` e algum sufixo `S[k..n-1]`, para `k < i`. Em específico, os ponteiros representam o começo e o fim de algum sufixo `S[k..n-1]` de tal forma que `R` é o máximo possível.
 
 Por exemplo, seja `S = abacababac`. O vetor `z` de `S` teria a seguinte forma:
 
@@ -558,27 +558,27 @@ Por exemplo, seja `S = abacababac`. O vetor `z` de `S` teria a seguinte forma:
 
 Suponha que o `for` está na nona iteração (`i = 8`). Neste ponto, 3 maiores prefixos comuns não nulos já foram encontrados para trás: entre `S` e `S[2..9]` com tamanho 1, entre `S` e `S[4..9]` com tamanho 3 e entre `S` e `S[6..9]` com tamanho 4. Ou seja, respectivamente, a substring `S[2..2]` é igual ao prefixo `S[0..0]`, a substring `S[4..6]` é igual ao prefixo `S[0..2]` e a substring `S[6..9]` é igual ao prefixo `S[0..3]`.
 
-O intervalo de cada uma dessas substrings (`(2, 2)`, `(4, 6)` e `(6, 9)`) seriam candidatos a serem os valores guardados nos ponteiros `l` e `r`; como nesse caso o intervalo que tem maior `r` é o intervalo `(6, 9)` (`9` no caso), então, no começo da nona iteração (`i = 8`), as variáveis terão os valores `l = 6` e `r = 9`. 
+O intervalo de cada uma dessas substrings (`(2, 2)`, `(4, 6)` e `(6, 9)`) seriam candidatos a serem os valores guardados nos ponteiros `L` e `R`; como nesse caso o intervalo que tem maior `R` é o intervalo `(6, 9)` (`9` no caso), então, no começo da nona iteração (`i = 8`), as variáveis terão os valores `l = 6` e `r = 9`. 
 
 Agora é onde entra em ação o primeiro `if`:
 ```C++
-    if(i <= r) {
-        z[i] = min(z[i - l], r - i + 1);
+    if (i <= R) {
+        z[i] = min(z[i - L], R - i + 1);
     }
 ```
 
-Se esta condição for verdadeira, isto é, se `i` está dentro do intervalo `[l, r]`, quer dizer que a substring `S[i..r]` é exatamente igual à substring `S[i-l..r-l]`, pois como `l` e `r` representam as pontas de um prefixo comum já calculado, tem-se que `S[0..r-l] = S[l..r]`. A operação `i-l` encontra a posição de `S[0..r-l]` equivalente à posição `i` de `S[l..r]`. E como `z[i-l]` já foi calculado, sabemos exatamente qual é o maior prefixo comum entre `S` e `S[i..r]`. Igualamos, então, `z[i]` ao mínimo entre `z[i-l]` e `r-i+1`, pois a única informação que temos é sobre a substring `S[i..r]` e, caso `z[i-l]` seja maior que o tamanho de tal substring, não sabemos se os carácteres depois de `S[r]` serão iguais aos carácteres depois de `S[r-l]`. Então, a ideia básica desse `if` é "adiantar" alguns carácteres para que o `while` rode normalmente mas menos vezes.
+Se esta condição for verdadeira, isto é, se `i` está dentro do intervalo `[l, r]`, quer dizer que a substring `S[i..r]` é exatamente igual à substring `S[i-l..r-l]`, pois como `L` e `R` representam as pontas de um prefixo comum já calculado, tem-se que `S[0..r-l] = S[l..r]`. A operação `i-l` encontra a posição de `S[0..r-l]` equivalente à posição `i` de `S[l..r]`. E como `z[i-l]` já foi calculado, sabemos exatamente qual é o maior prefixo comum entre `S` e `S[i..r]`. Igualamos, então, `z[i]` ao mínimo entre `z[i-l]` e `r-i+1`, pois a única informação que temos é sobre a substring `S[i..r]` e, caso `z[i-l]` seja maior que o tamanho de tal substring, não sabemos se os carácteres depois de `S[r]` serão iguais aos carácteres depois de `S[r-l]`. Então, a ideia básica desse `if` é "adiantar" alguns carácteres para que o `while` rode normalmente mas menos vezes.
 
-O segundo if tem uma função muito simples: atualizar os "ponteiros" `l` e `r` caso a ponta direita da substring `S[i..i+z[i]-1]` vá "mais longe" que a ponta direita da substring armazenada atualmente; ou seja, se `i+z[i]-1` for maior que `r`, então os "ponteiros" passam a "apontar" para a substring `S[i..i+z[i]-1]`.
+O segundo if tem uma função muito simples: atualizar os "ponteiros" `L` e `R` caso a ponta direita da substring `S[i..i+z[i]-1]` vá "mais longe" que a ponta direita da substring armazenada atualmente; ou seja, se `i+z[i]-1` for maior que `R`, então os "ponteiros" passam a "apontar" para a substring `S[i..i+z[i]-1]`.
 
 ```C++
-    if(r < i + z[i] - 1) {
-        l = i, r = i + z[i] - 1;
+    if (R < i + z[i] - 1) {
+        L = i, R = i + z[i] - 1;
     }
 
 ```
 
-Para analisar a complexidade desse algoritmo, temos que analisar quantas iterações o `while` faz. Para cada iteração que o `while` faz, o `r` cresce, indiretamente, em `1`. Isto acontece porque o `while` só verifica posições depois de `r`, já que o primeiro `if` faz o matching das posições anteriores em `O(1)`. Assim, como o `r` cresce no máximo `n` vezes, o `while` roda no máximo `n` vezes. Então, a complexidade amortizada do algoritmo é `O(n)`.
+Para analisar a complexidade desse algoritmo, temos que analisar quantas iterações o `while` faz. Para cada iteração que o `while` faz, o `R` cresce, indiretamente, em `1`. Isto acontece porque o `while` só verifica posições depois de `R`, já que o primeiro `if` faz o matching das posições anteriores em `O(1)`. Assim, como o `R` cresce no máximo `n` vezes, o `while` roda no máximo `n` vezes. Então, a complexidade amortizada do algoritmo é `O(n)`.
 
 ### Aplicação #1 - Matching de Strings
 
@@ -627,15 +627,28 @@ Com `S` e `S'` em mãos, calculamos os seus respectivos vetores z: `z` e `z'`. O
 
 O significado de `z[i]` (nesse caso) já é conhecido por nós: maior prefixo comum entre o padrão de busca `P` e a substring `T[i-(m+1)..n-1]` (isto é, sufixo de `T` começando na posição `i-(m+1)`) do texto `T`; mas e o significado de `z'[i]` em relação à string S, qual é? Em termos abstratos, `z'` armazena os tamanhos dos maiores sufixos comuns do padrão de busca `P` e dos prefixos de `T`.
 
-Por exemplo, para clarificar, peguemos o primeiro matching do exemplo acima e o padrão `P`: `cabo` e `P = caco`; é fácil ver que o maior prefixo comum entre os dois tem tamanho `2` (`ca`) e o maior sufixo comum entre os dois tem tamanho 1 (`o`). Ou seja, indo do "começo" para o "fim" de ambas as strings, um "matching" de tamanho `2` é encontrado, enquanto partindo do "fim" das strings para o "começo", um matching de tamanho `1` é encontrado. Em outras palavras, `3` carácteres iguais entre `cabo` e `P = caco` foram encontrados. Os únicos (único, nesse caso) carácteres que não deram matching são os carácteres entre o maior prefixo comum e o maior sufixo comum de ambas as strings (isto é, os carácteres no "meio" das strings). Como `3` carácteres certeiros foram encontrados e o tamanho do padrão `P` é `m = 4`, sabemos que apenas um carácter entre o padrão `P = caco` e a substring `cabo` de `T` são diferentes, o que está dentro das condições do problema. Portanto, consideramos `cabo` como um matching de `caco` (não é um matching perfeito, mas é um matching). Em termos gerais, o números de carácteres "certeiros" entre uma substring `A` de `T` e o padrão `P` é `min(m, tamanho_maior_prefixo_comum(A, P) + tamanho_maior_sufixo_comum(A, P))`; se esse valor for `m` ou `m - 1`, a substring `A` é considerada um matching. Para achar tais tamanho para uma substring de `T` começando em `i` é só usar `z[i]` e `z'[k]`, sendo `k` o índice ajustado (pois `S'` é a concatenação das strings reversas).
+Por exemplo, para clarificar, peguemos o primeiro matching do exemplo acima e o padrão `P`: `cabo` e `P = caco`; é fácil ver que o maior prefixo comum entre os dois tem tamanho `2` (`ca`) e o maior sufixo comum entre os dois tem tamanho 1 (`o`). Ou seja, indo do "começo" para o "fim" de ambas as strings, um "matching" de tamanho `2` é encontrado, enquanto partindo do "fim" das strings para o "começo", um matching de tamanho `1` é encontrado. Em outras palavras, `3` carácteres iguais entre `cabo` e `P = caco` foram encontrados. Os únicos (único, nesse caso) carácteres que não deram matching são os carácteres entre o maior prefixo comum e o maior sufixo comum de ambas as strings (isto é, os carácteres no "meio" das strings). Como `3` carácteres certeiros foram encontrados e o tamanho do padrão `P` é `m = 4`, sabemos que apenas um carácter entre o padrão `P = caco` e a substring `cabo` de `T` são diferentes, o que está dentro das condições do problema. Portanto, consideramos `cabo` como um matching de `caco` (não é um matching perfeito, mas é um matching). Em termos gerais, o números de carácteres "certeiros" entre uma substring `A` de `T` e o padrão `P` é `min(m, tamanho_maior_prefixo_comum(A, P) + tamanho_maior_sufixo_comum(A, P))`; se esse valor for `m` ou `m - 1`, a substring `A` é considerada um matching. Para achar tais tamanho para uma substring de `T` começando em `i` é só usar `z[i]` e `z'[k]`, sendo `k` o índice ajustado (pois `S'` é a concatenação das strings reversas, daí `k = (n + m) - m - i = n - i`).
 
 Por fim, a Z Function é uma função bem poderosa que pode ser usada para resolver vários tipos de problemas de string (talvez até outro temas?), bastando apenas ter boa criatividade derivada de prática para usar suas propriedades de maneiras inteligentes.
 
 ### Exercícios
 
+<!-- 625B - KMP -->
 <!-- 2049 - KMP -->
+
+1. Codeforces
+    1. [625B - War of the Corporations](http://codeforces.com/contest/625/problem/B)
+
 1. URI
     1. [2049 - Números de Ahmoc](https://www.urionlinejudge.com.br/judge/pt/problems/view/2049)
+
+1. UVA
+    1. [455 - Periodic Strings](https://uva.onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&category=24&page=show_problem&problem=396)
+    1. [10298 - Power Strings](https://uva.onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&category=24&page=show_problem&problem=1239)
+    1. [11362 - Phone List](https://uva.onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&category=24&page=show_problem&problem=2347)
+    1. [11475 - Extend to Palindrome](https://uva.onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&category=24&page=show_problem&problem=2470)
+    1. [11576 - Scrolling Sign](https://uva.onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&category=24&page=show_problem&problem=2623)
+    1. [11888 - Abnormal 89's](https://uva.onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&category=24&page=show_problem&problem=2988)
 
 ### Referências
 
