@@ -254,7 +254,7 @@ int KMP(const string& text, const string& pat)
         if (j == m)
             ++occ;
 
-        int KMP_shift = j - strong_bords[j];
+        int KMP_shift = j - bords[j];
 
         i += KMP_shift;
         j = max(0, j - KMP_shift);
