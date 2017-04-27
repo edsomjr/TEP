@@ -558,7 +558,7 @@ Por exemplo, seja `S = abacababac`. O vetor `z` de `S` teria a seguinte forma:
 
 Suponha que o `for` está na nona iteração (`i = 8`). Neste ponto, 3 maiores prefixos comuns não nulos já foram encontrados para trás: entre `S` e `S[2..9]` com tamanho 1, entre `S` e `S[4..9]` com tamanho 3 e entre `S` e `S[6..9]` com tamanho 4. Ou seja, respectivamente, a substring `S[2..2]` é igual ao prefixo `S[0..0]`, a substring `S[4..6]` é igual ao prefixo `S[0..2]` e a substring `S[6..9]` é igual ao prefixo `S[0..3]`.
 
-O intervalo de cada uma dessas substrings (`(2, 2)`, `(4, 6)` e `(6, 9)`) seriam candidatos a serem os valores guardados nos ponteiros `L` e `R`; como nesse caso o intervalo que tem maior `R` é o intervalo `(6, 9)` (`9` no caso), então, no começo da nona iteração (`i = 8`), as variáveis terão os valores `l = 6` e `r = 9`. 
+O intervalo de cada uma dessas substrings (`(2, 2)`, `(4, 6)` e `(6, 9)`) seriam candidatos a serem os valores guardados nos ponteiros `L` e `R`; como nesse caso o intervalo que tem maior `R` é o intervalo `(6, 9)` (`9` no caso), então, no começo da nona iteração (`i = 8`), as variáveis terão os valores `L = 6` e `R = 9`. 
 
 Agora é onde entra em ação o primeiro `if`:
 ```C++
@@ -567,7 +567,7 @@ Agora é onde entra em ação o primeiro `if`:
     }
 ```
 
-Se esta condição for verdadeira, isto é, se `i` está dentro do intervalo `[l, r]`, quer dizer que a substring `S[i..r]` é exatamente igual à substring `S[i-l..r-l]`, pois como `L` e `R` representam as pontas de um prefixo comum já calculado, tem-se que `S[0..r-l] = S[l..r]`. A operação `i-l` encontra a posição de `S[0..r-l]` equivalente à posição `i` de `S[l..r]`. E como `z[i-l]` já foi calculado, sabemos exatamente qual é o maior prefixo comum entre `S` e `S[i..r]`. Igualamos, então, `z[i]` ao mínimo entre `z[i-l]` e `r-i+1`, pois a única informação que temos é sobre a substring `S[i..r]` e, caso `z[i-l]` seja maior que o tamanho de tal substring, não sabemos se os carácteres depois de `S[r]` serão iguais aos carácteres depois de `S[r-l]`. Então, a ideia básica desse `if` é "adiantar" alguns carácteres para que o `while` rode normalmente mas menos vezes.
+Se esta condição for verdadeira, isto é, se `i` está dentro do intervalo `[L, R]`, quer dizer que a substring `S[i..R]` é exatamente igual à substring `S[i-L..R-L]`, pois como `L` e `R` representam as pontas de um prefixo comum já calculado, tem-se que `S[0..R-L] = S[L..R]`. A operação `i-L` encontra a posição de `S[0..R-L]` equivalente à posição `i` de `S[L..R]`. E como `z[i-L]` já foi calculado, sabemos exatamente qual é o maior prefixo comum entre `S` e `S[i..R]`. Igualamos, então, `z[i]` ao mínimo entre `z[i-L]` e `R-i+1`, pois a única informação que temos é sobre a substring `S[i..R]` e, caso `z[i-L]` seja maior que o tamanho de tal substring, não sabemos se os carácteres depois de `S[R]` serão iguais aos carácteres depois de `S[R-L]`. Então, a ideia básica desse `if` é "adiantar" alguns carácteres para que o `while` rode normalmente mas menos vezes.
 
 O segundo if tem uma função muito simples: atualizar os "ponteiros" `L` e `R` caso a ponta direita da substring `S[i..i+z[i]-1]` vá "mais longe" que a ponta direita da substring armazenada atualmente; ou seja, se `i+z[i]-1` for maior que `R`, então os "ponteiros" passam a "apontar" para a substring `S[i..i+z[i]-1]`.
 
