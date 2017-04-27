@@ -41,6 +41,42 @@ sufixo.
 
 ![Trie](trie.png)
 
+A função abaixo constrói uma _trie_: os nós são mapas onde a chave é o 
+rótulo da aresta e o valor é o índice do nó.
+```C++
+#define MAX 1000010
+
+map<char, int> trie[MAX];
+
+void build_naive(const string& s)
+{
+    for (int i = 0; i < MAX; ++i)
+        trie[i].clear();
+
+    int root = 0, next = 0;
+
+    for (int i = s.size() - 1; i >= 0; --i)
+    {
+        string suffix = s.substr(i);
+        int v = root;
+
+        for (auto c : suffix)
+        {
+            auto it = trie[v].find(c);
+
+            if (it != trie[v].end())
+            {
+                v = it->second;
+            }else
+            {
+                trie[v][c] = ++next;
+                v = next;
+            }
+        }
+    }
+}
+```
+
 Observe que é possível usar esta trie para identificar se uma string `s` é ou
 não substring de "BANANA", bastando proceder de forma semelhante à busca binária.
 Para `s = "NAN"`, partindo da raiz, temos "N" na aresta à direita, "A" na única
@@ -51,8 +87,174 @@ primeiro caractere. Para `s = "NANAN"`, a busca se encerraria por chegar em um
 nó nulo. Observe que esta busca tem complexidada `O(|s|)`, 
 atendendo um dos critérios de uma boa árvore de sufixos.
 
-Porém os outros dois critérios não são satisfeitos: se a string inicial tem
+Abaixo uma possível implementação desta busca em C++.
+```C++
+bool trie_search(const string& s)
+{
+    int v = 0;
+    size_t pos = 0;
+
+    while (pos < s.size())
+    {
+        auto it = trie[v].find(s[pos]);
+
+        if (it == trie[v].end())
+            return false;
+
+        ++pos;
+        v = it->second;
+    }
+
+    return true;
+}
+```
+
+Note que a busca acima apenas determina se a substring ocorre ou não em `s`.
+Se for preciso determinar a posição (ou posições) desta ocorrência, é preciso
+modificar a construção da _trie_, para discriminar os nós que são essenciais dos
+demais.
+
+Uma maneira simples de fazê-lo é adicionar um caractere terminador (em geral,
+`#`), que não pertença a string original. A este caractere estará associado o
+índice `i` da string tal que o sufixo terminado no marcador é igual a 
+`s[i..N]`.
+```C++
+void build_naive_with_marker(const string& s)
+{
+    for (int i = 0; i < MAX; ++i)
+        trie[i].clear();
+
+    int root = 0, next = 0;
+
+    for (int i = s.size() - 1; i >= 0; --i)
+    {
+        string suffix = s.substr(i) + "#";
+        int v = root;
+
+        for (auto c : suffix)
+        {
+            if (c == '#')
+            {
+                trie[v]['#'] = i;
+                break;
+            }
+
+            auto it = trie[v].find(c);
+
+            if (it != trie[v].end())
+            {
+                v = it->second;
+            }else
+            {
+                trie[v][c] = ++next;
+                v = next;
+            }
+        }
+    }
+}
+```
+
+Com os marcadores, é possível extrair um vetor com os índices de todas as
+ocorrências da substring em s. Se o vetor retornar vazio, a substring não ocorre
+em s.
+```C++
+vector<int> trie_search_positions(const string& s)
+{
+    int v = 0;
+    size_t pos = 0;
+    vector<int> positions;
+
+    while (pos < s.size())
+    {
+        auto it = trie[v].find(s[pos]);
+
+        if (it == trie[v].end())
+            return positions;
+
+        ++pos;
+        v = it->second;
+    }
+
+    queue<int> q;
+    q.push(v);
+
+    while (not q.empty())
+    {
+        auto u = q.front();
+        q.pop();
+
+        for (auto p : trie[u])
+        {
+            auto c = p.first;
+            auto v = p.second;
+
+            if (c == '#')
+                positions.push_back(v);
+            else
+                q.push(v);
+        }
+    }
+
+    return positions;
+}
+```
+
+Outra informação que pode ser obtida a partir da _trie_ é o número de 
+substring distintas de `s`. Sabemos que, se `|s| = n`, `s` tem `n(n + 1)/2`
+substrings não vazias, não necessariamente distintas 
+(em outras palavras, todas as combinações de índices `i, j`, com 
+`i <= j, i, j = 1, 2, ..., n`, com repetição. Na _trie_, qualquer nó, exceto a
+raiz, representa uma substring distinta: os rótulos do caminho da raiz até o
+nó.
+
+O código abaixo computa o número de substrings distintas de uma string, a 
+partir de sua _trie_ pré-computada.
+```C++
+size_t unique_substrings()
+{
+    queue<int> q;
+    q.push(0);
+    int count = 0;
+
+    while (not q.empty())
+    {
+        auto u = q.front();
+        q.pop();
+
+        for (auto p : trie[u])
+        {
+            auto c = p.first;
+            auto v = p.second;
+
+            if (c != '#')
+            {
+                ++count;
+                q.push(v);
+            }
+        }
+    }    
+
+    return count;
+}
+```
+
+Embora as buscas apresentadas satisfaçam o terceiro critério para uma boa 
+árvore de sufixo,
+os outros dois critérios não são satisfeitos: se a string inicial tem
 `N` caracteres, a construção e o espaço em memória são `O(N^2)`.
+
+A melhoria da construção e do espaço em memória da _trie_ são abordados nas
+próximas seções
+
+Construção Online da Trie 
+-------------------------
+
+A construção pode ser melhorada através do uso de _links_ de sufixos, que
+são arestas de um nó `u` para um nó `v` onde o caminho `p(v)` da raiz até `v`
+é igual ao caminho de `p(u)`, se removido de seu primeiro caractere.
+Além disso, a construção pode ser feita de forma iterativa: a árvore 
+correspondente à string `s[1..N]` pode ser construída a partir da string
+`s[1..(N-1)]`.
 
 Para reduzir o tamanho em memória da trie uma estratégia possível é compactar
 as **cadeias**, onde uma **cadeia** é o maior caminho possível composto por
