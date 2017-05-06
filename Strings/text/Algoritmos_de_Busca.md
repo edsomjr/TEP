@@ -491,7 +491,7 @@ Z Function
 
 A Z Function é uma função que recebe como parâmetro uma string `S` de tamanho `n` (indexada em `0`) e retorna o vetor `z`, onde cada posição `i` do vetor `z` tem o seguinte significado:
 
-        z[i] - maior prefixo comum da string S e da substring S[i..n-1]
+        z[i] = maior prefixo comum da string S e da substring S[i..n-1]
 
 Isto é, `z[i]` guarda o tamanho do maior prefixo comum de `S` e do sufixo de `S` que começa na posição `i`. Por definição, `z[0]` tem valor `0`, pois o sufixo de `S` que começa na posição `0` é a própria string `S` (mas isso pode ser ajustado a depender da necessidade do problema). Por exemplo, dada a string `abacaba`, o vetor `z` teria os valores seguintes armazenados:
 
