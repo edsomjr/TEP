@@ -8,10 +8,10 @@ Edit Distance
 -------------
 
 Sejam `s` e `t` duas strings, com `s != t`. Quando comparadas por meio de um
-algoritmo de _matching_, dentre os motivos que levam o algoritmo a retornar 
+algoritmo de _matching_, dentre os motivos que levam o algoritmo a retornar
 falso estão:
 
-1. ambas strings tem mesmo tamanho, mas diferem em um ou mais símbolos. Por 
+1. ambas strings tem mesmo tamanho, mas diferem em um ou mais símbolos. Por
 exemplo,
 
         s = "banana"
@@ -19,7 +19,7 @@ exemplo,
 
 onde `s[2] != t[2]`;
 
-1. a primeira string é mais longa que a segunda, e poderíam se tornar iguais se
+2. a primeira string é mais longa que a segunda, e poderíam se tornar iguais se
 removidos os caracteres excedentes. Por exemplo, se
 
         s = 'aspectos'
@@ -27,16 +27,16 @@ removidos os caracteres excedentes. Por exemplo, se
 
 então `s == r` se removidos os caracteres das posições 0, 2, 4 e 6 de `s`;
 
-1. a primeira string é mais curta do que a segunda, e poderia se igualar a 
+3. a primeira string é mais curta do que a segunda, e poderia se igualar a
 primeira se adicionados os caracateres ausentes. Por exemplo,
 
         s = 'fga'
         r = 'formigas'
 
-se tornariam iguais com a adição dos caracteres `ormis` em `s`, nas devidas 
+se tornariam iguais com a adição dos caracteres `ormis` em `s`, nas devidas
 posições.
 
-Na prática, é possível obter qualquer string `r` a partir de uma string `s` 
+Na prática, é possível obter qualquer string `r` a partir de uma string `s`
 dada, usando uma sequência finita das operações descritas acima (alterar um
 caractere, adicionar um caractere ou remover um caractere). O problema
 denominado _edit distance_ consiste em determinar o número mínimo de operações a
@@ -51,7 +51,7 @@ Se denotarmos `edit(s, t)` como o menor número de operações que transforma
 1. `edit(s, t) = edit(t, s)` (simetria)
 1. `edit(s, t) <= edit(s, r) + edit(r, t)` (desigualdade triangular)
 
-Considere que `|s| = m, |t| = n`. Para determinar `edit(s, t)`, devemos 
+Considere que `|s| = m, |t| = n`. Para determinar `edit(s, t)`, devemos
 construir uma tabela auxiliar de estados `st`, onde `st(i, j) = edit(s[1..i],
 t[1..j]`, com `0 < i <= m, 0 < j <= n`. O casos bases acontecem quando uma das
 duas strings é vazia: nestes casos, o mínimo de operações a serem feitas é igual
@@ -61,7 +61,7 @@ simbólica,
         st(0, j) = j, st(i, 0) = i
 
 Se os custos de inserção, de remoção e de alteração forem `c_i, c_r, c_s`,
-respectivamente, então os casos bases devem ser 
+respectivamente, então os casos bases devem ser
 
         st(0, j) = j*c_i    // j inserções
         st(i, 0) = i*c_r    // i remoções
@@ -83,16 +83,16 @@ e por alteração seria
 Assim,
 
         st(i, j) = min(st(i, j - 1) + c_i,
-                       st(i - 1, j) + c_r, 
+                       st(i - 1, j) + c_r,
                        st(i - 1, j - 1) + c_s * (s[i] == t[j] ? 0 : 1)
                    )
 
 Como a tabela tem `mn` estados, e cada transição é feita em `O(1)`, o algoritmo
 tem complexidade `O(mn)`.
 
-Abaixo uma implementação _bottom-up_ em C++. Recorde que, em C++, as strings 
+Abaixo uma implementação _bottom-up_ em C++. Recorde que, em C++, as strings
 são indexadas a partir de zero, e não um, como na notação anterior. Desta
-forma, no código abaixo `st[i][j]` significa o custo mínimo para transformar 
+forma, no código abaixo `st[i][j]` significa o custo mínimo para transformar
 `s.substr(i)` em `t.substr(j)`.
 
 ```C++
@@ -117,12 +117,12 @@ int edit(const string& s, const string& r)
         for (int j = 1; j <= n; ++j)
         {
             int insertion = st[i][j - 1] + c_i;
-            int deletion = st[i - 1][j] + c_r; 
+            int deletion = st[i - 1][j] + c_r;
             int change = st[i - 1][j - 1] + c_s * (s[i - 1] == t[j - 1] ? 0 : 1);
             st[i][j] = min(insertion, deletion);
             st[i][j] = min(st[i][j], change);
         }
-                       
+
     return st[m][n];
 }
 ```
@@ -155,7 +155,7 @@ int edit2(const string& s, const string& t)
         for (int j = 1; j <= n; ++j)
         {
             int insertion = line[j - 1] + c_i;
-            int deletion = prev[j] + c_r; 
+            int deletion = prev[j] + c_r;
             int change = prev[j - 1] + c_s * (s[i - 1] == t[j - 1] ? 0 : 1);
             line[j] = min(insertion, deletion);
             line[j] = min(line[j], change);
@@ -169,10 +169,10 @@ int edit2(const string& s, const string& t)
 ```
 
 Esta segunda implementação pode ser necessária em competições com limites de
-memória restritos. Porém, esta implementação torna deveras mais complicado 
-determinar as operações necessárias para se obter `t` a partir de `s`: na 
+memória restritos. Porém, esta implementação torna deveras mais complicado
+determinar as operações necessárias para se obter `t` a partir de `s`: na
 primeira implementação, basta manter um registro da operação responsável pela
-atualização de cada elemento da tabela `st`, conforme apresentado no código 
+atualização de cada elemento da tabela `st`, conforme apresentado no código
 abaixo.
 ```C++
 // x        Deletion
@@ -200,7 +200,7 @@ string edit_operations(const string& s, const string& t)
         for (int j = 1; j <= n; ++j)
         {
             int insertion = st[i][j - 1] + c_i;
-            int deletion = st[i - 1][j] + c_r; 
+            int deletion = st[i - 1][j] + c_r;
             int change = st[i - 1][j - 1] + c_s * (s[i - 1] == t[j - 1] ? 0 : 1);
 
             st[i][j] = min(insertion, deletion);
@@ -261,7 +261,7 @@ Maior Subsequência Comum
 ------------------------
 
 Dadas duas strings `s` e `t`, o problema de se determinar a maior subsequência
-comum a elas (_Longest Common Subsequence - LCS_) pode ser interpretado como 
+comum a elas (_Longest Common Subsequence - LCS_) pode ser interpretado como
 uma variante do _edit distance_.
 
 Basta notar que tal sequência é formada por caracteres comuns às duas strings.
@@ -294,7 +294,7 @@ int lcs(const string& s, const string& t)
         for (int j = 1; j <= n; ++j)
         {
             int insertion = st[i][j - 1] + c_i;
-            int deletion = st[i - 1][j] + c_r; 
+            int deletion = st[i - 1][j] + c_r;
             int change = st[i - 1][j - 1] + c_s * (s[i - 1] == t[j - 1] ? 1 : -INF);
             st[i][j] = max(insertion, deletion);
             st[i][j] = max(st[i][j], change);
@@ -328,7 +328,7 @@ string lcs_str(const string& s, const string& t)
         for (int j = 1; j <= n; ++j)
         {
             int insertion = st[i][j - 1] + c_i;
-            int deletion = st[i - 1][j] + c_r; 
+            int deletion = st[i - 1][j] + c_r;
             int change = st[i - 1][j - 1] + c_s * (s[i - 1] == t[j - 1] ? 1 : -INF);
 
             st[i][j] = max(insertion, deletion);
@@ -375,9 +375,9 @@ string lcs_str(const string& s, const string& t)
 
     return os.str();
 }
-``` 
+```
 
-Quando todos os elementos de `s` e de `t` são distintos (isto é, `s[i] != s[j]` 
+Quando todos os elementos de `s` e de `t` são distintos (isto é, `s[i] != s[j]`
 se `i != j`, o mesmo para `t`), o problema de se determinar a LCS pode ser
 reduzido ao problema de se determinar a maior sequência crescente (_Longest
 Increasing Subsequence - LIS_). Para tal, basta criar uma sequência de índices
@@ -407,7 +407,7 @@ int lis(const vector<int>& a)
             dp[++n] = x;
         } else              // Melhora os índices para possíveis aumentos futuros
         {
-            auto it = lower_bound(dp + 1, dp + n, x); 
+            auto it = lower_bound(dp + 1, dp + n, x);
             *it = min(*it, x);
         }
     }
@@ -426,7 +426,7 @@ qual é o maior palíndromo que pode ser formado removendo `m` (`0 <= m <= n`)
 caracteres, de quaisquer posições, de uma string de tamanho `n`?
 
 Este problema sempre tem solução, pois uma string com apenas um caractere é um
-palíndromo (assim como strings vazias). Esta observação nos dá os casos 
+palíndromo (assim como strings vazias). Esta observação nos dá os casos
 bases do problema: se `LPS[i,j]` é o tamanho da maior subsequência palíndroma
 da substring `s[i..j]`, então
 
