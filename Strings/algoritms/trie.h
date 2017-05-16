@@ -168,4 +168,77 @@ size_t unique_substrings()
     return count;
 }
 
+void build_online(const string& s)
+{
+    for (int i = 0; i < MAX; ++i)
+        trie[i].clear();
+
+    int root = 0, next = 0, deepest = 0;
+    string S = s + '#';
+    vector<int> suf { -1 };
+
+    for (size_t i = 0; i < S.size(); ++i)
+    {
+        int c = S[i];
+        int u = deepest;
+
+//        printf("-- new trie (%s) (deepest = %d):\n", S.substr(0, i + 1).c_str(), u);
+
+        while (u >= 0)
+        {
+            auto it = trie[u].find(c);
+
+            if (it == trie[u].end())
+            {
+                trie[u][c] = ++next;
+//printf("'%c' not in %d: creating a new node %d\n", c, u, next);
+                suf.push_back(0);       // lazy: will be corrected in next loop
+
+                if (u != deepest)
+                {
+//printf("updating suffix of node %d to %d\n", next - 1, next);
+                    suf[next - 1] = next;
+                } else
+                    deepest = next;
+            } else
+            {
+//printf("'%c' found in %d: updating suffix of %d to %d\n", c, u, next, it->second);
+                suf[next] = it->second;
+                break;
+            }
+
+            u = suf[u];
+//printf("advancing to u = %d\n", u);
+        }
+
+ /*       printf("suf = ");
+        for (size_t v = 0; v < suf.size(); ++v)
+            printf("%3lu", v);
+
+        printf("\n      ");
+        for (size_t v = 0; v < suf.size(); ++v)
+            printf("%3d", suf[v]);
+
+        printf("\nvks = ");
+        for (int v = i + 1; v >= 0; --v)
+            printf("%3lu", v);
+
+        printf("\n      ");
+        u = deepest;
+        for (size_t v = 0; v <= i + 1; ++v)
+        {
+            printf("%3d", u);
+            u = suf[u];
+        }
+
+        printf("\nnodes: \n");
+        for (size_t v = 0; v <= next; ++v)
+            for (auto p : trie[v])
+                printf("node %d: (%c, %d)\n", v, p.first, p.second);
+    */
+    }        
+}
+
+
 #endif
+
