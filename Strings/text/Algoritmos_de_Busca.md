@@ -244,7 +244,7 @@ int KMP(const string& text, const string& pat)
     int m = pat.size();
     int i = 0, j = 0, occ = 0;
 
-    vector<int> bords = strong_borders(pat);
+    vector<int> strong_bords = strong_borders(pat);
 
     while (i <= n - m)
     {
