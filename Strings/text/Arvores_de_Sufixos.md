@@ -245,7 +245,7 @@ os outros dois critérios não são satisfeitos: se a string inicial tem
 `N` caracteres, a construção e o espaço em memória são `O(N^2)`.
 
 A melhoria da construção e do espaço em memória da _trie_ são abordados nas
-próximas seções
+próximas seções.
 
 Construção Online da Trie 
 -------------------------
