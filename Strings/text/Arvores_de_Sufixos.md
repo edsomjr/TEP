@@ -155,8 +155,9 @@ void build_naive_with_marker(const string& s)
 ```
 
 Com os marcadores, é possível extrair um vetor com os índices de todas as
-ocorrências da substring em s. Se o vetor retornar vazio, a substring não ocorre
-em s.
+ocorrências de uma substring s na trie. Se o vetor retornar vazio, a substring s não ocorre
+na trie.
+
 ```C++
 vector<int> trie_search_positions(const string& s)
 {
