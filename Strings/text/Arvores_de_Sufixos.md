@@ -279,6 +279,10 @@ armazenamento agora é proporcional ao número de suffixos, e como uma string
 `s` tem `|s|` sufixos, o espaço em memória é linear em relação ao tamanho da
 string, uma redução significativa em relação às tries.
 
+## Vídeos Sugeridos
+
+[Trie, by Tushar Roy](https://www.youtube.com/watch?v=AXjmTQ8LEoI)
+
 ### Referências
 
 HALIM, Steve; HALIM, Felix. [Competitive Programming 3](http://cpbook.net/), Lulu, 2013.
