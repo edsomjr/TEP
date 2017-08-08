@@ -33,7 +33,11 @@ Uma vez definida a relação entre conjuntos e elementos, torna-se fundamental d
 conjunto pode ser descrito. A Teoria do Conjunto nos fornece duas formas:
 
 1. a enumeração de todos os seus elementos;
-1. descrição das propriedades comuns a todos os elementos do conjunto.
+1. descrição das propriedades comuns a todos os elementos do conjunto. Mais formalmente, se
+_P(x)_ é uma sentença aberta em _x_ (isto é, uma sentença tal que, uma vez atribuí um valor
+específico para a variável _x_, tal sentença se torna uma proposição), então 
+{_x_ &#8712; X \| _P(x)_ é verdadeira} é um conjunto, onde _X_ é o conjunto de  todos os possíveis
+valores de _x_.
 
 Usando as duas formas acima, podemos descrever o conjunto _A_ dos números pares positivos menores 
 ou iguais a 10 como
