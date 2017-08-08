@@ -102,10 +102,10 @@ forma, no código abaixo `st[i][j]` significa o custo mínimo para transformar
 int st[MAX_M][MAX_N];
 int c_i = 1, c_r = 1, c_s = 1;      // Custos iguais a um
 
-int edit(const string& s, const string& r)
+int edit(const string& s, const string& t)
 {
     int m = s.size();
-    int n = r.size();
+    int n = t.size();
 
     for (int i = 0; i <= m; ++i)
         st[i][0] = i*c_r;
