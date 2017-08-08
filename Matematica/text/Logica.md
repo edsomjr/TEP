@@ -77,3 +77,27 @@ int main()
     return 0;
 }
 ```
+
+Exercícios
+----------
+
+<!-- 276D - Guloso -->
+<!-- 1026 - Xor -->
+<!-- 1743 - Xor -->
+<!-- 10718 - Guloso -->
+
+1. Codeforces
+    1. [276D - Little Girl and Maximum XOR](http://codeforces.com/problemset/problem/276/D)
+1. URI
+    1. [1026 - Carrega ou não Carrega?](https://www.urionlinejudge.com.br/judge/pt/problems/view/1026)
+    1. [1743 - Máquina de Verificação Automatizada](https://www.urionlinejudge.com.br/judge/pt/problems/view/1743)
+1. UVA
+    1. [10718 - Bit Mask](https://uva.onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&category=24&page=show_problem&problem=1659)
+
+Referências
+-----------
+
+**ALENCAR FILHO**, Edgard de. _Iniciação à Lógica Matemática_. São Paulo, Nobel, 2002.
+
+**HALE**, Margie. _Essentials of Mathematics: Introduction to Theory, Proof, and the Professional
+Culture_. Mathematical Association of America, 2003.

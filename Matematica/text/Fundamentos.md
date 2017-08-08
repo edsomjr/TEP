@@ -1,7 +1,7 @@
 Fundamentos
 ===========
 
-Dois pilares fundamentais da Matemática são a Lógica Proposicional Boleana e a Teoria dos 
+Dois pilares fundamentais da Matemática são a Lógica Proposicional Booleana e a Teoria dos 
 Conjuntos. A ideia deste material, porém, não é fazer um tratado completo e formal de ambos
 temas, mas sim apresentar os principais conceitos e como eles são tratados no contexto de
 uma maratona de programação.
