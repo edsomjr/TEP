@@ -24,7 +24,7 @@ falsa);
 1. **Bicondicional** (se, e somente se): _p_ &#8596; _q_ (verdadeira apenas quando _p_ e _q_ tem
 mesmo valor lógico).
 
-Além dos conectivos acima listados, a **negação** (&#172; ou &#732;) inverte o valor lógico de uma 
+Além dos conectivos acima listados, a **negação** (&#172; ou ~) inverte o valor lógico de uma 
 proposição: proposições verdadeiras se tornam falsas e vice-versa.
 
 
@@ -39,9 +39,9 @@ diferente de zero, e o zero como falso.
 
 | Operador | Símbolo em C | Palavra reservada em C++ |
 | :---     |    :---:     |         :---:            |
-|   e      |     &&       |          and             |
-|   ou     |     \|\|     |          or              |
-|   não    |     !        |          not             |
+|   e      |     &&       |         `and`            |
+|   ou     |     \|\|     |         `or`             |
+|   não    |     !        |         `not`            |
 
 Observe que apenas 3 dos conectivos apresentados tem símbolos ou palavras reservadas equivalentes
 em C e C++: isto se dá porque é possível, a partir destes três, definir quaisquer um dos demais
@@ -61,4 +61,19 @@ A tabela abaixo apresenta os operadores _bit_ a _bit_ em C/C++:
 |   não    |    ~    |
 |   xor    |    ^    |
 
+O código abaixo ilustra o uso dos operadores _bit_ a _bit_.
+```C++
+int main()
+{
+    unsigned char a = 46;         //  46 = 00101110
+    unsigned char b = 151;        // 150 = 10010111
 
+    unsigned char c = a & b;      //   6 = 00000110
+    unsigned char d = a | b;      // 191 = 10111111
+    unsigned char e = a ^ b;      // 185 = 10111001
+    unsigned char f = ~a;         // 209 = 11010001
+    unsigned char g = ~b;         // 104 = 01101000
+
+    return 0;
+}
+```
