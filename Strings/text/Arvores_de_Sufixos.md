@@ -250,12 +250,86 @@ próximas seções.
 Construção Online da Trie 
 -------------------------
 
-A construção pode ser melhorada através do uso de _links_ de sufixos, que
-são arestas de um nó `u` para um nó `v` onde o caminho `p(v)` da raiz até `v`
-é igual ao caminho de `p(u)`, se removido de seu primeiro caractere.
-Além disso, a construção pode ser feita de forma iterativa: a árvore 
-correspondente à string `text[1..N]` pode ser construída a partir da string
-`text[1..(N-1)]`.
+A construção pode ser melhorada se, ao invés de construir toda a `Trie(s)` de uma só vez,
+computamos `Trie(s[1..N])` a partir de `Trie(s[1..(N - 1)]`. Defina `Tj = Trie(s[1..j])`.
+
+A principal observação a ser feita é que `Tj` pode ser construída a partir da inserção do 
+caractere `s[j]` em `T(j - 1)`, nas arestas de novos nós a serem adicionados no nós essenciais 
+de `T(j - 1)`, quando for o caso (isto é, quando o nó essencial não tem um filho cuja aresta
+tem `s[j]` como rótulo).
+
+O ponto principal, portanto, se torna determinar a sequência dos nós essenciais 
+`v_k, v_(k-1), ..., v_2, v_1, v_0`, onde `v_i` corresponde ao prefixo `s[1..i]` de `Tk`. 
+Esta tarefa pode ser feita por meio do uso de _links_ de sufixos.
+
+Seja `u` um nó de `Tk`. Defina `suf[u] = v`, onde `v` é um nó cujo caminho `p(v)` da raiz até 
+`v` é igual ao caminho de `[2..p(u)]`, isto é, o caminho `p(u)` sem o seu primeiro caractere. 
+Por definição, `suf[root] = root` (embora interpretar `suf[root] = NULL` seja mais interessante
+para a implementação). Esta definição nos leva a importante igualdade:
+
+        (v_k, v_(k-1), ..., v_0) = (v_k, suf[v_k], suf^2[v_k], ..., suf^{k - 1}[v_k])
+    
+
+Então a construção _online_ de `Tk` a partir de `T(k-1)` pode ser feita por meio dos passos
+a seguir:
+
+1. identifique os nós essenciais `v_(k-1), v_(k-2), ..., v_1, v_0` de `T(k-1)`, em ordem 
+decrescente em relação ao tamanho do sufixo relacionado;
+1. escolha os `v_i` consecutivos até que se tenha um nó `v_t` tal que exista um filho de
+`v_t` cuja aresta é `s[k]`;
+1. para os nós escolhidos, crie novos nós filhos cujos arestas sejam `s[k]`;
+1. atualize os _links_ de sufixos para os novos nós criados.
+
+Uma possível implementação deste algoritmo em C++ é dada a seguir.
+```C++
+void build_online(const string& s)
+{
+    for (int i = 0; i < MAX; ++i)
+        trie[i].clear();
+
+    int root = 0, next = 0, deepest = 0;        // deepest = v_(k-1)
+    string S = s + '#';
+    vector<int> suf { -1 };                     // suf[root] = NULL
+
+    for (size_t i = 0; i < S.size(); ++i)
+    {
+        // Calculo de Tk, com k = i + 1
+
+        int c = S[i];
+        int u = deepest;
+
+        while (u >= 0)
+        {
+            auto it = trie[u].find(c);
+
+            if (it == trie[u].end())
+            {
+                trie[u][c] = ++next;
+                suf.push_back(0);               // lazy: will be corrected in next loop
+
+                if (u != deepest)
+                {
+                    suf[next - 1] = next;       // delayed correction
+                } else
+                    deepest = next;             // v_k is the newest created node
+            } else
+            {
+                // Corner case: if s[k] is found, suf[v_t] points to it
+                suf[next] = it->second;
+                break;
+            }
+
+            u = suf[u];                         // v_(r-1) = suf[v_r]
+        }
+    }        
+}
+```
+
+Veja que, na implementação acima, os valores `v_k` são usandos implicitamente. 
+Para uma string `s` de tamanho `n`, esta construção tem complexidade `O(|Tn|)`.
+Embora ainda não seja a complexidade desejada de `O(n)`, esta estratégia será utilizada,
+com alguns ajustes, para atingir tal complexidade na construção da _suffix tree_, que
+veremos a seguir.
 
 Para reduzir o tamanho em memória da _trie_ uma estratégia possível é compactar
 as **cadeias**, onde uma **cadeia** é o maior caminho possível composto por
@@ -283,6 +357,7 @@ string, uma redução significativa em relação às _tries_.
 ## Vídeos Sugeridos
 
 [Trie, by Tushar Roy](https://www.youtube.com/watch?v=AXjmTQ8LEoI)
+
 
 ### Referências
 

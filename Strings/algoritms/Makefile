@@ -17,7 +17,7 @@ TESTS = ${SRC:.cpp=.exe}
 all:
 	$(MAKE) $(TESTS)
 
-%.exe: %.cpp
+%.exe: %.cpp 
 	@echo Building $@
 	$(CC) $(CFLAGS) $(INCLUDES) $? -o $@
 

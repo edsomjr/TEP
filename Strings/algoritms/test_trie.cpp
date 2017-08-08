@@ -200,3 +200,95 @@ SCENARIO( "naive trie construction with end-marker", "[string]" )
         }
     }
 }
+
+SCENARIO( "online trie construction", "[string]" )
+{
+    GIVEN ( "a pattern" )
+    {
+        string pattern;
+
+        WHEN ( "pattern is equals to 'banana'" )
+        {
+            pattern = "banana";
+            build_online(pattern);
+
+            THEN( "the trie has all substrings of pattern" )
+            {
+                for (size_t i = 0; i < pattern.size(); ++i)
+                    for (size_t j = 1; j < pattern.size(); ++j)
+                        REQUIRE( trie_search(pattern.substr(i, j - i + 1)) );
+            }
+
+            THEN( "words with chars different from 'a, b, c' are not substrings of pattern" )
+            {
+                REQUIRE( trie_search("anam") == false);
+                REQUIRE( trie_search("bama") == false);
+                REQUIRE( trie_search("aman") == false);
+                REQUIRE( trie_search("dana") == false);
+            }
+        }
+
+        WHEN ( "pattern is equals a non-empty string" )
+        {
+            THEN( "each node corresponde to a unique substring of pattern" )
+            {
+                pattern = "banana";
+                build_online(pattern);
+
+                set<string> S;
+
+                for (size_t i = 0; i < pattern.size(); ++i)
+                for (size_t j = i; j < pattern.size(); ++j)
+                    S.insert(pattern.substr(i, j - i + 1));
+
+                REQUIRE( unique_substrings() == S.size() );
+
+                pattern = "aaaaaaa";
+                build_online(pattern);
+
+                S.clear();
+
+                for (size_t i = 0; i < pattern.size(); ++i)
+                for (size_t j = i; j < pattern.size(); ++j)
+                    S.insert(pattern.substr(i, j - i + 1));
+
+                REQUIRE( unique_substrings() == S.size() );
+
+                pattern = "abcdefghijklm";
+                build_online(pattern);
+
+                S.clear();
+
+                for (size_t i = 0; i < pattern.size(); ++i)
+                for (size_t j = i; j < pattern.size(); ++j)
+                    S.insert(pattern.substr(i, j - i + 1));
+
+                REQUIRE( unique_substrings() == S.size() );
+
+                pattern = "ababababababababababababab";
+                build_online(pattern);
+
+                S.clear();
+
+                for (size_t i = 0; i < pattern.size(); ++i)
+                for (size_t j = i; j < pattern.size(); ++j)
+                    S.insert(pattern.substr(i, j - i + 1));
+
+                REQUIRE( unique_substrings() == S.size() );
+
+                pattern = "a";
+                build_online(pattern);
+
+                S.clear();
+
+                for (size_t i = 0; i < pattern.size(); ++i)
+                for (size_t j = i; j < pattern.size(); ++j)
+                    S.insert(pattern.substr(i, j - i + 1));
+
+                REQUIRE( unique_substrings() == S.size() ); 
+            }
+        }
+    }
+}
+
+
