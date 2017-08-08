@@ -38,9 +38,9 @@ um tipo de dado booleano, ambas linguagens interpretam como verdadeiro qualquer 
 diferente de zero, e o zero como falso.
 
 | Operador | Símbolo em C | Palavra reservada em C++ |
-|----------|--------------|--------------------------|
+| :---     |    :---:     |         :---:            |
 |   e      |     &&       |          and             |
-|   ou     |     ||       |          or              |
+|   ou     |     \|\|     |          or              |
 |   não    |     !        |          not             |
 
 Observe que apenas 3 dos conectivos apresentados tem símbolos ou palavras reservadas equivalentes
@@ -55,9 +55,9 @@ a segunda não será executada pelo mesmo motivo.
 A tabela abaixo apresenta os operadores _bit_ a _bit_ em C/C++:
 
 | Operador | Símbolo | 
-|----------|---------|
+| :---     |  :---:  |
 |   e      |    &    |
-|   ou     |    |    |
+|   ou     |    \|   |
 |   não    |    ~    |
 |   xor    |    ^    |
 
