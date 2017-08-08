@@ -21,8 +21,8 @@ elementos (a relação de subconjunto, associada ao termo "contido", se dá entr
 elementos se relacionam entre si por relação de igualdade).
 
 Este axioma permite também definir precisamente um conjunto especial, denominado **conjunto
-vazio**: &#2205; é um conjunto vazio se, para qualquer elemento _a_, _a_ não pertence a 
-&#2205;. Veja que esta definição não é baseada na ideia de cardinalidade (número de elementos
+vazio**: &#8709; é um conjunto vazio se, para qualquer elemento _a_, _a_ não pertence a 
+&#8709;. Veja que esta definição não é baseada na ideia de cardinalidade (número de elementos
 de um conjunto), a qual nem mesmo foi definida ainda, e ainda permite provar fatos importantes,
 como o que o conjunto vazio é único e que todo conjunto contém o conjunto vazio.
 
@@ -39,5 +39,5 @@ Usando as duas formas acima, podemos descrever o conjunto _A_ dos números pares
 ou iguais a 10 como
 
 1. A = {2, 4, 6, 8, 10}, ou
-1. A = {x &#2208; N \| 2 &#2264; x &#2264; 10}
+1. A = {_x_ &#8712; N \| 2 &#8804; _x_ &#8804; 10}
 
