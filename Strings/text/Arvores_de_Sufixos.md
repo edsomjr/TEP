@@ -109,7 +109,7 @@ bool trie_search(const string& s)
 }
 ```
 
-Note que a busca acima apenas determina se a substring ocorre ou não em `s`.
+Note que a busca acima apenas determina se a substring `s` ocorre ou não na _trie_, mas como só temos uma palavra na trie, se a substring `s` ocorre ou não em `text`.
 Se for preciso determinar a posição (ou posições) desta ocorrência, é preciso
 modificar a construção da _trie_, para discriminar os nós que são essenciais dos
 demais.
@@ -117,7 +117,7 @@ demais.
 Uma maneira simples de fazê-lo é adicionar um caractere terminador (em geral,
 `#`), que não pertença a string original. A este caractere estará associado o
 índice `i` da string tal que o sufixo terminado no marcador é igual a 
-`s[i..N]`.
+`text[i..N]`.
 ```C++
 void build_naive_with_marker(const string& s)
 {
@@ -155,8 +155,9 @@ void build_naive_with_marker(const string& s)
 ```
 
 Com os marcadores, é possível extrair um vetor com os índices de todas as
-ocorrências da substring em s. Se o vetor retornar vazio, a substring não ocorre
-em s.
+ocorrências de uma substring `s` na _trie_, ou no caso, em `text`. Se o vetor retornar vazio, a substring s não ocorre
+na _trie_.
+
 ```C++
 vector<int> trie_search_positions(const string& s)
 {
@@ -200,7 +201,7 @@ vector<int> trie_search_positions(const string& s)
 ```
 
 Outra informação que pode ser obtida a partir da _trie_ é o número de 
-substring distintas de `s`. Sabemos que, se `|s| = n`, `s` tem `n(n + 1)/2`
+substring distintas de `text`. Sabemos que, se `|text| = n`, `text` tem `n(n + 1)/2`
 substrings não vazias, não necessariamente distintas 
 (em outras palavras, todas as combinações de índices `i, j`, com 
 `i <= j, i, j = 1, 2, ..., n`, com repetição. Na _trie_, qualquer nó, exceto a
@@ -244,7 +245,7 @@ os outros dois critérios não são satisfeitos: se a string inicial tem
 `N` caracteres, a construção e o espaço em memória são `O(N^2)`.
 
 A melhoria da construção e do espaço em memória da _trie_ são abordados nas
-próximas seções
+próximas seções.
 
 Construção Online da Trie 
 -------------------------
@@ -330,7 +331,7 @@ Embora ainda não seja a complexidade desejada de `O(n)`, esta estratégia será
 com alguns ajustes, para atingir tal complexidade na construção da _suffix tree_, que
 veremos a seguir.
 
-Para reduzir o tamanho em memória da trie uma estratégia possível é compactar
+Para reduzir o tamanho em memória da _trie_ uma estratégia possível é compactar
 as **cadeias**, onde uma **cadeia** é o maior caminho possível composto por
 nós não-essenciais com grau de saída um (isto é, com uma única aresta partindo
 do nó). Esta compactação resulta em uma _suffix tree_.
@@ -350,8 +351,13 @@ A figura abaixo ilustra a _suffix tree_ associada a trie anterior.
 
 Observe que agora, exceto a raiz, todos os nós são essenciais, de modo que o
 armazenamento agora é proporcional ao número de suffixos, e como uma string
-`s` tem `|s|` sufixos, o espaço em memória é linear em relação ao tamanho da
+`text` tem `|text|` sufixos, o espaço em memória é linear em relação ao tamanho da
 string, uma redução significativa em relação às _tries_.
+
+## Vídeos Sugeridos
+
+[Trie, by Tushar Roy](https://www.youtube.com/watch?v=AXjmTQ8LEoI)
+
 
 ### Referências
 
