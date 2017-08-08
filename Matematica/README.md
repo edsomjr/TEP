@@ -2,7 +2,8 @@ Matemática
 ==========
 
 1. [Introdução](text/Introducao.md)
-1. Fundamentos
+1. [Fundamentos](text/Fundamentos.md)
+    1. [Lógica Proposicional Booleana](text/Logica.md)
     1. Teoria dos Conjuntos
     1. Funções
     1. Simulações
