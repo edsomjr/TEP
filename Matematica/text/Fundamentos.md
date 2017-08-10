@@ -11,7 +11,7 @@ os _links_ para cada um dos tópicos abordados.
 
 1. [Lógica Proposicional Booleana](text/Logica.md)
 1. [Teoria dos Conjuntos](text/Conjuntos.md)
-1. Funções
+1. [Funções](text/Funcoes.md)
 1. Simulações
 1. Grids
 1. Logaritmos e Exponenciais

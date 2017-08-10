@@ -50,8 +50,8 @@ Operações em Conjuntos
 
 Dados dois conjuntos A e B, é possível definir três novos conjuntos:
 
-1. conjunto **união** A &#8899; B = {_x_ \| _x_ &#8712; A ou _x_ &#8712; B}
-1. conjunto **interseção** A &#8898; B = {_x_ \| _x_ &#8712; A e _x_ &#8712; B}
+1. conjunto **união** A &#8746; B = {_x_ \| _x_ &#8712; A ou _x_ &#8712; B}
+1. conjunto **interseção** A &#8745; B = {_x_ \| _x_ &#8712; A e _x_ &#8712; B}
 1. conjunto **diferença** A \ B = {_x_ &#8712; A \| _x_ &#8713; B}
 
 Observe que os três operadores acima são definidos em termos dos conectivos lógicos fundamentais: 
