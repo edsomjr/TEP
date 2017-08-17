@@ -6,7 +6,7 @@ Matemática
     1. [Lógica Proposicional Booleana](text/Logica.md)
     1. [Teoria dos Conjuntos](text/Conjuntos.md)
     1. [Funções](text/Funcoes.md)
-    1. Simulações
+    1. [Simulações](text/Simulacoes.md)
     1. Grids
     1. Logaritmos e Exponenciais
     1. Polinômios

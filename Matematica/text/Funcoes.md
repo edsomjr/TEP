@@ -120,5 +120,5 @@ Exercícios
 Referências
 -----------
 
-WIKIPEDIA. [Bissection Method](https://en.wikipedia.org/wiki/Bisection_method)
+WIKIPEDIA. [Bissection Method](https://en.wikipedia.org/wiki/Bisection_method). Acesso em 15 de agosto de 2017.
 
