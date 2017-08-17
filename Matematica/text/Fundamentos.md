@@ -9,9 +9,9 @@ uma maratona de programação.
 Além destes, outros tópicos fundamentais também serão apresentados brevemente. Abaixo estão
 os _links_ para cada um dos tópicos abordados.
 
-1. [Lógica Proposicional Booleana](text/Logica.md)
-1. [Teoria dos Conjuntos](text/Conjuntos.md)
-1. [Funções](text/Funcoes.md)
+1. [Lógica Proposicional Booleana](Logica.md)
+1. [Teoria dos Conjuntos](Conjuntos.md)
+1. [Funções](Funcoes.md)
 1. Simulações
 1. Grids
 1. Logaritmos e Exponenciais
