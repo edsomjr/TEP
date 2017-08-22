@@ -7,6 +7,7 @@ Matemática
     1. [Teoria dos Conjuntos](text/Conjuntos.md)
     1. [Funções](text/Funcoes.md)
     1. [Simulações](text/Simulacoes.md)
+    1. Sequências
     1. Grids
     1. Logaritmos e Exponenciais
     1. Polinômios
