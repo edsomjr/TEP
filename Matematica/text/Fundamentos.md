@@ -15,6 +15,6 @@ os _links_ para cada um dos tópicos abordados.
 1. [Simulações](Simulacoes.md)
 1. Sequências
 1. Grids
-1. Logaritmos e Exponenciais
+1. [Logaritmos e Exponenciais](Logaritmos.md)
 1. Polinômios
 1. Bases Numéricas

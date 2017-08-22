@@ -9,7 +9,7 @@ Matemática
     1. [Simulações](text/Simulacoes.md)
     1. Sequências
     1. Grids
-    1. Logaritmos e Exponenciais
+    1. [Logaritmos e Exponenciais](text/Logaritmos.md)
     1. Polinômios
     1. Bases Numéricas
 1. Aritmética Estendida
