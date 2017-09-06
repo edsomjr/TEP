@@ -36,7 +36,7 @@ int solve(int N)
 
     for (int i = 2; i <= N; ++i)
         if (i*(i + 1)/2 <= N)
-            i = m;
+            m = i;
 
     return m;
 }
