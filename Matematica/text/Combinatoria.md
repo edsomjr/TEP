@@ -1,0 +1,15 @@
+Análise Combinatória
+====================
+
+A Análise Combinatória trata do problema fundamental da contagem. Ela é baseada em dois 
+princípios básicos: o **Princípio Multiplicativo**, do qual se derivam os conceitos de 
+permutação, arranjo e combinação, dentre outros, e o **Princípio Aditivo**, o qual é 
+generalizado pelo **Princípio da Inclusão/Exclusão**. Outras técnicas de contagem avançada
+também serão apresentadas, como as **Funções Geradoras** e as **Partições** de um inteiro.
+
+baixo estão os _links_ para cada um dos tópicos abordados.
+
+1. [Permutações, Combinações e Arranjos](Permutacoes.md)
+1. Princípio da Inclusão/Exclusão
+1. Funções Geradoras
+1. Partições

@@ -55,7 +55,7 @@ anterior como
 
 Partindo do caso base temos que
 
-* _a_&#8304; = _a_¹ / _a_ = 1 (daí a definição anterior para expoente igual a zero);
+* _a_&#8304; = _a_¹ / _a_ = 1 (daí a definição anterior para expoente igual a zero)
 * _a_&#8315;¹ = _a_&#8304; / _a_  = 1 / _a_
 * _a_&#8315;&#8319; = = 1 / _a_&#8319;
 

@@ -14,8 +14,8 @@ Matemática
     1. Bases Numéricas
 1. Aritmética Estendida
 1. Avaliação de Expressões
-1. Análise Combinatória
-    1. Permutações, Combinações e Arranjos
+1. [Análise Combinatória](text/Combinatoria.md)
+    1. [Permutações, Combinações e Arranjos](text/Permutacoes.md)
     1. Princípio da Inclusão/Exclusão
     1. Funções Geradoras
     1. Partições
