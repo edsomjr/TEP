@@ -1,4 +1,4 @@
-Permutações, Combinações e Arranjos
+Permutações, Arranjos e Combinações 
 ===================================
 
 Princípio Multiplicativo
@@ -86,14 +86,14 @@ fatorial, e dividirmos pelo elementos inseridos, obtemos
 
 O cálculo do total de arranjos assemelha-se, portanto, ao cálculo de um fatorial. 
 ```C++
-long long A(ll n, ll p)
+long long A(long long n, long long p)
 {
     if (n < p)
         return 0;
 
     long long res = 1;
 
-    for (ll i = n; i > p; --i)
+    for (long long i = n; i > p; --i)
         res *= i;
 
     return res;
@@ -103,4 +103,115 @@ long long A(ll n, ll p)
 É preciso tomar cuidado, porém, com o fato de que, assim como as permutações, o total de arranjos
 cresce rapidamente, e pode resultar em um _overflow_. Nestes casos, é preciso trabalhar com
 aritmética modular ou usar aritmética estendida, conforme for o caso de cada problema.
+
+Combinações
+-----------
+
+Seja A um conjunto com _n_ elementos distintos e _p_ um inteiro não negativo tal que _p <= n_. 
+Uma **combinação** deste _n_ elementos, tomados _p_ a _p_, consiste em uma escolha de _p_ elementos
+distintos dentre os _n_ possíveis, onde cada combinação difere das demais pela qualidade dos
+elementos, mas não pela ordem.  Por exemplo, se A = {1, 2, 3, 4} e _p_ = 2, há 6 combinações
+distintas, a saber: 12, 13, 14, 23, 24, 34.
+
+Usamos a notação _C(n, p)_ para denotar o total de combinações possíveis de _n_ elementos
+tomados _p_ a _p_. Convencionamos _C(n, p)_ = 0 quando _p > n_. Nos demais casos, podemos
+computar _C(n,p)_ a partir de _A(n,p)_: basta contar como apenas um todos os arranjos que diferem
+apenas pela ordem de seus elementos. Como _p_ elementos distintos geram _p!_ arranjos distintos,
+temos que
+
+        C(n, p) = [A(n, p)]/p! = n!/[(n - p)!p!] = binom(n, p)
+
+onde `binom(n, p)` representa o número binomial.
+
+Na prática, pode ser que o valor de `binom(n, p)` possa ser armazenado em uma
+variável inteira, mas os fatoriais envolvidos no numerador e no denominador podem dar _overflow_
+nos cálculos intermediários, comprometendo o resultado final. Há duas maneiras de contornar 
+este problema: por cancelamento ou por recorrência.
+
+A ideia do cancelamento é que, embora seja representado na forma de fração, `binom(n, p)` é 
+sempre um número inteiro. Assim, podemos fazer os cancelamentos devidos antes de multiplicar os
+fatores restantes. Veja o código abaixo.
+```C++
+long long gcd(long long a, long long b)     // Maior divisor comum de a e b
+{
+    return a ? gcd(b, a % b) : b;
+}
+
+long long binom(long long n, long long p)
+{
+    if (n < p)
+        return 0;
+
+    auto m = min(p, n - p);
+    auto M = min(p, n - p);
+
+    vector<long long> num;
+
+    for (long long i = n; i > M; ++i)       // Cancelamos pelo maior valor possível
+        num.push_back(i);
+
+    vector<long long> den;                  
+
+    for (long long i = 2; i <= m; ++i)       // Fica o denominador o menor valor possível
+        den.push_back(i);
+
+    for (auto y : den)
+    {
+        for (int i = num.size() - 1; i >= 0; --i)
+        {
+            auto d = gcd(y, num[i]);
+            
+            y /= d;                         
+            num[i] /= d;                    // Cancelamento possível
+            
+            if (y == 1)
+                break;
+        }
+
+        while (not num.empty() and num.back() == 1)
+            num.pop_back();                             // Remova os 1's que não contribuem para a resposta 
+    }
+
+    long long res = 1;
+
+    for (auto x : num)
+        res *= x;
+
+    return res;
+}
+```
+
+Outra maneira é utilizar a recorrência dos binomiais, derivadas do triângulo de Pascal, dada a 
+seguir:
+
+        binom(n, 0) = binom(n, n) = 1       // Caso base
+        binom(n, m) = binom(n - 1, m) + binom(n - 1, m - 1)
+
+Com esta recorrência é possível pre-computar, eficientemente, os valores dos binomiais.
+```C++
+#define MAX 201
+
+long long binom[MAX][MAX];
+
+void precomp()
+{
+    for (int i = 0; i < MAX; ++i)
+    {
+        binom[i][0] = binom[i][i] = 1;
+
+        for (int j = 1; j < i; ++j)
+            binom[i][j] = binom[i - 1][j] + binom[i - 1][j - 1];
+    }
+} 
+```
+
+Uma propriedade dos binomiais, que pode ser utilizada para cortar o tamanho da tabela de
+binomiais pela metade, é a sua simetria:
+
+        binom[n][p] = binom[n][n - p]
+
+Assim, basta computar a tabela até o valor _n_/2 e usar a simetria para os demais casos.
+
+<!--- Adicionar: Equações lineares com coeficientes unitários, combinações com repetição,
+permutação com repetição, arranjo com repetição, permutações circulares, coeficientes binomiais -->
 
