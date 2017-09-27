@@ -187,7 +187,7 @@ seguir:
         binom(n, 0) = binom(n, n) = 1       // Caso base
         binom(n, m) = binom(n - 1, m) + binom(n - 1, m - 1)
 
-Com esta recorrência é possível pre-computar, eficientemente, os valores dos binomiais.
+Com esta recorrência é possível pré-computar, eficientemente, os valores dos binomiais.
 ```C++
 #define MAX 201
 
@@ -212,6 +212,47 @@ binomiais pela metade, é a sua simetria:
 
 Assim, basta computar a tabela até o valor _n_/2 e usar a simetria para os demais casos.
 
-<!--- Adicionar: Equações lineares com coeficientes unitários, combinações com repetição,
-permutação com repetição, arranjo com repetição, permutações circulares, coeficientes binomiais -->
+Aplicações
+----------
 
+### Equações Lineares com Coeficientes Unitários
+
+Considere a equação linear dada por
+
+        x1 + x2 + ... + xr = n
+
+com _r_ natural e _n_ inteiro. Quando as variáveis _xi_ pertencem aos reais, racionais ou 
+inteiros, a equação tem infinitas soluções. O número de soluções, porém, fica restrito, ou mesmo
+pode não haver solução, caso as variáveis estejam restritas aos inteiros positivos.
+
+De fato, se _n < r_, a equação não tem solução nos inteiros positivos. Para _n >= r_, escrevamos
+o valor _r_ como uma soma de uns:
+
+        _r_ = 1 + 1 + 1 + ... + 1
+
+Podemos montar cada solução usando _r - 1_ barras verticais, posicionadas antes dos _n - 1_ 
+símbolos '+': a soma resultante à esquerda de cada uma das barras, e à direita da última, 
+corresponde aos valores das _n_ variáveis _xi_. Cada uma das soluções nos inteiros positivos
+corresponde a um posicionamento distinto das barras. Assim, o total de soluções é dado por
+_C(n - 1, r - 1)_, isto é, uma combinação das _r - 1_ barras nas _n - 1_ posições disponíveis.
+
+Se permitirmos que as variáveis assumam também o valor zero, podemos encontrar o novo total de
+soluções através de uma mudança de variáveis. Faça _yi = xi - 1_. Assim, _xi = yi + 1_ e teremos
+
+        x1 + x2 + ... + xr = n,                             xi >= 0
+        (x1 + 1) + (x2 + 1) + ... + (xr + 1) = n + r
+        y1 + y2 + ... + yr = n + r,                         yi >= 1
+
+Assim, o número de soluções da equação original, restrito aos inteiros não-negativos, é dado por
+_C(n + r - 1, r - 1)_, ou sua combinação complementar, = _C(n + r - 1, n)_.
+
+Por exemplo,
+
+        x1 + x2 + x3 = 10
+
+tem _C(10 - 1, 3 - 1)_ = _C(9, 2)_ = 36 soluções nos inteiros positivos, e _C(10 + 3 - 1, 3 - 1)_
+= _C(12, 2)_ = 66 soluções nos inteiros não-negativos.
+
+<!--- Adicionar: combinações com repetição,
+permutação com repetição, arranjo com repetição, permutações circulares, coeficientes binomiais -->
+<!-- Criar um arquivo com as sequências especiais: Fibonacci, Catalan, Stirling, etc -->
