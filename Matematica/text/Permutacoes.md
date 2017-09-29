@@ -318,7 +318,7 @@ Os coeficientes binomiais possuem uma série de propriedades interessantes, que 
 úteis na solução de problemas de contagem. Abaixo listamos algumas delas.
 
 1. _C(n, 0) + C(n, 1) + C(n, 2) + ... + C(n, n) = 2^n_ (consequência da expansão do binômio (1 + 1)^_n_))
-1. _C(n, 0) - C(n, 1) + C(n, 2) - ... + (-1)^n C(n, n) = 0_ (consequência da expansão do binômio (1 0 1)^_n_))
+1. _C(n, 0) - C(n, 1) + C(n, 2) - ... + (-1)^n C(n, n) = 0_ (consequência da expansão do binômio (1 - 1)^_n_))
 1. _C(p, p) + C(p, p + 1) + ... + C(p, p + n) = C(p + 1, p + n + 1)_ (consequência da propriedade _C(n + 1, p + 1) = C(n, p + 1) + C(n, p)_)
 
 

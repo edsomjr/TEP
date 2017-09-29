@@ -10,6 +10,7 @@ também serão apresentadas, como as **Funções Geradoras** e as **Partições*
 baixo estão os _links_ para cada um dos tópicos abordados.
 
 1. [Permutações, Arranjos e Combinações](Permutacoes.md)
+1. [Sequências Notáveis](Sequencias_Notaveis.md)
 1. Princípio da Inclusão/Exclusão
 1. Funções Geradoras
 1. Partições
