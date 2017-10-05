@@ -162,13 +162,95 @@ A sequência de Fibonacci tem várias propriedades interessantes:
     1. &#120587;(10^k) = 15 * 10^{k - 1}, k &#8805; 3
 1. Exceto para o caso _m_ = 2, o período de Pisano é sempre par.
 
-<!-- Criar um arquivo com as sequências especiais: Fibonacci, Catalan, Stirling, etc -->
+Números de Catalan
+------------------
+
+Os números de Catalan _C(n)_ formam uma sequência de inteiros que contabilizam uma série de fatos
+notáveis. Os primeiros números de Catalan são 1, 1, 2, 5, 14, 42, 132, 429, 1430, 4862, 16796, 58786, 208012, 742900, 2674440, 9694845, ...
+
+### Aplicações
+
+A primeira aplicação notável dos números de Catalan _C(n)_ é a contagem do número de sequências
+corretas formadas por _2n_ pares de parêntesis. Para _n = 0_ temos uma única sequência (vazio), e
+o mesmo ocorre para _n = 1_. Para _n = 2_ temos _C(2) = 2_ duas sequências possíveis
+
+        ()(), (())
+
+Para _n = 3_ temos _C(3) = 5_ sequências:
+
+        ()()(), (())(), ()(()), ((())), (()())
+
+A segunda aplicação notável é a contagem de árvores binárias completas (isto é, cada nó tem
+ou dois filhos ou nenhum): há _C(n)_ árvores binárias completas com _n + 1_ folhas. Para 
+_n = 3_ temos _C(2) = 2_ árvores:
+            
+            o
+           / \
+          o   x
+         / \
+        x   x
+
+e
+
+            o
+           / \
+          x   o
+             / \ 
+            x   x
+
+
+Uma terceira aplicação seria a contagem de triangularizações de um polígono convexo de 
+_n+2_ lados: há _C(n)_ triangularizações possíveis.
+
+Além dessas, há mais de 60 outras aplicações possíveis para tais números.
+
+### Cálculo
+
+Os números de Catalan surgem da recorrência
+
+        C(0) = 1
+        C(n + 1) = S{i=0,...,n} C(i)C(n - i),      n >= 0
+
+onde _S{i=0,...,n}_ é o somatório de _i_ variando de zero a _n_. Esta soma tem uma fórmula fechada:
+
+        C(n) = binom(2n, n)/(n + 1)
+
+Outra recorrência decorre desta forma fechada:
+
+        C(0) = 1
+        C(n + 1) = [2(2n +1)C(n)]/(n + 2)
+
+Esta última recorrência permite uma implementação eficaz dos números de Catalan, conforme 
+apresentado no código abaixo:
+```C++
+long long C[MAX];   // MAX deve estar definido e todos os elementos de C deve ser inicializado 
+                    // com o valor -1
+
+long long catalan(int n)
+{
+    if (n == 0)
+        return 1;
+
+    if (C[n] != -1)
+        return C[n];
+
+    C[n] = (2*(2*n - 1)*catalan(n - 1)]/(n + 1);
+
+    return C[n];
+}
+```
+Com variáveis do tipo `long long` é possível computar até o 33º número de Catalan sem
+_overflow_.
+
+<!-- Criar um arquivo com as sequências especiais: Stirling, etc -->
 
 Exercícios
 ----------
 1. UVA
     1. [763 - Fibinary Numbers](https://uva.onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&category=24&page=show_problem&problem=704)
     1. [948 - Fibonaccimal Base](https://uva.onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&category=24&page=show_problem&problem=889)
+    1. [10303 - How Many Trees?]( https://uva.onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&category=24&page=show_problem&problem=1244)
+    1. [10312 - Expression Bracketing](https://uva.onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&category=24&page=show_problem&problem=1253)
     1. [10689 - Yet another Number Sequence](https://uva.onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&category=24&page=show_problem&problem=1630)
 
 Referências
@@ -177,6 +259,8 @@ Referências
 HALIM, Steve; HALIM, Felix. [Competitive Programming 3](http://cpbook.net/), Lulu, 2013.
 
 WOLFRAM Math World. [Pisano Period](http://mathworld.wolfram.com/PisanoPeriod.html). Acesso em 28/09/2017.
+
+WIKIPEDIA. [Catalan Numbers](https://en.wikipedia.org/wiki/Catalan_number). Acesso em 05/10/2017.
 
 WIKIPEDIA. [Pisano Period](https://en.wikipedia.org/wiki/Pisano_period). Acesso em 28/09/2017.
 
