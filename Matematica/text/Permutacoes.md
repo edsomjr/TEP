@@ -205,12 +205,30 @@ void precomp()
 } 
 ```
 
+A implementação acima tem complexidade O(n*k) para execução e espaço utilizado, para casos onde o limite de espaço é muito restritivo podemos implementar o algoritmo com uso de espaço O(k).
+
+```C++
+int binom(int n, int k){
+
+	vector<int> dp(k+1,0);
+	dp[0]=1;
+
+	for(int i=1; i<=n; ++i)
+		for(int j=min(i,k); j>0; --j)
+			dp[j] = dp[j] + dp[j-1];
+
+	return dp[k];
+}
+```
+
 Uma propriedade dos binomiais, que pode ser utilizada para cortar o tamanho da tabela de
 binomiais pela metade, é a sua simetria:
 
         binom[n][p] = binom[n][n - p]
 
 Assim, basta computar a tabela até o valor _n_/2 e usar a simetria para os demais casos.
+
+
 
 Aplicações
 ----------
@@ -340,3 +358,5 @@ Referências
 -----------
 
 SANTOS, José Plínio O., MELLO, Margarida P., MURARI, Idani T. [Introdução à Análise Combinatória](http://www.vestseller.com.br/matematica/introduc-o-a-analise-combinatoria-jose-plinio-margarida-mello-idani-murari), Editora Ciência Moderna, 2007.
+
+Dinamic Programming Binomial Coeficient:[Geeks for Geeks](http://www.geeksforgeeks.org/dynamic-programming-set-9-binomial-coefficient/)
