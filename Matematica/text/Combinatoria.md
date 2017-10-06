@@ -12,5 +12,5 @@ baixo estão os _links_ para cada um dos tópicos abordados.
 1. [Permutações, Arranjos e Combinações](Permutacoes.md)
 1. [Sequências Notáveis](Sequencias_Notaveis.md)
 1. [Princípio da Inclusão/Exclusão](Inclusao_Exclusao.md)
-1. Funções Geradoras
+1. [Funções Geradoras](Funcoes_Geradoras.md)
 1. [Partições](Particoes.md)

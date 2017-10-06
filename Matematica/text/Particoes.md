@@ -181,4 +181,5 @@ Referências
 
 SANTOS, José Plínio O., MELLO, Margarida P., MURARI, Idani T. [Introdução à Análise Combinatória](http://www.vestseller.com.br/matematica/introduc-o-a-analise-combinatoria-jose-plinio-margarida-mello-idani-murari), Editora Ciência Moderna, 2007.
 
-WIKIPEDIA. [Partition](https://en.wikipedia.org/wiki/Partition_(number_theory))
+WIKIPEDIA. [Partition](https://en.wikipedia.org/wiki/Partition_(number_theory)). Acesso em 06/10/2017.
+
