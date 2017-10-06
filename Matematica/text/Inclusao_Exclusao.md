@@ -165,6 +165,9 @@ para _i_ variando de 0 a _m_.
 Este valor coincide com o número de maneiras de se distribuir _n_ bolas distintas em _m_ 
 caixas distintas, sem que nenhuma caixa fique vazia.
 
+Deste mesmo resultado pode-se deduzir este outro importante resultado: há _T = | S | / m!_ maneiras
+de se distribuir _n_ bolas distintas em _m_ caixas iguais, sem que nenhuma caixa fique vazia.
+
 Referências
 -----------
 

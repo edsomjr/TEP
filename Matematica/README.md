@@ -19,7 +19,7 @@ Matemática
     1. [Sequências Notáveis](text/Sequencias_Notaveis.md)
     1. [Princípio da Inclusão/Exclusão](text/Inclusao_Exclusao.md)
     1. Funções Geradoras
-    1. Partições
+    1. [Partições](text/Particoes.md)
 1. Teoria dos Números
     1. MMC e MDC
     1. Primalidade
