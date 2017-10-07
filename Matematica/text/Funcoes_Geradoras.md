@@ -108,14 +108,54 @@ _f(x)_ a expressão o mais sucinta possível. Das propriedades dos números bino
 
 Uma função geradora fundamental é a função associada a sequência de uns (1, 1, 1, ....):
 
-        f(x) = 1 + x + x^2 + .... = 1/(1 + x)
+        f(x) = 1 + x + x^2 + .... = 1/(1 - x)
 
-A soma infinita é igual a 1/(1 + x) nos casos em que _|x| < 1_. Porém, no estudo de funções
+A soma infinita é igual a 1/(1 - x) nos casos em que _|x| < 1_. Porém, no estudo de funções
 geradoras, não se atribui valores à variável _x_, de modo que não há preocupação com questões
 de convergência. Tais séries são denominadas **séries formais**.
 
 Soluções das Equações Lineares com Coeficientes Constantes: Uma Nova Perspectiva
 --------------------------------------------------------------------------------
+
+Voltemos ao problema de se contar o número de soluções distintas da equação
+
+        x1 + x2 + ... + xr = n
+
+com _xi > 0_. Associaremos o polinômio
+
+        1 + x + x² + ...
+
+a cada variável _xi_, o qual representa todos os valores possíveis para cada variável. A função
+geradora será dada pelo produto destes polinômio, isto é,
+
+        f(x) = (1 + x + x² + ...)(1 + x + x² + ...) ... (1 + x + x² + ...)
+             = (1 + x + x² + ...)^r
+
+Usando a soma da PG infinita temos que
+
+        f(x) = 1/(1 - x)^r = (1 - x)^{-r}
+
+Para se determinar o coeficiente do termo _xn_ de _f(x)_, podemos usar a série de Taylor com 
+_a = 0_, de (1 - _x_)^_u_, para um _u_ real. Isto nos leva ao coeficiente binomial generalizado:
+
+        binom_g(u, k) = u(u - 1)(u - 2) ... (u - k + 1)/k!
+
+onde _k_ é um inteiro não-negativo e _u_ um número real. Por exemplo
+
+        binom_g(1/2, 4) = (1/2)(-1/2)(-3/2)(-5/2)/4! = -15/384
+
+Assim, o termo _xn_ de _f(x)_ terá coeficiente igual a
+
+        (-1)^n binom_g(-r, n) = (-1)^n (-r)(-r - 1)(-r - 2) ... (-r - n + 1)/n!
+                              = (-1)^n [(-1)^n r(r + 1)(r + 2) ... (r + n - 1)/n!
+                              = [1 x 2 x ... x (r - 1)][r(r + 1)(r + 2) ... (r + n - 1)/(n!(r - 1)!)
+                              = (n + r - 1)!/[n!(r - 1)!]
+                              = binom(n + r - 1, r - 1)
+
+a qual é a solução encontrada anteriormente. A igualdade acima é verdadeira sempre que _r_ for
+um inteiro positivo.
+
+<!-- Adicionar texto sobre funções geradoras exponenciais, e as propriedades das funções geradoras -->
 
 Referências
 -----------
