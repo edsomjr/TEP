@@ -1,5 +1,4 @@
-Pontos
-------
+# Pontos
 
 Os pontos são elementos básicos da geometria, e são elementos adimensionais
 (dimensão 0). A maioria dos outros elementos e definições da geometria se
@@ -10,19 +9,17 @@ referem a pontos, e o termo ponto, em si, é um termo primitivo (sem definição
 Na prática, em C/C++, um ponto pode ser representado de várias maneiras, cada
 uma com suas respectivas vantagens e desvantagens:
 
-1. `struct` ou `class`
+**Representação via `struct` ou `class`**
 
     Representar um ponto utilizando uma classe ou estrutura tem a vantagem da
     legibilidade, mas precisa da implementação dos operadores relacionais para
     comparações entre pontos.
 
-    ```C++
+```C++
 typedef struct _Point {
         double x;
         double y;
 } Point;
-
-...
 
 Point p, q;     // Declaração
 p.x = 5;
@@ -33,12 +30,11 @@ p = q;          // Atribuição
 if (p < q) {    // Erro de compilação: operador < não definido!
         ...
 }
-    ```
-
+```
     Nestas representações, é útil definir construtores para a inicialização
     das variáveis.
 
-    ```C++
+```C++
 class Point {
 public:
         double x;
@@ -49,11 +45,10 @@ public:
 
 ...
 
-Point p(5), q(0, 10);     // Exemplos de uso do construtor (p = (5, 0))
-    ```
+Point p(5), q(0, 10); // Exemplos de uso do construtor (p = (5, 0))
+```
 
-
-1. `std::pair`
+**Representação via `std::pair`**
 
     Usar pares do C++ tem a vantagem de herdar os operadores de comparação dos
     tipos definidos. Porém, a desvantagem é a notação, que utiliza `first` e
@@ -61,7 +56,7 @@ Point p(5), q(0, 10);     // Exemplos de uso do construtor (p = (5, 0))
     estruturas. Além disso, não podem ser utilizados diretamente para
     representar pontos tridimensionais.
 
-    ```C++
+```C++
 using point = pair<double, double>;     // C++11
 
 ...
@@ -75,27 +70,27 @@ p = q;          // Atribuição
 if (p < q) {    // Ok! Operador < para doubles utilizado
         ...
 }
-    ```
+```
 
     A desvantagem de notação menos legível pode ser contornada com o uso
     de macros, conforme mostrado abaixo.
 
-    ```C++
+```C++
 #define x first
 #define y second
-    ```
+```
     Contudo, ao usar tais macros, deve-se tomar cuidado pois todas as aparições
     de `x` e `y` serão substituídas por `first` e `second`. Logo a declaração de
     uma variável com nome `x` pode levar a um erro de compilação.
 
-1. _arrays_
+**Representação via _arrays_**
 
     Utilizar _arrays_ para representar pontos permite a representação de
     conjuntos de pontos com facilidade, além de permitir a travessia via
     laço `for` por coordenada. Porém, peca na legibilidade (índices inteiros
     para acesso aos membros) e na necessidade de definição dos operadores.
 
-    ```C++
+```C++
 double p[2], q[2];      // Declaração usando _arrays_ unidimensionais de tamanho 2
 p[0] = 5;
 q[1] = 10;
@@ -105,7 +100,7 @@ p = q;          // Erro de compilação: operador = não definido!
 if (p < q) {    // Perigo: comparação entre os endereços dos ponteiros! O
         ...         // código compila normalmente!
 }
-    ```
+```
 
 ### Comparação entre pontos
 
@@ -314,7 +309,6 @@ Point rotate(const Point& P, double angle, const Point& C)
     return Q;
 }
 ```
-}
 
 O mesmo raciocínio se aplica em três dimensões: as matrizes de rotação
 _Rx, Ry_ e _Rz_, que rotacionam, no sentido anti-horário, em torno dos eixos
