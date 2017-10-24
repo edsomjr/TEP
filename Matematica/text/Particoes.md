@@ -82,7 +82,7 @@ A transição seria
         p(N, K) = p(N - K, K) + p(N - 1, K - 1)
 
 O primeiro termo da transição corresponde a tomar um termo _K_, que já garante a propriedade,
-e tomar todas as possível partições de _N - K_ com a mesma restrição; a segunda parte 
+e tomar todas as possíveis partições de _N - K_ com a mesma restrição; a segunda parte 
 corresponde às partições do antecessor _N - 1_ que tem elemento máximo _K - 1_: neste cenário,
 basta escolher um dos elementos _K - 1_, somar +1 a ele e obter uma partição de _N_ com elemento
 máximo _K_.
