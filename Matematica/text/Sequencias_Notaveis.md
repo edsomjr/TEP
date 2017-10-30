@@ -234,7 +234,7 @@ long long catalan(int n)
     if (C[n] != -1)
         return C[n];
 
-    C[n] = (2*(2*n - 1)*catalan(n - 1)]/(n + 1);
+    C[n] = (2*(2*n - 1)*catalan(n - 1))/(n + 1);
 
     return C[n];
 }
