@@ -8,6 +8,6 @@ Criptografia, na Computação, e em outras áreas de conhecimento.
 Iniciaremos nossos estudos com as questões de divisibilidade, o que nos levará naturalmente ao
 estudo dos números primos. Por fim veremos as relações de congruência e a aritmética modular.
 
-1. [Divisibilidade](Divisilibilidade.md)
+1. [Divisibilidade](Divisibilidade.md)
 1. Primalidade
 1. Aritmética Modular
