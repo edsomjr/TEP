@@ -137,5 +137,43 @@ A solução encontrada acima não é única: o conjunto completo das soluções 
 determinar, por exemplo, soluções específicas, como a de menor _x_ (ou _y_), menor diferença entre
 _x_ e _y_, menor solução com _x_ e _y_ positivos, e assim por diante (se existirem).
 
+Dois números _a_ e _b_ são dito **coprimos** se (_a, b_) = 1. Observe que, para dois inteiros
+_a_ e _b_ quaisquer, se _d_ = (_a, b_), então (_a/d_, _b/d_) = 1.
+
 Menor Múltiplo Comum
-====================
+--------------------
+
+Sejam _a_ e _b_ dois inteiros. O **menor múltiplo comum** (MMC) de _a_ e _b_ (notamos 
+_m_ = [_a,b_]) é o inteiro _m_ tal que
+
+1. _a_ divide _m_ e _b_ divide _m_;
+1. se _a_ divide _n_ e _b_ divide _n_, então _m_ divide _n_.
+
+De forma similar ao MDC, a primeira propriedade torna _m_ um múltiplo comum de _a_ e _b_; já a 
+segundo o torna o menor dentre os múltiplos comuns. 
+
+Uma importante relação entre o MDC e o MMC é que _ab = (a,b)[a,b]_. Esta relação nos permite 
+computar o MMC entre dois números de forma direta, uma vez conhecido o MDC.
+```C++
+long long lcm(long long a, long long b)
+{
+    return (a/gcd(a, b))*b;
+}
+```
+
+Veja que, na implementação acima, a divisão é feita antes do produto: esta ordem pode evitar 
+_overflow_ em alguns casos.
+
+Exercícios
+----------
+
+1. UVA
+    1. [10407 - Simple division](https://uva.onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&category=24&page=show_problem&problem=1348)
+    1. [10892 - LCM Cardinality](https://uva.onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&category=24&page=show_problem&problem=1833)
+    1. [11827 - Maximum GCD](https://uva.onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&category=24&page=show_problem&problem=2927)
+
+Referências
+-----------
+
+HEFEZ, Abramo. [Aritmética](https://loja.sbm.org.br/index.php/sbm/colecao-profmat/aritmetica.html).
+
