@@ -9,5 +9,5 @@ Iniciaremos nossos estudos com as questões de divisibilidade, o que nos levará
 estudo dos números primos. Por fim veremos as relações de congruência e a aritmética modular.
 
 1. [Divisibilidade](Divisibilidade.md)
-1. Primalidade
+1. [Números Primos](Primalidade.md)
 1. Aritmética Modular
