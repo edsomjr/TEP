@@ -71,3 +71,71 @@ Importante notar também que, se _r == 0_, então _b_ divide _a_.
 Maior Divisor Comum
 -------------------
 
+Dados dois inteiros _a_ e _b_, o **maior divisor comum** (MDC) de _a_ e _b_ (notamos _d_ = 
+(_a, b_) é o inteiro não-negativo _d_ tal que
+
+1. _d_ divide _a_ e _d_ divide _b_;
+1. se _c_ divide _a_ e _c_ divide _b_, então _c_ divide _d_.
+
+A pŕimeira condição apresentada garante que _d_ é divisor comum; já a segunda garante que ele é o
+maior dentre os divisores comuns de _a_ e _b_. Da definição pode-se observar que
+
+1. _d == 0_ se, e somente se, _a = b = 0_;
+1. (_a_, 0) = |_a_|, para todo inteiro _a_.
+
+Como (_a, b_) = (_-a, b_) = (_a, -b_) = (_-a,-b_), podemos restringir o problema de se determinar
+o MDC aos números não-negativos.
+
+Sejam _a_ e _b_ dois inteiros não-negativos, com _b !=  0_. A divisão de Euclides garante a 
+existência de inteiros _q_ e _r_ tais que _a = bq + r_, com _0 <= r < b_. Escrevendo
+_r = a - bq_, é possível mostrar que _(a, b) = (b, r)_. Este resultado, atribuído a Euclides,
+juntamente com o caso base apresentado anteriormente, nos permite implementar o cálculo do
+ MDC de maneira eficiente e sintética.
+```C++
+long long gcd(long long a, long long b)
+{
+    return b ? gcd(b, a % b) : a;
+}
+```
+
+Também é possível mostrar que o MDC entre _a_ é _b_ é o menor número não-negativo que pode
+ser escrito como uma combinação _ax + by_. Esta interpretação é fundamental para a demonstração
+de várias propriedades associadas ao MDC. Para se determinar tais inteiros _x_ e _y_ (os quais
+não são únicos), podemos usar uma versão estendida do algoritmo do MDC, mostrada abaixo.
+```C++
+long long ext_gcd(long long a, long long b, long long& x, long long& y)
+{
+    if (b == 0)
+    {
+        x = 1;
+        y = 0;
+        return a;
+    }
+
+    long long x1, y1;
+    long long d = ext_gcd(b, a % b, x1, y1);
+
+    x = y1;
+    y = x1 - y1*(a/b);
+
+    return d;
+}
+```
+
+Uma importante aplicação do MDC e do algoritmo de Euclides estendido é a solução de Equações
+Diofantinas Lineares, isto é, equações da forma _ax + by = c_, com _a, b, c, x, y_ inteiros.
+Tais equações tem solução se, e somente se, _(a, b)_ divide _c_. Se isto acontecer, procedemos
+da seguinte maneira
+
+1. usando o algoritmo estendido de Euclides, determinamos _x1_ e _y1_ tais que _ax1 + by1 = d_
+1. Faça _k = c / d_
+1. Multiplicando a equação do passo 1 por _k_, obtemos _x0 = k x x1_ e _y0 = k * y1_, e 
+_ax0 + by0 = d * k = c_.
+
+A solução encontrada acima não é única: o conjunto completo das soluções da equação diofantina
+é dado por _x = x0 + at_, _y = y0 - bt_, para qualquer _t_ inteiro. Estas expressões nos permitem
+determinar, por exemplo, soluções específicas, como a de menor _x_ (ou _y_), menor diferença entre
+_x_ e _y_, menor solução com _x_ e _y_ positivos, e assim por diante (se existirem).
+
+Menor Múltiplo Comum
+====================
