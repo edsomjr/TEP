@@ -266,7 +266,7 @@ desnecessariamente. Outra observação importante: o crivo deve começar no quad
 quaisquer múltiplos anteriores já foram crivados ou ignorados. Assim temos a terceira versão
 do crivo:
 ```C++
-vector<long long> primes(long long N)
+vector<long long> primes3(long long N)
 {
     bitset<MAX> sieve;      // MAX deve ser maior ou igual a N
     vector<long long> ps;
@@ -296,15 +296,61 @@ para `long long`. Esta nova versão roda em aproximadamente 360 ms.
 Uma maneira de verificar rapidamente se o crivo está produzindo os primos corretamente é checar
 o número de primos gerados, segundo a tabela abaixo, retirada de [primes.utm.edu](https://primes.utm.edu/howmany.html):
 
-        n           pi(n)
-        10          4
-        100         25
-        1000        168
-        10000       1229
-        100000      9592
-        1000000     78498
-        10000000    664579
+        n               pi(n)
+        10              4
+        100             25
+        1000            168
+        10000           1229
+        100000          9592
+        1000000         78498
+        10000000        664579
 
+
+Teorema Fundamental da Aritmética
+---------------------------------
+
+O Teorema Fundamental da Aritmética apresenta a relação fundamental dos números primos com todos
+os números natural. Ele afirma que todo _n > 1_ natural ou é primo ou é escrito de forma única
+(a menos de ordem) como o produto de primos.
+
+O conhecimento da fatoração/decomposição de um natural _n_ como produto de primos permite o 
+cálculo de várias funções importantes (MDC, MMC, número de divisores, soma dos divisões, função
+_phi_ de  Euler, etc), e também serve como alternativa para a representação do número, 
+principalmente quando o número é muito grande (maior do que a capacidade de um `long long`,
+por exemplo).
+
+A rotina abaixo computa a fatoração de _n_ como um mapa: a chave é o primo _p_ que aparece na
+decomposição, e o segundo valor do par é o maior expoente _k_ tal que _p^k_ divide _n_.
+```C++
+map<int, int> factorization(int n, const vector<int>& primes)
+{
+    map<int, int> fs;
+
+    for (auto p : primes)
+    {
+        if (p * p > n)
+            break;
+
+        int k = 0;
+
+        while (n % p == 0)
+        {
+            n /= p;
+            ++k;
+        }
+        
+        if (k)
+            fs[p] = k;
+    }
+
+    if (n > 1)
+        fs[n] = 1;
+
+    return fs;
+}
+```
+
+A ordem de complexidade da fatoração acima é _O(pi(sqrt(n)))_. 
 
 Referências
 -----------
