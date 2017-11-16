@@ -352,6 +352,290 @@ map<int, int> factorization(int n, const vector<int>& primes)
 
 A ordem de complexidade da fatoração acima é _O(pi(sqrt(n)))_. 
 
+Fatoração de Fatoriais
+----------------------
+
+Uma aplicação importante da fatoração é a fatoração de fatoriais. Os fatoriais crescem rapidamente,
+e mesmo para valores relativamente pequenos de _n_, o número _n!_ pode ser computacionalmente
+intratável. A fatoração de _n!_ permite trabalhar com tais números e realizar algumas operações
+com os mesmos (multiplicação, divisão, MMC e MDC, etc).
+
+A função `E(n,p)` retorna um inteiro _k_ tal que _p^k_ é a maior potência do primo _p_ que 
+divide _n!_. Para ilustrar o cálculo de `E(n,p)` considere _n = 12_ e _p = 2_. A expansão de
+12! é 
+
+        1 x 2 x 3 x 4 x 5 x 6 x 7 x 8 x 9 x 10 x 11 x 12
+
+É fácil observar que todos os múltiplos de 2 contribuem com um fator 2. Cancelando estes fatores
+ficamos com
+
+        1 x 1 x 3 x 2 x 5 x 3 x 7 x 4 x 9 x 5 x 11 x 6
+
+após eliminar 6 fatores. Veja que restam ainda fatores 2 no produto, onde haviam originalmente os 
+números 4, 8 e 12. Isto 
+acontece por, além de serem múltiplos de 2, os números 4, 8 e 12 também são múltiplos de 2². 
+Eliminando os fatores 2 uma vez mais obtemos
+
+        1 x 1 x 3 x 1 x 5 x 3 x 7 x 2 x 9 x 5 x 11 x 6
+
+Mais 3 fatores foram eliminados, e sobrou ainda um fator, onde estava o 8. Isto acontece também
+porque 8 é múltiplo de 2³. Eliminando este último fator, eliminamos um total de 6 + 3 + 1 = 10. 
+Portanto `E(12,2) = 9`.
+
+O exemplo acima nos dá a expressão para o cálculo de `E(n,p)`:
+
+        E(n, p) = [n/p] + [n/p^2] + ... + [n/p^r],      p^r <= n
+
+onde `[a/b]` é a divisão inteira de _a_ por _b_. A rotina abaixo computa `E(n, p)`:
+```C++
+int E(int n, int p)
+{
+    int res = 0, base = p;
+
+    while (p <= res)
+    {
+        res += res / base;
+        base *= p;
+    }
+
+    return res;
+}
+```
+
+Para a fatoração, basta chamar a função `E(n, p)` para todos os primos menores ou iguais a _n_.
+```C++
+map<int, int> factorial_factorization(int n, const vector<int>& primes)
+{
+    map<int, int> fs;
+
+    for (const auto& p : primes)
+    {
+        if (p > n)
+            break;
+
+        fs[p] = E(n, p);
+    }
+
+    return fs;
+}
+```
+
+MDC, MMC e fatoração
+--------------------
+
+Conhecidas as fatorações de _a_ é _b_, é possível computar tanto o MMC quando o MDC de _a_ e _b_
+diretamente a partir de tais fatorações. Quando representados com a mesma relação de primos
+(se um primo não aparece na fatoração, ele deve aparecer com expoente _k = 0_), o `MDC(a,b)` 
+consiste na lista de primos, elevados cada um a menor potência dentre as duas de _a_ e _b_; já
+o `MMC(a, b)` corresponde à maior dentre as duas potências. Veja o código abaixo.
+```C++
+int gcd(int a, int b, const vector<int>& primes)
+{
+    auto ps = factorization(a, primes);
+    auto qs = factorization(b, primes);
+
+    for (const auto& p : ps)
+        if (qs.find(p) == qs.end())
+            qs[p] = 0;
+
+    for (const auto& q : qs)
+        if (ps.find(q) == ps.end())
+            ps[q] = 0;
+
+    int res = 1;
+
+    for (auto p : ps)
+    {
+        int k = min(ps[p], qs[p]);
+
+        while (k--)
+            res *= p;
+    }
+
+    return res;
+}
+
+int lcm(int a, int b, const vector<int>& primes)
+{
+    auto ps = factorization(a, primes);
+    auto qs = factorization(b, primes);
+
+    for (const auto& p : ps)
+        if (qs.find(p) == qs.end())
+            qs[p] = 0;
+
+    for (const auto& q : qs)
+        if (ps.find(q) == ps.end())
+            ps[q] = 0;
+
+    int res = 1;
+
+    for (auto p : ps)
+    {
+        int k = max(ps[p], qs[p]);
+
+        while (k--)
+            res *= p;
+    }
+
+    return res;
+}
+
+```
+Veja que ambas implementação são mais complicadas do que as apresentadas anteriormente, e 
+também tem pior complexidade assintótica. É útil, porém, conhecer esta relação entre fatoração,
+MDC e MMC.
+
+Número de Divisores
+-------------------
+
+A fatoração de um número _n_ também permite computar o número de divisores deste número: basta
+fazer o produto de todos os expoentes da fatoração, somados cada um de uma unidade. Veja 
+o código abaixo.
+```C++
+long long number_of_divisors(int n, const vector<int>& primes)
+{
+    auto fs = factorization(n, primes);
+    long long res = 1;
+
+    for (const auto& f : fs)
+    {
+        int k = f.second;
+
+        res *= (k + 1);
+    }
+
+    return res;
+}
+```
+Uma variante deste código, semelhante ao código da fatoração, é dado abaixo:
+```C++
+long long number_of_divisors(int n)
+{
+    long long res = 0;
+
+    for (long long i = 1; i * i <= n; ++i)
+    {
+        if (n % i == 0)
+            res += (i == n/i ? 1 : 2);
+    }
+
+    return res;
+}
+```
+A primeira versão tem complexidade _O(sqrt(pi(n)))_, se a lista de primos já tiver sido 
+pré-computada. A segunda versão tem complexidade _O(sqrt(n))_, mas leva vantagem pela simplicidade
+e pelo fato de não exigir uma lista de primos.
+
+Soma dos Divisores
+------------------
+
+Um problema semelhantes ao anterior é determinar a soma de todos os divisores de _n_. Há dois
+algoritmos possíveis, variantes dos dois anteriores. O primeiro deles é baseado na fatoração,
+e é apresentado a seguir.
+```C++
+long long sum_of_divisors(int n, const vector<int>& primes)
+{
+    auto fs = factorization(n, primes);
+    long long res = 1;
+
+    for (const auto& f : fs)
+    {
+        int p = f.first;
+        int k = f.second + 1;
+
+        long long temp = 1;
+
+        while (k--)
+            temp *= p;
+
+        res *= (temp - 1)/(p - 1);
+    }
+
+    return res;
+}
+```
+
+Veja que, para cada fator _p^k_ da fatoração de _n_, o número de divisores é multiplicado
+por um fator _(p^{k + 1} - )/(p - 1)_. A segunda versão dispensa o número de primos:
+```C++
+long long number_of_divisors(int n)
+{
+    long long res = 0;
+
+    for (long long i = 1; i * i <= n; ++i)
+    {
+        if (n % i == 0)
+        {
+            int j = n / i;
+
+            res += (i == j ? i : i + j);
+    }
+
+    return res;
+}
+```
+
+Função Phi de Euler
+-------------------
+
+A função Phi de Euler (`phi(n)`) retorna o número de inteiros positivos menores ou iguais a _n_ 
+que são coprimos com _n_. É fácil ver que `phi(1) = 1` e que `phi(p) = p - 1`, se `p` é primo.
+Menos óbvio são os fatos de que `phi(mn) = phi(m)phi(n)`, se (_m, n_) = 1 e que `phi(p^k) = 
+p^{k - 1}(p - 1)`. Este dois últimos fatos nos permitem computar o valor de `phi(n)` a partir
+ da fatoração de _n_.
+```C++
+int phi(int n, const vector<int>& primes)
+{
+    if (n == 1)
+        return 1;
+
+    auto fs = factorization(n, primes);
+
+    int res = n;
+
+    for (const auto& f : fs)
+    {
+        int p = f.first;
+
+        res /= p;
+        res *= (p - 1);
+    }
+
+    return res;
+}
+```
+Se for preciso computar `phi(n)` para um intervalo de valores, o melhor a se fazer é usar 
+uma variante do crivo de Erastótenes, e a manipulação feita no código acima.
+```C++
+bitset<MAX> sieve;
+int phi[MAX];
+
+void precomp()
+{
+    for (int i = 1; i < MAX; ++i)
+        phi[i] = i;
+
+    sieve.set();
+
+    for (int p = 2; p < MAX; p += 2)
+        phi[p] /= 2;
+
+    for (long long p = 3; p < MAX; p += 2)
+    {
+        if (sieve[p])
+        {
+            for (long long j = p; j < MAX; j += p)
+            {
+                sieve[j] = false;
+                phi[j] /= p;
+                phi[j] *= (p - 1);
+            }
+        }
+    }
+}
+```
+
 Referências
 -----------
 
