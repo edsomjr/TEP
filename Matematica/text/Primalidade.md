@@ -392,9 +392,9 @@ int E(int n, int p)
 {
     int res = 0, base = p;
 
-    while (p <= res)
+    while (base <= n)
     {
-        res += res / base;
+        res += n / base;
         base *= p;
     }
 
