@@ -508,6 +508,8 @@ long long number_of_divisors(int n, const vector<int>& primes)
     return res;
 }
 ```
+Intuitivamente, imagine que temos uma fatoração prima de um número por exemplo fat(30) = 2^2*5. Qualquer múltiplo desse número teria os mesmos fatores com expoentes diferentes, assim os múltiplos de 30 seriam [2^0, 2^1, 2^2, 2^0x5, 2^1x5, 2^2x5] usando essa intuição podemos resolver o problema por combinatória, cada expoente pode aparece n vezes além de não aparecer na fatoração, ou seja, n+1 vezes. Utilizando o [principio multiplicativo](https://github.com/edsomjr/TEP/blob/master/Matematica/text/Permutacoes.md#princípio-multiplicativo) chegamos ao resultado: (exp1+1)x(exp2+1)x(exp3+1)x...x(exp_n+1).
+
 Uma variante deste código, semelhante ao código da fatoração, é dado abaixo:
 ```C++
 long long number_of_divisors(int n)
