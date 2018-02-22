@@ -23,7 +23,7 @@ Matemática
 1. [Teoria dos Números](text/Teoria_dos_Numeros.md)
     1. [Divisibilidade](text/Divisibilidade.md)
     1. [Números Primos](text/Primalidade.md)
-    1. Aritmética Modular
+    1. [Aritmética Modular](text/Aritmetica_Modular.md)
 1. Detecção de ciclos
 1. Probabilidade
 1. Teoria dos Jogos

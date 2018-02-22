@@ -10,4 +10,4 @@ estudo dos números primos. Por fim veremos as relações de congruência e a ar
 
 1. [Divisibilidade](Divisibilidade.md)
 1. [Números Primos](Primalidade.md)
-1. Aritmética Modular
+1. [Aritmética Modular](Aritmetica_Modular.md)
