@@ -5,7 +5,21 @@ Estruturas de Dados Lineares
 Leitura Recomendada
 -------------------
 
+- [Competitive Programming](https://cpbook.net/#CP1details). Capítulo 2, páginas 14 e 15.
+
+- [Open Data Structures](http://opendatastructures.org/), Capítulo 1, páginas 1 a 7.
+
 - [Wikipédia](https://en.wikipedia.org/wiki/List_of_data_structures). Listagem das estruturas de dados lineares.
+
+Leitura Complementar
+--------------------
+
+- [Open Data Structures](http://opendatastructures.org/), Capítulos 2 e 3.
+
+Vídeos
+------
+
+- [Elementary Data Structures](https://www.youtube.com/watch?list=PL8928ECB5F94CDA14&v=W9-U4NG603E), até o trecho que inicia a discussão sobre _hashing_.
 
 Sites
 -----
