@@ -38,3 +38,17 @@ Cursos
 - [Basic Data Structures](http://interactivepython.org/runestone/static/pythonds/BasicDS/toctree.html). Discussão das estruturas básicas, implementações em Python.
 
 - [Foundations of Data Structures](https://www.edx.org/course/foundations-of-data-structures). Curso da IIT Bombay.
+
+Problemas
+---------
+
+1. [Anagrams by Stack](https://uva.onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&category=24&page=show_problem&problem=673)
+1. [Broken Keyboard](https://uva.onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&category=24&page=show_problem&problem=3139)
+1. [Contest Scoreboard](https://uva.onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&category=24&page=show_problem&problem=1199)
+1. [Ferry Loading IV](https://uva.onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&category=24&page=show_problem&problem=1975)
+1. [Jzzhu and Children](http://codeforces.com/problemset/problem/450/A)
+1. [Least Cost Bracket Sequence](http://codeforces.com/problemset/problem/3/D)
+1. [Multitasking](https://uva.onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&category=24&page=show_problem&problem=3077)
+1. [Reconnaissance 2](http://codeforces.com/problemset/problem/34/A)
+1. [Sale](http://codeforces.com/problemset/problem/34/B)
+1. [Spiral Trap](https://uva.onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&category=24&page=show_problem&problem=1861)
