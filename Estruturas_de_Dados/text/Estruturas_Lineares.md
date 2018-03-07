@@ -7,7 +7,11 @@ Leitura Recomendada
 
 - [Competitive Programming](https://cpbook.net/#CP1details). Capítulo 2, páginas 14 e 15.
 
+- [Competitive Programmer's Handbook](https://cses.fi/book.html). Capítulo 4, páginas 35 e 36.
+
 - [Open Data Structures](http://opendatastructures.org/), Capítulo 1, páginas 1 a 7.
+
+- [The Art of Computer Programming](https://www.amazon.com.br/Computer-Programming-Volumes-1-4a-Boxed/dp/0321751043?tag=kns00-20&ascsubtag=9c25a946-5ad6-41ea-90a3-233e3aec8c23). Capítulo 1.2.10, páginas 96 a 104 (tópico avançado).
 
 - [Wikipédia](https://en.wikipedia.org/wiki/List_of_data_structures). Listagem das estruturas de dados lineares.
 
@@ -20,6 +24,8 @@ Vídeos
 ------
 
 - [Elementary Data Structures](https://www.youtube.com/watch?list=PL8928ECB5F94CDA14&v=W9-U4NG603E), até o trecho que inicia a discussão sobre _hashing_.
+
+- [Análise Amortizada](https://www.youtube.com/watch?v=qh5lSHCBiRs&list=PL8B24C31197EC371C&index=13) (tópico avançado).
 
 Sites
 -----
