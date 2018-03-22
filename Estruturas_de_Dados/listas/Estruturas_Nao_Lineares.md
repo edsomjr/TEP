@@ -22,110 +22,109 @@
 1. Qual é a diferença entre os três algoritmos de ordenação da API do C++, a saber: `sort`, `partial_sort` e `stable_sort`? Determine a complexidade assintótica de cada um deles.
 1. Em competições de programação que permitem ao participante _“hackear”_ o código de outros participantes é desaconselhado o uso das estruturas `unordered_set` e `unordered_map`. Justifique o porquê e apresente uma alternativa à estas estruturas.
 1. A propriedade de uma _heap_ binária pode ser violada caso exista algum nó cujo valor seja maior do que o valor de seu nó pai. O algoritmo abaixo restaura a propriedade da _heap_:
-```ruby
-# Algoritmo 1 Restauração da propriedade da heap binária
-# Entrada: O ı́ndice i do nó a ser corrigido.
-# Saída: Ao final do procedimento, a propriedade da heap está garantida.
-procedure swin(i)
+    ```ruby
+    # Algoritmo 1: Restauração da propriedade da heap binária
+    # Entrada: O ı́ndice i do nó a ser corrigido.
+    # Saída: Ao final do procedimento, a propriedade da heap está garantida.
+    procedure swin(i)
 
-    p ← i/2
+        p ← i/2
 
-    if i > 1 and value(i) > value(p) then
-        swap(i, j)
-        swin(p)
-    end if
+        if i > 1 and value(i) > value(p) then
+            swap(i, j)
+            swin(p)
+        end if
 
-end procedure
-```
-Implemente o pseudocódigo acima em C++.
+    end procedure
+    ``` Implemente o pseudocódigo acima em C++.
 1. O algoritmo abaixo implementa uma heap em Python. Reimplemente o mesmo código em C++.
-```python
-class Heap:
+    ```python
+    class Heap:
 
-    def __init__(self):
+        def __init__(self):
 
-        self.N = 0
-        self.xs = [0]       
-
-
-    def add(self, x):
-
-        self.N += 1
-
-        if len(self.xs) > self.N:
-            self.xs[self.N] = x
-        else:
-            self.xs.append(x)
-
-        self._swin(self.N)
+            self.N = 0
+            self.xs = [0]       
 
 
-    def empty(self):
+        def add(self, x):
 
-        return self.N == 0
+            self.N += 1
 
-    
-    def extract_max(self):
-        M = self._top()
-        self._pop()
-        return M
+            if len(self.xs) > self.N:
+                self.xs[self.N] = x
+            else:
+                self.xs.append(x)
+
+            self._swin(self.N)
+
+
+        def empty(self):
+
+            return self.N == 0
 
         
-    def _top(self):
+        def extract_max(self):
+            M = self._top()
+            self._pop()
+            return M
 
-        return self.xs[self.N]
+            
+        def _top(self):
 
-
-    def _pop(self):
-
-        self.xs[1], self.xs[self.N] = self.xs[self.N], self.xs[1]
-        del self.xs[-1]
-        self.N -= 1
-        self._sink(1)
+            return self.xs[self.N]
 
 
-    def __str__(self):
+        def _pop(self):
 
-        if len(self.xs[1:]) > 0:
-            return ','.join([str(x) for x in self.xs[1:]])
-        else:
-            return ''
-
-
-    def _parent(self, i):
-
-        return i/2
+            self.xs[1], self.xs[self.N] = self.xs[self.N], self.xs[1]
+            del self.xs[-1]
+            self.N -= 1
+            self._sink(1)
 
 
-    def _left(self, i):
-        
-        return 2*i
+        def __str__(self):
+
+            if len(self.xs[1:]) > 0:
+                return ','.join([str(x) for x in self.xs[1:]])
+            else:
+                return ''
 
 
-    def _right(self, i):
+        def _parent(self, i):
 
-        return 2*i + 1
+            return i/2
 
 
-    def _swin(self, i):
+        def _left(self, i):
+            
+            return 2*i
 
-        p = self._parent(i)
 
-        if i > 1 and self.xs[i] > self.xs[p]:
-            self.xs[i], self.xs[p] = self.xs[p], self.xs[i]
-            self._swin(p)
+        def _right(self, i):
 
-    def _sink(self, i):
+            return 2*i + 1
 
-        L = self._left(i)
-        R = self._right(i)
 
-        if R <= self.N and self.xs[R] > self.xs[L]:
-            M = R
-        else:
-            M = L
+        def _swin(self, i):
 
-        if M <= self.N and self.xs[M] > self.xs[i]:
-            self.xs[i], self.xs[M] = self.xs[M], self.xs[i]
-            self._sink(M)
-```
+            p = self._parent(i)
+
+            if i > 1 and self.xs[i] > self.xs[p]:
+                self.xs[i], self.xs[p] = self.xs[p], self.xs[i]
+                self._swin(p)
+
+        def _sink(self, i):
+
+            L = self._left(i)
+            R = self._right(i)
+
+            if R <= self.N and self.xs[R] > self.xs[L]:
+                M = R
+            else:
+                M = L
+
+            if M <= self.N and self.xs[M] > self.xs[i]:
+                self.xs[i], self.xs[M] = self.xs[M], self.xs[i]
+                self._sink(M)
+    ```
