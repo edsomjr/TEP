@@ -1,7 +1,7 @@
 Estruturas de Dados
 ===================
 
-1. [Contest I](contests/Contest_I.md)
-1. [Contest II](contests/Contest_I.md)
-1. [Contest III](contests/Contest_I.md)
-1. [Contest IV](contests/Contest_IV.md)
+1. [Contest I](Contest_I.md)
+1. [Contest II](Contest_II.md)
+1. [Contest III](Contest_III.md)
+1. [Contest IV](Contest_IV.md)
