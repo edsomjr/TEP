@@ -18,6 +18,8 @@ Leitura Complementar
 - [A New Data Structure for Cumulative Frequency Tables](https://pdfs.semanticscholar.org/769f/b8055fbe0997ef8d9dab6c9abf37489c6575.pdf). Paper original de 1994 onde Peter M. Fenwick propôs a _Binary
 Indexed Tree_.
 
+- [Binary Indexed Tree: Range Update and Range Queries](https://www.geeksforgeeks.org/binary-indexed-tree-range-update-range-queries/). Portal GeeksForGeeks, acesso em abril de 2018.
+
 Vídeos
 ------
 
