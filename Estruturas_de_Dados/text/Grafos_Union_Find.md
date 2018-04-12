@@ -5,7 +5,7 @@ Grafos e _Union-Find_
 Leitura Recomendada
 -------------------
 
-- [Competitive Programming](https://cpbook.net/#CP1details). Capítulo 2, páginas 18 e 21.
+- [Competitive Programming](https://cpbook.net/#CP1details). Capítulo 2, páginas 18 a 21.
 
 - [Competitive Programmer's Handbook](https://cses.fi/book.html). Capítulo 11, páginas 109 a 116, Capítulo 15, páginas 145 a 147.
 
