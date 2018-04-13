@@ -10,8 +10,94 @@ Problema B
 Problema C
 ----------
 
-Problema D
+[Problema D](https://uva.onlinejudge.org/index.php?option=onlinejudge&page=show_problem&problem=1119)
 ----------
+
+O problema simplesmente nos dá um grafo planar como _input_ e nos pede para contar as faces do mesmo.
+
+O _input_ é composto por **N** nós e **E** arestas, os quais epresentam o grafo planar. Os limites não são dados (thanks, UVA), mas isso não fará diferença pois a solução será linear.
+
+Em geral, na tentativa de resolução de um problema, é útil desenhar/criar alguns casos para analisar como a resposta é dada em relação ao _input_. Por exemplo, veja o grafo composto por um ciclo simples a seguir:
+![Grafo 0](imagens/D_graph0.png)
+
+É fácil observar que ele possui o mesmo número de nós e arestas e o número de faces é 1 (esqueçamos a "face" de de fora, por enquanto).
+
+Agora, analise as imagens a seguir e perceba como a quantidade de faces muda a cada adição de aresta:
+
+![Grafo 1](imagens/D_graph1.png)
+
+![Grafo 2](imagens/D_graph2.png)
+
+![Grafo 3](imagens/D_graph3.png)
+
+Sim, pra cada (e qualquer) aresta colocada, o número de faces cresce em 1. Isso acontece pois a face é dividida em duas outras faces quando qualquer aresta passa por ela.
+
+Já sabemos, então, que o número **V** de faces cresce linearmente em relação ao número de arestas  **E**; isto é, sabemos que **V = E - X**, para algum **X** que não sabemos ainda o que é. A única variável restante a analisar é o número de nós **N**: se analisarmos a primeira imagem, vemos que **V = 1** e **N = E = 10**, logo **1 = 10 - X** e **X = 9**, que é **N - 1**. Então, finalizamos com **V = E - N + 1**. Isto é, para saber o número de faces de um grafo planar, basta saber o número de nós e arestas no grafo.
+
+O único porém é que a fórmula descrita acima é válida para um [componente conectado](https://en.wikipedia.org/wiki/Connected_component_(graph_theory)). Portanto, para calcular a resposta final, basta calcular o número de faces de cada componente conectado, somar esses valores e somar 1 ao final de tudo para computar a face "externa" que o problema leva em conta.
+
+A solução tem complexidade final **O(N + E)**, pois cada nó e cada aresta vão ser visitados no máximo uma vez dentro das DFS. 
+
+Como nota de curiosidade, essa solução é basicamente um caso da [característica de Euler](https://en.wikipedia.org/wiki/Euler_characteristic).
+
+Abaixo segue um código C++, utilizando [DFS](https://en.wikipedia.org/wiki/Depth-first_search) para contar a quantidade de arestas e nós dos componentes conectados, aceito nesse problema como sugestão de implementação:
+
+```cpp
+#include <bits/stdc++.h>
+
+using namespace std;
+
+map<char, vector<char>> adj;
+set<char> visited;
+int N, E;
+
+void dfs(int node, int &nodes, int &edges) {
+	visited.insert(node);
+
+	nodes++;
+	edges += adj[node].size();
+
+	for(const auto &neighbour : adj[node]) {
+		if(!visited.count(neighbour)) {
+			dfs(neighbour, nodes, edges);
+		}
+	}
+}
+
+int main() {
+	ios_base::sync_with_stdio(false);
+
+	while(cin >> N >> E) {
+		adj.clear();
+		visited.clear();
+
+		for(int i = 0; i < E; i++) {
+			char A, B;
+			cin >> A >> B;
+
+			adj[A].push_back(B);
+			adj[B].push_back(A);
+		}
+
+		int answer = 1;
+		for(const auto &each : adj) {
+			if(!visited.count(each.first)) {
+				int nodes = 0, edges = 0;
+
+				dfs(each.first, nodes, edges);
+				edges /= 2;
+
+				answer += edges - nodes + 1;
+			}
+		}	
+
+		cout << answer << '\n';
+	}
+
+	return 0;
+}
+
+```
 
 [Problema E](https://uva.onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&page=show_problem&problem=2737)
 ----------
