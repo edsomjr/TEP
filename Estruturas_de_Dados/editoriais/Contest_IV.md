@@ -1,8 +1,118 @@
-Contest IV
+[Contest IV](https://www.codepit.io/#/contest/5ac7a622636fa800962e6f63/view)
 ==========
 
-Problema A
+[Problema A](https://uva.onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&page=show_problem&problem=227)
 ----------
+
+O desenho do problema pode ser enxergado como um grafo, onde cada **1** dos **5** pontos é um nó e as linhas entre eles são as arestas. No caso, o grafo teria as arestas **(1, 2)**, **(1, 3)**, **(1, 5)**, **(2, 3)** etc.
+
+Então, basicamente, o problema pede para encontrarmos todas as travessias em que começamos do nó **1**, terminamos, também, no nó **1** e utilizamos todas as arestas exatamente **1** vez.
+
+O problema pede para imprimirmos as respostas como sequências númericas, onde os nós são visitados seguindo a ordem da sequência. Como o grafo do desenho tem exatamente **8** arestas, o número de elementos em cada sequência númerica será **9**.
+
+Se conseguirmos criar uma função **valid(S)** que recebe uma sequência númerica **S** de **9** elementos e nos diz se a sequência é válida ou não, então podemos gerar todas as sequências possíveis e pegar somente as válidas; isto é, geraríamos as sequências do tipo: **{111111111, 111111112, 111111113, ..., 211111111, 211111112, ..., 555555555}** e verificaríamos quais delas são válidas.
+
+Se a complexidade de **valid(S)** for **O(X)**, então a complexidade final do algoritmo será **O(X * 5^9)**, pois existem apenas **5^9** sequências númericas como as citadas acima.
+
+Supondo que um conjunto **E** de arestas do grafo original foi criado, a função **valid(S)** pode ser definida da seguinte maneira:
+
+ - Pra dois elementos adjacentes **A** e **B** em **S**, se a aresta **(A, B)** não existir em **E**, então a sequência **S** é inválida
+ - Pra dois elementos adjacentes **A** e **B** em **S**, se a aresta **(A, B)** existir em **E** mas for utilizada mais de uma vez (isto é, se **A** e **B** aparecem mais de **1** vez lado a lado em **S**), então a sequência **S** é inválida
+ - Caso contrário, a sequência **S** é válida
+
+O último passo é gerar todas as sequências possíveis: isso pode ser feito utilizando a técnica [backtracking](https://en.wikipedia.org/wiki/Backtracking). Por alto nível, o funcionamento é: primeiro, colocamos o elemento **1** em _buffer_ temporário; chamamos, então, a função de _backtracking_ para esse _buffer_ para que ela calcule todos as sequências da forma **{1, x, x, x, ..., x}**. Depois, colocamos o elemento **1** no _buffer_ novamente e chamamos a função _backtracking_ para calcular todas as sequências da forma **{1, 1, x, x, ..., x}**; depois que as sequências desse tipo forem calculadas, damos _pop_ no segundo **1** colocado e colocamos o elemento **2** no seu lugar e chamamos a função _backtracking_ para gerar todas as sequências da forma **{1, 2, x, x, ..., x}**; depois, damos _pop_ no **2**, colocamos o **3** em seu lugar e chamamos a função para calcular as sequências da forma **{1, 3, x, x, ..., x}** e por aí vai. Esse procedimento é recursivo, então a função está sempre executando o mesmo procedimento até que encontre um caso base, que é quando a sequência no _buffer_ atual já está com tamanho **9**.
+
+A título de curiosidade, uma travessia em um grafo começando de um nó **X**, terminando no mesmo nó **X** e visitando todas as arestas uma única vez é chamada de [Ciclo Euleriano](https://en.wikipedia.org/wiki/Eulerian_path), estrutura essa bastante interessante e cheia de propriedades elegantes.
+
+Abaixo segue um código **C++** aceito nesse problema como sugestão de implementação:
+```cpp
+#include <bits/stdc++.h>
+
+using namespace std;
+
+const int ELEMENTS_IN_A_ORDER = 9;
+const int NODES = 5;
+
+set< pair<int, int> > edges;
+
+void create_edges() {
+	edges.emplace(1, 2);
+	edges.emplace(1, 3);
+	edges.emplace(1, 5);
+
+	edges.emplace(2, 3);
+	edges.emplace(2, 5);
+
+	edges.emplace(3, 4);
+	edges.emplace(3, 5);
+
+	edges.emplace(4, 5);
+}
+
+void generate(vector<int> &state, vector< vector<int> > &orders) {
+	if((int) state.size() == ELEMENTS_IN_A_ORDER) {
+		orders.push_back(state);
+		return;
+	}
+
+	for(int i = 1; i <= NODES; i++) {
+		state.push_back(i);
+		generate(state, orders);
+		state.pop_back();
+	}
+}
+
+vector< vector<int> > generate_orders() {
+	vector<int> state;
+	vector< vector<int> > orders;
+
+	state.push_back(1);
+	generate(state, orders);
+
+	return orders;
+}
+
+bool valid(const vector<int> &order) {
+	int n = order.size();
+
+	set< pair<int, int> > used_edges;
+
+	for(int i = 1; i < n; i++) {
+		int minimum = min(order[i - 1], order[i]);
+		int maximum = max(order[i - 1], order[i]);
+
+		pair<int, int> edge = make_pair(minimum, maximum);
+
+		if(!edges.count(edge) || used_edges.count(edge)) {
+			return false;
+		}
+
+		used_edges.insert(edge);
+	}
+	
+	return true;
+}
+
+int main() {
+	ios_base::sync_with_stdio(false);
+
+	create_edges();
+
+	vector< vector<int> > orders = generate_orders();
+
+	for(const auto &order : orders) {
+		if(valid(order)) {
+			for(const auto &element : order) {
+				cout << element;
+			}
+			cout << '\n';
+		}
+	}
+
+	return 0;
+}
+```
+
 
 Problema B
 ----------
