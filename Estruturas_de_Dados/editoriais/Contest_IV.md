@@ -4,8 +4,84 @@ Contest IV
 Problema A
 ----------
 
-Problema B
+[Problema B](https://uva.onlinejudge.org/index.php?option=onlinejudge&page=show_problem&problem=1242)
 ----------
+
+No problema são dados vários anéis que ficam grudados uns aos outros caso se encostem, nossa tarefa é descobrir qual o maior conjunto de aneis grudados juntos.
+
+Cada anél é representado por uma círcunferência, pontanto para descobrir se dois aneis estão grudados basta verificar se existe intersecção entre as circunferências que representam esses anéis.
+
+Existe uma intersecção entre as círcunferências A e B se, e somente se, a distância entre os centros de A e B for menor ou igual à soma de seus raios e nenhuma das círcunferência está contida na outra (raio(A) + raio(B) >= dist(centro(A), centro(B)) && dist(centro(A), centro(B)) >= modulo(raio(A) - raio(B))).
+
+É possível abstrair este problema como um grafo, onde cada anél é um vértice e cada conjunto de aneis grudados é uma [componente conectada](https://en.wikipedia.org/wiki/Connected_component_%28graph_theory%29).
+
+Podemos enxergar cada anél como uma componente separada inicialmente (componentes contendo um único vértice).
+
+Precisamos agora conectar as componentes. Como o número de aneis é pequeno, é possível verificar se existe intersecção entre cada par de anéis e, caso exista a intersecção, unir as componentes em que esses anéis estão, utilizando [Union Find Disjoint Sets (UFDS)](https://en.wikipedia.org/wiki/Disjoint-set_data_structure), e manter o tamanho de cada componente atualizado após cada união realizada.
+
+Ao final das uniões cada conjunto de anéis grudado será uma componente separada, para obter a resposta para o problema é possível percorrer todos os anéis e verificar o tamanho da componete á qual cada anél pertence, armazenando o maior dos tamanhos.
+
+**Implementação em C++:**
+
+```C++
+#include <bits/stdc++.h>
+
+using namespace std;
+
+using circle = pair<pair<double, double>,double>;
+#define Cx first.first
+#define Cy first.second
+#define Cr second
+
+const int MAX_N = 105;
+int cc[MAX_N]; // representante de cada componente conectada
+int sz[MAX_N]; // tamanho de cada componente conectada
+
+int find(int a){
+	return cc[a] = a == cc[a] ? a : find(cc[a]);
+}
+
+void join(int a, int b){
+	sz[find(b)] += sz[find(a)];
+	cc[find(a)] = find(b);
+}
+
+int main (){
+	int n;
+	scanf("%d",&n);
+	while(n != -1){
+		vector<circle> ring;
+		for(int i = 0; i < n; i++){
+			double x, y, r;
+			scanf("%lf %lf %lf", &x, &y, &r);
+			ring.push_back({{x, y}, r});
+			cc[i] = i;
+			sz[i] = 1;
+		}
+
+		for(int i = 0; i < n; i++){
+			for(int j = i + 1; j < n; j++){
+				if(find(i) != find(j)){
+					double dist = hypot(ring[i].Cx - ring[j].Cx, ring[i].Cy - ring[j].Cy);
+					if(ring[i].Cr + ring[j].Cr >= dist && dist >= fabs(ring[i].Cr - ring[j].Cr)){
+						join(i, j);
+					}
+				}
+			}
+		}
+
+		int ans = 0;
+		for(int i = 0; i < n; i++){
+			ans = max(ans, sz[i]);
+		}
+
+		printf("The largest component contains %d ring%s\n",ans, ans == 1 ? "." : "s.");
+
+		scanf("%d",&n);
+	}
+	return 0;
+} 
+```
 
 Problema C
 ----------
