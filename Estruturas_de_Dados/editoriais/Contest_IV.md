@@ -13,7 +13,7 @@ Cada anél é representado por uma círcunferência, pontanto para descobrir se 
 
 Existe uma intersecção entre as círcunferências A e B se, e somente se, a distância entre os centros de A e B for menor ou igual à soma de seus raios e nenhuma das círcunferência está contida na outra (raio(A) + raio(B) >= dist(centro(A), centro(B)) && dist(centro(A), centro(B)) >= modulo(raio(A) - raio(B))).
 
-É possível abstrair este problema como um grafo, onde cada anél é um vértice e cada conjunto de aneis grudados é uma [componente conectada](https://en.wikipedia.org/wiki/Connected_component_%28graph_theory%29).
+É possível abstrair este problema com um grafo, onde cada anél é um vértice, os anéis grudados são ligados por arestas e cada conjunto de aneis grudados é uma [componente conectada](https://en.wikipedia.org/wiki/Connected_component_%28graph_theory%29).
 
 Podemos enxergar cada anél como uma componente separada inicialmente (componentes contendo um único vértice).
 
