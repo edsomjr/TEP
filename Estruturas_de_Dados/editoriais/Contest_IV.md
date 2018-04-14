@@ -21,6 +21,8 @@ Precisamos agora conectar as componentes. Como o número de aneis é pequeno, é
 
 Ao final das uniões cada conjunto de anéis grudado será uma componente separada, para obter a resposta para o problema é possível percorrer todos os anéis e verificar o tamanho da componete á qual cada anél pertence, armazenando o maior dos tamanhos.
 
+A complexidade de tempo para verificar se existe intesecção entre dois anéis é constante, utilizando compressão de caminhos as operações da UFDS tem [complexidade amortizada](https://en.wikipedia.org/wiki/Amortized_analysis) constante, com N anéis comparamos cada par de anéis e a quantidade de pares diferentes é N*(N-1) / 2, que assintoticamente é O(N^2), portanto a complexidade de tempo desta solução é O(N^2).
+
 **Implementação em C++:**
 
 ```C++
