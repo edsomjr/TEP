@@ -113,12 +113,104 @@ int main() {
 }
 ```
 
-
 Problema B
 ----------
 
-Problema C
+[Problema C](https://uva.onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&page=show_problem&problem=1661)
 ----------
+
+A solução deste problema é, basicamente, a implementação do [teorema de Erdős–Gallai](https://en.wikipedia.org/wiki/Erd%C5%91s%E2%80%93Gallai_theorem).
+
+Depois de ordenar os _degrees_ de forma decrescente, basta checar a condição pra cada um dos _degrees_ **i** de **1** a **N**.
+
+A primeira parte da equação (isto é, a soma dos primeiros **i** _degrees_) é fácil de obter: basta manter uma variável e ir somando os valores dos _degrees_ durante a iteração.
+
+A segunda parte (isto é, o **i * (i - 1)**) é apenas uma multiplicação.  
+
+A terceira parte é um pouco mais chata de conseguir. Se a soma não levasse a função **min** em conta, poderíamos apenas utilizar [soma de prefixos pra obter a somar dos _degrees_ no range **[i + 1, N]** em **O(1)**](https://cs.stackexchange.com/questions/25800/can-we-compute-the-sum-of-a-range-of-entries-in-o1-time). Como não é o caso, faremos uma pequena alteração: pegaremos, inicialmente, a soma dos elemenos no range **[i + 1, N]** e, depois, encontraremos quantos elementos no range **[i + 1, N]** são maiores que **i** e consideraremos todos como **i**. Isso pode ser feito com busca binária, já que o _array_ de _degrees_ está ordenado de forma não decrescente. Após encontrados os índices do _range_ de elementos que são maiores que **i**, basta subtrair sua soma (também utilizando soma de prefixos) da soma original e, supondo que existam **X** elementos nesse _range_, adicionar **X * i** na soma, para supor que todos esses **X** elementos são **i**.
+
+A complexidade final do algoritmo é **O(N * log N)** porque para cada **i** de **1** a **N** fazemos uma busca binária, que tem complexidade **O(log N)**.
+
+Abaixo segue um código **C++** aceito nesse problema como sugestão de implementação:
+```cpp
+#include <bits/stdc++.h>
+
+using namespace std;
+
+const int MAX = 1e4 + 5;
+int degree[MAX], prefix_sum[MAX];
+int n;
+
+inline int range_sum(int left, int right) {
+	return prefix_sum[right] - prefix_sum[left - 1];
+}
+
+int special_sum(int left, int right) {
+	int k = left - 1;
+	int sum = range_sum(left, right);
+	
+	int L = left, R = right;
+	int until = -1;
+	while(L <= R) {
+		int M = (L + R) / 2;
+
+		if(degree[M] > k) {
+			until = M;
+			L = M + 1;
+		}
+		else {
+			R = M - 1;
+		}
+	}
+
+	if(until != -1) {
+		int len = until - left + 1;
+		sum -= range_sum(left, until);
+		sum += k * len;
+	}
+
+	return sum;
+}
+
+int main() {
+	ios_base::sync_with_stdio(false);
+
+	while(cin >> n, n != 0) {
+		int degree_sum = 0;
+		for(int i = 1; i <= n; i++) {
+			cin >> degree[i];
+			degree_sum += degree[i];
+		}
+
+		if(degree_sum & 1) {
+			cout << "Not possible" << '\n';
+			continue;
+		}
+
+		sort(degree + 1, degree + n + 1, greater<int>()); // ordena decrescente
+
+		for(int i = 1; i <= n; i++) {
+			prefix_sum[i] = prefix_sum[i - 1] + degree[i];
+		}
+
+		bool ok = true;
+		int sum = 0;
+		for(int i = 1; i <= n; i++) {
+			sum += degree[i];
+
+			if(sum > i * (i - 1) + special_sum(i + 1, n)) {
+				ok = false;
+				break;
+			}
+		}
+
+		cout << (ok ? "Possible" : "Not possible") << '\n';
+	}
+
+	return 0;
+}
+
+```
 
 [Problema D](https://uva.onlinejudge.org/index.php?option=onlinejudge&page=show_problem&problem=1119)
 ----------
