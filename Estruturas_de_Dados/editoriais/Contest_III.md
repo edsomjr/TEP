@@ -87,7 +87,7 @@ int main(){
 ----------
 O problema informa uma lista de ingredientes e o custo de cada ingrediente que pode ser encontrada em um mercado. Depois é informado uma lista de receitas: cada receita usa uma quantidade _x_ da lista de ingredientes. O problema pede para analisar se o custo de cada receita excede ou não um valor _b_ informado. No final, printar todas as receitas que não excederam o valor _b_ em ordem de custo e, em caso de empate, usar a ordem lexicográfica das receitas.
 
-Uma forma inteligente de resolver o problema é utilizar alguma estrutura de dados que possamos entrar com uma string e retorne um inteiro. Com isso, podemos guardar a lista de ingredientes e seus respectivos custos. No exemplo abaixo, foi utilizado um mapa que mapeia uma string para um int (map<string, int>). Portanto, quando for ler as receitas, bastar ir acessando os custos dos ingredientes e multiplicar pela quantidade a ser utilizada, incrementando numa variável de soma. No final, basta analisar se a soma excede o valor _b_. Se não, guardar a receita em uma estrutura de dados capaz de, no final, printar todas as receitas em ordem de custo. No exemplo abaixo, foi utilizado a estrutura set<pair<int, string>>, já que a estrutura set do C++ já guarda seus valores ordenados. Um set de pares ordena a primeira chave do pair<> e, em caso de empate, ordena a segunda chave, que é o que o problema pede.
+Uma forma inteligente de resolver o problema é utilizar alguma estrutura de dados que possamos entrar com uma string e retorne um inteiro. Com isso, podemos guardar a lista de ingredientes e seus respectivos custos. Na implementação abaixo, foi utilizado um mapa que mapeia uma string para um int (map<string, int>). Portanto, conforme as receitas forem sendo lidas, bastar ir acessando os custos dos ingredientes e multiplicar pela quantidade a ser utilizada, incrementando numa variável de soma. No final, basta analisar se a soma excede o valor _b_. Se não, guardar a receita em uma estrutura de dados capaz de, no final, printar todas as receitas em ordem de custo. Na implementação abaixo, foi utilizada a estrutura set<pair<int, string>>, já que a estrutura set do C++ já guarda seus valores ordenados. Um set de pares ordena a primeira chave do pair<> e, em caso de empate, ordena a segunda chave, que é o que o problema pede.
 
 Caso o problema seja implementado em C++, deve-se atentar para ler toda a linha (incluindo espaços) do título e das receitas. Uma forma de fazer isso é utilizando o comando getline(cin, s) tomando cuidado para sempre retirar o caractere de quebra de linha '\n' no buffer com getchar().
 
@@ -146,7 +146,7 @@ int main()
 			cout << "Too expensive!" << endl << endl;
 			continue;
 		}
-		
+
 		for(auto i : receitas)
 			cout << i.second << endl;
 		cout << endl;
