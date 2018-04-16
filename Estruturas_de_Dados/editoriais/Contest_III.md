@@ -1,4 +1,4 @@
-[Contest III](https://www.codepit.io/#/contest/5ab3ecb401a96e00194077f3/)
+[Contest III](https://www.codepit.io/#/contest/5ab3ecb401a96e00194077f3/view)
 ==========
 
 [Problema A](https://uva.onlinejudge.org/index.php?option=onlinejudge&page=show_problem&problem=2180)
