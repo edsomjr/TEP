@@ -1,0 +1,85 @@
+[Contest III](https://www.codepit.io/#/contest/5ab3ecb401a96e00194077f3/)
+==========
+
+[Problema A](https://uva.onlinejudge.org/index.php?option=onlinejudge&page=show_problem&problem=2180)
+----------
+
+O problema fornece o nome vários cursos e o nome dos alunos inscritos em cada curso e pede para imprimirmos a quantidade de alunos inscritos em cada curso, sendo que um mesmo aluno inscrito várias vezes no mesmo curso só deve ser contado uma vez e um aluno inscrito em mais de um curso deve ter a inscrição alunada de todos os cursos em que se inscreveu.
+
+Para resolver este problemas usaremos a estrutura [map](http://www.cplusplus.com/reference/map/map/), teremos um map que relacinará cada curso à quantidade de alunos inscritos nele, chamaremos este map de "qtdProjeto", um segundo map que indicará em qual curso cada aluno está inscrito, chamaremos este de "estudante".
+
+Inicialmente iremos atribuir um identificador inteiro para cada curso, de acordo com a ordem dada na entrada, o primeiro curso será identificado com o número 1 o segundo com o número 2 e assim por diante, com isso podemos fazer com que o map "qtdProjeto" tenha a chave e o valor como inteiros, isso irá melhorar a complexidade de tempo do programa. Guardaremos os nomes dos cursos em um vetor para recuperá-los para imprimir a saída.
+
+Após atribuir o identificador ao curso devemos inicializar o map "qtdProjeto" com o valor 0 para para cada curso, e começar a ler o nome dos alunos que se inscreveram neste curso.
+
+Ao ler o nome de um aluno podemos nos deparar com três casos distintos:
+
+1. O nome deste aluno apareceu pela primeira vez.
+
+	Neste caso iremos incrementar a quantidade de alunos inscritos no curso atual em 1 e atribuiremos à chave do estudante atual no map "estudante" o valor do identificador do curso atual.
+
+2. O nome deste aluno já apareceu anteriormente na lista de alunos do curso atual.
+
+	Neste caso não iremos fazer nada.
+
+3. O nome deste aluno apareceu na lista de alunos de outro curso.
+
+	Neste caso devemos eliminar a incrição deste aluno no curso em que ele se inscreveu, sabemos o identificador do curso em que este aluno está incrito através do map "estudante" e podemos utilizar este identificador para decrementar em 1 a quantidade de alunos inscritos no curso. Também precisamos garantir que este aluno não será inscrito em nenhum curso futuramente e que não decrementaremos novamente a quantidade de alunos do curso em que ele foi inscrito, para isso atribuiremos o valor -1 ao valor deste aluno no map "estudante", assim quando escontrarmos um aluno que possui o valor -1 no map saberemos que ele já foi eliminado.
+
+
+Após realizar o procedimento descrito acima para todos os cursos e alunos de um caso de teste, já possuiremos toda a informação necessária para gerar a saída correta, só resta organizar os dados do map "qtdProjeto", para isso é possível utilizar um vetor que conterá as chaves e valores do map, substituindo os identificadores dos cursos pelos nomes originais que armazenamos anteriormente, e utilizando a função [sort](http://www.cplusplus.com/reference/algorithm/sort/) para ordenar este vetor de acordo com o formato de saída solicitado pelo problema, mostrando primeiro os cursos com maior quantidade de alunos inscritos e em caso de empate o curso com [menor nome lexicograficamente](https://pt.wikipedia.org/wiki/Ordem_lexicográfica) deverá aparecer primeiro.
+
+A complexidade de tempo para acessar um elemento no map é O(log(tamanho do map) * (tempo de comparação entre chaves)), a função sort executa em tempo O(log(quantidade de elementos a serem ordenados) * (tempo para comparar dois elementos)), sendo M o maior tamanho possível para uma string da entrada e N a quantidade de strings fornecidas em cada caso de teste, a complexidade total destá solução é O(log(N) * M) por caso de teste.
+
+Caso não tivéssemos utilizado um indentificador inteiro para cada curso e mativéssemos a chave do map "qtdProjeto" como o nome do curso (string), sendo T o maior tamanho possível do nome de um curso, X a maior quantidade de alunos em um curso e Y a quantidade de cursos, a complexidade desta solução seria O(T * X * log(Y)), como o limite do valor de T não é fornecido pelo enunciado é possível que está solução fosse muito lenta. É provável que o limite para o tamanho do nome dos cursos seja o mesmo que o limite do tamanho dos nomes dos alunos, neste caso a diferença entre a complexidade de tempo utilizando a chave de "qtdProjeto" como string ou inteiro seria uma constante.
+
+**Implementação em C++:**
+
+```C++
+#include<bits/stdc++.h>
+
+using namespace std;
+
+int main(){	
+	int continua = 1;
+	while(continua){
+		int id = 0;
+		string s;
+		string projeto;
+		vector<string> pjts;
+		map<string, int> estudante;
+		map<int, int> qtdProjeto;
+		while(1){
+			getline(cin, s);
+			if(s.size() == 1 && (s[0] == '0' || s[0] == '1')){
+				continua = s[0] - '0';
+				break;
+			}
+			if(s[0] >= 'A' && s[0] <= 'Z'){
+				projeto = s;
+				id++;
+				pjts.push_back(projeto);
+				qtdProjeto[id] = 0;
+			}
+			else{
+				if(!estudante[s]){
+					estudante[s] = id;
+					qtdProjeto[id]++;
+				}
+				else if(estudante[s] != id && estudante[s] != -1){
+					qtdProjeto[estudante[s]]--;
+					estudante[s] = -1;
+				}
+			}
+		}
+		vector<pair<int, string>> ans;
+		for(auto x : qtdProjeto){
+			ans.emplace_back(-x.second, pjts[x.first-1]);
+		}
+		sort(ans.begin(), ans.end());
+		for(auto x : ans){
+			cout << x.second << " " << -x.first << "\n";
+		}
+	}
+}
+```
