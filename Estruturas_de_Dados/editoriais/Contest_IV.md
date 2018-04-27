@@ -113,6 +113,54 @@ int main() {
 }
 ```
 
+Uma outra visão que podemos ter também utilizando a técnica de **backtracking** é realizar passos seguros de forma que apenas as soluções terá o tamanho 9. Para isso podemos usar o algoritmo de [**DFS**](https://pt.wikipedia.org/wiki/Busca_em_profundidade) com a adaptação de excluirmos os nós visitados a fim de evitar os ciclos do grafo.
+
+
+```c++
+int grafo[6][6];
+
+int total;
+vector<int> resultado;
+
+
+void dfs(int node){
+
+	// adicionamos esse nó ao resultado
+	total++;
+	resultado.push_back(node);
+	
+	//caso o número de nós no resultado for 9 ele é um resultado válido
+	if(total==9){
+		for(auto each : resultado){
+			cout << each;
+		}
+		cout << endl;
+	}
+
+	// passamos em cada filho do nó em questão
+	for(int i =1; i<6; ++i){
+	
+		if(grafo[node][i]){
+			
+			// excluimos o nó a fim de evitar ciclos que deixariam
+			// o nosso algoritmo em looping
+			grafo[node][i]=grafo[i][node] =0;
+			
+			// examinamos se o filho cabe ou não no resultado
+			dfs(i);
+			
+			// recolocamos o nó para continuarmos as próximas interações
+			grafo[node][i]=grafo[i][node] =1;
+		}
+	}
+	
+	// retiramos esse nó do resultado
+	total--;
+	resultado.pop_back();
+}
+
+```
+
 [Problema B](https://uva.onlinejudge.org/index.php?option=onlinejudge&page=show_problem&problem=1242)
 ----------
 
