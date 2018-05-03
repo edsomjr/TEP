@@ -73,6 +73,18 @@ Problema D
 
 Problema E
 ----------
+O problema nos da uma série pessoas que irão esperar por atendimento em um posto de saúde, cada pessoa possuí dois atributos, a data de nascimento e o momento em que chegou ao posto de saúde, com base nestes dois atributos é definida uma ordem de atendimento, que é especificada no enunciado.
+
+Nossa tarefa é verificar, para cada paciente que chega ao posto de saúde, quantas pessoas que chegarão antes deste paciente e tem maior prioridade no atendimento, de acordo com os critérios estabelecidos.
+
+A primeira coisa que devemos fazer é decidir como serão tratadas as datas de nascimento dos pacientes, existem duas principais abordagens:
+
+1. Criar uma struct "data" que armazena dia, mes e ano.
+
+2. Converter as datas lidas para dias, fazendo totalDias = ano * A + mes * M + dia, não é importante realizar uma conversão exata para dias, o importante é que: M >= 31 e A >= 12 * M + 31, desta forma a ordem das datas dadas será mantida, mesmo que a diferença entre uma data e outra não esteja correta após a conversão ser realizada, escolher um valor fixo para M e A simplifica o algoritmo, pois desta forma não precisaremos tratar meses diferentes com quantidade de dias diferentes e nem anos bissextos.
+
+Independente do método escolhido podemos criar um vetor contendo todas as datas e ordená-lo de acordo com o critério estabelecido no enunciado, de forma que os primeiros pacientes a serem atendidos sejam os primeiros a aparecer no vetor, então podemos mapear cada data para um inteiro que é o indice do vetor correspondente à data.
+
 
 Problema F
 ----------
