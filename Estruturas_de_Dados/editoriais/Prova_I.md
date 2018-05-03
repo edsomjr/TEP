@@ -75,16 +75,117 @@ Problema E
 ----------
 O problema nos da uma série pessoas que irão esperar por atendimento em um posto de saúde, cada pessoa possuí dois atributos, a data de nascimento e o momento em que chegou ao posto de saúde, com base nestes dois atributos é definida uma ordem de atendimento, que é especificada no enunciado.
 
-Nossa tarefa é verificar, para cada paciente que chega ao posto de saúde, quantas pessoas que chegarão antes deste paciente e tem maior prioridade no atendimento, de acordo com os critérios estabelecidos.
+Alguns pacientes que chegam ao posto de saúde desejam saber: quantas pessoas que chegaram antes de mim e, de acordo com os critérios estabelecidos, tem maior prioridade no atendimento? Nossa tarefa é responder a essas perguntas.
+
+Na solução mostrada leremos todos os dados da entrada e os armazenaremos em um vetor, para depois processá-los e respodermos às perguntas.
 
 A primeira coisa que devemos fazer é decidir como serão tratadas as datas de nascimento dos pacientes, existem duas principais abordagens:
 
 1. Criar uma struct "data" que armazena dia, mes e ano.
 
-2. Converter as datas lidas para dias, fazendo totalDias = ano * A + mes * M + dia, não é importante realizar uma conversão exata para dias, o importante é que: M >= 31 e A >= 12 * M + 31, desta forma a ordem das datas dadas será mantida, mesmo que a diferença entre uma data e outra não esteja correta após a conversão ser realizada, escolher um valor fixo para M e A simplifica o algoritmo, pois desta forma não precisaremos tratar meses diferentes com quantidade de dias diferentes e nem anos bissextos.
+2. Converter as datas lidas para dias, fazendo totalDias = ano * **A** + mes * **M** + dia, não é importante realizar uma conversão exata para dias, o importante é que: **M** >= 31 e **A** >= (12 * **M** + 31), desta forma, mesmo que a diferença entre uma data e outra não esteja correta após a conversão ser realizada, a ordem das datas dadas será mantida. Escolher valores fixos para **M** e **A** simplifica o algoritmo, pois desta forma não precisaremos tratar meses diferentes com quantidade de dias diferentes e nem anos bissextos.
 
-Independente do método escolhido podemos criar um vetor contendo todas as datas e ordená-lo de acordo com o critério estabelecido no enunciado, de forma que os primeiros pacientes a serem atendidos sejam os primeiros a aparecer no vetor, então podemos mapear cada data para um inteiro que é o indice do vetor correspondente à data.
+Independente do método escolhido podemos criar um vetor contendo todas as datas, sem repetição de valores, e ordená-lo de acordo com o critério estabelecido no enunciado, de forma que as datas de nascimento com maior prioridade no atendimento sejam as primeiras a aparecer no vetor, então podemos substituir cada data por um inteiro, o indice do vetor correspondente à data.
 
+Agora o problema é responder à pergunta: quando o **i**-ésimo paciente, cuja a data de nascimento corresponte ao inteiro **X**, chega ao posto de saúde, quantos pacientes cujas datas de nascimento correspodem a inteiros menores ou iguais a **X** ja chegaram ao posto de saúde?
+
+Para responder a essa pergunta podemos manter um vetor de inteiros **V** de tamanho **N**, onde **N** é a quantidade de datas de nascimento diferentes e **V[i]** = **"quantidade de pacientes com data de nascimento correspondente a i que ja chegaram ao posto de saúde"**, desta forma as repostas para as perguntas serão somas prefixas deste vetor, este vetor é inicializado com o valor 0 em todas as posições.
+
+Agora podemos percorrer o vetor onde guardamos os dados da entrada, na ordem em que a entrada foi dada, para cada linha da entrada que representa um novo paciente que chega ao posto:
+
+1. Se o paciente deseja saber quantos outros pacientes já chegaram ao posto e tem maior prioridade que ele no atendimento a resposta é ![equation](http://www.sciweavers.org/tex2img.php?eq=%5Csum_%7Bi%3D0%7D%5E%7BX%7D%20V%5Bi%5D&bc=White&fc=Black&im=jpg&fs=12&ff=arev&edit=0).
+2. Adicionamos 1 à posição do vetor **V** correspondente à data de nascimento deste paciente.
+
+Realizando as duas operações descritras acima normalmente em um vetor teremos a complexidade total de **O(N * Q)**, onde **Q** é a quantidade de perguntas, pois para calcular ![equation](http://www.sciweavers.org/tex2img.php?eq=%5Csum_%7Bi%3D0%7D%5E%7BX%7D%20V%5Bi%5D&bc=White&fc=Black&im=jpg&fs=12&ff=arev&edit=0) precisamos realizar **O(N)** operações, no entanto é possível utilizar a estrutura [Fenwick Tree / BIT(Binary Indexed Tree)](https://github.com/edsomjr/TEP/blob/master/Estruturas_de_Dados/text/Segment_Tree_BIT_Tree.md) que realiza a operação de soma prefixa e atualização de valor em complexidade de tempo **O(log(N))**, portanto a complexidade do algoritmo será **O(Q * log(N))**.
+
+O código abaixo apresenta uma implemetação desta solução em **C++**.
+
+```cpp
+#include <bits/stdc++.h>
+
+using namespace std;
+
+#define ff first
+#define ss second
+#define pb push_back
+#define ll long long
+#define ii pair<int,int>
+
+int ft[200006];
+int menos6;
+int mais65;
+
+void upd(int id){
+	while(id < 200005){
+		ft[id] += 1;
+		id += id & (-id);
+	}
+}
+
+int qry(int id){
+	int ret = 0;
+
+	while(id){
+		ret += ft[id];
+		id -= id & (-id);
+	}
+
+	return ret;
+}
+
+bool comp(int a, int b){
+	if(a > menos6){
+		if(b > menos6)
+			return a > b;
+		return true;
+	}
+	if(b > menos6)
+		return false;
+	return a < b;
+}
+
+int main(){
+	int t;
+	int id = 1;
+	map<int, int> ma;
+	scanf("%d",&t);
+
+	int ano1, mes1, dia1;
+	scanf("%d/%d/%d",&dia1, &mes1, &ano1);
+	int hoje = ano1 * 550 + mes1 * 40 + dia1;
+	menos6 = (ano1 - 7) * 550 + mes1 * 40 + dia1;
+	mais65 = (ano1 - 65) * 550 + mes1 * 40 + dia1;
+
+	vector<int> tempo;
+	tempo.pb(hoje);
+	tempo.pb(menos6);
+	tempo.pb(mais65);
+
+	vector<ii> qrys;
+	for(int i = 0; i < t; i++){
+		int op;
+		int dia, mes, ano;
+		scanf("%d %d/%d/%d",&op, &dia, &mes, &ano);
+		int totalDias = ano *  550 + mes * 40 + dia;
+		qrys.pb({op, totalDias});
+		tempo.pb(totalDias);
+	}
+
+	sort(tempo.begin(), tempo.end(), comp);
+
+	for(int i : tempo)
+		if(!ma[i])
+			ma[i] = id++;
+
+	int at = 1;
+	for(ii j : qrys){
+		if(j.ff)
+			printf("#%d: %d\n",at++, qry(ma[j.ss]));
+		upd(ma[j.ss]);
+	}
+	return 0;
+}
+```
 
 Problema F
 ----------
