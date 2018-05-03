@@ -105,12 +105,6 @@ O código abaixo apresenta uma implemetação desta solução em **C++**.
 
 using namespace std;
 
-#define ff first
-#define ss second
-#define pb push_back
-#define ll long long
-#define ii pair<int,int>
-
 int ft[200006];
 int menos6;
 int mais65;
@@ -157,18 +151,18 @@ int main(){
 	mais65 = (ano1 - 65) * 550 + mes1 * 40 + dia1;
 
 	vector<int> tempo;
-	tempo.pb(hoje);
-	tempo.pb(menos6);
-	tempo.pb(mais65);
+	tempo.push_back(hoje);
+	tempo.push_back(menos6);
+	tempo.push_back(mais65);
 
-	vector<ii> qrys;
+	vector<pair<int, int> > qrys;
 	for(int i = 0; i < t; i++){
 		int op;
 		int dia, mes, ano;
 		scanf("%d %d/%d/%d",&op, &dia, &mes, &ano);
 		int totalDias = ano *  550 + mes * 40 + dia;
-		qrys.pb({op, totalDias});
-		tempo.pb(totalDias);
+		qrys.push_back({op, totalDias});
+		tempo.push_back(totalDias);
 	}
 
 	sort(tempo.begin(), tempo.end(), comp);
@@ -178,10 +172,12 @@ int main(){
 			ma[i] = id++;
 
 	int at = 1;
-	for(ii j : qrys){
-		if(j.ff)
-			printf("#%d: %d\n",at++, qry(ma[j.ss]));
-		upd(ma[j.ss]);
+	for(pair<int, int> j : qrys){
+		int op = j.first;
+		int totalDias = j.second;
+		if(op)
+			printf("#%d: %d\n",at++, qry(ma[totalDias]));
+		upd(ma[totalDias]);
 	}
 	return 0;
 }
