@@ -40,7 +40,7 @@ int main() {
 	cin >> t;
 
 	int kase = 1;
-	
+
 	while(t--) {
 		int N, L;
 		cin >> N >> L;
@@ -64,6 +64,78 @@ int main() {
 
 Problema B
 ----------
+
+Observe que o problema oferece o input de números de até 10^1000. Isso não pode ser representado diretamente como valor numa arquitetura de 64 bits (2^64 < 10^20). Logo, o input deve ser lido de outra forma, como por exemplo, uma string. Lidos os números como strings, como pode ser efetuado a soma deles? Ora, basta usar o algoritmo que aprendemos desde cedo na escola: alinhamos os números um embaixo do outro, começamos pelo último dígito e vamos somando da direita para a esquerda sempre fazendo a propagação de carrys. Para esse problema, devemos computar além da soma correta, a soma incorreta que Pedrinho faz (sem a propagação de carrys). Alguns cuidados devem ser tomados como:
+
+1. Alinhar as duas strings para realizar a soma. Uma forma de fazer isso é acrescentando zeros à esquerda do menor número. Para isso, vamos criar uma string com zeros com o tamanho que falta em O(n) e concatená-la à esquerda da menor string em O(n). Evitar de adicionar zeros à esquerda um por um (b = "0" + b), pois a complexidade se torna O(n^2).
+2. Ao acessar uma posição da string, não se recebe o valor numérico dele, mas o valor de seu caractere na tabela ASCII. Para computar o seu valor numérico, devemos retirar o caractere com o valor excedente, no caso o '0'.
+3. Não esquecer de acrescentar o último carry no resultado certo final.
+4. Retirar zeros à esquerda dos valores finais. Para isso, vamos contar quantos zeros a string possui à esquerda em O(n) e usar o comando erase do C++ para remover os zeros em O(n). Evitar de remover zeros à esquerda um por um, pois a complexidade se torna O(n^2).
+
+Ao printar a resposta, basta ver se as strings são iguais ou diferentes. Como varremos cada posição da string uma vez da direita para esquerda, é fácil ver que a complexidade da solução é O(n), em que n é a quantidade de dígitos do maior número da entrada. Como temos 100 casos de teste, no total teremos cerca de 100*O(n) = 10^5 < 10^6 operações que cabe confortavelmente nos limites do problema.
+
+Abaixo segue um código **C++** aceito nesse problema como sugestão de implementação:
+```cpp
+#include <bits/stdc++.h>
+using namespace std;
+
+int main()
+{
+	ios::sync_with_stdio(false);
+	int t;
+	cin >> t;
+	for(int casos = 1; casos <= t; casos++)
+	{
+		string a, b;
+		cin >> a >> b;
+
+		//assumiremos "a" como sendo a maior string
+		if(b.size() > a.size())
+			swap(a, b);
+		int size = a.size();
+
+		//adicionando zeros a esquerda da menor string
+		string zeros(size-b.size(), '0');
+		b = zeros + b;
+
+		//inicializando as strings com tamanho size
+		string certo(size, '0'), errado(size, '0');
+		int carry = 0;
+
+		for(int i = size-1; i >= 0; i--)
+		{
+			errado[i] = (a[i] - '0' + b[i] - '0') % 10 + '0';
+			certo[i] = (a[i] - '0' + b[i] - '0' + carry) % 10 + '0';
+			carry = (carry + a[i] - '0' + b[i] - '0') / 10;
+		}
+
+		//adicionando o carry a esquerda do resultado certo
+		if(carry != 0)
+			certo = to_string(carry) + certo;
+
+		//removendo zeros a esquerda
+		int count = 0;
+		while(errado[count] == '0' && count < size-1)
+			count++;
+		errado.erase(0, count);
+		count = 0;
+		while(certo[count] == '0' && count < size-1)
+			count++;
+		certo.erase(0, count);
+
+		cout << "Caso " << casos << ": ";
+		if(certo == errado)
+			cout << "Ok" << endl;
+		else
+			cout << errado << " != " << certo << endl;
+
+	}
+
+	return 0;
+}
+
+
+```
 
 Problema C
 ----------
