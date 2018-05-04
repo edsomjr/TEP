@@ -140,6 +140,99 @@ int main()
 Problema C
 ----------
 
+Quando uma operação de consulta acontece, o paciente com maior prioridade na fila deve ser chamado. Isso sugere, a princípio, a utilização de uma estrutura de dados em que temos as operações de inserção e a de requisição do elemento de maior prioridade. Essa estrutura é a _[priority queue](https://en.wikipedia.org/wiki/Priority_queue)_.
+
+O principal problema é como embutir os critérios de preferência dados no enunciado do problema na _priority queue_ de maneira simples. Para isso, vamos criar uma função **eval(X)**, que recebe uma idade **X** e retorna um inteiro que vai indicar a prioridade de uma pessoa de idade **X** na fila; quanto maior for o inteiro retornado, maior prioridade a dita pessoa tem.
+
+A função pode ser implementada de forma simples como sugerido a seguir:
+```cpp
+int eval(int age) {
+	if(age <= 6) {
+		return 120 - age;
+	}
+	else if(age >= 65) {
+		return age - 7;
+	}
+	return 1;
+}
+```
+
+As pessoas com **6** anos ou menos de idade têm mais prioridade que todas as outras, logo, o valor de suas prioridades deve ser o maior possível. No caso, apenas subtraímos a sua própria idade do maior valor possível (**120**), o que também mantém a relação de prioridade entre as pessoas desse grupo, pois as mais novas têm mais prioridade que as mais velhas.
+
+As pessoas com **65** anos ou mais vêm logo após e as suas prioridades estarão mapeadas para o intervalo **[58, 113]**. Como nesse grupo as pessoas mais velhas têm prioridade, fazemos a operação inversa à do grupo de cima: subtraímos a idade da constante relativa ao grupo.
+
+Por fim, todas as outras pessoas têm a mesma prioridade. Para que não haja empate entre pessoas desse grupo, utilizaremos um inteiro a mais para indicar a ordem de chegada de cada pessoa na _priority queue_.
+
+Com essa função criada, basta manter uma _priority queue_ que guarda elementos do tipo _state_. O tipo _state_ contém **3** informações: 
+1. a prioridade da pessoa
+2. a ordem de chegada da pessoa na fila
+3. a idade da pessoa
+
+Para criar o tipo _state_, utilizaremos o tipo _tuple_ do **C++**, que já nos dá uma função de comparação de graça e permite um número variado de parâmetros na sua definição; a comparação das tuplas são feitas em ordem, isto é: o primeiro elemento é comparado; em caso de empate, o segundo é comparado etc.
+
+Como podemos fazer até **N** inserções na _priority queue_ e a complexidade de inserção é **O(log N)**, a complexidade final da solução é **O(N log N)**.
+
+Abaixo segue um código **C++** como sugestão de implementação:
+```cpp
+#include <bits/stdc++.h>
+
+using namespace std;
+
+typedef tuple<int, int, int> state;
+
+int eval(int age) {
+	if(age <= 6) {
+		return 120 - age;
+	}
+	else if(age >= 65) {
+		return age - 7;
+	}
+	return 1;
+}
+
+int main() {
+	ios_base::sync_with_stdio(false);
+	cin.tie(0);
+
+	int n;
+	cin >> n;
+
+	priority_queue<state> pq;
+
+	int kase = 1;
+	int id = 1;
+
+	for(int i = 0; i < n; i++) {
+		char type;
+		cin >> type;
+		
+		if(type == 'P') {
+			int age;
+			cin >> age;
+			pq.emplace(eval(age), -(id++), age);
+		}
+		else {
+			auto now = pq.top(); 
+			pq.pop();
+
+			int cur_id, age;
+			tie(ignore, cur_id, age) = now;
+
+			cout << "#" << kase++ << ": " << -cur_id << " (" << age;
+
+			if(age == 1) {
+				cout << " ano)" << '\n';
+			}
+			else {
+				cout << " anos)" << '\n';
+			}
+		}
+	}
+
+	return 0;
+}
+```
+
 Problema D
 ----------
 
