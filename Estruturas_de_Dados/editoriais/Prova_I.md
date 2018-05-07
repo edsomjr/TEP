@@ -236,6 +236,99 @@ int main() {
 Problema D
 ----------
 
+Basicamente, temos que contar a quantidades de palavras distintas de várias redações. Temos uma lista de palavras que devem não devem ser consideradas. E também temos uma lista de pares de sinonimos, por exemplo _aluno_ e _estudante_.
+
+Primeiro, vamos tentar resolver o problema de somente contar a quantidade de palavras distintas numa redação, se levar em conta as palavras que devem ser descartadas e sem levar em consideração os sinonimos.
+
+Podemos processar o texto palavra por palavra. Assim só precisamos saber quantas distintas apareceram. Existem várias formas de se resolver este problema, uma delas é inserir todas as palavras em um `set<string>` que armazena as strings sem repetição e no final só precisamos pegar o tamanho do `set`.
+
+Agora, vamos resolver uma versão um pouco mais complicada considerando a lista de palavras a serem descartadas.
+
+Para esta versão, ao processarmos uma palavra precisamos saber se ela está na lista de palavras descartadas ou não. Se estiver na lista não fazemos nada com a palavra e só seguimos o algoritmo, caso a palavra não esteja na lista podemos usar o mesmo procedimento da versão anterior e resolvemos.
+
+Agora, só temos que resolver o problema original, tendo também que tratar as palavras sinonimas.
+
+Primeiramente, temos que observar que sinonimos são transitivos, ou seja, se _aluno_ é sinonimo de _estudante_ e _estudante_ é sinonimo de _aprendiz_ então _aluno_ também é sinonimo de _aprendiz_.
+
+Podemos pensar em termos de grafos para nos ajudar. Se cada palavra for um vértice e cada informação de strings _A_ e _B_ serem sinonimos como uma aresta entre o vértice _A_ e _B_. Então duas palavras serão sinonimas se e somente se estiverem na mesma [componente conexa](https://pt.wikipedia.org/wiki/Conectividade_%28teoria_dos_grafos%29#Defini%C3%A7%C3%B5es_dos_componentes,_cortes_e_conectividade).
+
+Então se conseguirmos colocar no _set_ componentes no lugar de simples _strings_ podemos usar a mesma solução anterior. Uma das formas de fazer isso é usando [UFDS](https://en.wikipedia.org/wiki/Disjoint-set_data_structure), em que um vértice é escolhido para ser o representante da componente.
+
+Assim só basta inserir o representante no _set_ no lugar de inserir o próprio vértice.
+
+Só há um problema, nas implementações de [UFDS](https://en.wikipedia.org/wiki/Disjoint-set_data_structure) vistas em sala sempre usamos vértices que são representados por números inteiros, não strings. Uma das formas de ajustar isso é atribuir um número a cada string, só dizemos que a primeira string do input tem o número 0, a segunda string tem número 1 e assim por diante.
+
+Código completo em C++.
+
+```c++
+#include <bits/stdc++.h>
+
+using namespace std;
+
+const int N = 100005;
+
+int p[N];
+
+map<string, int> go;
+int prox_id;
+int getId(const string &s){
+	if(!go.count(s)){// se a string nao esta associada a nenhum id
+		go[s] = prox_id; // associa a string com o prox id válido
+		p[prox_id] = prox_id; // como acabamos de "criar" o vertice, ele está sozinho na componente e é o seu representante
+		prox_id++;
+	}
+	return go[s];
+}
+
+char a[N], b[N];
+
+int ufind(int x){ // funcao Find da estrutura UFDS usando somente compressao de caminho O(lg* n) lê-se log estrela
+	return x == p[x] ? x : p[x] = ufind(p[x]);
+}
+
+int main(){
+
+	int n;
+
+	scanf("%d", &n);
+
+	set<string> apagadas;
+	for(int i = 0; i < n; i++){
+		scanf(" %s", a);
+		apagadas.insert(a);
+	}
+
+	int m;
+
+	scanf("%d", &m);
+
+	for(int i = 0; i < m; i++){
+		scanf(" %s %s", a, b);
+		p[ ufind(getId(a)) ] = p[ ufind(getId(b)) ];
+	}
+
+	scanf(" %s", a);
+
+	// em cada iteração desse loop é processado uma redação
+	for(int tc = 1; strcmp(a, "###"); tc++){
+		int total = 0;
+		set<int> distintas;
+
+		while(1){
+			scanf(" %s", a);
+			if(!strcmp(a, "+++") || !strcmp(a, "###")) break; //acabou a lista de palavras da redação
+			if(apagadas.count(a))
+				continue;
+			total++;
+			distintas.insert( ufind(getId(a)) );
+		}
+		printf("Texto #%d: %d %d\n", tc, total, (int)distintas.size());
+	}
+
+}
+
+```
+
 Problema E
 ----------
 O problema nos da uma série pessoas que irão esperar por atendimento em um posto de saúde, cada pessoa possuí dois atributos, a data de nascimento e o momento em que chegou ao posto de saúde, com base nestes dois atributos é definida uma ordem de atendimento, que é especificada no enunciado.
