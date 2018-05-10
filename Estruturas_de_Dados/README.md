@@ -7,5 +7,5 @@ Estruturas de Dados
 1. [Segment Tree e BIT Tree](text/Segment_Tree_BIT_Tree.md)
 1. [Busca Completa](text/Segment_Tree_BIT_Tree.md)
 
-* [Editoriais dos Contests](editoriais/README.md)
+* [Editoriais](editoriais/README.md)
 * [Listas de Exercícios](listas/README.md)
