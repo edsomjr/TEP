@@ -7,3 +7,4 @@ Estruturas de Dados
 1. [Segment Tree e BIT Tree](Segment_Tree_BIT_Tree.md)
 1. [Busca Completa](Busca_Completa.md)
 1. [Dividir e Conquistar](Dividir_e_Conquistar.md)
+1. [Algoritmos Gulosos](Gulosos.md)
