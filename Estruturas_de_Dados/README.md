@@ -8,6 +8,7 @@ Estruturas de Dados
 1. [Busca Completa](text/Busca_Completa.md)
 1. [Dividir e Conquistar](text/Dividir_e_Conquistar.md)
 1. [Algoritmos Gulosos](text/Gulosos.md)
+1. [Programação Dinâmica](text/PD.md)
 
 * [Editoriais](editoriais/README.md)
 * [Listas de Exercícios](listas/README.md)
