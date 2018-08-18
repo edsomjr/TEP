@@ -1,0 +1,149 @@
+\section{Entrada e Saída}
+
+\begin{frame}[fragile]{Entrada e Saída em Console}
+
+    \begin{itemize}
+        \item Os problemas de programação competitiva requerem que as soluções 
+        leiam suas entradas e escrevam suas saídas em arquivos específicos
+        \item na maioria dos casos, estes arquivos são a entrada e a saída padrão do sistema
+        \item Cada linguagem tem mecanismos para ler a entrada e escrever na saída padrão do 
+        sistema (console)
+        \item As entradas se encaixam em quatro categorias:
+        \begin{enumerate}
+            \item Uma única instância do problema
+            \item $T$ instâncias do problema (o valor de $T$ é dado na primeira linha)
+            \item $N$ instâncias do problema, a entrada termina com um valor sentinela
+            \item $N$ instâncias do problema, a entrada termina com fim de arquivo (EOF)
+        \end{enumerate}
+
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo das 4 Categorias de Entrada}
+
+    \textbf{Problema:} dados dois inteiros positivos $X$ e $Y$, determine sua soma.
+
+    \textbf{Exemplos das 4 categorias de entrada:}
+
+    \begin{minipage}[t]{0.45\textwidth}
+    \metroset{block=fill}
+    \begin{block}{1}
+    $X$ $Y$ \\
+    \end{block}
+    \end{minipage}
+    \begin{minipage}[t]{0.45\textwidth}
+    \metroset{block=fill}
+    \begin{block}{2}
+    $T$ \\
+    $X$ $Y$
+    \end{block}
+    \end{minipage}
+
+    \begin{minipage}[t]{0.45\textwidth}
+    \metroset{block=fill}
+    \begin{block}{3}
+    $X_1$ $Y_1$ \\
+    $X_2$ $Y_2$ \\
+    $\ldots$ \\
+    $-1$ $-1$ 
+    \end{block}
+    \end{minipage}
+    \begin{minipage}[t]{0.45\textwidth}
+    \metroset{block=fill}
+    \begin{block}{4}
+    $X_1$ $Y_1$ \\
+    $X_2$ $Y_2$ \\
+    $\ldots$ \\
+    $X_N$ $Y_N$
+    \end{block}
+    \end{minipage}
+
+\end{frame}
+
+\begin{frame}[fragile]{Solução C: Categoria 1}
+    \inputcode{c}{1.c}
+\end{frame}
+
+\begin{frame}[fragile]{Solução C: Categoria 2}
+    \inputcode{c}{2.c}
+\end{frame}
+
+\begin{frame}[fragile]{Solução C: Categoria 3}
+    \inputcode{c}{3.c}
+\end{frame}
+
+\begin{frame}[fragile]{Solução C: Categoria 4}
+    \inputcode{c}{4.c}
+\end{frame}
+
+\begin{frame}[fragile]{Solução C++: Categoria 1}
+    \inputcode{cpp}{1.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Solução C++: Categoria 2}
+    \inputcode{cpp}{2.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Solução C++: Categoria 3}
+    \inputcode{cpp}{3.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Solução C++: Categoria 4}
+    \inputcode{cpp}{4.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Solução Java: Categoria 1}
+    \inputcode{java}{C1.java}
+\end{frame}
+
+\begin{frame}[fragile]{Solução Java: Categoria 2}
+    \inputcode{java}{C2.java}
+\end{frame}
+
+\begin{frame}[fragile]{Solução Java: Categoria 3}
+    \inputcode{java}{C3.java}
+\end{frame}
+
+\begin{frame}[fragile]{Solução Java: Categoria 4}
+    \inputcode{java}{C4.java}
+\end{frame}
+
+\begin{frame}[fragile]{Solução Python: Categoria 1}
+    \inputcode{python}{1.py3}
+\end{frame}
+
+\begin{frame}[fragile]{Solução Python: Categoria 2}
+    \inputcode{python}{2.py3}
+\end{frame}
+
+\begin{frame}[fragile]{Solução Python: Categoria 3}
+    \inputcode{python}{3.py3}
+\end{frame}
+
+\begin{frame}[fragile]{Solução Python: Categoria 4}
+    \inputcode{python}{4.py3}
+\end{frame}
+
+
+\begin{frame}[fragile]{Teste das soluções}
+
+    Assuma que a entrada do problema esteja no arquivo \texttt{in.txt}, e que a solução desta
+    entrada esteja no arquivo \texttt{out.txt}.
+
+    Para gerar o arquivo \texttt{ans.txt} referente à saída produzida pela solução proposta,
+    podemos usar um dos três comandos abaixo:
+
+    \begin{description}
+        \item[\$] \texttt{./a.out < in.txt > ans.txt  \textcolor{gray}{\ \ \ \ \ \ \  \# C/C++}}
+        \item[\$] \texttt{java Main < in.txt > ans.txt  \textcolor{gray}{\ \ \ \ \ \# Java}}
+        \item[\$] \texttt{python sol.py < in.txt > ans.txt  \textcolor{gray}{\ \# Python}}
+    \end{description}
+
+    Para verificar se a soluções está correta, basta usar o comando \texttt{diff}:
+
+    \begin{description}
+        \item[\$] \texttt{diff ans.txt out.txt}
+    \end{description}
+
+\end{frame}

@@ -1,0 +1,125 @@
+\section{Juízes Eletrônicos}
+
+\begin{frame}[fragile]{Juízes Eletrônicos}
+
+    \begin{itemize}
+        \item Juízes eletrônicos são programas que fornecem mecanismos de correção automática para 
+        problemas de programação competitiva
+        \item A correção é feita através de testes unitários, e contempla desde a compilação e 
+        execução até a validação dos resultados de cada teste unitário
+        \item Uma solução só é considerada correta se passar, de  forma  bem  sucedida,
+        pelo  processo de  compilação  e por todos os testes unitários
+        \item Um juiz online é uma plataforma ou site que agrega um juiz eletrônico, uma base de
+        problemas e mecanismos de autenticação e gerência de usuários
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Juízes Online}
+
+    \begin{itemize}
+        \item O URI Online Judge\footnote{https://www.urionlinejudge.com.br/} 
+        é o maior juiz online do Brasil, criado e mantido pela equipe
+        da Universidade Regional Integrada do Alto Uruguai e das Missões, que fica no 
+        Rio Grande do Sul
+        \item Conta com mais de 1.800 problemas (2018)
+        \item O Codeforces\footnote{http://codeforces.com/} é um juiz online russo, que 
+        hospeda uma série \textit{contests} semanalmente
+        \item Ao contrário do URI, o sistema de ranqueamento não é baseado no número de problemas
+        acertados
+        \item O Codeforces disponibiliza editoriais e códigos de soluções corretas para análise e 
+        estudo
+        \item Conta com mais de 500 \textit{rounds} (2018)
+   \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{\textit{Feedback} dos juízes eletrônicos}
+
+    \begin{itemize}
+        \item A cada solução submetida por parte do usuário, o juiz retornará um \textit{feedback}
+        sobre a solução
+        \item Caso a solução esteja correta, a resposta o juíz será \textit{Accepted} (AC)
+        \item Caso a solução esteja incorreta, será retornada uma dentre várias respostas de 
+        erro possíveis, a depender da característica do erro
+        \item Importante ressaltar que o juiz não diz exatamente qual foi o erro, e sim uma
+        categorização possível do erro
+        \item Cabe ao usuário interpretar este retorno e tentar localizar e corrigir o erro 
+        antes de sua próxima submissão
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Respostas para soluções incorretas}
+
+    \begin{center}
+        \begin{tabularx}{\textwidth}{clX}
+            \toprule
+            \textbf{Código} & \textbf{Erro} & \textbf{Descrição} \\
+            \midrule
+            \texttt{WA} & \textit{Wrong Answer} & Uma ou mais saídas geradas estão incorretas. O juiz  não informa as entradas que geraram o erro nem a resposta correta para tais entradas   \\
+            \midrule
+            \rowcolor[gray]{0.9}
+            \texttt{PE} & \textit{Presentation Error} & As saídas do programa estão corretas, mas a apresentação (formatação,  espaçamento,  etc)  está diferente do que foi especificado \\
+            \midrule
+            \texttt{CE} & \textit{Compilation Error} & O programa  não  compila  corretamente.
+  Em geral, os juízes listam os parâmetros de compilação utilizados na correção \\
+        \bottomrule
+        \end{tabularx}
+    \end{center}
+
+\end{frame}
+
+\begin{frame}[fragile]{Respostas para soluções incorretas}
+
+    \begin{center}
+        \begin{tabularx}{\textwidth}{clX}
+            \toprule
+            \textbf{Código} & \textbf{Erro} & \textbf{Descrição} \\
+            \midrule
+            \rowcolor[gray]{0.9}
+            \texttt{RE} & \textit{Runtime Error} & O programa trava  durante  a execução, geralmente por conta de falhas de segmentação, divisão por zero, etc \\
+            \midrule
+            \texttt{TLE} & \textit{Time Limit Exceeded} & Os  programas  devem  gerar  as saídas  válidas dentro de um limite de tempo especificado. Caso o programa exceda este tempo, esta será a resposta do juiz \\
+            \midrule
+            \rowcolor[gray]{0.9}
+            \texttt{MLE} & \textit{Memory Limit Exceeded} & O programa requer mais  memória
+  em sua execução do que o juiz permite \\
+        \bottomrule
+        \end{tabularx}
+    \end{center}
+
+\end{frame}
+
+\begin{frame}[fragile]{Respostas para soluções incorretas}
+
+    \begin{center}
+        \begin{tabularx}{\textwidth}{clX}
+            \toprule
+            \textbf{Código} & \textbf{Erro} & \textbf{Descrição} \\
+            \midrule
+            \texttt{RF} & \textit{Restricted Functions} & O programa faz uma chamada a uma
+  função considerada ilegal (por exemplo, \texttt{fork()} e \texttt{fopen()}) \\
+            \midrule
+            \rowcolor[gray]{0.9}
+            \texttt{SE} & \textit{Submission Error} & O formulário de envio  da  submissão tem campos vazios ou incorretos \\
+            \midrule
+            \texttt{OLE} & \textit{Output Limit Exceeded} & O programa tentou imprimir mais informações do que o permitido. Geralmente  causado  por  laços infinitos \\
+        \bottomrule
+        \end{tabularx}
+    \end{center}
+
+\end{frame}
+
+\begin{frame}[fragile]{Linguagens Permitidas}
+
+    \begin{itemize}
+        \item  Cada  juiz tem um conjunto de linguagens aceitas para a resolução dos problemas
+        \item Em geral, as linguagens aceitas são C, C++, Java e Pascal, embora alguns juízes aceitem centenas de linguagens diferentes
+        \item Na Maratona de Programação da SBC são aceitos: C, C++, Java e Python
+        \item Nos juízes onlines são listados os processos de compilação, de escrita e leitura em 
+        console e outras peculiaridades de cada linguagem
+        \item C++ é a linguagem mais utilizada pelos maratonistas
+    \end{itemize}
+
+\end{frame}
