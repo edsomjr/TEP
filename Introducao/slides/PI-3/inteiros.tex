@@ -1,0 +1,86 @@
+\section{Inteiros}
+
+\begin{frame}[fragile]{Variáveis integrais}
+
+    \begin{itemize}
+        \item Em C/C++ há 3 tipos de dados integrais: \code{c++}{char, short, int}
+
+        \item Embora o tipo \code{c++}{char} seja utilizado para representar um caractere,
+            efetivamente ele é capaz de armazenar, em geral, um inteiro de 8 \textit{bits}
+
+        \item Os tamanhos característicos dos tipos \code{c++}{short} e \code{c++}{int} são
+            de 16 e 32 \textit{bits}, respectivamente
+
+        \item A extensão \code{c++}{long long}, usada para representar inteiros de 64 
+            \textit{bits}, foi incorporado ao C++ a partir do padrão C++11
+
+        \item Os modificadores \code{c++}{signed} e \code{c++}{unsigned} modificam o intervalo
+            de valores representáveis pelos tipos integrais
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Faixa de valores das variáveis integrais}
+
+    \begin{table}[!ht]
+        \centering
+
+        \begin{tabular}{lcr}
+            \toprule
+            \textbf{Tipo} & \textit{bits} & \textbf{Intervalo} \\
+            \midrule
+            \texttt{\textbf{char}} & 8 & $[-128, 127]$ \\
+            \rowcolor[gray]{0.9}
+            \texttt{\textbf{unsigned char}} & 8 & $[0, 255]$ \\
+            \texttt{\textbf{short}} & 16 & $[-32768, 32677]$ \\
+            \rowcolor[gray]{0.9}
+            \texttt{\textbf{unsigned short}} & 16 & $[0, 65535]$ \\
+            \texttt{\textbf{int}} & 32 & $\approx [-2\times 10^9, 2\times 10^9]$ \\
+            \rowcolor[gray]{0.9}
+            \texttt{\textbf{unsigned int}} & 32 & $\approx [0, 4\times 10^9]$ \\
+            \texttt{\textbf{long long}} & 64 & $\approx [-9\times 10^{18}, 9\times 10^{18}]$ \\
+            \rowcolor[gray]{0.9}
+            \texttt{\textbf{unsigned long long}} & 64 & $\approx [0, 10^{19}]$ \\
+            \bottomrule
+        \end{tabular}
+    \end{table}
+
+\end{frame}
+
+\begin{frame}[fragile]{Observações sobre as variáveis integrais}
+
+    \begin{itemize}
+        \item Nas variáveis sinalizadas, valores negativos tem o \textit{bit} mais significativo
+            ligado
+
+        \item Nas variáveis integrais existem divisores de zero, isto é, valores diferentes de
+            zero cujo produto é igual a zero:
+            \inputcode{c++}{zero.cpp}
+
+        \item Isto acontece por conta do \textit{overflow}: o resultado não cabe na faixa de
+            valores representáveis, de modo que o \lq\lq excesso\rq\rq\ é descartado
+
+        \item A multiplicação de dois inteiros, em geral, resulta em \textit{overflow}: nestes
+            casos, o ideal é converter ambos operando para \code{c++}{long long} e guarda o
+            resultado também no tipo \code{c++}{long long}:
+            \inputcode{c++}{overflow.cpp}
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Aritmética estendida}
+
+    \begin{itemize}
+        \item Para armazenar valores inteiros que excedem o limite de variáveis do tipo
+            \code{c++}{long long}, é necessário o uso de aritmética estendida
+
+        \item Até a versão C++17, o C++ não tem suporte nativo à aritemética estendida
+
+        \item Uma alternativa é utilizar o Python 3:
+            \inputcode{python3}{python.py3} 
+
+        \item Outra alternativa é recorrer à classe \code{java}{BigInteger} do Java:
+            \inputcode{java}{BigInt.java}
+    \end{itemize}
+
+\end{frame}
