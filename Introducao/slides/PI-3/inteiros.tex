@@ -55,7 +55,7 @@
 
         \item Nas variáveis integrais existem divisores de zero, isto é, valores diferentes de
             zero cujo produto é igual a zero:
-            \inputsyntax{c++}{zero.cpp}
+            \inputcode{c++}{zero.cpp}
 
         \item Isto acontece por conta do \textit{overflow}: o resultado não cabe na faixa de
             valores representáveis, de modo que o \lq\lq excesso\rq\rq\ é descartado
@@ -63,7 +63,24 @@
         \item A multiplicação de dois inteiros, em geral, resulta em \textit{overflow}: nestes
             casos, o ideal é converter ambos operando para \code{c++}{long long} e guarda o
             resultado também no tipo \code{c++}{long long}:
-            \inputsyntax{c++}{overflow.cpp}
+            \inputcode{c++}{overflow.cpp}
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Aritmética estendida}
+
+    \begin{itemize}
+        \item Para armazenar valores inteiros que excedem o limite de variáveis do tipo
+            \code{c++}{long long}, é necessário o uso de aritmética estendida
+
+        \item Até a versão C++17, o C++ não tem suporte nativo à aritemética estendida
+
+        \item Uma alternativa é utilizar o Python 3:
+            \inputcode{python3}{python.py3} 
+
+        \item Outra alternativa é recorrer à classe \code{java}{BigInteger} do Java:
+            \inputcode{java}{BigInt.java}
     \end{itemize}
 
 \end{frame}
