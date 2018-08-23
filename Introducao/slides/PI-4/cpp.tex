@@ -1,0 +1,166 @@
+\section{Encurtamento de Código}
+
+\begin{frame}[fragile]{Encurtamento de Código}
+
+    \begin{itemize}
+        \item Em programação competitiva, a velocidade é critério de desempate
+
+        \item Uma maneira de se melhorar o desempenho no quesito velocidade é digitar o mais
+            rápido possível
+
+        \item Outra maneira é diminuir a quantidade de caracteres que devem ser digitados no
+            código
+
+        \item Esta redução pode ser feita através do uso dos recursos da própria linguagem ou
+            através do uso de macros
+
+        \item O uso inteligente de padrões e lógica também pode levar a reduções nos códigos
+
+        \item Como os códigos de competição não visam reuso, não faz sentido usar nomes longos
+            e descritivos para variáveis ou evitar o uso de variáveis globais
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Dica \#1: Renomear tipos}
+
+    Alguns tipos de dados tem nomes longos, que podem ser encurtados através do uso
+    da diretiva \code{c++}{using} do C++:
+        \inputcode{c++}{using.cpp}
+
+\end{frame}
+
+\begin{frame}[fragile]{Dica \#2: C++ Moderno - \texttt{auto}}
+
+    \begin{itemize}
+        \item Alguns recursos do C++ moderno também levam a uma redução do tamanho dos 
+        códigos-fontes
+
+        \item A partir do C++11, a palavra reservada \code{c++}{auto} pode ser usada para 
+            deduzir o tipo de uma variável a partir de sua inicialização
+
+        \item Em alguns casos, a redução de código é notável:
+            \inputcode{c++}{map.cpp}
+
+        \item A inicialização pode ser feita com constantes, retornos de funções ou mesmo
+            outras variáveis
+            \inputcode{c++}{auto.cpp}
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Dica \#3: C++ Moderno - \texttt{range for}}
+
+    \begin{itemize}
+        \item O padrão C++11 também trouxe o recurso do \textit{range for}
+
+        \item Antes deste padrão, a iteração em um conteiner era feito por meio de iteradores:
+            \inputcode{c++}{iter.cpp}
+
+        \item O \textit{range for} simplifica a sintaxe de iteração sobre contêiners,
+            elimando o uso explícito de iteradores:
+            \inputcode{c++}{rangefor.cpp}
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Dica \#4: C++ Moderno - \texttt{lambdas}}
+
+    \begin{itemize}
+        \item O C++11 também permite o uso de funções \textit{lambda}
+
+        \item \textit{lambdas} são funções anônimas que podem ser declaradas e 
+            implementadas localmente
+
+        \item O uso de \textit{lambdas} simplifica o código, permitindo a customização de
+            funções que permitem a customização de seu comportamento através do uso de
+            ponteiros para funções
+            \inputcode{c++}{sort.cpp}
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Dica \#5: STL}
+
+    \begin{itemize}
+        \item A STL (\textit{Standard Template Library}) do C++ é a biblioteca padrão de
+            \textit{templates}
+
+        \item Ela oferece a implementação de estruturas de dados e funções parametrizadas
+
+        \item Estas implementações são flexíveis tanto no que diz respeito ao tipo de dado
+            que elas agem quanto ao seu conjunto de parâmetros
+
+        \item O uso das estruturas e funções da STL simplificam o código
+
+        \item Além da redução do tamanho, o uso da STL traz confiabilidade ao código, uma
+            vez que as implementações do compiladores são robustas e bem testadas
+
+        \item Produzir implementações equivalentes durante uma maratona é inviável
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de uso da STL}
+    \inputcode{c++}{stl.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Dica \#6: Impressão de vetores}
+
+    \begin{itemize}
+        \item Um padrão comum de respostas de problemas de competição é imprimir um
+            vetor de números, separados por espaços entre eles
+
+        \item O código abaixo gera um \textit{Presentation Error}, pois imprime um espaço
+            em branco após o último número:
+            \inputcode{c++}{pe.cpp}
+
+        \item Além disso, é preciso de uma linha extra, após o \code{c++}{for}, para a 
+            quebra de linha
+
+        \item O código abaixo resolve ambos problemas:
+            \inputcode{c++}{vecprint.cpp}
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Dica \#7: Eliminação de \texttt{if}}
+
+    \begin{itemize}
+        \item A eliminação de um \code{c++}{if}, além de reduzir o tamanho do código,
+            traz como benefício adicional um ganho de performance de execução
+
+        \item O operator \texttt{\%} permite navegar circularmente pelos números
+            $0, 1, \ldots, N - 1$ sequencialmente sem a 
+            necessidade de um \code{c++}{if} para determinar o momento de se reiniciar o 
+            contador
+                \inputcode{c++}{mod.cpp} 
+
+        \item É possível alternar entre dois inteiros $A$ e $B$ sem necessidade de um 
+            \code{c++}{if}: se $C = A + B$, então o valor de $i$ alterna entre $A$ e $B$ 
+            se for atualizado com o valor $C - i$:
+                \inputcode{c++}{alt.cpp} 
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Dica \#8: Definição de constantes importantes}
+
+    \begin{itemize}
+        \item Embora constantes também possam ser definidas como macros, usar os recursos
+            da própria linguagem permitem um maior nível de verificação e validação da
+            parte do compilador
+
+        \item A palavra reservada \code{c++}{const} pode ser usada para este fim
+
+        \item Em geral, as constantes devem ser variáveis globais e receber nome com todos os
+            caracteres maiúsculos
+
+        \item Todas as constantes devem receber um valor inicial, uma vez que não é possível
+            alterar seus valores em qualquer outro ponto do código
+
+            \inputcode{c++}{const.cpp}
+
+    \end{itemize}
+
+\end{frame}
