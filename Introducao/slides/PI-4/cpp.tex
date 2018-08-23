@@ -143,3 +143,24 @@
     \end{itemize}
 
 \end{frame}
+
+\begin{frame}[fragile]{Dica \#8: Definição de constantes importantes}
+
+    \begin{itemize}
+        \item Embora constantes também possam ser definidas como macros, usar os recursos
+            da própria linguagem permitem um maior nível de verificação e validação da
+            parte do compilador
+
+        \item A palavra reservada \code{c++}{const} pode ser usada para este fim
+
+        \item Em geral, as constantes devem ser variáveis globais e receber nome com todos os
+            caracteres maiúsculos
+
+        \item Todas as constantes devem receber um valor inicial, uma vez que não é possível
+            alterar seus valores em qualquer outro ponto do código
+
+            \inputcode{c++}{const.cpp}
+
+    \end{itemize}
+
+\end{frame}
