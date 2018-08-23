@@ -12,3 +12,4 @@ Slides
     1. [Introdução à Programação Competitiva](slides/PI-1/PI-1.pdf)
     1. [Juízes Eletrônicos](slides/PI-2/PI-2.pdf)
     1. [Tipos Primitivos de Dados](slides/PI-3/PI-3.pdf)
+    4. [Encurtamento de Código](slides/PI-4/PI-4.pdf)
