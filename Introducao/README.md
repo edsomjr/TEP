@@ -13,4 +13,4 @@ Slides
     1. [Juízes Eletrônicos](slides/PI-2/PI-2.pdf)
     1. [Tipos Primitivos de Dados](slides/PI-3/PI-3.pdf)
     1. [Encurtamento de Código](slides/PI-4/PI-4.pdf)
-    1. [Treinamento](slides/PI-5/PI-5.pdf)
+    1. [Estratégias de Treinamento](slides/PI-5/PI-5.pdf)
