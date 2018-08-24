@@ -16,10 +16,29 @@
 
         \item A complexidade da BFS é $O(N + M)$, onde $N$ é o número de vértices e $M$ o 
             número de arestas do grafo conectado
+
+        \item No caso de uma representação por matrizes de adjacência, a complexidade é
+            $O(N^2)$
     \end{itemize}
 
 \end{frame}
 
+\begin{frame}[fragile]{\textit{Breadth-First Search}}
+
+    \begin{itemize}
+        \item Primeiramente são visitados todos os vizinhos do nó inicial $s$
+
+        \item Em seguida são visitados os vizinhos de cada vizinho, e assim sucessivamente
+
+        \item Uma fila é mantida para manter a ordem dos vértices a serem visitados
+
+        \item A fila é processada retirando-se o primeiro da elemento da fila e enfileirando-se
+            todos os vizinhos deste nó que ainda não foram visitados
+
+        \item Antes de ser inserido na fila, o nó é marcado como visitado
+    \end{itemize}
+
+\end{frame}
 \begin{frame}[fragile]{Visualização da BFS}
 
     \begin{tikzpicture}
