@@ -1,0 +1,96 @@
+\section{Categorização de problemas}
+
+\begin{frame}[fragile]{Categorias de problemas}
+
+    \begin{itemize}
+        \item Os eventos ACM ICPC tem, em geral, de 8 a 12 problemas, a serem resolvidos
+            em 5 horas
+
+        \item Os \textit{rounds} do Codeforces tem entre 4 e 7 problemas, a serem resolvidos 
+            em 2 horas 
+
+        \item Os problemas podem ser classificados em 10 Categorias
+        \begin{center}
+        \texttt{
+        \begin{minipage}{0.45\textwidth}
+            \begin{enumerate}
+            \item \textit{Ad-hoc}
+            \item Busca Completa
+            \item Dividir e Conquistar
+            \item Gulosos
+            \item Programação Dinâmica
+            \end{enumerate}
+        \end{minipage}
+        \begin{minipage}{0.45\textwidth}
+            \begin{enumerate}
+            \setcounter{enumi}{5}
+            \item Grafos
+            \item Matemática
+            \item Strings
+            \item Geometria Computacional
+            \item Estruturas de Dados
+            \end{enumerate}
+        \end{minipage}
+        }
+        \end{center}
+        \item Há problemas que não se enquadram nestas categorias, porém com uma frequência
+            incomum de aparição
+
+        \item As subcategorias que um competidor deve dominar são: ordenação, recursão e
+            a própria linguagem de programação escolhida
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Classificação pessoal dos problemas}
+
+    \begin{itemize}
+        \item Um competidor pode classificar os problemas em 3 cateogorias
+        \texttt{
+        \begin{enumerate}[A.]
+            \item Já resolvi um parecido e posso resolver de novo rapidamente
+            \item Já vi um parecido e sei que não consigo resolver 
+            \item Nunca vi
+        \end{enumerate}
+        }
+
+        \item Para se tornar um competidor efetivo é preciso 
+        \begin{enumerate}
+                \item classificar a maioria dos problemas como \texttt{A}
+                \item minimizar os problemas \texttt{B}
+                \item usar os conhecimentos acumulados no treinamento para atacar os problemas \texttt{C}
+        \end{enumerate}
+
+        \item É importante manter um registro dos problemas do tipo \texttt{B} e \texttt{C} 
+            encontrados, e tentar resolvê-los posteriormente, através da discussão com os outros
+            competidores ou leitura dos editoriais e soluções disponíveis
+
+        \item A resolução de problemas que antes eram inacessíveis promove o crescimento técnico
+            e profissional do competidor
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Teste do código da solução}
+
+    \begin{itemize}
+        \item Os exemplos de entrada e saída do problema, em geral, são triviais
+
+        \item No caso de uma solução \texttt{WA}, é preciso achar um teste que quebre a solução
+
+        \item Para gerar estes testes, é preciso avaliar os \textit{corner cases}:
+            \begin{enumerate} 
+                \item os maiores valores possíveis para as entradas
+                \item os menores valores possíveis para as entradas
+                \item variáveis com valores zerados ou negativos
+                \item grafos desconetados, polígonos não convexos, polígonos degenerados
+                \item todos as entradas iguais
+                \item entradas em ordem crescente ou decrescente
+            \end{enumerate} 
+
+        \item Também é bom verificar se a solução proposta está assumindo alguma característica
+            da entrada que não foi descrita explicitamente no problema (ordenação, valores
+            máximos, etc)
+    \end{itemize}
+
+\end{frame}
