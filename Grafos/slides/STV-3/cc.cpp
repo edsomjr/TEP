@@ -20,7 +20,7 @@ void dfs(int u)
         dfs(v);
 }
 
-int conected_components(int N)
+int connected_components(int N)
 {
     visited.reset();
 
@@ -30,7 +30,7 @@ int conected_components(int N)
     {
         if (not visited[u])
         {
-            cout << "Component " << ++ans << ": ";
+            cout << "Component " << ++ans << ":";
             dfs(u);
             cout << endl;
         }
@@ -50,7 +50,7 @@ int main()
         adj[v].push_back(u);
     }
 
-    conected_components(10);
+    connected_components(10);
 
     return 0;
 } 
