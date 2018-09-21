@@ -27,6 +27,9 @@
 \usepackage{mdframed}
 \usepackage{enumerate}
 
+% Setup
+\usefonttheme{professionalfonts}
+
 % New commands
 \newcommand{\generatetoc}{
 \begin{frame}{Sumário}
