@@ -1135,3 +1135,66 @@
 \begin{frame}[fragile]{Implementação de Bellman-Ford em C++}
     \inputsnippet{cpp}{21}{40}{bellman-ford.cpp}
 \end{frame}
+
+
+\begin{frame}[fragile]{Identificação do caminho mínimo}
+
+    \begin{itemize}
+        \item A implementação do algoritmo de Bellman-Ford apresentada computa a distância
+            mínima entre qualquer vértice $u$ conectado ao vértice $s$, mas não determina
+            qual seria este caminho
+
+        \item Para determinar o caminho, é preciso manter o vetor \code{c++}{pred}, onde
+            \code{c++}{pred[u]} é o nó que antecede $u$ no caminho mínimo que vai de $s$ a 
+            $u$
+
+        \item Inicialmente, todos os elementos deste vetor devem ser iguais a um valor sentinela,
+            exceto o vértice $s$, que terá \code{c++}{pred[s] = s}
+
+        \item Se a aresta $(u, v)$ atualizar a distância \code{c++}{dist[v]}, então o 
+            predecessor deve ser atualizado também: \code{c++}{pred[v] = u}
+
+        \item Deste modo, o caminho pode ser recuperado, passando por todos os predecessores até
+            se atingir o nó um
+
+        \item Se o predecessor de $u$ for o valor sentinela, não há caminho de $s$ a $u$ no
+            grafo
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Implementação da identificação do caminho mínimo em C++}
+    \inputsnippet{c++}{1}{17}{bellman-ford2.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Implementação da identificação do caminho mínimo em C++}
+    \inputsnippet{c++}{18}{38}{bellman-ford2.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Implementação da identificação do caminho mínimo em C++}
+    \inputsnippet{c++}{40}{60}{bellman-ford2.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Ciclos negativos}
+
+    \begin{itemize}
+        \item Um grafo $G$ tem um ciclo negativo quando a soma dos pesos das arestas de um
+            ciclo resultam em um valor menor do que zero
+
+        \item A presença de um ciclo negativo faz com que, a cada iteração, o algoritmo de
+            Bellman-Ford atualize ao menos uma distância
+
+        \item Desta forma, o próprio algoritmo pode ser usado para detectar tais ciclos
+
+        \item Basta iterar o algoritmo mais uma vez após o seu término: caso o algoritmo faça
+            alguma atualização nas distâncias, há um ciclo negativo no grafo
+
+        \item Tal estratégia identificará tais ciclos no componente conectado do grafo, 
+            independentemente do nó inicial escolhido
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Implementação da identificação de ciclos negativos}
+    \inputsnippet{c++}{9}{25}{negative_cycle.cpp}
+\end{frame}
