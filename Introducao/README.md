@@ -21,3 +21,4 @@ Slides
     1. [Estratégias de Treinamento](slides/PI-5/PI-5.pdf)
 1. Análise de Complexidade
     1. [Fundamentos](slides/AC-1/AC-1.pdf)
+    1. [Pior caso, melhor caso, caso médio](slides/AC-2/AC-2.pdf)
