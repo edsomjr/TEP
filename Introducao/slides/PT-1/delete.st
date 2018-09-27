@@ -1,0 +1,2 @@
+delete p;
+delete [] array;

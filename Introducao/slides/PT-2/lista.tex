@@ -1,0 +1,75 @@
+\documentclass[12pt]{article}
+\usepackage[brazil]{babel}
+\usepackage[latin1]{inputenc}
+\usepackage{graphicx}
+\usepackage{geometry}
+\usepackage[scaled=0.9]{helvet}
+\usepackage{enumerate}
+\usepackage{multicol}
+\usepackage[table]{xcolor}
+\usepackage{array}
+\usepackage{xtab}
+\usepackage{booktabs}
+
+\setlength{\parskip}{\baselineskip}
+\geometry{verbose,tmargin=1.5cm,bmargin=1.5cm,lmargin=1.5cm,rmargin=1.5cm}
+\renewcommand{\rmdefault}{ptm}
+
+\begin{document}
+
+\input{logo}
+
+\vspace{0.1in}
+
+\begin{center}
+\begin{large}
+\textsc{\textbf{Lista de Exercícios}}
+\end{large}
+
+{\bf Ponteiros e funções}
+
+\end{center}
+
+\vspace{0.2in}
+
+\begin{enumerate}
+
+	\item Em relação a passagem de parâmetros das funções, justifique em quais ocasiões a passagem por valor seria a mais adequada e em
+		quais situações a passagem por referência seria mais adequada. É possível trabalhar com apenas uma delas?
+
+	\item Execute o código {\it referenciavsvalor.c} e justifique a saída do programa.
+
+	\item Em relação ao código {\it swap.cpp}, qual das três implementações da função {\it swap}() seria mais adequada para uma biblioteca
+		de funções? Justifique sua escolha.
+
+	\item Em relação ao código {\it calculadora.c}, 
+
+	\begin{enumerate}
+		\item Implemente pelo menos mais 7 plugins com operações entre dois números inteiros cujo retorno
+			é um número inteiro.
+
+		\item Sugira mais dois campos para a estrutura de plugins.
+
+		\item Proponha uma nova assinatura para a função que realiza as operações, de modo que elas possam indicar algum possível erro na
+			execução da operação (por exemplo. divisão por zero).
+
+		\item Discuta como seria uma possível implementação deste código sem o uso de ponteiros para funções, e quais seriam as vantagens 
+			de cada abordagem.
+	\end{enumerate}
+
+	\item Em relação ao código {\it criptofile.c}, 
+
+	\begin{enumerate}
+		\item Cria uma função que receba um arquivo e escreva, no arquivo indicado, o conteúdo do arquivo de entrada em base 64.
+
+		\item Crie uma função que receba um arquivo codificado em base 64 e retorne o arquivo original.
+
+		\item Reimplemente o código utilizando C++.
+
+		\item Crie um código que, dado um arquivo criptogrado pelo código indicado, resgate o arquivo original e a chave utilizada, tendo
+			acesso apenas ao arquivo criptografado. Discuta as possíveis abordagens para este problema.
+	\end{enumerate}
+
+\end{enumerate}
+
+\end{document}

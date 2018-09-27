@@ -1,0 +1,128 @@
+\section{Vetores e Matrizes}
+
+\begin{frame}[fragile]{Definição de matrizes}
+
+	\begin{itemize}
+		\item Matrizes são coleções de objetos de um mesmo tipo, referenciadas por um nome 
+		comum 
+		\item Os elementos de uma matriz são acessados através de índices, que indicam as 
+        coordenadas do elemento na matriz
+
+        \item Matrizes unidimensionais são denominadas vetores
+
+		\item Em C/C++, diferentemente da matemática, os índices das matrizes começam em zero, 
+        não em 1 (um)
+
+        \item Embora possam ser visualizadas bidimensionalmente, em computadores as matrizes
+        são armazenadas de forma linear, uma linha por vez
+	\end{itemize}
+
+\end{frame} 
+
+\begin{frame}[fragile]{Declaração de Matrizes} 
+
+    \metroset{block=fill}
+    \begin{block}{Sintaxe para declaração de matrizes}
+        \inputsyntax{c}{matrizes.st}
+    \end{block}
+    onde $N_i$ é o número de elementos na $i$-ésima dimensão  
+
+	\begin{itemize}
+		\item Apenas a primeira dimensão é obrigatória, sendo as demais opcionais
+
+		\item É possível inicializar um vetor durante sua declaração, deixando a dimensão em 
+        aberto (sem preencher) e listando os elementos entre chaves e separados por vírgulas
+
+        \item Exemplo de inicialização de vetor:
+            \inputsyntax{c}{ex.st}
+	\end{itemize}
+
+\end{frame} 
+ 
+\begin{frame}[fragile]{Acessando os elementos de um vetor}
+
+	\begin{itemize}
+		\item Os elementos de um vetor podem ser acessados, tanto para leitura quanto para escrita,
+        usando-se o nome do vetor seguido pelo índice do elemento entre colchetes
+
+		\item O primeiro elemento de um vetor de $N$ tem índice 0 (zero)
+
+        \item O último elemento tem índice $N-1$
+
+		\item Indicar como índice um número inteiro fora do intervalo [$0, N-1$] pode resultar, 
+        dentre outros, um erro de violação de memória
+
+        \item O acesso de elementos em uma matriz multidimensional é semelhante: basta indicar,
+        entre colchetes, o índice do elemento em cada uma das dimensões da matriz
+	\end{itemize}
+ 
+\end{frame} 
+  
+\begin{frame}[fragile]{Exemplo de uso de matrizes}
+    \inputsnippet{c}{1}{20}{tabela_esportiva.c}
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de uso de matrizes}
+    \inputsnippet{c}{21}{41}{tabela_esportiva.c}
+\end{frame}
+
+\subsection{Ponteiros e strings}
+
+\begin{frame}[fragile]{Relação entre ponteiro e vetor}
+
+	\begin{itemize}
+		\item O nome de um vetor é um ponteiro para o seu primeiro elemento
+
+		\item Os ponteiros fornecem uma alternativa para o acesso aos elementos de um vetor: se 
+        \texttt{\texttt{a}} é um vetor e \texttt{{p}} um ponteiro para o primeiro elemento 
+        \texttt{{a}}, as expressões \texttt{{a[i]}} e \texttt{{*(p+i)}} são 
+        equivalentes
+
+		\item Em alguns contextos, o acesso via ponteiros pode ser mais rápido que o acesso via 
+        índices
+
+        \item No caso de matrizes, a expressão \texttt{{a[i][j]}} é equivalente à expressão
+        \texttt{{*(*(p + i) + j)}}
+
+        \item Em uma matriz linearizada, o elemento da posição (\texttt{i, j}) seria acessado
+        através da expressão \texttt{a[j + i*M]}, onde \texttt{M} é igual ao número de colunas
+        da matriz \texttt{a}
+	\end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo da relação entre ponteiro e vetor}
+    \inputcode{cpp}{relacao_ponteiro_vetor.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Strings}
+
+	\begin{itemize}
+		\item Em C, as strings são vetores de caracteres terminados com o caractere 0 (zero)
+
+        \item As operações em strings (atribuição, cópia, comparação, etc) não podem ser
+        feitas diretamente
+
+        \item A biblioteca \texttt{string.h} contém funções para manipulação de strings em C
+
+        \item A falta do zero terminador é uma causa comum de \textit{bugs} e falhas de 
+        segurança
+ 
+		\item Em C++, strings são objetos de uma classe, embora guardem a notação de acesso aos 
+        seus caracteres idêntica a usada em C
+
+		\item Uma string C++ pode receber uma string C em uma atribuição
+
+        \item Para obter uma string C 
+		equivalente a uma string C++, basta invocar o método \texttt{c\_str}()
+	\end{itemize}
+
+\end{frame} 
+
+\begin{frame}[fragile]{Exemplo de uso de strings em C}
+    \inputcode{c}{string.c}
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de uso de strings em C++}
+    \inputcode{cpp}{string.cpp}
+\end{frame}

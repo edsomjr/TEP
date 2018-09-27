@@ -1,0 +1,126 @@
+\section{Ponteiros e funções}
+
+\begin{frame}[fragile]{Passagem de parâmetros}
+
+	\begin{itemize}
+	
+		\item Os parâmetros das funções e métodos podem ser passados de duas maneiras: 
+        por valor ou por referência
+
+		\item Na passagem por valor, os valores das variáveis passadas para a função ou método são 
+        copiados para os parâmetros formais
+
+		\item Na passagem por referência, as funções recebem em seus parâmetros referências para 
+        as variáveis passadas como parâmetros
+
+        \item A passagem por cópia tem maior custo de execução do que a passagem por referência,
+        mas garante que as variáveis passadas como parâmetros não serão modificadas pela
+        função
+	\end{itemize} 
+ 
+\end{frame}
+ 
+\begin{frame}[fragile]{Passagem de parâmetros em C/C++}
+
+	\begin{itemize}
+		\item Em C, a única forma de passagem de parâmetros é por valor 
+    
+        \item C++ suporta ambos métodos de passagem
+
+		\item Para se utilizar a passagem por referência em C, deve-se declarar o parâmetro como um 
+        ponteiro para o tipo de dado desejado
+
+        \item Efetivamente, a "passagem por referência" do C é uma passagem por cópia, onde o
+        ponteiro é copiado e o acesso à variável é feita através do ponteiro
+
+		\item Embora o mesmo seja verdadeiro para C++, a linguagem suporta passagem por referência 
+        nativamente
+
+		\item O mecanismo de referência de C++ simplifica a notação, mas deixa apenas implícito 
+        que os valores podem ser modificados pela função
+	\end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de passagem de parâmetros em C}
+    \inputsnippet{c}{1}{21}{referenciavsvalor.c}
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de passagem de parâmetros em C}
+    \inputsnippet{c}{22}{41}{referenciavsvalor.c}
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de passagem de parâmetros em C++}
+    \inputsnippet{cpp}{1}{21}{swap.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de passagem de parâmetros em C++}
+    \inputsnippet{cpp}{23}{39}{swap.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Ponteiros para funções}
+
+    \metroset{block=fill}
+    \begin{block}{Sintaxe para declaração de ponteiros para funções}
+		\inputsyntax{c}{pf.st}
+    \end{block}
+
+	\begin{itemize}
+		\item O ponto de entrada de uma função ocupa uma posição na memória: logo podemos declarar 
+        ponteiros para funções
+
+		\item O endereço de uma função pode ser obtido através do nome da função, como no caso de 
+		vetores
+
+		\item O ponteiro para função pode ser usado para fazer uma chamada a função, com a mesma 
+        sintaxe de chamadas comuns. Exemplo:
+            \inputsyntax{c}{ex.st}
+		\item Ponteiros para funções permitem a construção de programas dinâmicos e podem aumentar 
+        a organização do código
+	\end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de uso de ponteiros de funções}
+    \inputcode{c}{plugin.h}
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de uso de ponteiros de funções}
+    \inputsnippet{c}{1}{21}{plugin.c}
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de uso de ponteiros de funções}
+    \inputsnippet{c}{23}{43}{plugin.c}
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de uso de ponteiros de funções}
+    \inputsnippet{c}{45}{54}{plugin.c}
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de uso de ponteiros de funções}
+    \inputcode{c}{soma.c}
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de uso de ponteiros de funções}
+    \inputcode{c}{subtracao.c}
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de uso de ponteiros de funções}
+    \inputsnippet{c}{1}{21}{calculadora.c}
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de uso de ponteiros de funções}
+    \inputsnippet{c}{23}{43}{calculadora.c}
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de uso de ponteiros de funções}
+    \inputsnippet{c}{45}{62}{calculadora.c}
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de uso de ponteiros de funções}
+    \inputsnippet{c}{63}{83}{calculadora.c}
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de uso de ponteiros de funções}
+    \inputsnippet{c}{84}{102}{calculadora.c}
+\end{frame}
