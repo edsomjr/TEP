@@ -19,3 +19,5 @@ Slides
     1. [Tipos Primitivos de Dados](slides/PI-3/PI-3.pdf)
     1. [Encurtamento de Código](slides/PI-4/PI-4.pdf)
     1. [Estratégias de Treinamento](slides/PI-5/PI-5.pdf)
+1. Análise de Complexidade
+    1. [Fundamentos](slides/AC-1/AC-1.pdf)
