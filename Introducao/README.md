@@ -22,3 +22,5 @@ Slides
 1. Análise de Complexidade
     1. [Fundamentos](slides/AC-1/AC-1.pdf)
     1. [Pior caso, melhor caso, caso médio](slides/AC-2/AC-2.pdf)
+1. Busca e Ordenação
+    1. [Algoritmos de Busca](slides/BO-1/BO-1.pdf)
