@@ -12,3 +12,9 @@ Estruturas de Dados
 
 * [Editoriais](editoriais/README.md)
 * [Listas de Exercícios](listas/README.md)
+
+Slides
+======
+
+1. Vetores
+   1. [Fundamentos](slides/VT-1/VT-1.pdf) 
