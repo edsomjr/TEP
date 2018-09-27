@@ -1,0 +1,49 @@
+\section{Pior caso, melhor caso, caso médio}
+
+\begin{frame}[fragile]{Definição}
+
+	\begin{itemize}
+        \item A análise de algoritmos considera três cenários possíveis, os quais relacionam
+        a entrada com o número de iterações do algoritmo
+
+		\item O pior caso acontece quando o algoritmo é executado o número máximo de iterações
+
+		\item No melhor caso o algoritmo é executado o número mínimo de iterações possível
+
+		\item O caso médio representa o cenário esperado quando as entradas possuem determinada
+        distribuição de probabilidade de ocorrência
+		caso
+
+		\item Em termos formais, a complexidade do caso médio $C_M$ é dada por
+		\[
+		C_M = \sum_i p(\mbox{input}_i)\mbox{steps}(\mbox{input}_i)
+		\] 
+        com $p(\mbox{input}_i) \geq 0$ e $\sum_i p(\mbox{input}_i) = 1$
+
+		\item A fórmula para o caso médio coincide com a definição probabilística de
+		valor esperado
+
+	\end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Observações}
+
+    \begin{itemize}
+        \item O melhor caso tem interesse meramente teórico, não sendo levado em
+        consideração na maior parte das análises
+
+        \item A maioria das análises se concentram no pior caso, pois ele é uma estimava
+        de como o algoritmo efetivamente vai se comportar
+    
+        \item Embora o caso médio seja mais próximo da realidade, sua análise é mais técnica
+        e depende de conceitos elaborados de matemática e probabilidade
+
+        \item Além disso, o caso médio tende a ser idêntico ao pior caso no contexto da
+        complexidade assintótica
+
+        \item A notação mais utilizada é a notação Big-$O$, seguida pela notação
+        Big-$\Theta$
+    \end{itemize}
+
+\end{frame}
