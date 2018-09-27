@@ -1,0 +1,151 @@
+\section{Definição do contêiner}
+
+\begin{frame}[fragile]{Definição das operações}
+
+    \begin{itemize}
+        \item O primeiro passo a ser feito é definir quais as operações que serão suportadas
+        pelo tipo abstrado de dados
+
+        \item Por motivos didáticos, serão implementadas apenas as operações listadas no 
+        próximo \textit{slide}
+
+        \item Uma implementação real teria um número muito maior de operações e variantes delas
+
+        \item A página do Cppman para \rawcode{vector} contém 33 operações, sem contar as 
+        variantes de cada operação
+
+        \item Também por motivos didáticos, o contêiner a ser implementado armazenará apenas
+        elementos do tipo inteiro
+
+        \item Uma implementação que permitiria armazenar elementos de qualquer tipo é mais
+        complexa e será deixada como exercício
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Operações a serem implementadas}
+    \begin{small}
+    \begin{table}
+        \centering
+        \begin{tabularx}{\textwidth}{lcX}
+            \toprule
+            \textbf{Operação} & \textbf{Complexidade} & \textbf{Descrição} \\
+            \midrule
+            \rawcode{create(N)} & $O(1)$ & Cria uma nova instância com capacidade para \rawcode{N} elementos \\
+            \rawcode{free(v)} & $O(1)$ & Desaloca a memória utilizada pela instância \rawcode{v} \\
+            \rawcode{element\_at(v, i)} & $O(1)$ & Retorna o valor do elemento de \rawcode{v} armazenado na posição \rawcode{i} \\
+            \rawcode{size(v)} & $O(1)$ & Retorna o número de elementos armazenados em \rawcode{v} \\
+            \rawcode{push(v, x, i)} & $O(N)$ & Insere o valor \rawcode{x} na posição \rawcode{i} de \rawcode{v} \\
+            \rawcode{push\_back(v, x)} & $O(1)$ & Anexa o valor \rawcode{x} ao final \rawcode{v} \\
+            \rawcode{pop(v, i)} & $O(N)$ & Remove o elemento que ocupa a posição \rawcode{i} de \rawcode{v} \\
+            \rawcode{pop\_back(v)} & $O(1)$ & Remove o último elemento de \rawcode{v} \\
+            \rawcode{clear(v)} & $O(1)$ & Remove todos os elementos de \rawcode{v} \\
+            \bottomrule
+        \end{tabularx}
+    \end{table}
+    \end{small}
+
+\end{frame}
+
+\begin{frame}[fragile]{Cabeçalho \texttt{vector.h}}
+    \inputcode{c}{vector.h}
+\end{frame}
+
+\begin{frame}[fragile]{Funções de criação e destruição}
+
+    \begin{itemize}
+        \item Para criar uma instância da estrutura, são necessários dois passos: alocação de
+        memória para a estrutura em si e alocação de memória para os elementos armazenados
+
+        \item Uma vez alocado o espaço para a estrutura, os campos devem ser inicializados 
+        corretamente antes do retorno
+
+        \item Como o único parâmetro da função \rawcode{create\_vector()} é a capacidade, o campo
+        \rawcode{size} inicialmente será igual a 0 (zero)
+
+        \item Um erro na criação será reportado através do retorno de um ponteiro nulo
+
+        \item Na função \rawcode{free\_vector()} é necessário desalocar tanto a memória para a
+        estrutura quanto a memória para os elementos armazenados nela
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Implementação da função \texttt{create\_vector()}}
+    \inputsnippet{c}{1}{21}{vector.c}
+\end{frame}
+
+\begin{frame}[fragile]{Implementação da função \texttt{free\_vector()}}
+    \inputsnippet{c}{23}{32}{vector.c}
+\end{frame}
+
+\begin{frame}[fragile]{Operações de acesso}
+
+    \begin{itemize}
+        \item As estruturas de C não tem suporte aos conceitos de interfaces públicas e privadas
+
+        \item Deste modo, é possível acessar tanto os elementos quanto o tamanho da estrutura
+        diretamente a partir dos seus campos
+
+        \item Contudo, este acesso viola dois conceitos importantes
+
+        \item Primeiramente, uma ADT é definida por suas operações, e não por sua implementação.
+        O acesso direto à implementação viola o conceito de ADT
+
+        \item Em segundo lugar, a modificação destes campos diretamente pode comprometer o estado
+        da estrutura, inclusive podendo corrompê-la
+
+        \item Para evitar este acesso direto seria necessário definir a estrutura como um ponteiro
+        \code{c}{void *}
+
+        \item Na implementação seria necessária a coerção para a estrutura correta, a qual seria 
+        definida apenas no arquivo de implementação
+
+        \item A esta técnica chamamos de \textit{private implementation (PIMPL)}
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Interface com a técnica do \texttt{PIMPL}}
+    \inputcode{c}{vector_adt.h}
+\end{frame}
+
+\begin{frame}[fragile]{Implementação com a técnica do \texttt{handler}}
+    \inputsnippet{c}{1}{20}{vector_adt.c}
+\end{frame}
+
+\begin{frame}[fragile]{Implementação com a técnica do \texttt{handler}}
+    \inputsnippet{c}{21}{40}{vector_adt.c}
+\end{frame}
+
+\begin{frame}[fragile]{Funções de acesso}
+
+    \begin{itemize}
+        \item As funções de acesso tem sempre como parâmetro um ponteiro do tipo \rawcode{vector}
+
+        \item Deste modo, a primeira etapa da implementação é sempre checar se este ponteiro
+        é nulo ou não
+
+        \item Isto é necessário porque tentar acessar um campo a partir de um ponteiro nulo
+        gerar um erro de segmentação
+
+        \item Além disso, há outro erro a ser considerado: o índice passado por estar fora do
+        intervalo $[0, N - 1]$
+
+        \item Uma forma de reportar o erro ao usuário da função é retornar um código erro númerico
+
+        \item Veja que esta técnica funciona bem na função \rawcode{size()}, mas pode ser 
+        ambígua no caso da função \rawcode{element\_at()}, se o vetor puder armazenar valores
+        inteiros negativos
+
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Códigos de erros}
+    \inputcode{c}{vector_errors.h}
+\end{frame}
+
+\begin{frame}[fragile]{Implementação das funções de acesso}
+    \inputsnippet{c}{42}{62}{vector_adt.c}
+\end{frame}
