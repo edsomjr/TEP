@@ -1,0 +1,110 @@
+\section{Tipos de dados compostos e de usuário}
+
+\subsection{Estruturas}
+
+\begin{frame}[fragile]
+
+	\frametitle{Estruturas}
+
+    \metroset{block=fill}
+    \begin{block}{Sintaxe para declaração de estruturas}
+        \inputsyntax{c}{struct.st}
+    \end{block}
+
+	\begin{itemize}
+		\item Uma estrutura em C/C++ consiste numa coleção de variáveis 
+		referenciadas por um nome comum
+
+		\item As variáveis que compõem a estrutura são denominadas membros, campos ou elementos
+		da estrutura.
+
+		\item É possível definir variáveis do tipo da estrutura criada
+
+		\item Os membros de uma instância de um estrutura são acessados da seguinte forma: 
+			\code{c}{nome_da_instancia.membro}
+
+		\item O tamanho de uma estrutura é dado pela soma do tamanho de todos os seus membros, 
+        mas pode ser arredondado para cima para o múltiplo mais próximo do tamanho de uma 
+        palavra do processador
+	\end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de uso de estrutura}
+    \inputcode{c}{cadastro.c}
+\end{frame}
+
+\begin{frame}[fragile]{Uniões}
+
+    \metroset{block=fill}
+    \begin{block}{Sintaxe para declaração de uniões}
+        \inputsyntax{c}{union.st}
+    \end{block}
+	\begin{itemize}
+		\item Uma união consiste numa área de memória compartilhada por duas ou mais variáveis
+
+		\item As variáveis que compõem a união são denominadas membros, campos ou elementos 
+        da união
+
+		\item É possível definir variáveis do tipo da união criada
+
+		\item Os membros da união são acessados com a mesma sintaxe utilizada nas estruturas
+
+		\item O tamanho de uma união é igual ao maior 
+		dentre todos os tamanhos dos campos da união, e pode
+		ser arredondado de forma semelhante às estruturas
+	\end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de uso de união}
+    \inputcode{c}{rotate.c}
+\end{frame}
+
+\begin{frame}[fragile]{Classes}
+
+    \metroset{block=fill}
+    \begin{block}{Sintaxe para declaração de classes}
+        \inputsyntax{c++}{class.st}
+    \end{block}
+	
+    Uma classe consiste numa agregação de dados que tem uma relação comum, e num conjunto de 
+    funções que agem sobre estes dados.
+
+\end{frame}
+
+\begin{frame}[fragile]{Classes}
+
+	\begin{itemize}
+		\item As variáveis que compõem a classe são denominadas membros da classe, enquanto as 
+        função são denominadas métodos da classe
+
+		\item É possível definir variáveis do tipo da classe criada. Estas variáveis são 
+        denominadas objetos ou instâncias da classe
+
+		\item Os membros de uma instância de uma classe ou seus métodos são acessados usando a
+        sintaxe: \code{c++}{instancia.{membro|metodo}}
+
+		\item Apenas as variáveis e os métodos públicos podem ser acessados fora do escopo da 
+        classe
+
+        \item Funções amigas podem acessar as seções privadas e protegidas da classe
+	\end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de uso de classe}
+    \inputcode{cpp}{complex.h}
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de uso de classe}
+    \inputsnippet{cpp}{1}{21}{complex.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de uso de classe}
+    \inputsnippet{cpp}{23}{42}{complex.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de uso de classe}
+    \inputcode{cpp}{testcomplex.cpp}
+\end{frame}

@@ -1,0 +1,139 @@
+\section{Estruturas de seleção e controle}
+
+\begin{frame}[fragile]{\texttt{if/else}}
+
+    \metroset{block=fill}
+    \begin{block}{Sintaxe para declaração do \texttt{if}}
+        \inputsyntax{c}{if.st}
+    \end{block}
+	\begin{itemize}
+	    \item Se a condição for verdadeira, o bloco \code{c}{if} será executado
+
+        \item Caso contrário, o bloco \code{c}{else} será executado, se existir
+
+		\item Operador ternário: a variável assume um dos dois valores listados, a depender 
+        do valor lógico da condição: \texttt{A}, se verdadeira; \texttt{B}, se falsa.
+
+        \item Sintaxe: \texttt{[variável = ] condição ? A : B;}
+
+        \item Ambos valores \texttt{A} e \texttt{B} devem ter o mesmo tipo
+	\end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de uso de \texttt{if/else}}
+    \inputcode{cpp}{sinal.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{\texttt{switch}}
+
+    \metroset{block=fill}
+    \begin{block}{Sintaxe para declaração do \texttt{switch}}
+        \inputsyntax{c}{switch.st}
+    \end{block}
+
+\end{frame}
+
+\begin{frame}[fragile]{\texttt{switch}}
+
+	\begin{itemize}
+
+		\item Se \texttt{valor} for igual a um dos valores 
+		\texttt{valor1, ..., valorN} descritos, serão executados os comandos
+		que se seguem a cláusula \code{c}{case} associada até 
+		que se encontre um comando \code{c}{break} ou termine 
+		o bloco do \code{c}{switch}
+
+		\item A cláusula \code{c}{default}, que é escolhida 
+		caso {valor} não corresponda a nenhum valor listado, é 
+		{opcional}
+
+		\item O \texttt{valor} indicado deve ser do tipo inteiro 
+		(\code{c}{char} ou \code{c}{int})
+	\end{itemize}
+
+\end{frame} 
+
+
+\begin{frame}[fragile]{Exemplo de uso de \texttt{switch}}
+    \inputsnippet{c}{1}{21}{mencao.c}
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de uso de \texttt{switch}}
+    \inputsnippet{c}{23}{45}{mencao.c}
+\end{frame}
+
+\begin{frame}[fragile]{\texttt{for}}
+  
+    \metroset{block=fill}
+    \begin{block}{Sintaxe para declaração do \texttt{for}}
+        \inputsyntax{c}{for.st}
+    \end{block}
+	\begin{itemize}
+		\item O laço \code{c}{for} é começa com a etapa de 
+		\texttt{inicialização}
+    
+        \item Em seguida, é verificada a \texttt{condição}: se falsa, o laço é encerrado; caso 
+        contrário, é executado o \texttt{bloco de comandos}
+
+		\item Finalizada a execução do \texttt{bloco de comandos}, é executado o {\tt incremento} 
+        e a condição é novamente testada, e assim sucessivamente até o encerramento do laço
+	\end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{\texttt{for}}
+
+	\begin{itemize}
+		\item A {\tt inicialização}, a {\tt condição} e o 
+		{\tt incremento} são opcionais
+
+		\item O laço \code{c}{for}, assim como os demais laços, 
+		pode ser interrompido a qualquer momento através de um 
+		comando \code{c}{break}
+
+		\item O comando \code{c}{continue} força o encerramento 
+		prematuro do bloco de comandos, levando a execução imediatamente para a avaliação
+		do {\tt incremento}
+
+        \item Sem o uso de um \code{c}{break}, o laço poderá se executado infinitamente
+        (o que resultará no travamento do console ou numa falha de segmentação) caso a 
+        condição não se torne verdadeira em algum ponto do laço
+	\end{itemize}
+
+\end{frame}
+
+
+\begin{frame}[fragile]{Exemplo de uso do \texttt{for}}
+    \inputcode{cpp}{primos.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{\texttt{while}}
+
+    \metroset{block=fill}
+    \begin{block}{Sintaxe para declaração do \texttt{while}}
+        \inputsyntax{c}{while.st}
+    \end{block}
+	\begin{itemize}
+		\item O laço \code{c}{while} começa com a verificação da {\tt condição}: se 
+        falsa, o laço é encerrado; caso contrário, é executado o \texttt{bloco de comandos} 
+
+		\item Finalizada a execução do \texttt{bloco de comandos}, a 
+		condição é novamente testada, e assim sucessivamente,
+		até o encerramento do laço
+
+		\item O laço \code{c}{while}, assim como os demais 
+		laços, pode ser interrompido a qualquer momento através de 
+		um comando \code{c}{break}
+
+		\item O comando \code{c}{continue} força o encerramento 
+		prematuro do bloco de comandos, levando a execução 
+		imediatamente para a avaliação da \textbf{condição}
+
+	\end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de uso de \texttt{while}}
+    \inputcode{c}{fibonacci.c}
+\end{frame}
