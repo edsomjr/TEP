@@ -1,0 +1,117 @@
+\documentclass[12pt]{article}
+\usepackage[brazil]{babel}
+\usepackage[latin1]{inputenc}
+\usepackage{graphicx}
+\usepackage{geometry}
+\usepackage[scaled=0.9]{helvet}
+\usepackage{enumerate}
+\usepackage{multicol}
+\usepackage[table]{xcolor}
+\usepackage{array}
+\usepackage{xtab}
+\usepackage{booktabs}
+
+\setlength{\parskip}{\baselineskip}
+\geometry{verbose,tmargin=1.5cm,bmargin=1.5cm,lmargin=1.5cm,rmargin=1.5cm}
+\renewcommand{\rmdefault}{ptm}
+
+\begin{document}
+
+\input{logo}
+
+\vspace{0.1in}
+
+\begin{center}
+\begin{large}
+\textsc{\textbf{Lista de Exercícios}}
+\end{large}
+
+{\bf Revisão C/C++: Fundamentos}
+\end{center}
+
+\vspace{0.2in}
+
+\begin{enumerate}
+
+	\item Em relação à declaração de variáveis,
+
+	\begin{enumerate}
+		\item Liste os tipos básicos de dados de C e de C++, explicando o propósito de cada um deles.
+
+		\item Descreva as regras para a construção de nomes de variáveis em C/C++.
+
+		\item Qual é a importância de se atribuir um valor inicial a uma variável no momento de sua declaração?
+
+  	\end{enumerate}
+
+	\item Em relação aos códigos {\it media\_aritmetica.c} e 
+	{\it media\_aritmetica.cpp},
+
+	\begin{enumerate}
+		\item Substitua a função {\it atualiza\_media}() por outra função que determine a média das três notas
+			sem utilizar variáveis estáticas.
+
+		\item Proponha uma implementação para uma função que calcule a média de $N$ de notas, onde $N$ será
+			determinado em tempo de execução.
+
+		\item Proponha e implemente uma maneira de obter as $N$ notas 
+		do usuário, sendo que esta quantidade $N$ também deve ser 
+		fornecida pelo usuário (e não determinada previamente pelo 
+		programa).  
+
+	\end{enumerate}
+
+	\item Escreva o operador ternário usando os comandos {\bf if/else}. Em quais situações o operador
+		ternário é mais adequado do que os comandos {\bf if/else}?
+
+	\item Em relação ao código {\it sinal.cpp},
+	\begin{enumerate}
+		\item Reescreva a função {\it sinal}() do código de modo que ela retorne o símbolo do sinal e que a
+			implementação seja realizada utilizado o operador ternário, sem comandos {\bf if/else}. Escolha um
+			símbolo mais apropriado para o caso em que o número é zero.
+
+		\item Qual é a vantagem de utilizar um retorno numérico para a função sinal, como foi feito na 
+			implementação original do código? E qual a vantagem de usar um retorno de caractere, como feito
+			no item (a)?
+	\end{enumerate}
+
+	\item Qual é a utilizade de não se utilizar um comando {\bf break} para finalizar uma cláusula {\bf case}
+		de um comando {\bf switch}? Quais as desvantagens desta abordagem?
+
+	\item Modifique o código {\it mencao.c} de modo que a mensagem sobre a aprovação ou reprovação do aluno
+		contenha a menção final obtida. Por qual motivo a função {\it calcula\_mencao}() retorna um inteiro, e não a 
+		própria menção em formato de texto?
+
+	\item Em relação ao comando {\bf for},
+	\begin {enumerate}
+		\item Qual é a diferença na inicialização em C++ para a iniciação em C?
+
+		\item Cite situações onde seriam úteis um comando {\bf for}:
+		\begin{enumerate}
+ 			\item sem condição;
+
+			\item sem bloco de comandos;
+
+			\item sem incremento.
+		\end {enumerate}
+
+	\end{enumerate}
+
+	\item O código {\it primos.cpp} contém erros conceituais, que levam
+	a identificação dos números -1, 1 e 9 como primos e os número 2 como 
+	não primo.. Encontre estes erros e proponha soluções para os mesmos, 
+	justificando as escolhas.
+
+	\item Qual é a diferença de um comando {\bf while} para um comando {\bf for}? Reescreva o comando {\bf
+		while} usando o comando {\bf for} e vice-versa.
+
+	\item Escreva uma função recursiva que calcule o $n$-ésimo termo da série de Fibonacci. Como evitar que
+		uma função recursiva entre em um {\it loop} infinito?  Quais são as vantagens e as desvantagens das 
+		funções recursivas? {\it Observação:} uma função é dita {\bf recursiva} quando faz uma chamada a si
+		mesma em seu bloco de comandos.
+
+	\item Escreva uma função que compute o cosseno de um número em radianos.
+
+\end{enumerate}
+
+\end{document}
