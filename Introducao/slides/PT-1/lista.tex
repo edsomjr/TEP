@@ -1,0 +1,120 @@
+\documentclass[12pt]{article}
+\usepackage[brazil]{babel}
+\usepackage[latin1]{inputenc}
+\usepackage{graphicx}
+\usepackage{geometry}
+\usepackage[scaled=0.9]{helvet}
+\usepackage{enumerate}
+\usepackage{multicol}
+\usepackage[table]{xcolor}
+\usepackage{array}
+\usepackage{xtab}
+\usepackage{booktabs}
+
+\setlength{\parskip}{\baselineskip}
+\geometry{verbose,tmargin=1.5cm,bmargin=1.5cm,lmargin=1.5cm,rmargin=1.5cm}
+\renewcommand{\rmdefault}{ptm}
+
+\begin{document}
+
+\input{logo}
+
+\vspace{0.1in}
+
+\begin{center}
+\begin{large}
+\textsc{\textbf{Lista de Exercícios}}
+\end{large}
+
+{\bf Ponteiros e Alocação de memória}
+\end{center}
+
+\vspace{0.2in}
+
+\begin{enumerate}
+
+	\item Em relação ao código {\it ponteiros.c}, qual seria o valor de \&{\it{p}}?
+
+	\item Em uma determinada arquitetura, um inteiro tem 4 {\it bytes}. Se {\it p} é um ponteiro para inteiro, inicialmente 
+	  apontando para o endereço de memória 0xFE00124C, eles estará apontando para qual endereço, após a execução das operações 
+		{\it{p}}++, {\it{p}} -= 3 e {\it{p}} += 5?
+
+	\item Escreva a declaração de uma matriz tridimensional, onde a primeira dimensão tem 30, a segunda 3 e a terceira 10 elementos
+		do tipo ponto flutuante. Qual é o tamanho, em {\it bytes}, desta matriz? Dê um exemplo onde seria adequado o uso de um 
+		matriz tridimensional.
+
+	\item Em relação ao código {\it tabela\_esportiva.c},
+
+	\begin{enumerate}
+		\item Modifique o código de modo que também sejam registrados o público de cada partida e se o jogo aconteceu no estádio do time
+		(em casa) ou no estádio do adversário (fora de casa).
+
+		\item No resumo da campanha, informe o público total e o público médio por jogo que acompanhou o time em suas partidas.
+
+		\item Considerando que o ingresso custo R\$ 5,00 e que o time fique com 70\% da arrecadação quando joga em casa e 30\% quando joga
+		fora de casa, informe também a arrecadação total e média por jogo do time.
+
+	\end{enumerate}
+
+	\item De acordo com a aritmética de ponteiros,
+
+	\begin{enumerate}
+		\item Porque não é possível realizar operações aritmética com ponteiros do tipo {\bf void}? Justifique.
+
+		\item Qual seria o resultado da soma de dois ponteiros do mesmo tipo? E de tipos diferentes? Por que motivo o compilador
+		não permite tais operações?
+
+		\item Se {\it p} é um ponteiro do tipo {\bf int} e {\it q} um ponteiro do tipo {\bf char} numa determinada arquitetura onde um inteiro
+		tem 8 {\it bytes} e um caractere 1 {\it byte}, explique qual seria o resultado e o significado da expressão {\it x} = ({\it p} + 3) - 
+		({\it q} - 5).
+
+	\end{enumerate}
+
+	\item Em relação ao código {\it aritmetica\_de\_ponteiros.c},
+
+	\begin{enumerate}
+		\item O que aconteceria se o primeiro {\it printf}() fosse substituído pelo segundo {\it printf}()?
+
+		\item Justifique as saídas do segundo {\it printf}(), principalmente o valor apontado por {\it q}.
+
+		\item Modifique a primeira expressão de modo que {\it q } aponte para o último elemento do vetor {\it numbers}.
+
+		\item O que aconteceria se a ordem dos operadores na diferença {\it q - p} fosse invertida? Qual seria o resultado
+		e o significado desta nova operação?
+
+	\end{enumerate}
+
+	\item Escreva uma função que localize, numa {\it string} C, um dado caractere. Justifique as escolhas feitas na sua implementação.
+
+	\item Em relação ao c\'odigo {\it media.c}, 
+	\begin {enumerate}
+		\item Reimplemente o código sem utilizar alocação dinâmica de memória.
+
+		\item Modifique o código de modo que também seja informado a mediana e o desvio-padrão das notas informadas.
+
+		\item Reimplemente o código, com as mudanças propostas no item anterior, sem utilizar alocação dinâmica de memória.
+
+	\end{enumerate}
+
+	\item Em relação aos c\'odigos {\it item.h, pastel.h, pastel.cpp, caldodecana.h, caldodecana.cpp} e {\it atendimento.cpp}, 
+	\begin {enumerate}
+		\item Adicione dois novos sabores de pastéis: {\it Banana} e {\it Chocolate}. Cada pastel destes novos sabores custa R\$ 3,00.
+
+		\item Altere a saída do programa que imprime o pedido, organizando-a da seguinte forma: primeiro os pastéis e depois os caldos.
+			Também agrupe os pedidos iguais: por exemplo, se forem pedidos três pastéis de Queijo, um de Carne e 2 caldos de 200 ml, 
+			a saída deve ser:
+
+		\begin{verbatim}
+			4 pastéis:
+			3 x Pastel de Queijo
+			1 x Pastel de Carne
+
+			2 Caldos:
+			2 x Calde de Cana 200 ml
+		\end{verbatim}
+
+	\end{enumerate}
+
+\end{enumerate}
+
+\end{document}

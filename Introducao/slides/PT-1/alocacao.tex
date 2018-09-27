@@ -1,0 +1,168 @@
+\section{Alocação de dinâmica de memória}
+
+\begin{frame}[fragile]{Alocação dinâmica de memória}
+
+	\begin{itemize}
+		\item A alocação dinâmica de memória permite ao programador requerer, em tempo de execução,
+         uma determinada quantidade de memória
+
+		\item Ela é útil em situações onde não é possível saber, na compilação, a quantidade de 
+        variáveis, entradas e ou recursos que um programa irá utilizar durante sua execução
+
+		\item O uso dela permite a construção de programas mais flexíveis e dinâmicos, sendo 
+        utilizada na maioria dos programas escritos em C/C++
+
+		\item A liberação da memória alocada, contudo, é de responsabilidade do programador
+
+		\item O uso constante de alocação dinâmica de memória, sem a devida liberação dos recursos,
+        pode levar a erros de execução do programa
+	\end{itemize}
+	
+\end{frame}
+
+\subsection{Funções e operadores}
+
+\begin{frame}[fragile]{Alocação dinâmica de memória em C}
+
+	\begin{itemize}
+		\item As funções para alocação e liberação de memória em C fazem parte da biblioteca 
+        \texttt{stdlib.h}
+
+		\item A principal é a função \texttt{malloc()}, que possui a seguinte assinatura:
+		    \inputsyntax{c}{malloc.st}
+
+		\item A função \texttt{malloc()} retorna, se bem sucedida, um ponteiro para os 
+        \texttt{size} \textit{bytes} requisitados
+
+        \item Em caso de falha, ela retorna um ponteiro nulo (\texttt{NULL} ou zero)
+
+		\item Como o retorno é um ponteiro do tipo \code{c}{void *}, ele 
+		deve receber uma coerção (\texttt{typecast}) para o tipo da variável que receberá o 
+        retorno
+
+        \item Exemplo de coerção:
+		    \inputsyntax{c}{ex_malloc.st}
+	\end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Alocação dinâmica de memória em C}
+
+	\begin{itemize}
+		\item Finalizado o uso da memória alocada, ela deve ser liberada através da chamada da 
+        função \texttt{free()}, cuja assinatura é
+		    \inputsyntax{c}{free.st}
+
+		\item O parâmetro da função \texttt{free()} é o ponteiro que armazenou o retorno da 
+        função \texttt{malloc()}
+
+		\item Uma alternativa para \texttt{malloc()} é a função \texttt{calloc()}, cuja assinatura é
+            \inputsyntax{c}{calloc.st}
+
+		\item Os parâmetros da função \texttt{calloc()} são o número de elementos 
+        \texttt{nmemb} a serem alocados e o tamanho \texttt{size} de cada elemento
+
+        \item O retorno é idêntico ao da função \texttt{malloc()}
+
+		\item A diferença entre as funções \texttt{malloc()} e \texttt{calloc()} é que a segunda 
+        inicializa todos os \textit{bytes} da memória alocada com o valor zero, sendo assim mais 
+		lenta em tempo de execução
+	\end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de uso de alocação de memória em C}
+    \inputsnippet{c}{1}{21}{media.c}
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de uso de alocação de memória em C}
+    \inputsnippet{c}{22}{37}{media.c}
+\end{frame}
+
+\begin{frame}[fragile]{Alocação dinâmica de memória em C++}
+
+	\begin{itemize}
+		\item A alocação e liberação de memória em C++ são realizadas pelos operadores 
+        \code{c}{new} e \code{c}{delete}, respectivamente
+
+		\item O operador \code{c}{new} tem a seguinte sintaxe:
+            \inputsyntax{c++}{new.st}
+
+		\item O operador \code{c}{new} retorna, se bem sucedido, um ponteiro para o 
+        elemento ou vetor de elementos do tipo requisitado
+
+        \item Em caso de falha, ele retorna uma exceção do tipo \code{c++}{std::bad_alloc}, que
+            está definida na biblioteca \code{c++}{new}
+
+		\item Ao contrário do que acontece em C, não é preciso fazer uma coerção 
+        (\textit{typecast}) no retorno do operador \code{c}{new}. Ex:
+            \inputsyntax{c++}{ex_new.st}
+
+	\end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Alocação dinâmica de memória em C++}
+
+	\begin{itemize}
+		\item Finalizado o uso da memória alocada, ela deve ser liberada através da chamada do 
+        operador \code{c}{delete}, cuja sintaxe é 
+		    \inputsyntax{c++}{delete.st}
+
+		\item Se um único elemento foi alocado, ele deve ser desalocado com o operador 
+		\code{c++}{delete}
+
+        \item caso um vetor tenha sido alocado, deve ser invocado o operador 
+		\code{c++}{delete []} para a liberação da memória
+
+		\item Os operadores \code{c++}{new} e \code{c++}{delete} podem ser 
+        sobrescritos para operar da maneira desejada pelo programador
+
+		\item Estes operadores estão incorporados na linguagem, não sendo necessária a inclusão de 
+		nenhuma biblioteca para seu uso
+	\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de uso de alocação dinâmica em C++}
+    \inputcode{cpp}{item.h}
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de uso de alocação dinâmica em C++}
+    \inputcode{cpp}{pastel.h}
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de uso de alocação dinâmica em C++}
+    \inputcode{cpp}{pastel.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de uso de alocação dinâmica em C++}
+    \inputcode{cpp}{caldodecana.h}
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de uso de alocação dinâmica em C++}
+    \inputsnippet{cpp}{1}{21}{caldodecana.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de uso de alocação dinâmica em C++}
+    \inputsnippet{cpp}{22}{42}{caldodecana.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de uso de alocação dinâmica em C++}
+    \inputsnippet{cpp}{1}{20}{atendimento.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de uso de alocação dinâmica em C++}
+    \inputsnippet{cpp}{21}{42}{atendimento.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de uso de alocação dinâmica em C++}
+    \inputsnippet{cpp}{44}{64}{atendimento.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de uso de alocação dinâmica em C++}
+    \inputsnippet{cpp}{66}{86}{atendimento.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de uso de alocação dinâmica em C++}
+    \inputsnippet{cpp}{88}{108}{atendimento.cpp}
+\end{frame}
