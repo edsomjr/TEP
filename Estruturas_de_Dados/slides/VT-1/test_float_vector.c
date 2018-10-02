@@ -31,5 +31,7 @@ int main()
     printf("O maior valor informado foi %3.2f\n", max(&v));
     printf("O menor valor informado foi %3.2f\n", min(&v));
     
+    free(v.data);
+
     return 0;
 }

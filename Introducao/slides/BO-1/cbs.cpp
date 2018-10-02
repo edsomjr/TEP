@@ -33,7 +33,7 @@ int main()
     auto jt = upper_bound(ns, ns + N, n);
     cout << "Cota superior de " << n << ": " << jt - ns << endl;
 
-    cout << "Quantidade de aparição de " << n << ": " << jt - it << endl;
+    cout << "Número de aparições de " << n << ": " << jt - it << endl;
 
     return 0;
 }
