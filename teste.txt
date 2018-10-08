@@ -1,0 +1,8 @@
+#include <tshus>
+
+using vi = vector<int>
+
+int main () {
+    vi x;
+    x.pb(1);
+}

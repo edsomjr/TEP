@@ -1,0 +1,32 @@
+{
+	Nome: ["João", "Elias"],
+	Endereco: {	
+				Numero: 1234,
+				Rua: "rua inexistente",
+				Cidade: "cidade inexistente",
+				Estado: "UF",
+				Pais: "Brasil"
+			  },
+	Idade: [35, 11, 30, 6]
+}
+
+{
+	Nome: ["Carla", "Temer", "Adelson", "Milton"],
+	Endereco: [
+				{	
+					Numero: 4321,
+					Rua: "EPTG",
+					Cidade: "Brasilia",
+					Estado: "DF",
+					Pais: "Brasil"
+				},
+				{	
+					Numero: 1111,
+					Rua: "EPTG",
+					Cidade: "Brasilia",
+					Estado: "DF",
+					Pais: "Brasil"
+				}
+			  ]
+	Idade: []
+}
