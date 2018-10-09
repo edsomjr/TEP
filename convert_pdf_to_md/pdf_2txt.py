@@ -6,7 +6,6 @@ def main(argv):
     if len(argv) == 2:
         filename = argv[1]
         title = os.path.splitext(os.path.basename(filename))[0]
-        print ('Parsing', filename)
     else:
         print ('usage:\n    python txt_2cpp.py <txt>')
         return

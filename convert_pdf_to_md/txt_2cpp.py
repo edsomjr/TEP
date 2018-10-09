@@ -7,9 +7,8 @@ def main(argv):
         filename = argv[1]
         dir = argv[2]
         title = os.path.splitext(os.path.basename(filename))[0]
-        print ('Parsing', filename)
     else:
-        print ('usage:\n    python txt_2cpp.py <txt> <div>')
+        print ('usage:\n    python txt_2cpp.py <txt> <dir>')
         return
 
     if not os.path.exists(dir+'cpp'):
@@ -33,10 +32,6 @@ def main(argv):
             it+=1
             flag = True
 
-        if end.search(line):
-            flag = False
-            codes[it] += line.lstrip('0123456789 ') + '}'
-
         if alias.search(line):
             typdf = line.split(' ')[1]
             reserved += r'|\b%s\b' % typdf
@@ -44,6 +39,12 @@ def main(argv):
 
         if it >= 0 and flag == True and code.search(line):
             codes[it] += line.lstrip('0123456789 ')
+            if end.search(line):
+                flag = False
+                codes[it] += '}'
+                print('{{{{{{{{{{{{{{{{{{{{{}}}}}}}}}}}}}}}}}}}}}')
+        else:
+            print(line, end='')
 
 
     for i in range(0, len(codes)):

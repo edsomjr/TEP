@@ -8,7 +8,6 @@ def main(argv):
     if len(argv) == 2:
         dir = argv[1]
         title = os.path.splitext(os.path.basename(dir))[0]
-        print ('Parsing', dir)
     else:
         print ('usage:\n    python images_2gif.py <pasta com imagens>')
         return
