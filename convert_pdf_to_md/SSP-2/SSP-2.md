@@ -1,10 +1,8 @@
-Parsing test.txt
-['SSP-2/cpp/code_0.cpp', 'SSP-2/cpp/code_1.cpp']
-##Faculdade UnB Gama
+## Faculdade UnB Gama
 Sumário
 1. Algoritmo de Dijkstra
 2. Caminhos ḿınimos
-##Algoritmo de Dijkstra
+## Algoritmo de Dijkstra
 Dijkstra × Bellman-Ford
 * Assim como o algoritmo de Bellman-Ford, o algoritmo de Dijkstra
 computa as distâncias ḿınimas de todos os vértices u de um grafo
@@ -34,10 +32,11 @@ utilizada uma fila com prioridade
 vértices
 * Se o grafo for esparso, é posśıvel computar até um milhão de
 vértices em segundos
-## Visualização do algoritmo de Dijkstra
-![](SSP-2/images/movie.gif)
-Para acessar álbum de imagens [clique aqui](SSP-2/images/).
-##Implementação do algoritmo de Dijkstra em C++
+##  Visualização do algoritmo de Dijkstra
+![](images/movie.gif)
+Para acessar álbum de imagens [clique aqui](images/).
+
+## Implementação do algoritmo de Dijkstra em C++
 ```C++
 #include <bits/stdc++.h>
 using namespace std;
@@ -87,7 +86,7 @@ int main()
     return 0;
 }
 ```
-##Caminhos ḿınimos
+## Caminhos ḿınimos
 Identificação do caminho ḿınimo
 * Assim como no algoritmo de Bellman-Ford, é posśıvel recuperar a
 sequência de arestas que compõem o caminho ḿınimo
@@ -101,7 +100,7 @@ deve ser atualizado também: pred[v] = u
 predecessores até se atingir o nó um
 * Se o predecessor de u for o valor sentinela, não há caminho de s a u
 no grafo
-##Recuperação do caminho ḿınimo
+## Recuperação do caminho ḿınimo
 ```C++
 #include <bits/stdc++.h>
 using namespace std;
@@ -165,10 +164,12 @@ int main()
     return 0;
 }
 ```
-##Referências
+## Referências
 1. HALIM, Felix; HALIM, Steve. Competitive Programming 3, 2010.
 2. LAAKSONEN, Antti. Competitive Programmer’s Handbook, 2018.
 3. SKIENA, Steven S.; REVILLA, Miguel A. Programming
 Challenges, 2003.
-##	Algoritmo de Dijkstra
-	Caminhos mínimos
+
+## Lista de Exercicios - djikstra
+* Dijkstra1, https://a2oj.com/category?ID=13
+* Dijkstra2, https://a2oj.com/category?ID=165

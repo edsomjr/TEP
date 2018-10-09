@@ -19,7 +19,7 @@ def main(argv):
         return
 
     cpp_dir = dir+'cpp/'
-    images_dir = dir+'images/'
+    images_dir = 'images/'
 
     only_numbers = re.compile(r'^[\s\d]+$', re.U)
     not_only_numbers = re.compile(r'[^\W\d_]', re.U)
@@ -34,8 +34,8 @@ def main(argv):
         if only_numbers.search(lines[i-1]) and not_only_numbers.search(lines[i]):
             current_page = int(lines[i-1].strip(' ').strip('\n'))
             if(current_page == ini):
-                print('##', lines[i].strip(' ').strip('\n'))
-                log = '![]({0}movie.gif)\nPara acessar álbum de imagens [clique aqui]({0}).'.format(images_dir)
+                print('## ', lines[i].strip(' ').strip('\n'))
+                log = '![]({0}movie.gif)\nPara acessar álbum de imagens [clique aqui]({0}).\n'.format(images_dir)
                 print(log)
             if(current_page < ini or current_page > fin):
                 flag = True
@@ -45,7 +45,7 @@ def main(argv):
         if flag == True and not_only_numbers.search(lines[i]) and not d[lines[i]]:
             line = lines[i].strip(' ').strip('\n').replace('•', '*')
             if only_numbers.search(lines[i-1]):
-                line = "##"+line
+                line = "## "+line
             print(line)
             d[lines[i]] = 1
 
