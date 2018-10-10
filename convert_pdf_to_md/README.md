@@ -13,9 +13,10 @@ Este não é um 'conversor' de propósito geral, sendo adequado somente para os 
     1. PDF
     1. Primeira página de visualização ([como essa](SSP-2/images/out5.jpg))
     1. Última página de visualização
+    1. Última página do pdf (normalmente o de *Referências*)
     1. Tema do PDF
 
     Exemplo de utilização:
     ```console
-    ~$ bash run.sh SSP2.pdf 4 13 "bfs e dfs"
+    ~$ bash run.sh SSP2.pdf 4 13 22 "Dijkstra"
     ```

@@ -8,14 +8,15 @@ from os import listdir
 from os.path import isfile, join
 
 def main(argv):
-    if len(argv) == 5:
+    if len(argv) == 6:
         filename = argv[1]
         dir = argv[2]
-        ini = int(argv[3]);
-        fin = int(argv[4]);
+        ini = int(argv[3])
+        fin = int(argv[4])
+        last_page = int(argv[5])
         title = os.path.splitext(os.path.basename(filename))[0]
     else:
-        print ('usage:\n    python txt_2md.py <txt> <diretorio com codigos> <pagina inicial> <pagina final>')
+        print ('usage:\n    python txt_2md.py <txt> <diretorio com codigos> <pagina inicial vis> <pagina final vis> <pagina final documento>')
         return
 
     cpp_dir = dir+'cpp/'
@@ -40,6 +41,8 @@ def main(argv):
             if(current_page < ini or current_page > fin):
                 flag = True
             else:
+                flag = False
+            if(current_page == last_page):
                 flag = False
 
         if flag == True and not_only_numbers.search(lines[i]) and not d[lines[i]]:

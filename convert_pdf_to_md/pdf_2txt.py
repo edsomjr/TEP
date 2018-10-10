@@ -7,7 +7,7 @@ def main(argv):
         filename = argv[1]
         title = os.path.splitext(os.path.basename(filename))[0]
     else:
-        print ('usage:\n    python txt_2cpp.py <txt>')
+        print ('usage:\n    python pdf_2txt.py <txt>')
         return
 
     raw = parser.from_file(filename)
