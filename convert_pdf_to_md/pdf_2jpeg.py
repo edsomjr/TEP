@@ -3,13 +3,22 @@ import sys
 import os
 
 def main(argv):
-    if len(argv) == 4:
-        filename = argv[1]
-        ini = int(argv[2]);
-        fin = int(argv[3]);
-        title = os.path.splitext(os.path.basename(filename))[0]
+    if len(argv) >= 4:
+        num_vis = int(argv[2])
+        if len(argv) == num_vis*2 + 3:
+            filename = argv[1]
+            ini = []
+            fin = []
+            it = 3
+            for i in range(0, num_vis):
+                ini.append(int(argv[it]))
+                fin.append(int(argv[it+1]))
+                it+=2
+        else:
+            print ('usage:\n    python pdf_2jpeg.py <pdf> <numero de visualizaçoes> <pagina inicial 1> <pagina final1> ... <pagina inicial N> <pagina final N>')
+            return
     else:
-        print ('usage:\n    python pdf_2jpeg.py <pdf> <pagina inicial> <pagina final>')
+        print ('usage:\n    python pdf_2jpeg.py <pdf> <numero de visualizaçoes> <pagina inicial 1> <pagina final1> ... <pagina inicial N> <pagina final N>')
         return
 
     directory = filename.strip('.pdf') + '/images'
@@ -18,8 +27,12 @@ def main(argv):
     if not os.path.exists(directory):
         os.makedirs(directory)
 
-    for i in range(ini, min(fin, len(pages))):
-        pages[i].save(directory+'/out'+str(i)+'.jpg', 'JPEG')
+    for i in range(0, num_vis):
+        current_dir = directory+'/vis-'+str(i)
+        if not os.path.exists(current_dir):
+            os.makedirs(current_dir)
+        for j in range(ini[i], fin[i]):
+            pages[j].save(current_dir+'/out'+(str(j).zfill(2))+'.jpg', 'JPEG')
 
     return
 if __name__ == '__main__':

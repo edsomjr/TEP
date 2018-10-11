@@ -24,3 +24,4 @@ python3 txt_2md.py test.txt $foldername/ $first_parse_page $last_parse_page $las
 rm -rf *.txt
 python3 generate_exercise_list.py
 python3 add-exercises_2md.py "$keyword" $foldername/$foldername.md
+echo "$(printf %q "$BASH_SOURCE")$((($#)) && printf ' %q' "$@")" > $foldername/calling_parameters.sh

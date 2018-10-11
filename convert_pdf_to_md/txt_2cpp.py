@@ -23,13 +23,12 @@ def main(argv):
 
     code = re.compile(reserved)
 
-    it = -1
+    it = 0
     flag = False
     codes = []
     for line in f.readlines():
         if init.search(line):
             codes.append('')
-            it+=1
             flag = True
 
         if alias.search(line):
@@ -42,6 +41,7 @@ def main(argv):
             if end.search(line):
                 flag = False
                 codes[it] += '}'
+                it += 1
                 print('{{{{{{{{{{{{{{{{{{{{{}}}}}}}}}}}}}}}}}}}}}')
         else:
             print(line, end='')

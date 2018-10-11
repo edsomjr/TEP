@@ -17,7 +17,8 @@ def main(argv):
     dictionary_path = "category_count.txt"
     term_index = 0  # column of the term in the dictionary text file
     count_index = 1  # column of the term frequency in the dictionary text file
-
+    category = category.lower()
+    
     if not sym_spell.load_dictionary(dictionary_path, term_index, count_index):
         print("Dictionary file not found")
         return

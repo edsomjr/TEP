@@ -170,6 +170,6 @@ int main()
 3. SKIENA, Steven S.; REVILLA, Miguel A. Programming
 Challenges, 2003.
 
-## Lista de Exercicios - Dijkstra
+## Lista de Exercicios - djikstra
 * Dijkstra1, https://a2oj.com/category?ID=13
 * Dijkstra2, https://a2oj.com/category?ID=165
