@@ -46,7 +46,7 @@
 
 \end{frame}
 
-\begin{frame}[fragile]{Exemplo de uso da função \texttt{sort}}
+\begin{frame}[fragile]{Exemplo de uso da função \texttt{sort()}}
     \inputcode{c++}{sort.cpp}
 \end{frame}
 
@@ -130,10 +130,34 @@
         \item Em outras palavras, ela ordena apenas os elementos menores ou iguais ao
             elemento apontado por \code{c++}{middle}
 
-        \item Uma função semelhante à \code{c++}{partial_sort()} é a função 
-            \code{c++}{nth_element()}, que posiciona corretamente apenas o elemento que
-            ocuparia a $n$-ésima posição do vetor, caso estivesse ordenado, com complexidade
-            $O(N)$
     \end{itemize}
 
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de uso da função \texttt{partial\_sort()}}
+    \inputsnippet{c++}{1}{20}{partial.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de uso da função \texttt{partial\_sort()}}
+    \inputsnippet{c++}{21}{41}{partial.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Função \texttt{nth\_element()}}
+
+    \begin{itemize}
+        \item Uma função semelhante à \code{c++}{partial_sort()} é a função 
+            \code{c++}{nth_element()}, que posiciona corretamente apenas o elemento que
+            ocuparia a $n$-ésima posição do vetor, caso estivesse ordenado
+
+        \item A complexidade média é $O(N)$
+
+        \item Duas assinaturas possíveis são
+            \inputsyntax{c++}{nth.st}
+
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de uso da função \texttt{nth\_element()}}
+    \inputcode{c++}{nth.cpp}
 \end{frame}
