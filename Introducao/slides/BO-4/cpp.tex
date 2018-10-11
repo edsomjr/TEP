@@ -114,13 +114,21 @@
     \inputcode{c++}{stable.cpp}
 \end{frame}
 
-\begin{frame}[fragile]{Título}
+\begin{frame}[fragile]{Função \texttt{partial\_sort()}}
 
     \begin{itemize}
 
-        \item A função \code{c++}{partial_sort()} é semelhante à rotina de pivoteamente do
+        \item A função \code{c++}{partial_sort()} tem assinaturas ligeiramente diferentes
+            das duas funções citadas anteriormente, por contar com um terceiro parâmetro:
+
+            \inputsyntax{c++}{partial.st}
+
+        \item Ela é semelhante à rotina de pivoteamente do
             \textit{quicksort}, ordenando os elementos que ficam à esquerda da posição 
             indicada e deixando os demais elementos em uma ordem não especificada
+
+        \item Em outras palavras, ela ordena apenas os elementos menores ou iguais ao
+            elemento apontado por \code{c++}{middle}
 
         \item Uma função semelhante à \code{c++}{partial_sort()} é a função 
             \code{c++}{nth_element()}, que posiciona corretamente apenas o elemento que
