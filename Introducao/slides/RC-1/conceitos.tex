@@ -1,0 +1,125 @@
+\section{Conceitos elementares}
+
+\begin{frame}[fragile]{C}
+
+	\begin{itemize}
+	
+		\item C é uma linguagem de programação estaticamente tipada, de forma livre, imperativa e 
+        de propósito geral
+
+		\item Foi criada por Dennis Ritchie em 1972 no laboratório da Bell para desenvolvimento em 
+        sistemas operacionais Unix
+
+		\item {\bf Leitura complementar}: RITCHIE, Dennis M. {\it The Development of the C 
+        Language}. AT\&T Bell Laboratories.  Murray Hill, New Jersey. 1993.
+
+	\end{itemize}
+
+    O arquivo \file{source.c} pode ser compilado com o GCC usando a seguinte linha de comando:
+
+    \begin{center}
+        \texttt{\$ gcc -o prog -W -Wall -Wextra -pedantic -O2 source.c}
+    \end{center}
+
+\end{frame}
+
+\begin{frame}[fragile]{C++}
+
+	\begin{itemize}
+		\item C++ é uma linguagem de programação estaticamente tipada, de forma livre, 
+        multi-paradigma e de propósito geral
+
+        \item Foi criada por Bjarne Stroustrup em 1979 no laboratório da Bell, inicialmente como 
+        uma extensão da linguagem C
+
+		\item {\bf Leitura complementar}: STROUSTRUP, Bjarne.  {\it A History of C++: 1979-1991}. 
+        AT\&T Bell Laboratories.  Murray Hill, New Jersey. 1994.
+	\end{itemize}
+
+    O arquivo \file{source.cpp} pode ser compilado com o GCC usando a seguinte linha de comando:
+
+    \begin{center}
+        \texttt{\$ g++ -o prog -W -Wall -Wextra -std=c++17 -O2 source.cpp}
+    \end{center}
+\end{frame}
+
+\begin{frame}[fragile]{Hello World!}
+
+	\begin{itemize}
+
+		\item A prática recorrente é apresentar uma linguagem através do programa
+		mais elementar de todos: o \textit{Hello World!}
+
+		\item O propósito deste programa é ilustrar o mecanismo de saída (\textit{output}) da 
+        linguagem
+
+		\item Uma das maneiras de se medir (de forma superficial) a complexidade (sintática) de uma 
+        linguagem é contabilizar o número de linhas do \textit{Hello World!}
+
+        \item \textit{Hello World!} em Python 3:
+
+        \inputcode{python}{hello.py3}
+
+	\end{itemize}
+	
+\end{frame}
+
+\begin{frame}[fragile]{\textit{Hello World!} em C/C++}
+
+    \inputcode{c}{hello.c}
+    \inputcode{cpp}{hello.cpp}
+
+\end{frame}
+
+\begin{frame}[fragile]{Variáveis}
+	
+    \metroset{block=fill}
+    \begin{block}{Sintaxe para declaração de variaveis}
+    \inputsyntax{c}{variaveis.st}
+    \end{block}
+	\begin{itemize}
+        \item Variáveis são valores que podem ser modificados ao longo da execução do programa
+        \item Em C, a cada variável é associado um dos 5 tipos primitivos de dados:
+        \code{c}{char, short, int, double, float}
+
+		\item Palavras-chave associadas ao:
+		\begin{itemize}
+			\item armazenamento: \code{c}{extern, static, register, auto}
+			\item acesso:  \code{c}{const, volatile}
+			\item modificador:  \code{c}{signed, unsigned,  long,  short}
+		\end{itemize}
+		
+	\end{itemize}
+	
+\end{frame}
+
+\begin{frame}[fragile]{Classificação das variáveis}
+
+	\begin{small}
+    \begin{center}
+        \begin{tabularx}{\textwidth}{lp{1.5cm}X}
+            \toprule
+            \textbf{Aspecto} & \textbf{Classificação} & \textbf{Descrição} \\
+            \midrule 
+            \multirow{3}{*}{\hfill Localização} & globais & Podem ser acessadas em qualquer função \\
+            & \cellcolor[gray]{0.9}locais & \cellcolor[gray]{0.9}Podem ser acessadas apenas no bloco em que foram declaradas \\
+            & parâmetros de função & Podem ser acessados apenas pela função. São preenchidos na 
+            chamada da função \\
+            \midrule 
+            \multirow{3}{*}{\hfill Acesso} & \cellcolor[gray]{0.9}gerais & L\cellcolor[gray]{0.9}eitura e escrita \\
+            & constantes & Apenas leitura. Devem ser declaradas com um valor inicial \\
+            & \cellcolor[gray]{0.9}voláteis & \cellcolor[gray]{0.9}Podem ser modificadas por programas externos \\
+            \midrule
+            \multirow{3}{*}{\hfill Armazenamento} & externas & A definição ocorre em outro arquivo \\
+            & \cellcolor[gray]{0.9}estáticas & \cellcolor[gray]{0.9}O armazenamento é alocado uma única vez \\
+            & registradores & O armazenamento é feito em registradores, não em memória \\
+            \bottomrule
+        \end{tabularx}
+    \end{center}
+	\end{small}
+
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de variáveis}
+    \inputcode{c}{media_aritmetica.c}
+\end{frame}

@@ -1,0 +1,59 @@
+\documentclass[12pt]{article}
+\usepackage[brazil]{babel}
+\usepackage[latin1]{inputenc}
+\usepackage{graphicx}
+\usepackage{geometry}
+\usepackage[scaled=0.9]{helvet}
+\usepackage{enumerate}
+\usepackage{multicol}
+\usepackage[table]{xcolor}
+\usepackage{array}
+\usepackage{xtab}
+\usepackage{booktabs}
+
+\setlength{\parskip}{\baselineskip}
+\geometry{verbose,tmargin=1.5cm,bmargin=1.5cm,lmargin=1.5cm,rmargin=1.5cm}
+\renewcommand{\rmdefault}{ptm}
+
+\begin{document}
+
+\input{logo}
+
+\vspace{0.1in}
+
+\begin{center}
+\begin{large}
+\textsc{\textbf{Lista de Exercícios}}
+\end{large}
+
+{\bf Revisão C/C++: Tipos de dados de usuário}
+\end{center}
+
+\vspace{0.2in}
+
+\begin{enumerate}
+
+	\item Execute o c\'odigo {\it cadastro.c} e justifique o tamanho obtido para a estrutura {\bf Cadastro}.
+
+	\item Em relação ao c\'odigo {\it rotate.c}, 
+	\begin {enumerate}
+		\item Qual é o tamanho, em {\it bytes}, da união {\bf word32}?
+
+		\item Reescreva a função {\it rotate}(), de modo que ela receba como parâmetro a quantidade de {\it bytes} 
+			a serem rotacionados e a direção da rotação (esquerda ou direita).
+		
+		\item Escreva uma nova função de rotação que rotacione os {\it bits} de um inteiros, dadas a direção e o número
+			de posições a serem rotacionadas.
+
+	\end{enumerate}
+
+	\item Em relação aos c\'odigos {\it complex.h} e {\it complex.cpp}, 
+	\begin {enumerate}
+		\item Implemente as operações de subtração e divisão de números complexos.
+
+		\item Implemente métodos que retornem o raio e o ângulo do número complexo na forma polar.
+	\end{enumerate}
+
+\end{enumerate}
+
+\end{document}

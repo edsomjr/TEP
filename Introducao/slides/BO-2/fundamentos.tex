@@ -1,0 +1,70 @@
+\section{Fundamentos de Ordenação}
+
+\begin{frame}[fragile]{Ordenação parcial e ordenação total}
+
+    \begin{itemize}
+        \item Seja $a_s = \lbrace a_1, a_2, \ldots, a_N\rbrace $ uma sequência de 
+        $N$ objetos, denominados elementos
+
+        \item Seja $R\subset a_s\times a_s$ uma relação 
+
+        \item Dados dois elementos $a_i, a_j\in a_s$, $a_i$ se relaciona com $a_j$ se 
+            $(a_i, a_j)\in R$ (isto não implica necessariamente que $a_j$ se relaciona com
+            $a_i$)
+
+        \item Seja $S = \lbrace a\in a_s\ | \ \exists b\in a_s : (a, b)\in R \vee (b, a)\in R
+            \rbrace$
+
+        \item Dizemos que $R$ é uma relação de ordem parcial se, para todos $a, b, c\in S$, 
+            temos que
+            \begin{enumerate}
+                \item $(a, a)\in R$
+                \item se $(a, b)\in R$ e $(b, a)\in R$ então $a$ e $b$ são iguais
+                \item se $(a, b)\in R$ e $(b, c)\in R$ então $(a, c)\in R$
+            \end{enumerate}
+
+        \item Se para todos $a, b\in a_s$ vale $(a, b)\in R$ ou $(b, a)\in R$, então $R$ é uma
+            relação de ordem total
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Definição de ordenação}
+
+    \begin{itemize}
+        \item Dizemos que uma sequência $a_s$ está ordenada de acordo com a relação de 
+            ordem $R$ se, para todos $i = 2, 3, \ldots, N$, temos que $(a_{i - 1}, a_i) \in R$
+
+        \item Uma algoritmo de ordenação $A(a_s, R)$ recebe, como entrada, uma sequência $a_s$ e 
+            uma relação de ordem $R$ e, ao final do algoritmo, a sequência $a_s$ (ou uma nova
+            sequência $b_s$) está ordenada de acordo com a relação $R$
+
+        \item Na prática, a relação $R$ é implementada como uma função binária $f$ tal que
+            $f(a, b)$ retorna verdadeiro se $(a, b)\in R$
+
+        \item Como a definição de ordenação depende da relação $R$, uma mesma sequência pode
+            estar ordenada de acordo com $R_1$ e não ordenada de acordo com $R_2$
+
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Características dos algoritmos de ordenação}
+
+    \begin{itemize}
+        \item Se a sequência a ser ordenada pode ser armazenada inteiramente em memória, o 
+            algoritmo é dito interno; caso contrário, é chamado externo
+
+        \item Se o algoritmo usa apenas a memória da própria sequência (e talvez uma pequena
+            quantidade adicional para variáveis temporárias), o algoritmo é denominado
+            \textit{in-place}
+
+        \item Se o algoritmo demanda uma cópia extra da sequência, é chamado \textit{not-in-place}
+            ou \textit{out-of-place}
+
+        \item Um algoritmo de ordenação é estável se ele preserva a ordem relativa de elementos 
+            iguais
+
+    \end{itemize}
+
+\end{frame}
