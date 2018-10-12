@@ -6,17 +6,29 @@ import itertools
 from collections import defaultdict
 from os import listdir
 from os.path import isfile, join
+from math import inf
 
 def main(argv):
-    if len(argv) == 6:
-        filename = argv[1]
-        dir = argv[2]
-        ini = int(argv[3])
-        fin = int(argv[4])
-        last_page = int(argv[5])
-        title = os.path.splitext(os.path.basename(filename))[0]
+    if len(argv) >= 6:
+        num_vis = int(argv[4])
+        if len(argv) == num_vis*2 + 5:
+            filename = argv[1]
+            dir = argv[2]
+            last_page = int(argv[3])
+            ini = []
+            fin = []
+            it = 5
+            for i in range(0, num_vis):
+                ini.append(int(argv[it]))
+                fin.append(int(argv[it+1]))
+                it+=2
+            ini.append(inf)
+            fin.append(inf)
+        else:
+            print ('usage:\n    python txt_2md.py <txt> <diretorio do pdf> <pagina final documento> <numero de visualizaçoes> <pagina inicial vis 1> <pagina final vis1> ... <pagina inicial vis N> <pagina final vis N>')
+            return
     else:
-        print ('usage:\n    python txt_2md.py <txt> <diretorio com codigos> <pagina inicial vis> <pagina final vis> <pagina final documento>')
+        print ('usage:\n    python txt_2md.py <txt> <diretorio do pdf> <pagina final documento> <numero de visualizaçoes> <pagina inicial vis 1> <pagina final vis1> ... <pagina inicial vis N> <pagina final vis N>')
         return
 
     cpp_dir = dir+'cpp/'
@@ -29,16 +41,19 @@ def main(argv):
     it = 0
     lines = open(filename).readlines()
     flag = False
-
+    vis_it = 0
     d = defaultdict(lambda: 0)
+
     for i in range(1, len(lines)):
         if only_numbers.search(lines[i-1]) and not_only_numbers.search(lines[i]):
             current_page = int(lines[i-1].strip(' ').strip('\n'))
-            if(current_page == ini):
+            if(current_page+1 == fin[vis_it]):
                 print('## ', lines[i].strip(' ').strip('\n'))
-                log = '![]({0}movie.gif)\nPara acessar álbum de imagens [clique aqui]({0}).\n'.format(images_dir)
+                log = '![]({0}movie.gif)\nPara acessar álbum de imagens [clique aqui]({0}).\n'.format(images_dir+'vis-'+str(vis_it)+'/')
                 print(log)
-            if(current_page < ini or current_page > fin):
+                vis_it+=1
+                d[lines[i]] = 1
+            if(current_page < ini[vis_it] or current_page > fin[vis_it]):
                 flag = True
             else:
                 flag = False

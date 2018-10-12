@@ -11,12 +11,13 @@ Este não é um 'conversor' de propósito geral, sendo adequado somente para os 
 
 1. Passe os parâmetros para o script **run.sh**:
     1. PDF
-    1. Primeira página de visualização ([como essa](SSP-2/images/out5.jpg))
-    1. Última página de visualização
     1. Última página do pdf (normalmente o de *Referências*)
     1. Tema do PDF
+    1. Número de "visualizações" no PDF
+    1. N pares (início e fim da visualização X) de páginas
 
     Exemplo de utilização:
     ```console
-    ~$ bash run.sh SSP2.pdf 4 13 22 "Dijkstra"
+    ~$ bash run.sh STV-3.pdf 48 "bipartite" 3 3 13 18 24 32 44
     ```
+    

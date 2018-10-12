@@ -1,0 +1,1 @@
+bash run.sh STV-3.pdfbash run.sh 48bash run.sh bipartitebash run.sh 3bash run.sh 3bash run.sh 13bash run.sh 18bash run.sh 24bash run.sh 32bash run.sh 44

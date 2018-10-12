@@ -5,7 +5,7 @@ from collections import defaultdict
 
 def main(argv):
     if len(argv) == 3:
-        category = argv[1]
+        input = argv[1]
         markdown = argv[2]
     else:
         print ('usage:\n    python .py "<categoria>" <markdown gerado>')
@@ -17,8 +17,7 @@ def main(argv):
     dictionary_path = "category_count.txt"
     term_index = 0  # column of the term in the dictionary text file
     count_index = 1  # column of the term frequency in the dictionary text file
-    category = category.lower()
-    
+
     if not sym_spell.load_dictionary(dictionary_path, term_index, count_index):
         print("Dictionary file not found")
         return
@@ -30,12 +29,13 @@ def main(argv):
         d[z[0]] = z[2]
 
     f = open(markdown, 'a')
-    f.write('\n## Lista de Exercicios - %s\n' % (category))
+    f.write('\n## Lista de Exercicios - %s\n' % (input).capitalize())
+    input = input.lower()
     suggestion_verbosity = Verbosity.CLOSEST  # TOP, CLOSEST, ALL
-    inputs = category.split(' ')
+    inputs = input.split(' ')
     total_avg = sum( map(len, inputs) ) / len(inputs)
 
-    max_edit_distance_lookup = 3 if total_avg > 3 else 2
+    max_edit_distance_lookup = 3 if total_avg > 4 else 2
     for input_term in inputs:
         suggestions = sym_spell.lookup(input_term, suggestion_verbosity, max_edit_distance_lookup)
         for suggestion in suggestions:

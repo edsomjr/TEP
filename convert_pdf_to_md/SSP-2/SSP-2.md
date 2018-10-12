@@ -33,9 +33,10 @@ vértices
 * Se o grafo for esparso, é possível computar até um milhão de
 vértices em segundos
 ##  Visualização do algoritmo de Dijkstra
-![](images/movie.gif)
-Para acessar álbum de imagens [clique aqui](images/).
+![](images/vis-0/movie.gif)
+Para acessar álbum de imagens [clique aqui](images/vis-0/).
 
+Distância ao nó 1:
 ## Implementação do algoritmo de Dijkstra em C++
 ```C++
 #include <bits/stdc++.h>
@@ -170,6 +171,6 @@ int main()
 3. SKIENA, Steven S.; REVILLA, Miguel A. Programming
 Challenges, 2003.
 
-## Lista de Exercicios - djikstra
+## Lista de Exercicios - Djikstra
 * Dijkstra1, https://a2oj.com/category?ID=13
 * Dijkstra2, https://a2oj.com/category?ID=165
