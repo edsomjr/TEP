@@ -19,6 +19,8 @@ def main(argv):
             if 'ı' in word:
                 bad = '́'+ 'ı'
                 word = word.replace(bad, 'í')
+            if '6=' in word:
+                word = word.replace('6=', '!=')
             print(word, end=' ' if i+1<len(words) else '\n')
 
     file.close()

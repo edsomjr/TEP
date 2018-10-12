@@ -1,7 +1,3 @@
-## Faculdade UnB Gama
-Sumário
-1. Algoritmo de Bellman-Ford
-2. SPFA
 ## Algoritmo de Bellman-Ford
 Caminhos mínimos
 * Seja G(V,E) um grafo e u, v ∈ V . Um caminho de u a v é uma
@@ -10,7 +6,7 @@ que a0 = u, aM = v e, para cada par a, b de arestas consecutivas de
 p, o segundo vértice de a é igual ao primero vértice de b
 * O conjunto C de todos os caminhos de u a v é dado por
 C(u, v) = {p ⊂ E | p é caminho de u a v}
-* Se C(u, v) 6= ∅, o caminho de custo mínimo, ou simplesmente
+* Se C(u, v) != ∅, o caminho de custo mínimo, ou simplesmente
 caminho mínimo, de u a v é um caminho, é o elemento de m ∈ C tal
 que a soma dos pesos da arestas da sequência m é a menor possível
 * Se o grafo não é ponderado, o caminho mínimo entre u e v pode ser
@@ -31,8 +27,6 @@ caminho mínimo é igual a V − 1
 ![](images/vis-0/movie.gif)
 Para acessar álbum de imagens [clique aqui](images/vis-0/).
 
-Distâncias:
-Round #4
 ## Implementação de Bellman-Ford em C++
 ```C++
 #include <bits/stdc++.h>
@@ -172,7 +166,6 @@ Bellman-Ford, a complexidade no pior caso ainda é de O(V E).
 ![](images/vis-1/movie.gif)
 Para acessar álbum de imagens [clique aqui](images/vis-1/).
 
-Fila:
 ## Implementação do SPFA em C++
 ```C++
 #include <bits/stdc++.h>

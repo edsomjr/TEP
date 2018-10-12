@@ -47,17 +47,17 @@ def main(argv):
     for i in range(1, len(lines)):
         if only_numbers.search(lines[i-1]) and not_only_numbers.search(lines[i]):
             current_page = int(lines[i-1].strip(' ').strip('\n'))
+            if(current_page < ini[vis_it] or current_page > fin[vis_it]):
+                flag = True
+            else:
+                flag = False
             if(current_page+1 == fin[vis_it]):
                 print('## ', lines[i].strip(' ').strip('\n'))
                 log = '![]({0}movie.gif)\nPara acessar álbum de imagens [clique aqui]({0}).\n'.format(images_dir+'vis-'+str(vis_it)+'/')
                 print(log)
                 vis_it+=1
                 d[lines[i]] = 1
-            if(current_page < ini[vis_it] or current_page > fin[vis_it]):
-                flag = True
-            else:
-                flag = False
-            if(current_page == last_page):
+            if(current_page >= last_page):
                 flag = False
 
         if flag == True and not_only_numbers.search(lines[i]) and not d[lines[i]]:
