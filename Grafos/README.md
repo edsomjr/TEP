@@ -8,3 +8,4 @@ Slides
 1. Caminhos Mínimos
     1. [Algoritmo de Bellman-Ford](slides/SSP-1/SSP-1.pdf)
     1. [Algoritmo de Dijkstra](slides/SSP-2/SSP-2.pdf)
+    1. [Algoritmo de Floyd-Warshall](slides/SSP-3/SSP-3.pdf)
