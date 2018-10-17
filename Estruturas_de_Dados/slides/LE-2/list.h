@@ -71,18 +71,14 @@ public:
 
     void pop_back()
     {
-        if (!head)
+        if (!tail)
             throw "Lista vazia";
 
-        auto prev = head;
+        auto temp = tail;
+        tail = tail->prev;
+        delete temp;        
 
-        while (prev->next and prev->next != tail)
-            prev = prev->next;
-
-        delete tail;
-
-        tail == head ? (head = tail = nullptr)
-            : (tail = prev, tail->next = nullptr);
+        tail ? tail->next = nullptr : head = nullptr;
 
         _size--;
     }
