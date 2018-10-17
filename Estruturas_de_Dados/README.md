@@ -21,3 +21,4 @@ Slides
     1. [Implementação de um contêniner `vector` em C++](slides/VT-2/VT-2.pdf) 
 1. Listas Encadeadas
     1. [Fundamentos](slides/LE-1/LE-1.pdf)
+    1. [Listas Duplamente Encadeadas](slides/LE-2/LE-2.pdf)
