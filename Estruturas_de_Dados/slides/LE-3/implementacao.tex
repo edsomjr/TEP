@@ -1,0 +1,44 @@
+\section{Implementação}
+
+\begin{frame}[fragile]{Implementação de uma lista circular}
+
+    \begin{itemize}
+        \item Uma lista circular pode ser implementada a partir de adaptações pontuais
+            nas implementações das listas encadeadas ou duplamente encadeadas
+
+        \item A lista que servirá como ponto de partida deve ser escolhida de acordo com
+            a memória disponível ou dos sentidos de travessia desejados
+
+        \item Deve ser mantida a invariante que o último elemento aponta para o primeiro
+            após cada operação (e que o primeiro aponta para o último, no caso das 
+            listas duplamente encadeadas)
+
+        \item É preciso oferecer um iterador circular, que permita a travessia circular dos
+            elementos da lista
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de implementação de uma lista circular}
+    \inputsnippet{cpp}{1}{21}{circular_list.h}
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de implementação de uma lista circular}
+    \inputsnippet{cpp}{23}{43}{circular_list.h}
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de implementação de uma lista circular}
+    \inputsnippet{cpp}{44}{64}{circular_list.h}
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de implementação de uma lista circular}
+    \inputsnippet{cpp}{65}{85}{circular_list.h}
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de implementação de uma lista circular}
+    \inputsnippet{cpp}{87}{107}{circular_list.h}
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de implementação de uma lista circular}
+    \inputsnippet{cpp}{108}{128}{circular_list.h}
+\end{frame}
