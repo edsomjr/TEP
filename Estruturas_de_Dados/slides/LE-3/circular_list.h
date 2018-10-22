@@ -170,12 +170,10 @@ public:
         if (!tail)
             throw "Lista vazia";
 
-        auto temp = tail;
-        tail = _size > 1 ? tail->prev : nullptr;
-        delete temp;        
+        tail = tail->prev;
+        head = head->prev;
 
-        tail ? tail->next = head, head->prev = tail : head = nullptr;
-        _size--;
+        pop_front();
     }
 };
 
