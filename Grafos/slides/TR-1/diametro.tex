@@ -1,0 +1,73 @@
+\section{Diâmetro}
+
+\begin{frame}[fragile]{Diâmetro de uma árvore}
+
+    \begin{itemize}
+        \item O diâmetro de uma árvore é igual ao maior dentre todos os tamanhos dos caminhos
+            entre os pares de vértices $u$ e $v$ do grafo
+
+        \item O maior caminho que produz o diâmetro não é, necessariamente, único
+
+        \item Computar estas distâncias utilizando o algoritmo de Floyd-Warshall em $O(V^3)$ e,
+            em seguida, determinar a maior dentre estas distâncias em $O(V^2$) produziria
+            o resultado correto
+
+        \item Porém é possível chegar ao mesmo resultado de duas maneiras: com programação
+            dinâmica ou com duas DFS
+
+        \item Em ambos casos, a complexidade é $O(V)$
+
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Visualização do diâmetro de uma árvore}
+
+    \begin{tikzpicture}
+
+        \begin{scope}{shift={(3,0)}}
+            \node[opacity=0] (X) at (-1.5, 0) { $1$ };
+            \node[circle,draw] (A) at (0, 0) { $1$ };
+            \node[circle,draw] (B) at (0, 4) { $3$ };
+            \node[circle,draw] (C) at (2, 2) { $7$ };
+            \node[circle,draw] (D) at (4, 3) { $4$ };
+            \node[circle,draw] (E) at (4, 1) { $2$ };
+            \node[circle,draw] (F) at (6, 5) { $5$ };
+            \node[circle,draw] (G) at (7, 2) { $6$ };
+
+            \draw[ultra thick] (A) -- (C);
+            \draw (B) -- (C);
+            \draw[ultra thick] (C) -- (D);
+            \draw (D) -- (E);
+            \draw[ultra thick] (D) -- (F);
+            \draw[ultra thick] (F) -- (G);
+
+            \node at (0, 6) { Diâmetro: 4 };
+        \end{scope}
+    \end{tikzpicture}
+
+\end{frame}
+
+\begin{frame}[fragile]{Diâmetro com programação dinâmica}
+
+    \begin{itemize}
+        \item
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Implementação da rotina que computa o diâmetro}
+    \inputsnippet{c++}{1}{21}{dp.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Implementação da rotina que computa o diâmetro}
+    \inputsnippet{c++}{22}{40}{dp.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Implementação da rotina que computa o diâmetro}
+    \inputsnippet{c++}{41}{61}{dp.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Implementação da rotina que computa o diâmetro}
+    \inputsnippet{c++}{62}{82}{dp.cpp}
+\end{frame}
