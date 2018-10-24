@@ -5,19 +5,19 @@ using ii = pair<int, int>;
 
 const int MAX { 1010 };
 vector<int> adj[MAX];
-int d[MAX];
+int nodes[MAX];
 
-void dfs(int u, int p) {
-    int m = -1;
+void dfs(int u, int p)
+{
+    nodes[u] = 1;
 
-    for (const auto& v : adj[u]) {
+    for (const auto& v : adj[u])
+    {
         if (v == p) continue;
 
         dfs(v, u);
-        m = max(m, d[v]);
+        nodes[u] += nodes[v];
     }
-
-    d[u] = 1 + m;
 }
 
 int main()
@@ -32,9 +32,9 @@ int main()
 
     dfs(4, 0);
 
-    // 0 0 0 2 1 0 1
+    // 1 1 1 7 2 1 3
     for (int u = 1; u <= 7; ++u)
-        cout << d[u] << (u == 7 ? '\n': ' ');
+        cout << nodes[u] << (u == 7 ? '\n': ' ');
 
     return 0;
 } 
