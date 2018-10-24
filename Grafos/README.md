@@ -9,3 +9,5 @@ Slides
     1. [Algoritmo de Bellman-Ford](slides/SSP-1/SSP-1.pdf)
     1. [Algoritmo de Dijkstra](slides/SSP-2/SSP-2.pdf)
     1. [Algoritmo de Floyd-Warshall](slides/SSP-3/SSP-3.pdf)
+1. Árvores
+    1. [Travessias e Diâmetro](slides/TR-1/TR-1.pdf)
