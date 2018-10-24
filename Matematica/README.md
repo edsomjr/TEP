@@ -27,3 +27,9 @@ Matemática
 1. Detecção de ciclos
 1. Probabilidade
 1. Teoria dos Jogos
+
+Slides
+======
+
+1. Manipulação de _bits_
+    1. [Representação Binária](slides/BIT-1/BIT-1.pdf)
