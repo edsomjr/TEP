@@ -1,4 +1,4 @@
-\section{Representação binária}
+\section{Operações Binárias}
 
 \begin{frame}[fragile]{Operações bit a bit}
 
@@ -123,6 +123,10 @@
 
 \end{frame}
 
+\begin{frame}[fragile]{Exemplo de deslocamentos binários}
+    \inputcode{c++}{shift.cpp}
+\end{frame}
+
 \begin{frame}[fragile]{Máscaras binárias}
 
     \begin{itemize}
@@ -154,7 +158,7 @@
 \begin{frame}[fragile]{Bit menos significativo}
 
     \begin{itemize}
-        \item O \textit{bit} menos significativo (\textit{least significative bit -- LSB}) de um 
+        \item O \textit{bit} menos significativo (\textit{least significant bit -- LSB}) de um 
             inteiro $n$ pode ser extraído em $O(1)$
 
         \item Basta fazer a conjunção de $n$ com seu simétrico $-n$
@@ -179,4 +183,32 @@
 
 \begin{frame}[fragile]{Exemplo de rotinas com LSB em C++}
     \inputsnippet{c}{21}{41}{lsb.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Funções do GCC}
+
+    \begin{itemize}
+        \item O GCC oferece uma série de funções de baixo nível para manipulação
+            binária
+
+        \item A função \code{c}{__builtin_popcount(x)} retorna o número de \textit{bits} ligados
+            de $x$
+
+        \item A função \code{c}{__builtin_clz(x)} o número de zeros à esquerda na representação
+            binária de $x$ (\textit{clz -- count leading zeroes})
+
+        \item A função \code{c}{__builtin_ctz(x)} o número de zeros à direita na representação
+            binária de $x$ (\textit{ctz -- count trailing zeroes})
+
+        \item As duas funções anteriores tem comportamento indefinido se $x$ é igual a zero
+
+        \item A função \code{c}{__builtin_ffs(x)} retorna 1 mais o índice do \textit{bit} 
+            menos significativo de $x$, ou zero, se $x$ é igual a zero
+
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de uso das funções do GCC}
+    \inputcode{c++}{gcc.cpp}
 \end{frame}
