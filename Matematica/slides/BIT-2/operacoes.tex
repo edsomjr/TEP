@@ -165,13 +165,14 @@
 
         \item Em termos de código, \code{c}{LSB(n) = n & -n}
 
-        \item É possível desligar o LSB com a expressão \code{c}{(n &} $\sim$\code{c}{(1 << LSB(n))}
+        \item É possível desligar o LSB com a expressão \code{c}{(n &} $\sim$ \code{c}{LSB(n)})
 
         \item Porém a expressão \code{c}{CLSB(n) = n & (n - 1)} gera o mesmo resultado usando uma
             sintaxe mais simples e eficiente
 
         \item A rotina \code{c}{CLSB(n)} pode ser usada para contar o número de \textit{bits} 
-            ligados de $n$ em $O(\log n)$
+            ligados de $n$, com complexidade $O(m)$, onde $m$ é o número de \textit{bits} ligados
+            de $n$
 
     \end{itemize}
 
