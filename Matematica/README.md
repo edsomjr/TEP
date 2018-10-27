@@ -33,4 +33,4 @@ Slides
 
 1. Manipulação de _bits_
     1. [Representação Binária](slides/BIT-1/BIT-1.pdf)
-    1. [Operações binárias](slides/BIT-2/BIT-2.pdf)
+    1. [Operações Binárias](slides/BIT-2/BIT-2.pdf)

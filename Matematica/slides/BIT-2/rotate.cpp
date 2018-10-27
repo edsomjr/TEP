@@ -4,10 +4,10 @@ using namespace std;
 
 unsigned long rotate_right(unsigned long n, int k)
 {
-    unsigned long left = (n >> k);
-    unsigned right = n & ((1 << k) - 1);
+    unsigned long R = (n >> k);
+    unsigned L = n & ((1 << k) - 1);
 
-    return right << (8*sizeof(unsigned long) - k) | left;
+    return L << (8*sizeof(unsigned long) - k) | R;
 }
 
 int main() {
