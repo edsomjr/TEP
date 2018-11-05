@@ -1,0 +1,45 @@
+\section{Implementação}
+
+\begin{frame}[fragile]{Implementação de listas auto-organizáveis}
+
+    \begin{itemize}
+        \item As listas auto-organizáveis podem ser implementadas por meio da composição
+
+        \item Assim, as listas auto-organizáveis contém uma lista duplamente encadeada, cuja
+            interface fica inacessível ao usuário
+
+        \item Usando as operações de inserção e remoção da lista encadeada é possível
+            implementar as formas de organização desejadas
+
+        \item Para manter um registro da frequência pode ser utilizada a classe 
+            \code{c}{map} do C++
+
+        \item Para computar a eficiência, basta manter a soma do tamanho da lista a cada 
+            busca, e também o número de comparações feitas
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de implementação: Mover para Frente}
+    \inputsnippet{c++}{1}{21}{move_to_front.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de implementação: Mover para Frente}
+    \inputsnippet{c++}{22}{42}{move_to_front.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de implementação: Mover para Frente}
+    \inputsnippet{c++}{43}{63}{move_to_front.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de implementação: Ordenação Estática Ótima}
+    \inputsnippet{c++}{1}{21}{optimal.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de implementação: Ordenação Estática Ótima}
+    \inputsnippet{c++}{22}{42}{optimal.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de implementação: Ordenação Estática Ótima}
+    \inputsnippet{c++}{44}{64}{optimal.cpp}
+\end{frame}
