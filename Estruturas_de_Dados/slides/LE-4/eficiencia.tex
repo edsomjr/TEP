@@ -1,0 +1,86 @@
+\section{Eficiência das listas auto-organizáveis}
+
+\begin{frame}[fragile]{Ordenação estática ótima}
+
+    \begin{itemize}
+        \item A eficiência das listas auto-organizáveis é computada através da comparação da
+            forma de organização escolhida e a ordenação estática ótima
+
+        \item Na ordenação estática ótima, os elementos são ordenados por frequência, e elementos
+            com mesma frequência são ordenados alfabeticamente
+
+        \item A eficiência é calculada através da razão entre o número de comparações feitas
+        e o número de comparações possíveis
+
+        \item O número total de comparações é a soma dos tamanhos da lista em cada etapa
+
+        \item Este tamanho é o mesmos para todas as formas: o que difere é o número de 
+            comparações realizadas
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Cálculo de eficiência: Ordenação Estática Ótima}
+
+    \begin{center}
+    \begin{footnotesize}
+    \begin{tabular}{m{0.65in}m{0.4in}>{\raggedleft}m{0.5in}m{0.45in}>{\raggedleft}m{0.65in}r}
+        \toprule
+        \textbf{Elemento a ser acessado} & \textbf{Lista} & 
+            \textbf{Tamanho/ Subtotal} & \textbf{Algoritmo} & 
+            \textbf{Número de comparações} & \textbf{Subtotal} \\
+        \toprule
+        A  & -  & 0/0  & -  & 0  & 0  \\
+        C  & A  & 1/1  & A  & 1  & 1  \\
+        B  & AC  & 2/3  & AC  & 2  & 3  \\
+        C  & ACB  & 3/6  & ABC  & 3  & 6  \\
+        D  & ACB  & 3/9  & CAB  & 3  & 9  \\
+        A  & ACBD  & 4/13  & CABD  & 2  & 11  \\
+        D  & ACBD  & 4/17  & ACBD  & 4  & 15  \\
+        A  & ACBD  & 4/21  & ACDB  & 1  & 16  \\
+        C  & ACBD  & 4/25  & ACDB  & 2  & 18  \\
+        A  & ACBD  & 4/29  & ACDB  & 1  & 19  \\
+        C  & ACBD  & 4/33  & ACDB  & 2  & 21  \\
+        C  & ACBD  & 4/37  & ACDB  & 2  & 23  \\
+        E  & ACBD  & 4/41  & CADB  & 4  & 27  \\
+        E  & ACBDE  & 5/46  & CADBE  & 5  & 32  \\
+        \bottomrule
+    \end{tabular}
+    \end{footnotesize}
+    \end{center}
+
+    Comparações: 32/46 (69,57\%)
+\end{frame}
+
+\begin{frame}[fragile]{Cálculo de eficiência: Mover para Frente}
+
+    \begin{center}
+    \begin{footnotesize}
+    \begin{tabular}{m{0.65in}m{0.4in}>{\raggedleft}m{0.5in}m{0.45in}>{\raggedleft}m{0.65in}r}
+        \toprule
+        \textbf{Elemento a ser acessado} & \textbf{Lista} & 
+            \textbf{Tamanho/ Subtotal} & \textbf{Algoritmo} & 
+            \textbf{Número de comparações} & \textbf{Subtotal} \\
+        \toprule
+        A  & -  & 0/0  & -  & 0  & 0  \\
+        C  & A  & 1/1  & A  & 1  & 1  \\
+        B  & AC  & 2/3  & AC  & 2  & 3  \\
+        C  & ACB  & 3/6  & ACB  & 2  & 5  \\
+        D  & ACB  & 3/9  & CAB  & 3  & 8  \\
+        A  & ACBD  & 4/13  & CABD  & 2  & 10  \\
+        D  & ACBD  & 4/17  & ACBD  & 4  & 14  \\
+        A  & ACBD  & 4/21  & DACB  & 2  & 16  \\
+        C  & ACBD  & 4/25  & ADCB  & 3  & 19  \\
+        A  & ACBD  & 4/29  & CADB  & 2  & 21  \\
+        C  & ACBD  & 4/33  & ACDB  & 2  & 23  \\
+        C  & ACBD  & 4/37  & CADB  & 1  & 24  \\
+        E  & ACBD  & 4/41  & CADB  & 4  & 28  \\
+        E  & ACBDE  & 5/46  & CADBE  & 5  & 33  \\
+       \bottomrule
+    \end{tabular}
+    \end{footnotesize}
+    \end{center}
+
+    Comparações: 33/46 (71,74\%)
+
+\end{frame}
