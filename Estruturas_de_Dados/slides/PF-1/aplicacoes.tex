@@ -1,0 +1,71 @@
+\section{Aplicações de Pilhas}
+
+\begin{frame}[fragile]{Identificação de delimitadores}
+
+    \begin{itemize}
+        \item Delimitadores são caracteres de marcação que delimitam um conjunto de informações,
+            e devem ter um símbolo (ou conjunto de símbolos) que determine o início e o fim do
+            conjunto
+
+        \item Em C++, os caracteres \code{c}{(), [], {}, /*  */} são delimitadores
+
+        \item As pilhas podem ser utilizadas para verificar se, em uma determinada expressão,
+            os delimitadores foram abertos e fechados corretamente
+
+        \item Por exemplo, as expressões \code{c}{(()), [()()], ()[]} são válidas
+
+        \item Já as expressões \code{c}{[), )(, ()], [[][]} são inválidas
+
+        \item O algoritmo é simples: cada símbolo que abre um conjunto é colocado no topo da
+            pilha
+
+        \item A cada símbolo que fecha o topo da pilha é observado: se contiver o símbolo que
+            abre correspondente, ele é removido e o algoritmo continua; caso contrário, a 
+            expressão é inválida
+
+        \item Ao final do algoritmo a expressão será válida se a pilha estiver vazia
+
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de identificação de delimitadores}
+    \inputsnippet{c++}{1}{20}{delimitadores.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de identificação de delimitadores}
+    \inputsnippet{c++}{21}{41}{delimitadores.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Soma de grandes números}
+
+    \begin{itemize}
+        \item As pilhas também podem ser utilizadas para somar números com um grande número de
+            dígitos
+
+        \item Os tipos primitivos integrais do C/C++ tem restrições de tamanho (em \textit{bytes})
+            e podem levar a erros de \textit{overflow} caso o resultado seja demasiadamente 
+            grande
+
+        \item Com pilhas é possível somar números de qualquer magnitude
+
+        \item A ideia é armazenar os números como pilhas de dígitos, de modo que as unidades 
+            fiquem nos topos das pilhas
+
+        \item Daí é só colocar os resultados das somas dos topos em uma terceira pilha, tomando
+            cuidado com o vai um (\textit{carry}), quando for o caso
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de adição de grandes números}
+    \inputsnippet{c++}{1}{21}{bigint.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de adição de grandes números}
+    \inputsnippet{c++}{23}{43}{bigint.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de adição de grandes números}
+    \inputsnippet{c++}{44}{64}{bigint.cpp}
+\end{frame}

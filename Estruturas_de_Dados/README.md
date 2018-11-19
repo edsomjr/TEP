@@ -24,3 +24,5 @@ Slides
     1. [Listas Duplamente Encadeadas](slides/LE-2/LE-2.pdf)
     1. [Listas Circulares](slides/LE-3/LE-3.pdf)
     1. [Listas Auto-Organizáveis](slides/LE-4/LE-4.pdf)
+1. Pilhas e Filas
+    1. [Pilhas](slides/PF-1/PF-1.pdf)
