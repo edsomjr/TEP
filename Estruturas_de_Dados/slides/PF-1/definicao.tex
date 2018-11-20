@@ -3,7 +3,7 @@
 \begin{frame}[fragile]{Definição de pilha}
 
     \begin{itemize}
-        \item Uma pilha é um tipo de dados abstratot cuja interface define que o último elemento
+        \item Uma pilha é um tipo de dados abstrato cuja interface define que o último elemento
             inserido na pilha é o primeiro a ser removido
 
         \item Esta estratégia de inserção e remoção é denominada LIFO -- \textit{Last In, First
@@ -26,7 +26,7 @@
             \toprule
             \textbf{Método} & \textbf{Complexidade} & \textbf{Descrição} \\
             \midrule
-            \texttt{clear(P)} & $O(1)$ & Esvazia a pilha \texttt{P}, removendo todos os seus elementos \\
+            \texttt{clear(P)} & $O(N)$ & Esvazia a pilha \texttt{P}, removendo todos os seus elementos \\
             \rowcolor[gray]{0.8}
             \texttt{empty(P)} & $O(1)$ & Verifica se a pilha \texttt{P} está vazia ou não \\
             \texttt{push(P, x)} & $O(1)$ & Insere o elemento \texttt{x} no topo da pilha \texttt{P} \\
@@ -208,7 +208,7 @@
             \draw (2, 0) -- (7, 0);
 
             \node[anchor=west] at (0, 5) { \texttt{pop(P)} };
-            \node[anchor=west] at (6, 5) { \texttt{-3} };
+            %\node[anchor=west] at (6, 5) { \texttt{-3} };
 
             \draw (4, 0) rectangle (5, 1);
             \node at (4.5, 0.5) { \texttt{12} };
