@@ -10,3 +10,8 @@ Geometria Computacional
     1. [Quadriláteros](Quadrilateros.md)
     1. [Objetos Tridimensionais](3D.md)
     1. [Polígonos](Polygon.md)
+
+Slides
+======
+
+1. [Introducao](slides/intro/intro.pdf)

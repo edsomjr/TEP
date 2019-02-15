@@ -1,0 +1,105 @@
+\section{Geometria Computacional}
+
+\begin{frame}[fragile]{Geometria Computacional e Programação Competitiva}
+
+    \begin{itemize}
+        \item A Geometria Computacional é uma área recente (anos 70), porém é um tópico frequente em maratonas de programação
+
+        \item Em geral, os competidores devem postergar a solução de problemas desta área para o meio ou o fim do \textit{contest}, pois estes problemas
+
+        \begin{enumerate}
+            \item possuem muitos \textit{corner cases}, os quais devem ser tratados com atenção
+            \item erros de precisão inerentes às variáveis em ponto flutuante podem levar ao WA
+            \item envolvem operações triviais quando feitas com caneta e lápis, mas que possuem implementações sofisticadas
+            \item apresentam soluções que podem ter codificações longas e tediosas
+        \end{enumerate}
+
+        \item Para atacar tais problemas, o competidor tem que se preparar previamente registrando, em suas anotações, as fórmulas básicas e implementações testadas dos algoritmos clássicos da geometria
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Observações sobre problemas de Geometria Computacional}
+
+    \begin{itemize}
+        \item trate todos os \textit{corner cases} ou use implementações que os evitem;
+
+        \item evite o uso de variáveis do tipo ponto flutuante sempre que possível;
+
+        \item se for possível usar variáveis em ponto flutuante, defina um limiar $\varepsilon$ 
+        (por exemplo, $\varepsilon = 10^{-6}$) para o teste de igualdades:
+
+        \begin{enumerate}[i.]
+            \item $a = b \ \mbox{se, e somente se, }\ |a - b| < \varepsilon$
+            \item $a \leq 0 \ \mbox{se, e somente se, }\ a < \varepsilon$
+            \item $a \geq 0 \ \mbox{se, e somente se, }\ a > -\varepsilon$
+        \end{enumerate}
+
+        \inputcode{c++}{equals.cpp}
+
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Observações sobre problemas de Geometria Computacional}
+
+    \begin{itemize}
+        \item caso seja necessário usar variáveis do tipo ponto flutuante, utilize 
+            \code{c++}{double} ao invés de \code{c++}{float}
+
+        \item se a precisão do tipo \code{c++}{float} (32 \textit{bits}) e do \code{c++}{double} 
+        (64 \textit{bits}) não forem suficientes, utilize o tipo \code{c++}{long double}
+        (80 \textit{bits})
+
+        \item tome cuidado com a impressão do zero em ponto flutuante: em determinados casos, 
+        a saída ser precedida com o sinal negativo
+
+        \inputcode{c++}{negative_zero.cpp}
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Abordagens para um problema de Geometria Computacional}
+
+    \begin{itemize}
+        \item Há três abordagens possíveis na busca da solução de um problema de Geometria
+        Computacional: Geometria Analítica, Geometria Plana e Álgebra Linear
+
+        \item Na Geometria Analítica:
+
+        \begin{itemize}
+            \item as figuras geométricas são localizadas no espaço através das coordenadas de seus pontos ou vértices
+            \item são usadas equações para representar figuras e relações
+            \item novas relações podem ser deduzidas através da combinação e manipulação destas expressões
+        \end {itemize}
+
+        \item Na Geometria Plana: 
+
+        \begin{itemize}
+            \item as figuras são descritas por suas propriedades
+            \item a posição absoluta no espaço não é importante, apenas a distância relativa entre duas ou mais figuras
+            \item as relações são descobertas através de simetrias e semelhanças
+        \end{itemize}
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Abordagens para um problema de Geometria Computacional}
+
+    \begin{itemize}
+ 
+        \item Na Álgebra Linear: 
+    
+        \begin{itemize}
+            \item segmentos de retas são interpretados como vetores
+            \item transformações como rotações e translações podem simplificar problemas ao deslocar os entes geométricos para uma nova origem
+            \item transformações lineares são representadas como matrizes, e sua composição equivale a uma multiplicação matricial
+        \end{itemize}
+
+        \item A Geometria Analítica é a mais comum entre as três abordagens
+
+        \item A Geometria Plana é a abordagem menos comum, mas pode simplificar os problemas quando bem utilizada;
+        \item A Álgebra Linear é útil para descobrir relações que seriam trabalhosas de se verificar utilizando apenas a Geometria Analítica
+    \end{itemize}
+
+\end{frame}
