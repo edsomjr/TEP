@@ -148,3 +148,92 @@
     \end{itemize}
 
 \end{frame}
+
+\begin{frame}[fragile]{Relação entre ponto e reta}
+
+    \begin{itemize}
+        \item Seja $r$ uma reta com equação geral $ax + by + c = 0$ e $P = (x_p, y_p)$ um ponto qualquer
+        \item $P\in r$ se, e somente se, $ax_p + by_p + c = 0$
+
+        \item Esta relação pode ser verificada diretamente a partir da equação geral da reta, ou através do determinante apresentado anteriormente, conhecidos dois pontos $Q$ e $R$ da reta
+
+        \inputcode{cpp}{contains.cpp}
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Segmentos de reta}
+
+    \begin{itemize}
+        \item Sejam $A$ e $B$ dois pontos pertencentes à reta $r$. O segmento de reta $AB$ é o conjunto de pontos de $r$ que estão entre os pontos $A$ e $B$
+
+        \item O comprimento de um segmento de reta é a distância entre os pontos $A$ e $B$
+    \end{itemize}
+
+    \begin{center}
+    \begin{tikzpicture}
+        \draw[thick] (2, 0) -- (9, 3);
+    
+        \node[anchor=north] at (2, 0) { $A$ };
+        \node[anchor=south] at (9, 3) { $B$ };
+
+    \end{tikzpicture}
+    \end{center}
+
+\end{frame}
+
+\begin{frame}[fragile]{Distância entre dois pontos}
+
+    \begin{itemize}
+        \item A definição de distância depende da norma utilizada
+
+        \item A distância euclidiana entre dois pontos $A = (x_a, y_a)$ e $B = (x_b, y_b)$ é dada por
+        \[
+            d(A, B) = \sqrt{(x_a - y_a)^2 + (x_b - y_b)^2}
+        \]
+
+        \item A distância do motorista de táxi é dada por
+        \[
+            d(A, B) = |x_a - x_b| + |y_a - y_b|
+        \]
+
+        \item Segunda a norma do máximo, a distância entre $A$ e $B$ é dada por
+        \[
+            d(A, B) = \max\lbrace |x_a - x_b|, |y_a - y_b|\rbrace
+        \]
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Observações sobre distância entre dois pontos}
+
+    \begin{itemize}
+        \item Embora a distãncia euclidiana seja a mais comum, a raiz quadrada que aparece na
+            sua definição leva a resultados em ponto flutuante
+
+        \item Por este motivo, em geral é implementada a função que computa o quadrado da
+            distância, o que elimina a raiz quadrada e permite a aritmética de inteiros
+
+        \item O quadrado da distância pode ser usado para comparar os pontos por distância, pois
+            ela preserva esta relação
+
+        \item A distância do motorista de táxi considera que os movimentos no plano só podem ser
+            feitos na horizontal e vertical
+
+        \item Um exemplo prático da norma do máximo acontece no tabuleiro do xadrez: ela define o
+            raio de ação do rei (todas as casas que estão a uma unidade de distância dele)
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de implementação das distâncias}
+    \inputsnippet{cpp}{1}{21}{dist.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de implementação das distâncias}
+    \inputsnippet{cpp}{22}{40}{dist.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de implementação das distâncias}
+    \inputsnippet{cpp}{41}{61}{dist.cpp}
+\end{frame}
