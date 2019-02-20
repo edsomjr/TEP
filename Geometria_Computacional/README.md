@@ -15,3 +15,7 @@ Slides
 ======
 
 1. [Introducao](slides/intro/intro.pdf)
+1. Elementos Primitivos
+    1. [Pontos](slides/PT-1/PT-1.pdf)
+    1. [Retas](slides/LN-1/LN-1.pdf)
+    1. [Algoritmos de Retas](slides/LN-2/LN-2.pdf)

@@ -1,0 +1,84 @@
+\section{Relação entre retas}
+
+\begin{frame}[fragile]{Interseção entre retas}
+
+    \begin{itemize}
+        \item Dado um par de retas $r$ e $s$, elas podem ser:
+
+        \begin{enumerate}
+            \item coincidentes (infinitas interseções),
+            \item paralelas (nenhuma interseção), ou
+            \item concorrentes (um único ponto de interseção)
+        \end{enumerate}
+
+        \item Para encontrar o ponto de interseção, no caso de retas concorrentes, basta resolver o sistema linear resultante das equações gerais das duas retas:
+        \[
+            \left\lbrace \begin{array}{l} a_rx + b_ry + c_r = 0 \\ a_sx + b_sy + c_s = 0
+            \end{array} \right.
+        \]
+
+        \item As soluções são
+        \[
+            x = (-c_r b_s + c_s b_r) / (a_rb_s - a_sb_r)
+        \]
+        \[
+            y = (-c_sa_r + c_ra_s) / (a_rb_s - a_sb_r)
+        \]
+
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de implementação da interseção entre duas retas}
+    \inputcode{cpp}{inter.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Ângulo entre retas}
+
+    \begin{itemize}
+        \item Para mensurar o ângulo formado por duas retas (ou dois segmentos de reta), é preciso 
+            identificar os vetores $\vec{u}$ e $\vec{v}$ que estejam na mesma direção das duas retas e usar o produto interno
+
+        \item Dados dois pontos distintos $P = (x_p, y_p)$ e $Q = (x_q, y_q)$, o vetor direção da 
+            reta que passa por $P$ e $Q$ é dado por $\vec{u} = (x_q - x_p, y_q - y_p)$
+
+        \item De posse dos vetores de direção, o cosseno ângulo entre as retas é dado por
+        \[
+            \cos \theta = \frac{u \cdot v}{|u||v|} = \frac{u_xv_x + u_yv_y}{\sqrt{u_x^2 + u_y^2}\sqrt{v_x^2 + v_y^2}}
+        \]
+
+        \item Para achar o ângulo, basta computar a função inversa do cosseno (\code{c}{acos()}, na 
+            biblioteca de matemática padrão do C/C++) no lado direito da expressão acima
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de implementação do ângulo entre duas retas}
+    \inputcode{cpp}{angle.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Interseção entre segmentos de reta}
+
+    \begin{itemize}
+        \item Para determinar a interseçaõ entre dois segmentos de reta é preciso resolver o 
+            problema para as duas retas que contém os respectivos segmentos e verificar se as interseções, se existirem, pertencem a ambos intervalos
+
+        \item Embora esta abordagem permita conhecer as coordenadas das possíveis interseções, ela              traz alguns problemas em potencial:
+
+        \begin{enumerate}
+            \item mesmo que as retas sejam coincidentes, não há garantias que os segmentos 
+                tenham interseção
+
+            \item a concorrência também não garante interseção: ainda é preciso verificar se o ponto pertence a ambos intervalos
+        \end{enumerate}
+
+        \item Para identificar apenas se há interseção entre ambos segmentos, sem determinar 
+            as coordenadas de tal interseção, o problema fica simplificado, e será abordado
+            mais adiante
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Rotina que verifica se um ponto $P$ pertence ao segmento $AB$}
+    \inputcode{cpp}{contains.cpp}
+\end{frame}

@@ -50,3 +50,5 @@
 
 \newcommand{\inputsyntax}[2]{\inputminted[fontsize=\footnotesize]{#1}{#2}}
 
+\newcommand{\vv}[1]{\vec{\mkern0mu#1}}
+

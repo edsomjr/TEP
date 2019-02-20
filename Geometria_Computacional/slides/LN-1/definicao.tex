@@ -1,0 +1,239 @@
+\section{Definição de reta}
+
+\begin{frame}[fragile]{Definição}
+
+    \begin{itemize}
+        \item Reta também é um elemento primitivo da Geometria
+
+        \item No primeiro livro dos elementos, Euclides define reta como 
+            \lq\lq \textit{a line is breadthless length}\rq\rq, que numa tradução livre 
+            diz que \lq\lq linha é comprimento sem largura\rq\rq
+
+        \item As linhas são elementos unidimensionais
+
+        \item Em C/C++, pontos podem ser representados através ou de sua equação geral, ou de
+            sua equação reduzida
+
+        \item  A equação reduzida de uma reta é a mais conhecida e utilizada nos cursos de ensino médio
+        \begin{enumerate}
+            \item tem a vantagem de facilitar comparações entre retas e identificar paralelismo
+            \item não é capaz de representar retas verticais
+        \end{enumerate}
+
+        \item A equação geral, como o próprio nome diz, pode representar qualquer reta do plano
+   \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Equação reduzida da reta}
+
+    \begin{itemize}
+        \item A equação reduzida da reta é dada por
+        \[
+            y = mx + b,
+        \]
+        onde $m$ é o coeficiente angular da reta e $b$ é o coeficiente linear da reta
+
+        \item O primeiro coeficiente representa a taxa de variação da reta: consiste no número de 
+        unidades que $y$ varia para cada unidade de variação de $x$ no sentido positivo do eixo horizontal
+
+        \item O segundo coeficiente é o valor no qual a reta intercepta o eixo $y$
+
+        \inputcode{cpp}{line.cpp}
+
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Equação reduzida a partir de dois pontos dados}
+
+    \begin{itemize}
+        \item Dados dois pontos $P = (x_p, y_p)$ e $Q = (x_q, y_q)$ tais que $x_p \neq y_p$, 
+        a inclinação da reta é dada por
+        \[
+            m = \frac{y_q - y_p}{x_q - x_p}
+        \]
+
+        \item Deste modo, a equação reduzida da reta será dada por
+        \[
+            y = m(x - x_p) + y_p = mx + (y_p - mx_p)
+        \]
+
+        \item Se $x_p = y_p$, a reta é vertical
+
+        \item Retas verticais podem ser tratadas por meio de uma variável booleana que indica
+            se a reta é vertical ou não
+
+        \item Caso seja, o coeficiente $b$ indica o ponto que a reta intercepta o eixo horizontal
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Implementação da reta através da equação reduzida}
+    \inputcode{cpp}{line2.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Equação geral da reta}
+
+    \begin{itemize}
+        \item A equação geral da reta é dada por
+        \[
+            ax + by + c = 0
+        \]
+
+        \item Como dito, a equação geral pode representar retas verticais ($b = 0$)
+
+        \item Nos demais casos, é possível obter a equação reduzida a partir da equação geral
+
+        \inputcode{c++}{geral.cpp}
+
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Equação geral da reta a partir de dois pontos}
+
+    \begin{itemize}
+        \item Dados dois pontos distintos $P = (x_p, y_p)$ e $Q = (x_q, y_q)$, é possível obter os 
+        coeficientes da equação geral da seguinte maneira:
+
+        \begin{enumerate}
+            \item Substitua as coordenadas de um dos dois pontos na equação geral
+            \item Encontrado o valor de $c$, substitua as coordenadas de ambos pontos na equação
+            geral, obtendo um sistema linear
+            \item Os valores de $a$ e $b$ são a solução deste sistema linear
+        \end{enumerate}
+
+        \item Este processo pode ser simplificado através do uso de Álgebra Linear: se três pontos 
+        $P = (x_p, y_p), Q = (x_q, y_q)$ e $R = (x, y)$ são colineares 
+        (isto é, pertencem a uma mesma reta), então
+        \[
+            \det \begin{bmatrix}
+                x_p & y_p  & 1 \\
+                x_q & y_q  & 1 \\
+                x & y  & 1 \\
+            \end{bmatrix} = 0
+        \]
+
+        \item A soluçaõ da equação acima é
+        \[
+            a = y_p - y_q, b = x_q - x_p, c = x_py_q - x_qy_p
+        \]
+    \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{Implementação da reta através da equação geral}
+    \inputcode{cpp}{geral2.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Observações sobre a equação geral da reta}
+
+    \begin{itemize}
+        \item Um mesma reta pode ter infinitas equações gerais associadas: basta multiplicar toda a equação por uma número real diferente de zero
+
+        \item Para normalizar a representação, associando uma única equação a cada reta, é necessário dividir toda a equação pelo coeficiente $a$ (ou por $b$, caso $a$ seja igual a zero)
+
+        \item Esta estratégia permite a simplificação de algoritmos de comparação entre retas
+
+        \item Por outro lado, não uniformizar a representação permite manter os coeficientes 
+            inteiros, caso as coordenadas dos pontos sejam inteiras
+
+        \item Importante notar que, em ambas representações, pode acontecer da reta resultante ser degenerada
+
+        \item Isto ocorre quando os pontos $P$ e $Q$ são idênticos: neste caso, a reta se reduz a um único ponto 
+
+        \item O tratamento deste caso especiais nos demais algoritmos aumenta o tamanho e a sofisticação dos códigos
+
+        \item Porém o não tratamento de casos especiais pode levar ao WA
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Relação entre ponto e reta}
+
+    \begin{itemize}
+        \item Seja $r$ uma reta com equação geral $ax + by + c = 0$ e $P = (x_p, y_p)$ um ponto qualquer
+        \item $P\in r$ se, e somente se, $ax_p + by_p + c = 0$
+
+        \item Esta relação pode ser verificada diretamente a partir da equação geral da reta, ou através do determinante apresentado anteriormente, conhecidos dois pontos $Q$ e $R$ da reta
+
+        \inputcode{cpp}{contains.cpp}
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Segmentos de reta}
+
+    \begin{itemize}
+        \item Sejam $A$ e $B$ dois pontos pertencentes à reta $r$. O segmento de reta $AB$ é o conjunto de pontos de $r$ que estão entre os pontos $A$ e $B$
+
+        \item O comprimento de um segmento de reta é a distância entre os pontos $A$ e $B$
+    \end{itemize}
+
+    \begin{center}
+    \begin{tikzpicture}
+        \draw[thick] (2, 0) -- (9, 3);
+    
+        \node[anchor=north] at (2, 0) { $A$ };
+        \node[anchor=south] at (9, 3) { $B$ };
+
+    \end{tikzpicture}
+    \end{center}
+
+\end{frame}
+
+\begin{frame}[fragile]{Distância entre dois pontos}
+
+    \begin{itemize}
+        \item A definição de distância depende da norma utilizada
+
+        \item A distância euclidiana entre dois pontos $A = (x_a, y_a)$ e $B = (x_b, y_b)$ é dada por
+        \[
+            d(A, B) = \sqrt{(x_a - y_a)^2 + (x_b - y_b)^2}
+        \]
+
+        \item A distância do motorista de táxi é dada por
+        \[
+            d(A, B) = |x_a - x_b| + |y_a - y_b|
+        \]
+
+        \item Segunda a norma do máximo, a distância entre $A$ e $B$ é dada por
+        \[
+            d(A, B) = \max\lbrace |x_a - x_b|, |y_a - y_b|\rbrace
+        \]
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Observações sobre distância entre dois pontos}
+
+    \begin{itemize}
+        \item Embora a distãncia euclidiana seja a mais comum, a raiz quadrada que aparece na
+            sua definição leva a resultados em ponto flutuante
+
+        \item Por este motivo, em geral é implementada a função que computa o quadrado da
+            distância, o que elimina a raiz quadrada e permite a aritmética de inteiros
+
+        \item O quadrado da distância pode ser usado para comparar os pontos por distância, pois
+            ela preserva esta relação
+
+        \item A distância do motorista de táxi considera que os movimentos no plano só podem ser
+            feitos na horizontal e vertical
+
+        \item Um exemplo prático da norma do máximo acontece no tabuleiro do xadrez: ela define o
+            raio de ação do rei (todas as casas que estão a uma unidade de distância dele)
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de implementação das distâncias}
+    \inputsnippet{cpp}{1}{21}{dist.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de implementação das distâncias}
+    \inputsnippet{cpp}{22}{40}{dist.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de implementação das distâncias}
+    \inputsnippet{cpp}{41}{61}{dist.cpp}
+\end{frame}

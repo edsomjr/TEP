@@ -1,0 +1,102 @@
+\section{Definição de ponto}
+
+\begin{frame}[fragile]{Definição}
+
+    \begin{itemize}
+        \item Ponto é um termo primitivo da geometria
+
+        \item No primeiro livro dos elementos, Euclides define ponto como 
+            \lq\lq \textit{a point is that which has no part}\rq\rq, que numa tradução livre 
+            diz que \lq\lq ponto é aquilo de que nada é parte\rq\rq
+
+        \item Os pontos são elementos adimensionais, isto é, não tem dimensão alguma
+
+        \item Em C/C++, pontos podem ser representados como classes ou estruturas, como
+            pares ou como vetores
+
+        \item Cada representação possível tem suas vantagens e desvantagens
+   \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Representação de pontos como classes}
+
+    \begin{itemize}
+        \item Representar um ponto utilizando uma classe ou estrutura tem a vantagem da 
+            legibilidade 
+
+        \item A sintaxe para o uso é mais natural
+
+        \item Porém esta representação demanda a implementação dos operadores relacionais 
+            para comparações entre pontos
+
+        \item O uso de estruturas simplifica a implementação, uma vez que em competição não há
+            necessidade de encapsulamento dos membros
+
+        \item O tipo usado para representar os valores das coordenadas pode ser parametrizado,
+            permitindo o uso da mesma implementação seja com inteiros, seja com pontos
+            flutuantes
+    \end{itemize}
+
+\end{frame}
+
+
+\begin{frame}[fragile]{Exemplo de implementação de ponto usando uma estrutura}
+
+    \inputcode{c++}{struct.cpp}
+
+\end{frame}
+
+
+\begin{frame}[fragile]{Representação de pontos como pares}
+
+    \begin{itemize}
+        \item A biblioteca padrão do C++ possui o tipo paramêtrico \code{c}{pair}, que pode
+            ser usado para representar pontos
+
+        \item Usar pares do C++ tem como vantagem herdar os operadores de comparação dos
+            tipos escolhidos
+
+        \item A desvantagem é a notação, que utiliza \texttt{first} e \texttt{second} para
+            acessar as duas coordenadas, ao invés de \code{c}{x} e \code{c}{y}, como nas classes e
+estruturas 
+
+        \item Esta desvantagem pode ser contornada usando se as seguintes definições de 
+            pré-processador:
+
+        \inputcode{c++}{macros.cpp}
+
+        \item Esta solução deve ser utilizada com cuidado, pois pode gerar efeitos colaterias
+            indesejados
+
+        \item Além disso, pares podem ser utilizados diretamente para representar pontos tridimensionais
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de implementação de ponto usando pares}
+    \inputcode{cpp}{pairs.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Representação de pontos como vetores}
+
+    \begin{itemize}
+        \item Representar pontos como vetores bidimensionais permite a travessia de conjuntos
+            de pontos em laços por coordenada
+
+        \item Além disso, é a implementação mais curta para pontos multidimensionais
+
+        \item Porém, a legibilidade fica comprometida, uma vez que as coordenadas são acessadas
+            por índices
+
+        \item Esta representação não herda a atribuição, e ainda pode gerar 
+            confusão com o uso de operadores relacionais
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de implementação de ponto usando vetores}
+
+    \inputcode{c++}{arrays.cpp}
+
+\end{frame}

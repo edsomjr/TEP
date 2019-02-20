@@ -1,0 +1,63 @@
+\section{Classificação de retas}
+
+\begin{frame}[fragile]{Retas paralelas, concorrentes e coincidentes}
+
+    \begin{itemize}
+        \item Em relação às possíveis interseções entre duas retas, há três cenários possíveis: 
+
+        \begin{enumerate}
+            \item nenhum ponto em comum (retas paralelas)
+            \item um único ponto em comum  (retas concorrentes)
+            \item todos os pontos em comum (retas coincidentes)
+        \end{enumerate}
+
+        \item O coeficiente angular é a chave para tal classificação: retas com coeficientes 
+            angulares distintos são concorrentes
+
+        \item Caso duas retas tenham coeficientes angulares iguais, é necessário verificar também 
+            o coeficiente linear: se iguais, as retas são coincidentes
+
+        \item Retas com coeficientes angulares iguais e coeficientes lineares distintos são paralelas
+        \item A implementação destas verificações é trivial na representação baseada na equação reduzida, sendo necessário apenas o cuidado no trato do caso das retas verticais
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de implementação de classificação de retas em C++}
+    \inputcode{cpp}{classification.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de implementação de classificação de retas em C++}
+    \inputcode{cpp}{classification2.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Retas perpendiculares}
+
+    \begin{itemize}
+        \item Duas retas são perpendiculares se o produto de seus coeficientes angulares for igual a -1
+
+        \item Outra maneira de checar se duas retas são perpendiculares é escolher dois pontos 
+        pertencentes a cada reta e montar dois vetores $\vec{u}$ e $\vec{v}$ 
+
+        \item Estes pontos podem ser escolhidos de forma eficiente, fazendo $x = 0$ e $y = 0$
+        (caso a reta não passe na origem)
+
+        \item Se o produto interno dos dois vetores for igual a zero, as retas são perpendiculares
+
+        \item Importante notar, porém, é que os coeficientes $a$ e $b$ da equação geral de uma 
+            reta formam um vetor $\vec{v} = (a, b)$ perpendicular à reta
+
+        \item Tais vetores, denominados normais, podem ser utilizados na comparação descrita anteriormente
+
+
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de verificação de retas perpendiculares em C++}
+    \inputcode{cpp}{ortho.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de verificação de retas perpendiculares em C++}
+    \inputcode{cpp}{ortho2.cpp}
+\end{frame}
