@@ -30,6 +30,13 @@
 % Setup
 \usefonttheme{professionalfonts}
 
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=blue,
+}
+
 % New commands
 \newcommand{\generatetoc}{
 \begin{frame}{Sumário}
