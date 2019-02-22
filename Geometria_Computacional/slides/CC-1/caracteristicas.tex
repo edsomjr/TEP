@@ -1,0 +1,88 @@
+\section{Características do círculo}
+
+\begin{frame}[fragile]{A constante $\pi$}
+
+    \begin{itemize}
+        \item Tanto o cálculo do perímetro quanto da área de um círculo envolvem o uso da 
+            constante $\pi$
+
+        \item Caso o problema não informe o valor a ser utilizado, há três maneiras de proceder 
+            para determinar o valor desta constante
+
+        \item A primeira é utilizar o valor definido na linguagem Python, que pode ser obtido com 
+            o script abaixo.
+
+        \inputcode{py}{pi.py}
+
+        \item O valor resultante, 3.141592653589793, está correto nas suas 15 casas decimais
+
+        \item A segunda forma é utilizar a expressão \code{c}{acos(-1.0)} em C/C++
+
+        \item A terceira é usar a macro \code{c}{M_PI} da biblioteca de matemática padrão do
+            C/C++
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Perímetro do círculo}
+
+    \begin{itemize}
+        \item O perímetro (circunferência) $C$ de um círculo corresponde ao o comprimento do contorno do círculo 
+
+        \item Este valor pode ser computado como o perímetro de um polígono regular de $n$ lados e
+            raio circunscrito $r$ (distância do centro a um dos vértices do polígono), 
+            quando $n$ tende a infinito
+
+        \item O lado $L$ de tal polígono e o raio se relacionam de modo que
+        \[
+            \sin \frac{\pi}{n} = \frac{L/2}{r} 
+        \]
+
+        \item Assim,
+        \[
+            C = \lim_{n \to \infty} n\left(2r\sin \frac{\pi}{n}\right) 
+            = 2r \left(\lim_{n \to \infty} n\sin \frac{\pi}{n}\right)
+            = 2\pi r
+        \]
+
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Implementação do perímetro em C/C++}
+
+    \inputcode{cpp}{perimeter.cpp}
+
+\end{frame}
+
+\begin{frame}[fragile]{Área do círculo}
+
+    \begin{itemize}
+        \item De modo semelhante, a área $A$ de um círculo pode ser aproximada pela área de um
+            polígono regular de $n$ lados e raio circunscrito $r$ quando $n$ tende ao infinito
+
+        \item A base de cada triângulo interno é igual a $L$
+
+        \item A altura é a apótema $a$, onde
+        \[
+            \cos \frac{\pi}{n} = \frac{a}{r}
+        \]
+
+        \item Assim,
+        \[
+            A = \lim_{n\to \infty} n \left(\frac{La}{2}\right)
+            = \lim_{n\to \infty} n \left(r\sin \frac{\pi}{n}\right)\left(r\cos\frac{\pi}{n}\right),
+        \] isto é,
+        \[
+            A = r^2\left(\lim_{n\to\infty} n\sin \frac{\pi}{n}\cos\frac{\pi}{n}\right)
+            = r^2\lim_{n\to\infty} n\left(\frac{\sin \frac{2\pi}{n}}{2}\right)
+            = \pi r^2
+        \]
+
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Implementação da área do círculo em C++}
+    \inputcode{cpp}{area.cpp}
+\end{frame}
