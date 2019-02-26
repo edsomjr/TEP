@@ -1,0 +1,31 @@
+\section{Implementação}
+
+\begin{frame}
+    \frametitle{Implementação de árvores binárias}
+
+    \begin{itemize}
+        \item Uma árvore binária pode ser {implementada}, no mínimo, de 
+        {duas} maneiras: utilizando vetores ou utilizando listas encadeadas
+        
+
+        \item no caso dos vetores, a informação da raiz fica armazenada no índice 1 (o índice
+            zero não é utilizado)
+            
+        \item Dado um nó pai armazenado no índice $p$, o nó à esquerda ocupa o índice $2p$ e o
+            nó à direita ocupa o índice $2p + 1$
+
+        \item Se um nó ocupa o índice $i\neq 1$, seu pai está armazenado no índice $i/2$
+
+        \item No caso das listas duplamente encadeadas, cada {nó} da lista representa um nó da 
+            árvore binária
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Implementação de uma árvore usando listas encadeadas}
+    \inputcode{cpp}{list.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Implementação de uma árvore usando vetores}
+    \inputcode{cpp}{vector.cpp}
+\end{frame}

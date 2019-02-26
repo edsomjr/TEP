@@ -27,3 +27,5 @@ Slides
 1. Pilhas e Filas
     1. [Pilhas](slides/PF-1/PF-1.pdf)
     2. [Filas](slides/PF-2/PF-2.pdf)
+1. Árvores
+    1. [Árvores Binárias: Busca e Travessia](slides/TR-1/TR-1.pdf)
