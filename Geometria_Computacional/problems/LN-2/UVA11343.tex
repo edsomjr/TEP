@@ -1,0 +1,120 @@
+\section{UVA 11343 -- Isolated Segments}
+
+\begin{frame}[fragile]{Problema}
+
+You’re given $n$ segments in the rectangular coordinate system. The segments are defined by start 
+and end points ($X_i , Y_i$) and ($X_j , Y_j$) ($1 \leq i, j \leq n$). Coordinates of these points 
+are integer numbers with real value smaller then 1000. Length of each segment is positive.
+
+When 2 segments don’t have a common point then it is said that segments don’t collide. In any
+other case segments collide. Be aware that segments collide even if they have only one point in 
+common.
+
+Segment is said to be isolated if it doesn’t collide with all the other segments that are given, 
+i.e.  segment $i$ is isolated when for each $1 \leq j \leq n$, ($ i\neq j$), segments $i$ and $j$ 
+don’t collide. You are asked to find number $T$ -- how many segments are isolated.
+
+\end{frame}
+
+\begin{frame}[fragile]{Entrada e saída}
+
+\textbf{Input}
+First line of input contains number $N$ $(N \leq 50)$, then tests follow. First line of each test 
+case contains number $M$ ($M \leq 100$) — the number of segments for this test case to be 
+considered. For this particular test case $M$ lines follow each containing a description of one 
+segment. Segment is described by 2 points: start point ($X_{pi}, Y_{pi}$) and end point 
+($X_{ei}, Y_{ei}$). They are given in such order: $X_{pi}$ $Y_{pi}$ $X_{ei}$ $Y_{ei}$
+\end{frame}
+
+\begin{frame}[fragile]{Entrada e saída}
+\textbf{Output}
+
+For each test case output one line containing number $T$.
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de entradas e saídas}
+
+\begin{footnotesize}
+\begin{minipage}[t]{0.5\textwidth}
+\textbf{Sample Input}
+\begin{verbatim}
+6
+3
+0 0 2 0
+1 -1 1 1
+2 2 3 3
+2
+0 0 1 1
+1 0 0 1
+2
+0 0 0 1
+0 2 0 3
+2
+0 0 1 0
+1 0 2 0
+2
+0 0 2 2
+1 0 1 1
+2
+1 3 1 5
+1 0 1 6
+\end{verbatim}
+\end{minipage}
+\begin{minipage}[t]{0.45\textwidth}
+\textbf{Sample Output}
+\begin{verbatim}
+1
+0
+2
+0
+0
+0
+\end{verbatim}
+\end{minipage}
+\end{footnotesize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Observações sobre o problema}
+
+    \begin{itemize}
+        \item O problema consiste na identificação da interseção entre segmentos
+
+        \item A verificação de interseção entre segmentos consiste em duas etapas
+
+        \item A primeira etapa é checar se as retas $r$ e $s$ que contém os segmentos se
+            interceptam
+
+        \item Em caso positivo é preciso ainda ver se o ponto de interseção está contido nos 
+            segmentos ou não
+
+        \item É preciso atentar aos \textit{corner cases}
+
+        \item Como é preciso, para cada segmento $i$,  testar todos os segmentos $j$, a
+            solução tem complexidade $O(M^2)$
+
+        \item Atenção ao produto dos discriminantes, que pode exceder a capacidade de um
+            inteiro, de modo que é preciso usar o tipo \code{c}{long long} em seu retorno
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Solução AC com complexidade $O(N^2)$}
+    \inputsnippet{cpp}{1}{21}{ac2.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Solução AC com complexidade $O(N^2)$}
+    \inputsnippet{cpp}{22}{42}{ac2.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Solução AC com complexidade $O(N^2)$}
+    \inputsnippet{cpp}{44}{64}{ac2.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Solução AC com complexidade $O(N^2)$}
+    \inputsnippet{cpp}{66}{86}{ac2.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Solução AC com complexidade $O(N^2)$}
+    \inputsnippet{cpp}{87}{107}{ac2.cpp}
+\end{frame}
