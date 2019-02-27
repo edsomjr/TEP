@@ -1,0 +1,283 @@
+\section{UVA 10229 -- Modular Fibonacci}
+
+\begin{frame}[fragile]{Problema}
+
+The Fibonacci numbers (0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, ...) are defined by the recurrence:
+\begin{align*}
+F_0 &= 0 \\
+F_1 &= 1 \\
+F_i &= F_{i-1} + F_{i-2}\ \mbox{for}\ i > 1
+\end{align*}
+
+Write a program which calculates $M_n = F_n\ \mbox{mod}\ 2^m$
+for given pair of $n$ and $m$. $0 \leq n \leq 2147483647$
+and $0 \leq m < 20$. Note that $a\ \mbox{mod}\ b$ gives the remainder when $a$ is divided by $b$.
+\end{frame}
+
+\begin{frame}[fragile]{Entrada e saída}
+
+\textbf{Input}
+
+Input consists of several lines specifying a pair of $n$ and $m$.
+
+\vspace{0.5in}
+
+\textbf{Output}
+
+Output should be corresponding $M_n$, one per line.
+
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de entradas e saídas}
+
+\begin{minipage}[t]{0.5\textwidth}
+\textbf{Exemplo de Entrada}
+\begin{verbatim}
+11 7
+11 6
+\end{verbatim}
+\end{minipage}
+\begin{minipage}[t]{0.45\textwidth}
+\textbf{Exemplo de Saída}
+\begin{verbatim}
+89
+25
+\end{verbatim}
+\end{minipage}
+\end{frame}
+
+\begin{frame}[fragile]{Solução recursiva}
+
+    \begin{itemize}
+        \item A implementação recursiva dos números de Fibonacci trazem uma série de problemas
+
+        \item Primeiramente, a quantidade de chamadas recursivas é demasiadamente alto, o que
+            leva ao TLE
+
+        \item Além disso, pode acontecer um estouro na pilha de execução, levando a um RTE
+
+        \item O tipo de variável usada para armazenar os valores pode levar a erros de 
+            \textit{overflow}, caso o módulo seja computado apenas ao final
+
+        \item Para computar o valor exato de $F_n$ para $n \geq 100$ é necessário utilizar
+            aritmética estendida
+   \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Solução WA/TLE com complexidade $O(T2^n)$}
+    \inputsnippet{cpp}{1}{10}{wa.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Solução WA/TLE com complexidade $O(T2^n)$}
+    \inputsnippet{cpp}{11}{31}{wa.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Solução iterativa}
+
+    \begin{itemize}
+        \item A implementação iterativa dos números de Fibonacci resolvem dois dos problemas
+            apresentados anteriormente 
+
+        \item Primeiramente, não há mais chamadas recursivas
+
+        \item Além disso, não há estouro da pilha de execução
+
+        \item Embora a complexidade seja reduzida para $O(Tn)$, ainda assim a solução não é
+            rápida o suficiente para o tamanho máximo de $n$
+
+        \item As operações modulares a cada etapa evitam o problema de \textit{overflow}
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Solução TLE com complexidade $O(Tn)$}
+    \inputsnippet{cpp}{1}{20}{tle.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Solução TLE com complexidade $O(Tn)$}
+    \inputsnippet{cpp}{21}{41}{tle.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Forma matricial da recorrência de Fibonacci}
+
+    \begin{itemize}
+        \item Para uma solução com complexidade inferior à linear, é preciso resolver a 
+            recorrência
+
+        \item Sabemos que $F_{n + 2} = F_{n + 1} + F_{n}$ para $n > 1$, e que $F(0) = 0, F(1) = 1$
+
+        \item Esta relação pode ser representada matricialmente:
+        \[
+            \begin{bmatrix} F_{n + 2} \\ F_{n + 1}\end{bmatrix} = 
+            \begin{bmatrix} 1 & 1 \\ 1 & 0\end{bmatrix}
+            \begin{bmatrix} F_{n + 1} \\ F_{n}\end{bmatrix}
+        \]
+
+        \item Seja
+        \[
+            u_n = \begin{bmatrix} F_{n + 1} \\ F_{n}\end{bmatrix},\ \ 
+            A = \begin{bmatrix} 1 & 1 \\ 1 & 0\end{bmatrix}\ \ \mbox{e}\ \ 
+            u_0 = \begin{bmatrix} 1 \\ 0\end{bmatrix}
+        \]
+
+        \item Assim, $u_{n + 1} = Au_n$
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Fórmula para os termos de Fibonacci sem recorrência}
+
+    \begin{itemize}
+        \item Expandindo a recorrência tem-se que
+        \begin{align*}
+            u_1 &= Au_0 \\
+            u_2 &= Au_1 = A(Au_0) = A^2u_0 \\
+            u_3 &= Au_2 = A(A^2u_0) = A^3u_0 \\
+            & \ldots,
+        \end{align*}
+        isto é, $u_n = A^nu_0$
+        
+        \item A expressão acima, que não possui recorrência, 
+            permite computar o $n$-ésimo termo da sequência de Fibonacci,
+            se conhecido o valor de $A^n$
+
+        \item Esta exponenciação matricial pode ser feita, de forma eficiente, se a matriz
+            $A$ possuir autovetores linearmente independentes
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Autovalores de Fibonacci}
+
+    \begin{itemize}
+        \item O vetor $\vec{x}$ é autovetor de $A$ se existir um $\lambda$ real (denominado
+            autovalor) tal que $A\vec{x} = \lambda \vec{x}$
+
+        \item Para encontrar os autovalores de $A$, é preciso encontrar os valores $\lambda$
+            tais que $(A - \lambda I)\vec{x} = \vec{0}$, o que ocorre quando
+        \[
+             \det \begin{bmatrix} 1 - \lambda & 1 \\ 1 & -\lambda \end{bmatrix} = 
+             \begin{bmatrix} 0 \\ 0\end{bmatrix},
+        \] o que leva à expressão
+        \[
+            p(\lambda) = -\lambda(1 - \lambda) - 1 = 0
+        \]
+
+        \item Os zeros do polinômio $p(\lambda) = \lambda^2 - \lambda - 1$ são os autovetores
+            de Fibonacci, a saber:
+        \[
+             \lambda_1 = \frac{1 + \sqrt{5}}{2}\ \ \mbox{e}\ \ 
+             \lambda_2 = \frac{1 - \sqrt{5}}{2}
+        \]
+            
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Autovetores de Fibonacci}
+
+    \begin{itemize}
+        \item Para encontrar os autovetores de Fibonacci, basta levar os autovalores novamente
+            na igualdade anterior
+
+        \item Para $\lambda_1$ segue que
+        \[
+             \begin{bmatrix} 1 - \lambda_1 & 1 \\ 1 & -\lambda_1 \end{bmatrix}
+             \begin{bmatrix} x \\ y\end{bmatrix} = 
+             \begin{bmatrix} 0 \\ 0\end{bmatrix}
+        \]
+        cuja solução não trivial é
+        \[
+             \vec{v}_1 = \begin{bmatrix} \lambda_1 \\ 1\end{bmatrix},
+        \]
+        pois $\lambda_1 - \lambda_1^2 + 1 = 0$, uma vez que $\lambda_1$ é autovalor   
+
+        \item O mesmo vale para $\lambda_2$, obtendo o segundo autovetor
+        \[
+             \vec{v}_2 = \begin{bmatrix} \lambda_2 \\ 1\end{bmatrix}
+        \]
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Diagonalização da matrix $A$}
+
+    \begin{itemize}
+        \item Como os autovalores $\vec{v}_1$ e $\vec{v}_2$ são linearmente independentes,
+            a matriz $A$ é diagonalizável
+
+        \item Seja $S$ a matriz dos autovetores e $\Lambda$ a matriz diagonal dos autovalores
+            correspondentes, isto é,
+        \[
+             S = \begin{bmatrix} \lambda_1 & \lambda_2 \\\ 1 & 1 \end{bmatrix}\ \ \mbox{e}\ \
+             \Lambda = \begin{bmatrix} \lambda_1 & 0 \\\ 0 & \lambda_2 \end{bmatrix}
+        \]
+
+        \item A definição de autovetor implica que $AS = S\Lambda$, e como $S$ é invertível, segue que
+        \[
+            A = S\Lambda S^{-1}
+        \]
+        
+            
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Exponenciação eficiente de matrizes diagonalizadas}
+
+    \begin{itemize}
+        \item A expressão $A = S\Lambda S^{-1}$ permite computar $A^n$ de forma eficiente, pois
+        \begin{align*}
+            A^2 &= (S\Lambda S^{-1})(S\Lambda S^{-1}) = S\Lambda (S^{-1}S)\Lambda S^{-1} = S\Lambda^2 S^{-1} \\
+            A^3 &= A^2A = (S\Lambda^2 S^{-1})(S\Lambda S^{-1}) = S\Lambda^2 (S^{-1}S)\Lambda S^{-1} = S\Lambda^3 S^{-1} \\
+        &\ldots
+        \end{align*}
+
+        \item Assim, $A^n = S\Lambda^n S^{-1}$, com
+        \[
+            \Lambda^n = \begin{bmatrix} \lambda_1^n & 0 \\\ 0 & \lambda_2^n \end{bmatrix}\ \ \mbox{e}\ \ 
+            S^{-1} = \frac{1}{\lambda_1 - \lambda_2}\begin{bmatrix} 1 & -\lambda_2 \\ -1 & \lambda_1 \end{bmatrix}
+        \]
+
+        \item A expressão para os números de Fibonacci sem recorrência leva a
+        \[
+            u_n = A^nu_0 = (S\Lambda^n S^{-1})u_0 = S\Lambda^n (S^{-1})u_0
+            = S\Lambda^n \vec{c},
+        \]
+        onde o vetor $\vec{c}$ é constante
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Fórmula de Binet}
+
+    \begin{itemize}
+        \item De fato,
+        \[
+            \vec{c} = \frac{1}{\lambda_1 - \lambda_2}\begin{bmatrix} 1 & -\lambda_2 \\ -1 & \lambda_1 \end{bmatrix}
+\begin{bmatrix} 1 \\ 0 \end{bmatrix} = 
+            \frac{1}{\lambda_1 - \lambda_2}\begin{bmatrix} 1 \\ -1 \end{bmatrix} =
+            \frac{1}{\sqrt{5}}\begin{bmatrix} 1 \\ -1 \end{bmatrix}
+        \]
+
+        \item Portanto, como $u_n = S\Lambda^n \vec{c}$, 
+        \begin{align*}
+            \begin{bmatrix} F_{n + 1} \\ F_n \end{bmatrix} &= 
+            \frac{1}{\sqrt{5}}\begin{bmatrix} \lambda_1 & \lambda_2 \\\ 1 & 1 \end{bmatrix}
+            \begin{bmatrix} \lambda_1^n & 0 \\\ 0 & \lambda_2^n \end{bmatrix}
+            \begin{bmatrix} 1 \\ -1 \end{bmatrix} \\
+            &= \frac{1}{\sqrt{5}}
+            \begin{bmatrix} \lambda_1 & \lambda_2 \\\ 1 & 1 \end{bmatrix}
+            \begin{bmatrix} \lambda_1^n \\\ -\lambda_2^n \end{bmatrix} 
+            = \frac{1}{\sqrt{5}}
+            \begin{bmatrix} \lambda_1^{n + 1} + \lambda_2^{n + 1} \\ \lambda_1^{n} + \lambda_2^{n}   \end{bmatrix}
+        \end{align*}
+
+        \item A Fórmula de Binet corresponde à segunda componente do vetor acima, isto é,
+        \[
+            F_n = \frac{1}{\sqrt{5}}\left[\left(\frac{1 + \sqrt{5}}{2}\right)^{n} + \left(\frac{1 - \sqrt{5}}{2}\right)^{n}\right]
+        \]
+    \end{itemize}
+
+\end{frame}
