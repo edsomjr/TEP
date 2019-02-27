@@ -1,0 +1,182 @@
+\section{Recursão}
+
+\begin{frame}
+    \frametitle{Recursão}
+
+    \begin{itemize}
+        \item A definição de um objeto é dita {recursiva} se ela se 
+        refere ao {próprio objeto} a ser definido
+        
+        \item Uma definição recursiva tem {duas} partes: o
+        {caso base} e as {regras de construção} 
+
+        \item No {caso base}, todos os {elementos estruturais 
+        básicos} são listados
+
+        \item As {regras de construção} determinam como os elementos
+        estruturais se relacionam, e envolvem o {próprio objeto}
+
+        \item Uma função é dita recursiva se o cálculo do seu retorno envolve a
+            chamada da própria função
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}
+
+    \frametitle{Exemplo de definição recursiva: números naturais}
+
+    \begin{itemize}
+        \item {caso base:} $0\in N$ 
+
+        \item {regra de construção:} se $n\in N$, então $(n+1)\in N$
+
+        \item {definição de escopo:} {não há} outros elementos no 
+        conjunto $N$ (isto é, não há {outras formas} de se obter números
+        naturais)
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}
+    \frametitle{Exemplo de função recursiva: fatorial de um número natural}
+
+    \begin{itemize}
+        \item O fatorial do número natural $n$ é dado por
+    $$
+    n! = \left\lbrace \begin{array}{ll} 1, & \mbox{se}\, n = 0 \\ n\cdot (n - 1)!, & \mbox{se}\, n > 0 \end{array}\right.
+    $$ 
+        \item Observe que a primeira parte da definição corresponde ao caso base
+
+        \item Já a segunda parte se refere à regra de construção
+
+        \item A definição ade escopo fica implícita: $n$ deve ser um número natural
+
+        \item A implementação em C/C++ é quase idêntica à definição:
+
+            \inputcode{cpp}{factorial.cpp}
+
+    \end{itemize}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Relações de pertinência}
+
+    \begin{itemize}
+        \item É possível determinar se um elemento {pertence ou não} 
+        a um conjunto de elementos definidos recursivamente aplicando a 
+        regra de construção {sucessivamente}, {decompondo} o
+        elemento em outros elementos do conjunto
+
+        \item Por exemplo, para $n = 5$,
+        \[
+        \begin{array}{l}
+            5 = 4 + 1, \, \, \mbox{logo se}\, \, 4\in N, \, \, \mbox{então}\, \,
+            5 \in N \\  
+            4 = 3 + 1, \, \, \mbox{logo se}\, \, 3\in N, \, \, \mbox{então}\, \,
+            4 \in N \\  
+            3 = 2 + 1, \, \, \mbox{logo se}\, \, 2\in N, \, \, \mbox{então}\, \,
+            3 \in N \\  
+            2 = 1 + 1, \, \, \mbox{logo se}\, \, 1\in N, \, \, \mbox{então}\, \,
+            2 \in N \\  
+            1 = 1 + 0 
+        \end{array}
+        \]
+        \item Como $0\in N$, então $1, 2, 3, 4,5 \in N$
+    \end{itemize}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Resolução de recorrências}
+
+    \begin{itemize}
+        \item Para encontrar o $n$-ésimo termo do conjunto, é necessário encontrar
+        todos os termos anteriores que se fizerem presentes de acordo com as regras
+        de construção
+
+        \item Este processo impacta diretamente na complexidade computacional da rotina
+
+        \item Onde for possível, a troca de uma definição recursiva por uma 
+        definição que seja independente dependa de termos anteriores
+        leva a implementações {mais eficientes}
+        
+        \item Por exemplo, a definição {recursiva}
+        \[
+            g(n) = \left\lbrace \begin{array}{ll} 1, & \mbox{se}\, n = 0 \\ 
+            2g(n - 1), & \mbox{se}\, n > 0 \end{array}\right.
+        \] 
+         equivale a definição 
+        \[ g(n) = 2^n \]
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Resolução de recorrência por hipótese e demonstração}
+
+    \begin{itemize}
+        \item Uma maneira de se resolver uma relação de recorrência é observar alguns termos,
+            formular uma hipótese e demonstrar esta hipótese usando indução matemática
+
+        \item Por exemplo, se $h(n) = 2h(n - 1) + 1$, com $h(1) = 1$, então
+        \[
+            h(2) = 3,\ h(3) = 7,\ h(4) = 15,\ \ldots
+        \]
+
+        \item Pode se observar que, para estes termos, é possível formular a hipótese de que
+            $h(n) = 2^n - 1$
+
+        \item Para provar esta hipótese, primeiramente deve-se verificar o caso base:
+        \[
+            h(1) = 2^1 - 1 = 1,
+        \]
+        de modo que a hipótese vale para o caso base
+
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Resolução de recorrência por hipótese e demonstração}
+
+    \begin{itemize}
+        \item Suponha que a hipótese seja verdadeira para $m\in N$. Daí, usando a definição
+            recursiva de $h(n)$ e a hipótese, segue que
+        \[
+            h(m + 1) = 2h(m) + 1 = 2(2^m - 1) + 1 = 2^{m + 1} - 2 + 1 = 2^{m + 1} - 1,
+        \]
+        de modo que $h(m + 1)$ é verdadeira sempre que $h(m)$ for verdadeira
+
+        \item Assim, de acordo com o Princípio da Indução, a hipótese é verdadeira
+
+        \item Observe que, se a hipótese fosse falsa, ou ela falharia no caso base, ou não
+            seria possível provar a segunda parte da indução, isto é, que a veracidade para
+            $m$ implica a veracidade para $m + 1$
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Resolução de recorrência por expansão}
+
+    \begin{itemize}
+        \item Outra maneira de resolver uma relação de recorrência é aplicar a
+            recorrência em si mesmo, expandindo sua definição
+
+        \item Utilizando a mesma definição de $h(n)$, tem-se que
+        \begin{align*}
+            h(n) &= 2h(n - 1) + 1 \\
+            &= 2(2h(n - 2) + 1) + 1 = 4h(n - 2) + 3\\
+            &= 4(2h(n - 3) + 1) + 3 = 8h(n - 3) + 7\\
+            &\ldots
+        \end{align*}
+
+        \item Esta expansão leva a nova hipótese de que
+        \[
+            h(n) = 2^kh(n - k) + (2^k - 1),
+        \]
+        para $k$ natural
+
+        \item Esta hipótese pode ser provada por indução
+
+        \item Fazendo $k = (n - 1)$ e lembrando que $h(1) = 1$, segue que $h(n) = 2^n - 1$
+    \end{itemize}
+
+\end{frame}
