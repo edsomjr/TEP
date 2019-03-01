@@ -281,3 +281,134 @@ Output should be corresponding $M_n$, one per line.
     \end{itemize}
 
 \end{frame}
+
+\begin{frame}[fragile]{Solução WA usando a fórmula de Binet}
+    \inputsnippet{cpp}{1}{11}{binet.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Solução WA usando a fórmula de Binet}
+    \inputsnippet{cpp}{12}{32}{binet.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Exponenciação rápida de matrizes}
+
+    \begin{itemize}
+        \item Retornando à igualdade $u_{n + 1} = A^nu_0$, é possível computar $A^n$ com 
+            complexidade $O(\log n)$ sem o uso de autovetores
+
+        \item Basta observar que
+        \[
+            A^n = \left\lbrace \begin{array}{ll} A, & \mbox{se}\ n = 1 \\
+                A^{\frac{n}{2}}A^{\frac{n}{2}}, & \mbox{se}\ $n$\ \mbox{é par} \\ 
+                A^{\frac{n}{2}}A^{\frac{n}{2}}A, & \mbox{caso contrário}
+                \end{array}
+                \right.
+        \]
+
+        \item Vale a igualdade
+        \[
+            A^n = \begin{bmatrix} F_{n + 1} & F_n \\ F_n & F_{n - 1}\end{bmatrix},
+        \]
+        a qual pode ser provada por indução
+
+    \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{Exponenciação rápida de matrizes}
+
+    \begin{itemize}
+        \item Para $n = 1$ 
+        \[
+            A^1 = A = \begin{bmatrix} 1 & 1 \\ 1 & 0\end{bmatrix} = 
+            \begin{bmatrix} F_2 & F_1 \\ F_1 & F_0\end{bmatrix}
+        \]
+
+        \item Suponha que a afirmativa seja verdadeira para $m$ natural. Para $m+1$ segue que
+        \begin{align*}
+            A^{m + 1} = A^mA &= \begin{bmatrix} F_{m + 1} & F_m \\ F_m & F_{m - 1}\end{bmatrix}
+            \begin{bmatrix} 1 & 1 \\ 1 & 0\end{bmatrix} \\
+            &= \begin{bmatrix} F_{m + 1} + F_m & F_{m + 1} \\ F_m  + F_{m - 1}& F_m\end{bmatrix} \\
+            &= \begin{bmatrix} F_{m + 2} & F_{m + 1} \\ F_{m + 1} & F_{m}\end{bmatrix} \\
+        \end{align*}
+
+        \item Portanto a afirmativa é verdadeira para qualquer $n$ natural
+    \end{itemize}
+
+\end{frame}
+\begin{frame}[fragile]{Implementação recursiva da exponencição rápida de matrizes}
+    \inputcode{cpp}{fast_exp_recursive.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Implementação iterativa da exponencição rápida de matrizes}
+    \inputcode{cpp}{fast_exp.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Solução AC com complexidade $O(T\log n)$}
+    \inputsnippet{cpp}{1}{21}{matrix.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Solução AC com complexidade $O(T\log n)$}
+    \inputsnippet{cpp}{22}{42}{matrix.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Solução AC com complexidade $O(T\log n)$}
+    \inputsnippet{cpp}{43}{63}{matrix.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Relação entre números de Fibonacci}
+
+    \begin{itemize}
+        \item Da igualdade
+        \[
+            A^n = \begin{bmatrix} F_{n + 1} & F_n \\ F_n & F_{n - 1}\end{bmatrix} 
+        \]
+        e do fato de que $A^{m + n} = A^mA^n$ se que
+        \[
+            A^{n + m} = \begin{bmatrix} F_{m + 1} & F_m \\ F_m & F_{m - 1}\end{bmatrix} 
+            \begin{bmatrix} F_{n + 1} & F_n \\ F_n & F_{n - 1}\end{bmatrix} 
+        \]
+
+        \item Daí
+        \[
+            F_{n + m} = F_{m + 1}F_n + F_mF_{n - 1}
+        \]
+        e
+        \[
+            F_{n + m - 1} = F_mF_n + F_{m - 1}F_{n - 1}
+        \]
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Relação entre números de Fibonacci}
+
+    \begin{itemize}
+        \item Fazendo $n = 2k$ (isto é, $n$ é par), tem-se que
+        \begin{align*}
+            F_n &= F_{2k} = F_{k + k} = F_{k + 1}F_k + F_kF_{k - 1} \\
+            &= (F_k + F_{k - 1})F_k + F_kF_{k - 1} \\
+            &= (2F_{k - 1} + F_k)F_k
+        \end{align*}
+
+        \item Se $n = 2k - 1$, (isto é, $n$ é ímpar), 
+        \[
+            F_n = F_{2k - 1} = F_{k + k - 1} = F_{k}^2 + F_{k - 1}^2
+        \]
+
+        \item Estas identidades também permitem computar o $n$-ésimo número de Fibonacci com
+            complexidade $O(n)$, porém com uma codificação mais curta em relação à exponenciação
+            matricial rápida
+
+        \item Note que o número de valores intermediários a serem computados é inferior a
+            $4\log n$
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Solução $O(T\log n)$}
+    \inputsnippet{cpp}{1}{21}{cf.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Solução $O(T\log n)$}
+    \inputsnippet{cpp}{22}{42}{cf.cpp}
+\end{frame}

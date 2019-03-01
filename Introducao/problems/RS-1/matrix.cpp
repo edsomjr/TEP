@@ -23,8 +23,7 @@ Matrix fast_pow_mod(const Matrix& A, int n, int m)
 {
     auto res = Matrix(1, 0, 0, 1, m), base = A;
 
-    while (n)
-    {
+    while (n) {
         if (n & 1)
             res = res * base;
 
@@ -39,7 +38,6 @@ int fib(int n, int m)
 {
     auto A = Matrix(1, 1, 1, 0, m);
     auto F = fast_pow_mod(A, n, m);
-
     return F.b;
 }
 

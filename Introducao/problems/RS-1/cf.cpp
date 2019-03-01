@@ -7,9 +7,6 @@ std::map<ll, ll> fibs;
 
 ll fib(ll n, ll M)
 {
-    if (n < 2)
-        return n % M;
-
     if (fibs.count(n))
         return fibs[n];
 
@@ -33,7 +30,10 @@ int main()
         fibs.clear();
         auto M = (1LL << m);
 
-        std::cout << fib(n, M) << std::endl;
+        fibs[0] = 0;
+        fibs[1] = 1 % M;
+
+        std::cout << fib(n, M) << '\n';
     }
 
     return 0;
