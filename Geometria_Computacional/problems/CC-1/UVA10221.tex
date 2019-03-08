@@ -1,0 +1,101 @@
+\section{UVA 10221 -- Satellites}
+
+\begin{frame}[fragile]{Problema}
+
+\begin{minipage}{0.45\textwidth}
+The radius of earth is 6440 Kilometer. There are many Satellites
+and Asteroids moving around the earth. If two Satellites create
+an angle with the center of earth, can you find out the \textit{distance}
+between them? By \textit{distance} we mean both the \textit{arc} and \textit{chord}
+distances. Both satellites are on the same orbit (However, please
+consider that they are revolving on a circular path rather than
+an elliptical path).
+\end{minipage}
+\begin{minipage}{0.5\textwidth}
+\begin{center}
+\includegraphics[scale=0.75]{figure.png}
+\end{center}
+\end{minipage}
+
+\end{frame}
+
+\begin{frame}[fragile]{Entrada e saída}
+
+\textbf{Input}
+
+The input file will contain one or more test cases.
+
+Each test case consists of one line containing two-integer $s$
+and $a$, and a string ‘\texttt{min}’ or ‘\texttt{deg}’. Here $s$ is the distance of the
+satellite from the surface of the earth and $a$ is the angle that the
+satellites make with the center of earth. It may be in minutes ($'$) or in degrees (\textdegree). Remember that the
+same line will never contain minute and degree at a time.
+
+\textbf{Output}
+
+For each test case, print one line containing the required distances i.e. both arc \textit{distance}
+ and \textit{chord distance} respectively between two satellites in Kilometer. The distance will be a floating-point value
+with six digits after decimal point.
+
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de entradas e saídas}
+
+\begin{minipage}[t]{0.5\textwidth}
+\textbf{Sample Input}
+\begin{verbatim}
+500 30 deg
+700 60 min
+200 45 deg
+\end{verbatim}
+\end{minipage}
+\begin{minipage}[t]{0.45\textwidth}
+\textbf{Sample Output}
+\begin{verbatim}
+3633.775503 3592.408346
+124.616509 124.614927
+5215.043805 5082.035982
+\end{verbatim}
+\end{minipage}
+\end{frame}
+
+\begin{frame}[fragile]{Solução}
+
+    \begin{itemize}
+        \item A primeira etapa da solução é uniformizar as unidades de medida
+
+        \item Sabendo que um grau tem 60 minutos, a conversão de $x$ minutos para $y$ graus é
+        \[
+            y = \frac{x}{60}
+        \]
+
+        \item Sabendo que $\pi$ radianos correspondem a 180\textdegree, segue que o ângulo $\alpha$,
+            em radianos, será de
+        \[
+            \alpha = \frac{a\pi}{180}
+        \]
+
+        \item O comprimento $c$ do arco será dado por
+        \[
+            c = \alpha R,
+        \]
+        onde $R$ é o raio até o satélite, isto é, $r + s$
+
+        \item A corda terá comprimento $L$ igual a
+        \[
+            L = 2R\sin(\frac{\alpha}{2})
+        \]
+
+        \item Com estas informações, a solução terá complexidade $O(T)$, onde $T$ é o número de
+            casos de teste
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Solução AC com complexidade $O(T)$}
+    \inputsnippet{cpp}{1}{21}{10221.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Solução AC com complexidade $O(T)$}
+    \inputsnippet{cpp}{23}{43}{10221.cpp}
+\end{frame}
