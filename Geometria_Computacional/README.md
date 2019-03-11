@@ -20,3 +20,4 @@ Slides
     1. [Retas](slides/LN-1/LN-1.pdf)
     1. [Retas: Algoritmos](slides/LN-2/LN-2.pdf)
     1. [Círculos](slides/CC-1/CC-1.pdf)
+    1. [Círculos: Algoritmos](slides/CC-2/CC-2.pdf)

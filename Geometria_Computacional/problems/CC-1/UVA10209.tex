@@ -1,0 +1,117 @@
+\section{UVA 10209 -- Is This Integration?}
+
+\begin{frame}[fragile]{Problema}
+
+\begin{minipage}{0.45\textwidth}
+In the image below you can see a square $ABCD$,
+where $AB = BC = CD = DA = a$. Four arcs
+are drawn taking the four vertexes $A, B, C, D$
+as centers and $a$ as the radius. The arc that is
+drawn taking $A$ as center, starts at neighboring
+vertex $B$ and ends at neighboring vertex $D$. All
+other arcs are drawn in a similar fashion. Regions of three different shapes are created in
+this fashion. You will have to determine the
+total area these different shaped regions.
+\end{minipage}
+\begin{minipage}{0.5\textwidth}
+\begin{center}
+\includegraphics[scale=0.75]{figure2.png}
+\end{center}
+\end{minipage}
+
+\end{frame}
+
+\begin{frame}[fragile]{Entrada e saída}
+
+\textbf{Input}
+
+The input file contains a floating-point number
+$a (0 \leq a \leq 10000)$ in each line which indicates
+the length of one side of the square. Input is
+terminated by end of file.
+
+\textbf{Output}
+
+For each line of input, output in a single line
+the total area of the three types of region (filled with different patterns in the image above).
+
+These three numbers will of course be floating point numbers with three digits after the decimal
+point. First number will denote the area of the striped region, the second number will denote the total
+area of the dotted regions and the third number will denote the area of the rest of the regions.
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de entradas e saídas}
+
+\begin{minipage}[t]{0.5\textwidth}
+\textbf{Sample Input}
+\begin{verbatim}
+0.1
+0.2
+0.3
+\end{verbatim}
+\end{minipage}
+\begin{minipage}[t]{0.45\textwidth}
+\textbf{Sample Output}
+\begin{verbatim}
+0.003 0.005 0.002
+0.013 0.020 0.007
+0.028 0.046 0.016
+\end{verbatim}
+\end{minipage}
+\end{frame}
+
+\begin{frame}[fragile]{Solução}
+
+    \begin{itemize}
+        \item Observe, inicialmente, que a área tracejada é composta por um quadrado cujo lado 
+            é o comprimento da corda $c$ gerada por um ângulo igual a um terço de $\pi/2$ , somado 
+            a quatro segmentos $g$
+
+        \item Assim, $A_T = c^2 - 4g$, onde
+        \begin{align*}
+            c &= 2a\sin\left(\frac{\pi}{6}\right) \\
+            s &= \frac{a + a + c}{2} \\
+            T &= \sqrt{(s - a)(s - a)(s - c)} \\
+            S &= \frac{\pi a^2}{12}  \\
+            g &= S - T
+        \end{align*}
+
+        \item Já a área pontilhada é a metade do que resta quando subtraída, da área de um 
+            semi-círculo de raio $a$, a área de um quadrado de lado $a$ e a área tracejada
+    \end{itemize}
+
+\end{frame}
+
+
+\begin{frame}[fragile]{Solução}
+
+    \begin{itemize}
+        \item Portanto,
+        \[
+            A_P = \frac{\pi a^2}{2} - a^2 - A_T
+        \]
+
+        \item Por fim, a área restante $A_R$ é o que sobra da diferença entre a área de um
+            quadrado de lado $a$ e as duas áreas já computadas
+
+        \item Logo,
+        \[
+            A_R = a^2 - A_T - A_P
+        \]
+
+        \item As expressões apresentadas permitem a implementação de uma solução $O(T)$, onde
+            $T$ é o número de casos de teste
+    \end{itemize}
+
+\end{frame}
+\begin{frame}[fragile]{Solução AC com complexidade $O(T)$}
+    \inputsnippet{cpp}{1}{21}{10209.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Solução AC com complexidade $O(T)$}
+    \inputsnippet{cpp}{22}{36}{10209.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Solução AC com complexidade $O(T)$}
+    \inputsnippet{cpp}{37}{57}{10209.cpp}
+\end{frame}
