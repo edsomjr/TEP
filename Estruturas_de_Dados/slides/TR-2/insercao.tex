@@ -24,12 +24,157 @@
     \end{itemize}
 \end{frame} 
 
-\begin{frame}[fragile]{Implementação da inserção em uma BST}
-    \inputsnippet{cpp}{53}{71}{insert.cpp}
+\begin{frame}[fragile]{Exemplo de inserção em árvore binária de busca}
+
+    \begin{tikzpicture}
+
+        \begin{scope}{shift={(3,1)}}
+            \node (X) at (1, 6) { Elemento a ser inserido: \textcolor{blue}{14}};
+
+            \node[circle,draw] (D) at (4, 5) { $25$ };
+            \node[circle,draw] (C) at (2, 3) { $9$ };
+            \node[circle,draw] (E) at (6, 3) { $63$ };
+            \node[circle,draw] (F) at (5, 1) { $47$ };
+            \node[circle,draw] (A) at (1, 1) { $1$ };
+            \node[circle,draw] (B) at (3, 1) { $23$ };
+            \node[circle,draw] (G) at (7, 1) { $80$ };
+            \node[opacity=0,circle,draw] (H) at (2, -1) { $14$ };
+
+            \draw (A) -- (C);
+            \draw (B) -- (C);
+            \draw (C) -- (D);
+            \draw (D) -- (E);
+            \draw (E) -- (F);
+            \draw (E) -- (G);
+            \draw[opacity=0] (B) -- (H);
+
+        \end{scope}
+    \end{tikzpicture}
+
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de inserção em árvore binária de busca}
+
+    \begin{tikzpicture}
+
+        \begin{scope}{shift={(3,1)}}
+            \node (X) at (1, 6) { Elemento a ser inserido: \textcolor{blue}{14}};
+
+            \node[circle,draw,fill=green!30] (D) at (4, 5) { $25$ };
+            \node[circle,draw] (C) at (2, 3) { $9$ };
+            \node[circle,draw] (E) at (6, 3) { $63$ };
+            \node[circle,draw] (F) at (5, 1) { $47$ };
+            \node[circle,draw] (A) at (1, 1) { $1$ };
+            \node[circle,draw] (B) at (3, 1) { $23$ };
+            \node[circle,draw] (G) at (7, 1) { $80$ };
+            \node[opacity=0,circle,draw] (H) at (2, -1) { $14$ };
+
+            \draw (A) -- (C);
+            \draw (B) -- (C);
+            \draw (C) -- (D);
+            \draw (D) -- (E);
+            \draw (E) -- (F);
+            \draw (E) -- (G);
+            \draw[opacity=0] (B) -- (H);
+
+        \end{scope}
+    \end{tikzpicture}
+
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de inserção em árvore binária de busca}
+
+    \begin{tikzpicture}
+
+        \begin{scope}{shift={(3,1)}}
+            \node (X) at (1, 6) { Elemento a ser inserido: \textcolor{blue}{14}};
+
+            \node[circle,draw,fill=gray!30] (D) at (4, 5) { $25$ };
+            \node[circle,draw,fill=red!30] (C) at (2, 3) { $9$ };
+            \node[circle,draw] (E) at (6, 3) { $63$ };
+            \node[circle,draw] (F) at (5, 1) { $47$ };
+            \node[circle,draw] (A) at (1, 1) { $1$ };
+            \node[circle,draw] (B) at (3, 1) { $23$ };
+            \node[circle,draw] (G) at (7, 1) { $80$ };
+            \node[opacity=0,circle,draw] (H) at (2, -1) { $14$ };
+
+            \draw (A) -- (C);
+            \draw (B) -- (C);
+            \draw (C) -- (D);
+            \draw (D) -- (E);
+            \draw (E) -- (F);
+            \draw (E) -- (G);
+            \draw[opacity=0] (B) -- (H);
+
+        \end{scope}
+    \end{tikzpicture}
+
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de inserção em árvore binária de busca}
+
+    \begin{tikzpicture}
+
+        \begin{scope}{shift={(3,1)}}
+            \node (X) at (1, 6) { Elemento a ser inserido: \textcolor{blue}{14}};
+
+            \node[circle,draw,fill=gray!30] (D) at (4, 5) { $25$ };
+            \node[circle,draw,fill=gray!30] (C) at (2, 3) { $9$ };
+            \node[circle,draw] (E) at (6, 3) { $63$ };
+            \node[circle,draw] (F) at (5, 1) { $47$ };
+            \node[circle,draw] (A) at (1, 1) { $1$ };
+            \node[circle,draw,fill=green!30] (B) at (3, 1) { $23$ };
+            \node[circle,draw] (G) at (7, 1) { $80$ };
+            \node[opacity=0,circle,draw] (H) at (2, -1) { $14$ };
+
+            \draw (A) -- (C);
+            \draw (B) -- (C);
+            \draw (C) -- (D);
+            \draw (D) -- (E);
+            \draw (E) -- (F);
+            \draw (E) -- (G);
+            \draw[opacity=0] (B) -- (H);
+
+        \end{scope}
+    \end{tikzpicture}
+
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de inserção em árvore binária de busca}
+
+    \begin{tikzpicture}
+
+        \begin{scope}{shift={(3,1)}}
+            \node (X) at (1, 6) { Elemento a ser inserido: \textcolor{blue}{14}};
+
+            \node[circle,draw,fill=gray!30] (D) at (4, 5) { $25$ };
+            \node[circle,draw,fill=gray!30] (C) at (2, 3) { $9$ };
+            \node[circle,draw] (E) at (6, 3) { $63$ };
+            \node[circle,draw] (F) at (5, 1) { $47$ };
+            \node[circle,draw] (A) at (1, 1) { $1$ };
+            \node[circle,draw,fill=gray!30] (B) at (3, 1) { $23$ };
+            \node[circle,draw] (G) at (7, 1) { $80$ };
+            \node[circle,draw,fill=blue!30] (H) at (2, -1) { $14$ };
+
+            \draw (A) -- (C);
+            \draw (B) -- (C);
+            \draw (C) -- (D);
+            \draw (D) -- (E);
+            \draw (E) -- (F);
+            \draw (E) -- (G);
+            \draw (B) -- (H);
+
+        \end{scope}
+    \end{tikzpicture}
+
 \end{frame}
 
 \begin{frame}[fragile]{Implementação da inserção em uma BST}
-    \inputsnippet{cpp}{72}{80}{insert.cpp}
+    \inputsnippet{cpp}{1}{21}{insert.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Implementação da inserção em uma BST}
+    \inputsnippet{cpp}{22}{42}{insert.cpp}
 \end{frame}
 
 \begin{frame}[fragile]{Notas sobre a inserção}
