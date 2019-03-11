@@ -11,7 +11,7 @@ struct Circle {
     // Membros e construtores
 
     static std::optional<Circle>
-    from_2_points_and_r(const Point& P, const Point& Q, T r, Circle& c)
+    from_2_points_and_r(const Point<T>& P, const Point<T>& Q, T r)
     {
         double d2 = (P.x - Q.x) * (P.x - Q.x) + (P.y - Q.y) * (P.y - Q.y);
         double det = r * r / d2 - 0.25;

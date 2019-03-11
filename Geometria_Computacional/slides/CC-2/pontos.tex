@@ -27,7 +27,7 @@
     \inputcode{cpp}{position.cpp}
 \end{frame}
 
-\begin{frame}[fragile]{Construção de círculos a partir de pontos}
+\begin{frame}[fragile]{Construção de círculos a partir de dois pontos}
 
     \begin{itemize}
         \item É possível identificar o(s) círculo(s) que interceptam um conjunto de $N$ pontos dados
@@ -199,4 +199,62 @@
         \end{align*}
     \end{itemize}
 
+\end{frame}
+
+\begin{frame}[fragile]{Construção de círculos a partir de três pontos}
+
+    \begin{itemize}
+        \item Para o caso $N = 3$ há uma interessante relação: se os pontos $P, Q, R$ não são 
+            colineares, a equação do círculo que passa por estes três pontos pode ser expressa pelo determinante 
+        \[
+            D = \begin{vmatrix}
+                x^2 + y^2 & x & y & 1 \\
+                P_x^2 + P_y^2 & P_x & P_y & 1 \\
+                Q_x^2 + Q_y^2 & Q_x & Q_y & 1 \\
+                R_x^2 + R_y^2 & R_x & R_y & 1 \\
+            \end{vmatrix}
+        \]
+
+        \item Este determinante também pode ser utilizado para determinar se 4 pontos são cocirculares, substituindo as coordenadas do quarto ponto nas variáveis da primeira linha
+
+        \item Contudo, a implementação desta determinante não é trivial, uma vez que é preciso recorrer a cofatores, e o resultado final não fica na forma canônica, de onde são extraídas as informações sobre o raio e o centro
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Construção de círculos a partir de três pontos}
+    \begin{itemize}
+        \item Uma outra abordagem é observar que a distância entre os três pontos e o centro do círculo são iguais, isto é, 
+        \[\mathrm{dist}(P, C) = \mathrm{dist}(Q, C)\ \ \mbox{e}\ \ \mathrm{dist}(P, C) = \mathrm{dist}(R, C)
+        \]
+
+        \item A expansão dos quadrados das duas igualdades acima leva a um sistema linear em 
+            relação as coordenadas do centro, pois
+        \[
+            \left\lbrace \begin{array}{l}
+                (x - x_P)^2 + (y - y_P)^2 = (x - x_Q)^2 + (y - y_Q)^2 \\
+                (x - x_P)^2 + (y - y_P)^2 = (x - x_R)^2 + (y - y_R)^2 \\
+            \end{array}
+            \right.
+        \]
+        corresponde a
+        \[
+            \left\lbrace \begin{array}{l}
+                (2x_Q - 2x_P)x + (2y_Q - 2x_Q)y = (x_Q^2 + y_Q^2) - (x_P^2 + y_P^2) \\
+                (2x_R - 2x_P)x + (2y_R - 2x_R)y = (x_R^2 + y_R^2) - (x_P^2 + y_P^2) \\
+            \end{array}
+            \right.
+        \]
+
+        \item Determinado o centro, o raio será a distância entre qualquer um dos pontos e o centro
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Construção de um círculo a partir de 3 pontos}
+    \inputsnippet{cpp}{1}{21}{from_3_points.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Construção de um círculo a partir de 3 pontos}
+    \inputsnippet{cpp}{22}{42}{from_3_points.cpp}
 \end{frame}
