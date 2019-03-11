@@ -26,7 +26,5 @@ Slides
     1. [Algoritmos de Busca](slides/BO-1/BO-1.pdf)
     1. [Algoritmos de Ordenação Quadráticos](slides/BO-2/BO-2.pdf)
     1. [Ordenação em C/C++](slides/BO-4/BO-4.pdf)
-1. Recursão
-    1. [Recursão](slides/RS-1/RS-1.pdf)
-1. Referências
-    1. [Leituras Recomendadas](slides/BB-1/BB-1.pdf)
+1. [Recursão](slides/RS-1/RS-1.pdf)
+1. [Leituras Recomendadas](slides/BB-1/BB-1.pdf)
