@@ -18,6 +18,12 @@ private:
 
     Node *root;
 
+    int size(const Node *node) const
+    {
+        return node ?  size(node->left) + size(node->right) + 1 : 0;
+    }
+
+
     void bfs(Node *node) const
     {
         using pi = std::pair<Node *, int>;
@@ -140,6 +146,8 @@ std::cout << "Info = " << node->info << ", temp = " << (*temp)->info << '\n';
 public:
     BST() : root(nullptr) {}
 
+    int size() const { return size(root); }
+
     void insert(const T& info)
     {
         Node *node = root, *prev = nullptr;
@@ -208,9 +216,10 @@ int main()
     tree.insert(7);
 
     std::cout << tree << '\n';
-
+    std::cout << tree.size() << '\n';
     tree.erase(4);
 
     std::cout << tree << '\n';
+    std::cout << tree.size() << '\n';
     return 0;
 }
