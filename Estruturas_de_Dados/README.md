@@ -29,5 +29,5 @@ Slides
     2. [Filas](slides/PF-2/PF-2.pdf)
 1. Árvores
     1. [Árvores Binárias: Definição](slides/TR-1/TR-1.pdf)
-    1. [Árvores Binárias: Inserção e Remoção](slides/TR-2/TR-2.pdf)
-    1. [Árvores Binárias: Busca e Travessia](slides/TR-3/TR-3.pdf)
+    1. [Árvores Binárias de Busca: Inserção e Remoção](slides/TR-2/TR-2.pdf)
+    1. [Árvores Binárias de Busca: Busca e Travessia](slides/TR-3/TR-3.pdf)
