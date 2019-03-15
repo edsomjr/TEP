@@ -48,7 +48,7 @@
 \begin{frame}[fragile]{Equação reduzida a partir de dois pontos dados}
 
     \begin{itemize}
-        \item Dados dois pontos $P = (x_p, y_p)$ e $Q = (x_q, y_q)$ tais que $x_p \neq y_p$, 
+        \item Dados dois pontos $P = (x_p, y_p)$ e $Q = (x_q, y_q)$ tais que $x_p \neq x_q$, 
         a inclinação da reta é dada por
         \[
             m = \frac{y_q - y_p}{x_q - x_p}
@@ -59,7 +59,8 @@
             y = m(x - x_p) + y_p = mx + (y_p - mx_p)
         \]
 
-        \item Se $x_p = y_p$, a reta é vertical
+        \item Se $x_p = x_q$, a reta é vertical
+
 
         \item Retas verticais podem ser tratadas por meio de uma variável booleana que indica
             se a reta é vertical ou não
