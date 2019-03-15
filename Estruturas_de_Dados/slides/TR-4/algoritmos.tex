@@ -1,0 +1,34 @@
+\section{Algoritmos de balanceamento}
+
+\begin{frame}[fragile]{Balanceamento por inserção}
+
+    \begin{itemize}
+        \item Uma maneira de garantir o balanceamento de uma árvore binária de busca
+                é utilizar um processo de
+            inserção controlada, de modo que ao final das inserções a árvore resultante esteja
+            balanceada
+
+        \item Futuras inserções ou remoções podem resultar no desbalanceamento da árvore
+
+        \item Esta estratégia é útil quando os elementos a serem inseridos são conhecidos de
+            antemão e quando não haverão novas inserções ou remoções
+
+        \item O algoritmo $O(N\log N)$ que resulta em uma árvore balanceada é
+        \begin{enumerate}
+            \item armazene os $N$ elementos a serem inseridos em um vetor $v$
+            \item ordene $v$ em ordem crescente
+            \item insira o elemento central $x$ do vetor na árvore
+            \item continue o processo no subvetor à esquerda de $x$
+            \item finalize o processo no subvetor à direita de $x$
+        \end{enumerate}
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Algoritmo de inserção balanceada}
+    \inputsnippet{cpp}{1}{21}{balanced_insertion.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Algoritmo de inserção balanceada}
+    \inputsnippet{cpp}{22}{42}{balanced_insertion.cpp}
+\end{frame}
