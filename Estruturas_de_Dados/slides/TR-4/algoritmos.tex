@@ -32,3 +32,525 @@
 \begin{frame}[fragile]{Algoritmo de inserção balanceada}
     \inputsnippet{cpp}{22}{42}{balanced_insertion.cpp}
 \end{frame}
+
+\begin{frame}[fragile]{Notas sobre o algoritmo de balanceamento por inserção}
+
+	\begin{itemize}
+		\item O algoritmo proposto tem duas grandes {desvantagens}: é necessário {armazenar} os 
+            elementos antes da inserção na árvore e ordenar dos elementos armazenados
+
+		\item Se a árvore já tiver sido construída previamente, uma solução é {preencher} um vetor 
+            atráves de uma travessia {em-order}, {destruir} a árvore e {reconstruí-la}
+
+		\item A solução apresentada {remove} a necessidade de ordenamento, uma vez que a 
+            travessia {em-order} garante que o vetor estará {ordenado}
+
+        \item Outro ponto importante é que futuras inserções podem desfazer o balanceamento da árvore
+	\end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Algoritmo DSW}
+
+	\begin{itemize}
+		\item O algoritmo DSW foi proposto por {Colin Day} e melhorado por {Quentin F. Stout} e {Bete L. Warren}
+
+		\item Ele consiste no {reposicionamento} dos nós através de operações de {rotação} do 
+            filho \code{c}{C} em torno do seu pai \code{c}{P}, o que pode pode envolver seu avô 
+            \code{c}{G}
+
+		\item A rotação pode ser feita tanto para a {esquerda} quanto para a {direita}
+
+        \item Na rotação à esquerda, o filho (inicialmente à direita do pai) passa a ocupar a 
+            posição do pai, que se torna seu filho à esquerda
+
+        \item Caso o filho tenha uma subárvore à esquerda antes da rotação, esta subárvore se
+            torna o filho à direita do pai, após a rotação
+
+        \item A rotação à direita faz processo simétrico, no sentido horário
+	\end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Implementação da rotação à esquerda}
+    \inputcode{cpp}{rotate_left.cpp}
+\end{frame}
+
+
+\begin{frame}[fragile]{Implementação da rotação à direita}
+    \inputcode{cpp}{rotate_right.cpp}
+\end{frame}
+
+\begin{frame}
+\frametitle{Exemplo de rotação à direita}
+
+    \begin{tikzpicture}
+        \begin{scope}{shift={(3,0)}}
+            \node[opacity=0] (X) at (-1, 2) { $1$ };
+            \node[circle,draw,fill=blue!30] (A) at (4, 8) { G };
+            \node[circle,draw] (B) at (2, 6) { 1 };
+            \node[circle,draw,fill=red!30] (C) at (6, 6) { P };
+            \node[circle,draw,fill=green!30] (D) at (5, 4) { C };
+            \node[circle,draw] (E) at (7, 4) { 2 };
+            \node[circle,draw] (F) at (4, 2) { 3 };
+            \node[circle,draw] (G) at (6, 2) { 4 };
+
+            \draw (A) -- (B);
+            \draw (A) -- (C);
+            \draw (C) -- (D);
+            \draw (C) -- (E);
+            \draw (D) -- (F);
+            \draw (D) -- (G);
+        \end{scope}
+    \end{tikzpicture}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Exemplo de rotação à direita}
+
+    \begin{tikzpicture}
+        \begin{scope}{shift={(3,0)}}
+            \node[opacity=0] (X) at (-1, 2) { $1$ };
+            \node[circle,draw,fill=blue!30] (A) at (4, 8) { G };
+            \node[circle,draw] (B) at (2, 6) { 1 };
+            \node[circle,draw,fill=red!30] (C) at (8, 6) { P };
+            \node[circle,draw,fill=green!30] (D) at (6, 6) { C };
+            \node[circle,draw] (E) at (9, 4) { 2 };
+            \node[circle,draw] (F) at (5, 4) { 3 };
+            \node[circle,draw] (G) at (7, 4) { 4 };
+
+            \draw (A) -- (B);
+            \draw (A) -- (D);
+            \draw (C) -- (E);
+            \draw (D) -- (F);
+            \draw (D) -- (G);
+        \end{scope}
+    \end{tikzpicture}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Exemplo de rotação à direita}
+
+    \begin{tikzpicture}
+        \begin{scope}{shift={(3,0)}}
+            \node[opacity=0] (X) at (-1, 2) { $1$ };
+            \node[circle,draw,fill=blue!30] (A) at (4, 8) { G };
+            \node[circle,draw] (B) at (2, 6) { 1 };
+            \node[circle,draw,fill=red!30] (C) at (8, 6) { P };
+            \node[circle,draw,fill=green!30] (D) at (6, 6) { C };
+            \node[circle,draw] (E) at (9, 4) { 2 };
+            \node[circle,draw] (F) at (5, 4) { 3 };
+            \node[circle,draw] (G) at (7, 4) { 4 };
+
+            \draw (A) -- (B);
+            \draw (A) -- (D);
+            \draw (C) -- (E);
+            \draw (D) -- (F);
+            \draw (C) -- (G);
+        \end{scope}
+    \end{tikzpicture}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Exemplo de rotação à direita}
+
+    \begin{tikzpicture}
+        \begin{scope}{shift={(3,0)}}
+            \node[opacity=0] (X) at (-1, 2) { $1$ };
+            \node[circle,draw,fill=blue!30] (A) at (4, 8) { G };
+            \node[circle,draw] (B) at (2, 6) { 1 };
+            \node[circle,draw,fill=red!30] (C) at (7, 4) { P };
+            \node[circle,draw,fill=green!30] (D) at (6, 6) { C };
+            \node[circle,draw] (E) at (8, 2) { 2 };
+            \node[circle,draw] (F) at (5, 4) { 3 };
+            \node[circle,draw] (G) at (6, 2) { 4 };
+
+            \draw (A) -- (B);
+            \draw (A) -- (D);
+            \draw (C) -- (E);
+            \draw (C) -- (D);
+            \draw (D) -- (F);
+            \draw (C) -- (G);
+        \end{scope}
+    \end{tikzpicture}
+
+\end{frame}
+
+\begin{frame}{Algoritmo DSW}
+
+	\begin{itemize}
+		\item O algoritmo DSW é composto por duas etapas
+
+        \item A primeira delas consiste em {transformar} a árvore em uma lista encadeada 
+            denominada {espinha dorsal} (\textit{backbone})
+
+        \item Em seguida o algoritmo transforma esta espinha dorsal numa árvore {perfeitamente} 
+            balanceada
+
+		\item Estas duas etapas são realizada através do uso das {rotações} descritas anteriormente
+
+        \item Cada rotação preserva a estrutura da árvore binária de busca, mudando contudo sua
+            forma
+	\end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Geração da espinha dorsal}
+
+    \begin{itemize}
+        \item A espinha dorsal é gerada através de sucessivas aplicações de rotações à direita
+
+        \item Inicialmente se inicializa o filho \code{c}{C} na raiz da árvore 
+            (naturalmente, o pai \code{c}{P} e o avô \code{c}{G} são inicialmente nulos)
+
+        \item Se \code{c}{C} tem um filho à esquerda, este passa a ser o filho e \code{c}{C} passa
+            a ser o pai, e em seguida é aplicada uma rotação à direita
+
+        \item \textit{Corner case}: se, no início do passo anterior, \code{c}{C} era a raiz da
+            árvore, a raiz deve apontar para o filho à esquerda antes da rotação
+
+        \item Se \code{c}{C} não tem filhos à esquerda, 
+            \code{c}{G} passa a armazenar o valor de \code{c}{C} e \code{c}{C}
+            passa a apontar para o seu filho à direita
+
+        \item Quando \code{c}{C} apontar para nulo, a árvore estará completamente degenerada,
+            formando a espinha dorsal
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Exemplo de árvore desbalanceada}
+
+    \begin{tikzpicture}
+        \begin{scope}{shift={(3,0)}}
+            \node[opacity=0] (X) at (1, 2) { $1$ };
+            \node[circle,draw] (A) at (4, 8) { 20 };
+            \node[circle,draw] (B) at (2, 7) { 10 };
+            \node[circle,draw] (C) at (7, 6) { 48 };
+            \node[circle,draw] (D) at (6, 7) { 30 };
+            \node[circle,draw] (E) at (8, 5) { 55 };
+            \node[circle,draw] (F) at (5, 6) { 22 };
+            \node[circle,draw] (G) at (6, 5) { 39 };
+
+            \draw (A) -- (B);
+            \draw (A) -- (D);
+            \draw (C) -- (E);
+            \draw (C) -- (D);
+            \draw (D) -- (F);
+            \draw (C) -- (G);
+        \end{scope}
+    \end{tikzpicture}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Exemplo de geração do backbone}
+
+    \begin{tikzpicture}
+        \begin{scope}{shift={(3,0)}}
+            \node[opacity=0] (X) at (1, 2) { $1$ };
+            \node[circle,draw,fill=red!30] (A) at (4, 8) { 20 };
+            \node[circle,draw,fill=green!30] (B) at (2, 7) { 10 };
+            \node[circle,draw] (C) at (7, 6) { 48 };
+            \node[circle,draw] (D) at (6, 7) { 30 };
+            \node[circle,draw] (E) at (8, 5) { 55 };
+            \node[circle,draw] (F) at (5, 6) { 22 };
+            \node[circle,draw] (G) at (6, 5) { 39 };
+
+            \draw (A) -- (B);
+            \draw (A) -- (D);
+            \draw (C) -- (E);
+            \draw (C) -- (D);
+            \draw (D) -- (F);
+            \draw (C) -- (G);
+        \end{scope}
+    \end{tikzpicture}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Exemplo de geração do backbone}
+
+    \begin{tikzpicture}
+        \begin{scope}{shift={(3,0)}}
+            \node[opacity=0] (X) at (1, 2) { $1$ };
+            \node[circle,draw,fill=red!30] (A) at (5, 7) { 20 };
+            \node[circle,draw,fill=green!30] (B) at (4, 8) { 10 };
+            \node[circle,draw] (C) at (7, 5) { 48 };
+            \node[circle,draw] (D) at (6, 6) { 30 };
+            \node[circle,draw] (E) at (8, 4) { 55 };
+            \node[circle,draw] (F) at (5, 5) { 22 };
+            \node[circle,draw] (G) at (6, 4) { 39 };
+
+            \draw (A) -- (B);
+            \draw (A) -- (D);
+            \draw (C) -- (E);
+            \draw (C) -- (D);
+            \draw (D) -- (F);
+            \draw (C) -- (G);
+        \end{scope}
+    \end{tikzpicture}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Exemplo de geração do backbone}
+
+    \begin{tikzpicture}
+        \begin{scope}{shift={(3,0)}}
+            \node[opacity=0] (X) at (1, 2) { $1$ };
+            \node[circle,draw,fill=green!30] (A) at (5, 7) { 20 };
+            \node[circle,draw,fill=blue!30] (B) at (4, 8) { 10 };
+            \node[circle,draw] (C) at (7, 5) { 48 };
+            \node[circle,draw] (D) at (6, 6) { 30 };
+            \node[circle,draw] (E) at (8, 4) { 55 };
+            \node[circle,draw] (F) at (5, 5) { 22 };
+            \node[circle,draw] (G) at (6, 4) { 39 };
+
+            \draw (A) -- (B);
+            \draw (A) -- (D);
+            \draw (C) -- (E);
+            \draw (C) -- (D);
+            \draw (D) -- (F);
+            \draw (C) -- (G);
+        \end{scope}
+    \end{tikzpicture}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Exemplo de geração do backbone}
+
+    \begin{tikzpicture}
+        \begin{scope}{shift={(3,0)}}
+            \node[opacity=0] (X) at (1, 2) { $1$ };
+            \node[circle,draw,fill=blue!30] (A) at (5, 7) { 20 };
+            \node[circle,draw] (B) at (4, 8) { 10 };
+            \node[circle,draw] (C) at (7, 5) { 48 };
+            \node[circle,draw,fill=green!30] (D) at (6, 6) { 30 };
+            \node[circle,draw] (E) at (8, 4) { 55 };
+            \node[circle,draw] (F) at (5, 5) { 22 };
+            \node[circle,draw] (G) at (6, 4) { 39 };
+
+            \draw (A) -- (B);
+            \draw (A) -- (D);
+            \draw (C) -- (E);
+            \draw (C) -- (D);
+            \draw (D) -- (F);
+            \draw (C) -- (G);
+        \end{scope}
+    \end{tikzpicture}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Exemplo de geração do backbone}
+
+    \begin{tikzpicture}
+        \begin{scope}{shift={(3,0)}}
+            \node[opacity=0] (X) at (1, 2) { $1$ };
+            \node[circle,draw,fill=blue!30] (A) at (5, 7) { 20 };
+            \node[circle,draw] (B) at (4, 8) { 10 };
+            \node[circle,draw] (C) at (7, 5) { 48 };
+            \node[circle,draw,fill=red!30] (D) at (6, 6) { 30 };
+            \node[circle,draw] (E) at (8, 4) { 55 };
+            \node[circle,draw,fill=green!30] (F) at (5, 5) { 22 };
+            \node[circle,draw] (G) at (6, 4) { 39 };
+
+            \draw (A) -- (B);
+            \draw (A) -- (D);
+            \draw (C) -- (E);
+            \draw (C) -- (D);
+            \draw (D) -- (F);
+            \draw (C) -- (G);
+        \end{scope}
+    \end{tikzpicture}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Exemplo de geração do backbone}
+
+    \begin{tikzpicture}
+        \begin{scope}{shift={(3,0)}}
+            \node[opacity=0] (X) at (1, 2) { $1$ };
+            \node[circle,draw,fill=blue!30] (A) at (5, 7) { 20 };
+            \node[circle,draw] (B) at (4, 8) { 10 };
+            \node[circle,draw] (C) at (8, 4) { 48 };
+            \node[circle,draw,fill=red!30] (D) at (7, 5) { 30 };
+            \node[circle,draw] (E) at (9, 3) { 55 };
+            \node[circle,draw,fill=green!30] (F) at (6, 6) { 22 };
+            \node[circle,draw] (G) at (7, 3) { 39 };
+
+            \draw (A) -- (B);
+            \draw (A) -- (F);
+            \draw (C) -- (E);
+            \draw (C) -- (D);
+            \draw (D) -- (F);
+            \draw (C) -- (G);
+        \end{scope}
+    \end{tikzpicture}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Exemplo de geração do backbone}
+
+    \begin{tikzpicture}
+        \begin{scope}{shift={(3,0)}}
+            \node[opacity=0] (X) at (1, 2) { $1$ };
+            \node[circle,draw] (A) at (5, 7) { 20 };
+            \node[circle,draw] (B) at (4, 8) { 10 };
+            \node[circle,draw] (C) at (8, 4) { 48 };
+            \node[circle,draw,fill=green!30] (D) at (7, 5) { 30 };
+            \node[circle,draw] (E) at (9, 3) { 55 };
+            \node[circle,draw,fill=blue!30] (F) at (6, 6) { 22 };
+            \node[circle,draw] (G) at (7, 3) { 39 };
+
+            \draw (A) -- (B);
+            \draw (A) -- (F);
+            \draw (C) -- (E);
+            \draw (C) -- (D);
+            \draw (D) -- (F);
+            \draw (C) -- (G);
+        \end{scope}
+    \end{tikzpicture}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Exemplo de geração do backbone}
+
+    \begin{tikzpicture}
+        \begin{scope}{shift={(3,0)}}
+            \node[opacity=0] (X) at (1, 2) { $1$ };
+            \node[circle,draw] (A) at (5, 7) { 20 };
+            \node[circle,draw] (B) at (4, 8) { 10 };
+            \node[circle,draw,fill=green!30] (C) at (8, 4) { 48 };
+            \node[circle,draw,fill=blue!30] (D) at (7, 5) { 30 };
+            \node[circle,draw] (E) at (9, 3) { 55 };
+            \node[circle,draw] (F) at (6, 6) { 22 };
+            \node[circle,draw] (G) at (7, 3) { 39 };
+
+            \draw (A) -- (B);
+            \draw (A) -- (F);
+            \draw (C) -- (E);
+            \draw (C) -- (D);
+            \draw (D) -- (F);
+            \draw (C) -- (G);
+        \end{scope}
+    \end{tikzpicture}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Exemplo de geração do backbone}
+
+    \begin{tikzpicture}
+        \begin{scope}{shift={(3,0)}}
+            \node[opacity=0] (X) at (1, 2) { $1$ };
+            \node[circle,draw] (A) at (5, 7) { 20 };
+            \node[circle,draw] (B) at (4, 8) { 10 };
+            \node[circle,draw,fill=red!30] (C) at (8, 4) { 48 };
+            \node[circle,draw,fill=blue!30] (D) at (7, 5) { 30 };
+            \node[circle,draw] (E) at (9, 3) { 55 };
+            \node[circle,draw] (F) at (6, 6) { 22 };
+            \node[circle,draw,fill=green!30] (G) at (7, 3) { 39 };
+
+            \draw (A) -- (B);
+            \draw (A) -- (F);
+            \draw (C) -- (E);
+            \draw (C) -- (D);
+            \draw (D) -- (F);
+            \draw (C) -- (G);
+        \end{scope}
+    \end{tikzpicture}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Exemplo de geração do backbone}
+
+    \begin{tikzpicture}
+        \begin{scope}{shift={(3,0)}}
+            \node[opacity=0] (X) at (1, 2) { $1$ };
+            \node[circle,draw] (A) at (5, 7) { 20 };
+            \node[circle,draw] (B) at (4, 8) { 10 };
+            \node[circle,draw,fill=red!30] (C) at (9, 3) { 48 };
+            \node[circle,draw,fill=blue!30] (D) at (7, 5) { 30 };
+            \node[circle,draw] (E) at (10, 2) { 55 };
+            \node[circle,draw] (F) at (6, 6) { 22 };
+            \node[circle,draw,fill=green!30] (G) at (8, 4) { 39 };
+
+            \draw (A) -- (B);
+            \draw (A) -- (F);
+            \draw (C) -- (E);
+            \draw (D) -- (G);
+            \draw (D) -- (F);
+            \draw (C) -- (G);
+        \end{scope}
+    \end{tikzpicture}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Exemplo de geração do backbone}
+
+    \begin{tikzpicture}
+        \begin{scope}{shift={(3,0)}}
+            \node[opacity=0] (X) at (1, 2) { $1$ };
+            \node[circle,draw] (A) at (5, 7) { 20 };
+            \node[circle,draw] (B) at (4, 8) { 10 };
+            \node[circle,draw,fill=green!30] (C) at (9, 3) { 48 };
+            \node[circle,draw] (D) at (7, 5) { 30 };
+            \node[circle,draw] (E) at (10, 2) { 55 };
+            \node[circle,draw] (F) at (6, 6) { 22 };
+            \node[circle,draw,fill=blue!30] (G) at (8, 4) { 39 };
+
+            \draw (A) -- (B);
+            \draw (A) -- (F);
+            \draw (C) -- (E);
+            \draw (D) -- (G);
+            \draw (D) -- (F);
+            \draw (C) -- (G);
+        \end{scope}
+    \end{tikzpicture}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Exemplo de geração do backbone}
+
+    \begin{tikzpicture}
+        \begin{scope}{shift={(3,0)}}
+            \node[opacity=0] (X) at (1, 2) { $1$ };
+            \node[circle,draw] (A) at (5, 7) { 20 };
+            \node[circle,draw] (B) at (4, 8) { 10 };
+            \node[circle,draw,fill=blue!30] (C) at (9, 3) { 48 };
+            \node[circle,draw] (D) at (7, 5) { 30 };
+            \node[circle,draw,fill=green!30] (E) at (10, 2) { 55 };
+            \node[circle,draw] (F) at (6, 6) { 22 };
+            \node[circle,draw] (G) at (8, 4) { 39 };
+
+            \draw (A) -- (B);
+            \draw (A) -- (F);
+            \draw (C) -- (E);
+            \draw (D) -- (G);
+            \draw (D) -- (F);
+            \draw (C) -- (G);
+        \end{scope}
+    \end{tikzpicture}
+
+\end{frame}
+
+\begin{frame}[fragile]{Implementação da geração da espinha dorsal}
+    \inputsnippet{cpp}{1}{13}{backbone.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Implementação da geração da espinha dorsal}
+    \inputsnippet{cpp}{14}{34}{backbone.cpp}
+\end{frame}
