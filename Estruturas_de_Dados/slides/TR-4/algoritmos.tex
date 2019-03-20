@@ -187,8 +187,7 @@
         \item A primeira delas consiste em {transformar} a árvore em uma lista encadeada 
             denominada {espinha dorsal} (\textit{backbone})
 
-        \item Em seguida o algoritmo transforma esta espinha dorsal numa árvore {perfeitamente} 
-            balanceada
+        \item Em seguida o algoritmo transforma esta espinha dorsal numa árvore completa
 
 		\item Estas duas etapas são realizada através do uso das {rotações} descritas anteriormente
 
@@ -553,4 +552,562 @@
 
 \begin{frame}[fragile]{Implementação da geração da espinha dorsal}
     \inputsnippet{cpp}{14}{34}{backbone.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Reorganização da espinha dorsal em uma árvore perfeitamente balanceada}
+
+    \begin{itemize}
+        \item Com o objetivo de gerar uma árvore perfeitamente balanceada a partir da espinha
+            dorsal é definida uma função de transformação
+
+        \item Esta função realiza uma série de rotações à esquerda
+
+        \item Antes de cada rotação, os ponteiros \code{c}{G, P, C} são atualizados, movendo-se
+            para a esquerda, dois passos por vez
+
+        \item Os dois casos especiais envolvem a raiz
+
+        \item Se o pai aponta para nulo, o filho será a raiz da árvore
+
+        \item Se o pai for a raiz, a raiz passará a ser igual ao filho
+
+        \item O número de rotações a serem feitas está relacionado com o logaritmo de $N$ na 
+            base 2, onde $N$ é o número de nós da árvore
+    \end{itemize}
+
+\end{frame}
+
+
+\begin{frame}[fragile]{Implementação do algoritmo DSW}
+    \inputsnippet{cpp}{1}{21}{dsw.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Implementação do algoritmo DSW}
+    \inputsnippet{cpp}{22}{42}{dsw.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Implementação do algoritmo DSW}
+    \inputsnippet{cpp}{43}{63}{dsw.cpp}
+\end{frame}
+
+\begin{frame}
+\frametitle{Algoritmo DSW: transformação da espinha dorsal}
+
+    \begin{tikzpicture}
+        \begin{scope}{shift={(3,0)}}
+            \node[opacity=0] (X) at (1, 2) { $1$ };
+            \node[circle,draw] (A) at (5, 7) { 20 };
+            \node[circle,draw] (B) at (4, 8) { 10 };
+            \node[circle,draw] (C) at (9, 3) { 48 };
+            \node[circle,draw] (D) at (7, 5) { 30 };
+            \node[circle,draw] (E) at (10, 2) { 55 };
+            \node[circle,draw] (F) at (6, 6) { 22 };
+            \node[circle,draw] (G) at (8, 4) { 39 };
+            \node[circle,draw] (H) at (11, 1) { 67 };
+
+            \draw (A) -- (B);
+            \draw (A) -- (F);
+            \draw (C) -- (E);
+            \draw (D) -- (G);
+            \draw (D) -- (F);
+            \draw (C) -- (G);
+            \draw (E) -- (H);
+
+            \node[anchor=west] at (7, 8) { N = 8, M = 7 };
+        \end{scope}
+    \end{tikzpicture}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Algoritmo DSW: transformação da espinha dorsal}
+
+    \begin{tikzpicture}
+        \begin{scope}{shift={(3,0)}}
+            \node[opacity=0] (X) at (1, 2) { $1$ };
+            \node[circle,draw] (A) at (5, 7) { 20 };
+            \node[circle,draw] (B) at (4, 8) { 10 };
+            \node[circle,draw] (C) at (9, 3) { 48 };
+            \node[circle,draw] (D) at (7, 5) { 30 };
+            \node[circle,draw] (E) at (10, 2) { 55 };
+            \node[circle,draw] (F) at (6, 6) { 22 };
+            \node[circle,draw] (G) at (8, 4) { 39 };
+            \node[circle,draw] (H) at (11, 1) { 67 };
+
+            \draw (A) -- (B);
+            \draw (A) -- (F);
+            \draw (C) -- (E);
+            \draw (D) -- (G);
+            \draw (D) -- (F);
+            \draw (C) -- (G);
+            \draw (E) -- (H);
+
+            \node[anchor=west] at (7, 8) { N = 8, M = 7, \texttt{transform(1)}};
+        \end{scope}
+    \end{tikzpicture}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Algoritmo DSW: transformação da espinha dorsal}
+
+    \begin{tikzpicture}
+        \begin{scope}{shift={(3,0)}}
+            \node[opacity=0] (X) at (1, 2) { $1$ };
+            \node[circle,draw] (A) at (5, 7) { 20 };
+            \node[circle,draw,fill=green!30] (B) at (4, 8) { 10 };
+            \node[circle,draw] (C) at (9, 3) { 48 };
+            \node[circle,draw] (D) at (7, 5) { 30 };
+            \node[circle,draw] (E) at (10, 2) { 55 };
+            \node[circle,draw] (F) at (6, 6) { 22 };
+            \node[circle,draw] (G) at (8, 4) { 39 };
+            \node[circle,draw] (H) at (11, 1) { 67 };
+
+            \draw (A) -- (B);
+            \draw (A) -- (F);
+            \draw (C) -- (E);
+            \draw (D) -- (G);
+            \draw (D) -- (F);
+            \draw (C) -- (G);
+            \draw (E) -- (H);
+
+            \node[anchor=west] at (7, 8) { N = 8, M = 7, \texttt{transform(1)}};
+        \end{scope}
+    \end{tikzpicture}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Algoritmo DSW: transformação da espinha dorsal}
+
+    \begin{tikzpicture}
+        \begin{scope}{shift={(3,0)}}
+            \node[opacity=0] (X) at (1, 2) { $1$ };
+            \node[circle,draw,fill=green!30] (A) at (5, 7) { 20 };
+            \node[circle,draw,fill=red!30] (B) at (4, 8) { 10 };
+            \node[circle,draw] (C) at (9, 3) { 48 };
+            \node[circle,draw] (D) at (7, 5) { 30 };
+            \node[circle,draw] (E) at (10, 2) { 55 };
+            \node[circle,draw] (F) at (6, 6) { 22 };
+            \node[circle,draw] (G) at (8, 4) { 39 };
+            \node[circle,draw] (H) at (11, 1) { 67 };
+
+            \draw (A) -- (B);
+            \draw (A) -- (F);
+            \draw (C) -- (E);
+            \draw (D) -- (G);
+            \draw (D) -- (F);
+            \draw (C) -- (G);
+            \draw (E) -- (H);
+
+            \node[anchor=west] at (7, 8) { N = 8, M = 7, \texttt{transform(1)}};
+        \end{scope}
+    \end{tikzpicture}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Algoritmo DSW: transformação da espinha dorsal}
+
+    \begin{tikzpicture}
+        \begin{scope}{shift={(3,0)}}
+            \node[opacity=0] (X) at (1, 2) { $1$ };
+            \node[circle,draw,fill=green!30] (A) at (5, 7) { 20 };
+            \node[circle,draw,fill=red!30] (B) at (4, 6) { 10 };
+            \node[circle,draw] (C) at (9, 3) { 48 };
+            \node[circle,draw] (D) at (7, 5) { 30 };
+            \node[circle,draw] (E) at (10, 2) { 55 };
+            \node[circle,draw] (F) at (6, 6) { 22 };
+            \node[circle,draw] (G) at (8, 4) { 39 };
+            \node[circle,draw] (H) at (11, 1) { 67 };
+
+            \draw (A) -- (B);
+            \draw (A) -- (F);
+            \draw (C) -- (E);
+            \draw (D) -- (G);
+            \draw (D) -- (F);
+            \draw (C) -- (G);
+            \draw (E) -- (H);
+
+            \node[anchor=west] at (7, 8) { N = 8, M = 7, \texttt{transform(1)}};
+        \end{scope}
+    \end{tikzpicture}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Algoritmo DSW: transformação da espinha dorsal}
+
+    \begin{tikzpicture}
+        \begin{scope}{shift={(3,0)}}
+            \node[opacity=0] (X) at (1, 2) { $1$ };
+            \node[circle,draw] (A) at (5, 7) { 20 };
+            \node[circle,draw] (B) at (4, 6) { 10 };
+            \node[circle,draw] (C) at (9, 3) { 48 };
+            \node[circle,draw] (D) at (7, 5) { 30 };
+            \node[circle,draw] (E) at (10, 2) { 55 };
+            \node[circle,draw] (F) at (6, 6) { 22 };
+            \node[circle,draw] (G) at (8, 4) { 39 };
+            \node[circle,draw] (H) at (11, 1) { 67 };
+
+            \draw (A) -- (B);
+            \draw (A) -- (F);
+            \draw (C) -- (E);
+            \draw (D) -- (G);
+            \draw (D) -- (F);
+            \draw (C) -- (G);
+            \draw (E) -- (H);
+
+            \node[anchor=west] at (7, 8) { N = 8, \textcolor{blue}{M = 3}, \texttt{transform(3)} };
+        \end{scope}
+    \end{tikzpicture}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Algoritmo DSW: transformação da espinha dorsal}
+
+    \begin{tikzpicture}
+        \begin{scope}{shift={(3,0)}}
+            \node[opacity=0] (X) at (1, 2) { $1$ };
+            \node[circle,draw,fill=green!30] (A) at (5, 7) { 20 };
+            \node[circle,draw] (B) at (4, 6) { 10 };
+            \node[circle,draw] (C) at (9, 3) { 48 };
+            \node[circle,draw] (D) at (7, 5) { 30 };
+            \node[circle,draw] (E) at (10, 2) { 55 };
+            \node[circle,draw] (F) at (6, 6) { 22 };
+            \node[circle,draw] (G) at (8, 4) { 39 };
+            \node[circle,draw] (H) at (11, 1) { 67 };
+
+            \draw (A) -- (B);
+            \draw (A) -- (F);
+            \draw (C) -- (E);
+            \draw (D) -- (G);
+            \draw (D) -- (F);
+            \draw (C) -- (G);
+            \draw (E) -- (H);
+
+            \node[anchor=west] at (7, 8) { N = 8, M = 3, \texttt{transform(3)} };
+        \end{scope}
+    \end{tikzpicture}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Algoritmo DSW: transformação da espinha dorsal}
+
+    \begin{tikzpicture}
+        \begin{scope}{shift={(3,0)}}
+            \node[opacity=0] (X) at (1, 2) { $1$ };
+            \node[circle,draw,fill=red!30] (A) at (5, 7) { 20 };
+            \node[circle,draw] (B) at (4, 6) { 10 };
+            \node[circle,draw] (C) at (9, 3) { 48 };
+            \node[circle,draw] (D) at (7, 5) { 30 };
+            \node[circle,draw] (E) at (10, 2) { 55 };
+            \node[circle,draw,fill=green!30] (F) at (6, 6) { 22 };
+            \node[circle,draw] (G) at (8, 4) { 39 };
+            \node[circle,draw] (H) at (11, 1) { 67 };
+
+            \draw (A) -- (B);
+            \draw (A) -- (F);
+            \draw (C) -- (E);
+            \draw (D) -- (G);
+            \draw (D) -- (F);
+            \draw (C) -- (G);
+            \draw (E) -- (H);
+
+            \node[anchor=west] at (7, 8) { N = 8, M = 3, \texttt{transform(3)} };
+        \end{scope}
+    \end{tikzpicture}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Algoritmo DSW: transformação da espinha dorsal}
+
+    \begin{tikzpicture}
+        \begin{scope}{shift={(3,0)}}
+            \node[opacity=0] (X) at (1, 2) { $1$ };
+            \node[circle,draw,fill=red!30] (A) at (4, 6) { 20 };
+            \node[circle,draw] (B) at (3, 5) { 10 };
+            \node[circle,draw] (C) at (8, 4) { 48 };
+            \node[circle,draw] (D) at (6, 6) { 30 };
+            \node[circle,draw] (E) at (9, 3) { 55 };
+            \node[circle,draw,fill=green!30] (F) at (5, 7) { 22 };
+            \node[circle,draw] (G) at (7, 5) { 39 };
+            \node[circle,draw] (H) at (10, 2) { 67 };
+
+            \draw (A) -- (B);
+            \draw (A) -- (F);
+            \draw (C) -- (E);
+            \draw (D) -- (G);
+            \draw (D) -- (F);
+            \draw (C) -- (G);
+            \draw (E) -- (H);
+
+            \node[anchor=west] at (7, 8) { N = 8, M = 3, \texttt{transform(3)} };
+        \end{scope}
+    \end{tikzpicture}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Algoritmo DSW: transformação da espinha dorsal}
+
+    \begin{tikzpicture}
+        \begin{scope}{shift={(3,0)}}
+            \node[opacity=0] (X) at (1, 2) { $1$ };
+            \node[circle,draw] (A) at (4, 6) { 20 };
+            \node[circle,draw] (B) at (3, 5) { 10 };
+            \node[circle,draw] (C) at (8, 4) { 48 };
+            \node[circle,draw,fill=green!30] (D) at (6, 6) { 30 };
+            \node[circle,draw] (E) at (9, 3) { 55 };
+            \node[circle,draw,fill=red!30] (F) at (5, 7) { 22 };
+            \node[circle,draw] (G) at (7, 5) { 39 };
+            \node[circle,draw] (H) at (10, 2) { 67 };
+
+            \draw (A) -- (B);
+            \draw (A) -- (F);
+            \draw (C) -- (E);
+            \draw (D) -- (G);
+            \draw (D) -- (F);
+            \draw (C) -- (G);
+            \draw (E) -- (H);
+
+            \node[anchor=west] at (7, 8) { N = 8, M = 3, \textcolor{blue}{\texttt{transform(2)}} };
+        \end{scope}
+    \end{tikzpicture}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Algoritmo DSW: transformação da espinha dorsal}
+
+    \begin{tikzpicture}
+        \begin{scope}{shift={(3,0)}}
+            \node[opacity=0] (X) at (1, 2) { $1$ };
+            \node[circle,draw] (A) at (4, 6) { 20 };
+            \node[circle,draw] (B) at (3, 5) { 10 };
+            \node[circle,draw] (C) at (8, 4) { 48 };
+            \node[circle,draw,fill=red!30] (D) at (6, 6) { 30 };
+            \node[circle,draw] (E) at (9, 3) { 55 };
+            \node[circle,draw,fill=blue!30] (F) at (5, 7) { 22 };
+            \node[circle,draw,fill=green!30] (G) at (7, 5) { 39 };
+            \node[circle,draw] (H) at (10, 2) { 67 };
+
+            \draw (A) -- (B);
+            \draw (A) -- (F);
+            \draw (C) -- (E);
+            \draw (D) -- (G);
+            \draw (D) -- (F);
+            \draw (C) -- (G);
+            \draw (E) -- (H);
+
+            \node[anchor=west] at (7, 8) { N = 8, M = 3, \textcolor{black}{\texttt{transform(2)}} };
+        \end{scope}
+    \end{tikzpicture}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Algoritmo DSW: transformação da espinha dorsal}
+
+    \begin{tikzpicture}
+        \begin{scope}{shift={(3,0)}}
+            \node[opacity=0] (X) at (1, 2) { $1$ };
+            \node[circle,draw] (A) at (3, 6) { 20 };
+            \node[circle,draw] (B) at (2, 5) { 10 };
+            \node[circle,draw] (C) at (8, 5) { 48 };
+            \node[circle,draw,fill=red!30] (D) at (6, 5) { 30 };
+            \node[circle,draw] (E) at (9, 4) { 55 };
+            \node[circle,draw,fill=blue!30] (F) at (5, 7) { 22 };
+            \node[circle,draw,fill=green!30] (G) at (7, 6) { 39 };
+            \node[circle,draw] (H) at (10, 3) { 67 };
+
+            \draw (A) -- (B);
+            \draw (A) -- (F);
+            \draw (C) -- (E);
+            \draw (F) -- (G);
+            \draw (D) -- (G);
+            \draw (C) -- (G);
+            \draw (E) -- (H);
+
+            \node[anchor=west] at (7, 8) { N = 8, M = 3, \textcolor{black}{\texttt{transform(2)}} };
+        \end{scope}
+    \end{tikzpicture}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Algoritmo DSW: transformação da espinha dorsal}
+
+    \begin{tikzpicture}
+        \begin{scope}{shift={(3,0)}}
+            \node[opacity=0] (X) at (1, 2) { $1$ };
+            \node[circle,draw] (A) at (3, 6) { 20 };
+            \node[circle,draw] (B) at (2, 5) { 10 };
+            \node[circle,draw,fill=green!30] (C) at (8, 5) { 48 };
+            \node[circle,draw,fill=blue!30] (D) at (6, 5) { 30 };
+            \node[circle,draw] (E) at (9, 4) { 55 };
+            \node[circle,draw] (F) at (5, 7) { 22 };
+            \node[circle,draw,fill=red!30] (G) at (7, 6) { 39 };
+            \node[circle,draw] (H) at (10, 3) { 67 };
+
+            \draw (A) -- (B);
+            \draw (A) -- (F);
+            \draw (C) -- (E);
+            \draw (F) -- (G);
+            \draw (D) -- (G);
+            \draw (C) -- (G);
+            \draw (E) -- (H);
+
+            \node[anchor=west] at (7, 8) { N = 8, M = 3, \textcolor{blue}{\texttt{transform(1)}} };
+        \end{scope}
+    \end{tikzpicture}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Algoritmo DSW: transformação da espinha dorsal}
+
+    \begin{tikzpicture}
+        \begin{scope}{shift={(3,0)}}
+            \node[opacity=0] (X) at (1, 2) { $1$ };
+            \node[circle,draw] (A) at (3, 6) { 20 };
+            \node[circle,draw] (B) at (2, 5) { 10 };
+            \node[circle,draw,fill=red!30] (C) at (8, 5) { 48 };
+            \node[circle,draw] (D) at (6, 5) { 30 };
+            \node[circle,draw,fill=green!30] (E) at (9, 4) { 55 };
+            \node[circle,draw] (F) at (5, 7) { 22 };
+            \node[circle,draw,fill=blue!30] (G) at (7, 6) { 39 };
+            \node[circle,draw] (H) at (10, 3) { 67 };
+
+            \draw (A) -- (B);
+            \draw (A) -- (F);
+            \draw (C) -- (E);
+            \draw (F) -- (G);
+            \draw (D) -- (G);
+            \draw (C) -- (G);
+            \draw (E) -- (H);
+
+            \node[anchor=west] at (7, 8) { N = 8, M = 3, \textcolor{black}{\texttt{transform(1)}} };
+        \end{scope}
+    \end{tikzpicture}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Algoritmo DSW: transformação da espinha dorsal}
+
+    \begin{tikzpicture}
+        \begin{scope}{shift={(3,0)}}
+            \node[opacity=0] (X) at (1, 2) { $1$ };
+            \node[circle,draw] (A) at (3, 6) { 20 };
+            \node[circle,draw] (B) at (2, 5) { 10 };
+            \node[circle,draw,fill=red!30] (C) at (7, 4) { 48 };
+            \node[circle,draw] (D) at (6, 5) { 30 };
+            \node[circle,draw,fill=green!30] (E) at (8, 5) { 55 };
+            \node[circle,draw] (F) at (5, 7) { 22 };
+            \node[circle,draw,fill=blue!30] (G) at (7, 6) { 39 };
+            \node[circle,draw] (H) at (9, 4) { 67 };
+
+            \draw (A) -- (B);
+            \draw (A) -- (F);
+            \draw (C) -- (E);
+            \draw (F) -- (G);
+            \draw (D) -- (G);
+            \draw (E) -- (G);
+            \draw (E) -- (H);
+
+            \node[anchor=west] at (7, 8) { N = 8, M = 3, \textcolor{black}{\texttt{transform(1)}} };
+        \end{scope}
+    \end{tikzpicture}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Algoritmo DSW: transformação da espinha dorsal}
+
+    \begin{tikzpicture}
+        \begin{scope}{shift={(3,0)}}
+            \node[opacity=0] (X) at (1, 2) { $1$ };
+            \node[circle,draw] (A) at (3, 6) { 20 };
+            \node[circle,draw] (B) at (2, 5) { 10 };
+            \node[circle,draw] (C) at (7, 4) { 48 };
+            \node[circle,draw] (D) at (6, 5) { 30 };
+            \node[circle,draw] (E) at (8, 5) { 55 };
+            \node[circle,draw,fill=green!30] (F) at (5, 7) { 22 };
+            \node[circle,draw] (G) at (7, 6) { 39 };
+            \node[circle,draw] (H) at (9, 4) { 67 };
+
+            \draw (A) -- (B);
+            \draw (A) -- (F);
+            \draw (C) -- (E);
+            \draw (F) -- (G);
+            \draw (D) -- (G);
+            \draw (E) -- (G);
+            \draw (E) -- (H);
+
+            \node[anchor=west] at (7, 8) { N = 8, \textcolor{blue}{M = 1}, \texttt{transform(1)} };
+        \end{scope}
+    \end{tikzpicture}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Algoritmo DSW: transformação da espinha dorsal}
+
+    \begin{tikzpicture}
+        \begin{scope}{shift={(3,0)}}
+            \node[opacity=0] (X) at (1, 2) { $1$ };
+            \node[circle,draw] (A) at (3, 6) { 20 };
+            \node[circle,draw] (B) at (2, 5) { 10 };
+            \node[circle,draw] (C) at (7, 4) { 48 };
+            \node[circle,draw] (D) at (6, 5) { 30 };
+            \node[circle,draw] (E) at (8, 5) { 55 };
+            \node[circle,draw,fill=red!30] (F) at (5, 7) { 22 };
+            \node[circle,draw,fill=green!30] (G) at (7, 6) { 39 };
+            \node[circle,draw] (H) at (9, 4) { 67 };
+
+            \draw (A) -- (B);
+            \draw (A) -- (F);
+            \draw (C) -- (E);
+            \draw (F) -- (G);
+            \draw (D) -- (G);
+            \draw (E) -- (G);
+            \draw (E) -- (H);
+
+            \node[anchor=west] at (7, 8) { N = 8, \textcolor{black}{M = 1}, \texttt{transform(1)} };
+        \end{scope}
+    \end{tikzpicture}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Algoritmo DSW: transformação da espinha dorsal}
+
+    \begin{tikzpicture}
+        \begin{scope}{shift={(3,0)}}
+            \node[opacity=0] (X) at (1, 2) { $1$ };
+            \node[circle,draw] (A) at (2, 5) { 20 };
+            \node[circle,draw] (B) at (1, 4) { 10 };
+            \node[circle,draw] (C) at (6, 5) { 48 };
+            \node[circle,draw] (D) at (4, 5) { 30 };
+            \node[circle,draw] (E) at (7, 6) { 55 };
+            \node[circle,draw,fill=red!30] (F) at (3, 6) { 22 };
+            \node[circle,draw,fill=green!30] (G) at (5, 7) { 39 };
+            \node[circle,draw] (H) at (8, 5) { 67 };
+
+            \draw (A) -- (B);
+            \draw (A) -- (F);
+            \draw (C) -- (E);
+            \draw (F) -- (G);
+            \draw (D) -- (F);
+            \draw (E) -- (G);
+            \draw (E) -- (H);
+
+            \node[anchor=west] at (7, 8) { N = 8, \textcolor{black}{M = 1}, \texttt{transform(1)} };
+        \end{scope}
+    \end{tikzpicture}
+
 \end{frame}
