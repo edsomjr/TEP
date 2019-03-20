@@ -91,20 +91,20 @@ Print the minimum number of operations required.
 \begin{frame}[fragile]{Solução}
 
     \begin{itemize}
-        \item Observe também que a sequência de intervalos $I_1, I_2, \ldots, I_{\left\lfloor \frac{N - 1}{K - 1} - 1\right\rfloor}$ cobre toda a sequência, onde
+        \item Observe também que a sequência de intervalos $I_0, I_1, \ldots, I_{\left\lfloor \frac{N - 1}{K - 1} - 1\right\rfloor}$ cobre toda a sequência, onde
         \[
             I_i = i(K - 1) + 1, i(K - 1) + 2, \ldots, i(K - 1) + K
         \]
 
         \item Com esta divisão da sequência, localize o intervalo $I_k$ que contém o elemento 1
 
-        \item Então aplique $k$ operações nos intervalos $I_k, I_{k - 1}, \ldots, I_1$, nesta
+        \item Então aplique $k$ operações nos intervalos $I_k, I_{k - 1}, \ldots, I_0$, nesta
             ordem
 
         \item Agora aplique a operação nos intervalos $I_{k + 1}, I_{k + 1}, \ldots, 
             I_{\left\lfloor \frac{N - 1}{K - 1} - 1\right\rfloor}$
 
-        \item Logo, são necessárias, no mínimo, $\left\lfloor \frac{N - 1}{K - 1} \right\rfloor$
+        \item Logo, é possível finalizar o processo com  $\left\lfloor \frac{N - 1}{K - 1} \right\rfloor$
             operações
     \end{itemize}
 
