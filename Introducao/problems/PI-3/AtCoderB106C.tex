@@ -1,0 +1,91 @@
+\section{AtCoder Beginner Contest 106 -- Problem C: To Infinity}
+
+\begin{frame}[fragile]{Problema}
+
+Mr. Infinity has a string $S$ consisting of digits from 1 to 9. Each time the date changes, this 
+string changes as follows:
+
+\begin{itemize}
+    \item Each occurrence of \textcolor{red}{'2'} in S is replaced with \textcolor{red}{'22'}. Similarly, each \textcolor{red}{'3'} becomes \textcolor{red}{'333'}, \textcolor{red}{'4'} becomes \textcolor{red}{'4444'}, \textcolor{red}{'5'} becomes \textcolor{red}{'55555'}, \textcolor{red}{'6'} becomes \textcolor{red}{'666666'}, \textcolor{red}{'7'} becomes \textcolor{red}{'7777777'}, \textcolor{red}{'8'} becomes \textcolor{red}{'88888888'} and \textcolor{red}{'9'} becomes \textcolor{red}{'999999999'}. \textcolor{red}{'1'} remains as \textcolor{red}{'1'}.
+\end{itemize}
+
+For example, if $S$ is \textcolor{red}{'1324'}, it becomes \textcolor{red}{'1333224444'} the next day, and it becomes \textcolor{red}{'133333333322224444444444444444'} the day after next. You are interested in what the string looks like after $5\times 10^{15}$ days. What is the $K$-th character 
+from the left in the string after $5\times 10^{15}$ days?
+
+\end{frame}
+
+\begin{frame}[fragile]{Entrada e saída}
+
+\textbf{Constraints}
+
+\begin{itemize}
+    \item $2\leq K\leq N\leq 100000$
+    \item $A_1, A_2, \ldots, A_N$ is a permutation of $1, 2, \ldots, N$
+\end{itemize}
+
+\textbf{Input}
+
+Input is given from Standard Input in the following format:
+\begin{align*}
+&N\ \ K \\
+&A_1\ \ A_2\ \ \ldots\ \ A_N
+\end{align*}
+
+\textbf{Output}
+
+Print the minimum number of operations required.
+
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de entradas e saídas}
+
+\begin{minipage}[t]{0.5\textwidth}
+\textbf{Exemplo de Entrada}
+\begin{verbatim}
+1214
+4
+
+3
+157
+
+299792458
+9460730472580800
+\end{verbatim}
+\end{minipage}
+\begin{minipage}[t]{0.45\textwidth}
+\textbf{Exemplo de Saída}
+\begin{verbatim}
+2
+
+
+3
+
+
+2
+\end{verbatim}
+\end{minipage}
+\end{frame}
+
+\begin{frame}[fragile]{Solução}
+
+    \begin{itemize}
+        \item O primeiro fato a ser observado é, se o número inicial $x$ da string for diferente de 
+        1, ele será replicado $x^{5\times 10^5}$ vezes, de modo que a resposta será o próprio $x$
+
+        \item O caso especial ocorre quando a string é prefixada por uma sequência de 1s
+
+        \item Se a quantidade de uns for menor ou igual a $K$, a resposta será igual a 1
+
+        \item Caso contrário, a resposta será igual ao primeiro caractere da string diferente de
+            1
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Solução AC}
+    \inputsnippet{cpp}{1}{19}{B106C.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Solução AC}
+    \inputsnippet{cpp}{20}{40}{B106C.cpp}
+\end{frame}
