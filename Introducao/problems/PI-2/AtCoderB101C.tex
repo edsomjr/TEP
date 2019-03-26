@@ -81,7 +81,7 @@ Print the minimum number of operations required.
 
         \item Do primeiro fato apresentado segue que são necessárias pelo menos 
         \[
-            \left\lfloor \frac{N - 1}{K - 1} \right\rfloor
+            \left\lceil \frac{N - 1}{K - 1} \right\rceil
         \] operações,  pois é preciso modificar os $N - 1$ elementos restantes, um por vez
     \end{itemize}
 
@@ -91,7 +91,7 @@ Print the minimum number of operations required.
 \begin{frame}[fragile]{Solução}
 
     \begin{itemize}
-        \item Observe também que a sequência de intervalos $I_0, I_1, \ldots, I_{\left\lfloor \frac{N - 1}{K - 1} - 1\right\rfloor}$ cobre toda a sequência, onde
+        \item Observe também que a sequência de intervalos $I_0, I_1, \ldots, I_{\left\lceil \frac{N - 1}{K - 1} - 1\right\rceil}$ cobre toda a sequência, onde
         \[
             I_i = i(K - 1) + 1, i(K - 1) + 2, \ldots, i(K - 1) + K
         \]
@@ -102,9 +102,9 @@ Print the minimum number of operations required.
             ordem
 
         \item Agora aplique a operação nos intervalos $I_{k + 1}, I_{k + 1}, \ldots, 
-            I_{\left\lfloor \frac{N - 1}{K - 1} - 1\right\rfloor}$
+            I_{\left\lceil \frac{N - 1}{K - 1} - 1\right\rceil}$
 
-        \item Logo, é possível finalizar o processo com  $\left\lfloor \frac{N - 1}{K - 1} \right\rfloor$
+        \item Logo, é possível finalizar o processo com  $\left\lceil \frac{N - 1}{K - 1} \right\rceil$
             operações
     \end{itemize}
 
