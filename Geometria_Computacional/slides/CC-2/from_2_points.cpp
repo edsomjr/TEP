@@ -1,4 +1,4 @@
-// O código abaixo, adaptado do livro Competitive Programming 3. 
+// O código abaixo foi adaptado do livro Competitive Programming 3. 
 // A função retorna um dos círculos possíveis: o outro pode ser 
 // encontrado invertendo os parâmetros P e Q na chamada da função
 
