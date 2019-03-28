@@ -15,8 +15,8 @@ private:
         if (node)
         {
             visit(node);
-            preorder(node->left);
-            preorder(node->right);
+            preorder(node->left, visit);
+            preorder(node->right, visit);
         }
     }
 
@@ -24,9 +24,9 @@ private:
     {
         if (node)
         {
-            inorder(node->left);
+            inorder(node->left, visit);
             visit(node);
-            inorder(node->right);
+            inorder(node->right, visit);
         }
     }
 
@@ -34,8 +34,8 @@ private:
     {
         if (node)
         {
-            postorder(node->left);
-            postorder(node->right);
+            postorder(node->left, visit);
+            postorder(node->right, visit);
             visit(node);
         }
     }
