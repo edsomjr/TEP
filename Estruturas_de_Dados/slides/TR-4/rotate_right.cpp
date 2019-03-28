@@ -2,7 +2,7 @@
 void rotate_right(Node *G, Node *P, Node *C)
 {
     // Se P não é a raiz da árvore
-    if (G != NULL) 
+    if (G != nullptr) 
     {
         // Então o avô se torna pai do neto
         if (G->left == P)

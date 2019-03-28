@@ -1,4 +1,4 @@
-#include <funcional>
+#include <functional>
 
 template<typename T>
 class BST {
