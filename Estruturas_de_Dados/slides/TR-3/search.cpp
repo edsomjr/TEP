@@ -8,7 +8,7 @@ private:
 
     Node *root;
 
-    bool search(Node *node, const T& info)
+    bool search(Node *node, const T& info) const
     {
         while (node)
         {
