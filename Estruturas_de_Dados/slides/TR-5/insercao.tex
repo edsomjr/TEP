@@ -1,0 +1,24 @@
+\section{Inserção}
+
+\begin{frame}[fragile]{Inserção em árvores red-black}
+
+    \begin{itemize}
+        \item A inserção em uma árvore \textit{red-black} consiste em duas etapas
+
+        \item A primeira é a inserção de um nó vermelho, nos mesmos moldes da inserção em
+            uma árvore binária de busca
+
+        \item A segunda etapa consiste em corrigir possíveis violações às propriedades de 
+            uma árvore \textit{red-black}
+
+        \item O algoritmo $O(N\log N)$ que resulta em uma árvore balanceada é
+        \begin{enumerate}
+            \item armazene os $N$ elementos a serem inseridos em um vetor $v$
+            \item ordene $v$ em ordem crescente
+            \item insira o elemento central $x$ do vetor na árvore
+            \item continue o processo no subvetor à esquerda de $x$
+            \item finalize o processo no subvetor à direita de $x$
+        \end{enumerate}
+    \end{itemize}
+
+\end{frame}
