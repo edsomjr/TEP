@@ -1,4 +1,4 @@
-bool search(Node *node, const T& info)
+bool search(Node *node, const T& info) const
 {
     if (node == nullptr) return false;
 
