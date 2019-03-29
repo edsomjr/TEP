@@ -40,9 +40,15 @@ private:
     {
         if (G != nullptr) 
             G->left == P ? G->left = C : G->right = C;
-        
+ 
         P->right = C->left;
         C->left = P;
+
+        C->parent = G;
+        P->parent = C;
+
+        if (C->left)
+            C->left->parent = P;
     }
 
     void rotate_right(Node *G, Node *P, Node *C)
@@ -52,6 +58,12 @@ private:
         
         P->left = C->right;
         C->right = P;
+
+        C->parent = G;
+        P->parent = C;
+
+        if (C->right)
+            C->right->parent = P;
     }
 
 public:
@@ -87,13 +99,42 @@ private:
             // Cenário C: pai e tio vermelhos
             parent(node)->color = Node::BLACK;
             uncle(node)->color = Node::BLACK;
-            grandparent(node)->color = Node::BLACK;
+            grandparent(node)->color = Node::RED;
 
             // Como o pai é vermelho, o avô não é nulo
             restore_properties(grandparent(node));
         } else
         {
             // Cenário D: pai vermelho, tio preto
+            auto C = node;
+            auto P = parent(node);
+            auto G = grandparent(node);
+
+            if (C == P->right and P == G->left)
+            {
+                rotate_left(G, P, C);
+                P = C;
+            } else if (node == P->left and P == G->right)
+            {
+                rotate_right(G, P, C);
+                P = C;
+            }
+
+            C = P;
+            P = G;
+            G = parent(P);
+
+            if (C == P->left)
+                rotate_right(G, P, C);
+            else
+                rotate_left(G, P, C);
+
+            // Corner case: após a rotação C é a nova raiz
+            if (G == nullptr)
+                root = C;
+
+            C->color = Node::BLACK;
+            P->color = Node::RED;
         }
     }
 
@@ -132,7 +173,7 @@ private:
 int main()
 {
     RBTree<int> tree;
-    std::vector<int> xs { 40, 17, 88, 91 };
+    std::vector<int> xs { 40, 17, 88, 91, 96, 25, 23 };
 
     for (const auto& x : xs)
     {

@@ -22,7 +22,7 @@
 \end{frame}
 
 \begin{frame}[fragile]{Rotinas básicas de inserção}
-    \inputsnippet{cpp}{57}{77}{rb.cpp}
+    \inputsnippet{cpp}{69}{89}{rb.cpp}
 \end{frame}
 
 \begin{frame}[fragile]{Cenário A: inserção em árvore vazia}
@@ -57,7 +57,7 @@
 \end{frame}
 
 \begin{frame}[fragile]{Restauração das propriedades no cenário A}
-    \inputsnippet{cpp}{78}{82}{rb.cpp}
+    \inputsnippet{cpp}{90}{94}{rb.cpp}
 \end{frame}
 
 \begin{frame}[fragile]{Cenário B: o pai do nó inserido é preto}
@@ -216,7 +216,6 @@
 
 \end{frame}
 
-
 \begin{frame}[fragile]{Exemplo de inserções no cenário C}
 
     \begin{tikzpicture}
@@ -236,7 +235,287 @@
 
 \end{frame}
 
-
 \begin{frame}[fragile]{Restauração das propriedades nos cenários B e C}
-    \inputsnippet{cpp}{83}{93}{rb.cpp}
+    \inputsnippet{cpp}{95}{105}{rb.cpp}
 \end{frame}
+
+\begin{frame}[fragile]{Cenário D: pai vermelho, tio preto}
+
+    \begin{itemize}
+        \item Neste último cenário, é necessário utilizar rotações de modo a reposicionar
+            o pai na posição do avô
+
+        \item A direção da rotação é definida de acordo com a posição do pai em relação ao 
+            avô: se for o filho à esquerda, a rotação é para a direita, e vice-versa
+
+        \item Também é necessária a troca de cores entre o pai e o avô após a rotação
+
+        \item Esta troca restaura as violação à propriedade 4 e não viola a propriedade 5
+
+        \item Há, porém, um caso especial: se o filho tiver em direção oposta a que o pai ocupa
+            em relação ao avô
+
+       \item Neste caso, é necessária uma rotação para colocar o filho na posição do pai
+
+       \item Deste modo, ambos passaram a ter a mesma direção em relação ao avô
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de inserções no cenário D}
+
+    \begin{tikzpicture}
+        \begin{scope}{shift={(3,0)}}
+            \node[opacity=0] (X) at (-1, 1) { $1$ };
+            \node[anchor=west] at (0, 8) { Informação a ser inserida: \textcolor{blue}{96} };
+            \node[circle,draw,fill=black] (A) at (4, 7) { \textcolor{white}{40} };
+            \node[circle,draw,fill=black] (B) at (2, 5.5) { \textcolor{white}{17} };
+            \node[circle,draw,fill=black] (C) at (6, 5.5) { \textcolor{white}{88} };
+            \node[circle,draw,fill=red] (D) at (7, 4) { \textcolor{white}{91} };
+
+            \draw (A) -- (B);
+            \draw (A) -- (C);
+            \draw (C) -- (D);
+        \end{scope}
+    \end{tikzpicture}
+
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de inserções no cenário D}
+
+    \begin{tikzpicture}
+        \begin{scope}{shift={(3,0)}}
+            \node[opacity=0] (X) at (-1, 1) { $1$ };
+            \node[anchor=west] at (0, 8) { Informação a ser inserida: \textcolor{black}{96} };
+            \node[circle,draw,fill=black] (A) at (4, 7) { \textcolor{white}{40} };
+            \node[circle,draw,fill=black] (B) at (2, 5.5) { \textcolor{white}{17} };
+            \node[circle,draw,fill=black] (C) at (6, 5.5) { \textcolor{white}{88} };
+            \node[circle,draw,fill=red] (D) at (7, 4) { \textcolor{white}{91} };
+            \node[circle,draw,fill=red] (E) at (8, 2.5) { \textcolor{white}{96} };
+
+            \draw (A) -- (B);
+            \draw (A) -- (C);
+            \draw (C) -- (D);
+            \draw (D) -- (E);
+        \end{scope}
+    \end{tikzpicture}
+
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de inserções no cenário D}
+
+    \begin{tikzpicture}
+        \begin{scope}{shift={(3,0)}}
+            \node[opacity=0] (X) at (-1, 1) { $1$ };
+            \node[anchor=west] at (0, 8) { Informação a ser inserida: \textcolor{black}{96} };
+            \node[circle,draw,fill=black] (A) at (4, 7) { \textcolor{white}{40} };
+            \node[circle,draw,fill=black] (B) at (2, 5.5) { \textcolor{white}{17} };
+            \node[circle,draw,fill=black] (C) at (5, 4) { \textcolor{white}{88} };
+            \node[circle,draw,fill=red] (D) at (6, 5.5) { \textcolor{white}{91} };
+            \node[circle,draw,fill=red] (E) at (7, 4) { \textcolor{white}{96} };
+
+            \draw (A) -- (B);
+            \draw (A) -- (D);
+            \draw (C) -- (D);
+            \draw (D) -- (E);
+        \end{scope}
+    \end{tikzpicture}
+
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de inserções no cenário D}
+
+    \begin{tikzpicture}
+        \begin{scope}{shift={(3,0)}}
+            \node[opacity=0] (X) at (-1, 1) { $1$ };
+            \node[anchor=west] at (0, 8) { Informação a ser inserida: \textcolor{black}{96} };
+            \node[circle,draw,fill=black] (A) at (4, 7) { \textcolor{white}{40} };
+            \node[circle,draw,fill=black] (B) at (2, 5.5) { \textcolor{white}{17} };
+            \node[circle,draw,fill=red] (C) at (5, 4) { \textcolor{white}{88} };
+            \node[circle,draw,fill=black] (D) at (6, 5.5) { \textcolor{white}{91} };
+            \node[circle,draw,fill=red] (E) at (7, 4) { \textcolor{white}{96} };
+
+            \draw (A) -- (B);
+            \draw (A) -- (D);
+            \draw (C) -- (D);
+            \draw (D) -- (E);
+        \end{scope}
+    \end{tikzpicture}
+
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de inserções no cenário D}
+
+    \begin{tikzpicture}
+        \begin{scope}{shift={(3,0)}}
+            \node[opacity=0] (X) at (-1, 1) { $1$ };
+            \node[anchor=west] at (0, 8) { Informação a ser inserida: \textcolor{blue}{25} };
+            \node[circle,draw,fill=black] (A) at (4, 7) { \textcolor{white}{40} };
+            \node[circle,draw,fill=black] (B) at (2, 5.5) { \textcolor{white}{17} };
+            \node[circle,draw,fill=red] (C) at (5, 4) { \textcolor{white}{88} };
+            \node[circle,draw,fill=black] (D) at (6, 5.5) { \textcolor{white}{91} };
+            \node[circle,draw,fill=red] (E) at (7, 4) { \textcolor{white}{96} };
+
+            \draw (A) -- (B);
+            \draw (A) -- (D);
+            \draw (C) -- (D);
+            \draw (D) -- (E);
+        \end{scope}
+    \end{tikzpicture}
+
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de inserções no cenário D}
+
+    \begin{tikzpicture}
+        \begin{scope}{shift={(3,0)}}
+            \node[opacity=0] (X) at (-1, 1) { $1$ };
+            \node[anchor=west] at (0, 8) { Informação a ser inserida: \textcolor{black}{25} };
+            \node[circle,draw,fill=black] (A) at (4, 7) { \textcolor{white}{40} };
+            \node[circle,draw,fill=black] (B) at (2, 5.5) { \textcolor{white}{17} };
+            \node[circle,draw,fill=red] (C) at (5, 4) { \textcolor{white}{88} };
+            \node[circle,draw,fill=black] (D) at (6, 5.5) { \textcolor{white}{91} };
+            \node[circle,draw,fill=red] (E) at (7, 4) { \textcolor{white}{96} };
+            \node[circle,draw,fill=red] (F) at (3, 4) { \textcolor{white}{25} };
+
+            \draw (A) -- (B);
+            \draw (A) -- (D);
+            \draw (C) -- (D);
+            \draw (D) -- (E);
+            \draw (B) -- (F);
+        \end{scope}
+    \end{tikzpicture}
+
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de inserções no cenário D}
+
+    \begin{tikzpicture}
+        \begin{scope}{shift={(3,0)}}
+            \node[opacity=0] (X) at (-1, 1) { $1$ };
+            \node[anchor=west] at (0, 8) { Informação a ser inserida: \textcolor{blue}{23} };
+            \node[circle,draw,fill=black] (A) at (4, 7) { \textcolor{white}{40} };
+            \node[circle,draw,fill=black] (B) at (2, 5.5) { \textcolor{white}{17} };
+            \node[circle,draw,fill=red] (C) at (5, 4) { \textcolor{white}{88} };
+            \node[circle,draw,fill=black] (D) at (6, 5.5) { \textcolor{white}{91} };
+            \node[circle,draw,fill=red] (E) at (7, 4) { \textcolor{white}{96} };
+            \node[circle,draw,fill=red] (F) at (3, 4) { \textcolor{white}{25} };
+
+            \draw (A) -- (B);
+            \draw (A) -- (D);
+            \draw (C) -- (D);
+            \draw (D) -- (E);
+            \draw (B) -- (F);
+        \end{scope}
+    \end{tikzpicture}
+
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de inserções no cenário D}
+
+    \begin{tikzpicture}
+        \begin{scope}{shift={(3,0)}}
+            \node[opacity=0] (X) at (-1, 1) { $1$ };
+            \node[anchor=west] at (0, 8) { Informação a ser inserida: \textcolor{black}{23} };
+            \node[circle,draw,fill=black] (A) at (4, 7) { \textcolor{white}{40} };
+            \node[circle,draw,fill=black] (B) at (2, 5.5) { \textcolor{white}{17} };
+            \node[circle,draw,fill=red] (C) at (5, 4) { \textcolor{white}{88} };
+            \node[circle,draw,fill=black] (D) at (6, 5.5) { \textcolor{white}{91} };
+            \node[circle,draw,fill=red] (E) at (7, 4) { \textcolor{white}{96} };
+            \node[circle,draw,fill=red] (F) at (3, 4) { \textcolor{white}{25} };
+            \node[circle,draw,fill=red] (G) at (2, 2.5) { \textcolor{white}{23} };
+
+            \draw (A) -- (B);
+            \draw (A) -- (D);
+            \draw (C) -- (D);
+            \draw (D) -- (E);
+            \draw (B) -- (F);
+            \draw (G) -- (F);
+        \end{scope}
+    \end{tikzpicture}
+
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de inserções no cenário D}
+
+    \begin{tikzpicture}
+        \begin{scope}{shift={(3,0)}}
+            \node[opacity=0] (X) at (-1, 1) { $1$ };
+            \node[anchor=west] at (0, 8) { Informação a ser inserida: \textcolor{black}{23} };
+            \node[circle,draw,fill=black] (A) at (4, 7) { \textcolor{white}{40} };
+            \node[circle,draw,fill=black] (B) at (2, 5.5) { \textcolor{white}{17} };
+            \node[circle,draw,fill=red] (C) at (5, 4) { \textcolor{white}{88} };
+            \node[circle,draw,fill=black] (D) at (6, 5.5) { \textcolor{white}{91} };
+            \node[circle,draw,fill=red] (E) at (7, 4) { \textcolor{white}{96} };
+            \node[circle,draw,fill=red] (F) at (3, 4) { \textcolor{white}{23} };
+            \node[circle,draw,fill=red] (G) at (4, 2.5) { \textcolor{white}{25} };
+
+            \draw (A) -- (B);
+            \draw (A) -- (D);
+            \draw (C) -- (D);
+            \draw (D) -- (E);
+            \draw (B) -- (F);
+            \draw (G) -- (F);
+        \end{scope}
+    \end{tikzpicture}
+
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de inserções no cenário D}
+
+    \begin{tikzpicture}
+        \begin{scope}{shift={(3,0)}}
+            \node[opacity=0] (X) at (-1, 1) { $1$ };
+            \node[anchor=west] at (0, 8) { Informação a ser inserida: \textcolor{black}{23} };
+            \node[circle,draw,fill=black] (A) at (4, 7) { \textcolor{white}{40} };
+            \node[circle,draw,fill=black] (B) at (1, 4) { \textcolor{white}{17} };
+            \node[circle,draw,fill=red] (C) at (5, 4) { \textcolor{white}{88} };
+            \node[circle,draw,fill=black] (D) at (6, 5.5) { \textcolor{white}{91} };
+            \node[circle,draw,fill=red] (E) at (7, 4) { \textcolor{white}{96} };
+            \node[circle,draw,fill=red] (F) at (2, 5.5) { \textcolor{white}{23} };
+            \node[circle,draw,fill=red] (G) at (3, 4) { \textcolor{white}{25} };
+
+            \draw (A) -- (F);
+            \draw (A) -- (D);
+            \draw (C) -- (D);
+            \draw (D) -- (E);
+            \draw (B) -- (F);
+            \draw (G) -- (F);
+        \end{scope}
+    \end{tikzpicture}
+
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de inserções no cenário D}
+
+    \begin{tikzpicture}
+        \begin{scope}{shift={(3,0)}}
+            \node[opacity=0] (X) at (-1, 1) { $1$ };
+            \node[anchor=west] at (0, 8) { Informação a ser inserida: \textcolor{black}{23} };
+            \node[circle,draw,fill=black] (A) at (4, 7) { \textcolor{white}{40} };
+            \node[circle,draw,fill=red] (B) at (1, 4) { \textcolor{white}{17} };
+            \node[circle,draw,fill=red] (C) at (5, 4) { \textcolor{white}{88} };
+            \node[circle,draw,fill=black] (D) at (6, 5.5) { \textcolor{white}{91} };
+            \node[circle,draw,fill=red] (E) at (7, 4) { \textcolor{white}{96} };
+            \node[circle,draw,fill=black] (F) at (2, 5.5) { \textcolor{white}{23} };
+            \node[circle,draw,fill=red] (G) at (3, 4) { \textcolor{white}{25} };
+
+            \draw (A) -- (F);
+            \draw (A) -- (D);
+            \draw (C) -- (D);
+            \draw (D) -- (E);
+            \draw (B) -- (F);
+            \draw (G) -- (F);
+        \end{scope}
+    \end{tikzpicture}
+
+\end{frame}
+
+\begin{frame}[fragile]{Restauração das propriedades no cenário D}
+    \inputsnippet{cpp}{106}{122}{rb.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Restauração das propriedades no cenário D}
+    \inputsnippet{cpp}{123}{140}{rb.cpp}
+\end{frame}
+
