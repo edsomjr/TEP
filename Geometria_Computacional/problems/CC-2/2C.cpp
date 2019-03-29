@@ -30,14 +30,12 @@ template<typename T> vector<Point<T>>
 intersection(const Circle<T>& c1, const Circle<T>& c2)
 {
     vector<Point<double>> ps;
-
     double d = hypot(c1.C.x - c2.C.x, c1.C.y - c2.C.y);
 
     if (d > c1.r + c2.r or d < fabs(c1.r - c2.r))
         return ps;
 
     // Caso d == 0 ignorado por conta das restrições da entrada
-
     auto a = (c1.r * c1.r - c2.r * c2.r + d * d)/(2 * d);
     auto h = sqrt(c1.r * c1.r - a * a);
     auto x = c1.C.x + (a/d)*(c2.C.x - c1.C.x);
@@ -93,7 +91,6 @@ Line<T> perpendicular_bisector(const Point<T>& P, const  Point<T>& Q)
     auto a = 2*(Q.x - P.x);
     auto b = 2*(Q.y - P.y);
     auto c = (P.x * P.x + P.y * P.y) - (Q.x * Q.x + Q.y * Q.y);
-
     return { a, b, c };
 }
 
@@ -102,11 +99,9 @@ vector<Point<double>> solve(const vector<Circle<int>>& ps)
     vector<Point<double>> ans;
     enum { P, Q, R };
 
-    if (ps[P].r == ps[Q].r and ps[Q].r == ps[R].r)
-    {
+    if (ps[P].r == ps[Q].r and ps[Q].r == ps[R].r) {
         auto r = perpendicular_bisector(ps[P].C, ps[Q].C);
         auto s = perpendicular_bisector(ps[Q].C, ps[R].C);
-
         ans.push_back(intersection(r, s));
     } else 
     {
@@ -123,22 +118,22 @@ vector<Point<double>> solve(const vector<Circle<int>>& ps)
  
         auto qs = intersection(cs[0], cs[1]);
 
-/*        if (p.first == 1)
-            printf("%.5f %.5f\n", p.second.first.x, p.second.first.y);
-        else if (p.first == 2)
+        if (not qs.empty())
         {
-            auto S = p.second.first;
-            auto dist = S.distance(P);
-            dist = min(dist, S.distance(Q)); 
-            dist = min(dist, S.distance(R)); 
+            auto A = qs.front();
+            auto B = qs.back();
+            auto distA = 1e9, distB = 1e9;
 
-            auto T = p.second.second;
+            for (int i = 0; i < 3; ++i)
+            {
+                Point<double> X { (double) ps[i].C.x, (double) ps[i].C.x };
 
-            if (T.distance(P) < dist or T.distance(Q) < dist or T.distance(R) < dist)
-                S = T;
+                distA = min(distA, A.distance(X)); 
+                distB = min(distB, B.distance(X)); 
+            }
 
-            printf("%.5f %.5f\n", S.x, S.y);
-        } */
+            distA < distB ? ans.push_back(A) : ans.push_back(B);
+        }
     }
 
  
