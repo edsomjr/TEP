@@ -5,7 +5,7 @@ struct Line {
     T m, b;
     bool vertical;
 
-    Line(const Point& P, const Point& Q) : vertical(false)
+    Line(const Point<T>& P, const Point<T>& Q) : vertical(false)
     {
         if (equals(P.x, Q.x))
         {
