@@ -16,6 +16,21 @@
 \begin{frame}[fragile]{Set}
 
     \metroset{block=fill}
+
+    Propriedades do container:
+
+    \begin{itemize}
+        \item Ordenado: elementos no container vão seguir sempre um ordem. Todos elementos quando inseridos são colocados na respectiva posição respeitado essa ordem.
+        \item Set: o elemento também é a própria chave usada para sua própria identificação.
+        \item Chaves únicas: dois elementos não poderão possuir chaves equivalentes.
+        \item Alocação dinamica: utiliza de um objeto de alocação dinamica para lidar com as necessidades de espaço em memória.
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Set}
+
+    \metroset{block=fill}
     \begin{itemize}
         \item Inserção: a inserção vai ter complexidade logarítmica em relação ao tamanho, é necessário achar o melhor lugar para inserir e manter a árvore balanceada. 
         \item Deleção: também possui complexidade logarítmica em relação ao tamanho por causa da necessidade de manter a árvore balanceada.
@@ -44,16 +59,6 @@
         \inputsyntax{c++}{setfind.st}
         \item Informações:
         \inputsyntax{c++}{setinfos.st}
-    \end{itemize}
-
-\end{frame}
-
-\begin{frame}[fragile]{Set}
-
-    \metroset{block=fill}
-    \begin{itemize}
-        \item O set não possui elementos repetidos
-        \inputsyntax{c++}{setrepeat.st}
     \end{itemize}
 
 \end{frame}
