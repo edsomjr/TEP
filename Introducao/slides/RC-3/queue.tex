@@ -1,0 +1,55 @@
+\section{std::queue}
+
+\subsection{Estruturas}
+
+\begin{frame}[fragile]{Queue}
+
+    \metroset{block=fill}
+    \begin{block}{Declaração da Queue}
+        \inputsyntax{c++}{queuedeclaration.st}
+    \end{block}
+	
+    No STL, a queue é um container associativo. Ela traz uma estrutura FIFO (first in, first out). É possível inserir elementos no fim da fila e retirar apenas da frente.
+    
+\end{frame}
+
+\begin{frame}[fragile]{Queue}
+
+    \metroset{block=fill}
+    \begin{itemize}
+        \item Inserção: a inserção será sempre constante em relação à sua complexidade de tempo.
+        \item Acesso: o acesso ao primeiro e ao último elemento é constante.
+        \item Deleção: a interface permite apenas deletar o elemento da frente da fila, complexidade de tempo constante.
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Queue}
+
+    \metroset{block=fill}
+    \begin{itemize}
+        \item Inserção:
+        \inputsyntax{c++}{queueinsert.st}
+        \item Acesso:
+        \inputsyntax{c++}{queueaccess.st}
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Queue}
+
+    \metroset{block=fill}
+    \begin{itemize}
+        \item Deleção:
+        \inputsyntax{c++}{queueerase.st}
+        \item Informações:
+        \inputsyntax{c++}{queueinfos.st}
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Queue}
+
+    \inputcode{cpp}{queue.cpp}
+
+\end{frame}

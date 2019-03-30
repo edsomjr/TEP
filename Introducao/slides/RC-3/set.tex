@@ -1,0 +1,65 @@
+\section{std::set}
+
+\subsection{Estruturas}
+
+\begin{frame}[fragile]{Set}
+
+    \metroset{block=fill}
+    \begin{block}{Declaração do set}
+        \inputsyntax{c++}{setdeclaration.st}
+    \end{block}
+	
+    O set é uma estrutura de dado não linear, normalmente implementada com uma árvore binária vermelha-preta. Como ela é mantida balanceada o set possui boa performance para pesquisas.
+         
+\end{frame}
+
+\begin{frame}[fragile]{Set}
+
+    \metroset{block=fill}
+    \begin{itemize}
+        \item Inserção: a inserção vai ter complexidade logarítmica em relação ao tamanho, é necessário achar o melhor lugar para inserir e manter a árvore balanceada. 
+        \item Deleção: também possui complexidade logarítmica em relação ao tamanho por causa da necessidade de manter a árvore balanceada.
+        \item Pesquisa: achar um valor no set possui uma performance logarítmica, o que é um dos melhores motivos para se utilizar um set.
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Set}
+
+    \metroset{block=fill}
+    \begin{itemize}
+        \item Inserção:
+        \inputsyntax{c++}{setinsert.st}
+        \item Deleção:
+        \inputsyntax{c++}{seterase.st}
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Set}
+
+    \metroset{block=fill}
+    \begin{itemize}
+        \item Pesquisa:
+        \inputsyntax{c++}{setfind.st}
+        \item Informações:
+        \inputsyntax{c++}{setinfos.st}
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Set}
+
+    \metroset{block=fill}
+    \begin{itemize}
+        \item O set não possui elementos repetidos
+        \inputsyntax{c++}{setrepeat.st}
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Set}
+
+    \inputcode{cpp}{set.cpp}
+
+\end{frame}

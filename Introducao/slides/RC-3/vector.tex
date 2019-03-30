@@ -1,0 +1,78 @@
+\section{std::vector}
+
+\subsection{Estruturas}
+
+\begin{frame}[fragile]{Vector}
+
+    \metroset{block=fill}
+    \begin{block}{Declaração do Vector}
+        \inputsyntax{c++}{vectordeclaration.st}
+    \end{block}
+	
+    Um vector traz a ideia de um array dinamico, um armazenamento contínuo de elementos na memória que se realoca dinamicamente quando necessário.
+    
+\end{frame}
+
+\begin{frame}[fragile]{Vector}
+
+    \metroset{block=fill}
+    \begin{itemize}
+        \item Inserção: possui complexidade constante ou linear, vai depender da necessidade de realocar o vetor ou não.
+        \item Acesso: o acesso é constante pois é um simples acesso direto à uma localização da memória.
+        \item Deleção: caso tente apagar um número ao final do vetor o tempo será constante, porém para apagar qualquer elemento que não seja o último o vetor terá de ser realocado.
+        \item Pesquisa: achar um valor no vetor tem complexidade de tempo linear com o tamanho, pois precisa percorrer todo ele no pior caso, porém se estiver ordenado a pesquisa será logarítmica utilizando busca binária.
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Vector}
+
+    \metroset{block=fill}
+    \begin{itemize}
+        \item Inserção:
+        \inputsyntax{c++}{vectorinsert.st}
+        \item Acesso:
+        \inputsyntax{c++}{vectoraccess.st}
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Vector}
+
+    \metroset{block=fill}
+    \begin{itemize}
+        \item Deleção:
+        \inputsyntax{c++}{vectorerase.st}
+        \item Pesquisa:
+        \inputsyntax{c++}{vectorfind.st}
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Vector}
+
+    \metroset{block=fill}
+    \begin{itemize}
+        \item Informações:
+        \inputsyntax{c++}{vectorinfos.st}
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Vector}
+
+    \inputcode{cpp}{vectorconstructors.cpp}
+
+\end{frame}
+
+\begin{frame}[fragile]{Vector}
+
+    \inputsnippet{cpp}{}{21}{vector.cpp}
+
+\end{frame}
+
+\begin{frame}[fragile]{Vector}
+
+    \inputsnippet{cpp}{23}{}{vector.cpp}
+
+\end{frame}
