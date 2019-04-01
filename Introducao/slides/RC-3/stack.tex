@@ -1,0 +1,68 @@
+\section{std::stack}
+
+\subsection{Estruturas}
+
+\begin{frame}[fragile]{Stack}
+
+    \metroset{block=fill}
+    \begin{block}{Declaração da Stack}
+        \inputsyntax{c++}{stackdeclaration.st}
+    \end{block}
+	
+    No STL, o stack é um container associativo. Ele traz uma estrutura LIFO (last in, first out). É possível inserir elementos no topo da pilha e retirar apenas do topo.
+    
+\end{frame}
+
+\begin{frame}[fragile]{Stack}
+
+    \metroset{block=fill}
+
+    Propriedades do container adaptado (`std::deque'):
+    \begin{itemize}
+        \item Sequencial: elementos ordenados de maneira linear e acessados individualmente de acordo com suas posição na sequência.
+        \item Vetor dinamico: permite acesso direto ao elemento na sequência com adição e remoção eficientes no início ou final.
+        \item Alocação dinamica: utiliza de um objeto de alocação dinamica para lidar com diferentes necessidades de espaço.
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Stack}
+
+    \metroset{block=fill}
+    \begin{itemize}
+        \item Inserção: a inserção será sempre constante em relação à sua complexidade de tempo.
+        \item Acesso: o acesso ao primeiro e ao último elemento é constante.
+        \item Deleção: a interface permite apenas deletar o elemento do topo da fila, complexidade de tempo constante.
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Stack}
+
+    \metroset{block=fill}
+    \begin{itemize}
+        \item Inserção:
+        \inputsyntax{c++}{stackinsert.st}
+        \item Acesso:
+        \inputsyntax{c++}{stackaccess.st}
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Stack}
+
+    \metroset{block=fill}
+    \begin{itemize}
+        \item Deleção:
+        \inputsyntax{c++}{stackerase.st}
+        \item Informações:
+        \inputsyntax{c++}{stackinfos.st}
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Stack}
+
+    \inputcode{cpp}{stack.cpp}
+
+\end{frame}
