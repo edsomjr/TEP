@@ -17,7 +17,7 @@ Slides
 ======
 
 1. Vetores
-    1. [Fundamentos](slides/VT-1/VT-1.pdf) ([problemas resolvidos] (problems/VT-1/VT-1.pdf))
+    1. [Fundamentos](slides/VT-1/VT-1.pdf) ([problemas resolvidos](problems/VT-1/VT-1.pdf))
     1. [Implementação de um contêniner `vector` em C++](slides/VT-2/VT-2.pdf) 
 1. Listas
     1. [Listas Encadeadas](slides/LE-1/LE-1.pdf)
@@ -25,8 +25,8 @@ Slides
     1. [Listas Circulares](slides/LE-3/LE-3.pdf)
     1. [Listas Auto-Organizáveis](slides/LE-4/LE-4.pdf)
 1. Pilhas e Filas
-    1. [Pilhas](slides/PF-1/PF-1.pdf)([problemas resolvidos] (problems/PF-1/PF-2.pdf))
-    1. [Filas](slides/PF-2/PF-2.pdf)([problemas resolvidos] (problems/PF-2/PF-2.pdf))
+    1. [Pilhas](slides/PF-1/PF-1.pdf) ([problemas resolvidos](problems/PF-1/PF-2.pdf))
+    1. [Filas](slides/PF-2/PF-2.pdf) ([problemas resolvidos](problems/PF-2/PF-2.pdf))
 1. Árvores
     1. [Árvores Binárias: Definição](slides/TR-1/TR-1.pdf)
     1. [Árvores Binárias de Busca: Inserção e Remoção](slides/TR-2/TR-2.pdf)
