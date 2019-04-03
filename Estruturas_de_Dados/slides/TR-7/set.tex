@@ -1,0 +1,54 @@
+\section{\texttt{Set}}
+
+\begin{frame}[fragile]{\texttt{Set}}
+
+    \begin{itemize}
+        \item O conjunto (\code{c}{set}) é um tipo de dado abstrato que representa um conjunto
+            de elementos únicos
+
+        \item Estes elementos são mantidos em ordem crescente, de acordo com a implementação
+            do operator \code{c}{<} do tipo de elemento a ser armazenado
+
+        \item O tipo de dado a ser armazenado é paramétrico, e deve ser definido na instanciação
+            do conjunto
+
+        \item A principal característica dos conjuntos é a eficiência nas operações de inserção,
+            remoção e busca
+
+        \item Todas as três tem complexidade $O(N)$, onde $N$ é o número de elementos do conjunto
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Construção de um \texttt{set}}
+
+    \begin{itemize}
+        \item O padrão C++11 oferece cinco construtores distintos para um \code{c}{set}
+
+        \item O primeiro deles, denominado \textit{default constructor},
+                 não tem parâmetros, e constrói um conjunto vazio
+
+        \item O segundo, \textit{range constructor}, permite a construção de um conjunto a partir 
+            de dois iteradores,
+            \code{c}{first} e \code{c}{last}, que determinam um intervalo de valores a 
+            serem inseridos, do primeiro ao penúltimo
+
+        \item Este construtor também permite a definição de um alocador de memória customizado
+
+        \item O terceiro, \textit{copy constructor}, cria uma cópia exata do \code{c}{set}
+            passado como parâmetro
+
+        \item O quarto, \textit{move constructor}, move o conteúdo do \code{c}{set} passado
+            como parâmetro para o novo conjunto
+
+        \item O quinto, \textit{initializer-list constructor}, cria um novo \code{c}{set} com
+            os elementos passados na lista de inicialização
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de uso dos construtores do \texttt{set}}
+
+    \inputcode{c++}{set_constructor.cpp}
+
+\end{frame}
