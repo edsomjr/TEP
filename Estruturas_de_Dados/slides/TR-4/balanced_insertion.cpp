@@ -8,7 +8,7 @@ private:
 
     Node *root;
 
-    void balanced_insertion(BinaryTree *tree, const vector<T>& vs, int a, int b)
+    void balanced_insertion(BST *tree, const vector<T>& vs, int a, int b)
     {
         if (a <= b) 
         {
