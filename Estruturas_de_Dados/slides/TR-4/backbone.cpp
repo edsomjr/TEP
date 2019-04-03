@@ -13,7 +13,7 @@ private:
 
     void backbone()
     {
-        Node *C = root, P = nullptr, G = nullptr;
+        Node *C = root, *P = nullptr, *G = nullptr;
 
         while (C != nullptr)
         {

@@ -161,6 +161,22 @@ private:
         return D;
     }
 
+    // Troca as posições do pai N e seu filho C
+    void swap_nodes(Node *N, Node *C)
+    {
+        auto P = parent(N);
+
+        if (C)
+            C->parent = P;
+
+        if (P == nullptr)
+            root = C;
+        else if (P->left == N) 
+            P->left = C;
+        else 
+            P->right = C;
+    }
+
 public:
     void erase(const T& info)
     {
@@ -177,55 +193,38 @@ public:
     }
 
 private:
-    void swap_nodes(Node *N, Node *C)
-    {
-        if (C)
-            C->parent = N->parent;
-
-        auto P = parent(N);
-
-        if (P == nullptr)
-            root = C;
-        else if (P->left == N) 
-            P->left = C;
-        else 
-            P->right = C;
-    }
-
     void erase(Node *N)
     {
+        // As relações de parentesco devem ser determinadas
+        // antes da troca de N por C
+
+        auto P = parent(N);
+        auto S = sibling(N);
         auto C = N->left ? N->left : N->right;
 
         swap_nodes(N, C);
 
         // Se N é vermelho não há nada mais a fazer
+
         if (N->color == Node::BLACK)
         {
             // N é preto e o filho não-folha C é vermelho
             if (C and C->color == Node::RED)
                 C->color = Node::BLACK;
             else
-                scenarioA(C);
+                rebalancing(P, S, C);
         }
 
         delete N;
     }
 
-    void scenarioA(Node *C)
+    void rebalancing(Node *P, Node *S, Node *N)
     {
-        // N é preto, C é folha e assume a posição raiz
-        if (root == C)
+        // N é a raiz da árvore
+        if (P == nullptr)
             return;
 
-        scenarioB(C);
-    }
-
-    void scenarioB(Node *N)
-    {
         // N tem irmão S vermelho: este caso não se encerra no if
-        auto P = parent(N);
-        auto S = sibling(N);
-
         if (S and S->color == Node::RED)
         {
             P->color = Node::RED;
@@ -238,15 +237,68 @@ private:
 
             if (parent(S) == nullptr)
                 root = S;
+
+            // O irmão deve ser atualizado neste cenário
+            S = P->left == N ? P->right : P->left;
         }
 
-        scenarioC(N);
-    }
+        // N tem irmão, pai e sobrinhos pretos
+        if (P and P->color == Node::BLACK and S->color == Node::BLACK
+            and (S->left == nullptr or S->left->color == Node::BLACK)
+            and (S->right == nullptr or S->right->color == Node::BLACK))
+        {
+            S->color = Node::RED;
+            return rebalancing(parent(P), sibling(P), P);
+        }
 
-    void scenarioC(Node *N)
-    {
-        if (N)
+        // N tem irmão e sobrinhos pretos, pai vermelho
+        if (P and P->color == Node::RED and S->color == Node::BLACK
+            and (S->left == nullptr or S->left->color == Node::BLACK)
+            and (S->right == nullptr or S->right->color == Node::BLACK))
+        {
+            S->color = Node::RED;
+            P->color = Node::BLACK;
             return;
+        }
+
+        // N tem irmão preto com sobrinho à esquerda vermelho
+        if (S and S->color == Node::BLACK)
+        {
+            if (P and P->left == N 
+                and (S->left or S->left->color == Node::RED) and
+                (S->right == nullptr or S->right->color == Node::BLACK))
+            {
+                S->color = Node::RED;
+                S->left->color = Node::BLACK;
+                rotate_right(P, S, S->left);
+                S = P->right;
+            } else if (P and P->right == N
+                and (S->left == nullptr or S->left->color == Node::BLACK)
+                and (S->right or S->right->color == Node::RED))
+            {
+                S->color = Node::RED;
+                S->right->color = Node::BLACK;
+                rotate_left(P, S, S->right);
+                S = P->left;
+            }
+        }
+
+        // N tem irmão preto com sobrinho à direita vermelho
+        S->color = P->color;
+        P->color = Node::BLACK;
+
+        if (N == P->left)
+        {
+            S->right->color = Node::BLACK;
+            rotate_left(grandparent(P), P, S);
+        } else
+        {
+            S->left->color = Node::BLACK;
+            rotate_right(grandparent(P), P, S);
+        }
+
+        if (parent(S) == nullptr)
+            root = S;
     }
 
     void preorder(std::ostream& os, const Node* node) const
@@ -310,8 +362,16 @@ int main()
     tree.erase(51);
     std::cout << tree << '\n';
 
-    xs = std::vector<int> { 40, 75, 18, 4, 22, 9 };
     RBTree<int> tree2;
+    tree2.insert(18);
+
+    std::cout << "Nova árvore:\n" << tree2 << '\n';
+
+    std::cout << "Remoção de nó raiz com filhos pretos\n";
+    tree2.erase(18);
+    std::cout << tree2 << '\n';
+
+   xs = std::vector<int> { 40, 75, 18, 4, 22, 9 };
 
     for (const auto& x : xs)
         tree2.insert(x);
@@ -322,18 +382,45 @@ int main()
     tree2.erase(75);
     std::cout << tree2 << '\n';
 
-    xs = std::vector<int> { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
+    xs = std::vector<int> { 40, 18, 88, 91, 4 };
     RBTree<int> tree3;
 
     for (const auto& x : xs)
         tree3.insert(x);
 
+    tree3.erase(4);
+    tree3.erase(91);
+
     std::cout << "Nova árvore:\n" << tree3 << '\n';
 
-    std::cout << "Remoção de nó preto com tio e sobrinhos pretos\n";
-    tree2.erase(6);
-    std::cout << tree2 << '\n';
+    std::cout << "Remoção de nó com pai preto e irmão e sobrinhos pretos\n";
+    tree3.erase(88);
+    std::cout << tree3 << '\n';
 
+    xs = std::vector<int> { 18, 4, 40, 88, 1, 10, 7 };
+    RBTree<int> tree4;
+
+    for (const auto& x : xs)
+        tree4.insert(x);
+
+    tree4.erase(7);
+    std::cout << "Nova árvore:\n" << tree4 << '\n';
+
+    std::cout << "Remoção de nó com pai vermelho e irmão e sobrinhos pretos\n";
+    tree4.erase(10);
+    std::cout << tree4 << '\n';
+
+    xs = std::vector<int> { 40, 17, 88, 56 };
+    RBTree<int> tree5;
+
+    for (const auto& x : xs)
+        tree5.insert(x);
+
+    std::cout << "Nova árvore:\n" << tree5 << '\n';
+
+    std::cout << "Remoção de nó com irmão preto e sobrinho à esquerda vermelho\n";
+    tree5.erase(17);
+    std::cout << tree5 << '\n';
 
     return 0;
 }

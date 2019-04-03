@@ -47,8 +47,12 @@
     \inputsnippet{cpp}{142}{162}{rb.cpp}
 \end{frame}
 
+\begin{frame}[fragile]{Implementação das rotinas auxiliares}
+    \inputsnippet{cpp}{163}{179}{rb.cpp}
+\end{frame}
+
 \begin{frame}[fragile]{Implementação da rotina de remoção}
-    \inputsnippet{cpp}{163}{178}{rb.cpp}
+    \inputsnippet{cpp}{180}{194}{rb.cpp}
 \end{frame}
 
 \begin{frame}[fragile]{Remoção de nó vermelho}
@@ -224,7 +228,7 @@
 \end{frame}
 
 \begin{frame}[fragile]{Implementação da remoção de nó vermelho}
-    \inputsnippet{cpp}{194}{207}{rb.cpp}
+    \inputsnippet{cpp}{195}{208}{rb.cpp}
 \end{frame}
 
 \begin{frame}[fragile]{Remoção de nó preto com filho vermelho}
@@ -447,7 +451,7 @@
 \end{frame}
 
 \begin{frame}[fragile]{Implementação da remoção de nó preto com filho vermelho}
-    \inputsnippet{cpp}{208}{215}{rb.cpp}
+    \inputsnippet{cpp}{209}{220}{rb.cpp}
 \end{frame}
 
 \begin{frame}[fragile]{Nó preto com filho preto}
@@ -458,7 +462,8 @@
 
         \item A remoção de um nó preto viola a propriedade 5 das árvores \textit{red-black}
 
-        \item Há múltiplos cenários possíveis, cada um tendo que ser tratado adequadamente
+        \item Há múltiplos cenários possíveis, cada um tendo que ser tratado adequadamente,
+            por meio do rebalanceamento da árvore
 
         \item Observe que este caso ocorre apenas quando ambos filhos de $N$ são folhas
 
@@ -482,7 +487,7 @@
             será preta
     \end{itemize}
 
-    \inputsnippet{cpp}{216}{222}{rb.cpp}
+    \inputsnippet{cpp}{221}{226}{rb.cpp}
 \end{frame}
 
 \begin{frame}[fragile]{Exemplo de remoção no cenário A}
@@ -774,7 +779,7 @@
         \begin{scope}{shift={(3,0)}}
             \node[opacity=0] (X) at (-1, 1) { $51$ };
             \node[opacity=0] (G) at (7, 3) { $51$ };
-            \node[anchor=west] at (0, 8) { Nó preto, irmão vermelho };
+            \node[anchor=west] at (0, 8) { Nó preto, pai vermelho, irmão preto };
             \draw[ultra thick,fill=black] (C) circle [radius=10pt];
             \draw[ultra thick,blue] (G) circle [radius=12pt];
             \draw[ultra thick,fill=black] (G) circle [radius=10pt];
@@ -798,14 +803,690 @@
 \end{frame}
 
 \begin{frame}[fragile]{Implementação do cenário B}
-    \inputsnippet{cpp}{222}{240}{rb.cpp}
+    \inputsnippet{cpp}{227}{244}{rb.cpp}
 \end{frame}
 
-
-\begin{frame}[fragile]{Cenário C: 
+\begin{frame}[fragile]{Cenário C: Pai, irmão e sobrinhos pretos}
 
     \begin{itemize}
-        \item
+        \item Neste caso é necessário recolorir $S$ como vermelho
+
+        \item Isto faz com que todos os caminhos que passem por $S$ tenham um nó preto a menos
+
+        \item Porém a remoção de $N$ também reduz um nó preto dos caminhos que passavam por $N$
+
+        \item Contudo, os caminhos que passam por $P$ agora tem um nó preto a menos do que os
+            caminhos que não passam, violando a propriedade 5
+
+        \item Assim é preciso reiniciar o rebalanceamento em $P$
     \end{itemize}
 
 \end{frame}
+
+\begin{frame}[fragile]{Exemplo de remoção no cenário C}
+
+    \begin{tikzpicture}
+        \begin{scope}{shift={(3,0)}}
+            \node[opacity=0] (X) at (-1, 1) { $51$ };
+            \node[anchor=west] at (0, 8) { Informação a ser removida: \textcolor{blue}{88}};
+%            \draw[ultra thick,fill=black] (C) circle [radius=10pt];
+%            \draw[ultra thick,blue] (G) circle [radius=12pt];
+%            \draw[ultra thick,fill=black] (G) circle [radius=10pt];
+            \node[circle,draw,fill=black] (A) at (4, 6) { \textcolor{white}{40} };
+            \node[circle,draw,fill=black] (B) at (2, 4) { \textcolor{white}{18} };
+            \node[circle,draw,fill=black] (C) at (6, 4) { \textcolor{white}{88} };
+
+            \draw (A) -- (B);
+            \draw (A) -- (C);
+        \end{scope}
+    \end{tikzpicture}
+
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de remoção no cenário C}
+
+    \begin{tikzpicture}
+        \begin{scope}{shift={(3,0)}}
+            \node[opacity=0] (X) at (-1, 1) { $51$ };
+            \node[anchor=west] at (0, 8) { Informação a ser removida: \textcolor{blue}{88}};
+            \draw[ultra thick,blue] (A) circle [radius=12pt];
+%            \draw[ultra thick,fill=black] (G) circle [radius=10pt];
+            \node[circle,draw,fill=black] (A) at (4, 6) { \textcolor{white}{40} };
+            \node[circle,draw,fill=black] (B) at (2, 4) { \textcolor{white}{18} };
+            \node[circle,draw,fill=black] (C) at (6, 4) { \textcolor{white}{88} };
+
+            \draw (A) -- (B);
+            \draw (A) -- (C);
+        \end{scope}
+    \end{tikzpicture}
+
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de remoção no cenário C}
+
+    \begin{tikzpicture}
+        \begin{scope}{shift={(3,0)}}
+            \node[opacity=0] (X) at (-1, 1) { $51$ };
+            \node[anchor=west] at (0, 8) { Informação a ser removida: \textcolor{blue}{88}};
+            \draw[ultra thick,blue] (C) circle [radius=12pt];
+%            \draw[ultra thick,fill=black] (G) circle [radius=10pt];
+            \node[circle,draw,fill=black] (A) at (4, 6) { \textcolor{white}{40} };
+            \node[circle,draw,fill=black] (B) at (2, 4) { \textcolor{white}{18} };
+            \node[circle,draw,fill=black] (C) at (6, 4) { \textcolor{white}{88} };
+
+            \draw (A) -- (B);
+            \draw (A) -- (C);
+        \end{scope}
+    \end{tikzpicture}
+
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de remoção no cenário C}
+
+    \begin{tikzpicture}
+        \begin{scope}{shift={(3,0)}}
+            \node[opacity=0] (X) at (-1, 1) { $51$ };
+            \node[anchor=west] at (0, 8) { Informação a ser removida: \textcolor{black}{88}};
+            \draw[ultra thick,blue] (C) circle [radius=12pt];
+            \draw[ultra thick,fill=black] (C) circle [radius=10pt];
+            \node[circle,draw,fill=black] (A) at (4, 6) { \textcolor{white}{40} };
+            \node[circle,draw,fill=black] (B) at (2, 4) { \textcolor{white}{18} };
+%            \node[circle,draw,fill=black] (C) at (6, 4) { \textcolor{white}{88} };
+
+            \draw (A) -- (B);
+            \draw (A) -- (C);
+        \end{scope}
+    \end{tikzpicture}
+
+\end{frame}
+
+
+\begin{frame}[fragile]{Exemplo de remoção no cenário C}
+
+    \begin{tikzpicture}
+        \begin{scope}{shift={(3,0)}}
+            \node[opacity=0] (X) at (-1, 1) { $51$ };
+            \node[anchor=west] at (0, 8) { Nó, pai, irmão e sobrinhos pretos };
+            \draw[ultra thick,blue] (C) circle [radius=12pt];
+            \draw[ultra thick,green] (B) circle [radius=12pt];
+            \draw[ultra thick,fill=black] (C) circle [radius=10pt];
+            \node[circle,draw,fill=black] (A) at (4, 6) { \textcolor{white}{40} };
+            \node[circle,draw,fill=black] (B) at (2, 4) { \textcolor{white}{18} };
+            %\node[circle,draw,fill=black] (C) at (6, 4) { \textcolor{white}{88} };
+
+            \draw (A) -- (B);
+            \draw (A) -- (C);
+        \end{scope}
+    \end{tikzpicture}
+
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de remoção no cenário C}
+
+    \begin{tikzpicture}
+        \begin{scope}{shift={(3,0)}}
+            \node[opacity=0] (X) at (-1, 1) { $51$ };
+            \node[anchor=west] at (0, 8) { Nó, pai, irmão e sobrinhos pretos };
+            \draw[ultra thick,blue] (C) circle [radius=12pt];
+            \draw[ultra thick,green] (B) circle [radius=12pt];
+            \draw[ultra thick,fill=black] (C) circle [radius=10pt];
+            \node[circle,draw,fill=black] (A) at (4, 6) { \textcolor{white}{40} };
+            \node[circle,draw,fill=red] (B) at (2, 4) { \textcolor{white}{18} };
+            %\node[circle,draw,fill=black] (C) at (6, 4) { \textcolor{white}{88} };
+
+            \draw (A) -- (B);
+            \draw (A) -- (C);
+        \end{scope}
+    \end{tikzpicture}
+
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de remoção no cenário C}
+
+    \begin{tikzpicture}
+        \begin{scope}{shift={(3,0)}}
+            \node[opacity=0] (X) at (-1, 1) { $51$ };
+            \node[anchor=west] at (0, 8) { Nó, pai, irmão e sobrinhos pretos };
+%            \draw[ultra thick,blue] (C) circle [radius=12pt];
+%            \draw[ultra thick,green] (B) circle [radius=12pt];
+%            \draw[ultra thick,fill=black] (C) circle [radius=10pt];
+            \node[circle,draw,fill=black] (A) at (4, 6) { \textcolor{white}{40} };
+            \node[circle,draw,fill=red] (B) at (2, 4) { \textcolor{white}{18} };
+            %\node[circle,draw,fill=black] (C) at (6, 4) { \textcolor{white}{88} };
+
+            \draw (A) -- (B);
+%            \draw (A) -- (C);
+        \end{scope}
+    \end{tikzpicture}
+
+\end{frame}
+
+\begin{frame}[fragile]{Implementação do cenário C}
+    \inputsnippet{cpp}{245}{253}{rb.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Cenário D: Irmão e sobrinhos pretos, pai vermelho}
+
+    \begin{itemize}
+        \item Este cenário é semelhante ao cenário C
+
+        \item Contudo, a troca de cores em $P$ e $S$, neste caso, não viola a propriedade 5,
+            pois não há mudança no número de nós pretos nos caminhos que passam por $S$
+
+        \item O número de nós pretos dos caminhos que passam por $N$ aumenta em um, mas este
+            número volta ao original após a remoção de $N$, o qual é preto
+
+        \item Assim, este caso se encerra com esta troca de cores
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de remoção no cenário D}
+
+    \begin{tikzpicture}
+        \begin{scope}{shift={(3,0)}}
+            \node[opacity=0] (X) at (-1, 1) { $51$ };
+            \node[anchor=west] at (0, 8) { Informação a ser removida: \textcolor{blue}{10}};
+%            \draw[ultra thick,blue] (C) circle [radius=12pt];
+%            \draw[ultra thick,green] (B) circle [radius=12pt];
+%            \draw[ultra thick,fill=black] (C) circle [radius=10pt];
+            \node[circle,draw,fill=black] (A) at (4, 7) { \textcolor{white}{18} };
+            \node[circle,draw,fill=red] (B) at (2, 5) { \textcolor{white}{4} };
+            \node[circle,draw,fill=black] (C) at (6, 5) { \textcolor{white}{40} };
+            \node[circle,draw,fill=black] (D) at (1, 3) { \textcolor{white}{1} };
+            \node[circle,draw,fill=black] (E) at (3, 3) { \textcolor{white}{10} };
+            \node[circle,draw,fill=red] (F) at (7, 3) { \textcolor{white}{88} };
+
+            \draw (A) -- (B);
+            \draw (A) -- (C);
+            \draw (B) -- (D);
+            \draw (B) -- (E);
+            \draw (C) -- (F);
+        \end{scope}
+    \end{tikzpicture}
+
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de remoção no cenário D}
+
+    \begin{tikzpicture}
+        \begin{scope}{shift={(3,0)}}
+            \node[opacity=0] (X) at (-1, 1) { $51$ };
+            \node[anchor=west] at (0, 8) { Informação a ser removida: \textcolor{blue}{10}};
+            \draw[ultra thick,blue] (A) circle [radius=12pt];
+%            \draw[ultra thick,green] (B) circle [radius=12pt];
+%            \draw[ultra thick,fill=black] (C) circle [radius=10pt];
+            \node[circle,draw,fill=black] (A) at (4, 7) { \textcolor{white}{18} };
+            \node[circle,draw,fill=red] (B) at (2, 5) { \textcolor{white}{4} };
+            \node[circle,draw,fill=black] (C) at (6, 5) { \textcolor{white}{40} };
+            \node[circle,draw,fill=black] (D) at (1, 3) { \textcolor{white}{1} };
+            \node[circle,draw,fill=black] (E) at (3, 3) { \textcolor{white}{10} };
+            \node[circle,draw,fill=red] (F) at (7, 3) { \textcolor{white}{88} };
+
+            \draw (A) -- (B);
+            \draw (A) -- (C);
+            \draw (B) -- (D);
+            \draw (B) -- (E);
+            \draw (C) -- (F);
+        \end{scope}
+    \end{tikzpicture}
+
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de remoção no cenário D}
+
+    \begin{tikzpicture}
+        \begin{scope}{shift={(3,0)}}
+            \node[opacity=0] (X) at (-1, 1) { $51$ };
+            \node[anchor=west] at (0, 8) { Informação a ser removida: \textcolor{blue}{10}};
+            \draw[ultra thick,blue] (B) circle [radius=11pt];
+%            \draw[ultra thick,green] (B) circle [radius=12pt];
+%            \draw[ultra thick,fill=black] (C) circle [radius=10pt];
+            \node[circle,draw,fill=black] (A) at (4, 7) { \textcolor{white}{18} };
+            \node[circle,draw,fill=red] (B) at (2, 5) { \textcolor{white}{4} };
+            \node[circle,draw,fill=black] (C) at (6, 5) { \textcolor{white}{40} };
+            \node[circle,draw,fill=black] (D) at (1, 3) { \textcolor{white}{1} };
+            \node[circle,draw,fill=black] (E) at (3, 3) { \textcolor{white}{10} };
+            \node[circle,draw,fill=red] (F) at (7, 3) { \textcolor{white}{88} };
+
+            \draw (A) -- (B);
+            \draw (A) -- (C);
+            \draw (B) -- (D);
+            \draw (B) -- (E);
+            \draw (C) -- (F);
+        \end{scope}
+    \end{tikzpicture}
+
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de remoção no cenário D}
+
+    \begin{tikzpicture}
+        \begin{scope}{shift={(3,0)}}
+            \node[opacity=0] (X) at (-1, 1) { $51$ };
+            \node[anchor=west] at (0, 8) { Informação a ser removida: \textcolor{blue}{10}};
+            \draw[ultra thick,blue] (E) circle [radius=12pt];
+%            \draw[ultra thick,green] (B) circle [radius=12pt];
+%            \draw[ultra thick,fill=black] (C) circle [radius=10pt];
+            \node[circle,draw,fill=black] (A) at (4, 7) { \textcolor{white}{18} };
+            \node[circle,draw,fill=red] (B) at (2, 5) { \textcolor{white}{4} };
+            \node[circle,draw,fill=black] (C) at (6, 5) { \textcolor{white}{40} };
+            \node[circle,draw,fill=black] (D) at (1, 3) { \textcolor{white}{1} };
+            \node[circle,draw,fill=black] (E) at (3, 3) { \textcolor{white}{10} };
+            \node[circle,draw,fill=red] (F) at (7, 3) { \textcolor{white}{88} };
+
+            \draw (A) -- (B);
+            \draw (A) -- (C);
+            \draw (B) -- (D);
+            \draw (B) -- (E);
+            \draw (C) -- (F);
+        \end{scope}
+    \end{tikzpicture}
+
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de remoção no cenário D}
+
+    \begin{tikzpicture}
+        \begin{scope}{shift={(3,0)}}
+            \node[opacity=0] (X) at (-1, 1) { $51$ };
+            \node[anchor=west] at (0, 8) { Informação a ser removida: \textcolor{black}{10}};
+            \draw[ultra thick,blue] (E) circle [radius=12pt];
+%            \draw[ultra thick,green] (B) circle [radius=12pt];
+            \draw[ultra thick,fill=black] (E) circle [radius=10pt];
+            \node[circle,draw,fill=black] (A) at (4, 7) { \textcolor{white}{18} };
+            \node[circle,draw,fill=red] (B) at (2, 5) { \textcolor{white}{4} };
+            \node[circle,draw,fill=black] (C) at (6, 5) { \textcolor{white}{40} };
+            \node[circle,draw,fill=black] (D) at (1, 3) { \textcolor{white}{1} };
+%            \node[circle,draw,fill=black] (E) at (3, 3) { \textcolor{white}{10} };
+            \node[circle,draw,fill=red] (F) at (7, 3) { \textcolor{white}{88} };
+
+            \draw (A) -- (B);
+            \draw (A) -- (C);
+            \draw (B) -- (D);
+            \draw (B) -- (E);
+            \draw (C) -- (F);
+        \end{scope}
+    \end{tikzpicture}
+
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de remoção no cenário D}
+
+    \begin{tikzpicture}
+        \begin{scope}{shift={(3,0)}}
+            \node[opacity=0] (X) at (-1, 1) { $51$ };
+            \node[anchor=west] at (0, 8) { Irmão e sobrinhos pretos, pai vermelho };
+            \draw[ultra thick,blue] (E) circle [radius=12pt];
+            \draw[ultra thick,green] (D) circle [radius=10.5pt];
+            \draw[ultra thick,fill=black] (E) circle [radius=10pt];
+            \node[circle,draw,fill=black] (A) at (4, 7) { \textcolor{white}{18} };
+            \node[circle,draw,fill=red] (B) at (2, 5) { \textcolor{white}{4} };
+            \node[circle,draw,fill=black] (C) at (6, 5) { \textcolor{white}{40} };
+            \node[circle,draw,fill=black] (D) at (1, 3) { \textcolor{white}{1} };
+            %\node[circle,draw,fill=black] (E) at (3, 3) { \textcolor{white}{10} };
+            \node[circle,draw,fill=red] (F) at (7, 3) { \textcolor{white}{88} };
+
+            \draw (A) -- (B);
+            \draw (A) -- (C);
+            \draw (B) -- (D);
+            \draw (B) -- (E);
+            \draw (C) -- (F);
+        \end{scope}
+    \end{tikzpicture}
+
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de remoção no cenário D}
+
+    \begin{tikzpicture}
+        \begin{scope}{shift={(3,0)}}
+            \node[opacity=0] (X) at (-1, 1) { $51$ };
+            \node[anchor=west] at (0, 8) { Irmão e sobrinhos pretos, pai vermelho };
+            \draw[ultra thick,blue] (E) circle [radius=12pt];
+            \draw[ultra thick,green] (D) circle [radius=10.5pt];
+            \draw[ultra thick,fill=black] (E) circle [radius=10pt];
+            \node[circle,draw,fill=black] (A) at (4, 7) { \textcolor{white}{18} };
+            \node[circle,draw,fill=black] (B) at (2, 5) { \textcolor{white}{4} };
+            \node[circle,draw,fill=black] (C) at (6, 5) { \textcolor{white}{40} };
+            \node[circle,draw,fill=red] (D) at (1, 3) { \textcolor{white}{1} };
+            %\node[circle,draw,fill=black] (E) at (3, 3) { \textcolor{white}{10} };
+            \node[circle,draw,fill=red] (F) at (7, 3) { \textcolor{white}{88} };
+
+            \draw (A) -- (B);
+            \draw (A) -- (C);
+            \draw (B) -- (D);
+            \draw (B) -- (E);
+            \draw (C) -- (F);
+        \end{scope}
+    \end{tikzpicture}
+
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de remoção no cenário D}
+
+    \begin{tikzpicture}
+        \begin{scope}{shift={(3,0)}}
+            \node[opacity=0] (X) at (-1, 1) { $51$ };
+            \node[anchor=west] at (0, 8) { Irmão e sobrinhos pretos, pai vermelho };
+%            \draw[ultra thick,blue] (E) circle [radius=12pt];
+%            \draw[ultra thick,green] (D) circle [radius=10.5pt];
+%            \draw[ultra thick,fill=black] (E) circle [radius=10pt];
+            \node[circle,draw,fill=black] (A) at (4, 7) { \textcolor{white}{18} };
+            \node[circle,draw,fill=black] (B) at (2, 5) { \textcolor{white}{4} };
+            \node[circle,draw,fill=black] (C) at (6, 5) { \textcolor{white}{40} };
+            \node[circle,draw,fill=red] (D) at (1, 3) { \textcolor{white}{1} };
+            %\node[circle,draw,fill=black] (E) at (3, 3) { \textcolor{white}{10} };
+            \node[circle,draw,fill=red] (F) at (7, 3) { \textcolor{white}{88} };
+
+            \draw (A) -- (B);
+            \draw (A) -- (C);
+            \draw (B) -- (D);
+%            \draw (B) -- (E);
+            \draw (C) -- (F);
+        \end{scope}
+    \end{tikzpicture}
+
+\end{frame}
+
+\begin{frame}[fragile]{Implementação do cenário D}
+    \inputsnippet{cpp}{254}{263}{rb.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Cenário E: Irmão preto, sobrinho à esquerda vermelho}
+
+    \begin{itemize}
+        \item Se $N$ é o filho à esquerda de $P$, é necessário rotacionar o sobrinho
+            à direita em torno de $S$
+
+        \item Esta transformação torna o sobrinho à esquerda o novo irmão de $N$
+
+        \item Antes da rotação, as cores de $S$ e do sobrinho vermelho devem ser trocadas
+
+        \item Estas modificações não violam a propriedade 5
+
+        \item Agora, $N$ tem irmão preto com sobrinho à direita vermelho, o que configura o 
+            sexto e último cenário
+
+        \item Se $N$ é o filho à direita de $P$ e o sobrinho vermelho está à direita de $S$,
+            a situação é simétrica
+
+        \item Contudo, a rotação deve ser à esquerda em torno de $S$
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de remoção no cenário E}
+
+    \begin{tikzpicture}
+        \begin{scope}{shift={(3,0)}}
+            \node[opacity=0] (X) at (-1, 1) { $51$ };
+            \node[anchor=west] at (0, 8) { Informação a ser removida: \textcolor{blue}{17}};
+%            \draw[ultra thick,blue] (E) circle [radius=12pt];
+%            \draw[ultra thick,green] (D) circle [radius=10.5pt];
+%            \draw[ultra thick,fill=black] (E) circle [radius=10pt];
+            \node[circle,draw,fill=black] (A) at (4, 7) { \textcolor{white}{40} };
+            \node[circle,draw,fill=black] (B) at (2, 5) { \textcolor{white}{17} };
+            \node[circle,draw,fill=black] (C) at (6, 5) { \textcolor{white}{88} };
+            \node[circle,draw,fill=red] (D) at (5, 3) { \textcolor{white}{56} };
+
+            \draw (A) -- (B);
+            \draw (A) -- (C);
+            \draw (C) -- (D);
+        \end{scope}
+    \end{tikzpicture}
+
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de remoção no cenário E}
+
+    \begin{tikzpicture}
+        \begin{scope}{shift={(3,0)}}
+            \node[opacity=0] (X) at (-1, 1) { $51$ };
+            \node[anchor=west] at (0, 8) { Informação a ser removida: \textcolor{blue}{17}};
+            \draw[ultra thick,blue] (A) circle [radius=12pt];
+%            \draw[ultra thick,green] (D) circle [radius=10.5pt];
+%            \draw[ultra thick,fill=black] (E) circle [radius=10pt];
+            \node[circle,draw,fill=black] (A) at (4, 7) { \textcolor{white}{40} };
+            \node[circle,draw,fill=black] (B) at (2, 5) { \textcolor{white}{17} };
+            \node[circle,draw,fill=black] (C) at (6, 5) { \textcolor{white}{88} };
+            \node[circle,draw,fill=red] (D) at (5, 3) { \textcolor{white}{56} };
+
+            \draw (A) -- (B);
+            \draw (A) -- (C);
+            \draw (C) -- (D);
+        \end{scope}
+    \end{tikzpicture}
+
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de remoção no cenário E}
+
+    \begin{tikzpicture}
+        \begin{scope}{shift={(3,0)}}
+            \node[opacity=0] (X) at (-1, 1) { $51$ };
+            \node[anchor=west] at (0, 8) { Informação a ser removida: \textcolor{blue}{17}};
+            \draw[ultra thick,blue] (B) circle [radius=12pt];
+%            \draw[ultra thick,green] (D) circle [radius=10.5pt];
+%            \draw[ultra thick,fill=black] (E) circle [radius=10pt];
+            \node[circle,draw,fill=black] (A) at (4, 7) { \textcolor{white}{40} };
+            \node[circle,draw,fill=black] (B) at (2, 5) { \textcolor{white}{17} };
+            \node[circle,draw,fill=black] (C) at (6, 5) { \textcolor{white}{88} };
+            \node[circle,draw,fill=red] (D) at (5, 3) { \textcolor{white}{56} };
+
+            \draw (A) -- (B);
+            \draw (A) -- (C);
+            \draw (C) -- (D);
+        \end{scope}
+    \end{tikzpicture}
+
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de remoção no cenário E}
+
+    \begin{tikzpicture}
+        \begin{scope}{shift={(3,0)}}
+            \node[opacity=0] (X) at (-1, 1) { $51$ };
+            \node[anchor=west] at (0, 8) { Informação a ser removida: \textcolor{black}{17}};
+            \draw[ultra thick,blue] (B) circle [radius=12pt];
+%            \draw[ultra thick,green] (D) circle [radius=10.5pt];
+            \draw[ultra thick,fill=black] (B) circle [radius=10pt];
+            \node[circle,draw,fill=black] (A) at (4, 7) { \textcolor{white}{40} };
+%            \node[circle,draw,fill=black] (B) at (2, 5) { \textcolor{white}{17} };
+            \node[circle,draw,fill=black] (C) at (6, 5) { \textcolor{white}{88} };
+            \node[circle,draw,fill=red] (D) at (5, 3) { \textcolor{white}{56} };
+
+            \draw (A) -- (B);
+            \draw (A) -- (C);
+            \draw (C) -- (D);
+        \end{scope}
+    \end{tikzpicture}
+
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de remoção no cenário E}
+
+    \begin{tikzpicture}
+        \begin{scope}{shift={(3,0)}}
+            \node[opacity=0] (X) at (-1, 1) { $51$ };
+            \node[anchor=west] at (0, 8) { Irmão preto com sobrinho à esquerda vermelho };
+            \draw[ultra thick,blue] (B) circle [radius=12pt];
+            \draw[ultra thick,green] (C) circle [radius=12pt];
+            \draw[ultra thick,fill=black] (B) circle [radius=10pt];
+            \node[circle,draw,fill=black] (A) at (4, 7) { \textcolor{white}{40} };
+%            \node[circle,draw,fill=black] (B) at (2, 5) { \textcolor{white}{17} };
+            \node[circle,draw,fill=black] (C) at (6, 5) { \textcolor{white}{88} };
+            \node[circle,draw,fill=red] (D) at (5, 3) { \textcolor{white}{56} };
+
+            \draw (A) -- (B);
+            \draw (A) -- (C);
+            \draw (C) -- (D);
+        \end{scope}
+    \end{tikzpicture}
+
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de remoção no cenário E}
+
+    \begin{tikzpicture}
+        \begin{scope}{shift={(3,0)}}
+            \node[opacity=0] (X) at (-1, 1) { $51$ };
+            \node[anchor=west] at (0, 8) { Irmão preto com sobrinho à esquerda vermelho };
+            \draw[ultra thick,blue] (B) circle [radius=12pt];
+            \draw[ultra thick,green] (C) circle [radius=12pt];
+            \draw[ultra thick,fill=black] (B) circle [radius=10pt];
+            \node[circle,draw,fill=black] (A) at (4, 7) { \textcolor{white}{40} };
+%            \node[circle,draw,fill=black] (B) at (2, 5) { \textcolor{white}{17} };
+            \node[circle,draw,fill=black] (C) at (7, 3) { \textcolor{white}{88} };
+            \node[circle,draw,fill=red] (D) at (6, 5) { \textcolor{white}{56} };
+
+            \draw (A) -- (B);
+            \draw (A) -- (D);
+            \draw (C) -- (D);
+        \end{scope}
+    \end{tikzpicture}
+
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de remoção no cenário E}
+
+    \begin{tikzpicture}
+        \begin{scope}{shift={(3,0)}}
+            \node[opacity=0] (X) at (-1, 1) { $51$ };
+            \node[anchor=west] at (0, 8) { Cenário F: irmão preto, sobrinho à direita vermelho };
+            \draw[ultra thick,blue] (B) circle [radius=12pt];
+            \draw[ultra thick,green] (D) circle [radius=12pt];
+            \draw[ultra thick,fill=black] (B) circle [radius=10pt];
+            \node[circle,draw,fill=black] (A) at (4, 7) { \textcolor{white}{40} };
+%            \node[circle,draw,fill=black] (B) at (2, 5) { \textcolor{white}{17} };
+            \node[circle,draw,fill=red] (C) at (7, 3) { \textcolor{white}{88} };
+            \node[circle,draw,fill=black] (D) at (6, 5) { \textcolor{white}{56} };
+
+            \draw (A) -- (B);
+            \draw (A) -- (D);
+            \draw (C) -- (D);
+        \end{scope}
+    \end{tikzpicture}
+
+\end{frame}
+
+\begin{frame}[fragile]{Implementação do cenário E}
+    \inputsnippet{cpp}{264}{284}{rb.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Cenário F: Irmão preto, sobrinho à direita vermelho}
+
+    \begin{itemize}
+        \item Neste cenaŕio, $N$ é o filho à esquerda de $P$, $S$ é preto e o 
+            sobrinho à direita é vermelho
+
+        \item O rebalanceamento consiste em rotacionar $S$ à esquerda em torno de $P$, trocar
+            as cores de $P$ e $S$ e tornar o sobrinho preto
+
+        \item A subárvore manterá a cor de sua raiz, preservando a propriedade 4
+
+        \item A mudança de cores não viola a propriedade 5, mas é preciso observar que, após a
+            rotação, $N$ tem um ascentral preto a mais, e $N$ será removido, fazendo com que
+            a contagem de nós pretos original se mantenha
+
+        \item É possível observar que os caminhos que não passam por $N$ preservam o
+            mesmo número de nós pretos que tinham antes da rotação
+
+        \item Assim este caso se encerra restaurando as propriedades da árvore 
+            \textit{red-black}
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de remoção no cenário F}
+
+    \begin{tikzpicture}
+        \begin{scope}{shift={(3,0)}}
+            \node[opacity=0] (X) at (-1, 1) { $51$ };
+            \node[anchor=west] at (0, 8) { Continuação do cenário anterior };
+            \draw[ultra thick,blue] (B) circle [radius=12pt];
+            \draw[ultra thick,green] (D) circle [radius=12pt];
+            \draw[ultra thick,fill=black] (B) circle [radius=10pt];
+            \node[circle,draw,fill=black] (A) at (4, 7) { \textcolor{white}{40} };
+%            \node[circle,draw,fill=black] (B) at (2, 5) { \textcolor{white}{17} };
+            \node[circle,draw,fill=red] (C) at (7, 3) { \textcolor{white}{88} };
+            \node[circle,draw,fill=black] (D) at (6, 5) { \textcolor{white}{56} };
+
+            \draw (A) -- (B);
+            \draw (A) -- (D);
+            \draw (C) -- (D);
+        \end{scope}
+    \end{tikzpicture}
+
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de remoção no cenário F}
+
+    \begin{tikzpicture}
+        \begin{scope}{shift={(3,0)}}
+            \node[opacity=0] (X) at (-1, 1) { $51$ };
+            \node[anchor=west] at (0, 8) { Rotação de $S$ em torno de $P$ e troca de cores };
+            \node[opacity=0,circle,draw,fill=black] (B) at (1, 3) { \textcolor{white}{17} };
+            \draw[ultra thick,fill=black] (B) circle [radius=10pt];
+            \node[circle,draw,fill=black] (A) at (2, 5) { \textcolor{white}{40} };
+            \node[circle,draw,fill=red] (C) at (6, 5) { \textcolor{white}{88} };
+            \node[circle,draw,fill=black] (D) at (4, 7) { \textcolor{white}{56} };
+            \draw[ultra thick,blue] (B) circle [radius=12pt];
+            \draw[ultra thick,green] (D) circle [radius=12pt];
+
+            \draw (A) -- (B);
+            \draw (A) -- (D);
+            \draw (C) -- (D);
+        \end{scope}
+    \end{tikzpicture}
+
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de remoção no cenário F}
+
+    \begin{tikzpicture}
+        \begin{scope}{shift={(3,0)}}
+            \node[opacity=0] (X) at (-1, 1) { $51$ };
+            \node[anchor=west] at (0, 8) { O sobrinho à direita se torna preto };
+            \node[opacity=0,circle,draw,fill=black] (B) at (1, 3) { \textcolor{white}{17} };
+            \draw[ultra thick,fill=black] (B) circle [radius=10pt];
+            \node[circle,draw,fill=black] (A) at (2, 5) { \textcolor{white}{40} };
+            \node[circle,draw,fill=black] (C) at (6, 5) { \textcolor{white}{88} };
+            \node[circle,draw,fill=black] (D) at (4, 7) { \textcolor{white}{56} };
+            \draw[ultra thick,blue] (B) circle [radius=12pt];
+            \draw[ultra thick,green] (D) circle [radius=12pt];
+
+            \draw (A) -- (B);
+            \draw (A) -- (D);
+            \draw (C) -- (D);
+        \end{scope}
+    \end{tikzpicture}
+
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de remoção no cenário F}
+
+    \begin{tikzpicture}
+        \begin{scope}{shift={(3,0)}}
+            \node[opacity=0] (X) at (-1, 1) { $51$ };
+            \node[anchor=west] at (0, 8) { Conclusão da remoção };
+            \node[opacity=0,circle,draw,fill=black] (B) at (1, 3) { \textcolor{white}{17} };
+%            \draw[ultra thick,fill=black] (B) circle [radius=10pt];
+            \node[circle,draw,fill=black] (A) at (2, 5) { \textcolor{white}{40} };
+            \node[circle,draw,fill=black] (C) at (6, 5) { \textcolor{white}{88} };
+            \node[circle,draw,fill=black] (D) at (4, 7) { \textcolor{white}{56} };
+%            \draw[ultra thick,blue] (B) circle [radius=12pt];
+%            \draw[ultra thick,green] (D) circle [radius=12pt];
+
+%            \draw (A) -- (B);
+            \draw (A) -- (D);
+            \draw (C) -- (D);
+        \end{scope}
+    \end{tikzpicture}
+
+\end{frame}
+
+\begin{frame}[fragile]{Implementação do cenário F}
+    \inputsnippet{cpp}{285}{303}{rb.cpp}
+\end{frame}
+
