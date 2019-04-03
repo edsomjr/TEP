@@ -1,8 +1,6 @@
 Estruturas de Dados
 ===================
 
-1. [Estruturas de Dados Lineares](text/Estruturas_Lineares.md)
-1. [Estruturas de Dados Não-Lineares](text/Estruturas_Nao_Lineares.md)
 1. [Grafos e Union-Find](text/Grafos_Union_Find.md)
 1. [Segment Tree e BIT Tree](text/Segment_Tree_BIT_Tree.md)
 1. [Busca Completa](text/Busca_Completa.md)
@@ -17,7 +15,7 @@ Slides
 ======
 
 1. Vetores
-    1. [Fundamentos](slides/VT-1/VT-1.pdf) 
+    1. [Fundamentos](slides/VT-1/VT-1.pdf) ([problemas resolvidos](problems/VT-1/VT-1.pdf))
     1. [Implementação de um contêniner `vector` em C++](slides/VT-2/VT-2.pdf) 
 1. Listas
     1. [Listas Encadeadas](slides/LE-1/LE-1.pdf)
@@ -25,11 +23,12 @@ Slides
     1. [Listas Circulares](slides/LE-3/LE-3.pdf)
     1. [Listas Auto-Organizáveis](slides/LE-4/LE-4.pdf)
 1. Pilhas e Filas
-    1. [Pilhas](slides/PF-1/PF-1.pdf)
-    2. [Filas](slides/PF-2/PF-2.pdf)
+    1. [Pilhas](slides/PF-1/PF-1.pdf) ([problemas resolvidos](problems/PF-1/PF-2.pdf))
+    1. [Filas](slides/PF-2/PF-2.pdf) ([problemas resolvidos](problems/PF-2/PF-2.pdf))
 1. Árvores
     1. [Árvores Binárias: Definição](slides/TR-1/TR-1.pdf)
     1. [Árvores Binárias de Busca: Inserção e Remoção](slides/TR-2/TR-2.pdf)
-    1. [Árvores Binárias de Busca: Busca e Travessia](slides/TR-3/TR-3.pdf)
+    1. [Árvores Binárias de Busca: Busca e Travessia](slides/TR-3/TR-3.pdf) ([problemas resolvidos](problems/TR-3/TR-3.pdf))
     1. [Árvores Binárias de Busca: Balanceamento](slides/TR-4/TR-4.pdf)
     1. [Árvores _Red-Black_: Definição e Inserção](slides/TR-5/TR-5.pdf)
+    1. [Árvores _Red-Black_: Remoção](slides/TR-6/TR-6.pdf)
