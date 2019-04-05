@@ -1,0 +1,79 @@
+\section{Educational Codeforces Round \#2 -- Problem D: Area of Two Circle's Intersection}
+
+\begin{frame}[fragile]{Problema}
+
+You are given two circles. Find the area of their intersection.
+
+\end{frame}
+
+\begin{frame}[fragile]{Entrada e saída}
+
+\textbf{Input}
+
+The first line contains three integers $x_1, y_1, r_1$ $(-10^9\leq x_1, y_1\leq 10^9, 1\leq r_1\leq 10^9)$ - the position of the center and the radius of the first circle.
+
+The second line contains three integers $x_2, y_2, r_2$ $(-10^9\leq x_2, y_2\leq 10^9, 1\leq r_2\leq 10^9)$ - the position of the center and the radius of the second circle.
+
+\textbf{Output}
+
+Print the area of the intersection of the circles. The answer will be considered correct if the absolute or relative error doesn't exceed $10^{-6}$.
+
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de entradas e saídas}
+
+\begin{minipage}[t]{0.5\textwidth}
+\textbf{Sample Input}
+\begin{verbatim}
+0 0 4
+6 0 4
+
+0 0 5
+11 0 5
+\end{verbatim}
+\end{minipage}
+\begin{minipage}[t]{0.45\textwidth}
+\textbf{Sample Output}
+\begin{verbatim}
+7.25298806364175601379
+
+
+0.00000000000000000000
+\end{verbatim}
+\end{minipage}
+\end{frame}
+
+\begin{frame}[fragile]{Solução com complexidade $O(1)$}
+
+    \begin{itemize}
+        \item É preciso tratar 3 casos especiais para a solução correta deste problema
+
+        \item No primeiro caso os círculos não tem interseção, isto é, a distância $d$ entre os
+            pontos $P = (x_1, y_1)$ e $Q = (x_2, y_2)$ é maior ou igual ao dobro da soma dos
+            raios
+
+        \item Assim, a área de interseção será igual a zero
+
+        \item No segundo caso, um círculo contém o outro, isto é, $d \leq r_1 + r2$
+
+        \item Logo a interseção terá a mesma área do círculo de menor raio
+
+        \item No terceiro e último caso os dois círculos se tocam em exatamente dois pontos
+
+        \item A área será a soma dos segmentos definidos pelos triângulos formados pelos
+            centros e dos pontos de interseção
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Solução AC com complexidade $O(1)$}
+    \inputsnippet{cpp}{1}{21}{CF600D.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Solução AC com complexidade $O(1)$}
+    \inputsnippet{cpp}{22}{42}{CF600D.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Solução AC com complexidade $O(1)$}
+    \inputsnippet{cpp}{43}{63}{CF600D.cpp}
+\end{frame}
