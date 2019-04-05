@@ -32,3 +32,4 @@ Slides
     1. [Árvores Binárias de Busca: Balanceamento](slides/TR-4/TR-4.pdf)
     1. [Árvores _Red-Black_: Definição e Inserção](slides/TR-5/TR-5.pdf)
     1. [Árvores _Red-Black_: Remoção](slides/TR-6/TR-6.pdf)
+    1. [Árvores Binárias de Busca na STL](slides/TR-7/TR-7.pdf) ([problemas resolvidos](problems/TR-7/TR-7.pdf))
