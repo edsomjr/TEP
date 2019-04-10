@@ -8,7 +8,7 @@ T dot_product(const Vector<T>& u, const Vector<T>& v)
 
 // O retorno está no intervalo [0, pi]
 template<typename T>
-double angle(const Vector& u, const Vector& v)
+double angle(const Vector<T>& u, const Vector<T>& v)
 {
     auto lu = u.length();
     auto lv = v.length();
