@@ -1,4 +1,4 @@
-#include <optional>
+#include <experimental/optional>
 
 // Definição da class Point e das funções equals() e distance()
 
@@ -6,7 +6,7 @@ template<typename T>
 struct Circle {
     // Membros e construtores
 
-    static std::optional<Circle>
+    static std::experimental::optional<Circle>
     from_3_points(const Point<T>& P, const Point<T>& Q, const Point<T>& R)
     {
         auto a = 2*(Q.x - P.x);
