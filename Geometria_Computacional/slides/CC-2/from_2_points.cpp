@@ -2,7 +2,7 @@
 // A função retorna um dos círculos possíveis: o outro pode ser 
 // encontrado invertendo os parâmetros P e Q na chamada da função
 
-#include <optional>
+#include <experimental/optional>
 
 // Definição da class Point
 
@@ -10,7 +10,7 @@ template<typename T>
 struct Circle {
     // Membros e construtores
 
-    static std::optional<Circle>
+    static std::experimental::optional<Circle>
     from_2_points_and_r(const Point<T>& P, const Point<T>& Q, T r)
     {
         double d2 = (P.x - Q.x) * (P.x - Q.x) + (P.y - Q.y) * (P.y - Q.y);
@@ -24,6 +24,6 @@ struct Circle {
         auto x = (P.x + Q.x) * 0.5 + (P.y - Q.y) * h;
         auto y = (P.y + Q.y) * 0.5 + (Q.x - P.x) * h;
 
-        return Circle { Point(x, y), r };
+        return Circle<T>{ Point<T>(x, y), r };
     }
 }

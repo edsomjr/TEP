@@ -17,7 +17,7 @@ double zero(double h, double v)
     double t1 = (-b + sqrt(delta))/(2*a);
     double t2 = (-b - sqrt(delta))/(2*a);
 
-    return t1 > 0 : t1 : t2;
+    return t1 > 0 ? t1 : t2;
 }
 
 double dist(double h, double vy, double vx)
