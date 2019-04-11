@@ -47,8 +47,8 @@ private:
         C->parent = G;
         P->parent = C;
 
-        if (C->left)
-            C->left->parent = P;
+        if (P->right)
+            P->right->parent = P;
     }
 
     void rotate_right(Node *G, Node *P, Node *C)
@@ -62,8 +62,8 @@ private:
         C->parent = G;
         P->parent = C;
 
-        if (C->right)
-            C->right->parent = P;
+        if (P->left)
+            P->left->parent = P;
     }
 
 public:
