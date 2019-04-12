@@ -1,0 +1,61 @@
+\section{Definição de triângulo}
+
+\begin{frame}[fragile]{Definição}
+
+    \begin{itemize}
+        \item Um triângulo é uma figura geométrica fechada composta por três pontos não-colineares, 
+            denominados vértices, e os segmentos de retas formados pelos três pares possíveis entre 
+            estes três pontos, denominadas arestas ou lados
+
+        \item A cada vértice está associado um ângulo, definido pelos dois segmentos de reta
+            dois quais o vértice é um dos extremos
+
+        \item O triângulo é o mais simples dentre os polígonos, mas possui uma série de
+            características e propriedades notáveis
+
+    \end{itemize}
+
+    \begin{figure}
+        \centering
+
+        \begin{tikzpicture}
+            \draw (0, 0) -- (4, 3) -- (5, 1) -- (0, 0);
+            \draw[fill] (0, 0) circle [radius=1pt];
+            \draw[fill] (4, 3) circle [radius=1pt];
+            \draw[fill] (5, 1) circle [radius=1pt];
+
+        \end{tikzpicture}
+
+    \end{figure}
+\end{frame}
+
+\begin{frame}[fragile]{Representação de um triângulo}
+
+    \begin{itemize}
+        \item Um triângulo pode ser representado pelas coordenadas de seus vértices
+
+        \item Outra alternativa é representar o triângulo pelos tamanhos de suas arestas
+
+        \item É possível deduzir estas valores a partir da primeira representação
+
+        \item Porém há infinitas possibilidades de coordenadas que satisfaçam as três medidas,
+            uma vez que translações e rotações preservam tais valores
+
+        \item A representação por vértices pode incluir a representação de um triângulo degenerado
+            (quando os três pontos são colineares)
+
+        \item A representação por medidas inclui mais casos especiais: pode ser que tais
+            medidas não formem um triângulo
+
+        \item A Desigualdade Triangular diz que, se $a, b, c$ são números reais, eles serão
+            medidas dos lados de um triângulo se, e somente se,
+        \[
+            a \leq b + c,\ \ \ \ b \leq a + c,\ \ \ \ c\leq a + b
+        \]
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de representação do triângulo pelos vértices}
+    \inputcode{cpp}{triangle.cpp}
+\end{frame}

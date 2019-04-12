@@ -1,0 +1,139 @@
+\section{Perímetro e área}
+
+\begin{frame}[fragile]{Perímetro de um triângulo}
+
+    \begin{itemize}
+        \item O perímetro de um triângulo é dado pela soma da medidas de seus lados
+
+        \item Em notação matemática, se o triângulo $T$ tem lados com medidas $a, b, c$, o
+            perímetro $P$ é dado por
+        \[
+            P = a + b + c
+        \]
+    \end{itemize}
+
+    \inputcode{cpp}{perimeter.cpp}
+
+\end{frame}
+
+\begin{frame}[fragile]{Área de um triângulo}
+
+    \begin{itemize}
+        \item Há três formas de se computar a área de um triângulo
+
+        \item A primeira delas é usar a fórmula ensinada no ensino médio
+            \[
+                A = \frac{bh}{2}
+            \]
+        onde $b$ é a medida da base do triângulo (um de seus lados) e $h$ é a altura
+        egmento de reta, perpendicular à base, com um ponto sobre a base e o outro no vértice 
+        oposto a esta)
+
+        \item Contudo, na representação por pontos ou por medidas, esta abordagem é pouco 
+            prática, pois envolve o cálculo da altura
+
+        \item A altura pode ser obtida como a distância do vértice oposto até a base
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Cálculo da área por base e altura}
+    \inputcode{cpp}{area.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Fórmula de Heron}
+
+    \begin{itemize}
+        \item A segunda maneira de se obter a área de um triângulo é utilizar a fórmula de Heron:
+        \[
+            A = \sqrt{s(s - a)(s - b)(s - c)},
+        \]
+        onde $A$ é a área do triângulo de lados $a, b, c$ e $s$ é o semiperímetro, isto é, a
+        metade do perímetro:
+        \[
+            s = \frac{a + b + c}{2}
+        \]
+
+        \item Esta abordagem é a mais apropriada na representação do triângulo pela medida de seus 
+            lados
+
+        \item Observe que, caso exista a possibilidade de \textit{overflow} no produto dos quatro 
+            termos que estão dentro da raiz, deve-se tirar a raiz de cada fator antes de fazer o produto
+
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Cálculo da área usando a fórmula de Heron}
+    \inputcode{cpp}{area2.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Variantes da fórmula de Heron}
+
+    \begin{itemize}
+        \item Existem variantes da fórmula de Heron que permitem o cálculo da área do triângulo em termos de outras medidas, como as medianas, as alturas ou os ângulos internos
+
+        \item Se $m_a, m_b, m_c$ são as medidas das medianas, então
+        \[
+            A = \frac{4}{3}\sqrt{\sigma(\sigma - m_a)(\sigma - m_b)(\sigma - m_c)}, \, \, \, \sigma = \frac{m_a + m_b + m_c}{2}
+        \]
+
+        \item Se $h_a, h_b, h_c$ são medidas as alturas, então
+        \[
+            \frac{1}{A} = 4\sqrt{H\left(H - \frac{1}{h_a}\right)\left(H - \frac{1}{h_b}\right)\left(H - \frac{1}{h_c}\right)}
+        \]
+        com
+        \[H = \frac{1}{2}\left(\frac{1}{h_a} + \frac{1}{h_b} + \frac{1}{h_c}\right)
+        \]
+
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Variantes da fórmula de Heron}
+
+    \begin{itemize}
+        \item Por fim, sendo usando a notação de lados e ângulos já estabelecida, é possível computar a área, conhecidos os três ângulos e apenas um dos três lados:
+        \[
+            A = D^2\sqrt{S(S - \sin \alpha)(S - \sin \beta)(S - \sin \gamma)},
+        \]
+        onde
+        \[
+            S = \frac{\sin \alpha + \sin \beta + \sin \gamma}{2}
+        \]
+        e
+        \[
+            D = \frac{a}{\sin \alpha} = \frac{b}{\sin \beta} = \frac{c}{\sin \gamma}
+        \]
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Cálculo da área por coordenadas dos vértices}
+
+    \begin{itemize}
+        \item A terceira maneira é computar a área a partir das coordenadas dos vértices
+
+        \item Se os vértices de um triângulo são $P = (x_1, y_1), Q = (x_2, y_2), R = (x_3, y_3)$, 
+            a área $A$ do triângulo é dada por
+        \[
+            A = \frac{1}{2}\begin{vmatrix}
+                x_1 & y_1 & 1 \\
+                x_2 & y_2 & 1 \\
+                x_3 & y_3 & 1 \\
+            \end{vmatrix}
+        \]
+
+        \item Esta área é sinalizada: logo deve se considerar o valor absoluto desta expressão
+
+        \item Observe que não é necessário implementar uma estrutura que represente matrizes e
+            a operação de determinante
+
+        \item A expansão da expressão acima leva a três termos positivos e a três termos negativos
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Cálculo da área por determinante}
+    \inputcode{cpp}{area3.cpp}
+\end{frame}
