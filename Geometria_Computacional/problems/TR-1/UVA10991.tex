@@ -1,0 +1,95 @@
+\section{UVA 10991 -- Region}
+
+\begin{frame}[fragile]{Problema}
+
+\begin{minipage}{0.55\textwidth}
+From the figure on the right, it is clear that C1,
+C2 and C3 circles are touching each other.
+
+Consider,
+\begin{itemize}
+\item C1 circle have R1 radius.
+\item C2 circle have R2 radius.
+\item C3 circle have R3 radius.
+\end{itemize}
+
+Write a program that will calculate the area
+of shaded region G.
+\end{minipage}
+\begin{minipage}{0.4\textwidth}
+\begin{center}
+\includegraphics[scale=0.5]{figure.png}
+\end{center}
+\end{minipage}
+
+\end{frame}
+
+\begin{frame}[fragile]{Entrada e saída}
+
+\textbf{Input}
+
+The first line will contain an integer $k$ ($1 \leq k \leq 1000$) which is the number of cases to 
+solve.  Each of the following $k$ lines will contain three floating point number 
+$R1$ ($1 \leq R1 \leq 1000$), $R2$ ($1 \leq R2 \leq 1000$) and $R3$ ($1 \leq R3 \leq 1000$).
+
+\textbf{Output}
+
+For each line of input, generate one line of output containing the area of G rounded to six
+decimal digits after the decimal point. Floating-point errors will be ignored by special judge program.
+
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de entradas e saídas}
+
+\begin{minipage}[t]{0.5\textwidth}
+\textbf{Sample Input}
+\begin{verbatim}
+2
+5.70 1.00 7.89
+478.61 759.84 28.36
+\end{verbatim}
+\end{minipage}
+\begin{minipage}[t]{0.45\textwidth}
+\textbf{Sample Output}
+\begin{verbatim}
+1.2243
+2361.0058
+\end{verbatim}
+\end{minipage}
+\end{frame}
+
+\begin{frame}[fragile]{Solução $O(k)$}
+
+    \begin{itemize}
+        \item A solução parte da observação que os centros dos círculos formam um triângulo
+            $T$ cujos lados são dados por
+        \[
+            a = R2 + R3,\ \ \ \ b = R1 + R3,\ \ \ \ c = R1 + R2
+        \]
+
+        \item A área do triângulo $T$ contém a região G e mais três setores gerados pelos
+            ângulos opostos a cada um destes lados
+
+        \item O ângulo oposto a um lado pode ser obtido através da Lei dos Cossenos
+
+        \item Por exemplo, o ângulo $\alpha$ oposto ao lado $a$ é dado por
+        \[
+            \alpha = \cos^{-1} \left(\frac{b^2 + c^2 - a^2}{2bc}\right)
+        \]
+
+        \item A área de cada setor é igual a metade do produto do ângulo pelo quadrado do
+            raio
+
+        \item Logo a área G é igual a área de $T$ menos a área dos três setores
+
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Solução com complexidade $O(k)$}
+    \inputsnippet{cpp}{1}{21}{10991.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Solução com complexidade $O(k)$}
+    \inputsnippet{cpp}{22}{42}{10991.cpp}
+\end{frame}
