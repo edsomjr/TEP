@@ -107,3 +107,158 @@
 \begin{frame}[fragile]{Implementação da identificação do ortocentro}
     \inputsnippet{cpp}{22}{40}{orthocenter.cpp}
 \end{frame}
+
+\begin{frame}[fragile]{Incentro}
+
+    \begin{itemize}
+        \item O incentro de um triângulo é o ponto de encontro de suas bissetrizes (retas que dividem um ângulo interno na metade)
+
+        \item Além de ser sempre um ponto interior do triângulo, o incentro é o centro do círculo inscrito no triângulo, isto é, o maior círculo que cabe dentro do triângulo e que toca todos os seus três lados 
+
+        \item Os lados do círculo são tangentes ao círculo inscrito
+
+        \item O raio $r$ do círculo inscrito é dado pela razão entre o dobro da área $A$ e o 
+            perímetro $P$
+
+        \item As coordenadas do centro $I$ do círculo inscrito são obtidas pela média ponderada 
+            das coordenadas $x$ e $y$ pelos comprimentos dos lados opostos:
+        \[
+            r = \frac{2A}{P}, I_x = \frac{aA_x + bB_x + cC_x}{P}, I_y = \frac{aA_y + bB_y + cC_y}{P}
+        \]
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Visualização do incentro e o círculo inscrito}
+
+    \begin{figure}
+        \centering
+
+        \begin{tikzpicture}
+            \coordinate (A) at (0, 0);
+            \coordinate (B) at (2, 6);
+            \coordinate (C) at (8, 3);
+            \coordinate (I) at (3.1369140060129013, 3.2552467874317275);
+ 
+            \coordinate (BC) at ($(A)!1.45!(I)$);
+            \coordinate (AC) at ($(B)!1.65!(I)$);
+            \coordinate (AB) at ($(C)!1.4!(I)$);
+
+            \draw (A) -- (B) -- (C) -- (A);
+
+            \draw[fill] (A) circle [radius=2pt] node[left,inner sep = 5pt] { $A$ };
+            \draw[fill] (B) circle [radius=2pt] node[above,inner sep = 5pt] { $B$ };
+            \draw[fill] (C) circle [radius=2pt] node[right,inner sep = 5pt] { $C$ };
+            \draw[fill] (I) circle [radius=2pt] node[above,inner sep = 5pt] { $I$ };
+
+            \draw[dashed] (A) -- (BC);
+            \draw[dashed] (B) -- (AC);
+            \draw[dashed] (C) -- (AB);
+
+            \draw (I) circle [radius=1.9465385055021445];
+        \end{tikzpicture}
+    \end{figure}
+
+\end{frame}
+
+\begin{frame}[fragile]{Implementação do centro e do raio do círculo inscrito}
+    \inputcode{cpp}{incenter.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Circuncentro}
+
+    \begin{itemize}
+        \item O circuncentro é o ponto de encontro entre as retas bisectoras perpendiculares (isto é, retas perpendiculares aos lados do triângulo que os interceptam nos pontos médios)
+
+        \item O circuncentro é o centro do círculo circunscrito do triângulo, isto é, o círculo 
+            que passa pelos três vértices do triângulo
+
+        \item O circuncentro, assim como o ortocentro, pode estar localizado do lado externo do triângulo
+
+        \item Um caso especial interessante é o do triângulo retângulo, onde o circuncentro se 
+            localiza no ponto médio da hipotenusa
+
+        \item O raio $R$ do circuncentro é dado pela razão entre o produto das medidas de seus 
+            lados $a, b, c$ e o quádruplo de sua área $A$, isto é
+        \[
+            R = \frac{abc}{4A}
+        \]
+
+    \end{itemize}
+
+\end{frame}
+\begin{frame}[fragile]{Circuncentro}
+
+    \begin{itemize}
+        \item Seja $|P|$ o tamanho do vetor posição de $P$, isto é
+        \[
+            |P| = \sqrt{P_x^2 + P_y^2}
+        \]
+
+        \item As coordenadas do circuncentro são dadas por
+        \[
+            S_x = \frac{1}{2d} \begin{vmatrix}
+                |A|^2 & A_y & 1 \\
+                |B|^2 & B_y & 1 \\
+                |C|^2 & C_y & 1 \\
+            \end{vmatrix}, S_y = \frac{1}{2d} \begin{vmatrix}
+                A_x & |A|^2 & 1 \\
+                B_x & |B|^2 & 1 \\
+                C_x & |C|^2 & 1 \\
+            \end{vmatrix}
+        \]
+        onde
+        \[
+            d = \begin{vmatrix}
+                A_x & A_y & 1 \\
+                B_x & B_y & 1 \\
+                C_x & C_y & 1 \\
+            \end{vmatrix}
+        \]
+
+        \item A reta de Euler é uma reta especial associada ao triângulo, que passa pelo baricentro, ortocentro e circuncentro, que estão sempre alinhados
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Visualização do circuncentro e o círculo circunscrito}
+
+    \begin{figure}
+        \centering
+
+        \begin{tikzpicture}[scale=0.7]
+            \coordinate (A) at (0, 0);
+            \coordinate (B) at (8, 0);
+            \coordinate (C) at (8, 6);
+            \coordinate (I) at (4, 3);
+ 
+            \coordinate (BC) at ($(A)!0.5!(B)$);
+            \coordinate (AC) at ($(B)!0.5!(C)$);
+            \coordinate (AB) at ($(A)!0.5!(B)$);
+
+            \draw (A) -- (B) -- (C) -- (A);
+
+            \draw[fill] (A) circle [radius=2pt] node[left,inner sep = 5pt] { $A$ };
+            \draw[fill] (B) circle [radius=2pt] node[below,inner sep = 5pt] { $B$ };
+            \draw[fill] (C) circle [radius=2pt] node[right,inner sep = 5pt] { $C$ };
+            \draw[fill] (I) circle [radius=2pt] node[above,inner sep = 5pt] { $I$ };
+
+            \draw[dashed] (I) -- ++ (306.87:3.9);
+            \draw[dashed] (I) -- (AC);
+            \draw[dashed] (I) -- (AB);
+
+            \draw (I) circle [radius=5];
+        \end{tikzpicture}
+    \end{figure}
+
+\end{frame}
+
+\begin{frame}[fragile]{Implementação do centro e raio do círculo circunscrito}
+    \inputsnippet{cpp}{1}{18}{circumcircle.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Implementação do centro e raio do círculo circunscrito}
+    \inputsnippet{cpp}{19}{39}{circumcircle.cpp}
+\end{frame}
+
+
