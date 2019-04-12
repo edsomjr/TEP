@@ -1,0 +1,109 @@
+\section{Lugares Geométricos}
+
+\begin{frame}[fragile]{Baricentro}
+
+    \begin{itemize}
+        \item Um triângulo possui quatro lugares geométricos notáveis
+
+        \item O primeiro deles é o baricentro (centróide ou centro de massa), que é o ponto de 
+            interseção entre as três medianas (segmentos de reta que unem um vértice ao ponto médio do lado oposto)
+
+        \item O baricentro divide uma mediana na proporção de 2:1, isto é, ele está a um terço de 
+            distância do lado oposto
+
+        \item As coordenadas do baricentro $Q$ podem ser computadas diretamente a partir das 
+            coordenadas dos vértices: serão a média aritmética entre as mesmas
+        \[
+            Q = \left(\frac{x_A, x_B, x_C}{3}, \frac{y_A + y_B + y_C}{3}\right)
+        \]
+
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Visualização do baricentro}
+
+    \begin{figure}
+        \centering
+
+        \begin{tikzpicture}
+            \coordinate (A) at (0, 2);
+            \coordinate (B) at (3, 6);
+            \coordinate (C) at (9, 1);
+
+            \draw (A) -- (B) -- (C) -- (A);
+
+            \draw[fill] (A) circle [radius=2pt] node[left,inner sep = 5pt] { $A$ };
+            \draw[fill] (B) circle [radius=2pt] node[above,inner sep = 5pt] { $B$ };
+            \draw[fill] (C) circle [radius=2pt] node[right,inner sep = 5pt] { $C$ };
+
+            \draw[dashed] (A) -- (6, 3.5);
+            \draw[dashed] (B) -- (4.5, 1.5);
+            \draw[dashed] (C) -- (1.5, 4);
+
+            \draw[fill] (4,3) circle [radius=2pt] node[above right,inner sep = 5pt] { $Q$ };
+        \end{tikzpicture}
+    \end{figure}
+
+\end{frame}
+
+\begin{frame}[fragile]{Implementação da identificação do baricentro}
+    \inputcode{cpp}{barycenter.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Ortocentro}
+
+    \begin{itemize}
+        \item O ortocentro de um triângulo é o ponto de encontro de suas três alturas
+
+        \item O ortocentro pode mesmo estar fora do triângulo, no caso de um obtusângulo
+
+        \item No caso de um triângulo retângulo, o ortocentro sempre coincide com o vértice 
+            oposto à hipotenusa
+
+        \item Para obter as coordenadas do ortocentro, é preciso determinar, inicialmente,
+            as retas $r$ e $s$ que contém os segmentos $AB$ e $AC$,
+            respectivamente,
+
+        \item Em seguida, é preciso determinar as retas $u$ e $v$ perpendiculares a 
+            $r$ e $s$ que passam por $C$ e $B$, respectivamente
+
+        \item O ortocentro $O$ será a interseção entre $u$ e $v$
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Visualização do ortocentro}
+
+    \begin{figure}
+        \centering
+
+        \begin{tikzpicture}
+            \coordinate (A) at (0, 0);
+            \coordinate (B) at (3, 6);
+            \coordinate (C) at (9, 1);
+            \coordinate (O) at (3.23529, 3.88235);
+ 
+            \coordinate (BC) at ($(A)!1.29!(O)$);
+            \coordinate (AC) at ($(B)!2.62!(O)$);
+            \coordinate (AB) at ($(C)!1.18!(O)$);
+
+            \draw (A) -- (B) -- (C) -- (A);
+
+            \draw[fill] (A) circle [radius=2pt] node[left,inner sep = 5pt] { $A$ };
+            \draw[fill] (B) circle [radius=2pt] node[above,inner sep = 5pt] { $B$ };
+            \draw[fill] (C) circle [radius=2pt] node[right,inner sep = 5pt] { $C$ };
+            \draw[fill] (O) circle [radius=2pt] node[right,inner sep = 7.5pt] { $O$ };
+
+            \draw[dashed] (A) -- (BC);
+            \draw[dashed] (B) -- (AC);
+            \draw[dashed] (C) -- (AB);
+        \end{tikzpicture}
+    \end{figure}
+
+\end{frame}
+
+
+\begin{frame}[fragile]{Implementação da identificação do ortocentro}
+    \inputsnippet{cpp}{22}{40}{orthocenter.cpp}
+\end{frame}

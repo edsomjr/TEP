@@ -28,6 +28,7 @@
 \usepackage{enumerate}
 
 % Setup
+\usetikzlibrary{calc}
 \usefonttheme{professionalfonts}
 
 \hypersetup{
