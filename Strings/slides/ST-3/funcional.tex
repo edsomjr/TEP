@@ -46,3 +46,117 @@
 \begin{frame}[fragile]{Implementação da cifra de César usando a função \texttt{transform()}}
     \inputsnippet{cpp}{1}{21}{transform.cpp}
 \end{frame}
+
+\begin{frame}[fragile]{Filtros}
+
+    \begin{itemize}
+        \item Um filtro $f_p : S_N \to S_M$ consiste em uma função que gera uma string de tamanho 
+            $M \leq N$, a partir de uma string de tamanho $N$, através da seleção dos $M$ 
+            caracteres cujo predicado $p: A \to Bool$ retorna verdadeiro
+
+        \item Assim como os mapas, os filtros podem ser implementados de forma apenas
+            conceitual, usando elementos da própria linguagem, como laços e condicionais
+
+        \item Outra maneira de implementar o mesmo código é utilizar a função \code{cpp}{copy_if()}
+            da STL, que tem sintaxe semelhante a da função \code{c}{transform()}
+
+        \item A função \code{c}{remove_copy_if()} tem comportamento análogo, mas copia os 
+            caracteres que negarem o predicado
+
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Implementação de um filtro usando elementos de C++}
+    \inputcode{cpp}{filtro.cpp}
+\end{frame}
+\begin{frame}[fragile]{Implementação de um filtro usando a função \code{c}{copy_if()}}
+    \inputcode{cpp}{copy_if.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Reduções}
+
+    \begin{itemize}
+        \item Uma redução $r_b : S_N \to T$ gera um elemento do tipo $T$ através da aplicação 
+            sucessiva do operador binário $b$, da esquerda para a direita, em cada elemento de $s$, 
+            tendo como operando esquerdo inicial um valor definido previamente
+
+        \item Se $b(s_i, s_j) = t_k$ e $s_0$ é o valor inicial para o operando esquerdo, 
+            então a redução se comporta da seguinte maneira na sequência $s = \lbrace s_1, s_2,
+                \ldots, s_N\rbrace$:
+        \begin{align*}
+            r_b(s) &= \lbrace b(s_0, s_1), s_2, \ldots, s_N\rbrace \\ 
+            &= \lbrace b(t_1, s_2), \ldots, s_N\rbrace \\
+            &= \lbrace b(t_2, s_3), \ldots, s_N\rbrace \\
+            &= \ldots \\
+            &= \lbrace b(t_{N-1}, s_N) \rbrace = t_N
+        \end{align*}
+
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Reduções}
+
+    \begin{itemize}
+        \item Reduções podem ser implementadas de maneira natural usando um laço e um valor
+            acumulador
+
+        \item Uma alternativa é utilizar a função \code{c}{accumulate()} da STL, que
+            abstrai o conceito de redução, parametrizando o tipo de retorno e o valor
+            inicial do operando esquerdo
+
+        \item No padrão C++17 foi introduzida a função \code{c}{reduce()}
+
+        \item O comportamento é semelhante ao da função \code{c}{accumulate()}, mas ela
+            não impõem uma ordem na aplicação do operador binário
+
+        \item Este relaxamento permite otimizações por parte do compilador e a execução
+            em paralelo
+
+        \item Contudo, nem todos os compiladores implementaram a função \code{c}{reduce()}
+            ainda
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Implementação de uma redução usando laço e acumulador}
+    \inputcode{cpp}{reduce_loop.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Implementação de uma redução usando a função \code{c}{accumulate()}}
+    \inputcode{cpp}{reduce.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Tabelas de substituição}
+
+    \begin{itemize}
+        \item Uma tabela de substituição é uma aplicação prática de um mapeamento
+
+        \item Ela é definida por uma função $f: A \to A$ que mapeia cada caractere do alfabeto 
+            $A$ em outro caractere do mesmo alfabeto
+
+        \item Sistemas criptográficos mais simples utilizam tabelas de substituição, como a Cifra 
+            de César e a criptografia baseada em ou exclusivo (\textit{xor})
+
+        \item Se $|A|$ não é muito grande, a função $f$ pode ser implementada em um \textit{array}
+            estático, permitindo a consulta da substituição com complexidade $O(1)$
+
+        \item Caso contrário, ou se o alfabeto não é contíguo, deve ser usado um dicionário para 
+            armazenar tais substituições
+            
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de uso de tabela de substituição}
+    \inputsnippet{cpp}{1}{21}{table.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de uso de tabela de substituição}
+    \inputsnippet{cpp}{23}{43}{table.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de uso de tabela de substituição}
+    \inputsnippet{cpp}{44}{62}{table.cpp}
+\end{frame}
