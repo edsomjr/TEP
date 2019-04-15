@@ -1,0 +1,48 @@
+\section{Strings e programação funcional}
+
+\begin{frame}[fragile]{Motivação}
+
+    \begin{itemize}
+        \item Mapas, filtros e reduções são técnicas de programação funcional que permitem alterar os elementos de um vetor, gerar um novo vetor a partir da seleção de elementos específicos de um vetor dado ou gerar um único objeto ou elemento a partir dos elementos de um vetor
+
+        \item Sendo uma string um vetor de caracteres, estas técnicas podem ser adaptadas para o contexto da manipulação de textos e caracteres
+
+        \item A vantagem de tal abordagem é a redução do tamanho do código, evitando laços e
+            variáveis temporárias explícitas
+
+        \item Outro aspecto importante é que o uso de tais conceitos permitem simplificar a
+            notação e descrição de problemas de strings
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Mapas}
+
+    \begin{itemize}
+        \item Um mapa (ou mapeamento) consiste em uma função $m_f: S_N \to S_N$, 
+            onde $S_N$ é o conjunto de todas as strings de tamanho $N$ e $f: A \to A$ é uma função 
+            cujo domínio é o alfabeto $A$ tal que se $y = m_f(s)$, então $y[i] = f(s[i])$
+
+        \item Em termos mais simples, $m_f$ mapeia cada caractere de $s$ de acordo com a função $f$
+
+        \item Por exemplo, se $A$ é formado pelas letras alfabéticas maiúsculas e minúsculas e 
+            $f$ é a função \code{cpp}{toupper()}, o mapeamento $m_f$ tornaria maiúsculas todas as 
+            letras de uma string $s$ dada
+
+        \item A implementação do mapeamento pode ser apenas conceitual, usando uma função padrão
+            do C/C++, ou utilizar a função \code{c}{transform()} da STL da linguagem C++
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de implementação de um mapa usando funções}
+    \inputsnippet{cpp}{1}{18}{map_function.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de implementação de um mapa usando funções}
+    \inputsnippet{cpp}{19}{39}{map_function.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Implementação da cifra de César usando a função \texttt{transform()}}
+    \inputsnippet{cpp}{1}{21}{transform.cpp}
+\end{frame}
