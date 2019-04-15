@@ -11,4 +11,5 @@ Strings
 Slides
 ======
 
-1. [Strings](slides/ST-1/ST-1.pdf) ([problemas resolvidos](problems/ST-1/ST-1.pdf)
+1. [Strings](slides/ST-1/ST-1.pdf)
+1. [Representação de Strings](slides/ST-2/ST-2.pdf) ([problemas resolvidos](problems/ST-2/ST-2.pdf)
