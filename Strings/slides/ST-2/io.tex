@@ -1,0 +1,80 @@
+\section{Entrada e saída de string em console}
+
+\begin{frame}[fragile]{I/O de strings em C}
+
+    \begin{itemize}
+        \item Cada linguagem tem mecanismos apropriados para a leitura e escritas de strings a partir do terminal
+
+        \item Em C, são utilizadas as funções \code{c}{printf()} e \code{c}{scanf()}
+
+        \item O marcador utilizado para o tipo string é o \verb|%s|
+
+        \item A função \code{c}{scanf()} fará a leitura da entrada até encontrar um caractere de 
+            espaço (quebra de linha, tabulações, espaço em branco, etc)
+
+        \item Se a intenção é ler uma linha na íntegra, deve ser utilizada a função \code{c}{fgets()}
+
+        \item A função \code{c}{fgets()} é mais segura que a \code{c}{scanf()}, pois utiliza o 
+            segundo parâmetro como limite máximo de caracteres (mais o zero terminador) a serem 
+            lidos e escritos no primeiro parâmetro
+
+        \item Vale notar que a função \code{c}{fgets()} insere, no primeiro parâmetro, o caractere 
+            de nova linha, se o encontrar (a função também termina se for encontrado o caractere 
+            \texttt{EOF}, que indica o fim do arquivo)
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de I/O de strings em C}
+    \inputcode{c}{io.c}
+\end{frame}
+
+\begin{frame}[fragile]{I/O de strings em C++}
+
+    \begin{itemize}
+        \item Em C++, strings podem ser lidas e escritas com os operadores \code{cpp}{<<} e
+            \code{c}{>>} das classes \code{c}{cin} e \code{c}{cout}, respectivamente
+
+        \item A classe \code{c}{cin} se comporta de forma semelhante à função \code{c}{scanf()}, 
+            lendo a entrada até encontrar um caractere que indique um espaço em branco
+
+        \item Para ler linhas inteiras, de forma semelhante à \code{c}{fgets()}, basta usar a 
+            função \code{c}{getline()}
+
+        \item Porém, diferentemente da função \code{c}{fgets()}, a função \code{c}{getline()} 
+            despreza o caractere de fim de linha, e não o insere na string apontada pelo segundo 
+            parâmetro
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de I/O de strings em C++}
+    \inputcode{c}{io.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{I/O de strings em Python}
+
+    \begin{itemize}
+        \item Em Python 2, strings podem ser lidas e escritas por meio da função
+            \code{py}{raw_input()} e pelo comando \code{py}{print}
+
+        \item A função \code{py}{raw_input()} se comporta de maneira semelhante à função
+            \code{cpp}{getline()} do C++
+
+        \item O comando \code{py}{print} insere, automaticamente, uma quebra de linha após
+            a impressão de sua mensagem
+
+        \item Para suprimir este comportamente, deve-se usar uma vírgula ao final da mensagem,
+            a qual substitui a quebra de linha por um espaço em branco
+
+        \item Em Python 3, a função \code{py}{raw_input()} foi renomeada para \code{py}{input()},
+            e o comando \code{py}{print} foi substituído pela função \code{py3}{print()}
+    \end{itemize} 
+
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de I/O de strings em Python}
+    \inputcode{py}{io.py}
+\end{frame}
+
+

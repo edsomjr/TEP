@@ -1,0 +1,78 @@
+\section{Strings em C}
+
+\begin{frame}[fragile]{Strings na linguagem C}
+
+    \begin{itemize}
+        \item Em C, uma string é implementada como um \textit{array} de caracteres terminado em 
+            zero (`\verb|\0|') 
+
+        \item Esta implementação é a mais sintética o possível em termos de memória: é reservado 
+            espaço apenas para armazenar os caracteres da string mais o terminador `\verb|\0|'
+
+        \item Em contrapartida, a ausência deste marcador pode levar a execução errônea de várias 
+            das funções que manipulam strings
+
+        \item Além disso, rotinas simples, como determinar o tamanho da string, passa a ter complexidade $O(n)$, contrastando com as implementações que utilizam memória adicional e que podem retornar o tamanho em $O(1)$
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Declaração e inicialização de strings em C}
+
+    \begin{itemize}
+        \item Uma string pode ser declarada ou inicializada em C conforme os exemplos abaixo
+            \inputsyntax{c}{init.c}
+
+        \item A strings \code{c}{s1}, não inicializada, comporta até 100 caracteres
+            (e o terminador `\verb|\0|')
+
+        \item A string \code{c}{s2}, inicializada com o valor ``\texttt{Test}", não exige que 
+            seja informado o número de caracteres e nem o terminador (o compilador completa tais informações automaticamente)
+
+        \item Importante notar que, devido a aritmética de ponteiros da linguagem, as strings em 
+            C tem como primeiro elemento indexado em zero, não em um
+
+        \item Assim, \code{c}{s[2]} representa o terceiro, e não o segundo, elemento da string
+
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Bibliotecas para manipulação de strings}
+
+    \begin{itemize}
+        \item A biblioteca padrão do C oferece o \textit{header} \code{c}{string.h}, onde são 
+            declaradas várias funções para a manipulação de strings
+
+        \item O \textit{header} \code{c}{stdlib.h} traz funções para conversão de strings para 
+            valores numéricos
+
+        \item Ele também define três funções que permitem manipular a memória 
+        (\code{c}{memcmp(), memset(), memcpy()}), através de comparações, atribuições e cópia, 
+            respectivamente, as quais são úteis para trabalhar com strings
+
+        \item Outro arquivo útil para a manipulação de strings em C é o \code{c}{ctype.h}, onde 
+            são definidas funções para a manipulação de caracteres
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de uso dos arquivos \texttt{string.h} e \texttt{stdlib.h}}
+    \inputsnippet{c}{1}{21}{string.c}
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de uso dos arquivos \texttt{string.h} e \texttt{stdlib.h}}
+    \inputsnippet{c}{22}{42}{string.c}
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de uso dos arquivos \texttt{string.h} e \texttt{stdlib.h}}
+    \inputsnippet{c}{43}{62}{string.c}
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de uso dos arquivos \texttt{string.h} e \texttt{stdlib.h}}
+    \inputsnippet{c}{63}{83}{string.c}
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de uso do arquivo \texttt{ctype.h}}
+    \inputcode{c}{ctype.c}
+\end{frame}
