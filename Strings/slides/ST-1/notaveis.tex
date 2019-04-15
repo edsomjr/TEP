@@ -1,0 +1,149 @@
+\section{Strings Notáveis}
+
+\begin{frame}[fragile]{Strings de Fibonacci}
+
+    \begin{itemize}
+        \item As strings de Fibonacci $F_n$, com $n \leq 0$, são definidas como
+        \begin{align*}
+            F_0 &= ``\," \\
+            F_1 &= ``b" \\
+            F_2 &= ``a" \\
+            F_n &= F_{(n-1)}F_{(n-2)}, n > 2
+            \end{align*}
+        onde a expressão $F_{(n-1)}F_{(n-2)}$ significa a concatenação das últimas duas strings de 
+        Fibonacci
+
+        \item Por exemplo, $F_3 = ``ab", F_4 = ``aba"$ e $F_5 = ``abaab"$
+
+        \item Há 3 fatos notáveis a respeito das strings de Fibonacci:
+        \begin{enumerate}
+            \item removidas as duas últimas letras de uma string de Fibonacci, o resultado é um 
+                palíndromo
+            \item qualquer string de Fibonacci $F_n$ com $n\geq 2$ é prefixo de outra string de Fibonacci
+            \item todas strings de Fibonacci $F_n$ com $n\geq 2$ são prefixos de $F_\infty$
+        \end{enumerate}
+
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Prefixos de Thue-Morse}
+
+    \begin{itemize}
+        \item Considere a string infinita $T_\infty$, definida da seguinte maneira, onde $g(k)$ é 
+            o número de 1s na representação binária do inteiro não-negativo $k$:
+        \[
+            T_\infty(k) \left\lbrace \begin{array}{ll} a, & \mbox{se}\ g(k)\ \mbox{é par} \\
+            b,& \mbox{caso contrário} \end{array} \right.
+        \]
+
+        \item Os prefixos de Thue-Morse $T(n)$ são os prefixos de $T_\infty$ de tamanho $2^n$
+
+        \item Por exemplo, $T(1) = ``ab", T(2) = ``abba", T(3) = ``abbabaab"$ e 
+            $T(4) = ``abbabaabbaababba"$
+
+        \item Estas strings são livres de \textit{overlaps}, isto é, não existe nenhuma string não 
+            vazia $s$ que ocorre em duas posições distintas de $T(n)$ com distância entre estas 
+            posições menor do que $|s|$
+
+        \item Também são livre de quadrados: não existe um string $s$ tal que a concatenação de 
+            $s$ consigo mesma seja substring de $T(n)$
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Palavras binárias $P_n$}
+
+    \begin{itemize}
+        \item A palavra binária $P_n$ é obtida a partir da $n$-ésima linha do triângulo de Pascal, 
+            onde seu $i$-ésimo caractere é dado por 
+            \[
+                P_n[i] = \Mod{\binom{n}{i}}{2}
+            \]
+
+        \item As primeias 5 palavras binárias $P_n$ são
+        \begin{align*}
+            P_0 &= ``1" \\
+            P_1 &= ``11" \\
+            P_2 &= ``101" \\
+            P_3 &= ``1111" \\
+            P_4 &= ``10001"
+        \end{align*}
+
+        \item O número de ocorrências do caractere '1' em $P_n$ é igual a $2^{g(n)}$, onde 
+            $g(k)$ tem a mesma definição dada nos prefixos de Thue-Morse
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{String de dígitos}
+
+    \begin{itemize}
+        \item Considere a string infinita $W$ composta pela representação decimal dos números 
+            naturais consecutivos, isto é,
+        \[
+            W = 012345678910111213141516171819202122232425...
+        \]
+
+        \item $W_n$ é o prefixo de $W$ de tamanho $n$
+
+        \item Seja $s$ uma string composta por dígitos decimais. A função $occ_n(s)$ computa o 
+            número de ocorrências de $s$ em $W_n$
+
+        \item Para duas strings $s, t$ de mesmo tamanho, 
+        \[
+            \lim_{n\to\infty} \left(\frac{occ_n(s)}{occ_n(t)}\right) = 1
+        \]
+
+        \item Esta propriedade dá um sentido ``randômico"\ para a sequência $W$
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Strings de Bruijin}
+
+    \begin{itemize}
+        \item Seja $A = \lbrace a, b\rbrace$. Existem $2^k$ strings de tamanho $k$ formadas por 
+            elementos de A
+
+        \item Uma pergunta natural que surge é: qual é o comprimento mínimo $\gamma(k)$ de uma 
+            string que contenha todas estas substrings?
+
+        \item Um limite inferior é $\gamma(k) = 2^k + k - 1$, pois qualquer string menor não teria 
+            $2^k$ substrings de tamanho $k$
+
+        \item Efetivamente, $\gamma(k) = 2^k + k - 1$
+
+        \item Uma string com este tamanho, contendo todas as substrings de tamanho $k$ formadas 
+            por elementos de $A$, é denominada string de Bruijin
+
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Strings de Bruijin e Ciclos de Euler}
+
+    \begin{itemize}
+        \item Há uma relação entre strings de Bruijin e ciclos de Euler
+
+        \item Seja $G_k$ um grafo cujos vértices são todas as strings de elementos de $A$ de 
+            tamanho $k - 1$
+
+        \item Para qualquer string $x = a_1a_2\ldots a_{k-1}$ temos duas arestas direcionadas:
+            \begin{align*}
+                a_1a_2\ldots a_{k-1} &\xrightarrow{\ a\ } a_2a_3\ldots a_{k-1}a \\
+                a_1a_2\ldots a_{k-1} &\xrightarrow{\ b\ } a_2a_3\ldots a_{k-1}b
+            \end{align*}
+
+        \item Este grafo tem um ciclo de Euler direcionado, que contém cada aresta uma única vez
+
+        \item Seja $a_1a_2\ldots a_N$ a sequência de arestas do ciclo de Euler
+
+        \item Segue que $N = 2^k$, e que a sequência abaixo forma uma string de Bruijin:
+        \[
+            a_1a_2\ldots a_Na_1a_2\ldots a_{k-1}
+        \]
+ 
+   \end{itemize}
+
+\end{frame}
