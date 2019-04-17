@@ -2,8 +2,6 @@ Geometria Computacional
 =======================
 
 1. Elementos Primitivos
-    1. [Triângulos](Triangulos.md)
-    1. [Quadriláteros](Quadrilateros.md)
     1. [Objetos Tridimensionais](3D.md)
     1. [Polígonos](Polygon.md)
 
