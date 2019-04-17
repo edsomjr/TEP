@@ -27,6 +27,8 @@
 \usepackage{mdframed}
 \usepackage{enumerate}
 
+\usepackage{amsmath}
+
 % Setup
 \usetikzlibrary{calc}
 \usefonttheme{professionalfonts}
@@ -61,3 +63,5 @@
 \newcommand{\vv}[1]{\vec{\mkern0mu#1}}
 \newcommand{\Mod}[2]{#1\ (\mbox{mod}\ #2)}
 
+\DeclareMathSymbol{\mlq}{\mathord}{operators}{``}
+\DeclareMathSymbol{\mrq}{\mathord}{operators}{`'}

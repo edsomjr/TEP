@@ -1,0 +1,98 @@
+\section{Tokenização}
+
+\begin{frame}[fragile]{Definição}
+
+    \begin{itemize}
+        \item Tokenização é o processo de quebra de um texto em palavras, frases, símbolos, etc, 
+            denominados \textit{tokens}
+
+        \item Para realizar a tokenização, é necessário primeiramente definir precisamente um 
+            \textit{token}, e esta definição depende do contexto onde os \textit{tokens} serão 
+            utilizados
+
+        \item Uma abordagem simples é definir uma lista de caracteres delimitadores (como espaços 
+            em branco, pontuações, etc) e dividir a string a cada ocorrência de um delimitador
+
+        \item Por exemplo, a frase ``\texttt{O rato roeu a roupa do rei de Roma}"\ seria dividida 
+            em 9 tokens: ``\texttt{O}", ``\texttt{rato}", ``\texttt{roeu}", ``\texttt{a}", 
+            ``\texttt{roupa}", ``\texttt{do}", ``\texttt{rei}", ``\texttt{de}", ``\texttt{Roma}"
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{\code{c}{strtok()}}
+
+    \begin{itemize}
+        \item A linguagem C oferece uma função para tokenização na biblioteca \code{c}{string.h}, 
+            denominada \code{c}{strtok()}
+
+        \item Ela recebe como primeiro parâmetro um ponteiro para a string a ser tokenizada, e como 
+            segundo parâmetro uma lista de delimitadores
+
+        \item Ela retorna um ponteiro para o início do próximo token, ou \code{c}{NULL}, caso não 
+            exista mais tokens
+
+        \item Esta função tem um comportamento incomum, devido três aspectos importantes:
+            \begin{enumerate}
+                \item ela mantém, internamente, um ponteiro para o início do próximo \textit{token}
+                \item esta função altera o parâmetro de entrada, escrevendo o caractere \lq\verb|\0|\rq\ nas posições onde são encontrados delimitadores
+                \item a função strtok() não retorna \textit{tokens} vazios 
+                    (isto é, de tamanho zero).
+            \end{enumerate}
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{\code{c}{strtok()}}
+
+    \begin{itemize}
+        \item Devido ao aspecto 1, para obter vários tokens de uma mesma string, as chamadas 
+            subsequentes à primeira devem receber \code{c}{NULL} como primeiro parâmetro
+
+        \item Este comportamento faz com que esta função não seja segura num contexto \textit{multithread}
+
+        \item Já em relação ao aspecto 2, se for necessário preservar o conteúdo original da string, deve ser passada uma cópia da mesma como primeiro parâmetro
+
+        \item Por fim, por conta do aspecto 3, a chamada de \code{c}{strtok()} na string
+            ``\texttt{aaaaa}"\ com delimitador ``\texttt{a}"\ retorna \code{c}{NULL} já na 
+            primeira chamada
+
+        \item A biblioteca \code{c}{string.h} oferece uma versão \textit{thread safe} de \code{c}{strtok()}, denominada \code{c}{strtok_r()}
+
+        \item Nesta função há um terceiro parâmetro, que é utilizado para memorizar a posição do próximo \textit{token}
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de uso da função \code{c}{strtok()}}
+    \inputsnippet{c}{1}{21}{cpf.c}
+\end{frame}
+
+\begin{frame}[fragile]{Tokenização em C++}
+
+    \begin{itemize}
+        \item Em C++, a função \code{c}{getline()} da biblioteca \code{c}{string} pode ser 
+            utilizada para tokenização
+
+        \item Ela recebe como primeiro parâmetro um fluxo de entrada (\code{c}{cin}, um arquivo, 
+            um fluxo de caracteres, etc)
+
+        \item O segundo parâmetro é a string que conterá o \textit{token} identificado 
+
+        \item O terceiro parâmetro é o caractere delimitador
+
+        \item Se omitido, o caractere \lq\verb|\n|\rq\ será considerado o delimitador
+
+        \item Esta função é útil quando há apenas um delimitador
+
+        \item Para processos de tokenização mais elaborados pode ser necessário escrever um \textit{parser}
+
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de uso da função \code{c}{getline()}}
+    \inputsnippet{cpp}{1}{21}{cpf.cpp}
+\end{frame}
+
+
