@@ -1,0 +1,68 @@
+\section{Codeforces Beta Round \#1 -- Problem A: Theatre Square}
+
+\begin{frame}[fragile]{Problema}
+
+Theatre Square in the capital city of Berland has a rectangular shape with the size 
+$n\times m$ meters. On the occasion of the city's anniversary, a decision was taken to pave the 
+Square with square granite flagstones. Each flagstone is of the size $a\times a$.
+
+What is the least number of flagstones needed to pave the Square? It's allowed to cover the surface larger than the Theatre Square, but the Square has to be covered. It's not allowed to break the flagstones. The sides of flagstones should be parallel to the sides of the Square.
+
+\end{frame}
+
+\begin{frame}[fragile]{Entrada e saída}
+
+\textbf{Input}
+
+The input contains three positive integer numbers in the first line: $n, m$ and $a$ 
+$(1\leq n, m, a\leq 10^9)$.
+
+\textbf{Output}
+
+Write the needed number of flagstones.
+
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de entradas e saídas}
+
+\begin{minipage}[t]{0.65\textwidth}
+\textbf{Sample Input}
+\begin{verbatim}
+6 6 4
+\end{verbatim}
+\end{minipage}
+\begin{minipage}[t]{0.3\textwidth}
+\textbf{Sample Output}
+\begin{verbatim}
+4
+\end{verbatim}
+\end{minipage}
+\end{frame}
+
+\begin{frame}[fragile]{Solução com complexidade $O(1)$}
+
+    \begin{itemize}
+        \item Observe que, se $a$ divide $n$, são necessários exatamente $n/a$ peças
+
+        \item Se $a$ não divide $n$, será necessário uma peça extra para cobrir esta diferença
+
+        \item Logo, o número de peças necessárias para cobrir uma linha de comprimento $n$ e 
+            altura $a$ é dado por
+        \[
+            w = \left\lceil \frac{n}{a}\right\rceil
+        \]
+
+        \item O mesmo raciocínio para $m$, obtendo
+        \[
+            h = \left\lceil \frac{m}{a}\right\rceil
+        \]
+
+        \item Logo a resposta será o produto $w \times h$
+
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Solução AC com complexidade $O(1)$}
+    \inputsnippet{cpp}{1}{21}{1A.cpp}
+\end{frame}
