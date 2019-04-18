@@ -1,0 +1,77 @@
+\section{Cubo}
+
+\begin{frame}[fragile]{Definição de cubo}
+
+    \begin{itemize}
+        \item Um cubo é uma região do espaço delimitada por 6 quadrados idênticos, 
+            unidos por meio de suas arestas
+
+        \item O cubo é um dos cinco poliedros regulares
+
+        \item Os demais são o tetraedro, o octaedro, o dodecaedro e o icosaedro, que também são
+            denominados Sólidos de Platão
+
+        \item O cubo possui 12 arestas, 6 faces e 8 vértices,
+            o que pode ser confirmado pela Equação de Euler
+        \[
+            V + F - A = 2.
+        \]
+
+        \item A menos de sua posição no espaço, um cubo pode ser unicamente determinado pela
+            medida $L$ do lado do quadrado que compõe suas faces
+
+        \item A medida da diagonal facial, isto é, a diagonal que une dos vértices opostos de uma 
+            mesma face, é igual a $L\sqrt{2}$
+
+        \item A medida da diagonal espacial, isto é, a diagonal que une dois vértices opostos,
+            atravessando o cubo por seu interior, é dada por $L\sqrt{3}$
+
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de implementação do cubo}
+    \inputcode{cpp}{cube.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Área e volume}
+
+    \begin{itemize}
+        \item A área da superfície do cubo (a soma das áreas de suas faces) é igual a
+            \[
+                A = 6L^2,
+            \] uma vez que esta área é composta pela soma das áreas de seis quadrados
+            idênticos
+
+        \item O volume é dado por 
+        \[
+            V = L^3
+        \]
+
+        \item Sendo uma expressão cúbica, é preciso tomar cuidado com possíveis \textit{overflows} 
+            no cálculo do volume
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Implementação do cálculo da área e do volume}
+    \inputcode{cpp}{area_cube.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Relação entre cubo e esfera}
+
+    \begin{itemize}
+        \item O cubo tem três esferas associadas
+
+        \item A esfera circunscrita, cujo raio é igual a $L(\sqrt{3}/2)$, passa pelos 8 vértices do 
+            cubo
+
+        \item A esfera inscrita é tangente às 6 faces do cubo
+
+        \item O raio da esfera inscrita é igual a $L/2$
+
+        \item A esfera tangente às arestas do cubo tem raio igual a $L/\sqrt{2}$
+
+    \end{itemize}
+
+\end{frame}
