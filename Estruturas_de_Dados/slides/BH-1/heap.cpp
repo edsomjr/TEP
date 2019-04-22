@@ -51,8 +51,8 @@ public:
         if (empty())
             throw std::out_of_range("Empty heap");
 
-        std::swap(xs[1], xs[N]);
         auto x = xs[1];
+        std::swap(xs[1], xs[N]);
         --N;
 
         int i = 1, n = left(i) > N ? 0 : left(i);
