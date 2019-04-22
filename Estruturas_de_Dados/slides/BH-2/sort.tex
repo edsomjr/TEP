@@ -1,0 +1,27 @@
+\section{Ordenação e heaps na STL}
+
+\begin{frame}[fragile]{Heaps e ordenação}
+
+    \begin{itemize}
+        \item A biblioteca \code{c}{algorithm} da linguagem C++ contém três rotinas de 
+            ordenação, a saber: \code{c}{sort(), stable_sort()} e \code{c}{partial_sort()}
+
+        \item As \textit{heaps} estão presentes em dois deles
+
+        \item A função \code{c}{sort()} é implementada através de uma estratégia mista: ela
+            começa com o \textit{Introsort} (que combina o \textit{Quicksort} com o \textit{Heapsort}) e 
+            finaliza com o \textit{Insert sort}
+
+        \item Já o \code{c}{partial_sort()} é implementada por meio do \textit{Heapsort}: é mantida
+            uma \textit{max heap} com exatamante $k$ elementos, removendo o $(k + 1)$-ésimo
+            elemento sempre que o tamanho da \textit{heap} for maior do que $k$
+
+        \item Em seguida, os elementos são ordenados, retirando os elementos máximo, um por vez,
+            e colocando-os nas posições apropriadas
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de uso das funções de ordenação em C++}
+    \inputcode{cpp}{sort.cpp}
+\end{frame}
