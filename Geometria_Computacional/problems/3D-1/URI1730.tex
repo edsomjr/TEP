@@ -1,0 +1,107 @@
+\section{URI 1730 -- Global Roaming}
+
+\begin{frame}[fragile]{Problema}
+
+Hoje em dia vários dispositivos móveis de comunicação dependem de uma vista direta para um satélite. Portanto, para os provedores de comunicação é crucial saber onde os seus serviços estão disponíveis. Sua tarefa é identificar os locais que têm uma vista direta para um satélite particular, ou seja, este satélite deve estar acima do horizonte. Para facilitar as coisas, você pode assumir que a Terra é uma esfera perfeita com um raio de 6378km (montanhas serão adicionadas no próximo ano...). O satélite é um objeto \textit{pointlike} acima da superfície terrestre.
+
+\end{frame}
+
+\begin{frame}[fragile]{Entrada e saída}
+
+\textbf{Entrada}
+
+A entrada consiste de vários casos de teste. Em cada caso de teste, a primeira linha contém o número de localizações $N$ a serem verificados, seguido pela a posição do satélite: a sua latitude, a longitude (ambas em grau) e sua altura (em km) acima da superfície terrestre.
+
+Cada uma das seguintes linhas $N$ contém um local na superfície terrestre: o nome da localidade (uma string com menos de 60 caracteres ASCII que não contém espaços em branco), seguido por sua latitude e longitude (ambos em graus). A entrada é terminada por $N$ = 0.
+
+\end{frame}
+
+\begin{frame}[fragile]{Entrada e saída}
+\textbf{Saída}
+
+Para cada caso de teste o seu programa deverá imprimir uma linha dizendo "Test case $K$:", onde $K$ é o número da instância atual. Então nas seguintes linhas, imprimir em linhas separadas, os nomes das localidades onde o satélite é visível na mesma ordem em que aparecem no arquivo de entrada. Imprima uma linha em branco após cada instância.
+
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de entradas e saídas}
+
+\begin{minipage}[t]{0.6\textwidth}
+\textbf{Exemplo de Entrada}
+\begin{verbatim}
+3 20.0 -60.0 150000000.0
+Ulm 48.406 10.002
+Jakarta -6.13 106.75
+Honolulu 21.32 -157.83
+2 48.4 10 0.5
+Ulm 48.406 10.002
+Honolulu 21.32 -157.83
+0 0.0 0.0 0.0
+\end{verbatim}
+\end{minipage}
+\begin{minipage}[t]{0.35\textwidth}
+\textbf{Exemplo de Saída}
+\begin{verbatim}
+Test case 1:
+Ulm
+Honolulu
+
+Test case 2:
+Ulm
+\end{verbatim}
+\end{minipage}
+\end{frame}
+
+\begin{frame}[fragile]{Solução}
+
+    \begin{itemize}
+        \item Para computar o ângulo que o satélite faz com a linha do horizonte, é preciso
+            converter as coordenadas geográficas (latitude, longitue e altura) em coordenadas
+            esféricas
+
+        \item É preciso atentar ao fato de que a latitude $\lambda$ se relaciona com colatitude
+            $\varphi$ das coordenadas esféricas através da relação
+            $ \lambda = 90^o - \varphi$.
+
+        \item Assim, sendo $\theta$ a longitude, a mudança de variáveis é dada por
+        \[
+            \begin{array}{l}
+                x = r\cos \theta\cos \lambda \\
+                y = r\sin \theta\cos \lambda \\
+                z = r\sin \lambda, \\
+            \end{array}
+        \]
+        pois $\sin (90^o - \lambda) = \cos \lambda$ e $\cos (90^o - \lambda) = \sin \lambda$
+
+        \item Se $\vec{P}$ é o vetor posição da cidade e $\vec{Q}$ o vetor posição do satélite,
+            o ângulo em relação ao horizonte é o ângulo entre $\vec{P}$ e $\vec{u} = 
+            \vec{Q} - \vec{P}$
+
+        \item É preciso tomar cuidado com possíveis erros de precisão no argumento da função
+            \code{c}{acos()}, cujo domínio é o intervalo $[-1, 1]$
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Solução AC}
+    \inputsnippet{cpp}{1}{20}{1730.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Solução AC}
+    \inputsnippet{cpp}{21}{39}{1730.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Solução AC}
+    \inputsnippet{cpp}{40}{60}{1730.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Solução AC}
+    \inputsnippet{cpp}{61}{81}{1730.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Solução AC}
+    \inputsnippet{cpp}{82}{102}{1730.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Solução AC}
+    \inputsnippet{cpp}{103}{123}{1730.cpp}
+\end{frame}
