@@ -1,0 +1,385 @@
+\begin{frame}[fragile]{Inserção em árvores-B}
+
+	Há 3 casos a serem tratados na {inserção} de um elemento em uma árvore-B, uma vez {localizado} o nó onde deve 
+	ocorrer a inserção:
+
+	\begin{enumerate}
+		\item {O nó é uma folha com espaço livre}: A estrutura da árvore {não é alterada}. Pode ser necessário 
+		{transpor} algumas chaves para que se mantenha a ordem {crescente} das mesmas.
+
+		\item {O nó é uma folha sem espaço livre}: O nó deve ser {dividido} em dois nós. O {novo} 
+        nó deve receber a {metade superior} do antigo nó (já contabilizado o novo elemento), 
+        enquanto que a {maior chave} restante no antigo nó 
+		é migrada para o nó pai. Também deve-se adicionar uma {referência} ao novo nó no pai.
+
+		\item {O nó é a raiz e ela está sem espaço livre}: Deve-se proceder como no caso de uma {folha cheia}, 
+		dividindo o nó em dois. Deve-se criar um novo nó para ser a {nova raiz}, e este nó fará o papel do {pai} 
+		no caso anterior. Esta é  a única inserção que pode alterar a {altura} da árvore.
+	\end{enumerate} 
+
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de inserção no primeiro caso, $m = 4$}
+
+    \begin{tikzpicture}
+        \begin{scope}
+            \node[opacity=0] at (-0.5, -0.5) { } ;
+            \node[anchor=west] at (1, 6.0) { Elemento a ser inserido: \textcolor{blue}{50} };
+
+            \draw (4, 4) rectangle (4.5, 4.5);
+            \draw (4.5, 4) rectangle (5, 4.5);
+            \draw (5, 4) rectangle (5.5, 4.5);
+
+        \end{scope}
+ 
+    \end{tikzpicture}
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de inserção no primeiro caso, $m = 4$}
+
+    \begin{tikzpicture}
+        \begin{scope}
+            \node[opacity=0] at (-0.5, -0.5) { } ;
+            \node[anchor=west] at (1, 6.0) { Elemento a ser inserido: \textcolor{black}{50} };
+
+            \draw (4, 4) rectangle (4.5, 4.5);
+            \draw (4.5, 4) rectangle (5, 4.5);
+            \draw (5, 4) rectangle (5.5, 4.5);
+
+            \node at (4.25, 4.25) { \footnotesize \textcolor{blue}{50} };
+        \end{scope}
+ 
+    \end{tikzpicture}
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de inserção no primeiro caso, $m = 4$}
+
+    \begin{tikzpicture}
+        \begin{scope}
+            \node[opacity=0] at (-0.5, -0.5) { } ;
+            \node[anchor=west] at (1, 6.0) { Elemento a ser inserido: \textcolor{blue}{80} };
+
+            \draw (4, 4) rectangle (4.5, 4.5);
+            \draw (4.5, 4) rectangle (5, 4.5);
+            \draw (5, 4) rectangle (5.5, 4.5);
+
+            \node at (4.25, 4.25) { \footnotesize \textcolor{black}{50} };
+        \end{scope}
+ 
+    \end{tikzpicture}
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de inserção no primeiro caso, $m = 4$}
+
+    \begin{tikzpicture}
+        \begin{scope}
+            \node[opacity=0] at (-0.5, -0.5) { } ;
+            \node[anchor=west] at (1, 6.0) { Elemento a ser inserido: \textcolor{black}{80} };
+
+            \draw (4, 4) rectangle (4.5, 4.5);
+            \draw (4.5, 4) rectangle (5, 4.5);
+            \draw (5, 4) rectangle (5.5, 4.5);
+
+            \node at (4.25, 4.25) { \footnotesize \textcolor{black}{50} };
+            \node at (4.75, 4.25) { \footnotesize \textcolor{blue}{80} };
+        \end{scope}
+ 
+    \end{tikzpicture}
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de inserção no primeiro caso, $m = 4$}
+
+    \begin{tikzpicture}
+        \begin{scope}
+            \node[opacity=0] at (-0.5, -0.5) { } ;
+            \node[anchor=west] at (1, 6.0) { Elemento a ser inserido: \textcolor{blue}{30} };
+
+            \draw (4, 4) rectangle (4.5, 4.5);
+            \draw (4.5, 4) rectangle (5, 4.5);
+            \draw (5, 4) rectangle (5.5, 4.5);
+
+            \node at (4.25, 4.25) { \footnotesize \textcolor{black}{50} };
+            \node at (4.75, 4.25) { \footnotesize \textcolor{black}{80} };
+        \end{scope}
+ 
+    \end{tikzpicture}
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de inserção no primeiro caso, $m = 4$}
+
+    \begin{tikzpicture}
+        \begin{scope}
+            \node[opacity=0] at (-0.5, -0.5) { } ;
+            \node[anchor=west] at (1, 6.0) { Elemento a ser inserido: \textcolor{black}{30} };
+
+            \draw (4, 4) rectangle (4.5, 4.5);
+            \draw (4.5, 4) rectangle (5, 4.5);
+            \draw (5, 4) rectangle (5.5, 4.5);
+
+            \node at (4.25, 4.25) { \footnotesize \textcolor{blue}{30} };
+            \node at (4.75, 4.25) { \footnotesize \textcolor{black}{50} };
+            \node at (5.25, 4.25) { \footnotesize \textcolor{black}{80} };
+        \end{scope}
+ 
+    \end{tikzpicture}
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de inserção no terceiro caso, $m = 4$}
+
+    \begin{tikzpicture}
+        \begin{scope}
+            \node[opacity=0] at (-0.5, -0.5) { } ;
+            \node[anchor=west] at (1, 6.0) { Elemento a ser inserido: \textcolor{blue}{42} };
+
+            \draw (4, 4) rectangle (4.5, 4.5);
+            \draw (4.5, 4) rectangle (5, 4.5);
+            \draw (5, 4) rectangle (5.5, 4.5);
+
+            \node at (4.25, 4.25) { \footnotesize \textcolor{blue}{42} };
+            \node at (4.75, 4.25) { \footnotesize \textcolor{black}{50} };
+            \node at (5.25, 4.25) { \footnotesize \textcolor{black}{80} };
+        \end{scope}
+ 
+    \end{tikzpicture}
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de inserção no terceiro caso, $m = 4$}
+
+    \begin{tikzpicture}
+        \begin{scope}
+            \node[opacity=0] at (-0.5, -0.5) { } ;
+            \node[anchor=west] at (1, 6.0) { Elemento a ser inserido: \textcolor{black}{42} };
+
+            \draw (2, 4) rectangle (2.5, 4.5);
+            \draw (2.5, 4) rectangle (3, 4.5);
+            \draw (3, 4) rectangle (3.5, 4.5);
+
+            \draw (6, 4) rectangle (6.5, 4.5);
+            \draw (6.5, 4) rectangle (7, 4.5);
+            \draw (7, 4) rectangle (7.5, 4.5);
+
+            \node at (2.25, 4.25) { \footnotesize \textcolor{black}{30} };
+            \node at (2.75, 4.25) { \footnotesize \textcolor{blue}{42} };
+
+            \node at (6.25, 4.25) { \footnotesize \textcolor{black}{50} };
+            \node at (6.75, 4.25) { \footnotesize \textcolor{black}{80} };
+        \end{scope}
+ 
+    \end{tikzpicture}
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de inserção no terceiro caso, $m = 4$}
+
+    \begin{tikzpicture}
+        \begin{scope}
+            \node[opacity=0] at (-0.5, -0.5) { } ;
+            \node[anchor=west] at (1, 6.0) { Fusão do nó dividido, nova raiz };
+
+
+            \draw (4, 4) rectangle (4.5, 4.5);
+            \draw (4.5, 4) rectangle (5, 4.5);
+            \draw (5, 4) rectangle (5.5, 4.5);
+
+            \draw (2, 2) rectangle (2.5, 2.5);
+            \draw (2.5, 2) rectangle (3, 2.5);
+            \draw (3, 2) rectangle (3.5, 2.5);
+
+            \draw (6, 2) rectangle (6.5, 2.5);
+            \draw (6.5, 2) rectangle (7, 2.5);
+            \draw (7, 2) rectangle (7.5, 2.5);
+
+            \node at (2.25, 2.25) { \footnotesize \textcolor{black}{30} };
+            \node at (2.75, 2.25) { \footnotesize \textcolor{blue}{42} };
+
+            \node at (6.25, 2.25) { \footnotesize \textcolor{black}{50} };
+            \node at (6.75, 2.25) { \footnotesize \textcolor{black}{80} };
+        \end{scope}
+ 
+    \end{tikzpicture}
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de inserção no terceiro caso, $m = 4$}
+
+    \begin{tikzpicture}
+        \begin{scope}
+            \node[opacity=0] at (-0.5, -0.5) { } ;
+            \node[anchor=west] at (1, 6.0) { Fusão do nó dividido, nova raiz };
+
+
+            \draw (4, 4) rectangle (4.5, 4.5);
+            \draw (4.5, 4) rectangle (5, 4.5);
+            \draw (5, 4) rectangle (5.5, 4.5);
+
+            \draw (2, 2) rectangle (2.5, 2.5);
+            \draw (2.5, 2) rectangle (3, 2.5);
+            \draw (3, 2) rectangle (3.5, 2.5);
+
+            \draw (6, 2) rectangle (6.5, 2.5);
+            \draw (6.5, 2) rectangle (7, 2.5);
+            \draw (7, 2) rectangle (7.5, 2.5);
+
+            \node at (2.25, 2.25) { \footnotesize \textcolor{black}{30} };
+            \node at (4.25, 4.25) { \footnotesize \textcolor{blue}{42} };
+
+            \node at (6.25, 2.25) { \footnotesize \textcolor{black}{50} };
+            \node at (6.75, 2.25) { \footnotesize \textcolor{black}{80} };
+
+            \draw (4,4) -- (2.25, 2.5);
+            \draw (4.5,4) -- (6.25, 2.5);
+
+        \end{scope}
+ 
+    \end{tikzpicture}
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de inserção no segundo caso, $m = 4$}
+
+    \begin{tikzpicture}
+        \begin{scope}
+            \node[opacity=0] at (-0.5, -0.5) { } ;
+            \node[anchor=west] at (1, 6.0) { Elemento a ser inserido: \textcolor{blue}{67} };
+
+
+            \draw (4, 4) rectangle (4.5, 4.5);
+            \draw (4.5, 4) rectangle (5, 4.5);
+            \draw (5, 4) rectangle (5.5, 4.5);
+
+            \draw (2, 2) rectangle (2.5, 2.5);
+            \draw (2.5, 2) rectangle (3, 2.5);
+            \draw (3, 2) rectangle (3.5, 2.5);
+
+            \draw (6, 2) rectangle (6.5, 2.5);
+            \draw (6.5, 2) rectangle (7, 2.5);
+            \draw (7, 2) rectangle (7.5, 2.5);
+
+            \node at (4.25, 4.25) { \footnotesize \textcolor{black}{42} };
+
+            \node at (2.25, 2.25) { \footnotesize \textcolor{black}{17} };
+            \node at (2.75, 2.25) { \footnotesize \textcolor{black}{25} };
+            \node at (3.25, 2.25) { \footnotesize \textcolor{black}{30} };
+
+            \node at (6.25, 2.25) { \footnotesize \textcolor{black}{50} };
+            \node at (6.75, 2.25) { \footnotesize \textcolor{black}{80} };
+            \node at (7.25, 2.25) { \footnotesize \textcolor{black}{99} };
+
+            \draw (4,4) -- (2.25, 2.5);
+            \draw (4.5,4) -- (6.25, 2.5);
+
+        \end{scope}
+ 
+    \end{tikzpicture}
+\end{frame}
+
+
+\begin{frame}[fragile]{Exemplo de inserção no segundo caso, $m = 4$}
+
+    \begin{tikzpicture}
+        \begin{scope}
+            \node[opacity=0] at (-0.5, -0.5) { } ;
+            \node[anchor=west] at (1, 6.0) { Elemento a ser inserido: \textcolor{blue}{67} };
+
+
+            \draw (4, 4) rectangle (4.5, 4.5);
+            \draw (4.5, 4) rectangle (5, 4.5);
+            \draw (5, 4) rectangle (5.5, 4.5);
+
+            \draw (2, 2) rectangle (2.5, 2.5);
+            \draw (2.5, 2) rectangle (3, 2.5);
+            \draw (3, 2) rectangle (3.5, 2.5);
+
+            \draw (6, 2) rectangle (6.5, 2.5);
+            \draw (6.5, 2) rectangle (7, 2.5);
+            \draw (7, 2) rectangle (7.5, 2.5);
+
+            \draw (8, 2) rectangle (8.5, 2.5);
+            \draw (8.5, 2) rectangle (9, 2.5);
+            \draw (9, 2) rectangle (9.5, 2.5);
+
+            \node at (4.25, 4.25) { \footnotesize \textcolor{black}{42} };
+
+            \node at (2.25, 2.25) { \footnotesize \textcolor{black}{17} };
+            \node at (2.75, 2.25) { \footnotesize \textcolor{black}{25} };
+            \node at (3.25, 2.25) { \footnotesize \textcolor{black}{30} };
+
+            \node at (6.25, 2.25) { \footnotesize \textcolor{black}{50} };
+            \node at (6.75, 2.25) { \footnotesize \textcolor{blue}{67} };
+
+            \node at (8.25, 2.25) { \footnotesize \textcolor{black}{80} };
+            \node at (8.75, 2.25) { \footnotesize \textcolor{black}{99} };
+
+            \draw (4,4) -- (2.25, 2.5);
+            \draw (4.5,4) -- (6.25, 2.5);
+
+        \end{scope}
+ 
+    \end{tikzpicture}
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de inserção no segundo caso, $m = 4$}
+
+    \begin{tikzpicture}
+        \begin{scope}
+            \node[opacity=0] at (-0.5, -0.5) { } ;
+            \node[anchor=west] at (1, 6.0) { Elemento a ser inserido: \textcolor{black}{67} };
+
+
+            \draw (4, 4) rectangle (4.5, 4.5);
+            \draw (4.5, 4) rectangle (5, 4.5);
+            \draw (5, 4) rectangle (5.5, 4.5);
+
+            \draw (2, 2) rectangle (2.5, 2.5);
+            \draw (2.5, 2) rectangle (3, 2.5);
+            \draw (3, 2) rectangle (3.5, 2.5);
+
+            \draw (6, 2) rectangle (6.5, 2.5);
+            \draw (6.5, 2) rectangle (7, 2.5);
+            \draw (7, 2) rectangle (7.5, 2.5);
+
+            \draw (8, 2) rectangle (8.5, 2.5);
+            \draw (8.5, 2) rectangle (9, 2.5);
+            \draw (9, 2) rectangle (9.5, 2.5);
+
+            \node at (4.25, 4.25) { \footnotesize \textcolor{black}{42} };
+
+            \node at (2.25, 2.25) { \footnotesize \textcolor{black}{17} };
+            \node at (2.75, 2.25) { \footnotesize \textcolor{black}{25} };
+            \node at (3.25, 2.25) { \footnotesize \textcolor{black}{30} };
+
+            \node at (6.25, 2.25) { \footnotesize \textcolor{black}{50} };
+            \node at (4.75, 4.25) { \footnotesize \textcolor{blue}{67} };
+
+            \node at (8.25, 2.25) { \footnotesize \textcolor{black}{80} };
+            \node at (8.75, 2.25) { \footnotesize \textcolor{black}{99} };
+
+            \draw (4,4) -- (2.25, 2.5);
+            \draw (4.5,4) -- (6.25, 2.5);
+            \draw (5,4) -- (8.25, 2.5);
+
+        \end{scope}
+ 
+    \end{tikzpicture}
+\end{frame}
+
+\begin{frame}[fragile]{Implementação da inserção em uma árvore-B}
+    \inputsnippet{cpp}{44}{64}{btree.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Implementação da inserção em uma árvore-B}
+    \inputsnippet{cpp}{65}{84}{btree.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Implementação da inserção em uma árvore-B}
+    \inputsnippet{cpp}{85}{105}{btree.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Implementação da inserção em uma árvore-B}
+    \inputsnippet{cpp}{107}{127}{btree.cpp}
+\end{frame}
+
+
+
+
+
+
+
+
