@@ -1,0 +1,102 @@
+\section{Definição}
+
+\begin{frame}[fragile]{Definição de polígono}
+
+    \begin{itemize}
+        \item Polígonos são figuras planas delimitadas por caminhos fechados 
+            (o vértice de partida é o vértice de chegada), compostos por segmentos de retas que 
+            une vértices consecutivos
+
+        \item Os segmentos que unem os vértices são denominados arestas
+
+        \item Embora alguns polígonos especiais (triângulos, quadriláteros) possam ter tratamento
+            especial, os algoritmos de polígonos podem ser aplicados igualmente a estes entes
+            geométricos
+    \end{itemize}
+
+    \begin{figure}
+        \centering
+
+        \begin{tikzpicture}
+            \coordinate (A) at (0, 0);
+            \coordinate (B) at (2, 1);
+            \coordinate (C) at (3, 4);
+            \coordinate (D) at (5, 2);
+            \coordinate (E) at (4, 0);
+
+            \draw (A) -- (B) -- (C) -- (D) -- (E) -- (A);
+
+            \coordinate (X) at (6, 1);
+            \coordinate (Y) at (9, 3);
+            \coordinate (Z) at (9, 1);
+            \coordinate (W) at (6, 3);
+
+            \draw (X) -- (Y) -- (Z) -- (W) -- (X);
+
+            \fill (A) circle [radius=1pt];
+            \fill (B) circle [radius=1pt];
+            \fill (C) circle [radius=1pt];
+            \fill (D) circle [radius=1pt];
+            \fill (E) circle [radius=1pt];
+            \fill (X) circle [radius=1pt];
+            \fill (Y) circle [radius=1pt];
+            \fill (Z) circle [radius=1pt];
+            \fill (W) circle [radius=1pt];
+
+        \end{tikzpicture}
+    \end{figure}
+
+\end{frame}
+
+\begin{frame}[fragile]{Representação de polígonos}
+
+    \begin{itemize}
+        \item A representação mais comum de um polígono é a listagem de seus vértices, sendo que 
+            as arestas ficam subentendidas (há sempre uma aresta unindo dois vértice consecutivos) 
+
+        \item Para facilitar a implementação de algumas rotinas, pode ser conveniente inserir, 
+            ao final da lista, o ponto de partida
+
+        \item É preciso tomar cuidado: ao fazer isso, o 
+            número de vértices do polígono passa a ser o número de elementos da lista subtraído 
+            de uma unidade    
+
+        \inputsyntax{cpp}{poly.cpp}
+
+        \item Esta implementação é a mais compacta possível, mas requer atenção a questão do 
+            número de vértices, conforme já comentado
+
+        \item Uma implementação mais extensa evita os problemas já mencionados
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de implementação de um polígono em C++}
+    \inputsnippet{cpp}{1}{20}{polygon.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Polígonos côncavos e convexos}
+
+    \begin{itemize}
+        \item Um polígono é dito convexo se, para quaisquer dois pontos $P$ e $Q$ localizados no 
+            interior do polígono, o segmento de reta $PQ$ não intercepta nenhuma das arestas do 
+            polígono
+
+        \item Caso contrário, o polígono é dito côncavo
+
+        \item É possível determinar se um polígono é ou não convexo sem recorrer à busca completa 
+            isto é, testar todos os possíveis pares de pontos interiores ao polígono
+
+        \item A orientação $D$ entre pontos e reta pode ser utilizada para tal fim
+
+        \item Basta checar se, para quaisquer três pontos consecutivos do polígono, eles tem a 
+            mesma orientação: ou sempre a esquerda, ou sempre à direita
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Implementação da rotina de verificação de convexidade}
+        \inputsnippet{cpp}{21}{41}{polygon.cpp}
+\end{frame}
+
+

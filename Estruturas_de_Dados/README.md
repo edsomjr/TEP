@@ -35,3 +35,4 @@ Slides
     1. [Árvores Binárias de Busca na STL](slides/TR-7/TR-7.pdf) ([problemas resolvidos](problems/TR-7/TR-7.pdf))
     1. [_Heap_ binária](slides/BH-1/BH-1.pdf) 
     1. [_Heaps_ binárias na STL](slides/BH-2/BH-2.pdf) ([problemas resolvidos](problems/BH-2/BH-2.pdf))
+    1. [Árvores-B](slides/BT-1/BT-1.pdf)
