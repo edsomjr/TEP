@@ -1,0 +1,18 @@
+\section{Construção e atualização de uma BITree}
+
+\begin{frame}[fragile]{Construção de uma árvore de Fenwick}
+
+    \begin{itemize}
+        \item Uma maneira de se construir uma árvore de Fenwick é começar com um vetor cujos
+            elementos são todos iguais a zero
+
+        \item Depois, cada valor a ser atribuído à $i$-ésima posição deve ser somado a esta
+            posição
+
+        \item Como a operação de atualização/soma tem complexidade $O(\log N)$, onde $N$ é o 
+            número máximo de elementos a serem inseridos na árvore, esta rotina tem complexidade
+            $O(N\log N)$
+
+    \end{itemize}
+
+\end{frame}
