@@ -191,49 +191,87 @@ private:
         node->keys.erase(it);
         node->sort_keys();
 
-        // Se o nó for a raiz ou houver chaves o suficiente, nada a fazer
-        auto P = node->parent;
+        // Corrige as violações, se houverem
+        while (fix_node(node))
+            node = node->parent;
+    }
+
+    bool fix_node(Node *node)
+    {
         auto limit = (M + 1)/2 - 1;
 
-        if (not P or node->keys.size() >= limit)
-            return;
+        // Há chaves o suficiente, nada a fazer
+        if (node->keys.size() >= limit)
+            return false;
 
-        // Irmãos
-        auto i = P->index(info);    // node é o filho i
+        auto P = node->parent;
 
-        auto R = i == M ? nullptr : P->children[i + 1];
-        auto L = i ? P->children[i - 1] : nullptr;
-
-        // Caso 1.1
-        if (L and L->keys.size() > limit)
+        // Se o nó for a raiz, será a última correção pendente
+        if (P == nullptr)
         {
-            node->keys.push_back(P->keys[i - 1]);
-            node->sort_keys();
+            // Raiz com um único filho
+            if (node->children.size() == 1)
+            {
+                root = node->children.front();
+                root->parent = nullptr;
+                delete node;
+            }
 
-            P->keys[i - 1] = L->keys.back();
-            L->keys.pop_back();
-
-            return;
+            // Não há mais correções pendentes
+            return false;
         }
 
-        if (R and R->keys.size() > limit)
+        auto missing = limit - node->keys.size();
+        
+        // Irmãos
+        size_t i = std::find(P->children.begin(), P->children.end(), node)
+            - P->children.begin(); 
+        auto R = i == P->keys.size() ? nullptr : P->children[i + 1];
+        auto L = i ? P->children[i - 1] : nullptr;
+
+        if (L and (L->keys.size() - limit) >= missing)
+            borrow_from_left(node, L, P, i - 1, missing);
+        else if (R and (R->keys.size() - limit) >= missing)
+            borrow_from_right(node, R, P, i, missing);
+        else
+            merge(node, P, L, R, i);
+
+        return true;
+    }
+
+    void borrow_from_left(Node *node, Node *L, Node *P, size_t k, size_t n)
+    {
+        while (n--)
         {
-            node->keys.push_back(P->keys[i]);
+            node->keys.push_back(P->keys[k]);
             node->sort_keys();
 
-            P->keys[i] = R->keys.front();
+            P->keys[k] = L->keys.back();
+            L->keys.pop_back();
+        }
+    }
+
+    void borrow_from_right(Node *node, Node *R, Node *P, size_t k, size_t n)
+    {
+        while (n--)
+        {
+            node->keys.push_back(P->keys[k]);
+            node->sort_keys();
+
+            P->keys[k] = R->keys.front();
             R->keys[0] = R->keys.back();
             R->keys.pop_back();
 
             R->sort_keys();
-
-            return;
         }
-
-        // Caso 2
+    }
+ 
+    void merge(Node *node, Node *P, Node *L, Node *R, size_t i)
+    {
         auto N = L ? L : R;
         auto k = L ? i - 1 : i;
 
+        // Funde as chaves
         while (not N->keys.empty())
         {
             node->keys.push_back(N->keys.back());
@@ -243,12 +281,23 @@ private:
         node->keys.push_back(P->keys[k]);
         node->sort_keys();
 
+        // Funde os filhos, se for o caso
+        while (not N->children.empty())
+        {
+            node->children.push_back(N->children.back());
+            node->children.back()->parent = node;
+            N->children.pop_back();
+        }
+
+        node->sort_children();
+
+        // Funde a chave de ligação do pai
         P->keys[k] = P->keys.back();
         P->keys.pop_back();
-
         P->sort_keys();
-        P->sort_children();
 
+        // Elimina o filho sem chaves
+        P->sort_children();
         delete P->children.back();
         P->children.pop_back();
     }
@@ -325,7 +374,7 @@ int main()
         cout << btree << "\n\n";
     }
 
-    const vector<int> ys { 61, 63, 99, 67, 42 };
+    const vector<int> ys { 61, 63, 99, 67, 42, 29 };
 
     for (const auto& y : ys)
     {

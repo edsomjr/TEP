@@ -30,10 +30,10 @@ public:
         // Um polígono deve ter, no minimo, 3 vértices
         if (n < 3) return false;
 
-        int P = 0, N = 0, Z = 0, M = vs.size();
+        int P = 0, N = 0, Z = 0;
 
         for (int i = 0; i < n; ++i) {
-            auto d = D(vs[i], vs[(i + 1) % M], vs[(i + 2) % M]);
+            auto d = D(vs[i], vs[(i + 1) % n], vs[(i + 2) % n]);
             d ? (d > 0 ? ++P : ++N) : ++Z;
         }
 
@@ -45,7 +45,7 @@ private:
     {
         return hypot(P.x - Q.x, P.y - Q.y);
     }
-
+public:
     double perimeter() const
     {
         auto p = 0.0;
@@ -109,7 +109,7 @@ public:
 
             // Pontos sobre as arestas ou vértices são considerados
             // interiores
-            if (equals(d, 0))
+            if (equals(d, 0) and AB_contains(P))
                 return true;
 
             auto a = angle(P, vs[i], vs[i + 1]);
@@ -183,13 +183,16 @@ int main()
 
     vector<Point<int>> xs { { 0, 0 }, { 2, 1 }, { 3, 4 }, { 5, 2 }, { 4, 0 } };
     vector<Point<int>> ys { { 6, 1 }, { 9, 3 }, { 9, 1 }, { 6, 3 } };
-    vector<Point<int>> zs { { 0, 0 }, { 1, 0 }, { 1, 1 }, { 0, 1 } };
+    vector<Point<double>> zs { { 0, 0 }, { 1, 0 }, { 0.5, 0.5 }, { 1, 1 }, { 0, 1 }, { 0.5, 0.5 } };
 
-    Polygon<int> A(xs), B(ys), C(zs);
+    Polygon<int> A(xs), B(ys);
+    Polygon<double> C(zs);
 
     cout << "A is convex? " << A.convex() << '\n';
     cout << "B is convex? " << B.convex() << '\n';
     cout << "C is convex? " << C.convex() << '\n';
+
+    cout << C.area() << '\n';
 
     return 0;
 }
