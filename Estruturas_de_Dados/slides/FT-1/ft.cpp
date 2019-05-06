@@ -35,7 +35,7 @@ private:
 public:
     void add(size_t i, const T& x)
     {
-        if (not i)
+        if (i == 0)
             return;
 
         while (i <= N)
