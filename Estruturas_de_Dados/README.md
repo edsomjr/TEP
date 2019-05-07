@@ -36,4 +36,4 @@ Slides
     1. [_Heap_ binária](slides/BH-1/BH-1.pdf) 
     1. [_Heaps_ binárias na STL](slides/BH-2/BH-2.pdf) ([problemas resolvidos](problems/BH-2/BH-2.pdf))
     1. [Árvores-B](slides/BT-1/BT-1.pdf)
-    1. [Árvores de Fenwick: Definição, _RSQ_ e _update_](slides/FT-1/FT-1.pdf)
+    1. [Árvores de Fenwick: Definição, _RSQ_ e _update_](slides/FT-1/FT-1.pdf) ([problemas resolvidos](problems/FT-1/FT-1.pdf))
