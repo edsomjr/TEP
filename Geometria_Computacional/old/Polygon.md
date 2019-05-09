@@ -488,7 +488,6 @@ vector<Point> monotone_chain_ch(vector<Point>& P)
     return L;
 }
 
-
 ```
 
 ### Exercícios
