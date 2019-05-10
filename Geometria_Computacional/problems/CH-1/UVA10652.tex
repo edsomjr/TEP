@@ -1,0 +1,145 @@
+\section{UVA 10652 -- Board Wrapping}
+
+\begin{frame}[fragile]{Problema}
+
+\begin{minipage}{0.5\textwidth}
+The small sawmill in Mission, British Columbia, has
+developed a brand new way of packaging boards for
+drying. By fixating the boards in special moulds, the
+board can dry efficiently in a drying room.
+
+Space is an issue though. The boards cannot be
+too close, because then the drying will be too slow.
+On the other hand, one wants to use the drying room
+efficiently.
+\end{minipage}
+\begin{minipage}{0.45\textwidth}
+\begin{figure}
+    \centering
+    \includegraphics[scale=0.6]{10652.png}
+\end{figure}
+\end{minipage}
+
+\end{frame}
+
+\begin{frame}[fragile]{Problema}
+
+Looking at it from a 2-D perspective, your task is to
+calculate the fraction between the space occupied by the
+boards to the total space occupied by the mould. Now, the
+mould is surrounded by an aluminium frame of negligible
+thickness, following the hull of the boards’ corners tightly.
+The space occupied by the mould would thus be the interior
+of the frame.
+
+\end{frame}
+
+\begin{frame}[fragile]{Entrada e saída}
+
+\textbf{Input}
+
+On the first line of input there is one integer, $N\leq 50$, giving
+the number of test cases (moulds) in the input. After this line, $N$ test cases follow. 
+Each test case starts with a line containing one integer $n$, $1 < n\leq 600$, which is the number 
+of boards in the mould.  Then $n$ lines follow, each with five floating point numbers 
+$x, y, w, h, \phi$ where $0\leq x, y, w, h\leq 10000$ and $-90^o < \phi\leq 90^o$. 
+The $x$ and $y$ are the coordinates of the center of the board and $w$ and $h$ are the
+width and height of the board, respectively. $\phi$ is the angle between the height axis of the 
+board to the $y$-axis in degrees, positive clockwise. That is, if $\phi = 0$, the projection of 
+the board on the $x$-axis would be $w$. Of course, the boards cannot intersect.
+
+\end{frame}
+
+\begin{frame}[fragile]{Entrada e saída}
+
+\textbf{Output}
+
+For every test case, output one line containing the fraction of the space occupied by the boards to the total space in percent. Your output should have one decimal digit and be followed by a space 
+and a percent sign (‘\texttt{\%}’).
+
+Note: The Sample Input and Sample Output corresponds to the given picture
+
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de entradas e saídas}
+
+\begin{minipage}[t]{0.5\textwidth}
+\textbf{Sample Input}
+\begin{verbatim}
+1
+4
+4 7.5 6 3 0
+8 11.5 6 3 0
+9.5 6 6 3 90
+4.5 3 4.4721 2.2361 26.565
+\end{verbatim}
+\end{minipage}
+\begin{minipage}[t]{0.45\textwidth}
+\textbf{Sample Output}
+\begin{verbatim}
+64.3 %
+\end{verbatim}
+\end{minipage}
+\end{frame}
+
+\begin{frame}[fragile]{Solução $O(TN\log N)$}
+
+    \begin{itemize}
+        \item A solução consiste em três etapas
+
+        \item A primeira é determinar o área total ocupada pelas placas
+
+        \item Basta somar a área individual de cada placa, que é o produto da base pela altura
+
+        \item Em seguida, é preciso determinar os vértices de cada placa
+
+        \item Pode-se assumir que eles estão inicialmente com o centro no origem, fazer a 
+            rotação em sentido horário e, em seguida, transladar os pontos para a posição
+            correta
+
+        \item Determinados estes pontos, os limites do polígono corresponde ao envoltório
+            convexo
+
+        \item A área do polígono pode ser determinada através da expressão que computa esta
+            área por meio dos vértices do polígono
+
+        \item A resposta será a diferença entre ambas áreas, em porcentagem
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Solução com complexidade $O(TN\log N)$}
+    \inputsnippet{cpp}{1}{21}{10652.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Solução com complexidade $O(TN\log N)$}
+    \inputsnippet{cpp}{22}{42}{10652.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Solução com complexidade $O(TN\log N)$}
+    \inputsnippet{cpp}{43}{62}{10652.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Solução com complexidade $O(TN\log N)$}
+    \inputsnippet{cpp}{63}{80}{10652.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Solução com complexidade $O(TN\log N)$}
+    \inputsnippet{cpp}{81}{101}{10652.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Solução com complexidade $O(TN\log N)$}
+    \inputsnippet{cpp}{102}{122}{10652.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Solução com complexidade $O(TN\log N)$}
+    \inputsnippet{cpp}{123}{143}{10652.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Solução com complexidade $O(TN\log N)$}
+    \inputsnippet{cpp}{144}{164}{10652.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Solução com complexidade $O(TN\log N)$}
+    \inputsnippet{cpp}{165}{185}{10652.cpp}
+\end{frame}

@@ -12,4 +12,4 @@ Geometria Computacional
     1. [Quadriláteros](slides/QL-1/QL-1.pdf) ([problemas resolvidos](problems/QL-1/QL-1.pdf))
     1. [Polígonos](slides/PL-1/PL-1.pdf) ([problemas resolvidos](problems/PL-1/PL-1.pdf))
     1. [Objetos Tridimensionais](slides/3D-1/3D-1.pdf) ([problemas resolvidos](problems/3D-1/3D-1.pdf))
-1. [Envoltório Convexo](slides/CH-1/CH-1.pdf)
+1. [Envoltório Convexo](slides/CH-1/CH-1.pdf) ([problemas resolvidos](problems/CH-1/CH-1.pdf))
