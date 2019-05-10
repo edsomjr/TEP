@@ -1,0 +1,1229 @@
+\begin{frame}[fragile]{Geração do \textit{lower hull}}
+
+    \begin{figure}
+        \centering
+
+        \begin{tikzpicture}
+            \coordinate (A) at (0, 0);
+            \coordinate (B) at (5, 3);
+            \coordinate (C) at (8, -2);
+            \coordinate (D) at (4, 4);
+            \coordinate (E) at (2, 1);
+            \coordinate (F) at (2, 5);
+            \coordinate (G) at (3, -1);
+            \coordinate (H) at (7, 2);
+            \coordinate (I) at (5, 0);
+            \coordinate (J) at (0, 4);
+            \coordinate (K) at (1, -1);
+            \coordinate (L) at (7, -2);
+            \coordinate (M) at (6, 4);
+            \coordinate (N) at (6, 0);
+            \coordinate (O) at (1, 3);
+
+            \fill[color=blue] (A) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 1 };
+            \fill (B) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 10 };
+            \fill (C) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 15 };
+            \fill (D) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 8 };
+            \fill (E) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 5 };
+            \fill (F) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 6 };
+            \fill (G) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 7 };
+            \fill (H) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 14 };
+            \fill (I) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 9 };
+            \fill (J) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 2 };
+            \fill (K) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 3 };
+            \fill (L) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 13 };
+            \fill (M) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 12 };
+            \fill (N) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 11 };
+            \fill (O) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 4 };
+
+        \end{tikzpicture}
+    \end{figure}
+
+\end{frame}
+
+\begin{frame}[fragile]{Geração do \textit{lower hull}}
+
+    \begin{figure}
+        \centering
+
+        \begin{tikzpicture}
+            \coordinate (A) at (0, 0);
+            \coordinate (B) at (5, 3);
+            \coordinate (C) at (8, -2);
+            \coordinate (D) at (4, 4);
+            \coordinate (E) at (2, 1);
+            \coordinate (F) at (2, 5);
+            \coordinate (G) at (3, -1);
+            \coordinate (H) at (7, 2);
+            \coordinate (I) at (5, 0);
+            \coordinate (J) at (0, 4);
+            \coordinate (K) at (1, -1);
+            \coordinate (L) at (7, -2);
+            \coordinate (M) at (6, 4);
+            \coordinate (N) at (6, 0);
+            \coordinate (O) at (1, 3);
+
+            \fill (A) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 1 };
+            \fill (B) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 10 };
+            \fill (C) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 15 };
+            \fill (D) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 8 };
+            \fill (E) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 5 };
+            \fill (F) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 6 };
+            \fill (G) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 7 };
+            \fill (H) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 14 };
+            \fill (I) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 9 };
+            \fill (J) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 2 };
+            \fill (K) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 3 };
+            \fill (L) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 13 };
+            \fill (M) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 12 };
+            \fill (N) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 11 };
+            \fill (O) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 4 };
+
+            \draw[blue,thick] (A) -- (J);
+        \end{tikzpicture}
+    \end{figure}
+
+\end{frame}
+
+\begin{frame}[fragile]{Geração do \textit{lower hull}}
+
+    \begin{figure}
+        \centering
+
+        \begin{tikzpicture}
+            \coordinate (A) at (0, 0);
+            \coordinate (B) at (5, 3);
+            \coordinate (C) at (8, -2);
+            \coordinate (D) at (4, 4);
+            \coordinate (E) at (2, 1);
+            \coordinate (F) at (2, 5);
+            \coordinate (G) at (3, -1);
+            \coordinate (H) at (7, 2);
+            \coordinate (I) at (5, 0);
+            \coordinate (J) at (0, 4);
+            \coordinate (K) at (1, -1);
+            \coordinate (L) at (7, -2);
+            \coordinate (M) at (6, 4);
+            \coordinate (N) at (6, 0);
+            \coordinate (O) at (1, 3);
+
+            \fill (A) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 1 };
+            \fill (B) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 10 };
+            \fill (C) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 15 };
+            \fill (D) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 8 };
+            \fill (E) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 5 };
+            \fill (F) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 6 };
+            \fill (G) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 7 };
+            \fill (H) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 14 };
+            \fill (I) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 9 };
+            \fill (J) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 2 };
+            \fill (K) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 3 };
+            \fill (L) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 13 };
+            \fill (M) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 12 };
+            \fill (N) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 11 };
+            \fill (O) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 4 };
+
+            \draw[blue,thick] (A) -- (J) -- (K);
+        \end{tikzpicture}
+    \end{figure}
+
+\end{frame}
+
+\begin{frame}[fragile]{Geração do \textit{lower hull}}
+
+    \begin{figure}
+        \centering
+
+        \begin{tikzpicture}
+            \coordinate (A) at (0, 0);
+            \coordinate (B) at (5, 3);
+            \coordinate (C) at (8, -2);
+            \coordinate (D) at (4, 4);
+            \coordinate (E) at (2, 1);
+            \coordinate (F) at (2, 5);
+            \coordinate (G) at (3, -1);
+            \coordinate (H) at (7, 2);
+            \coordinate (I) at (5, 0);
+            \coordinate (J) at (0, 4);
+            \coordinate (K) at (1, -1);
+            \coordinate (L) at (7, -2);
+            \coordinate (M) at (6, 4);
+            \coordinate (N) at (6, 0);
+            \coordinate (O) at (1, 3);
+
+            \fill (A) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 1 };
+            \fill (B) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 10 };
+            \fill (C) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 15 };
+            \fill (D) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 8 };
+            \fill (E) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 5 };
+            \fill (F) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 6 };
+            \fill (G) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 7 };
+            \fill (H) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 14 };
+            \fill (I) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 9 };
+            \fill (J) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 2 };
+            \fill (K) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 3 };
+            \fill (L) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 13 };
+            \fill (M) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 12 };
+            \fill (N) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 11 };
+            \fill (O) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 4 };
+
+            \draw[blue,thick] (A) -- (K);
+        \end{tikzpicture}
+    \end{figure}
+
+\end{frame}
+
+\begin{frame}[fragile]{Geração do \textit{lower hull}}
+
+    \begin{figure}
+        \centering
+
+        \begin{tikzpicture}
+            \coordinate (A) at (0, 0);
+            \coordinate (B) at (5, 3);
+            \coordinate (C) at (8, -2);
+            \coordinate (D) at (4, 4);
+            \coordinate (E) at (2, 1);
+            \coordinate (F) at (2, 5);
+            \coordinate (G) at (3, -1);
+            \coordinate (H) at (7, 2);
+            \coordinate (I) at (5, 0);
+            \coordinate (J) at (0, 4);
+            \coordinate (K) at (1, -1);
+            \coordinate (L) at (7, -2);
+            \coordinate (M) at (6, 4);
+            \coordinate (N) at (6, 0);
+            \coordinate (O) at (1, 3);
+
+            \fill (A) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 1 };
+            \fill (B) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 10 };
+            \fill (C) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 15 };
+            \fill (D) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 8 };
+            \fill (E) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 5 };
+            \fill (F) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 6 };
+            \fill (G) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 7 };
+            \fill (H) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 14 };
+            \fill (I) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 9 };
+            \fill (J) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 2 };
+            \fill (K) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 3 };
+            \fill (L) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 13 };
+            \fill (M) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 12 };
+            \fill (N) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 11 };
+            \fill (O) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 4 };
+
+            \draw[blue,thick] (A) -- (K) -- (O);
+        \end{tikzpicture}
+    \end{figure}
+
+\end{frame}
+
+\begin{frame}[fragile]{Geração do \textit{lower hull}}
+
+    \begin{figure}
+        \centering
+
+        \begin{tikzpicture}
+            \coordinate (A) at (0, 0);
+            \coordinate (B) at (5, 3);
+            \coordinate (C) at (8, -2);
+            \coordinate (D) at (4, 4);
+            \coordinate (E) at (2, 1);
+            \coordinate (F) at (2, 5);
+            \coordinate (G) at (3, -1);
+            \coordinate (H) at (7, 2);
+            \coordinate (I) at (5, 0);
+            \coordinate (J) at (0, 4);
+            \coordinate (K) at (1, -1);
+            \coordinate (L) at (7, -2);
+            \coordinate (M) at (6, 4);
+            \coordinate (N) at (6, 0);
+            \coordinate (O) at (1, 3);
+
+            \fill (A) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 1 };
+            \fill (B) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 10 };
+            \fill (C) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 15 };
+            \fill (D) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 8 };
+            \fill (E) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 5 };
+            \fill (F) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 6 };
+            \fill (G) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 7 };
+            \fill (H) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 14 };
+            \fill (I) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 9 };
+            \fill (J) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 2 };
+            \fill (K) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 3 };
+            \fill (L) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 13 };
+            \fill (M) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 12 };
+            \fill (N) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 11 };
+            \fill (O) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 4 };
+
+            \draw (A) -- (K);
+
+            \draw[blue,thick] (K) -- (O) -- (E);
+        \end{tikzpicture}
+    \end{figure}
+
+\end{frame}
+
+\begin{frame}[fragile]{Geração do \textit{lower hull}}
+
+    \begin{figure}
+        \centering
+
+        \begin{tikzpicture}
+            \coordinate (A) at (0, 0);
+            \coordinate (B) at (5, 3);
+            \coordinate (C) at (8, -2);
+            \coordinate (D) at (4, 4);
+            \coordinate (E) at (2, 1);
+            \coordinate (F) at (2, 5);
+            \coordinate (G) at (3, -1);
+            \coordinate (H) at (7, 2);
+            \coordinate (I) at (5, 0);
+            \coordinate (J) at (0, 4);
+            \coordinate (K) at (1, -1);
+            \coordinate (L) at (7, -2);
+            \coordinate (M) at (6, 4);
+            \coordinate (N) at (6, 0);
+            \coordinate (O) at (1, 3);
+
+            \fill (A) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 1 };
+            \fill (B) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 10 };
+            \fill (C) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 15 };
+            \fill (D) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 8 };
+            \fill (E) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 5 };
+            \fill (F) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 6 };
+            \fill (G) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 7 };
+            \fill (H) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 14 };
+            \fill (I) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 9 };
+            \fill (J) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 2 };
+            \fill (K) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 3 };
+            \fill (L) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 13 };
+            \fill (M) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 12 };
+            \fill (N) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 11 };
+            \fill (O) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 4 };
+
+            \draw (A) -- (K);
+
+            \draw[blue,thick] (A) -- (K) -- (E);
+        \end{tikzpicture}
+    \end{figure}
+
+\end{frame}
+
+\begin{frame}[fragile]{Geração do \textit{lower hull}}
+
+    \begin{figure}
+        \centering
+
+        \begin{tikzpicture}
+            \coordinate (A) at (0, 0);
+            \coordinate (B) at (5, 3);
+            \coordinate (C) at (8, -2);
+            \coordinate (D) at (4, 4);
+            \coordinate (E) at (2, 1);
+            \coordinate (F) at (2, 5);
+            \coordinate (G) at (3, -1);
+            \coordinate (H) at (7, 2);
+            \coordinate (I) at (5, 0);
+            \coordinate (J) at (0, 4);
+            \coordinate (K) at (1, -1);
+            \coordinate (L) at (7, -2);
+            \coordinate (M) at (6, 4);
+            \coordinate (N) at (6, 0);
+            \coordinate (O) at (1, 3);
+
+            \fill (A) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 1 };
+            \fill (B) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 10 };
+            \fill (C) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 15 };
+            \fill (D) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 8 };
+            \fill (E) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 5 };
+            \fill (F) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 6 };
+            \fill (G) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 7 };
+            \fill (H) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 14 };
+            \fill (I) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 9 };
+            \fill (J) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 2 };
+            \fill (K) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 3 };
+            \fill (L) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 13 };
+            \fill (M) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 12 };
+            \fill (N) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 11 };
+            \fill (O) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 4 };
+
+            \draw (A) -- (K);
+
+            \draw[blue,thick] (K) -- (E) -- (F);
+        \end{tikzpicture}
+    \end{figure}
+
+\end{frame}
+
+\begin{frame}[fragile]{Geração do \textit{lower hull}}
+
+    \begin{figure}
+        \centering
+
+        \begin{tikzpicture}
+            \coordinate (A) at (0, 0);
+            \coordinate (B) at (5, 3);
+            \coordinate (C) at (8, -2);
+            \coordinate (D) at (4, 4);
+            \coordinate (E) at (2, 1);
+            \coordinate (F) at (2, 5);
+            \coordinate (G) at (3, -1);
+            \coordinate (H) at (7, 2);
+            \coordinate (I) at (5, 0);
+            \coordinate (J) at (0, 4);
+            \coordinate (K) at (1, -1);
+            \coordinate (L) at (7, -2);
+            \coordinate (M) at (6, 4);
+            \coordinate (N) at (6, 0);
+            \coordinate (O) at (1, 3);
+
+            \fill (A) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 1 };
+            \fill (B) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 10 };
+            \fill (C) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 15 };
+            \fill (D) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 8 };
+            \fill (E) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 5 };
+            \fill (F) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 6 };
+            \fill (G) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 7 };
+            \fill (H) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 14 };
+            \fill (I) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 9 };
+            \fill (J) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 2 };
+            \fill (K) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 3 };
+            \fill (L) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 13 };
+            \fill (M) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 12 };
+            \fill (N) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 11 };
+            \fill (O) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 4 };
+
+            \draw (A) -- (K) -- (E);
+
+            \draw[blue,thick] (E) -- (F) -- (G);
+        \end{tikzpicture}
+    \end{figure}
+
+\end{frame}
+
+\begin{frame}[fragile]{Geração do \textit{lower hull}}
+
+    \begin{figure}
+        \centering
+
+        \begin{tikzpicture}
+            \coordinate (A) at (0, 0);
+            \coordinate (B) at (5, 3);
+            \coordinate (C) at (8, -2);
+            \coordinate (D) at (4, 4);
+            \coordinate (E) at (2, 1);
+            \coordinate (F) at (2, 5);
+            \coordinate (G) at (3, -1);
+            \coordinate (H) at (7, 2);
+            \coordinate (I) at (5, 0);
+            \coordinate (J) at (0, 4);
+            \coordinate (K) at (1, -1);
+            \coordinate (L) at (7, -2);
+            \coordinate (M) at (6, 4);
+            \coordinate (N) at (6, 0);
+            \coordinate (O) at (1, 3);
+
+            \fill (A) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 1 };
+            \fill (B) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 10 };
+            \fill (C) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 15 };
+            \fill (D) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 8 };
+            \fill (E) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 5 };
+            \fill (F) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 6 };
+            \fill (G) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 7 };
+            \fill (H) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 14 };
+            \fill (I) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 9 };
+            \fill (J) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 2 };
+            \fill (K) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 3 };
+            \fill (L) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 13 };
+            \fill (M) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 12 };
+            \fill (N) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 11 };
+            \fill (O) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 4 };
+
+            \draw (A) -- (K) -- (E);
+
+            \draw[blue,thick] (K) -- (E) -- (G);
+        \end{tikzpicture}
+    \end{figure}
+
+\end{frame}
+
+\begin{frame}[fragile]{Geração do \textit{lower hull}}
+
+    \begin{figure}
+        \centering
+
+        \begin{tikzpicture}
+            \coordinate (A) at (0, 0);
+            \coordinate (B) at (5, 3);
+            \coordinate (C) at (8, -2);
+            \coordinate (D) at (4, 4);
+            \coordinate (E) at (2, 1);
+            \coordinate (F) at (2, 5);
+            \coordinate (G) at (3, -1);
+            \coordinate (H) at (7, 2);
+            \coordinate (I) at (5, 0);
+            \coordinate (J) at (0, 4);
+            \coordinate (K) at (1, -1);
+            \coordinate (L) at (7, -2);
+            \coordinate (M) at (6, 4);
+            \coordinate (N) at (6, 0);
+            \coordinate (O) at (1, 3);
+
+            \fill (A) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 1 };
+            \fill (B) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 10 };
+            \fill (C) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 15 };
+            \fill (D) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 8 };
+            \fill (E) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 5 };
+            \fill (F) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 6 };
+            \fill (G) circle [radius=2pt] node[anchor=north] { \footnotesize \tt 7 };
+            \fill (H) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 14 };
+            \fill (I) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 9 };
+            \fill (J) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 2 };
+            \fill (K) circle [radius=2pt] node[anchor=north] { \footnotesize \tt 3 };
+            \fill (L) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 13 };
+            \fill (M) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 12 };
+            \fill (N) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 11 };
+            \fill (O) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 4 };
+
+            \draw (A) -- (K) -- (G);
+
+            \draw[blue,thick] (A) -- (K) -- (G);
+        \end{tikzpicture}
+    \end{figure}
+
+\end{frame}
+
+\begin{frame}[fragile]{Geração do \textit{lower hull}}
+
+    \begin{figure}
+        \centering
+
+        \begin{tikzpicture}
+            \coordinate (A) at (0, 0);
+            \coordinate (B) at (5, 3);
+            \coordinate (C) at (8, -2);
+            \coordinate (D) at (4, 4);
+            \coordinate (E) at (2, 1);
+            \coordinate (F) at (2, 5);
+            \coordinate (G) at (3, -1);
+            \coordinate (H) at (7, 2);
+            \coordinate (I) at (5, 0);
+            \coordinate (J) at (0, 4);
+            \coordinate (K) at (1, -1);
+            \coordinate (L) at (7, -2);
+            \coordinate (M) at (6, 4);
+            \coordinate (N) at (6, 0);
+            \coordinate (O) at (1, 3);
+
+            \fill (A) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 1 };
+            \fill (B) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 10 };
+            \fill (C) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 15 };
+            \fill (D) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 8 };
+            \fill (E) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 5 };
+            \fill (F) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 6 };
+            \fill (G) circle [radius=2pt] node[anchor=north] { \footnotesize \tt 7 };
+            \fill (H) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 14 };
+            \fill (I) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 9 };
+            \fill (J) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 2 };
+            \fill (K) circle [radius=2pt] node[anchor=north] { \footnotesize \tt 3 };
+            \fill (L) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 13 };
+            \fill (M) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 12 };
+            \fill (N) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 11 };
+            \fill (O) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 4 };
+
+            \draw (A) -- (K) -- (G);
+
+            \draw[blue,thick] (K) -- (G) -- (D);
+        \end{tikzpicture}
+    \end{figure}
+
+\end{frame}
+
+\begin{frame}[fragile]{Geração do \textit{lower hull}}
+
+    \begin{figure}
+        \centering
+
+        \begin{tikzpicture}
+            \coordinate (A) at (0, 0);
+            \coordinate (B) at (5, 3);
+            \coordinate (C) at (8, -2);
+            \coordinate (D) at (4, 4);
+            \coordinate (E) at (2, 1);
+            \coordinate (F) at (2, 5);
+            \coordinate (G) at (3, -1);
+            \coordinate (H) at (7, 2);
+            \coordinate (I) at (5, 0);
+            \coordinate (J) at (0, 4);
+            \coordinate (K) at (1, -1);
+            \coordinate (L) at (7, -2);
+            \coordinate (M) at (6, 4);
+            \coordinate (N) at (6, 0);
+            \coordinate (O) at (1, 3);
+
+            \fill (A) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 1 };
+            \fill (B) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 10 };
+            \fill (C) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 15 };
+            \fill (D) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 8 };
+            \fill (E) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 5 };
+            \fill (F) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 6 };
+            \fill (G) circle [radius=2pt] node[anchor=north] { \footnotesize \tt 7 };
+            \fill (H) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 14 };
+            \fill (I) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 9 };
+            \fill (J) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 2 };
+            \fill (K) circle [radius=2pt] node[anchor=north] { \footnotesize \tt 3 };
+            \fill (L) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 13 };
+            \fill (M) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 12 };
+            \fill (N) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 11 };
+            \fill (O) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 4 };
+
+            \draw (A) -- (K) -- (G);
+
+            \draw[blue,thick] (G) -- (D) -- (I);
+        \end{tikzpicture}
+    \end{figure}
+
+\end{frame}
+
+\begin{frame}[fragile]{Geração do \textit{lower hull}}
+
+    \begin{figure}
+        \centering
+
+        \begin{tikzpicture}
+            \coordinate (A) at (0, 0);
+            \coordinate (B) at (5, 3);
+            \coordinate (C) at (8, -2);
+            \coordinate (D) at (4, 4);
+            \coordinate (E) at (2, 1);
+            \coordinate (F) at (2, 5);
+            \coordinate (G) at (3, -1);
+            \coordinate (H) at (7, 2);
+            \coordinate (I) at (5, 0);
+            \coordinate (J) at (0, 4);
+            \coordinate (K) at (1, -1);
+            \coordinate (L) at (7, -2);
+            \coordinate (M) at (6, 4);
+            \coordinate (N) at (6, 0);
+            \coordinate (O) at (1, 3);
+
+            \fill (A) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 1 };
+            \fill (B) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 10 };
+            \fill (C) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 15 };
+            \fill (D) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 8 };
+            \fill (E) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 5 };
+            \fill (F) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 6 };
+            \fill (G) circle [radius=2pt] node[anchor=north] { \footnotesize \tt 7 };
+            \fill (H) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 14 };
+            \fill (I) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 9 };
+            \fill (J) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 2 };
+            \fill (K) circle [radius=2pt] node[anchor=north] { \footnotesize \tt 3 };
+            \fill (L) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 13 };
+            \fill (M) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 12 };
+            \fill (N) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 11 };
+            \fill (O) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 4 };
+
+            \draw (A) -- (K) -- (G);
+
+            \draw[blue,thick] (K) -- (G) -- (I);
+        \end{tikzpicture}
+    \end{figure}
+
+\end{frame}
+
+\begin{frame}[fragile]{Geração do \textit{lower hull}}
+
+    \begin{figure}
+        \centering
+
+        \begin{tikzpicture}
+            \coordinate (A) at (0, 0);
+            \coordinate (B) at (5, 3);
+            \coordinate (C) at (8, -2);
+            \coordinate (D) at (4, 4);
+            \coordinate (E) at (2, 1);
+            \coordinate (F) at (2, 5);
+            \coordinate (G) at (3, -1);
+            \coordinate (H) at (7, 2);
+            \coordinate (I) at (5, 0);
+            \coordinate (J) at (0, 4);
+            \coordinate (K) at (1, -1);
+            \coordinate (L) at (7, -2);
+            \coordinate (M) at (6, 4);
+            \coordinate (N) at (6, 0);
+            \coordinate (O) at (1, 3);
+
+            \fill (A) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 1 };
+            \fill (B) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 10 };
+            \fill (C) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 15 };
+            \fill (D) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 8 };
+            \fill (E) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 5 };
+            \fill (F) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 6 };
+            \fill (G) circle [radius=2pt] node[anchor=north] { \footnotesize \tt 7 };
+            \fill (H) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 14 };
+            \fill (I) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 9 };
+            \fill (J) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 2 };
+            \fill (K) circle [radius=2pt] node[anchor=north] { \footnotesize \tt 3 };
+            \fill (L) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 13 };
+            \fill (M) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 12 };
+            \fill (N) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 11 };
+            \fill (O) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 4 };
+
+            \draw (A) -- (K) -- (G);
+
+            \draw[blue,thick] (G) -- (I) -- (B);
+        \end{tikzpicture}
+    \end{figure}
+
+\end{frame}
+
+\begin{frame}[fragile]{Geração do \textit{lower hull}}
+
+    \begin{figure}
+        \centering
+
+        \begin{tikzpicture}
+            \coordinate (A) at (0, 0);
+            \coordinate (B) at (5, 3);
+            \coordinate (C) at (8, -2);
+            \coordinate (D) at (4, 4);
+            \coordinate (E) at (2, 1);
+            \coordinate (F) at (2, 5);
+            \coordinate (G) at (3, -1);
+            \coordinate (H) at (7, 2);
+            \coordinate (I) at (5, 0);
+            \coordinate (J) at (0, 4);
+            \coordinate (K) at (1, -1);
+            \coordinate (L) at (7, -2);
+            \coordinate (M) at (6, 4);
+            \coordinate (N) at (6, 0);
+            \coordinate (O) at (1, 3);
+
+            \fill (A) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 1 };
+            \fill (B) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 10 };
+            \fill (C) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 15 };
+            \fill (D) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 8 };
+            \fill (E) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 5 };
+            \fill (F) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 6 };
+            \fill (G) circle [radius=2pt] node[anchor=north] { \footnotesize \tt 7 };
+            \fill (H) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 14 };
+            \fill (I) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 9 };
+            \fill (J) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 2 };
+            \fill (K) circle [radius=2pt] node[anchor=north] { \footnotesize \tt 3 };
+            \fill (L) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 13 };
+            \fill (M) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 12 };
+            \fill (N) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 11 };
+            \fill (O) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 4 };
+
+            \draw (A) -- (K) -- (G) -- (I);
+
+            \draw[blue,thick] (I) -- (B) -- (N);
+        \end{tikzpicture}
+    \end{figure}
+
+\end{frame}
+
+\begin{frame}[fragile]{Geração do \textit{lower hull}}
+
+    \begin{figure}
+        \centering
+
+        \begin{tikzpicture}
+            \coordinate (A) at (0, 0);
+            \coordinate (B) at (5, 3);
+            \coordinate (C) at (8, -2);
+            \coordinate (D) at (4, 4);
+            \coordinate (E) at (2, 1);
+            \coordinate (F) at (2, 5);
+            \coordinate (G) at (3, -1);
+            \coordinate (H) at (7, 2);
+            \coordinate (I) at (5, 0);
+            \coordinate (J) at (0, 4);
+            \coordinate (K) at (1, -1);
+            \coordinate (L) at (7, -2);
+            \coordinate (M) at (6, 4);
+            \coordinate (N) at (6, 0);
+            \coordinate (O) at (1, 3);
+
+            \fill (A) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 1 };
+            \fill (B) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 10 };
+            \fill (C) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 15 };
+            \fill (D) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 8 };
+            \fill (E) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 5 };
+            \fill (F) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 6 };
+            \fill (G) circle [radius=2pt] node[anchor=north] { \footnotesize \tt 7 };
+            \fill (H) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 14 };
+            \fill (I) circle [radius=2pt] node[anchor=south] { \footnotesize \tt 9 };
+            \fill (J) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 2 };
+            \fill (K) circle [radius=2pt] node[anchor=north] { \footnotesize \tt 3 };
+            \fill (L) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 13 };
+            \fill (M) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 12 };
+            \fill (N) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 11 };
+            \fill (O) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 4 };
+
+            \draw (A) -- (K) -- (G) -- (I);
+
+            \draw[blue,thick] (G) -- (I) -- (N);
+        \end{tikzpicture}
+    \end{figure}
+
+\end{frame}
+
+\begin{frame}[fragile]{Geração do \textit{lower hull}}
+
+    \begin{figure}
+        \centering
+
+        \begin{tikzpicture}
+            \coordinate (A) at (0, 0);
+            \coordinate (B) at (5, 3);
+            \coordinate (C) at (8, -2);
+            \coordinate (D) at (4, 4);
+            \coordinate (E) at (2, 1);
+            \coordinate (F) at (2, 5);
+            \coordinate (G) at (3, -1);
+            \coordinate (H) at (7, 2);
+            \coordinate (I) at (5, 0);
+            \coordinate (J) at (0, 4);
+            \coordinate (K) at (1, -1);
+            \coordinate (L) at (7, -2);
+            \coordinate (M) at (6, 4);
+            \coordinate (N) at (6, 0);
+            \coordinate (O) at (1, 3);
+
+            \fill (A) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 1 };
+            \fill (B) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 10 };
+            \fill (C) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 15 };
+            \fill (D) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 8 };
+            \fill (E) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 5 };
+            \fill (F) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 6 };
+            \fill (G) circle [radius=2pt] node[anchor=north] { \footnotesize \tt 7 };
+            \fill (H) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 14 };
+            \fill (I) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 9 };
+            \fill (J) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 2 };
+            \fill (K) circle [radius=2pt] node[anchor=north] { \footnotesize \tt 3 };
+            \fill (L) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 13 };
+            \fill (M) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 12 };
+            \fill (N) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 11 };
+            \fill (O) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 4 };
+
+            \draw (A) -- (K) -- (G);
+
+            \draw[blue,thick] (K) -- (G) -- (N);
+        \end{tikzpicture}
+    \end{figure}
+
+\end{frame}
+
+\begin{frame}[fragile]{Geração do \textit{lower hull}}
+
+    \begin{figure}
+        \centering
+
+        \begin{tikzpicture}
+            \coordinate (A) at (0, 0);
+            \coordinate (B) at (5, 3);
+            \coordinate (C) at (8, -2);
+            \coordinate (D) at (4, 4);
+            \coordinate (E) at (2, 1);
+            \coordinate (F) at (2, 5);
+            \coordinate (G) at (3, -1);
+            \coordinate (H) at (7, 2);
+            \coordinate (I) at (5, 0);
+            \coordinate (J) at (0, 4);
+            \coordinate (K) at (1, -1);
+            \coordinate (L) at (7, -2);
+            \coordinate (M) at (6, 4);
+            \coordinate (N) at (6, 0);
+            \coordinate (O) at (1, 3);
+
+            \fill (A) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 1 };
+            \fill (B) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 10 };
+            \fill (C) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 15 };
+            \fill (D) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 8 };
+            \fill (E) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 5 };
+            \fill (F) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 6 };
+            \fill (G) circle [radius=2pt] node[anchor=north] { \footnotesize \tt 7 };
+            \fill (H) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 14 };
+            \fill (I) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 9 };
+            \fill (J) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 2 };
+            \fill (K) circle [radius=2pt] node[anchor=north] { \footnotesize \tt 3 };
+            \fill (L) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 13 };
+            \fill (M) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 12 };
+            \fill (N) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 11 };
+            \fill (O) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 4 };
+
+            \draw (A) -- (K) -- (G);
+
+            \draw[blue,thick] (G) -- (N) -- (M);
+        \end{tikzpicture}
+    \end{figure}
+
+\end{frame}
+
+\begin{frame}[fragile]{Geração do \textit{lower hull}}
+
+    \begin{figure}
+        \centering
+
+        \begin{tikzpicture}
+            \coordinate (A) at (0, 0);
+            \coordinate (B) at (5, 3);
+            \coordinate (C) at (8, -2);
+            \coordinate (D) at (4, 4);
+            \coordinate (E) at (2, 1);
+            \coordinate (F) at (2, 5);
+            \coordinate (G) at (3, -1);
+            \coordinate (H) at (7, 2);
+            \coordinate (I) at (5, 0);
+            \coordinate (J) at (0, 4);
+            \coordinate (K) at (1, -1);
+            \coordinate (L) at (7, -2);
+            \coordinate (M) at (6, 4);
+            \coordinate (N) at (6, 0);
+            \coordinate (O) at (1, 3);
+
+            \fill (A) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 1 };
+            \fill (B) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 10 };
+            \fill (C) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 15 };
+            \fill (D) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 8 };
+            \fill (E) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 5 };
+            \fill (F) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 6 };
+            \fill (G) circle [radius=2pt] node[anchor=north] { \footnotesize \tt 7 };
+            \fill (H) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 14 };
+            \fill (I) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 9 };
+            \fill (J) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 2 };
+            \fill (K) circle [radius=2pt] node[anchor=north] { \footnotesize \tt 3 };
+            \fill (L) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 13 };
+            \fill (M) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 12 };
+            \fill (N) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 11 };
+            \fill (O) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 4 };
+
+            \draw (A) -- (K) -- (G) -- (N);
+
+            \draw[blue,thick] (N) -- (M) -- (L);
+        \end{tikzpicture}
+    \end{figure}
+
+\end{frame}
+
+\begin{frame}[fragile]{Geração do \textit{lower hull}}
+
+    \begin{figure}
+        \centering
+
+        \begin{tikzpicture}
+            \coordinate (A) at (0, 0);
+            \coordinate (B) at (5, 3);
+            \coordinate (C) at (8, -2);
+            \coordinate (D) at (4, 4);
+            \coordinate (E) at (2, 1);
+            \coordinate (F) at (2, 5);
+            \coordinate (G) at (3, -1);
+            \coordinate (H) at (7, 2);
+            \coordinate (I) at (5, 0);
+            \coordinate (J) at (0, 4);
+            \coordinate (K) at (1, -1);
+            \coordinate (L) at (7, -2);
+            \coordinate (M) at (6, 4);
+            \coordinate (N) at (6, 0);
+            \coordinate (O) at (1, 3);
+
+            \fill (A) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 1 };
+            \fill (B) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 10 };
+            \fill (C) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 15 };
+            \fill (D) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 8 };
+            \fill (E) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 5 };
+            \fill (F) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 6 };
+            \fill (G) circle [radius=2pt] node[anchor=north] { \footnotesize \tt 7 };
+            \fill (H) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 14 };
+            \fill (I) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 9 };
+            \fill (J) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 2 };
+            \fill (K) circle [radius=2pt] node[anchor=north] { \footnotesize \tt 3 };
+            \fill (L) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 13 };
+            \fill (M) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 12 };
+            \fill (N) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 11 };
+            \fill (O) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 4 };
+
+            \draw (A) -- (K) -- (G) -- (N);
+
+            \draw[blue,thick] (G) -- (N) -- (L);
+        \end{tikzpicture}
+    \end{figure}
+
+\end{frame}
+
+\begin{frame}[fragile]{Geração do \textit{lower hull}}
+
+    \begin{figure}
+        \centering
+
+        \begin{tikzpicture}
+            \coordinate (A) at (0, 0);
+            \coordinate (B) at (5, 3);
+            \coordinate (C) at (8, -2);
+            \coordinate (D) at (4, 4);
+            \coordinate (E) at (2, 1);
+            \coordinate (F) at (2, 5);
+            \coordinate (G) at (3, -1);
+            \coordinate (H) at (7, 2);
+            \coordinate (I) at (5, 0);
+            \coordinate (J) at (0, 4);
+            \coordinate (K) at (1, -1);
+            \coordinate (L) at (7, -2);
+            \coordinate (M) at (6, 4);
+            \coordinate (N) at (6, 0);
+            \coordinate (O) at (1, 3);
+
+            \fill (A) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 1 };
+            \fill (B) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 10 };
+            \fill (C) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 15 };
+            \fill (D) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 8 };
+            \fill (E) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 5 };
+            \fill (F) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 6 };
+            \fill (G) circle [radius=2pt] node[anchor=north] { \footnotesize \tt 7 };
+            \fill (H) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 14 };
+            \fill (I) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 9 };
+            \fill (J) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 2 };
+            \fill (K) circle [radius=2pt] node[anchor=north] { \footnotesize \tt 3 };
+            \fill (L) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 13 };
+            \fill (M) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 12 };
+            \fill (N) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 11 };
+            \fill (O) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 4 };
+
+            \draw (A) -- (K) -- (G);
+
+            \draw[blue,thick] (K) -- (G) -- (L);
+        \end{tikzpicture}
+    \end{figure}
+
+\end{frame}
+
+\begin{frame}[fragile]{Geração do \textit{lower hull}}
+
+    \begin{figure}
+        \centering
+
+        \begin{tikzpicture}
+            \coordinate (A) at (0, 0);
+            \coordinate (B) at (5, 3);
+            \coordinate (C) at (8, -2);
+            \coordinate (D) at (4, 4);
+            \coordinate (E) at (2, 1);
+            \coordinate (F) at (2, 5);
+            \coordinate (G) at (3, -1);
+            \coordinate (H) at (7, 2);
+            \coordinate (I) at (5, 0);
+            \coordinate (J) at (0, 4);
+            \coordinate (K) at (1, -1);
+            \coordinate (L) at (7, -2);
+            \coordinate (M) at (6, 4);
+            \coordinate (N) at (6, 0);
+            \coordinate (O) at (1, 3);
+
+            \fill (A) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 1 };
+            \fill (B) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 10 };
+            \fill (C) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 15 };
+            \fill (D) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 8 };
+            \fill (E) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 5 };
+            \fill (F) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 6 };
+            \fill (G) circle [radius=2pt] node[anchor=south] { \footnotesize \tt 7 };
+            \fill (H) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 14 };
+            \fill (I) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 9 };
+            \fill (J) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 2 };
+            \fill (K) circle [radius=2pt] node[anchor=north] { \footnotesize \tt 3 };
+            \fill (L) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 13 };
+            \fill (M) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 12 };
+            \fill (N) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 11 };
+            \fill (O) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 4 };
+
+            \draw (A) -- (K) -- (L);
+
+            \draw[blue,thick] (A) -- (K) -- (L);
+        \end{tikzpicture}
+    \end{figure}
+
+\end{frame}
+
+\begin{frame}[fragile]{Geração do \textit{lower hull}}
+
+    \begin{figure}
+        \centering
+
+        \begin{tikzpicture}
+            \coordinate (A) at (0, 0);
+            \coordinate (B) at (5, 3);
+            \coordinate (C) at (8, -2);
+            \coordinate (D) at (4, 4);
+            \coordinate (E) at (2, 1);
+            \coordinate (F) at (2, 5);
+            \coordinate (G) at (3, -1);
+            \coordinate (H) at (7, 2);
+            \coordinate (I) at (5, 0);
+            \coordinate (J) at (0, 4);
+            \coordinate (K) at (1, -1);
+            \coordinate (L) at (7, -2);
+            \coordinate (M) at (6, 4);
+            \coordinate (N) at (6, 0);
+            \coordinate (O) at (1, 3);
+
+            \fill (A) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 1 };
+            \fill (B) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 10 };
+            \fill (C) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 15 };
+            \fill (D) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 8 };
+            \fill (E) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 5 };
+            \fill (F) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 6 };
+            \fill (G) circle [radius=2pt] node[anchor=south] { \footnotesize \tt 7 };
+            \fill (H) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 14 };
+            \fill (I) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 9 };
+            \fill (J) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 2 };
+            \fill (K) circle [radius=2pt] node[anchor=north] { \footnotesize \tt 3 };
+            \fill (L) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 13 };
+            \fill (M) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 12 };
+            \fill (N) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 11 };
+            \fill (O) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 4 };
+
+            \draw (A) -- (K) -- (L);
+
+            \draw[blue,thick] (K) -- (L) -- (H);
+        \end{tikzpicture}
+    \end{figure}
+
+\end{frame}
+
+\begin{frame}[fragile]{Geração do \textit{lower hull}}
+
+    \begin{figure}
+        \centering
+
+        \begin{tikzpicture}
+            \coordinate (A) at (0, 0);
+            \coordinate (B) at (5, 3);
+            \coordinate (C) at (8, -2);
+            \coordinate (D) at (4, 4);
+            \coordinate (E) at (2, 1);
+            \coordinate (F) at (2, 5);
+            \coordinate (G) at (3, -1);
+            \coordinate (H) at (7, 2);
+            \coordinate (I) at (5, 0);
+            \coordinate (J) at (0, 4);
+            \coordinate (K) at (1, -1);
+            \coordinate (L) at (7, -2);
+            \coordinate (M) at (6, 4);
+            \coordinate (N) at (6, 0);
+            \coordinate (O) at (1, 3);
+
+            \fill (A) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 1 };
+            \fill (B) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 10 };
+            \fill (C) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 15 };
+            \fill (D) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 8 };
+            \fill (E) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 5 };
+            \fill (F) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 6 };
+            \fill (G) circle [radius=2pt] node[anchor=south] { \footnotesize \tt 7 };
+            \fill (H) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 14 };
+            \fill (I) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 9 };
+            \fill (J) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 2 };
+            \fill (K) circle [radius=2pt] node[anchor=north] { \footnotesize \tt 3 };
+            \fill (L) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 13 };
+            \fill (M) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 12 };
+            \fill (N) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 11 };
+            \fill (O) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 4 };
+
+            \draw (A) -- (K) -- (L);
+
+            \draw[blue,thick] (L) -- (H) -- (C);
+        \end{tikzpicture}
+    \end{figure}
+
+\end{frame}
+
+\begin{frame}[fragile]{Geração do \textit{lower hull}}
+
+    \begin{figure}
+        \centering
+
+        \begin{tikzpicture}
+            \coordinate (A) at (0, 0);
+            \coordinate (B) at (5, 3);
+            \coordinate (C) at (8, -2);
+            \coordinate (D) at (4, 4);
+            \coordinate (E) at (2, 1);
+            \coordinate (F) at (2, 5);
+            \coordinate (G) at (3, -1);
+            \coordinate (H) at (7, 2);
+            \coordinate (I) at (5, 0);
+            \coordinate (J) at (0, 4);
+            \coordinate (K) at (1, -1);
+            \coordinate (L) at (7, -2);
+            \coordinate (M) at (6, 4);
+            \coordinate (N) at (6, 0);
+            \coordinate (O) at (1, 3);
+
+            \fill (A) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 1 };
+            \fill (B) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 10 };
+            \fill (C) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 15 };
+            \fill (D) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 8 };
+            \fill (E) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 5 };
+            \fill (F) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 6 };
+            \fill (G) circle [radius=2pt] node[anchor=south] { \footnotesize \tt 7 };
+            \fill (H) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 14 };
+            \fill (I) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 9 };
+            \fill (J) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 2 };
+            \fill (K) circle [radius=2pt] node[anchor=north] { \footnotesize \tt 3 };
+            \fill (L) circle [radius=2pt] node[anchor=south] { \footnotesize \tt 13 };
+            \fill (M) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 12 };
+            \fill (N) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 11 };
+            \fill (O) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 4 };
+
+            \draw (A) -- (K) -- (L);
+
+            \draw[blue,thick] (K) -- (L) -- (C);
+        \end{tikzpicture}
+    \end{figure}
+
+\end{frame}
+
+\begin{frame}[fragile]{Geração do \textit{lower hull}}
+
+    \begin{figure}
+        \centering
+
+        \begin{tikzpicture}
+            \coordinate (A) at (0, 0);
+            \coordinate (B) at (5, 3);
+            \coordinate (C) at (8, -2);
+            \coordinate (D) at (4, 4);
+            \coordinate (E) at (2, 1);
+            \coordinate (F) at (2, 5);
+            \coordinate (G) at (3, -1);
+            \coordinate (H) at (7, 2);
+            \coordinate (I) at (5, 0);
+            \coordinate (J) at (0, 4);
+            \coordinate (K) at (1, -1);
+            \coordinate (L) at (7, -2);
+            \coordinate (M) at (6, 4);
+            \coordinate (N) at (6, 0);
+            \coordinate (O) at (1, 3);
+
+            \fill (A) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 1 };
+            \fill (B) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 10 };
+            \fill (C) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 15 };
+            \fill (D) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 8 };
+            \fill (E) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 5 };
+            \fill (F) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 6 };
+            \fill (G) circle [radius=2pt] node[anchor=south] { \footnotesize \tt 7 };
+            \fill (H) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 14 };
+            \fill (I) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 9 };
+            \fill (J) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 2 };
+            \fill (K) circle [radius=2pt] node[anchor=north] { \footnotesize \tt 3 };
+            \fill (L) circle [radius=2pt] node[anchor=south] { \footnotesize \tt 13 };
+            \fill (M) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 12 };
+            \fill (N) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 11 };
+            \fill (O) circle [radius=2pt] node[anchor=west] { \footnotesize \tt 4 };
+
+            \draw (A) -- (K) -- (L) -- (C);
+
+        \end{tikzpicture}
+    \end{figure}
+
+\end{frame}
