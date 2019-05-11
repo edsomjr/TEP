@@ -23,8 +23,8 @@ Slides
     1. [Fundamentos](slides/AC-1/AC-1.pdf)
     1. [Pior caso, melhor caso, caso médio](slides/AC-2/AC-2.pdf)
 1. Busca e Ordenação
-    1. [Algoritmos de Busca](slides/BO-1/BO-1.pdf)
+    1. [Algoritmos de Busca](slides/BO-1/BO-1.pdf) ([problemas resolvidos](problems/BO-1/BO-1.pdf))
     1. [Algoritmos de Ordenação Quadráticos](slides/BO-2/BO-2.pdf)
-    1. [Ordenação em C/C++](slides/BO-4/BO-4.pdf)
+    1. [Ordenação em C/C++](slides/BO-4/BO-4.pdf) ([problemas resolvidos](problems/BO-4/BO-4.pdf))
 1. [Recursão](slides/RS-1/RS-1.pdf)
 1. [Leituras Recomendadas](slides/BB-1/BB-1.pdf)

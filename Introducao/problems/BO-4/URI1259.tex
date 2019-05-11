@@ -1,0 +1,97 @@
+\section{URI 1259 -- Pares e Ímpares}
+
+\begin{frame}[fragile]{Problema}
+
+Considerando a entrada de valores inteiros não negativos, ordene estes valores segundo o seguinte critério:
+
+\begin{itemize}
+    \item Primeiro os Pares
+    \item Depois os Ímpares
+\end{itemize}
+
+Sendo que deverão ser apresentados os pares em ordem crescente e depois os ímpares em ordem decrescente.
+
+\end{frame}
+
+\begin{frame}[fragile]{Entrada e saída}
+
+\textbf{Entrada}
+
+A primeira linha de entrada contém um único inteiro positivo $N$ $(1 < N < 10^5)$. 
+Este é o número de linhas de entrada que vem logo a seguir. As próximas $N$ linhas conterão, cada uma delas, um valor inteiro não negativo.
+
+\vspace{0.1in}
+
+\textbf{Saída}
+
+Apresente todos os valores lidos na entrada segundo a ordem apresentada acima. Cada número deve ser impresso em uma linha, conforme exemplo abaixo.
+
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de entradas e saídas}
+
+\begin{minipage}[t]{0.5\textwidth}
+\textbf{Exemplo de Entrada}
+\begin{verbatim}
+10
+4
+32
+34
+543
+3456
+654
+567
+87
+6789
+98
+\end{verbatim}
+\end{minipage}
+\begin{minipage}[t]{0.45\textwidth}
+\textbf{Exemplo de Saída}
+\begin{verbatim}
+4
+32
+34
+98
+654
+3456
+6789
+567
+543
+87
+\end{verbatim}
+\end{minipage}
+\end{frame}
+
+\begin{frame}[fragile]{Solução com complexidade $O(N\log N)$}
+
+    \begin{itemize}
+        \item O problema pode ser resolvido armazenando-se os pares e ímpares em
+            vetores distintos, e aplicando a ordenação correspondente em cada um destes
+            vetores
+
+        \item Contudo, é possível ordenar todo o vetor de uma só vez, através da
+            escrita de um comparador customizado
+
+        \item A paridade de um número $n$ pode ser obtida através do resto da divisão por 2
+
+        \item Se $a$ e $b$ tem paridades distintas, $a$ será menor do que $b$ se for par:
+            logo basta comparar as paridades (pois zero significa par, um significa ímpar)
+
+        \item Se $a$ e $b$ tem mesma paridade, a comparação no caso par é $a < b$; no caso 
+            ímpar, $a > b$
+
+        \item Por conta da chamada da função \code{c}{sort()}, o algoritmo tem complexidade
+            $O(N\log N)$
+
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Solução $O(N\log N)$}
+    \inputsnippet{cpp}{1}{15}{1259.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Solução $O(N\log N)$}
+    \inputsnippet{cpp}{16}{36}{1259.cpp}
+\end{frame}
