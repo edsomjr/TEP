@@ -1,0 +1,107 @@
+\section{Aplicações da árvore de Fenwick}
+
+\begin{frame}[fragile]{Condições necessárias para o uso de uma árvore de Fenwick}
+
+    \begin{itemize}
+        \item Para utilizar uma árvore de Fenwick para realizar a operação $\odot$ em um
+            intervalo de índices $[i,j]$ da sequência $a_k$, é necessário que esta operação
+            tem duas propriedades
+
+        \item A primeira propriedade é a associatividade: para quaisquer $x, y, z \in a_k$,
+            deve valer que
+        \[
+            (x \odot y)\odot z = x \odot (y \odot z)
+        \]
+
+        \item A segunda propriedade é a invertibilidade: para qualquer $x \in a_k$, deve existir
+            um valor $y$ tal que $x\odot y = I$, onde $I$ é o elemento 
+            neutro/identidade da operação $\odot$
+
+        \item Como exemplos de operações que tem ambas propriedades temos a adição e a multiplicação
+            de racionais, a adição de matrizes e o ou exclusivo (\textit{xor})
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{\textit{Range product query}}
+
+    \begin{itemize}
+        \item É possível utilizar uma árvore de Fenwick para realizar o \textit{range product
+            query}, de forma semelhante ao que foi  feito na adição
+
+        \item Neste caso, a operação de atualização corresponde a multiplicação de um elemento 
+            $a_i$ pela constante $k$
+
+        \item Dois pontos devem ser observados: em primeiro lugar, é preciso tratar com cuidado a 
+            possibilidade de \textit{overflow} 
+
+        \item Em segundo lugar, o zero não é invertível em relação à multiplicação: logo a
+            quantidade de zeros deve ser mantida à parte, em outra árvore de Fenwick, e as
+            ambas árvores devem ser combinadas para produzir o resultado correto
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Implementação de uma árvore de Fenwick para produtos}
+    \inputsnippet{cpp}{1}{20}{product_bit_tree.h}
+\end{frame}
+
+\begin{frame}[fragile]{Implementação de uma árvore de Fenwick para produtos}
+    \inputsnippet{cpp}{21}{41}{product_bit_tree.h}
+\end{frame}
+
+\begin{frame}[fragile]{Implementação de uma árvore de Fenwick para produtos}
+    \inputsnippet{cpp}{43}{60}{product_bit_tree.h}
+\end{frame}
+
+\begin{frame}[fragile]{Implementação de uma árvore de Fenwick para produtos}
+    \inputsnippet{cpp}{61}{81}{product_bit_tree.h}
+\end{frame}
+
+\begin{frame}[fragile]{Contagem de inversões}
+
+    \begin{itemize}
+        \item Árvores de Fenwick também podem ser utilizadas para contar o número de inversões
+            em uma sequência de inteiros positivos $a_k$
+
+        \item Uma inversão acontece quando $a_i > a_j$ e $i < j$
+
+        \item Seja $M$ é o valor máximo que um elemento $a_i$ pode assumir
+
+        \item A cada elemento $a_i$ da sequência, com $i = 1, 2, \ldots, N$, $RSQ(a_i + 1, M)$ 
+            conterá o número de elementos
+            já inseridos na árvore que são estritamente maiores do que $a_i$, isto é, o número
+            de inversões do tipo $(i, j)$, com $j < i$
+
+        \item Após esta contagem, o valor $a_i$ deve ser incrementado em uma unidade na árvore
+
+        \item Esta abordagem tem complexidade $O(N\log M)$
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Implementação da contagem de inversões}
+    \inputsnippet{cpp}{1}{21}{inversions.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Compressão do domínio}
+
+    \begin{itemize}
+        \item Se, no problema anterior, $M$ for grande (por exemplo, $M \geq 10^9$), não é
+            possível contruir uma árvore de Fenwick que comporte este número de elementos
+
+        \item Contudo, se $N$ for pequeno (por exemplo, $N \leq 10^5$), apenas $N$ dentre todos
+            os $M$ valores aparecerão na árvore
+
+        \item Assim, pode se construir um mapeamento $f : T \to \mathbf{N}$ entre estes $N$ 
+            valores e os $N$ primeiros números naturais de modo que $f(a) < f(b)$ se $a < b$
+
+        \item Daí a árvore de Fenwick armazenaria e manipularia os representantes, e não os
+            reais valores da sequência, contando ainda assim as inversões de forma correta
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de compressão de domínio}
+    \inputcode{cpp}{compression.cpp}
+\end{frame}
