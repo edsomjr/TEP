@@ -1,5 +1,5 @@
 template<typename T>
-map<T, int> compression(const vector<T>& as, int N)
+long long count_inversions_compression(const vector<T>& as)
 {
     vector<T> xs(as);
 
@@ -7,8 +7,20 @@ map<T, int> compression(const vector<T>& as, int N)
 
     map<T, int> f;
 
-    for (int i = 1; i <= N; ++i)
-        f[xs[i]] = i;
+    for (size_t i = 1; i <= as.size(); ++i)
+        f[ xs[i-1] ] = i;
 
-    return f;
-} 
+    BITree<T> ft(as.size());
+
+    long long inversions = 0;
+
+    for(size_t i=0; i<as.size(); i++)
+    {
+        auto comp_val = f[as[i]];
+
+        inversions += ft.RSQ(comp_val+1, as.size());
+        ft.add(comp_val, 1);
+    }
+
+    return inversions;
+}
