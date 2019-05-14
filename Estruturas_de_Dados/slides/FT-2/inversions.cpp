@@ -1,12 +1,13 @@
 template<typename T>
-long long count_inversions(const vector<T>& as, int N, int M)
+long long count_inversions(const vector<T>& as)
 {
+    T _max = *max_element(as.begin(), as.end());
+    BITree<T> ft(_max);
+    
     long long inversions = 0;
-    BITree<T> ft(M);
-
-    for (int i = 1; i <= N; ++i)
+    for (size_t i = 0; i < as.size(); ++i)
     {
-        inversions += ft.RSQ(as[i] + 1, M);
+        inversions += ft.RSQ(as[i], _max);
         ft.add(as[i], 1);
     }
 
