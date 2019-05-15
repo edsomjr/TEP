@@ -1,0 +1,49 @@
+\section{Definição de hash}
+
+\begin{frame}[fragile]{Motivação para a criação da {hash}}
+
+	\begin{itemize}
+		\item Estruturas lineares permitem $N$ armazenar elementos sem que o valor de $N$
+		seja conhecido \textit{a priori}, em tempo de compilação
+
+        \item Estas estruturas, poém, não são eficientes na busca do elementos (complexidade $O(N)$)
+
+        \item As árvores de busca, como as estruturas lineares, também permitem o armazenamento 
+            de um número arbitrário de elementos (limitado somente pela memória disponível)
+
+		\item Em árvores busca perfeitamente balanceadas a ordem de complexidade da busca 
+		    é $O(\log N)$
+
+        \item Porém a organização de memória das árvores não é contígua, levando à perda de
+            eficiência em relação à \textit{cache}
+ 
+		\item A idéia da \textit{hash} é deduzir o índice de um elemento em um vetor a partir 
+            apenas da informação armazenada pelo elemento, reduzindo a ordem de complexidade busca 
+            para $O(1)$
+	\end{itemize}
+
+\end{frame}
+
+\begin{frame}
+
+	\frametitle{{Hash}}
+
+    \metroset{block=fill}
+	\begin{block}{Definição}
+		Uma função $h$ é uma função de \textit{hash} se ela transforma uma chave $K$ no índice do 
+        elemento que contém $K$ na tabela. Se $h$ transforma chaves distintas em índices distintos, 
+        ela é uma função de \textit{hash} perfeita. 
+	\end{block}
+
+	\begin{itemize}
+		\item Para se criar uma função $h$ de \textit{hash} perfeita, a tabela deve conter, 
+            no mínimo, o número de elementos cujas chaves serão transformadas pela função $h$
+
+		\item Uma colisão ocorre se duas chaves distintas $K_1$ e $K_2$ gerarem o mesmo índice, 
+            isto é, se $h(K_1) = h(K_2)$ com $K_1\neq K_2$
+
+		\item A idéia é encontrar uma função $h$ que gere o mínimo de colisões mas que não seja 
+            sofisticada ao ponto de seu cálculo interferir na performance do programa
+	\end{itemize}
+
+\end{frame}
