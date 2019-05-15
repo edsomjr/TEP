@@ -1,25 +1,20 @@
 template<typename T>
 long long count_inversions_compression(const vector<T>& as)
 {
-    vector<T> xs(as);
-
-    sort(xs.begin(), xs.end());
-
+    set<T> xs(as.begin(), as.end());
     map<T, int> f;
+    size_t N = 0;
 
-    for (size_t i = 1; i <= as.size(); ++i)
-        f[ xs[i-1] ] = i;
+    for (const auto& x : xs)
+        f[x] = ++N;
 
-    BITree<T> ft(as.size());
-
+    BITree<T> ft(N);
     long long inversions = 0;
 
-    for(size_t i=0; i<as.size(); i++)
+    for (const auto& a : as)
     {
-        auto comp_val = f[as[i]];
-
-        inversions += ft.RSQ(comp_val+1, as.size());
-        ft.add(comp_val, 1);
+        inversions += ft.RSQ(f[a] + 1, N);
+        ft.add(f[a], 1);
     }
 
     return inversions;
