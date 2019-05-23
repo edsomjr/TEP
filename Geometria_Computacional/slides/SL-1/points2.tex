@@ -1,0 +1,645 @@
+\begin{frame}[fragile]{Visualização do algoritmo de pontos de interseção}
+
+    \begin{figure}
+        \centering
+
+        \begin{tikzpicture}
+            \coordinate (A1) at (2, 6);
+            \coordinate (B1) at (5, 6);
+            \coordinate (A2) at (1, 5);
+            \coordinate (B2) at (6, 5);
+            \coordinate (A3) at (5, 4);
+            \coordinate (B3) at (8, 4);
+            \coordinate (A4) at (3, 3);
+            \coordinate (B4) at (7, 3);
+            \coordinate (A5) at (5, 2);
+            \coordinate (B5) at (8, 2);
+            \coordinate (A6) at (1, 1);
+            \coordinate (B6) at (4, 1);
+            \coordinate (A7) at (4, 7);
+            \coordinate (B7) at (4, 2);
+            \coordinate (A8) at (2, 3);
+            \coordinate (B8) at (2, 0.5);
+            \coordinate (A9) at (6, 3.5);
+            \coordinate (B9) at (6, 1.5);
+
+
+            \draw[opacity=0] (0, 0);
+            \draw[opacity=0] (0, 7.5);
+            \draw (A1) -- (B1);
+            \draw (A2) -- (B2);
+            \draw (A3) -- (B3);
+            \draw (A4) -- (B4);
+            \draw (A5) -- (B5);
+            \draw (A6) -- (B6);
+            \draw (A7) -- (B7);
+            \draw (A8) -- (B8);
+            \draw (A9) -- (B9);
+
+            \draw[fill=white] (A1) node[anchor=east] { \tt \footnotesize \textcolor{blue}{1} } circle [radius=1.5pt];
+            \draw[fill=white] (B1) node[anchor=west] { \tt \footnotesize \textcolor{red}{3} } circle [radius=1.5pt];
+            \draw[fill=white] (A2) node[anchor=east] { \tt \footnotesize \textcolor{blue}{1} } circle [radius=1.5pt];
+            \draw[fill=white] (B2) node[anchor=west] { \tt \footnotesize \textcolor{red}{3} } circle [radius=1.5pt];
+            \draw[fill=white] (A3) node[anchor=east] { \tt \footnotesize \textcolor{blue}{1} } circle [radius=1.5pt];
+            \draw[fill=white] (B3) node[anchor=west] { \tt \footnotesize \textcolor{red}{3} } circle [radius=1.5pt];
+            \draw[fill=white] (A4) node[anchor=east] { \tt \footnotesize \textcolor{blue}{1} } circle [radius=1.5pt];
+            \draw[fill=white] (B4) node[anchor=west] { \tt \footnotesize \textcolor{red}{3} } circle [radius=1.5pt];
+            \draw[fill=white] (A5) node[anchor=east] { \tt \footnotesize \textcolor{blue}{1} } circle [radius=1.5pt];
+            \draw[fill=white] (B5) node[anchor=west] { \tt \footnotesize \textcolor{red}{3} } circle [radius=1.5pt];
+            \draw[fill=white] (A6) node[anchor=east] { \tt \footnotesize \textcolor{blue}{1} } circle [radius=1.5pt];
+            \draw[fill=white] (B6) node[anchor=west] { \tt \footnotesize \textcolor{red}{3} } circle [radius=1.5pt];
+            \draw[fill=white] (A7) circle [radius=1.5pt];
+            \draw[fill=white] (B7) node[anchor=east] { \tt \footnotesize \textcolor{green!60!black}{2} } circle [radius=1.5pt];
+            \draw[fill=white] (A8) circle [radius=1.5pt];
+            \draw[fill=white] (B8) node[anchor=east] { \tt \footnotesize \textcolor{green!60!black}{2} } circle [radius=1.5pt];
+            \draw[fill=white] (A9) circle [radius=1.5pt];
+            \draw[fill=white] (B9) node[anchor=east] { \tt \footnotesize \textcolor{green!60!black}{2} } circle [radius=1.5pt];
+
+
+            %\fill (4, 6) circle [radius=1.5pt];
+            %\fill (4, 5) circle [radius=1.5pt];
+            %\fill (4, 3) circle [radius=1.5pt];
+            %\fill (2, 1) circle [radius=1.5pt];
+            %\fill (6, 3) circle [radius=1.5pt];
+            %\fill (6, 2) circle [radius=1.5pt];
+            
+        \end{tikzpicture}
+    \end{figure}
+
+\end{frame}
+
+\begin{frame}[fragile]{Visualização do algoritmo de pontos de interseção}
+
+    \begin{figure}
+        \centering
+
+        \begin{tikzpicture}
+            \coordinate (A1) at (2, 6);
+            \coordinate (B1) at (5, 6);
+            \coordinate (A2) at (1, 5);
+            \coordinate (B2) at (6, 5);
+            \coordinate (A3) at (5, 4);
+            \coordinate (B3) at (8, 4);
+            \coordinate (A4) at (3, 3);
+            \coordinate (B4) at (7, 3);
+            \coordinate (A5) at (5, 2);
+            \coordinate (B5) at (8, 2);
+            \coordinate (A6) at (1, 1);
+            \coordinate (B6) at (4, 1);
+            \coordinate (A7) at (4, 7);
+            \coordinate (B7) at (4, 2);
+            \coordinate (A8) at (2, 3);
+            \coordinate (B8) at (2, 0.5);
+            \coordinate (A9) at (6, 3.5);
+            \coordinate (B9) at (6, 1.5);
+
+
+            \draw[opacity=0] (0, 0);
+            \draw[opacity=0] (0, 7.5);
+            \draw (A1) -- (B1);
+            \draw (A2) -- (B2);
+            \draw (A3) -- (B3);
+            \draw (A4) -- (B4);
+            \draw (A5) -- (B5);
+            \draw (A6) -- (B6);
+            \draw (A7) -- (B7);
+            \draw (A8) -- (B8);
+            \draw (A9) -- (B9);
+
+            \draw[fill=white] (A1) node[anchor=east] { \tt \footnotesize \textcolor{blue}{1} } circle [radius=1.5pt];
+            \draw[fill=white] (B1) node[anchor=west] { \tt \footnotesize \textcolor{red}{3} } circle [radius=1.5pt];
+            \draw[fill=white] (A2) node[anchor=east] { \tt \footnotesize \textcolor{blue}{1} } circle [radius=1.5pt];
+            \draw[fill=white] (B2) node[anchor=west] { \tt \footnotesize \textcolor{red}{3} } circle [radius=1.5pt];
+            \draw[fill=white] (A3) node[anchor=east] { \tt \footnotesize \textcolor{blue}{1} } circle [radius=1.5pt];
+            \draw[fill=white] (B3) node[anchor=west] { \tt \footnotesize \textcolor{red}{3} } circle [radius=1.5pt];
+            \draw[fill=white] (A4) node[anchor=east] { \tt \footnotesize \textcolor{blue}{1} } circle [radius=1.5pt];
+            \draw[fill=white] (B4) node[anchor=west] { \tt \footnotesize \textcolor{red}{3} } circle [radius=1.5pt];
+            \draw[fill=white] (A5) node[anchor=east] { \tt \footnotesize \textcolor{blue}{1} } circle [radius=1.5pt];
+            \draw[fill=white] (B5) node[anchor=west] { \tt \footnotesize \textcolor{red}{3} } circle [radius=1.5pt];
+            \draw[fill=white] (A6) node[anchor=east] { \tt \footnotesize \textcolor{blue}{1} } circle [radius=1.5pt];
+            \draw[fill=white] (B6) node[anchor=west] { \tt \footnotesize \textcolor{red}{3} } circle [radius=1.5pt];
+            \draw[fill=white] (A7) circle [radius=1.5pt];
+            \draw[fill=white] (B7) node[anchor=east] { \tt \footnotesize \textcolor{green!60!black}{2} } circle [radius=1.5pt];
+            \draw[fill=white] (A8) circle [radius=1.5pt];
+            \draw[fill=white] (B8) node[anchor=east] { \tt \footnotesize \textcolor{green!60!black}{2} } circle [radius=1.5pt];
+            \draw[fill=white] (A9) circle [radius=1.5pt];
+            \draw[fill=white] (B9) node[anchor=east] { \tt \footnotesize \textcolor{green!60!black}{2} } circle [radius=1.5pt];
+
+
+            %\fill (4, 6) circle [radius=1.5pt];
+            %\fill (4, 5) circle [radius=1.5pt];
+            %\fill (4, 3) circle [radius=1.5pt];
+            %\fill (2, 1) circle [radius=1.5pt];
+            %\fill (6, 3) circle [radius=1.5pt];
+            %\fill (6, 2) circle [radius=1.5pt];
+            
+            \draw[dashed] (1, 0) -- (1, 7.5);
+
+        \end{tikzpicture}
+    \end{figure}
+
+\end{frame}
+
+\begin{frame}[fragile]{Visualização do algoritmo de pontos de interseção}
+
+    \begin{figure}
+        \centering
+
+        \begin{tikzpicture}
+            \coordinate (A1) at (2, 6);
+            \coordinate (B1) at (5, 6);
+            \coordinate (A2) at (1, 5);
+            \coordinate (B2) at (6, 5);
+            \coordinate (A3) at (5, 4);
+            \coordinate (B3) at (8, 4);
+            \coordinate (A4) at (3, 3);
+            \coordinate (B4) at (7, 3);
+            \coordinate (A5) at (5, 2);
+            \coordinate (B5) at (8, 2);
+            \coordinate (A6) at (1, 1);
+            \coordinate (B6) at (4, 1);
+            \coordinate (A7) at (4, 7);
+            \coordinate (B7) at (4, 2);
+            \coordinate (A8) at (2, 3);
+            \coordinate (B8) at (2, 0.5);
+            \coordinate (A9) at (6, 3.5);
+            \coordinate (B9) at (6, 1.5);
+
+
+            \draw[opacity=0] (0, 0);
+            \draw[opacity=0] (0, 7.5);
+            \draw (A1) -- (B1);
+            \draw (A2) -- (B2);
+            \draw (A3) -- (B3);
+            \draw (A4) -- (B4);
+            \draw (A5) -- (B5);
+            \draw (A6) -- (B6);
+            \draw (A7) -- (B7);
+            \draw (A8) -- (B8);
+            \draw (A9) -- (B9);
+
+            \draw[fill=white] (A1) node[anchor=east] { \tt \footnotesize \textcolor{blue}{1} } circle [radius=1.5pt];
+            \draw[fill=white] (B1) node[anchor=west] { \tt \footnotesize \textcolor{red}{3} } circle [radius=1.5pt];
+            \draw[fill=white] (A2) node[anchor=east] { \tt \footnotesize \textcolor{blue}{1} } circle [radius=1.5pt];
+            \draw[fill=white] (B2) node[anchor=west] { \tt \footnotesize \textcolor{red}{3} } circle [radius=1.5pt];
+            \draw[fill=white] (A3) node[anchor=east] { \tt \footnotesize \textcolor{blue}{1} } circle [radius=1.5pt];
+            \draw[fill=white] (B3) node[anchor=west] { \tt \footnotesize \textcolor{red}{3} } circle [radius=1.5pt];
+            \draw[fill=white] (A4) node[anchor=east] { \tt \footnotesize \textcolor{blue}{1} } circle [radius=1.5pt];
+            \draw[fill=white] (B4) node[anchor=west] { \tt \footnotesize \textcolor{red}{3} } circle [radius=1.5pt];
+            \draw[fill=white] (A5) node[anchor=east] { \tt \footnotesize \textcolor{blue}{1} } circle [radius=1.5pt];
+            \draw[fill=white] (B5) node[anchor=west] { \tt \footnotesize \textcolor{red}{3} } circle [radius=1.5pt];
+            \draw[fill=white] (A6) node[anchor=east] { \tt \footnotesize \textcolor{blue}{1} } circle [radius=1.5pt];
+            \draw[fill=white] (B6) node[anchor=west] { \tt \footnotesize \textcolor{red}{3} } circle [radius=1.5pt];
+            \draw[fill=white] (A7) circle [radius=1.5pt];
+            \draw[fill=white] (B7) node[anchor=east] { \tt \footnotesize \textcolor{green!60!black}{2} } circle [radius=1.5pt];
+            \draw[fill=white] (A8) circle [radius=1.5pt];
+            \draw[fill=white] (B8) node[anchor=east] { \tt \footnotesize \textcolor{green!60!black}{2} } circle [radius=1.5pt];
+            \draw[fill=white] (A9) circle [radius=1.5pt];
+            \draw[fill=white] (B9) node[anchor=east] { \tt \footnotesize \textcolor{green!60!black}{2} } circle [radius=1.5pt];
+
+
+            %\fill (4, 6) circle [radius=1.5pt];
+            %\fill (4, 5) circle [radius=1.5pt];
+            %\fill (4, 3) circle [radius=1.5pt];
+            \fill (2, 1) circle [radius=1.5pt];
+            %\fill (6, 3) circle [radius=1.5pt];
+            %\fill (6, 2) circle [radius=1.5pt];
+            
+            \draw[dashed] (2, 0) node[anchor=west] { \tt \footnotesize \textbf{1}} node[anchor=east] { \tt \footnotesize \textcolor{blue}{+1} } -- (2, 7.5);
+
+        \end{tikzpicture}
+    \end{figure}
+
+\end{frame}
+
+\begin{frame}[fragile]{Visualização do algoritmo de pontos de interseção}
+
+    \begin{figure}
+        \centering
+
+        \begin{tikzpicture}
+            \coordinate (A1) at (2, 6);
+            \coordinate (B1) at (5, 6);
+            \coordinate (A2) at (1, 5);
+            \coordinate (B2) at (6, 5);
+            \coordinate (A3) at (5, 4);
+            \coordinate (B3) at (8, 4);
+            \coordinate (A4) at (3, 3);
+            \coordinate (B4) at (7, 3);
+            \coordinate (A5) at (5, 2);
+            \coordinate (B5) at (8, 2);
+            \coordinate (A6) at (1, 1);
+            \coordinate (B6) at (4, 1);
+            \coordinate (A7) at (4, 7);
+            \coordinate (B7) at (4, 2);
+            \coordinate (A8) at (2, 3);
+            \coordinate (B8) at (2, 0.5);
+            \coordinate (A9) at (6, 3.5);
+            \coordinate (B9) at (6, 1.5);
+
+
+            \draw[opacity=0] (0, 0);
+            \draw[opacity=0] (0, 7.5);
+            \draw (A1) -- (B1);
+            \draw (A2) -- (B2);
+            \draw (A3) -- (B3);
+            \draw (A4) -- (B4);
+            \draw (A5) -- (B5);
+            \draw (A6) -- (B6);
+            \draw (A7) -- (B7);
+            \draw (A8) -- (B8);
+            \draw (A9) -- (B9);
+
+            \draw[fill=white] (A1) node[anchor=east] { \tt \footnotesize \textcolor{blue}{1} } circle [radius=1.5pt];
+            \draw[fill=white] (B1) node[anchor=west] { \tt \footnotesize \textcolor{red}{3} } circle [radius=1.5pt];
+            \draw[fill=white] (A2) node[anchor=east] { \tt \footnotesize \textcolor{blue}{1} } circle [radius=1.5pt];
+            \draw[fill=white] (B2) node[anchor=west] { \tt \footnotesize \textcolor{red}{3} } circle [radius=1.5pt];
+            \draw[fill=white] (A3) node[anchor=east] { \tt \footnotesize \textcolor{blue}{1} } circle [radius=1.5pt];
+            \draw[fill=white] (B3) node[anchor=west] { \tt \footnotesize \textcolor{red}{3} } circle [radius=1.5pt];
+            \draw[fill=white] (A4) node[anchor=east] { \tt \footnotesize \textcolor{blue}{1} } circle [radius=1.5pt];
+            \draw[fill=white] (B4) node[anchor=west] { \tt \footnotesize \textcolor{red}{3} } circle [radius=1.5pt];
+            \draw[fill=white] (A5) node[anchor=east] { \tt \footnotesize \textcolor{blue}{1} } circle [radius=1.5pt];
+            \draw[fill=white] (B5) node[anchor=west] { \tt \footnotesize \textcolor{red}{3} } circle [radius=1.5pt];
+            \draw[fill=white] (A6) node[anchor=east] { \tt \footnotesize \textcolor{blue}{1} } circle [radius=1.5pt];
+            \draw[fill=white] (B6) node[anchor=west] { \tt \footnotesize \textcolor{red}{3} } circle [radius=1.5pt];
+            \draw[fill=white] (A7) circle [radius=1.5pt];
+            \draw[fill=white] (B7) node[anchor=east] { \tt \footnotesize \textcolor{green!60!black}{2} } circle [radius=1.5pt];
+            \draw[fill=white] (A8) circle [radius=1.5pt];
+            \draw[fill=white] (B8) node[anchor=east] { \tt \footnotesize \textcolor{green!60!black}{2} } circle [radius=1.5pt];
+            \draw[fill=white] (A9) circle [radius=1.5pt];
+            \draw[fill=white] (B9) node[anchor=east] { \tt \footnotesize \textcolor{green!60!black}{2} } circle [radius=1.5pt];
+
+
+            %\fill (4, 6) circle [radius=1.5pt];
+            %\fill (4, 5) circle [radius=1.5pt];
+            %\fill (4, 3) circle [radius=1.5pt];
+            \fill (2, 1) circle [radius=1.5pt];
+            %\fill (6, 3) circle [radius=1.5pt];
+            %\fill (6, 2) circle [radius=1.5pt];
+            
+            \draw[dashed] (3, 0) node[anchor=west] { \tt \footnotesize \textbf{1}} node[anchor=east] { \tt \footnotesize \textcolor{blue}{} } -- (3, 7.5);
+
+        \end{tikzpicture}
+    \end{figure}
+
+\end{frame}
+
+\begin{frame}[fragile]{Visualização do algoritmo de pontos de interseção}
+
+    \begin{figure}
+        \centering
+
+        \begin{tikzpicture}
+            \coordinate (A1) at (2, 6);
+            \coordinate (B1) at (5, 6);
+            \coordinate (A2) at (1, 5);
+            \coordinate (B2) at (6, 5);
+            \coordinate (A3) at (5, 4);
+            \coordinate (B3) at (8, 4);
+            \coordinate (A4) at (3, 3);
+            \coordinate (B4) at (7, 3);
+            \coordinate (A5) at (5, 2);
+            \coordinate (B5) at (8, 2);
+            \coordinate (A6) at (1, 1);
+            \coordinate (B6) at (4, 1);
+            \coordinate (A7) at (4, 7);
+            \coordinate (B7) at (4, 2);
+            \coordinate (A8) at (2, 3);
+            \coordinate (B8) at (2, 0.5);
+            \coordinate (A9) at (6, 3.5);
+            \coordinate (B9) at (6, 1.5);
+
+
+            \draw[opacity=0] (0, 0);
+            \draw[opacity=0] (0, 7.5);
+            \draw (A1) -- (B1);
+            \draw (A2) -- (B2);
+            \draw (A3) -- (B3);
+            \draw (A4) -- (B4);
+            \draw (A5) -- (B5);
+            \draw (A6) -- (B6);
+            \draw (A7) -- (B7);
+            \draw (A8) -- (B8);
+            \draw (A9) -- (B9);
+
+            \draw[fill=white] (A1) node[anchor=east] { \tt \footnotesize \textcolor{blue}{1} } circle [radius=1.5pt];
+            \draw[fill=white] (B1) node[anchor=west] { \tt \footnotesize \textcolor{red}{3} } circle [radius=1.5pt];
+            \draw[fill=white] (A2) node[anchor=east] { \tt \footnotesize \textcolor{blue}{1} } circle [radius=1.5pt];
+            \draw[fill=white] (B2) node[anchor=west] { \tt \footnotesize \textcolor{red}{3} } circle [radius=1.5pt];
+            \draw[fill=white] (A3) node[anchor=east] { \tt \footnotesize \textcolor{blue}{1} } circle [radius=1.5pt];
+            \draw[fill=white] (B3) node[anchor=west] { \tt \footnotesize \textcolor{red}{3} } circle [radius=1.5pt];
+            \draw[fill=white] (A4) node[anchor=east] { \tt \footnotesize \textcolor{blue}{1} } circle [radius=1.5pt];
+            \draw[fill=white] (B4) node[anchor=west] { \tt \footnotesize \textcolor{red}{3} } circle [radius=1.5pt];
+            \draw[fill=white] (A5) node[anchor=east] { \tt \footnotesize \textcolor{blue}{1} } circle [radius=1.5pt];
+            \draw[fill=white] (B5) node[anchor=west] { \tt \footnotesize \textcolor{red}{3} } circle [radius=1.5pt];
+            \draw[fill=white] (A6) node[anchor=east] { \tt \footnotesize \textcolor{blue}{1} } circle [radius=1.5pt];
+            \draw[fill=white] (B6) node[anchor=west] { \tt \footnotesize \textcolor{red}{3} } circle [radius=1.5pt];
+            \draw[fill=white] (A7) circle [radius=1.5pt];
+            \draw[fill=white] (B7) node[anchor=east] { \tt \footnotesize \textcolor{green!60!black}{2} } circle [radius=1.5pt];
+            \draw[fill=white] (A8) circle [radius=1.5pt];
+            \draw[fill=white] (B8) node[anchor=east] { \tt \footnotesize \textcolor{green!60!black}{2} } circle [radius=1.5pt];
+            \draw[fill=white] (A9) circle [radius=1.5pt];
+            \draw[fill=white] (B9) node[anchor=east] { \tt \footnotesize \textcolor{green!60!black}{2} } circle [radius=1.5pt];
+
+
+            \fill (4, 6) circle [radius=1.5pt];
+            \fill (4, 5) circle [radius=1.5pt];
+            \fill (4, 3) circle [radius=1.5pt];
+            \fill (2, 1) circle [radius=1.5pt];
+            %\fill (6, 3) circle [radius=1.5pt];
+            %\fill (6, 2) circle [radius=1.5pt];
+            
+            \draw[dashed] (4, 0) node[anchor=west] { \tt \footnotesize \textbf{4}} node[anchor=east] { \tt \footnotesize \textcolor{blue}{+3} } -- (4, 7.5);
+
+        \end{tikzpicture}
+    \end{figure}
+
+\end{frame}
+
+\begin{frame}[fragile]{Visualização do algoritmo de pontos de interseção}
+
+    \begin{figure}
+        \centering
+
+        \begin{tikzpicture}
+            \coordinate (A1) at (2, 6);
+            \coordinate (B1) at (5, 6);
+            \coordinate (A2) at (1, 5);
+            \coordinate (B2) at (6, 5);
+            \coordinate (A3) at (5, 4);
+            \coordinate (B3) at (8, 4);
+            \coordinate (A4) at (3, 3);
+            \coordinate (B4) at (7, 3);
+            \coordinate (A5) at (5, 2);
+            \coordinate (B5) at (8, 2);
+            \coordinate (A6) at (1, 1);
+            \coordinate (B6) at (4, 1);
+            \coordinate (A7) at (4, 7);
+            \coordinate (B7) at (4, 2);
+            \coordinate (A8) at (2, 3);
+            \coordinate (B8) at (2, 0.5);
+            \coordinate (A9) at (6, 3.5);
+            \coordinate (B9) at (6, 1.5);
+
+
+            \draw[opacity=0] (0, 0);
+            \draw[opacity=0] (0, 7.5);
+            \draw (A1) -- (B1);
+            \draw (A2) -- (B2);
+            \draw (A3) -- (B3);
+            \draw (A4) -- (B4);
+            \draw (A5) -- (B5);
+            \draw (A6) -- (B6);
+            \draw (A7) -- (B7);
+            \draw (A8) -- (B8);
+            \draw (A9) -- (B9);
+
+            \draw[fill=white] (A1) node[anchor=east] { \tt \footnotesize \textcolor{blue}{1} } circle [radius=1.5pt];
+            \draw[fill=white] (B1) node[anchor=west] { \tt \footnotesize \textcolor{red}{3} } circle [radius=1.5pt];
+            \draw[fill=white] (A2) node[anchor=east] { \tt \footnotesize \textcolor{blue}{1} } circle [radius=1.5pt];
+            \draw[fill=white] (B2) node[anchor=west] { \tt \footnotesize \textcolor{red}{3} } circle [radius=1.5pt];
+            \draw[fill=white] (A3) node[anchor=east] { \tt \footnotesize \textcolor{blue}{1} } circle [radius=1.5pt];
+            \draw[fill=white] (B3) node[anchor=west] { \tt \footnotesize \textcolor{red}{3} } circle [radius=1.5pt];
+            \draw[fill=white] (A4) node[anchor=east] { \tt \footnotesize \textcolor{blue}{1} } circle [radius=1.5pt];
+            \draw[fill=white] (B4) node[anchor=west] { \tt \footnotesize \textcolor{red}{3} } circle [radius=1.5pt];
+            \draw[fill=white] (A5) node[anchor=east] { \tt \footnotesize \textcolor{blue}{1} } circle [radius=1.5pt];
+            \draw[fill=white] (B5) node[anchor=west] { \tt \footnotesize \textcolor{red}{3} } circle [radius=1.5pt];
+            \draw[fill=white] (A6) node[anchor=east] { \tt \footnotesize \textcolor{blue}{1} } circle [radius=1.5pt];
+            \draw[fill=white] (B6) node[anchor=west] { \tt \footnotesize \textcolor{red}{3} } circle [radius=1.5pt];
+            \draw[fill=white] (A7) circle [radius=1.5pt];
+            \draw[fill=white] (B7) node[anchor=east] { \tt \footnotesize \textcolor{green!60!black}{2} } circle [radius=1.5pt];
+            \draw[fill=white] (A8) circle [radius=1.5pt];
+            \draw[fill=white] (B8) node[anchor=east] { \tt \footnotesize \textcolor{green!60!black}{2} } circle [radius=1.5pt];
+            \draw[fill=white] (A9) circle [radius=1.5pt];
+            \draw[fill=white] (B9) node[anchor=east] { \tt \footnotesize \textcolor{green!60!black}{2} } circle [radius=1.5pt];
+
+
+            \fill (4, 6) circle [radius=1.5pt];
+            \fill (4, 5) circle [radius=1.5pt];
+            \fill (4, 3) circle [radius=1.5pt];
+            \fill (2, 1) circle [radius=1.5pt];
+            %\fill (6, 3) circle [radius=1.5pt];
+            %\fill (6, 2) circle [radius=1.5pt];
+            
+            \draw[dashed] (5, 0) node[anchor=west] { \tt \footnotesize \textbf{4}} node[anchor=east] { \tt \footnotesize \textcolor{blue}{} } -- (5, 7.5);
+
+        \end{tikzpicture}
+    \end{figure}
+
+\end{frame}
+
+\begin{frame}[fragile]{Visualização do algoritmo de pontos de interseção}
+
+    \begin{figure}
+        \centering
+
+        \begin{tikzpicture}
+            \coordinate (A1) at (2, 6);
+            \coordinate (B1) at (5, 6);
+            \coordinate (A2) at (1, 5);
+            \coordinate (B2) at (6, 5);
+            \coordinate (A3) at (5, 4);
+            \coordinate (B3) at (8, 4);
+            \coordinate (A4) at (3, 3);
+            \coordinate (B4) at (7, 3);
+            \coordinate (A5) at (5, 2);
+            \coordinate (B5) at (8, 2);
+            \coordinate (A6) at (1, 1);
+            \coordinate (B6) at (4, 1);
+            \coordinate (A7) at (4, 7);
+            \coordinate (B7) at (4, 2);
+            \coordinate (A8) at (2, 3);
+            \coordinate (B8) at (2, 0.5);
+            \coordinate (A9) at (6, 3.5);
+            \coordinate (B9) at (6, 1.5);
+
+
+            \draw[opacity=0] (0, 0);
+            \draw[opacity=0] (0, 7.5);
+            \draw (A1) -- (B1);
+            \draw (A2) -- (B2);
+            \draw (A3) -- (B3);
+            \draw (A4) -- (B4);
+            \draw (A5) -- (B5);
+            \draw (A6) -- (B6);
+            \draw (A7) -- (B7);
+            \draw (A8) -- (B8);
+            \draw (A9) -- (B9);
+
+            \draw[fill=white] (A1) node[anchor=east] { \tt \footnotesize \textcolor{blue}{1} } circle [radius=1.5pt];
+            \draw[fill=white] (B1) node[anchor=west] { \tt \footnotesize \textcolor{red}{3} } circle [radius=1.5pt];
+            \draw[fill=white] (A2) node[anchor=east] { \tt \footnotesize \textcolor{blue}{1} } circle [radius=1.5pt];
+            \draw[fill=white] (B2) node[anchor=west] { \tt \footnotesize \textcolor{red}{3} } circle [radius=1.5pt];
+            \draw[fill=white] (A3) node[anchor=east] { \tt \footnotesize \textcolor{blue}{1} } circle [radius=1.5pt];
+            \draw[fill=white] (B3) node[anchor=west] { \tt \footnotesize \textcolor{red}{3} } circle [radius=1.5pt];
+            \draw[fill=white] (A4) node[anchor=east] { \tt \footnotesize \textcolor{blue}{1} } circle [radius=1.5pt];
+            \draw[fill=white] (B4) node[anchor=west] { \tt \footnotesize \textcolor{red}{3} } circle [radius=1.5pt];
+            \draw[fill=white] (A5) node[anchor=east] { \tt \footnotesize \textcolor{blue}{1} } circle [radius=1.5pt];
+            \draw[fill=white] (B5) node[anchor=west] { \tt \footnotesize \textcolor{red}{3} } circle [radius=1.5pt];
+            \draw[fill=white] (A6) node[anchor=east] { \tt \footnotesize \textcolor{blue}{1} } circle [radius=1.5pt];
+            \draw[fill=white] (B6) node[anchor=west] { \tt \footnotesize \textcolor{red}{3} } circle [radius=1.5pt];
+            \draw[fill=white] (A7) circle [radius=1.5pt];
+            \draw[fill=white] (B7) node[anchor=east] { \tt \footnotesize \textcolor{green!60!black}{2} } circle [radius=1.5pt];
+            \draw[fill=white] (A8) circle [radius=1.5pt];
+            \draw[fill=white] (B8) node[anchor=east] { \tt \footnotesize \textcolor{green!60!black}{2} } circle [radius=1.5pt];
+            \draw[fill=white] (A9) circle [radius=1.5pt];
+            \draw[fill=white] (B9) node[anchor=east] { \tt \footnotesize \textcolor{green!60!black}{2} } circle [radius=1.5pt];
+
+
+            \fill (4, 6) circle [radius=1.5pt];
+            \fill (4, 5) circle [radius=1.5pt];
+            \fill (4, 3) circle [radius=1.5pt];
+            \fill (2, 1) circle [radius=1.5pt];
+            \fill (6, 3) circle [radius=1.5pt];
+            \fill (6, 2) circle [radius=1.5pt];
+            
+            \draw[dashed] (6, 0) node[anchor=west] { \tt \footnotesize \textbf{6}} node[anchor=east] { \tt \footnotesize \textcolor{blue}{+2} } -- (6, 7.5);
+
+        \end{tikzpicture}
+    \end{figure}
+
+\end{frame}
+
+\begin{frame}[fragile]{Visualização do algoritmo de pontos de interseção}
+
+    \begin{figure}
+        \centering
+
+        \begin{tikzpicture}
+            \coordinate (A1) at (2, 6);
+            \coordinate (B1) at (5, 6);
+            \coordinate (A2) at (1, 5);
+            \coordinate (B2) at (6, 5);
+            \coordinate (A3) at (5, 4);
+            \coordinate (B3) at (8, 4);
+            \coordinate (A4) at (3, 3);
+            \coordinate (B4) at (7, 3);
+            \coordinate (A5) at (5, 2);
+            \coordinate (B5) at (8, 2);
+            \coordinate (A6) at (1, 1);
+            \coordinate (B6) at (4, 1);
+            \coordinate (A7) at (4, 7);
+            \coordinate (B7) at (4, 2);
+            \coordinate (A8) at (2, 3);
+            \coordinate (B8) at (2, 0.5);
+            \coordinate (A9) at (6, 3.5);
+            \coordinate (B9) at (6, 1.5);
+
+
+            \draw[opacity=0] (0, 0);
+            \draw[opacity=0] (0, 7.5);
+            \draw (A1) -- (B1);
+            \draw (A2) -- (B2);
+            \draw (A3) -- (B3);
+            \draw (A4) -- (B4);
+            \draw (A5) -- (B5);
+            \draw (A6) -- (B6);
+            \draw (A7) -- (B7);
+            \draw (A8) -- (B8);
+            \draw (A9) -- (B9);
+
+            \draw[fill=white] (A1) node[anchor=east] { \tt \footnotesize \textcolor{blue}{1} } circle [radius=1.5pt];
+            \draw[fill=white] (B1) node[anchor=west] { \tt \footnotesize \textcolor{red}{3} } circle [radius=1.5pt];
+            \draw[fill=white] (A2) node[anchor=east] { \tt \footnotesize \textcolor{blue}{1} } circle [radius=1.5pt];
+            \draw[fill=white] (B2) node[anchor=west] { \tt \footnotesize \textcolor{red}{3} } circle [radius=1.5pt];
+            \draw[fill=white] (A3) node[anchor=east] { \tt \footnotesize \textcolor{blue}{1} } circle [radius=1.5pt];
+            \draw[fill=white] (B3) node[anchor=west] { \tt \footnotesize \textcolor{red}{3} } circle [radius=1.5pt];
+            \draw[fill=white] (A4) node[anchor=east] { \tt \footnotesize \textcolor{blue}{1} } circle [radius=1.5pt];
+            \draw[fill=white] (B4) node[anchor=west] { \tt \footnotesize \textcolor{red}{3} } circle [radius=1.5pt];
+            \draw[fill=white] (A5) node[anchor=east] { \tt \footnotesize \textcolor{blue}{1} } circle [radius=1.5pt];
+            \draw[fill=white] (B5) node[anchor=west] { \tt \footnotesize \textcolor{red}{3} } circle [radius=1.5pt];
+            \draw[fill=white] (A6) node[anchor=east] { \tt \footnotesize \textcolor{blue}{1} } circle [radius=1.5pt];
+            \draw[fill=white] (B6) node[anchor=west] { \tt \footnotesize \textcolor{red}{3} } circle [radius=1.5pt];
+            \draw[fill=white] (A7) circle [radius=1.5pt];
+            \draw[fill=white] (B7) node[anchor=east] { \tt \footnotesize \textcolor{green!60!black}{2} } circle [radius=1.5pt];
+            \draw[fill=white] (A8) circle [radius=1.5pt];
+            \draw[fill=white] (B8) node[anchor=east] { \tt \footnotesize \textcolor{green!60!black}{2} } circle [radius=1.5pt];
+            \draw[fill=white] (A9) circle [radius=1.5pt];
+            \draw[fill=white] (B9) node[anchor=east] { \tt \footnotesize \textcolor{green!60!black}{2} } circle [radius=1.5pt];
+
+
+            \fill (4, 6) circle [radius=1.5pt];
+            \fill (4, 5) circle [radius=1.5pt];
+            \fill (4, 3) circle [radius=1.5pt];
+            \fill (2, 1) circle [radius=1.5pt];
+            \fill (6, 3) circle [radius=1.5pt];
+            \fill (6, 2) circle [radius=1.5pt];
+            
+            \draw[dashed] (7, 0) node[anchor=west] { \tt \footnotesize \textbf{6}} node[anchor=east] { \tt \footnotesize \textcolor{blue}{} } -- (7, 7.5);
+
+        \end{tikzpicture}
+    \end{figure}
+
+\end{frame}
+
+\begin{frame}[fragile]{Visualização do algoritmo de pontos de interseção}
+
+    \begin{figure}
+        \centering
+
+        \begin{tikzpicture}
+            \coordinate (A1) at (2, 6);
+            \coordinate (B1) at (5, 6);
+            \coordinate (A2) at (1, 5);
+            \coordinate (B2) at (6, 5);
+            \coordinate (A3) at (5, 4);
+            \coordinate (B3) at (8, 4);
+            \coordinate (A4) at (3, 3);
+            \coordinate (B4) at (7, 3);
+            \coordinate (A5) at (5, 2);
+            \coordinate (B5) at (8, 2);
+            \coordinate (A6) at (1, 1);
+            \coordinate (B6) at (4, 1);
+            \coordinate (A7) at (4, 7);
+            \coordinate (B7) at (4, 2);
+            \coordinate (A8) at (2, 3);
+            \coordinate (B8) at (2, 0.5);
+            \coordinate (A9) at (6, 3.5);
+            \coordinate (B9) at (6, 1.5);
+
+
+            \draw[opacity=0] (0, 0);
+            \draw[opacity=0] (0, 7.5);
+            \draw (A1) -- (B1);
+            \draw (A2) -- (B2);
+            \draw (A3) -- (B3);
+            \draw (A4) -- (B4);
+            \draw (A5) -- (B5);
+            \draw (A6) -- (B6);
+            \draw (A7) -- (B7);
+            \draw (A8) -- (B8);
+            \draw (A9) -- (B9);
+
+            \draw[fill=white] (A1) node[anchor=east] { \tt \footnotesize \textcolor{blue}{1} } circle [radius=1.5pt];
+            \draw[fill=white] (B1) node[anchor=west] { \tt \footnotesize \textcolor{red}{3} } circle [radius=1.5pt];
+            \draw[fill=white] (A2) node[anchor=east] { \tt \footnotesize \textcolor{blue}{1} } circle [radius=1.5pt];
+            \draw[fill=white] (B2) node[anchor=west] { \tt \footnotesize \textcolor{red}{3} } circle [radius=1.5pt];
+            \draw[fill=white] (A3) node[anchor=east] { \tt \footnotesize \textcolor{blue}{1} } circle [radius=1.5pt];
+            \draw[fill=white] (B3) node[anchor=west] { \tt \footnotesize \textcolor{red}{3} } circle [radius=1.5pt];
+            \draw[fill=white] (A4) node[anchor=east] { \tt \footnotesize \textcolor{blue}{1} } circle [radius=1.5pt];
+            \draw[fill=white] (B4) node[anchor=west] { \tt \footnotesize \textcolor{red}{3} } circle [radius=1.5pt];
+            \draw[fill=white] (A5) node[anchor=east] { \tt \footnotesize \textcolor{blue}{1} } circle [radius=1.5pt];
+            \draw[fill=white] (B5) node[anchor=west] { \tt \footnotesize \textcolor{red}{3} } circle [radius=1.5pt];
+            \draw[fill=white] (A6) node[anchor=east] { \tt \footnotesize \textcolor{blue}{1} } circle [radius=1.5pt];
+            \draw[fill=white] (B6) node[anchor=west] { \tt \footnotesize \textcolor{red}{3} } circle [radius=1.5pt];
+            \draw[fill=white] (A7) circle [radius=1.5pt];
+            \draw[fill=white] (B7) node[anchor=east] { \tt \footnotesize \textcolor{green!60!black}{2} } circle [radius=1.5pt];
+            \draw[fill=white] (A8) circle [radius=1.5pt];
+            \draw[fill=white] (B8) node[anchor=east] { \tt \footnotesize \textcolor{green!60!black}{2} } circle [radius=1.5pt];
+            \draw[fill=white] (A9) circle [radius=1.5pt];
+            \draw[fill=white] (B9) node[anchor=east] { \tt \footnotesize \textcolor{green!60!black}{2} } circle [radius=1.5pt];
+
+
+            \fill (4, 6) circle [radius=1.5pt];
+            \fill (4, 5) circle [radius=1.5pt];
+            \fill (4, 3) circle [radius=1.5pt];
+            \fill (2, 1) circle [radius=1.5pt];
+            \fill (6, 3) circle [radius=1.5pt];
+            \fill (6, 2) circle [radius=1.5pt];
+            
+            \draw[dashed] (8, 0) node[anchor=west] { \tt \footnotesize \textbf{6}} node[anchor=east] { \tt \footnotesize \textcolor{blue}{} } -- (8, 7.5);
+
+        \end{tikzpicture}
+    \end{figure}
+
+\end{frame}

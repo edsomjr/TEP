@@ -58,8 +58,8 @@ public:
 
 int main()
 {
-    vector<int> ks { 51, 16, 76, 35, -6, 49 };
-    HashSet<int, 11> hs;
+    vector<int> ks { 51, 16, 76, 35, -6, 49, 0 };
+    HashSet<int, 13> hs;
 
     for (const auto& k : ks)
     {
