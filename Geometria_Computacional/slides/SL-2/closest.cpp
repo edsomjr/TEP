@@ -12,14 +12,13 @@ double dist(const point& P, const point& Q)
     return hypot(P.x - Q.x, P.y - Q.y);
 }
 
-double solve(int N, vector<point>& ps)
+pair<point, point> closest_pair(int N, vector<point>& ps)
 {
     sort(ps.begin(), ps.end());
 
-    if (N == 1)
-        return -1;
-
+    // Assume que N > 1
     auto d = dist(ps[0], ps[1]);
+    auto closest = make_pair(ps[0], ps[1]);
 
     set<ii> S;
     S.insert(ii(ps[0].y, ps[0].x));
@@ -46,7 +45,10 @@ double solve(int N, vector<point>& ps)
             auto t = dist(P, Q);
 
             if (t < d)
+            {
                 d = t;
+                closest = make_pair(P, Q);
+            }
 
             ++it;
         }
@@ -54,31 +56,5 @@ double solve(int N, vector<point>& ps)
         S.insert(ii(P.y, P.x));
     }
 
-    return d < 10000 ? d : -1;
-}
-
-int main()
-{
-    ios::sync_with_stdio(false);
-    int N;
-
-    while (cin >> N, N)
-    {
-        vector<point> ps(N);
-
-        for (int i = 0; i < N; ++i)
-            cin >> ps[i].x >> ps[i].y;
-
-        auto ans = solve(N, ps);
-
-        if (ans < 0)
-            cout << "INFINITY\n";
-        else
-        {
-            cout.precision(4);
-            cout << fixed << ans << '\n';
-        }
-    }
-
-    return 0;
+    return closest;
 }

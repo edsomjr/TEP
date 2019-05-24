@@ -56,25 +56,19 @@ INFINITY
 \begin{frame}[fragile]{Solução $O(TN\log N)$}
 
     \begin{itemize}
-        \item A solução consiste em três etapas
+        \item Este é o problema clássico de par de pontos mais próximos
 
-        \item A primeira é determinar o área total ocupada pelas placas
+        \item O algoritmo de \textit{sweep line} para este problema pode ser utiliza,
+            porém é preciso ter cuidado com algumas restrições do problema
 
-        \item Basta somar a área individual de cada placa, que é o produto da base pela altura
+        \item Em primeiro lugar, embora não fique claro no texto, a entrada admite coordenadas
+            em ponto flutuante para os pontos
 
-        \item Em seguida, é preciso determinar os vértices de cada placa
+        \item Além disso, há o caso especial em que a entrada contém somente um ponto
 
-        \item Pode-se assumir que eles estão inicialmente com o centro no origem, fazer a 
-            rotação em sentido horário e, em seguida, transladar os pontos para a posição
-            correta
+        \item Neste caso, a resposta deve ser \texttt{INFINITY}
 
-        \item Determinados estes pontos, os limites do polígono corresponde ao envoltório
-            convexo
-
-        \item A área do polígono pode ser determinada através da expressão que computa esta
-            área por meio dos vértices do polígono
-
-        \item A resposta será a diferença entre ambas áreas, em porcentagem
+        \item Isto feito, cada caso de teste pode ser resolvido em $O(N\log N)$
     \end{itemize}
 
 \end{frame}
@@ -82,3 +76,19 @@ INFINITY
 \begin{frame}[fragile]{Solução com complexidade $O(TN\log N)$}
     \inputsnippet{cpp}{1}{21}{10245.cpp}
 \end{frame}
+
+\begin{frame}[fragile]{Solução com complexidade $O(TN\log N)$}
+    \inputsnippet{cpp}{22}{42}{10245.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Solução com complexidade $O(TN\log N)$}
+    \inputsnippet{cpp}{43}{63}{10245.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Solução com complexidade $O(TN\log N)$}
+    \inputsnippet{cpp}{64}{84}{10245.cpp}
+\end{frame}
+
+
+
+
