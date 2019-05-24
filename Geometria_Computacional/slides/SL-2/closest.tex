@@ -1,0 +1,46 @@
+\section{Par de pontos mais próximo}
+
+\begin{frame}[fragile]{Par de pontos mais próximo}
+
+    \begin{itemize}
+        \item Dado um conjunto $S$ de $N$ de pontos no plano bidimensional, o problema de 
+            encontrar o par de pontos mais próximo consiste em encontrar dois pontos $P, Q\in S$
+            tal que
+            \[
+                \dist(P, Q) = \min\lbrace \dist(P_i, P_j)\rbrace,\ \ \forall P_i\in S\ \ \ \mbox{com}\ \ \ i \neq j
+            \]
+
+        \item Uma abordagem de busca completa consiste em computar as distância entre todos
+            os pares de pontos possível, tendo complexidade $O(N^2)$
+
+        \item Contudo, o problema pode ser resolvido em $O(N\log N)$ através do \textit{sweep line}
+
+        \item Os pontos deve ser ordenados em ordem lexicográfica
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Par de pontos mais próximo}
+
+    \begin{itemize}
+ 
+        \item Seja $d = \dist(P_1, P_2)$
+ 
+        \item Agora, para todos pontos $P_3, P_4, \ldots, P_N$, deve-se computar todos os pontos
+            vizinhos de $P_i = (x, y)$ tais que as coordenadas $x$ estejam no intervalo
+            $[x - d, x]$ e que as coordenadas $y$ estejam no intervalo $[y - d, y + d]$
+
+        \item Estes pontos podem ser identificados mantendo-se um conjunto de pontos cujas 
+            coordenadas estejam entre $[x - d, x]$, ordenado em ordem crescente de coordenada
+            $y$
+
+        \item Caso a distância de $P_i$ para algum destes pontos seja inferior a $d$, o valor de
+            $d$ é atualizado e a varredura continua com este novo valor
+
+        \item O ponto principal é que existem, no máximo, $O(1)$ pontos neste retângulo, o que
+            faz com que a complexidade do algoritmo seja $O(N\log N)$, por conta da ordenação
+
+    \end{itemize}
+
+\end{frame}
+
