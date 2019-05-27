@@ -1,0 +1,46 @@
+\section{Interseção de segmentos de reta}
+
+\begin{frame}[fragile]{Problema}
+
+    \begin{itemize}
+        \item O problema da interseção de segmentos de reta consiste em determinar se, em um 
+            conjunto $S$ composto por $N$ segmentos de reta, existe um par de segmentos 
+            $r,s \in S$ tal que $r\cap s \neq \emptyset$
+
+        \item Uma variante comum é determinar todos os pontos de interseção entre estes
+            segmentos
+
+        \item A solução de busca completa testa cada elemento de $S$ contra todos os demais
+
+        \item Como a interseção entre dois segmentos pode ser obtida em $O(1)$ e existem
+            $N(N - 1)/2$ pares de segmentos distintos possíveis, esta abordagem tem
+            complexidade $O(N^2)$
+
+        \item Existe um algoritmo com menor complexidade para o problema apresentado, e algoritmos 
+            sensíveis à entrada para a variante
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Algoritmo de Shamos-Hoey}
+
+    \begin{itemize}
+        \item Shamos e Hoey propuseram, em 1976, um algoritmo capaz de determinar se existe ao
+            menos uma interseção entre $N$ segmentos de reta com complexidade $O(N\log N)$ e
+            memória $O(N)$
+
+        \item A ideia é ordenar os $N$ segmentos do conjunto $S$ em ordem lexicográfica e manter
+            uma árvore binária balanceada $A$ de segmentos ativos
+
+        \item Cada segmento gera dois eventos: o ponto inicial do segmento gera um evento de 
+            inclusão de intervalo (1) e o ponto final do segmento um evento de exclusão do 
+            intervalo (2)
+
+        \item A fila dos eventos deve ser ordenadas pelo ponto $P = (x_e, y_e)$ que deu origem 
+            ao evento
+
+        \item Para cada evento, a árvore de segmentos ativos $A$ deve estar ordenada pela 
+            coordenada $y$ dos pontos dos segmentos com coordenada $x = x_e$ 
+    \end{itemize}
+
+\end{frame}

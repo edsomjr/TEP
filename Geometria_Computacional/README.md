@@ -1,7 +1,7 @@
 Geometria Computacional
 =======================
 
-1. [Introducao](slides/intro/intro.pdf)
+1. [Introdução](slides/intro/intro.pdf)
 1. Elementos Primitivos
     1. [Pontos](slides/PT-1/PT-1.pdf) ([problemas resolvidos](problems/PT-1/PT-1.pdf))
     1. [Retas](slides/LN-1/LN-1.pdf) ([problemas resolvidos](problems/LN-1/LN-1.pdf))
