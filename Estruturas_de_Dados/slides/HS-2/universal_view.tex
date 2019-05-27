@@ -1,0 +1,27 @@
+\begin{frame}[fragile]{Exemplo de uso do conjunto universal}
+
+    Chaves a serem inseridas: $33, 17, 95, 27, 88, 15, 54, 62, 40$
+
+    Tamanho da tabela: $T = 20$, $p = 101$
+
+    \begin{table}[H]
+        \centering
+
+        \begin{tabular}{ccccccc}
+            \toprule
+            $K$ & $h_{1,0}(K)$ & $h_{2,1}(K)$ & $h_{44,37}(K)$ & $h_{51,97}(K)$ & $h_{5,11}(K)$ \\
+            \midrule
+            $33$ & $13$ & $7$ & $15$ & $\textcolor{red}{\mathbf{3}}$ & $15$ \\
+            $17$ & $17$ & $\textcolor{red}{\mathbf{15}}$ & $\textcolor{red}{\mathbf{18}}$ & $15$& $16$  \\
+            $95$ & $\textcolor{red}{\mathbf{15}}$ & $10$ & $16$ & $\textcolor{blue}{\mathbf{14}}$ & $2$ \\
+            $27$ & $7$ & $\textcolor{red}{\mathbf{15}}$ & $13$ & $\textcolor{green!60!black}{\mathbf{0}}$& $5$  \\
+            $88$ & $8$ & $16$ & $\textcolor{blue}{\mathbf{11}}$ & $\textcolor{green!60!black}{\mathbf{0}}$ & $7$ \\
+            $15$ & $\textcolor{red}{\mathbf{15}}$ & $11$ & $\textcolor{blue}{\mathbf{11}}$ & $\textcolor{blue}{\mathbf{14}}$ & $6$ \\
+            $54$ & $14$ & $8$ & $10$ & $\textcolor{red}{\mathbf{3}}$ & $19$ \\
+            $62$ & $2$ & $4$ & $\textcolor{red}{\mathbf{18}}$ & $7$ & $18$ \\
+            $40$ & $0$ & $1$ & $0$ & $16$ & $9$ \\
+            \bottomrule
+        \end{tabular}
+    \end{table}
+
+\end{frame}

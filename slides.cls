@@ -62,6 +62,7 @@
 
 \newcommand{\vv}[1]{\vec{\mkern0mu#1}}
 \newcommand{\Mod}[2]{#1\ (\mbox{mod}\ #2)}
+\newcommand{\dist}{\mathrm{dist}}
 
 \DeclareMathSymbol{\mlq}{\mathord}{operators}{``}
 \DeclareMathSymbol{\mrq}{\mathord}{operators}{`'}

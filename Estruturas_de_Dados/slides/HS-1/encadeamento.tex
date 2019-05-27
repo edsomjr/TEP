@@ -1,0 +1,29 @@
+\section{Encadeamento}
+
+\begin{frame}[fragile]{Resolução de colisão por encadeamento}
+
+    \begin{itemize}
+        \item Uma outra forma de se tratar as colisões é o uso do encademento
+
+        \item A ideia é que cada célula da tabela corresponda a uma lista duplamente encadeada
+
+        \item Cada chave $K$ tal que $h(K) = j$, onde $j = 0, 1, \ldots, T - 1$, é adicionada
+            à lista que ocupa a posição $j$
+
+        \item O uso de listas duplamente encadeadas permite uma remoção mais eficiente
+
+        \item Se a opção de remoção não for implementada, uma lista simplesmente encadeada ou
+            um vector também podem ser utilizados
+
+        \item Deve-se tomar cuidado, porém, porque no pior caso todas as chaves colidem em
+            uma mesma posição, de modo que a busca e a inserção passam a ter complexidade
+            $O(N)$, porém ocupando mais espaço em memória que uma única lista
+    \end{itemize}
+
+\end{frame}
+
+\input{chaining}
+
+\begin{frame}[fragile]{Exemplo de implementação do encadeamento}
+    \inputsnippet{cpp}{1}{21}{chaining.cpp}
+\end{frame}

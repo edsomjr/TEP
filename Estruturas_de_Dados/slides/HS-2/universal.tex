@@ -1,0 +1,81 @@
+\section{{\it Hash} universal}
+
+\begin{frame}[fragile]{{\it Hash} universal}
+
+    \begin{itemize}
+        \item Qualquer que seja a função de  \textit{hash} $h$, é possível construir uma
+            sequência de chaves $K_1, K_2, \ldots, K_N$ tais que $h(K_i) = h(K_j)$
+
+        \item Esta sequência levaria ao pior caso da inserção e da busca, com complexidade
+            $O(T)$
+
+        \item A ideia do \textit{hash} universal é a mesma do \textit{quicksort}: escolher,
+            no início da execução do algoritmo, uma função de \textit{hash} dentre uma 
+            família de \textit{hashes} possíveis
+
+        \item Deste modo, diferentes execuções do algoritmo levariam a resultados diferentes,
+            mesmo para uma entrada fixa
+
+        \item Assim, uma única sequência não seria capaz de levar ao pior caso em todas as
+            execuções, melhorando a performance no caso médio
+             
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Conjunto universal}
+
+    \begin{itemize}
+        \item Seja $\mathcal{H}$ um conjunto de funções de \textit{hash} que mapeiam as chaves
+            no intervalo $[0, T -1]$
+
+        \item O conjunto $\mathcal{H}$ é dito universal de \textit{hashes} se, para todos os pares 
+            de chaves distintas $K$ e $L|$, o subconjunto $S_{KL}\subset \mathcal{H}$ tal que
+            \[
+                S_{KL} = \lbrace f, g\in\mathcal{H}\ |\ f\neq g \ \ \mbox{e}\ \ f(K) = g(L)\rbrace
+            \]
+            tenha tamanho $|S_{KL}| \leq |\mathcal{H}|/T$
+
+        \item Deste modo, escolhida aleatoriamente uma função $h\in\mathcal{H}$, a probabilidade 
+            existam uma colisão entre duas chaves $K_1\neq K_2$ é igual a
+            \[
+                P(h(K_1) = h(K_2)) = \frac{|S_{K_1K_2}|}{|\mathcal{H}|} \leq \frac{|\mathcal{H}|/T}{|\mathcal{H}|} = \frac{1}{T}
+            \]
+
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de conjunto universal}
+
+    \begin{itemize}
+        \item Seja $p$ um número primo tal que o valor de qualquer chave $K$ seja menor do que $p$
+
+        \item Seja $\mathbb{Z}_p = \lbrace 0, 1, 2, \ldots, p - 1\rbrace$ e $\mathbb{Z}_p^* = \lbrace 1, 2, \ldots, p - 1\rbrace$ 
+
+        \item Defina
+        \[
+            h_{ab}(K) = \Mod{(\Mod{aK + b}{p})}{T},
+        \]
+
+        \item É possível demonstrar que
+        \[
+            \mathcal{H}_{pT} = \lbrace h_{ab}\ | \ a\in \mathbb{Z}_p^*\ \ \mbox{e}\ \  b \in \mathbb{Z}_p \rbrace
+        \]
+        é um conjunto universal de \textit{hashes} com $|\mathcal{H}_{pT}| = p(p - 1)$ elementos
+
+        \item Observe que não há restrições impostas ao tamanho da tabela $T$
+
+    \end{itemize}
+
+\end{frame}
+
+\input{universal_view}
+
+\begin{frame}[fragile]{Implementação de conjunto universal de \textit{hashes}}
+    \inputsnippet{cpp}{1}{21}{universal.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Implementação de conjunto universal de \textit{hashes}}
+    \inputsnippet{cpp}{22}{41}{universal.cpp}
+\end{frame}

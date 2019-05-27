@@ -1,0 +1,1349 @@
+\begin{frame}[fragile]{Visualização de identificação do par de pontos mais próximo}
+
+    \begin{figure}
+        \centering
+
+        \begin{tikzpicture}
+            \node[anchor=west] at (-2, 7) { Par mais próximo: \texttt{-} };
+
+            \coordinate (A) at (2, 4);
+            \coordinate (B) at (5, 3);
+            \coordinate (C) at (8, 1);
+            \coordinate (D) at (3, 6);
+            \coordinate (E) at (1, 1);
+            \coordinate (F) at (4, 4);
+            \coordinate (G) at (8, 5);
+            \coordinate (H) at (6, 2);
+            \coordinate (I) at (1, 6);
+            \coordinate (J) at (7, 4);
+            \coordinate (K) at (8, 6);
+            \coordinate (L) at (3, 2);
+            \coordinate (M) at (6, 5);
+            \coordinate (N) at (-1, 4);
+
+            \fill (A) node[anchor=north] { $A$ } circle [radius=1.5pt];
+            \fill (B) node[anchor=north] { $B$ } circle [radius=1.5pt];
+            \fill (C) node[anchor=north] { $C$ } circle [radius=1.5pt];
+            \fill (D) node[anchor=north] { $D$ } circle [radius=1.5pt];
+            \fill (E) node[anchor=north] { $E$ } circle [radius=1.5pt];
+            \fill (F) node[anchor=north] { $F$ } circle [radius=1.5pt];
+            \fill (G) node[anchor=north] { $G$ } circle [radius=1.5pt];
+            \fill (H) node[anchor=north] { $H$ } circle [radius=1.5pt];
+            \fill (I) node[anchor=north] { $I$ } circle [radius=1.5pt];
+            \fill (J) node[anchor=north] { $J$ } circle [radius=1.5pt];
+            \fill (K) node[anchor=north] { $K$ } circle [radius=1.5pt];
+            \fill (L) node[anchor=north] { $L$ } circle [radius=1.5pt];
+            \fill (M) node[anchor=north] { $M$ } circle [radius=1.5pt];
+            \fill (N) node[anchor=north] { $N$ } circle [radius=1.5pt];
+
+        \end{tikzpicture}
+    \end{figure}
+
+\end{frame}
+
+\begin{frame}[fragile]{Visualização de identificação do par de pontos mais próximo}
+
+    \begin{figure}
+        \centering
+
+        \begin{tikzpicture}
+            \node[anchor=west] at (-2, 7) { Par inicial, $\dist(N, E) = \mathbf{3.605551}$ };
+
+            \coordinate (A) at (2, 4);
+            \coordinate (B) at (5, 3);
+            \coordinate (C) at (8, 1);
+            \coordinate (D) at (3, 6);
+            \coordinate (E) at (1, 1);
+            \coordinate (F) at (4, 4);
+            \coordinate (G) at (8, 5);
+            \coordinate (H) at (6, 2);
+            \coordinate (I) at (1, 6);
+            \coordinate (J) at (7, 4);
+            \coordinate (K) at (8, 6);
+            \coordinate (L) at (3, 2);
+            \coordinate (M) at (6, 5);
+            \coordinate (N) at (-1, 4);
+
+            \fill (A) node[anchor=north] { $A$ } circle [radius=1.5pt];
+            \fill (B) node[anchor=north] { $B$ } circle [radius=1.5pt];
+            \fill (C) node[anchor=north] { $C$ } circle [radius=1.5pt];
+            \fill (D) node[anchor=north] { $D$ } circle [radius=1.5pt];
+            \fill (E) node[anchor=north] { $E$ } circle [radius=1.5pt];
+            \fill (F) node[anchor=north] { $F$ } circle [radius=1.5pt];
+            \fill (G) node[anchor=north] { $G$ } circle [radius=1.5pt];
+            \fill (H) node[anchor=north] { $H$ } circle [radius=1.5pt];
+            \fill (I) node[anchor=north] { $I$ } circle [radius=1.5pt];
+            \fill (J) node[anchor=north] { $J$ } circle [radius=1.5pt];
+            \fill (K) node[anchor=north] { $K$ } circle [radius=1.5pt];
+            \fill (L) node[anchor=north] { $L$ } circle [radius=1.5pt];
+            \fill (M) node[anchor=north] { $M$ } circle [radius=1.5pt];
+            \fill (N) node[anchor=south] { $N$ } circle [radius=1.5pt];
+
+            \draw[thick] (N) -- (E);
+
+        \end{tikzpicture}
+    \end{figure}
+
+\end{frame}
+
+\begin{frame}[fragile]{Visualização de identificação do par de pontos mais próximo}
+
+    \begin{figure}
+        \centering
+
+        \begin{tikzpicture}
+            %\node[anchor=west] at (-2, 7) { Par inicial, $\dist(N, E) = \mathbf{3.605551}$ };
+            \node[anchor=west] at (2, 9) { Avaliação do ponto $I$ };
+
+            \coordinate (A) at (2, 4);
+            \coordinate (B) at (5, 3);
+            \coordinate (C) at (8, 1);
+            \coordinate (D) at (3, 6);
+            \coordinate (E) at (1, 1);
+            \coordinate (F) at (4, 4);
+            \coordinate (G) at (8, 5);
+            \coordinate (H) at (6, 2);
+            \coordinate (I) at (1, 6);
+            \coordinate (J) at (7, 4);
+            \coordinate (K) at (8, 6);
+            \coordinate (L) at (3, 2);
+            \coordinate (M) at (6, 5);
+            \coordinate (N) at (-1, 4);
+
+            \fill (A) node[anchor=north] { $A$ } circle [radius=1.5pt];
+            \fill (B) node[anchor=north] { $B$ } circle [radius=1.5pt];
+            \fill (C) node[anchor=north] { $C$ } circle [radius=1.5pt];
+            \fill (D) node[anchor=north] { $D$ } circle [radius=1.5pt];
+            \fill[color=gray] (E) node[anchor=north] { $E$ } circle [radius=1.5pt];
+            \fill (F) node[anchor=north] { $F$ } circle [radius=1.5pt];
+            \fill (G) node[anchor=north] { $G$ } circle [radius=1.5pt];
+            \fill (H) node[anchor=north] { $H$ } circle [radius=1.5pt];
+            \fill (I) node[anchor=west] { $I$ } circle [radius=1.5pt];
+            \fill (J) node[anchor=north] { $J$ } circle [radius=1.5pt];
+            \fill (K) node[anchor=north] { $K$ } circle [radius=1.5pt];
+            \fill (L) node[anchor=north] { $L$ } circle [radius=1.5pt];
+            \fill (M) node[anchor=north] { $M$ } circle [radius=1.5pt];
+            \fill[color=gray] (N) node[anchor=south] { $N$ } circle [radius=1.5pt];
+
+            \draw[dashed] ($(I) + (-3.605551, -3.605551)$) rectangle ($(I) + (0, 3.605551)$);
+
+        \end{tikzpicture}
+    \end{figure}
+
+\end{frame}
+
+\begin{frame}[fragile]{Visualização de identificação do par de pontos mais próximo}
+
+    \begin{figure}
+        \centering
+
+        \begin{tikzpicture}
+            \node[anchor=west] at (2, 8) { $\dist(I, N) = \mathbf{2.828427} < \dist(N, E) = 3.605551$ };
+            %\node[anchor=west] at (2, 9) { Avaliação do ponto $I$ };
+            %\node[anchor=west] at (-2, 7) { Distância: \tt \textcolor{blue}{2.828427} };
+
+            \coordinate (A) at (2, 4);
+            \coordinate (B) at (5, 3);
+            \coordinate (C) at (8, 1);
+            \coordinate (D) at (3, 6);
+            \coordinate (E) at (1, 1);
+            \coordinate (F) at (4, 4);
+            \coordinate (G) at (8, 5);
+            \coordinate (H) at (6, 2);
+            \coordinate (I) at (1, 6);
+            \coordinate (J) at (7, 4);
+            \coordinate (K) at (8, 6);
+            \coordinate (L) at (3, 2);
+            \coordinate (M) at (6, 5);
+            \coordinate (N) at (-1, 4);
+
+            \fill (A) node[anchor=north] { $A$ } circle [radius=1.5pt];
+            \fill (B) node[anchor=north] { $B$ } circle [radius=1.5pt];
+            \fill (C) node[anchor=north] { $C$ } circle [radius=1.5pt];
+            \fill (D) node[anchor=north] { $D$ } circle [radius=1.5pt];
+            \fill[color=gray]  (E) node[anchor=north] { $E$ } circle [radius=1.5pt];
+            \fill (F) node[anchor=north] { $F$ } circle [radius=1.5pt];
+            \fill (G) node[anchor=north] { $G$ } circle [radius=1.5pt];
+            \fill (H) node[anchor=north] { $H$ } circle [radius=1.5pt];
+            \fill (I) node[anchor=west] { $I$ } circle [radius=1.5pt];
+            \fill (J) node[anchor=north] { $J$ } circle [radius=1.5pt];
+            \fill (K) node[anchor=north] { $K$ } circle [radius=1.5pt];
+            \fill (L) node[anchor=north] { $L$ } circle [radius=1.5pt];
+            \fill (M) node[anchor=north] { $M$ } circle [radius=1.5pt];
+            \fill [color=gray] (N) node[anchor=south] { $N$ } circle [radius=1.5pt];
+
+            \draw[thick] (N) -- (I);
+            \draw[dashed] ($(I) + (-2.828427, -2.828427)$) rectangle ($(I) + (0, 2.828427)$);
+
+        \end{tikzpicture}
+    \end{figure}
+
+\end{frame}
+
+\begin{frame}[fragile]{Visualização de identificação do par de pontos mais próximo}
+
+    \begin{figure}
+        \centering
+
+        \begin{tikzpicture}
+
+            %\node[anchor=west] at (2, 8) { $\dist(I, N) = \mathbf{2.828427} < \dist(N, E) = 3.605551$ };
+            \node[anchor=west] at (3, 7) { Avaliação do ponto $A$ };
+
+            \coordinate (A) at (2, 4);
+            \coordinate (B) at (5, 3);
+            \coordinate (C) at (8, 1);
+            \coordinate (D) at (3, 6);
+            \coordinate (E) at (1, 1);
+            \coordinate (F) at (4, 4);
+            \coordinate (G) at (8, 5);
+            \coordinate (H) at (6, 2);
+            \coordinate (I) at (1, 6);
+            \coordinate (J) at (7, 4);
+            \coordinate (K) at (8, 6);
+            \coordinate (L) at (3, 2);
+            \coordinate (M) at (6, 5);
+            \coordinate (N) at (-1, 4);
+
+            \fill (A) node[anchor=west] { $A$ } circle [radius=1.5pt];
+            \fill (B) node[anchor=north] { $B$ } circle [radius=1.5pt];
+            \fill (C) node[anchor=north] { $C$ } circle [radius=1.5pt];
+            \fill (D) node[anchor=north] { $D$ } circle [radius=1.5pt];
+            \fill[color=gray]  (E) node[anchor=north] { $E$ } circle [radius=1.5pt];
+            \fill (F) node[anchor=north] { $F$ } circle [radius=1.5pt];
+            \fill (G) node[anchor=north] { $G$ } circle [radius=1.5pt];
+            \fill (H) node[anchor=north] { $H$ } circle [radius=1.5pt];
+            \fill[color=gray]  (I) node[anchor=west] { $I$ } circle [radius=1.5pt];
+            \fill (J) node[anchor=north] { $J$ } circle [radius=1.5pt];
+            \fill (K) node[anchor=north] { $K$ } circle [radius=1.5pt];
+            \fill (L) node[anchor=north] { $L$ } circle [radius=1.5pt];
+            \fill (M) node[anchor=north] { $M$ } circle [radius=1.5pt];
+            \fill[color=gray]  (N) node[anchor=south] { $N$ } circle [radius=1.5pt];
+
+            \draw[dashed] ($(A) + (-2.828427, -2.828427)$) rectangle ($(A) + (0, 2.828427)$);
+
+        \end{tikzpicture}
+    \end{figure}
+
+\end{frame}
+
+\begin{frame}[fragile]{Visualização de identificação do par de pontos mais próximo}
+
+    \begin{figure}
+        \centering
+
+        \begin{tikzpicture}
+
+            \node[anchor=west] at (0, 7) { $\dist(A, I) = \mathbf{2.236068} < \dist(I, N) = 2.828427$ };
+            %\node[anchor=west] at (3, 7) { Avaliação do ponto $A$ };
+
+            \coordinate (A) at (2, 4);
+            \coordinate (B) at (5, 3);
+            \coordinate (C) at (8, 1);
+            \coordinate (D) at (3, 6);
+            \coordinate (E) at (1, 1);
+            \coordinate (F) at (4, 4);
+            \coordinate (G) at (8, 5);
+            \coordinate (H) at (6, 2);
+            \coordinate (I) at (1, 6);
+            \coordinate (J) at (7, 4);
+            \coordinate (K) at (8, 6);
+            \coordinate (L) at (3, 2);
+            \coordinate (M) at (6, 5);
+            \coordinate (N) at (-1, 4);
+
+            \fill (A) node[anchor=west] { $A$ } circle [radius=1.5pt];
+            \fill (B) node[anchor=north] { $B$ } circle [radius=1.5pt];
+            \fill (C) node[anchor=north] { $C$ } circle [radius=1.5pt];
+            \fill (D) node[anchor=north] { $D$ } circle [radius=1.5pt];
+            \fill[color=gray]  (E) node[anchor=north] { $E$ } circle [radius=1.5pt];
+            \fill (F) node[anchor=north] { $F$ } circle [radius=1.5pt];
+            \fill (G) node[anchor=north] { $G$ } circle [radius=1.5pt];
+            \fill (H) node[anchor=north] { $H$ } circle [radius=1.5pt];
+            \fill[color=gray]  (I) node[anchor=west] { $I$ } circle [radius=1.5pt];
+            \fill (J) node[anchor=north] { $J$ } circle [radius=1.5pt];
+            \fill (K) node[anchor=north] { $K$ } circle [radius=1.5pt];
+            \fill (L) node[anchor=north] { $L$ } circle [radius=1.5pt];
+            \fill (M) node[anchor=north] { $M$ } circle [radius=1.5pt];
+            \fill[color=gray]  (N) node[anchor=south] { $N$ } circle [radius=1.5pt];
+
+            \draw[thick] (A) -- (I);
+            \draw[dashed] ($(A) + (-2.236068, -2.236068)$) rectangle ($(A) + (0, 2.236068)$);
+
+        \end{tikzpicture}
+    \end{figure}
+
+\end{frame}
+
+\begin{frame}[fragile]{Visualização de identificação do par de pontos mais próximo}
+
+    \begin{figure}
+        \centering
+
+        \begin{tikzpicture}
+
+            %\node[anchor=west] at (0, 7) { $\dist(A, I) = \mathbf{2.236068} < \dist(I, N) = 2.828427$ };
+            \node[anchor=west] at (0, 7) { Avaliação do ponto $L$ };
+
+            \coordinate (A) at (2, 4);
+            \coordinate (B) at (5, 3);
+            \coordinate (C) at (8, 1);
+            \coordinate (D) at (3, 6);
+            \coordinate (E) at (1, 1);
+            \coordinate (F) at (4, 4);
+            \coordinate (G) at (8, 5);
+            \coordinate (H) at (6, 2);
+            \coordinate (I) at (1, 6);
+            \coordinate (J) at (7, 4);
+            \coordinate (K) at (8, 6);
+            \coordinate (L) at (3, 2);
+            \coordinate (M) at (6, 5);
+            \coordinate (N) at (-1, 4);
+
+            \fill[color=gray]  (A) node[anchor=west] { $A$ } circle [radius=1.5pt];
+            \fill (B) node[anchor=north] { $B$ } circle [radius=1.5pt];
+            \fill (C) node[anchor=north] { $C$ } circle [radius=1.5pt];
+            \fill (D) node[anchor=north] { $D$ } circle [radius=1.5pt];
+            \fill[color=gray]  (E) node[anchor=north] { $E$ } circle [radius=1.5pt];
+            \fill (F) node[anchor=north] { $F$ } circle [radius=1.5pt];
+            \fill (G) node[anchor=north] { $G$ } circle [radius=1.5pt];
+            \fill (H) node[anchor=north] { $H$ } circle [radius=1.5pt];
+            \fill[color=gray]  (I) node[anchor=west] { $I$ } circle [radius=1.5pt];
+            \fill (J) node[anchor=north] { $J$ } circle [radius=1.5pt];
+            \fill (K) node[anchor=north] { $K$ } circle [radius=1.5pt];
+            \fill (L) node[anchor=west] { $L$ } circle [radius=1.5pt];
+            \fill (M) node[anchor=north] { $M$ } circle [radius=1.5pt];
+            \fill[color=gray]  (N) node[anchor=south] { $N$ } circle [radius=1.5pt];
+
+            \draw[dashed] ($(L) + (-2.236068, -2.236068)$) rectangle ($(L) + (0, 2.236068)$);
+
+        \end{tikzpicture}
+    \end{figure}
+
+\end{frame}
+
+\begin{frame}[fragile]{Visualização de identificação do par de pontos mais próximo}
+
+    \begin{figure}
+        \centering
+
+        \begin{tikzpicture}
+
+            \node[anchor=west] at (0, 7) { $\dist(L, E) = \dist(A, I) = \mathbf{2.236068}$ };
+            %\node[anchor=west] at (0, 7) { Avaliação do ponto $L$ };
+
+            \coordinate (A) at (2, 4);
+            \coordinate (B) at (5, 3);
+            \coordinate (C) at (8, 1);
+            \coordinate (D) at (3, 6);
+            \coordinate (E) at (1, 1);
+            \coordinate (F) at (4, 4);
+            \coordinate (G) at (8, 5);
+            \coordinate (H) at (6, 2);
+            \coordinate (I) at (1, 6);
+            \coordinate (J) at (7, 4);
+            \coordinate (K) at (8, 6);
+            \coordinate (L) at (3, 2);
+            \coordinate (M) at (6, 5);
+            \coordinate (N) at (-1, 4);
+
+            \fill[color=gray]  (A) node[anchor=west] { $A$ } circle [radius=1.5pt];
+            \fill (B) node[anchor=north] { $B$ } circle [radius=1.5pt];
+            \fill (C) node[anchor=north] { $C$ } circle [radius=1.5pt];
+            \fill (D) node[anchor=north] { $D$ } circle [radius=1.5pt];
+            \fill[color=gray]  (E) node[anchor=north] { $E$ } circle [radius=1.5pt];
+            \fill (F) node[anchor=north] { $F$ } circle [radius=1.5pt];
+            \fill (G) node[anchor=north] { $G$ } circle [radius=1.5pt];
+            \fill (H) node[anchor=north] { $H$ } circle [radius=1.5pt];
+            \fill[color=gray]  (I) node[anchor=west] { $I$ } circle [radius=1.5pt];
+            \fill (J) node[anchor=north] { $J$ } circle [radius=1.5pt];
+            \fill (K) node[anchor=north] { $K$ } circle [radius=1.5pt];
+            \fill (L) node[anchor=west] { $L$ } circle [radius=1.5pt];
+            \fill (M) node[anchor=north] { $M$ } circle [radius=1.5pt];
+            \fill[color=gray]  (N) node[anchor=south] { $N$ } circle [radius=1.5pt];
+
+            \draw[thick] (L) -- (E);
+            \draw[dashed] ($(L) + (-2.236068, -2.236068)$) rectangle ($(L) + (0, 2.236068)$);
+
+        \end{tikzpicture}
+    \end{figure}
+
+\end{frame}
+
+\begin{frame}[fragile]{Visualização de identificação do par de pontos mais próximo}
+
+    \begin{figure}
+        \centering
+
+        \begin{tikzpicture}
+            \node[anchor=west] at (0, 7) { $\dist(L, A) = \dist(A, I) = \mathbf{2.236068}$ };
+            %\node[anchor=west] at (0, 7) { Avaliação do ponto $L$ };
+
+            \coordinate (A) at (2, 4);
+            \coordinate (B) at (5, 3);
+            \coordinate (C) at (8, 1);
+            \coordinate (D) at (3, 6);
+            \coordinate (E) at (1, 1);
+            \coordinate (F) at (4, 4);
+            \coordinate (G) at (8, 5);
+            \coordinate (H) at (6, 2);
+            \coordinate (I) at (1, 6);
+            \coordinate (J) at (7, 4);
+            \coordinate (K) at (8, 6);
+            \coordinate (L) at (3, 2);
+            \coordinate (M) at (6, 5);
+            \coordinate (N) at (-1, 4);
+
+            \fill[color=gray]  (A) node[anchor=west] { $A$ } circle [radius=1.5pt];
+            \fill (B) node[anchor=north] { $B$ } circle [radius=1.5pt];
+            \fill (C) node[anchor=north] { $C$ } circle [radius=1.5pt];
+            \fill (D) node[anchor=north] { $D$ } circle [radius=1.5pt];
+            \fill[color=gray]  (E) node[anchor=north] { $E$ } circle [radius=1.5pt];
+            \fill (F) node[anchor=north] { $F$ } circle [radius=1.5pt];
+            \fill (G) node[anchor=north] { $G$ } circle [radius=1.5pt];
+            \fill (H) node[anchor=north] { $H$ } circle [radius=1.5pt];
+            \fill[color=gray]  (I) node[anchor=west] { $I$ } circle [radius=1.5pt];
+            \fill (J) node[anchor=north] { $J$ } circle [radius=1.5pt];
+            \fill (K) node[anchor=north] { $K$ } circle [radius=1.5pt];
+            \fill (L) node[anchor=west] { $L$ } circle [radius=1.5pt];
+            \fill (M) node[anchor=north] { $M$ } circle [radius=1.5pt];
+            \fill[color=gray]  (N) node[anchor=south] { $N$ } circle [radius=1.5pt];
+
+            \draw[thick] (A) -- (L);
+            \draw[dashed] ($(L) + (-2.236068, -2.236068)$) rectangle ($(L) + (0, 2.236068)$);
+
+        \end{tikzpicture}
+    \end{figure}
+
+\end{frame}
+
+\begin{frame}[fragile]{Visualização de identificação do par de pontos mais próximo}
+
+    \begin{figure}
+        \centering
+
+        \begin{tikzpicture}
+            %\node[anchor=west] at (0, 7) { $\dist(L, A) = \dist(A, I) = \mathbf{2.236068}$ };
+            \node[anchor=west] at (4, 7) { Avaliação do ponto $D$ };
+
+            \coordinate (A) at (2, 4);
+            \coordinate (B) at (5, 3);
+            \coordinate (C) at (8, 1);
+            \coordinate (D) at (3, 6);
+            \coordinate (E) at (1, 1);
+            \coordinate (F) at (4, 4);
+            \coordinate (G) at (8, 5);
+            \coordinate (H) at (6, 2);
+            \coordinate (I) at (1, 6);
+            \coordinate (J) at (7, 4);
+            \coordinate (K) at (8, 6);
+            \coordinate (L) at (3, 2);
+            \coordinate (M) at (6, 5);
+            \coordinate (N) at (-1, 4);
+
+            \fill[color=gray]  (A) node[anchor=west] { $A$ } circle [radius=1.5pt];
+            \fill (B) node[anchor=north] { $B$ } circle [radius=1.5pt];
+            \fill (C) node[anchor=north] { $C$ } circle [radius=1.5pt];
+            \fill (D) node[anchor=west] { $D$ } circle [radius=1.5pt];
+            \fill[color=gray]  (E) node[anchor=north] { $E$ } circle [radius=1.5pt];
+            \fill (F) node[anchor=north] { $F$ } circle [radius=1.5pt];
+            \fill (G) node[anchor=north] { $G$ } circle [radius=1.5pt];
+            \fill (H) node[anchor=north] { $H$ } circle [radius=1.5pt];
+            \fill[color=gray]  (I) node[anchor=west] { $I$ } circle [radius=1.5pt];
+            \fill (J) node[anchor=north] { $J$ } circle [radius=1.5pt];
+            \fill (K) node[anchor=north] { $K$ } circle [radius=1.5pt];
+            \fill[color=gray]  (L) node[anchor=west] { $L$ } circle [radius=1.5pt];
+            \fill (M) node[anchor=north] { $M$ } circle [radius=1.5pt];
+            \fill[color=gray]  (N) node[anchor=south] { $N$ } circle [radius=1.5pt];
+
+            \draw[dashed] ($(D) + (-2.236068, -2.236068)$) rectangle ($(D) + (0, 2.236068)$);
+
+        \end{tikzpicture}
+    \end{figure}
+
+\end{frame}
+
+\begin{frame}[fragile]{Visualização de identificação do par de pontos mais próximo}
+
+    \begin{figure}
+        \centering
+
+        \begin{tikzpicture}
+            \node[anchor=west] at (3.5, 7) { $\dist(D, A) = \dist(A, I) = \mathbf{2.236068}$ };
+            %\node[anchor=west] at (4, 7) { Avaliação do ponto $D$ };
+
+            \coordinate (A) at (2, 4);
+            \coordinate (B) at (5, 3);
+            \coordinate (C) at (8, 1);
+            \coordinate (D) at (3, 6);
+            \coordinate (E) at (1, 1);
+            \coordinate (F) at (4, 4);
+            \coordinate (G) at (8, 5);
+            \coordinate (H) at (6, 2);
+            \coordinate (I) at (1, 6);
+            \coordinate (J) at (7, 4);
+            \coordinate (K) at (8, 6);
+            \coordinate (L) at (3, 2);
+            \coordinate (M) at (6, 5);
+            \coordinate (N) at (-1, 4);
+
+            \fill[color=gray]  (A) node[anchor=west] { $A$ } circle [radius=1.5pt];
+            \fill (B) node[anchor=north] { $B$ } circle [radius=1.5pt];
+            \fill (C) node[anchor=north] { $C$ } circle [radius=1.5pt];
+            \fill (D) node[anchor=west] { $D$ } circle [radius=1.5pt];
+            \fill[color=gray]  (E) node[anchor=north] { $E$ } circle [radius=1.5pt];
+            \fill (F) node[anchor=north] { $F$ } circle [radius=1.5pt];
+            \fill (G) node[anchor=north] { $G$ } circle [radius=1.5pt];
+            \fill (H) node[anchor=north] { $H$ } circle [radius=1.5pt];
+            \fill[color=gray]  (I) node[anchor=west] { $I$ } circle [radius=1.5pt];
+            \fill (J) node[anchor=north] { $J$ } circle [radius=1.5pt];
+            \fill (K) node[anchor=north] { $K$ } circle [radius=1.5pt];
+            \fill[color=gray]  (L) node[anchor=west] { $L$ } circle [radius=1.5pt];
+            \fill (M) node[anchor=north] { $M$ } circle [radius=1.5pt];
+            \fill[color=gray]  (N) node[anchor=south] { $N$ } circle [radius=1.5pt];
+
+            \draw[thick] (A) -- (D);
+            \draw[dashed] ($(D) + (-2.236068, -2.236068)$) rectangle ($(D) + (0, 2.236068)$);
+
+        \end{tikzpicture}
+    \end{figure}
+
+\end{frame}
+
+\begin{frame}[fragile]{Visualização de identificação do par de pontos mais próximo}
+
+    \begin{figure}
+        \centering
+
+        \begin{tikzpicture}
+            \node[anchor=west] at (3.5, 7) { $\dist(D, I) = \mathbf{2} < \dist(A, I) = 2.236068$ };
+            %\node[anchor=west] at (4, 7) { Avaliação do ponto $D$ };
+
+            \coordinate (A) at (2, 4);
+            \coordinate (B) at (5, 3);
+            \coordinate (C) at (8, 1);
+            \coordinate (D) at (3, 6);
+            \coordinate (E) at (1, 1);
+            \coordinate (F) at (4, 4);
+            \coordinate (G) at (8, 5);
+            \coordinate (H) at (6, 2);
+            \coordinate (I) at (1, 6);
+            \coordinate (J) at (7, 4);
+            \coordinate (K) at (8, 6);
+            \coordinate (L) at (3, 2);
+            \coordinate (M) at (6, 5);
+            \coordinate (N) at (-1, 4);
+
+            \fill[color=gray]  (A) node[anchor=north] { $A$ } circle [radius=1.5pt];
+            \fill (B) node[anchor=north] { $B$ } circle [radius=1.5pt];
+            \fill (C) node[anchor=north] { $C$ } circle [radius=1.5pt];
+            \fill (D) node[anchor=west] { $D$ } circle [radius=1.5pt];
+            \fill[color=gray]  (E) node[anchor=north] { $E$ } circle [radius=1.5pt];
+            \fill (F) node[anchor=north] { $F$ } circle [radius=1.5pt];
+            \fill (G) node[anchor=north] { $G$ } circle [radius=1.5pt];
+            \fill (H) node[anchor=north] { $H$ } circle [radius=1.5pt];
+            \fill[color=gray]  (I) node[anchor=east] { $I$ } circle [radius=1.5pt];
+            \fill (J) node[anchor=north] { $J$ } circle [radius=1.5pt];
+            \fill (K) node[anchor=north] { $K$ } circle [radius=1.5pt];
+            \fill[color=gray]  (L) node[anchor=west] { $L$ } circle [radius=1.5pt];
+            \fill (M) node[anchor=north] { $M$ } circle [radius=1.5pt];
+            \fill[color=gray]  (N) node[anchor=south] { $N$ } circle [radius=1.5pt];
+
+            \draw[thick] (D) -- (I);
+            \draw[dashed] ($(D) + (-2.000000, -2.000000)$) rectangle ($(D) + (0, 2.000000)$);
+
+        \end{tikzpicture}
+    \end{figure}
+
+\end{frame}
+
+\begin{frame}[fragile]{Visualização de identificação do par de pontos mais próximo}
+
+    \begin{figure}
+        \centering
+
+        \begin{tikzpicture}
+            %\node[anchor=west] at (3.5, 7) { $\dist(D, I) = \mathbf{2} < \dist(A, I) = 2.236068$ };
+            \node[anchor=west] at (0, 7) { Avaliação do ponto $F$ };
+
+            \coordinate (A) at (2, 4);
+            \coordinate (B) at (5, 3);
+            \coordinate (C) at (8, 1);
+            \coordinate (D) at (3, 6);
+            \coordinate (E) at (1, 1);
+            \coordinate (F) at (4, 4);
+            \coordinate (G) at (8, 5);
+            \coordinate (H) at (6, 2);
+            \coordinate (I) at (1, 6);
+            \coordinate (J) at (7, 4);
+            \coordinate (K) at (8, 6);
+            \coordinate (L) at (3, 2);
+            \coordinate (M) at (6, 5);
+            \coordinate (N) at (-1, 4);
+
+            \fill[color=gray]  (A) node[anchor=east] { $A$ } circle [radius=1.5pt];
+            \fill (B) node[anchor=north] { $B$ } circle [radius=1.5pt];
+            \fill (C) node[anchor=north] { $C$ } circle [radius=1.5pt];
+            \fill[color=gray]  (D) node[anchor=south] { $D$ } circle [radius=1.5pt];
+            \fill[color=gray]  (E) node[anchor=north] { $E$ } circle [radius=1.5pt];
+            \fill (F) node[anchor=west] { $F$ } circle [radius=1.5pt];
+            \fill (G) node[anchor=north] { $G$ } circle [radius=1.5pt];
+            \fill (H) node[anchor=north] { $H$ } circle [radius=1.5pt];
+            \fill[color=gray]  (I) node[anchor=east] { $I$ } circle [radius=1.5pt];
+            \fill (J) node[anchor=north] { $J$ } circle [radius=1.5pt];
+            \fill (K) node[anchor=north] { $K$ } circle [radius=1.5pt];
+            \fill[color=gray]  (L) node[anchor=north] { $L$ } circle [radius=1.5pt];
+            \fill (M) node[anchor=north] { $M$ } circle [radius=1.5pt];
+            \fill[color=gray]  (N) node[anchor=south] { $N$ } circle [radius=1.5pt];
+
+            \draw[dashed] ($(F) + (-2.000000, -2.000000)$) rectangle ($(F) + (0, 2.000000)$);
+
+        \end{tikzpicture}
+    \end{figure}
+
+\end{frame}
+
+\begin{frame}[fragile]{Visualização de identificação do par de pontos mais próximo}
+
+    \begin{figure}
+        \centering
+
+        \begin{tikzpicture}
+            \node[anchor=west] at (0, 7) { $\dist(F, L) = 2.236068 > \dist(D, I) = \mathbf{2}$ };
+            %\node[anchor=west] at (0, 7) { Avaliação do ponto $F$ };
+
+            \coordinate (A) at (2, 4);
+            \coordinate (B) at (5, 3);
+            \coordinate (C) at (8, 1);
+            \coordinate (D) at (3, 6);
+            \coordinate (E) at (1, 1);
+            \coordinate (F) at (4, 4);
+            \coordinate (G) at (8, 5);
+            \coordinate (H) at (6, 2);
+            \coordinate (I) at (1, 6);
+            \coordinate (J) at (7, 4);
+            \coordinate (K) at (8, 6);
+            \coordinate (L) at (3, 2);
+            \coordinate (M) at (6, 5);
+            \coordinate (N) at (-1, 4);
+
+            \fill[color=gray]  (A) node[anchor=east] { $A$ } circle [radius=1.5pt];
+            \fill (B) node[anchor=north] { $B$ } circle [radius=1.5pt];
+            \fill (C) node[anchor=north] { $C$ } circle [radius=1.5pt];
+            \fill[color=gray]  (D) node[anchor=south] { $D$ } circle [radius=1.5pt];
+            \fill[color=gray]  (E) node[anchor=north] { $E$ } circle [radius=1.5pt];
+            \fill (F) node[anchor=west] { $F$ } circle [radius=1.5pt];
+            \fill (G) node[anchor=north] { $G$ } circle [radius=1.5pt];
+            \fill (H) node[anchor=north] { $H$ } circle [radius=1.5pt];
+            \fill[color=gray]  (I) node[anchor=east] { $I$ } circle [radius=1.5pt];
+            \fill (J) node[anchor=north] { $J$ } circle [radius=1.5pt];
+            \fill (K) node[anchor=north] { $K$ } circle [radius=1.5pt];
+            \fill[color=gray]  (L) node[anchor=north] { $L$ } circle [radius=1.5pt];
+            \fill (M) node[anchor=north] { $M$ } circle [radius=1.5pt];
+            \fill[color=gray]  (N) node[anchor=south] { $N$ } circle [radius=1.5pt];
+
+            \draw[thick] (F) -- (L);
+            \draw[dashed] ($(F) + (-2.000000, -2.000000)$) rectangle ($(F) + (0, 2.000000)$);
+
+        \end{tikzpicture}
+    \end{figure}
+
+\end{frame}
+
+\begin{frame}[fragile]{Visualização de identificação do par de pontos mais próximo}
+
+    \begin{figure}
+        \centering
+
+        \begin{tikzpicture}
+            \node[anchor=west] at (0, 7) { $\dist(F, A) =\dist(D, I) = \mathbf{2}$ };
+            %\node[anchor=west] at (0, 7) { $\dist(F, L) = 2.236068 > \dist(D, I) = \mathbf{2}$ };
+            %\node[anchor=west] at (0, 7) { Avaliação do ponto $F$ };
+
+            \coordinate (A) at (2, 4);
+            \coordinate (B) at (5, 3);
+            \coordinate (C) at (8, 1);
+            \coordinate (D) at (3, 6);
+            \coordinate (E) at (1, 1);
+            \coordinate (F) at (4, 4);
+            \coordinate (G) at (8, 5);
+            \coordinate (H) at (6, 2);
+            \coordinate (I) at (1, 6);
+            \coordinate (J) at (7, 4);
+            \coordinate (K) at (8, 6);
+            \coordinate (L) at (3, 2);
+            \coordinate (M) at (6, 5);
+            \coordinate (N) at (-1, 4);
+
+            \fill[color=gray]  (A) node[anchor=east] { $A$ } circle [radius=1.5pt];
+            \fill (B) node[anchor=north] { $B$ } circle [radius=1.5pt];
+            \fill (C) node[anchor=north] { $C$ } circle [radius=1.5pt];
+            \fill[color=gray]  (D) node[anchor=south] { $D$ } circle [radius=1.5pt];
+            \fill[color=gray]  (E) node[anchor=north] { $E$ } circle [radius=1.5pt];
+            \fill (F) node[anchor=west] { $F$ } circle [radius=1.5pt];
+            \fill (G) node[anchor=north] { $G$ } circle [radius=1.5pt];
+            \fill (H) node[anchor=north] { $H$ } circle [radius=1.5pt];
+            \fill[color=gray]  (I) node[anchor=east] { $I$ } circle [radius=1.5pt];
+            \fill (J) node[anchor=north] { $J$ } circle [radius=1.5pt];
+            \fill (K) node[anchor=north] { $K$ } circle [radius=1.5pt];
+            \fill[color=gray]  (L) node[anchor=north] { $L$ } circle [radius=1.5pt];
+            \fill (M) node[anchor=north] { $M$ } circle [radius=1.5pt];
+            \fill[color=gray]  (N) node[anchor=south] { $N$ } circle [radius=1.5pt];
+
+            \draw[thick] (F) -- (A);
+            \draw[dashed] ($(F) + (-2.000000, -2.000000)$) rectangle ($(F) + (0, 2.000000)$);
+
+        \end{tikzpicture}
+    \end{figure}
+
+\end{frame}
+
+\begin{frame}[fragile]{Visualização de identificação do par de pontos mais próximo}
+
+    \begin{figure}
+        \centering
+
+        \begin{tikzpicture}
+            \node[anchor=west] at (0, 7) { $\dist(F, D) = 2.236068 > \dist(D, I) = \mathbf{2}$ };
+            %\node[anchor=west] at (0, 7) { Avaliação do ponto $F$ };
+
+            \coordinate (A) at (2, 4);
+            \coordinate (B) at (5, 3);
+            \coordinate (C) at (8, 1);
+            \coordinate (D) at (3, 6);
+            \coordinate (E) at (1, 1);
+            \coordinate (F) at (4, 4);
+            \coordinate (G) at (8, 5);
+            \coordinate (H) at (6, 2);
+            \coordinate (I) at (1, 6);
+            \coordinate (J) at (7, 4);
+            \coordinate (K) at (8, 6);
+            \coordinate (L) at (3, 2);
+            \coordinate (M) at (6, 5);
+            \coordinate (N) at (-1, 4);
+
+            \fill[color=gray]  (A) node[anchor=east] { $A$ } circle [radius=1.5pt];
+            \fill (B) node[anchor=north] { $B$ } circle [radius=1.5pt];
+            \fill (C) node[anchor=north] { $C$ } circle [radius=1.5pt];
+            \fill[color=gray]  (D) node[anchor=south] { $D$ } circle [radius=1.5pt];
+            \fill[color=gray]  (E) node[anchor=north] { $E$ } circle [radius=1.5pt];
+            \fill (F) node[anchor=west] { $F$ } circle [radius=1.5pt];
+            \fill (G) node[anchor=north] { $G$ } circle [radius=1.5pt];
+            \fill (H) node[anchor=north] { $H$ } circle [radius=1.5pt];
+            \fill[color=gray]  (I) node[anchor=east] { $I$ } circle [radius=1.5pt];
+            \fill (J) node[anchor=north] { $J$ } circle [radius=1.5pt];
+            \fill (K) node[anchor=north] { $K$ } circle [radius=1.5pt];
+            \fill[color=gray]  (L) node[anchor=north] { $L$ } circle [radius=1.5pt];
+            \fill (M) node[anchor=north] { $M$ } circle [radius=1.5pt];
+            \fill[color=gray]  (N) node[anchor=south] { $N$ } circle [radius=1.5pt];
+
+            \draw[thick] (F) -- (D);
+            \draw[dashed] ($(F) + (-2.000000, -2.000000)$) rectangle ($(F) + (0, 2.000000)$);
+
+        \end{tikzpicture}
+    \end{figure}
+
+\end{frame}
+
+\begin{frame}[fragile]{Visualização de identificação do par de pontos mais próximo}
+
+    \begin{figure}
+        \centering
+
+        \begin{tikzpicture}
+            %\node[anchor=west] at (0, 7) { $\dist(F, D) = 2.236068 > \dist(D, I) = \mathbf{2}$ };
+            \node[anchor=west] at (0, 7) { Avaliação do ponto $B$ };
+
+            \coordinate (A) at (2, 4);
+            \coordinate (B) at (5, 3);
+            \coordinate (C) at (8, 1);
+            \coordinate (D) at (3, 6);
+            \coordinate (E) at (1, 1);
+            \coordinate (F) at (4, 4);
+            \coordinate (G) at (8, 5);
+            \coordinate (H) at (6, 2);
+            \coordinate (I) at (1, 6);
+            \coordinate (J) at (7, 4);
+            \coordinate (K) at (8, 6);
+            \coordinate (L) at (3, 2);
+            \coordinate (M) at (6, 5);
+            \coordinate (N) at (-1, 4);
+
+            \fill[color=gray]  (A) node[anchor=east] { $A$ } circle [radius=1.5pt];
+            \fill (B) node[anchor=west] { $B$ } circle [radius=1.5pt];
+            \fill (C) node[anchor=north] { $C$ } circle [radius=1.5pt];
+            \fill[color=gray]  (D) node[anchor=south] { $D$ } circle [radius=1.5pt];
+            \fill[color=gray]  (E) node[anchor=north] { $E$ } circle [radius=1.5pt];
+            \fill[color=gray]  (F) node[anchor=west] { $F$ } circle [radius=1.5pt];
+            \fill (G) node[anchor=north] { $G$ } circle [radius=1.5pt];
+            \fill (H) node[anchor=north] { $H$ } circle [radius=1.5pt];
+            \fill[color=gray]  (I) node[anchor=east] { $I$ } circle [radius=1.5pt];
+            \fill (J) node[anchor=north] { $J$ } circle [radius=1.5pt];
+            \fill (K) node[anchor=north] { $K$ } circle [radius=1.5pt];
+            \fill[color=gray]  (L) node[anchor=east] { $L$ } circle [radius=1.5pt];
+            \fill (M) node[anchor=north] { $M$ } circle [radius=1.5pt];
+            \fill[color=gray]  (N) node[anchor=south] { $N$ } circle [radius=1.5pt];
+
+            \draw[dashed] ($(B) + (-2.000000, -2.000000)$) rectangle ($(B) + (0, 2.000000)$);
+
+        \end{tikzpicture}
+    \end{figure}
+
+\end{frame}
+
+\begin{frame}[fragile]{Visualização de identificação do par de pontos mais próximo}
+
+    \begin{figure}
+        \centering
+
+        \begin{tikzpicture}
+            \node[anchor=west] at (0, 7) { $\dist(B, L) = 2.236068 > \dist(D, I) = \mathbf{2}$ };
+            %\node[anchor=west] at (0, 7) { Avaliação do ponto $B$ };
+
+            \coordinate (A) at (2, 4);
+            \coordinate (B) at (5, 3);
+            \coordinate (C) at (8, 1);
+            \coordinate (D) at (3, 6);
+            \coordinate (E) at (1, 1);
+            \coordinate (F) at (4, 4);
+            \coordinate (G) at (8, 5);
+            \coordinate (H) at (6, 2);
+            \coordinate (I) at (1, 6);
+            \coordinate (J) at (7, 4);
+            \coordinate (K) at (8, 6);
+            \coordinate (L) at (3, 2);
+            \coordinate (M) at (6, 5);
+            \coordinate (N) at (-1, 4);
+
+            \fill[color=gray]  (A) node[anchor=east] { $A$ } circle [radius=1.5pt];
+            \fill (B) node[anchor=west] { $B$ } circle [radius=1.5pt];
+            \fill (C) node[anchor=north] { $C$ } circle [radius=1.5pt];
+            \fill[color=gray]  (D) node[anchor=south] { $D$ } circle [radius=1.5pt];
+            \fill[color=gray]  (E) node[anchor=north] { $E$ } circle [radius=1.5pt];
+            \fill[color=gray]  (F) node[anchor=west] { $F$ } circle [radius=1.5pt];
+            \fill (G) node[anchor=north] { $G$ } circle [radius=1.5pt];
+            \fill (H) node[anchor=north] { $H$ } circle [radius=1.5pt];
+            \fill[color=gray]  (I) node[anchor=east] { $I$ } circle [radius=1.5pt];
+            \fill (J) node[anchor=north] { $J$ } circle [radius=1.5pt];
+            \fill (K) node[anchor=north] { $K$ } circle [radius=1.5pt];
+            \fill[color=gray]  (L) node[anchor=east] { $L$ } circle [radius=1.5pt];
+            \fill (M) node[anchor=north] { $M$ } circle [radius=1.5pt];
+            \fill[color=gray]  (N) node[anchor=south] { $N$ } circle [radius=1.5pt];
+
+            \draw[thick] (B) -- (L);
+            \draw[dashed] ($(B) + (-2.000000, -2.000000)$) rectangle ($(B) + (0, 2.000000)$);
+
+        \end{tikzpicture}
+    \end{figure}
+
+\end{frame}
+
+\begin{frame}[fragile]{Visualização de identificação do par de pontos mais próximo}
+
+    \begin{figure}
+        \centering
+
+        \begin{tikzpicture}
+            \node[anchor=west] at (0, 7) { $\dist(B, F) = \mathbf{1.414213} > \dist(D, I) = 2$ };
+            %\node[anchor=west] at (0, 7) { Avaliação do ponto $B$ };
+
+            \coordinate (A) at (2, 4);
+            \coordinate (B) at (5, 3);
+            \coordinate (C) at (8, 1);
+            \coordinate (D) at (3, 6);
+            \coordinate (E) at (1, 1);
+            \coordinate (F) at (4, 4);
+            \coordinate (G) at (8, 5);
+            \coordinate (H) at (6, 2);
+            \coordinate (I) at (1, 6);
+            \coordinate (J) at (7, 4);
+            \coordinate (K) at (8, 6);
+            \coordinate (L) at (3, 2);
+            \coordinate (M) at (6, 5);
+            \coordinate (N) at (-1, 4);
+
+            \fill[color=gray]  (A) node[anchor=east] { $A$ } circle [radius=1.5pt];
+            \fill (B) node[anchor=west] { $B$ } circle [radius=1.5pt];
+            \fill (C) node[anchor=north] { $C$ } circle [radius=1.5pt];
+            \fill[color=gray]  (D) node[anchor=south] { $D$ } circle [radius=1.5pt];
+            \fill[color=gray]  (E) node[anchor=north] { $E$ } circle [radius=1.5pt];
+            \fill[color=gray]  (F) node[anchor=west] { $F$ } circle [radius=1.5pt];
+            \fill (G) node[anchor=north] { $G$ } circle [radius=1.5pt];
+            \fill (H) node[anchor=north] { $H$ } circle [radius=1.5pt];
+            \fill[color=gray]  (I) node[anchor=east] { $I$ } circle [radius=1.5pt];
+            \fill (J) node[anchor=north] { $J$ } circle [radius=1.5pt];
+            \fill (K) node[anchor=north] { $K$ } circle [radius=1.5pt];
+            \fill[color=gray]  (L) node[anchor=east] { $L$ } circle [radius=1.5pt];
+            \fill (M) node[anchor=north] { $M$ } circle [radius=1.5pt];
+            \fill[color=gray]  (N) node[anchor=south] { $N$ } circle [radius=1.5pt];
+
+            \draw[thick] (B) -- (F);
+            \draw[dashed] ($(B) + (-1.414213, -1.414213)$) rectangle ($(B) + (0, 1.414213)$);
+
+        \end{tikzpicture}
+    \end{figure}
+
+\end{frame}
+
+\begin{frame}[fragile]{Visualização de identificação do par de pontos mais próximo}
+
+    \begin{figure}
+        \centering
+
+        \begin{tikzpicture}
+            %\node[anchor=west] at (0, 7) { $\dist(B, F) = \mathbf{1.414213} > \dist(D, I) = 2$ };
+            \node[anchor=west] at (0, 7) { Avaliação do ponto $H$ };
+
+            \coordinate (A) at (2, 4);
+            \coordinate (B) at (5, 3);
+            \coordinate (C) at (8, 1);
+            \coordinate (D) at (3, 6);
+            \coordinate (E) at (1, 1);
+            \coordinate (F) at (4, 4);
+            \coordinate (G) at (8, 5);
+            \coordinate (H) at (6, 2);
+            \coordinate (I) at (1, 6);
+            \coordinate (J) at (7, 4);
+            \coordinate (K) at (8, 6);
+            \coordinate (L) at (3, 2);
+            \coordinate (M) at (6, 5);
+            \coordinate (N) at (-1, 4);
+
+            \fill[color=gray]  (A) node[anchor=east] { $A$ } circle [radius=1.5pt];
+            \fill[color=gray]  (B) node[anchor=west] { $B$ } circle [radius=1.5pt];
+            \fill (C) node[anchor=north] { $C$ } circle [radius=1.5pt];
+            \fill[color=gray]  (D) node[anchor=south] { $D$ } circle [radius=1.5pt];
+            \fill[color=gray]  (E) node[anchor=north] { $E$ } circle [radius=1.5pt];
+            \fill[color=gray]  (F) node[anchor=west] { $F$ } circle [radius=1.5pt];
+            \fill (G) node[anchor=north] { $G$ } circle [radius=1.5pt];
+            \fill (H) node[anchor=west] { $H$ } circle [radius=1.5pt];
+            \fill[color=gray]  (I) node[anchor=east] { $I$ } circle [radius=1.5pt];
+            \fill (J) node[anchor=north] { $J$ } circle [radius=1.5pt];
+            \fill (K) node[anchor=north] { $K$ } circle [radius=1.5pt];
+            \fill[color=gray]  (L) node[anchor=east] { $L$ } circle [radius=1.5pt];
+            \fill (M) node[anchor=north] { $M$ } circle [radius=1.5pt];
+            \fill[color=gray]  (N) node[anchor=south] { $N$ } circle [radius=1.5pt];
+
+            \draw[dashed] ($(H) + (-1.414213, -1.414213)$) rectangle ($(H) + (0, 1.414213)$);
+
+        \end{tikzpicture}
+    \end{figure}
+
+\end{frame}
+
+\begin{frame}[fragile]{Visualização de identificação do par de pontos mais próximo}
+
+    \begin{figure}
+        \centering
+
+        \begin{tikzpicture}
+            \node[anchor=west] at (0, 7) { $\dist(H, B) = \dist(B, F) = \mathbf{1.414213}$ };
+            %\node[anchor=west] at (0, 7) { Avaliação do ponto $H$ };
+
+            \coordinate (A) at (2, 4);
+            \coordinate (B) at (5, 3);
+            \coordinate (C) at (8, 1);
+            \coordinate (D) at (3, 6);
+            \coordinate (E) at (1, 1);
+            \coordinate (F) at (4, 4);
+            \coordinate (G) at (8, 5);
+            \coordinate (H) at (6, 2);
+            \coordinate (I) at (1, 6);
+            \coordinate (J) at (7, 4);
+            \coordinate (K) at (8, 6);
+            \coordinate (L) at (3, 2);
+            \coordinate (M) at (6, 5);
+            \coordinate (N) at (-1, 4);
+
+            \fill[color=gray]  (A) node[anchor=east] { $A$ } circle [radius=1.5pt];
+            \fill[color=gray]  (B) node[anchor=west] { $B$ } circle [radius=1.5pt];
+            \fill (C) node[anchor=north] { $C$ } circle [radius=1.5pt];
+            \fill[color=gray]  (D) node[anchor=south] { $D$ } circle [radius=1.5pt];
+            \fill[color=gray]  (E) node[anchor=north] { $E$ } circle [radius=1.5pt];
+            \fill[color=gray]  (F) node[anchor=west] { $F$ } circle [radius=1.5pt];
+            \fill (G) node[anchor=north] { $G$ } circle [radius=1.5pt];
+            \fill (H) node[anchor=west] { $H$ } circle [radius=1.5pt];
+            \fill[color=gray]  (I) node[anchor=east] { $I$ } circle [radius=1.5pt];
+            \fill (J) node[anchor=north] { $J$ } circle [radius=1.5pt];
+            \fill (K) node[anchor=north] { $K$ } circle [radius=1.5pt];
+            \fill[color=gray]  (L) node[anchor=east] { $L$ } circle [radius=1.5pt];
+            \fill (M) node[anchor=north] { $M$ } circle [radius=1.5pt];
+            \fill[color=gray]  (N) node[anchor=south] { $N$ } circle [radius=1.5pt];
+
+            \draw[thick] (B) -- (H);
+            \draw[dashed] ($(H) + (-1.414213, -1.414213)$) rectangle ($(H) + (0, 1.414213)$);
+
+        \end{tikzpicture}
+    \end{figure}
+
+\end{frame}
+
+\begin{frame}[fragile]{Visualização de identificação do par de pontos mais próximo}
+
+    \begin{figure}
+        \centering
+
+        \begin{tikzpicture}
+            %\node[anchor=west] at (0, 7) { $\dist(H, B) = \dist(B, F) = \mathbf{1.414213}$ };
+            \node[anchor=west] at (0, 7) { Avaliação do ponto $M$ };
+
+            \coordinate (A) at (2, 4);
+            \coordinate (B) at (5, 3);
+            \coordinate (C) at (8, 1);
+            \coordinate (D) at (3, 6);
+            \coordinate (E) at (1, 1);
+            \coordinate (F) at (4, 4);
+            \coordinate (G) at (8, 5);
+            \coordinate (H) at (6, 2);
+            \coordinate (I) at (1, 6);
+            \coordinate (J) at (7, 4);
+            \coordinate (K) at (8, 6);
+            \coordinate (L) at (3, 2);
+            \coordinate (M) at (6, 5);
+            \coordinate (N) at (-1, 4);
+
+            \fill[color=gray]  (A) node[anchor=east] { $A$ } circle [radius=1.5pt];
+            \fill[color=gray]  (B) node[anchor=west] { $B$ } circle [radius=1.5pt];
+            \fill (C) node[anchor=north] { $C$ } circle [radius=1.5pt];
+            \fill[color=gray]  (D) node[anchor=south] { $D$ } circle [radius=1.5pt];
+            \fill[color=gray]  (E) node[anchor=north] { $E$ } circle [radius=1.5pt];
+            \fill[color=gray]  (F) node[anchor=west] { $F$ } circle [radius=1.5pt];
+            \fill (G) node[anchor=north] { $G$ } circle [radius=1.5pt];
+            \fill[color=gray]  (H) node[anchor=west] { $H$ } circle [radius=1.5pt];
+            \fill[color=gray]  (I) node[anchor=east] { $I$ } circle [radius=1.5pt];
+            \fill (J) node[anchor=north] { $J$ } circle [radius=1.5pt];
+            \fill (K) node[anchor=north] { $K$ } circle [radius=1.5pt];
+            \fill[color=gray]  (L) node[anchor=east] { $L$ } circle [radius=1.5pt];
+            \fill (M) node[anchor=west] { $M$ } circle [radius=1.5pt];
+            \fill[color=gray]  (N) node[anchor=south] { $N$ } circle [radius=1.5pt];
+
+            \draw[dashed] ($(M) + (-1.414213, -1.414213)$) rectangle ($(M) + (0, 1.414213)$);
+
+        \end{tikzpicture}
+    \end{figure}
+
+\end{frame}
+
+\begin{frame}[fragile]{Visualização de identificação do par de pontos mais próximo}
+
+    \begin{figure}
+        \centering
+
+        \begin{tikzpicture}
+            %\node[anchor=west] at (0, 7) { $\dist(H, B) = \dist(B, F) = \mathbf{1.414213}$ };
+            \node[anchor=west] at (0, 7) { Avaliação do ponto $J$ };
+
+            \coordinate (A) at (2, 4);
+            \coordinate (B) at (5, 3);
+            \coordinate (C) at (8, 1);
+            \coordinate (D) at (3, 6);
+            \coordinate (E) at (1, 1);
+            \coordinate (F) at (4, 4);
+            \coordinate (G) at (8, 5);
+            \coordinate (H) at (6, 2);
+            \coordinate (I) at (1, 6);
+            \coordinate (J) at (7, 4);
+            \coordinate (K) at (8, 6);
+            \coordinate (L) at (3, 2);
+            \coordinate (M) at (6, 5);
+            \coordinate (N) at (-1, 4);
+
+            \fill[color=gray]  (A) node[anchor=east] { $A$ } circle [radius=1.5pt];
+            \fill[color=gray]  (B) node[anchor=west] { $B$ } circle [radius=1.5pt];
+            \fill (C) node[anchor=north] { $C$ } circle [radius=1.5pt];
+            \fill[color=gray]  (D) node[anchor=south] { $D$ } circle [radius=1.5pt];
+            \fill[color=gray]  (E) node[anchor=north] { $E$ } circle [radius=1.5pt];
+            \fill[color=gray]  (F) node[anchor=west] { $F$ } circle [radius=1.5pt];
+            \fill (G) node[anchor=north] { $G$ } circle [radius=1.5pt];
+            \fill[color=gray]  (H) node[anchor=west] { $H$ } circle [radius=1.5pt];
+            \fill[color=gray]  (I) node[anchor=east] { $I$ } circle [radius=1.5pt];
+            \fill (J) node[anchor=west] { $J$ } circle [radius=1.5pt];
+            \fill (K) node[anchor=north] { $K$ } circle [radius=1.5pt];
+            \fill[color=gray]  (L) node[anchor=east] { $L$ } circle [radius=1.5pt];
+            \fill[color=gray]  (M) node[anchor=west] { $M$ } circle [radius=1.5pt];
+            \fill[color=gray]  (N) node[anchor=south] { $N$ } circle [radius=1.5pt];
+
+            \draw[dashed] ($(J) + (-1.414213, -1.414213)$) rectangle ($(J) + (0, 1.414213)$);
+
+        \end{tikzpicture}
+    \end{figure}
+
+\end{frame}
+
+\begin{frame}[fragile]{Visualização de identificação do par de pontos mais próximo}
+
+    \begin{figure}
+        \centering
+
+        \begin{tikzpicture}
+            \node[anchor=west] at (0, 7) { $\dist(J, M) = \dist(B, F) = \mathbf{1.414213}$ };
+            %\node[anchor=west] at (0, 7) { Avaliação do ponto $J$ };
+
+            \coordinate (A) at (2, 4);
+            \coordinate (B) at (5, 3);
+            \coordinate (C) at (8, 1);
+            \coordinate (D) at (3, 6);
+            \coordinate (E) at (1, 1);
+            \coordinate (F) at (4, 4);
+            \coordinate (G) at (8, 5);
+            \coordinate (H) at (6, 2);
+            \coordinate (I) at (1, 6);
+            \coordinate (J) at (7, 4);
+            \coordinate (K) at (8, 6);
+            \coordinate (L) at (3, 2);
+            \coordinate (M) at (6, 5);
+            \coordinate (N) at (-1, 4);
+
+            \fill[color=gray]  (A) node[anchor=east] { $A$ } circle [radius=1.5pt];
+            \fill[color=gray]  (B) node[anchor=west] { $B$ } circle [radius=1.5pt];
+            \fill (C) node[anchor=north] { $C$ } circle [radius=1.5pt];
+            \fill[color=gray]  (D) node[anchor=south] { $D$ } circle [radius=1.5pt];
+            \fill[color=gray]  (E) node[anchor=north] { $E$ } circle [radius=1.5pt];
+            \fill[color=gray]  (F) node[anchor=west] { $F$ } circle [radius=1.5pt];
+            \fill (G) node[anchor=north] { $G$ } circle [radius=1.5pt];
+            \fill[color=gray]  (H) node[anchor=west] { $H$ } circle [radius=1.5pt];
+            \fill[color=gray]  (I) node[anchor=east] { $I$ } circle [radius=1.5pt];
+            \fill (J) node[anchor=west] { $J$ } circle [radius=1.5pt];
+            \fill (K) node[anchor=north] { $K$ } circle [radius=1.5pt];
+            \fill[color=gray]  (L) node[anchor=east] { $L$ } circle [radius=1.5pt];
+            \fill[color=gray]  (M) node[anchor=west] { $M$ } circle [radius=1.5pt];
+            \fill[color=gray]  (N) node[anchor=south] { $N$ } circle [radius=1.5pt];
+
+            \draw[thick] (M) -- (J);
+            \draw[dashed] ($(J) + (-1.414213, -1.414213)$) rectangle ($(J) + (0, 1.414213)$);
+
+        \end{tikzpicture}
+    \end{figure}
+
+\end{frame}
+
+\begin{frame}[fragile]{Visualização de identificação do par de pontos mais próximo}
+
+    \begin{figure}
+        \centering
+
+        \begin{tikzpicture}
+            %\node[anchor=west] at (0, 7) { $\dist(J, M) = \dist(B, F) = \mathbf{1.414213}$ };
+            \node[anchor=west] at (0, 7) { Avaliação do ponto $C$ };
+
+            \coordinate (A) at (2, 4);
+            \coordinate (B) at (5, 3);
+            \coordinate (C) at (8, 1);
+            \coordinate (D) at (3, 6);
+            \coordinate (E) at (1, 1);
+            \coordinate (F) at (4, 4);
+            \coordinate (G) at (8, 5);
+            \coordinate (H) at (6, 2);
+            \coordinate (I) at (1, 6);
+            \coordinate (J) at (7, 4);
+            \coordinate (K) at (8, 6);
+            \coordinate (L) at (3, 2);
+            \coordinate (M) at (6, 5);
+            \coordinate (N) at (-1, 4);
+
+            \fill[color=gray]  (A) node[anchor=east] { $A$ } circle [radius=1.5pt];
+            \fill[color=gray]  (B) node[anchor=west] { $B$ } circle [radius=1.5pt];
+            \fill (C) node[anchor=west] { $C$ } circle [radius=1.5pt];
+            \fill[color=gray]  (D) node[anchor=south] { $D$ } circle [radius=1.5pt];
+            \fill[color=gray]  (E) node[anchor=north] { $E$ } circle [radius=1.5pt];
+            \fill[color=gray]  (F) node[anchor=west] { $F$ } circle [radius=1.5pt];
+            \fill (G) node[anchor=north] { $G$ } circle [radius=1.5pt];
+            \fill[color=gray]  (H) node[anchor=west] { $H$ } circle [radius=1.5pt];
+            \fill[color=gray]  (I) node[anchor=east] { $I$ } circle [radius=1.5pt];
+            \fill[color=gray]  (J) node[anchor=west] { $J$ } circle [radius=1.5pt];
+            \fill (K) node[anchor=north] { $K$ } circle [radius=1.5pt];
+            \fill[color=gray]  (L) node[anchor=east] { $L$ } circle [radius=1.5pt];
+            \fill[color=gray]  (M) node[anchor=west] { $M$ } circle [radius=1.5pt];
+            \fill[color=gray]  (N) node[anchor=south] { $N$ } circle [radius=1.5pt];
+
+            \draw[dashed] ($(C) + (-1.414213, -1.414213)$) rectangle ($(C) + (0, 1.414213)$);
+
+        \end{tikzpicture}
+    \end{figure}
+
+\end{frame}
+
+\begin{frame}[fragile]{Visualização de identificação do par de pontos mais próximo}
+
+    \begin{figure}
+        \centering
+
+        \begin{tikzpicture}
+            %\node[anchor=west] at (0, 7) { $\dist(J, M) = \dist(B, F) = \mathbf{1.414213}$ };
+            \node[anchor=west] at (0, 7) { Avaliação do ponto $G$ };
+
+            \coordinate (A) at (2, 4);
+            \coordinate (B) at (5, 3);
+            \coordinate (C) at (8, 1);
+            \coordinate (D) at (3, 6);
+            \coordinate (E) at (1, 1);
+            \coordinate (F) at (4, 4);
+            \coordinate (G) at (8, 5);
+            \coordinate (H) at (6, 2);
+            \coordinate (I) at (1, 6);
+            \coordinate (J) at (7, 4);
+            \coordinate (K) at (8, 6);
+            \coordinate (L) at (3, 2);
+            \coordinate (M) at (6, 5);
+            \coordinate (N) at (-1, 4);
+
+            \fill[color=gray]  (A) node[anchor=east] { $A$ } circle [radius=1.5pt];
+            \fill[color=gray]  (B) node[anchor=west] { $B$ } circle [radius=1.5pt];
+            \fill[color=gray]  (C) node[anchor=west] { $C$ } circle [radius=1.5pt];
+            \fill[color=gray]  (D) node[anchor=south] { $D$ } circle [radius=1.5pt];
+            \fill[color=gray]  (E) node[anchor=north] { $E$ } circle [radius=1.5pt];
+            \fill[color=gray]  (F) node[anchor=west] { $F$ } circle [radius=1.5pt];
+            \fill (G) node[anchor=west] { $G$ } circle [radius=1.5pt];
+            \fill[color=gray]  (H) node[anchor=west] { $H$ } circle [radius=1.5pt];
+            \fill[color=gray]  (I) node[anchor=east] { $I$ } circle [radius=1.5pt];
+            \fill[color=gray]  (J) node[anchor=west] { $J$ } circle [radius=1.5pt];
+            \fill (K) node[anchor=west] { $K$ } circle [radius=1.5pt];
+            \fill[color=gray]  (L) node[anchor=east] { $L$ } circle [radius=1.5pt];
+            \fill[color=gray]  (M) node[anchor=west] { $M$ } circle [radius=1.5pt];
+            \fill[color=gray]  (N) node[anchor=south] { $N$ } circle [radius=1.5pt];
+
+            \draw[dashed] ($(G) + (-1.414213, -1.414213)$) rectangle ($(G) + (0, 1.414213)$);
+
+        \end{tikzpicture}
+    \end{figure}
+
+\end{frame}
+
+\begin{frame}[fragile]{Visualização de identificação do par de pontos mais próximo}
+
+    \begin{figure}
+        \centering
+
+        \begin{tikzpicture}
+            \node[anchor=west] at (0, 7) { $\dist(G, J) = \dist(B, F) = \mathbf{1.414213}$ };
+            %\node[anchor=west] at (0, 7) { Avaliação do ponto $G$ };
+
+            \coordinate (A) at (2, 4);
+            \coordinate (B) at (5, 3);
+            \coordinate (C) at (8, 1);
+            \coordinate (D) at (3, 6);
+            \coordinate (E) at (1, 1);
+            \coordinate (F) at (4, 4);
+            \coordinate (G) at (8, 5);
+            \coordinate (H) at (6, 2);
+            \coordinate (I) at (1, 6);
+            \coordinate (J) at (7, 4);
+            \coordinate (K) at (8, 6);
+            \coordinate (L) at (3, 2);
+            \coordinate (M) at (6, 5);
+            \coordinate (N) at (-1, 4);
+
+            \fill[color=gray]  (A) node[anchor=east] { $A$ } circle [radius=1.5pt];
+            \fill[color=gray]  (B) node[anchor=west] { $B$ } circle [radius=1.5pt];
+            \fill[color=gray]  (C) node[anchor=west] { $C$ } circle [radius=1.5pt];
+            \fill[color=gray]  (D) node[anchor=south] { $D$ } circle [radius=1.5pt];
+            \fill[color=gray]  (E) node[anchor=north] { $E$ } circle [radius=1.5pt];
+            \fill[color=gray]  (F) node[anchor=west] { $F$ } circle [radius=1.5pt];
+            \fill (G) node[anchor=west] { $G$ } circle [radius=1.5pt];
+            \fill[color=gray]  (H) node[anchor=west] { $H$ } circle [radius=1.5pt];
+            \fill[color=gray]  (I) node[anchor=east] { $I$ } circle [radius=1.5pt];
+            \fill[color=gray]  (J) node[anchor=west] { $J$ } circle [radius=1.5pt];
+            \fill (K) node[anchor=west] { $K$ } circle [radius=1.5pt];
+            \fill[color=gray]  (L) node[anchor=east] { $L$ } circle [radius=1.5pt];
+            \fill[color=gray]  (M) node[anchor=west] { $M$ } circle [radius=1.5pt];
+            \fill[color=gray]  (N) node[anchor=south] { $N$ } circle [radius=1.5pt];
+
+            \draw[thick] (G) -- (J);
+            \draw[dashed] ($(G) + (-1.414213, -1.414213)$) rectangle ($(G) + (0, 1.414213)$);
+
+        \end{tikzpicture}
+    \end{figure}
+
+\end{frame}
+
+\begin{frame}[fragile]{Visualização de identificação do par de pontos mais próximo}
+
+    \begin{figure}
+        \centering
+
+        \begin{tikzpicture}
+            %\node[anchor=west] at (0, 7) { $\dist(G, J) = \dist(B, F) = \mathbf{1.414213}$ };
+            \node[anchor=west] at (0, 7) { Avaliação do ponto $K$ };
+
+            \coordinate (A) at (2, 4);
+            \coordinate (B) at (5, 3);
+            \coordinate (C) at (8, 1);
+            \coordinate (D) at (3, 6);
+            \coordinate (E) at (1, 1);
+            \coordinate (F) at (4, 4);
+            \coordinate (G) at (8, 5);
+            \coordinate (H) at (6, 2);
+            \coordinate (I) at (1, 6);
+            \coordinate (J) at (7, 4);
+            \coordinate (K) at (8, 6);
+            \coordinate (L) at (3, 2);
+            \coordinate (M) at (6, 5);
+            \coordinate (N) at (-1, 4);
+
+            \fill[color=gray]  (A) node[anchor=east] { $A$ } circle [radius=1.5pt];
+            \fill[color=gray]  (B) node[anchor=west] { $B$ } circle [radius=1.5pt];
+            \fill[color=gray]  (C) node[anchor=west] { $C$ } circle [radius=1.5pt];
+            \fill[color=gray]  (D) node[anchor=south] { $D$ } circle [radius=1.5pt];
+            \fill[color=gray]  (E) node[anchor=north] { $E$ } circle [radius=1.5pt];
+            \fill[color=gray]  (F) node[anchor=west] { $F$ } circle [radius=1.5pt];
+            \fill[color=gray]  (G) node[anchor=west] { $G$ } circle [radius=1.5pt];
+            \fill[color=gray]  (H) node[anchor=west] { $H$ } circle [radius=1.5pt];
+            \fill[color=gray]  (I) node[anchor=east] { $I$ } circle [radius=1.5pt];
+            \fill[color=gray]  (J) node[anchor=west] { $J$ } circle [radius=1.5pt];
+            \fill (K) node[anchor=west] { $K$ } circle [radius=1.5pt];
+            \fill[color=gray]  (L) node[anchor=east] { $L$ } circle [radius=1.5pt];
+            \fill[color=gray]  (M) node[anchor=west] { $M$ } circle [radius=1.5pt];
+            \fill[color=gray]  (N) node[anchor=south] { $N$ } circle [radius=1.5pt];
+
+            \draw[dashed] ($(K) + (-1.414213, -1.414213)$) rectangle ($(K) + (0, 1.414213)$);
+
+        \end{tikzpicture}
+    \end{figure}
+
+\end{frame}
+
+\begin{frame}[fragile]{Visualização de identificação do par de pontos mais próximo}
+
+    \begin{figure}
+        \centering
+
+        \begin{tikzpicture}
+            \node[anchor=west] at (0, 7) { $\dist(K, G) = \mathbf{1} < \dist(B, F) = {1.414213}$ };
+
+            \coordinate (A) at (2, 4);
+            \coordinate (B) at (5, 3);
+            \coordinate (C) at (8, 1);
+            \coordinate (D) at (3, 6);
+            \coordinate (E) at (1, 1);
+            \coordinate (F) at (4, 4);
+            \coordinate (G) at (8, 5);
+            \coordinate (H) at (6, 2);
+            \coordinate (I) at (1, 6);
+            \coordinate (J) at (7, 4);
+            \coordinate (K) at (8, 6);
+            \coordinate (L) at (3, 2);
+            \coordinate (M) at (6, 5);
+            \coordinate (N) at (-1, 4);
+
+            \fill[color=gray]  (A) node[anchor=east] { $A$ } circle [radius=1.5pt];
+            \fill[color=gray]  (B) node[anchor=west] { $B$ } circle [radius=1.5pt];
+            \fill[color=gray]  (C) node[anchor=west] { $C$ } circle [radius=1.5pt];
+            \fill[color=gray]  (D) node[anchor=south] { $D$ } circle [radius=1.5pt];
+            \fill[color=gray]  (E) node[anchor=north] { $E$ } circle [radius=1.5pt];
+            \fill[color=gray]  (F) node[anchor=west] { $F$ } circle [radius=1.5pt];
+            \fill[color=gray]  (G) node[anchor=west] { $G$ } circle [radius=1.5pt];
+            \fill[color=gray]  (H) node[anchor=west] { $H$ } circle [radius=1.5pt];
+            \fill[color=gray]  (I) node[anchor=east] { $I$ } circle [radius=1.5pt];
+            \fill[color=gray]  (J) node[anchor=west] { $J$ } circle [radius=1.5pt];
+            \fill (K) node[anchor=west] { $K$ } circle [radius=1.5pt];
+            \fill[color=gray]  (L) node[anchor=east] { $L$ } circle [radius=1.5pt];
+            \fill[color=gray]  (M) node[anchor=west] { $M$ } circle [radius=1.5pt];
+            \fill[color=gray]  (N) node[anchor=south] { $N$ } circle [radius=1.5pt];
+
+            \draw[thick] (G) -- (K);
+            \draw[dashed] ($(K) + (-1.414213, -1.414213)$) rectangle ($(K) + (0, 1.414213)$);
+
+        \end{tikzpicture}
+    \end{figure}
+
+\end{frame}

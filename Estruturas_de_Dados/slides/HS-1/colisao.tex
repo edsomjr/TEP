@@ -71,7 +71,7 @@
 	\begin{itemize}
 		\item Na sondagem quadrática, a função de sondagem é dada por
 		\[
-            p(i) = h(K) + (-1)^{i-1}\left\lfloor\frac{i+1}{2}\right\rfloor^2,
+            p(i) = (-1)^{i-1}\left\lfloor\frac{i+1}{2}\right\rfloor^2,
         \]
 		para $i = 1, 2, \ldots, T - 1$
 
@@ -100,4 +100,57 @@
     \inputsnippet{cpp}{23}{43}{quadratic.cpp}
 \end{frame}
 
+\begin{frame}[fragile]{\textit{hash} duplo}
 
+    \begin{itemize}
+        \item O \textit{hash} duplo é uma das melhores estratégias de endereçamento aberto
+
+        \item Isto porque a sequência de sondagem gerada tem muitas das características das
+            sequências aleatórias
+
+        \item No \textit{hash} duplo a sequência de sondagem tem a forma
+        \[
+            h(K) = \Mod{(h_1(K) + ih_2(K))}{T},\ \ \ \ i=0,1,2,\ldots, T - 1
+        \]
+        onde $h_1(K), h_2(K)$ são duas funções de \textit{hash} auxiliares, $i$ é o índice de
+        sondagem e $T$ é o tamanho da tabela
+
+        \item Diferentemente das sondagens lineares e quadráticas, a função $h_2(K)$ depende do
+            valor do chave $K$
+
+        \item Deste modo, as sequências de sondagem para chaves $K_1\neq K_2$,
+            com $h_1(K_1) = h_1(K_2)$, tendem a serem diferentes
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{\textit{hash} duplo}
+
+    \begin{itemize}
+        \item A função $h_2(K)$ deve gerar valores co-primos com o tamanho $T$ da tabela
+
+        \item Se $T$ é uma potência de dois (isto é, $T = 2^k$ para algum $k$ positivo), a
+            função $h_2(K)$ deve gerar apenas números ímpares
+
+        \item Se $T$ é um número primo, $h_2(K)$ tem que gerar números positivos menores do que
+            $T$
+
+        \item Uma maneira de se obter isso é fazer $h_1(K) = \Mod{K}{T}$ e $h_2(K) = 1 + (\Mod{K}{T - 1})$
+
+        \item O \textit{hash} duplo tem melhor desempenho do que a sondagem linear e a sondagem
+            quadrática, pois gera um número $O(T^2)$ de sondagens possíveis, enquanto que
+            as outras duas geram $O(T)$ sequências de sondagem
+        
+    \end{itemize}
+
+\end{frame}
+
+\input{double}
+
+\begin{frame}[fragile]{Implementação do \textit{hash} duplo}
+    \inputsnippet{cpp}{1}{21}{double.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Implementação do \textit{hash} duplo}
+    \inputsnippet{cpp}{23}{43}{double.cpp}
+\end{frame}
