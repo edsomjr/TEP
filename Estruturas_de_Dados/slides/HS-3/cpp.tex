@@ -1,0 +1,25 @@
+\section{{\it Hash} em C++}
+
+\begin{frame}[fragile]{{\it Hash} na STL}
+
+    \begin{itemize}
+        \item A STL da linguagem C++ oferece dois contêiners que utilizam \textit{hashes}
+            para obter complexidade médio $O(1)$ para as operações de inserção, remoção e
+            buca
+
+        \item \code{cpp}{unordered_set} é um contêiner que abstrai a ideia de conjuntos,
+            armazenando elementos únicos
+
+        \item Se for necessário armazenar repetições de um mesmo elemento, deve-se utilizar o
+            \code{cpp}{unordered_multiset}
+
+        \item \code{cpp}{unordered_map} e \code{cpp}{unordered_multimap} são as abstrações
+            equivalentes para dicionários
+
+        \item Ambas armazenam pares de chaves e valores
+
+        \item Estas estruturas tem interface semelhante às suas versões que se baseam em
+            árvores binárias de busca balanceadas (\code{cpp}{set}, \code{cpp}{map}, etc)
+    \end{itemize}
+
+\end{frame}

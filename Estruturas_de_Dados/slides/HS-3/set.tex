@@ -1,0 +1,101 @@
+\section{\code{c}{unordered_set}}
+
+\begin{frame}[fragile]{Conjuntos baseados em {\it hashes}} 
+
+    \begin{itemize}
+        \item O \code{cpp}{unordered_set} mantém um conjunto de elementos únicos
+
+        \item O tipo \code{c}{T} destes elementos é indicado na declaração do conjunto
+
+        \item Também podem ser indicados na declaração a função de \textit{hash} a ser utilizada,
+            a função de comparação de igualdade entre os elementos e o alocador de memória
+
+        \item Este contêiner foi introduzido no C++11
+    
+        \item A sintaxe de declaração é dada abaixo:
+        \inputsyntax{cpp}{set.st}
+    \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{Métodos para inserção, remoção e consulta}
+
+    \begin{itemize}
+        \item O \code{cpp}{unordered_set} compartilha com o \code{cpp}{set} a mesma interface para 
+            inserção, remoção e consulta 
+
+        \item O número de elementos armazenados é dado pelo método \code{cpp}{size()}
+
+        \item Novos elementos podem ser inseridos por meio dos métodos \code{cpp}{insert()} e
+            \code{cpp}{emplace()}
+
+        \item Os elementos podem ser removidos através do método \code{cpp}{erase()}
+
+        \item O método \code{cpp}{count()} retorna o número de ocorrências de um dado elemento
+            (zero ou um)
+
+        \item O método \code{cpp}{find()} localiza um elemento e retorna o iterador para sua
+            posição (ou \code{cpp}{end()}, caso o elemento não se encontre no conjunto)
+
+        \item Todos estes métodos tem complexidade média $O(1)$
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de uso do \code{cpp}{unordered_set}}
+    \inputsnippet{cpp}{1}{21}{set.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de uso do \code{cpp}{unordered_set}}
+    \inputsnippet{cpp}{22}{42}{set.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Métodos relativos ao {\it hash}}
+
+    \begin{itemize}
+        \item O \code{cpp}{unordered_set} oferece métodos relativos à implementação por meio de
+            \textit{hashes}
+
+        \item Os métodos \code{cpp}{bucket_count()} e \code{cpp}{max_bucket_count()} retornam
+            o número de \textit{buckets} (células ou posições) da tabela e o número máximo de
+            posições permitidas pela implementação, respectivamente
+
+        \item Para determinar quandos elementos colidem na célula $j$, utilize o método
+            \code{cpp}{bucket_size()}
+
+        \item O fator de carga, isto é, o número de elementos armazenados dividido pelo
+            tamanho da tabela (número de células) é dado pelo método \code{cpp}{load_factor()}
+
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Métodos relativos ao {\it hash}}
+
+    \begin{itemize}
+        \item O método \code{cpp}{max_load_factor()} indica o fator de carga máximo suportado
+            pela tabela
+
+        \item Caso uma inserção leve a superação deste máximo, a tabela é reconstruída, com um
+            número maior de células
+
+        \item O tamanho da tabela pode ser alterado por meio dos métodos \code{cpp}{rehash()}
+            e \code{cpp}{reserve()}
+
+        \item O primeiro recebe o tamanho $T$ como parâmetro, e modifica a tabela, respeitando
+            a carga máxima
+
+        \item O segundo recebe o número de elementos $N$ a serem acomodados e modifica a tabela
+            para para comportar tais elementos sem violar a carga máxima
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de uso do \code{cpp}{unordered_set}}
+    \inputsnippet{cpp}{1}{21}{set2.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de uso do \code{cpp}{unordered_set}}
+    \inputsnippet{cpp}{22}{42}{set2.cpp}
+\end{frame}
+
+

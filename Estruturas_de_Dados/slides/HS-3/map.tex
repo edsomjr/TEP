@@ -1,0 +1,55 @@
+\section{\code{cpp}{unordered_map}}
+
+\begin{frame}[fragile]{Dicionários baseados em {\it hashes}} 
+
+    \begin{itemize}
+        \item O \code{cpp}{unordered_map} mantém um conjunto de pares, compostos por 
+            uma chave e um valor
+
+        \item Os tipos \code{c}{Key, T} das chaves e dos valores são indicados na declaração do 
+            dicionário
+
+        \item Também podem ser indicados na declaração a função de \textit{hash} a ser utilizada,
+            a função de comparação de igualdade entre os elementos e o alocador de memória
+
+        \item Este contêiner foi introduzido no C++11
+    
+        \item A sintaxe de declaração é dada abaixo:
+        \inputsyntax{cpp}{map.st}
+
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Interface}
+
+    \begin{itemize}
+        \item O \code{cpp}{unordered_map} compartilha a interface apresentada
+            para o \code{cpp}{unordered_set}
+
+        \item As funções relacionadas ao \textit{hash} também estão disponíveis
+
+        \item Ao contrário dos conjuntos, os elementos do dicionário podem ser acessados
+            por meio de suas chaves, através do método \code{cpp}{at()} ou do operador
+            \code{cpp}{[]}
+
+        \item A diferença entre os dois métodos reside nas permissões de acesso ao valor
+            retornado: há uma versão método \code{cpp}{at()} com permissão apenas para leitura
+
+        \item Esta versão é útil em métodos que não alteram a instância: observe as declarações
+            abaixo:
+
+        \inputsyntax{cpp}{acess.st}
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de uso do \code{cpp}{unordered_map}}
+    \inputsnippet{cpp}{1}{21}{map.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de uso do \code{cpp}{unordered_map}}
+    \inputsnippet{cpp}{22}{42}{map.cpp}
+\end{frame}
+
+

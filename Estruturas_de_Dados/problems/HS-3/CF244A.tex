@@ -1,0 +1,113 @@
+\section{Codeforces Round \#150 (Div. 2) -- Problem A: Dividing Orange}
+
+\begin{frame}[fragile]{Problema}
+
+One day Ms Swan bought an orange in a shop. The orange consisted of $n\cdot k$ segments, numbered 
+with integers from $1$ to $n\cdot k$.
+
+There were $k$ children waiting for Ms Swan at home. The children have recently learned about the 
+orange and they decided to divide it between them. For that each child took a piece of paper and 
+wrote the number of the segment that he would like to get: the $i$-th ($1\leq i \leq k$) child 
+wrote the number $a_i$ $(1\leq a_i \leq n\cdot k)$. All numbers $a_i$ accidentally turned out to be 
+different.
+
+\end{frame}
+
+\begin{frame}[fragile]{Problema}
+
+Now the children wonder, how to divide the orange so as to meet these conditions:
+
+\begin{itemize}
+    \item each child gets exactly $n$ orange segments;
+    \item the $i$-th child gets the segment with number $a_i$ for sure;
+    \item no segment goes to two children simultaneously.
+\end{itemize}
+
+Help the children, divide the orange and fulfill the requirements, described above.
+
+\end{frame}
+
+\begin{frame}[fragile]{Entrada e saída}
+
+\textbf{Input}
+
+The first line contains two integers $n, k$ $(1\leq n, k\leq 30)$. The second line contains 
+$k$ space-separated integers $a_1, a_2, \ldots, a_k$ $(1\leq a_i\leq n\cdot k)$, where $a_i$ is 
+the number of the orange segment that the $i$-th child would like to get.
+
+It is guaranteed that all numbers $a_i$ are distinct.
+
+\textbf{Output}
+
+Print exactly $n\cdot k$ distinct integers. The first $n$ integers represent the indexes of the 
+segments the first child will get, the second $n$ integers represent the indexes of the segments 
+the second child will get, and so on. Separate the printed numbers with whitespaces.
+
+You can print a child's segment indexes in any order. It is guaranteed that the answer always 
+exists. If there are multiple correct answers, print any of them.
+
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de entradas e saídas}
+
+\begin{minipage}[t]{0.5\textwidth}
+\textbf{Sample Input}
+\begin{verbatim}
+2 2
+4 1
+
+3 1
+2
+\end{verbatim}
+\end{minipage}
+\begin{minipage}[t]{0.45\textwidth}
+\textbf{Sample Output}
+\begin{verbatim}
+2 4 
+1 3 
+
+3 2 1
+\end{verbatim}
+\end{minipage}
+\end{frame}
+
+\begin{frame}[fragile]{Solução com complexidade $O(N)$}
+
+    \begin{itemize}
+        \item Este problema pode ser resolvido com complexidade linear por meio do uso de um
+            \code{c}{unordered_set} $S$
+
+        \item Este conjunto representa os segmentos da laranja que já foram atribuídos a uma
+            das crianças
+
+        \item Inicialmente deve ser inseridos em $S$ todos os valores $a_i$
+
+        \item Como o \code{cpp}{unordered_set} utiliza \textit{hashes} em sua implementação,
+            cada consulta ou inserçaõ em $S$ tem complexidade média $O(1)$
+
+        \item Em seguida, inicializa-se uma variável $i$ apontando para o próximo segmento
+            a ser considerado
+
+        \item Assim, para cada uma das crianças, avalia-se se $i$ está ou não disponível
+
+        \item Se estiver disponível, $i$ é atribuído à criança e acrescido em $S$
+
+        \item Quando uma criança tiver $N$ segmentos o processamento para a criança seguinte
+
+        \item Como cada segmento será processado uma única vez, a complexidade da solução
+            é $O(N)$
+   \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Solução AC com complexidade $O(N)$}
+    \inputsnippet{cpp}{1}{21}{244A.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Solução AC com complexidade $O(N)$}
+    \inputsnippet{cpp}{22}{42}{244A.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Solução AC com complexidade $O(N)$}
+    \inputsnippet{cpp}{43}{63}{244A.cpp}
+\end{frame}
