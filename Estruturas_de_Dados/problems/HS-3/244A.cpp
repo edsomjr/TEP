@@ -5,7 +5,6 @@ using namespace std;
 vector<vector<int>> solve(size_t N, int K, const vector<int>& as)
 {
     unordered_set<int> used(as.begin(), as.end());
-
     vector<vector<int>> ans(K);
     int nxt = 1;
 
