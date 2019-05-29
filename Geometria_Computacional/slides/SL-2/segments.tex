@@ -44,3 +44,187 @@
     \end{itemize}
 
 \end{frame}
+
+\begin{frame}[fragile]{Algoritmo de Shamos-Hoey}
+
+    \begin{itemize}
+        \item Para manter esta ordenação é necessário utilizar uma árvore binária de busca
+            balanceada
+
+        \item Uma alternativa é implementar tal árvore (por exemplo, uma árvore \textit{red-black})
+
+        \item Outra alternativa é utilizar um \code{c}{set} da linguagem C++, em conjunto com
+            uma variável global que armazene o valor da coordenada $x$ do evento atual e que
+            seja utilizada na rotina de comparação
+
+        \item Observe que, uma vez que um segmento $r$ esteja abaixo de um outro segmento $s$ 
+            em um ponto $x$, esta relação só mudará para valores maiores do que $x$ 
+            caso exista uma interseção ambos
+
+        \item No caso do algoritmo de Shamos-Hoey a existência de interseção é um critério
+            de parada, logo não há necessidade de tratar tais casos 
+    \end{itemize}
+
+\end{frame}
+
+\input{shamos_view.tex}
+
+\begin{frame}[fragile]{Implementação do algoritmo de Shamos-Hoey}
+    \inputsnippet{cpp}{1}{17}{shamos_hoey.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Implementação do algoritmo de Shamos-Hoey}
+    \inputsnippet{cpp}{18}{38}{shamos_hoey.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Implementação do algoritmo de Shamos-Hoey}
+    \inputsnippet{cpp}{40}{60}{shamos_hoey.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Implementação do algoritmo de Shamos-Hoey}
+    \inputsnippet{cpp}{61}{80}{shamos_hoey.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Implementação do algoritmo de Shamos-Hoey}
+    \inputsnippet{cpp}{81}{97}{shamos_hoey.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Implementação do algoritmo de Shamos-Hoey}
+    \inputsnippet{cpp}{98}{118}{shamos_hoey.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Implementação do algoritmo de Shamos-Hoey}
+    \inputsnippet{cpp}{120}{140}{shamos_hoey.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Implementação do algoritmo de Shamos-Hoey}
+    \inputsnippet{cpp}{141}{161}{shamos_hoey.cpp}
+\end{frame}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

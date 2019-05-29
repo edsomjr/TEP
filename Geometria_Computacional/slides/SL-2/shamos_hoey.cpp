@@ -34,8 +34,7 @@ struct Point
 template<typename T>
 T D(const Point<T>& P, const Point<T>& Q, const Point<T>& R)
 {
-    return (P.x * Q.y + P.y * R.x + Q.x * R.y) -
-           (R.x * Q.y + R.y * P.x + Q.x * P.y);
+    return (P.x*Q.y + P.y*R.x + Q.x*R.y) - (R.x*Q.y + R.y*P.x + Q.x*P.y);
 }
 
 template<typename T>
@@ -45,7 +44,7 @@ struct Segment
     Point<T> A, B;
 
     Segment(const Point<T>& P, const Point<T>& Q)
-        : a(P.y - Q.y), b (Q.x - P.x), c(P.x * Q.y - Q.x * P.y), A(P), B(Q)
+        : a(P.y - Q.y), b (Q.x - P.x), c(P.x*Q.y - Q.x*P.y), A(P), B(Q)
     {
         sweep_x = -1;
     }
@@ -104,10 +103,7 @@ bool shamos_hoey(const vector<Segment<T>>& segments)
         Point<T> P;
         size_t i;
 
-        bool operator<(const Event& e) const
-        {
-            return P < e.P;
-        }
+        bool operator<(const Event& e) const { return P < e.P; }
     };
 
     vector<Event> events;
@@ -123,48 +119,30 @@ bool shamos_hoey(const vector<Segment<T>>& segments)
 
     for (const auto& e : events)
     {
-        cout << "\nProcessing (" << e.P.x << ", " << e.P.y << "), " << e.i << '\n';
-
         auto s = segments[e.i];
         Segment<T>::sweep_x = e.P.x;
 
         if (e.P == s.A)
         {
-            cout << "Ponto inicial do segmento " << e.i << " " << 
-"[" << s.A.x << ", " << s.A.y << "] -- [" << s.B.x << ", " << s.B.y << "]\n";
             sl.insert(s);
-            auto it = sl.find(s);
 
-cout << "SL:\n";
-for (const auto& k : sl)
-cout << "[" << k.A.x << ", " << k.A.y << "] -- [" << k.B.x << ", " << k.B.y << "]\n";
+            auto it = sl.find(s);
 
             if (it != sl.begin())
             {
                 auto L = *prev(it);
-                cout << "Elemento abaixo: " << "[" << L.A.x << ", " << L.A.y << "] -- [" << L.B.x << ", " << L.B.y << "]\n";
 
-                if (s.intersect(L))
-                {
-cout << "Interseção com o elemento abaixo\n";
-                    return true;
-                }
+                if (s.intersect(L)) return true;
             } 
 
             if (next(it) != sl.end())
             {
                 auto U = *next(it);
-                cout << "Elemento acim: " << "[" << U.A.x << ", " << U.A.y << "] -- [" << U.B.x << ", " << U.B.y << "]\n";
 
-                if (s.intersect(U))
-                {
-cout << "Interseção com o elemento acim\n";
-                    return true;
-                }
+                if (s.intersect(U)) return true;
             } 
         } else
         {
-            cout << "Ponto final do segmento " << e.i << '\n';
             auto it = sl.find(s);
 
             if (it != sl.begin() and it != sl.end())
@@ -172,11 +150,7 @@ cout << "Interseção com o elemento acim\n";
                 auto L = *prev(it);
                 auto U = *next(it);
 
-                if (L.intersect(U))
-                {
-cout << "Interseção entre os vizinhos\n";
-                    return true;
-                }
+                if (L.intersect(U)) return true;
             }
 
             sl.erase(it);
