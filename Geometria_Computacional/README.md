@@ -14,4 +14,5 @@ Geometria Computacional
     1. [Objetos Tridimensionais](slides/3D-1/3D-1.pdf) ([problemas resolvidos](problems/3D-1/3D-1.pdf))
 1. [Envoltório Convexo](slides/CH-1/CH-1.pdf) ([problemas resolvidos](problems/CH-1/CH-1.pdf))
 1. _Sweep line_
-    1. [Algoritmos envolvendo intervalos](slides/SL-1/SL-1.pdf)
+    1. [Definição e exemplos](slides/SL-1/SL-1.pdf)
+    1. [Algoritmos](slides/SL-2/SL-2.pdf) ([problemas resolvidos](problems/SL-2/SL-2.pdf))

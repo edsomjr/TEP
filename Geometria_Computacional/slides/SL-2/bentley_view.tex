@@ -1,0 +1,484 @@
+\begin{frame}[fragile]{Visualização da contagem das interseções entres segmentos}
+
+    \begin{figure}
+        \centering
+
+        \begin{tikzpicture}
+            \coordinate (A) at (1, 2);
+            \coordinate (B) at (4, 5);
+            \coordinate (C) at (0, 3);
+            \coordinate (D) at (6, 3);
+            \coordinate (E) at (1, 6);
+            \coordinate (F) at (3, 0);
+            \coordinate (G) at (2, 5);
+            \coordinate (H) at (5, 2);
+
+            \fill (A) node[anchor=east] { $A$ } circle [radius=1.5pt];
+            \fill (B) node[anchor=west] { $B$ } circle [radius=1.5pt];
+            \fill (C) node[anchor=east] { $C$ } circle [radius=1.5pt];
+            \fill (D) node[anchor=west] { $D$ } circle [radius=1.5pt];
+            \fill (E) node[anchor=east] { $E$ } circle [radius=1.5pt];
+            \fill (F) node[anchor=west] { $F$ } circle [radius=1.5pt];
+            \fill (G) node[anchor=east] { $G$ } circle [radius=1.5pt];
+            \fill (H) node[anchor=west] { $H$ } circle [radius=1.5pt];
+
+            \draw (A) -- (B);
+            \draw (C) -- (D);
+            \draw (E) -- (F);
+            \draw (G) -- (H);
+
+            \draw[opacity=0] (0, 0) -- (0, 7);
+        \end{tikzpicture}
+    \end{figure}
+
+\end{frame}
+
+\begin{frame}[fragile]{Visualização da contagem das interseções entres segmentos}
+
+    \begin{figure}
+        \centering
+
+        \begin{tikzpicture}
+            \coordinate (A) at (1, 2);
+            \coordinate (B) at (4, 5);
+            \coordinate (C) at (0, 3);
+            \coordinate (D) at (6, 3);
+            \coordinate (E) at (1, 6);
+            \coordinate (F) at (3, 0);
+            \coordinate (G) at (2, 5);
+            \coordinate (H) at (5, 2);
+
+            \draw (A) -- (B);
+            \draw[thick,blue] (C) -- (D);
+            \draw (E) -- (F);
+            \draw (G) -- (H);
+
+            \draw[dashed] (0, 0) -- (0, 7);
+
+            \fill (A) node[anchor=east] { $A$ } circle [radius=1.5pt];
+            \fill (B) node[anchor=west] { $B$ } circle [radius=1.5pt];
+            \fill (C) node[anchor=east] { $C$ } circle [radius=1.5pt];
+            \fill (D) node[anchor=west] { $D$ } circle [radius=1.5pt];
+            \fill (E) node[anchor=east] { $E$ } circle [radius=1.5pt];
+            \fill (F) node[anchor=west] { $F$ } circle [radius=1.5pt];
+            \fill (G) node[anchor=east] { $G$ } circle [radius=1.5pt];
+            \fill (H) node[anchor=west] { $H$ } circle [radius=1.5pt];
+
+        \end{tikzpicture}
+    \end{figure}
+
+\end{frame}
+
+\begin{frame}[fragile]{Visualização da contagem das interseções entres segmentos}
+
+    \begin{figure}
+        \centering
+
+        \begin{tikzpicture}
+            \coordinate (A) at (1, 2);
+            \coordinate (B) at (4, 5);
+            \coordinate (C) at (0, 3);
+            \coordinate (D) at (6, 3);
+            \coordinate (E) at (1, 6);
+            \coordinate (F) at (3, 0);
+            \coordinate (G) at (2, 5);
+            \coordinate (H) at (5, 2);
+
+            \coordinate (P1) at (2, 3);
+
+            \draw[thick,blue] (A) -- (B);
+            \draw[thick,green!60!black] (C) -- (D);
+            \draw (E) -- (F);
+            \draw (G) -- (H);
+
+            \draw[dashed] (1, 0) -- (1, 7);
+
+            \fill (A) node[anchor=east] { $A$ } circle [radius=1.5pt];
+            \fill (B) node[anchor=west] { $B$ } circle [radius=1.5pt];
+            \fill (C) node[anchor=east] { $C$ } circle [radius=1.5pt];
+            \fill (D) node[anchor=west] { $D$ } circle [radius=1.5pt];
+            \fill (E) node[anchor=east] { $E$ } circle [radius=1.5pt];
+            \fill (F) node[anchor=west] { $F$ } circle [radius=1.5pt];
+            \fill (G) node[anchor=east] { $G$ } circle [radius=1.5pt];
+            \fill (H) node[anchor=west] { $H$ } circle [radius=1.5pt];
+            \fill (P1) node[anchor=south east] { $P_1$ } circle [radius=1.5pt];
+
+        \end{tikzpicture}
+    \end{figure}
+
+\end{frame}
+
+\begin{frame}[fragile]{Visualização da contagem das interseções entres segmentos}
+
+    \begin{figure}
+        \centering
+
+        \begin{tikzpicture}
+            \coordinate (A) at (1, 2);
+            \coordinate (B) at (4, 5);
+            \coordinate (C) at (0, 3);
+            \coordinate (D) at (6, 3);
+            \coordinate (E) at (1, 6);
+            \coordinate (F) at (3, 0);
+            \coordinate (G) at (2, 5);
+            \coordinate (H) at (5, 2);
+
+            \coordinate (P1) at (2, 3);
+
+            \draw[thick] (A) -- (B);
+            \draw[thick,red] (C) -- (D);
+            \draw[thick,blue] (E) -- (F);
+            \draw (G) -- (H);
+
+            \draw[dashed] (1, 0) -- (1, 7);
+
+            \fill (A) node[anchor=east] { $A$ } circle [radius=1.5pt];
+            \fill (B) node[anchor=west] { $B$ } circle [radius=1.5pt];
+            \fill (C) node[anchor=east] { $C$ } circle [radius=1.5pt];
+            \fill (D) node[anchor=west] { $D$ } circle [radius=1.5pt];
+            \fill (E) node[anchor=east] { $E$ } circle [radius=1.5pt];
+            \fill (F) node[anchor=west] { $F$ } circle [radius=1.5pt];
+            \fill (G) node[anchor=east] { $G$ } circle [radius=1.5pt];
+            \fill (H) node[anchor=west] { $H$ } circle [radius=1.5pt];
+            \fill (P1) node[anchor=south east] { $P_1$ } circle [radius=1.5pt];
+
+        \end{tikzpicture}
+    \end{figure}
+
+\end{frame}
+
+\begin{frame}[fragile]{Visualização da contagem das interseções entres segmentos}
+
+    \begin{figure}
+        \centering
+
+        \begin{tikzpicture}
+            \coordinate (A) at (1, 2);
+            \coordinate (B) at (4, 5);
+            \coordinate (C) at (0, 3);
+            \coordinate (D) at (6, 3);
+            \coordinate (E) at (1, 6);
+            \coordinate (F) at (3, 0);
+            \coordinate (G) at (2, 5);
+            \coordinate (H) at (5, 2);
+
+            \coordinate (P1) at (2, 3);
+
+            \draw[thick,green!60!black] (A) -- (B);
+            \draw[thick,blue] (C) -- (D);
+            \draw[thick,red] (E) -- (F);
+            \draw (G) -- (H);
+
+            \draw[dashed] (2, 0) -- (2, 7);
+
+            \fill (A) node[anchor=east] { $A$ } circle [radius=1.5pt];
+            \fill (B) node[anchor=west] { $B$ } circle [radius=1.5pt];
+            \fill (C) node[anchor=east] { $C$ } circle [radius=1.5pt];
+            \fill (D) node[anchor=west] { $D$ } circle [radius=1.5pt];
+            \fill (E) node[anchor=east] { $E$ } circle [radius=1.5pt];
+            \fill (F) node[anchor=west] { $F$ } circle [radius=1.5pt];
+            \fill (G) node[anchor=east] { $G$ } circle [radius=1.5pt];
+            \fill (H) node[anchor=west] { $H$ } circle [radius=1.5pt];
+            \fill (P1) node[anchor=south east] { $P_1$ } circle [radius=1.5pt];
+
+        \end{tikzpicture}
+    \end{figure}
+
+\end{frame}
+
+\begin{frame}[fragile]{Visualização da contagem das interseções entres segmentos}
+
+    \begin{figure}
+        \centering
+
+        \begin{tikzpicture}
+            \coordinate (A) at (1, 2);
+            \coordinate (B) at (4, 5);
+            \coordinate (C) at (0, 3);
+            \coordinate (D) at (6, 3);
+            \coordinate (E) at (1, 6);
+            \coordinate (F) at (3, 0);
+            \coordinate (G) at (2, 5);
+            \coordinate (H) at (5, 2);
+
+            \coordinate (P1) at (2, 3);
+            \coordinate (P2) at (3, 4);
+
+            \draw[thick,red] (A) -- (B);
+            \draw[thick] (C) -- (D);
+            \draw[thick] (E) -- (F);
+            \draw[thick,blue] (G) -- (H);
+
+            \draw[dashed] (2, 0) -- (2, 7);
+
+            \fill (A) node[anchor=east] { $A$ } circle [radius=1.5pt];
+            \fill (B) node[anchor=west] { $B$ } circle [radius=1.5pt];
+            \fill (C) node[anchor=east] { $C$ } circle [radius=1.5pt];
+            \fill (D) node[anchor=west] { $D$ } circle [radius=1.5pt];
+            \fill (E) node[anchor=east] { $E$ } circle [radius=1.5pt];
+            \fill (F) node[anchor=west] { $F$ } circle [radius=1.5pt];
+            \fill (G) node[anchor=east] { $G$ } circle [radius=1.5pt];
+            \fill (H) node[anchor=west] { $H$ } circle [radius=1.5pt];
+            \fill (P1) node[anchor=south east] { $P_1$ } circle [radius=1.5pt];
+            \fill (P2) node[anchor=west] { $P_2$ } circle [radius=1.5pt];
+
+        \end{tikzpicture}
+    \end{figure}
+
+\end{frame}
+
+\begin{frame}[fragile]{Visualização da contagem das interseções entres segmentos}
+
+    \begin{figure}
+        \centering
+
+        \begin{tikzpicture}
+            \coordinate (A) at (1, 2);
+            \coordinate (B) at (4, 5);
+            \coordinate (C) at (0, 3);
+            \coordinate (D) at (6, 3);
+            \coordinate (E) at (1, 6);
+            \coordinate (F) at (3, 0);
+            \coordinate (G) at (2, 5);
+            \coordinate (H) at (5, 2);
+
+            \coordinate (P1) at (2, 3);
+            \coordinate (P2) at (3, 4);
+
+            \draw[thick] (A) -- (B);
+            \draw[thick] (C) -- (D);
+            \draw[thick,gray!50] (E) -- (F);
+            \draw[thick] (G) -- (H);
+
+            \draw[dashed] (3, 0) -- (3, 7);
+
+            \fill (A) node[anchor=east] { $A$ } circle [radius=1.5pt];
+            \fill (B) node[anchor=west] { $B$ } circle [radius=1.5pt];
+            \fill (C) node[anchor=east] { $C$ } circle [radius=1.5pt];
+            \fill (D) node[anchor=west] { $D$ } circle [radius=1.5pt];
+            \fill (E) node[anchor=east] { $E$ } circle [radius=1.5pt];
+            \fill (F) node[anchor=west] { $F$ } circle [radius=1.5pt];
+            \fill (G) node[anchor=east] { $G$ } circle [radius=1.5pt];
+            \fill (H) node[anchor=west] { $H$ } circle [radius=1.5pt];
+            \fill (P1) node[anchor=south east] { $P_1$ } circle [radius=1.5pt];
+            \fill (P2) node[anchor=west] { $P_2$ } circle [radius=1.5pt];
+
+        \end{tikzpicture}
+    \end{figure}
+
+\end{frame}
+
+\begin{frame}[fragile]{Visualização da contagem das interseções entres segmentos}
+
+    \begin{figure}
+        \centering
+
+        \begin{tikzpicture}
+            \coordinate (A) at (1, 2);
+            \coordinate (B) at (4, 5);
+            \coordinate (C) at (0, 3);
+            \coordinate (D) at (6, 3);
+            \coordinate (E) at (1, 6);
+            \coordinate (F) at (3, 0);
+            \coordinate (G) at (2, 5);
+            \coordinate (H) at (5, 2);
+
+            \coordinate (P1) at (2, 3);
+            \coordinate (P2) at (3, 4);
+            \coordinate (P3) at (4, 3);
+
+            \draw[thick,green!60!black] (A) -- (B);
+            \draw[thick] (C) -- (D);
+            \draw[thick,gray!50] (E) -- (F);
+            \draw[thick,red] (G) -- (H);
+
+            \draw[dashed] (3, 0) -- (3, 7);
+
+            \fill (A) node[anchor=east] { $A$ } circle [radius=1.5pt];
+            \fill (B) node[anchor=west] { $B$ } circle [radius=1.5pt];
+            \fill (C) node[anchor=east] { $C$ } circle [radius=1.5pt];
+            \fill (D) node[anchor=west] { $D$ } circle [radius=1.5pt];
+            \fill (E) node[anchor=east] { $E$ } circle [radius=1.5pt];
+            \fill (F) node[anchor=west] { $F$ } circle [radius=1.5pt];
+            \fill (G) node[anchor=east] { $G$ } circle [radius=1.5pt];
+            \fill (H) node[anchor=west] { $H$ } circle [radius=1.5pt];
+            \fill (P1) node[anchor=south east] { $P_1$ } circle [radius=1.5pt];
+            \fill (P2) node[anchor=west] { $P_2$ } circle [radius=1.5pt];
+            \fill (P3) node[anchor=north east] { $P_3$ } circle [radius=1.5pt];
+
+        \end{tikzpicture}
+    \end{figure}
+
+\end{frame}
+
+\begin{frame}[fragile]{Visualização da contagem das interseções entres segmentos}
+
+    \begin{figure}
+        \centering
+
+        \begin{tikzpicture}
+            \coordinate (A) at (1, 2);
+            \coordinate (B) at (4, 5);
+            \coordinate (C) at (0, 3);
+            \coordinate (D) at (6, 3);
+            \coordinate (E) at (1, 6);
+            \coordinate (F) at (3, 0);
+            \coordinate (G) at (2, 5);
+            \coordinate (H) at (5, 2);
+
+            \coordinate (P1) at (2, 3);
+            \coordinate (P2) at (3, 4);
+            \coordinate (P3) at (4, 3);
+
+            \draw[thick] (A) -- (B);
+            \draw[thick,blue] (C) -- (D);
+            \draw[thick,gray!50] (E) -- (F);
+            \draw[thick,red] (G) -- (H);
+
+            \draw[dashed] (4, 0) -- (4, 7);
+
+            \fill (A) node[anchor=east] { $A$ } circle [radius=1.5pt];
+            \fill (B) node[anchor=west] { $B$ } circle [radius=1.5pt];
+            \fill (C) node[anchor=east] { $C$ } circle [radius=1.5pt];
+            \fill (D) node[anchor=west] { $D$ } circle [radius=1.5pt];
+            \fill (E) node[anchor=east] { $E$ } circle [radius=1.5pt];
+            \fill (F) node[anchor=west] { $F$ } circle [radius=1.5pt];
+            \fill (G) node[anchor=east] { $G$ } circle [radius=1.5pt];
+            \fill (H) node[anchor=west] { $H$ } circle [radius=1.5pt];
+            \fill (P1) node[anchor=south east] { $P_1$ } circle [radius=1.5pt];
+            \fill (P2) node[anchor=west] { $P_2$ } circle [radius=1.5pt];
+            \fill (P3) node[anchor=north east] { $P_3$ } circle [radius=1.5pt];
+
+        \end{tikzpicture}
+    \end{figure}
+
+\end{frame}
+
+\begin{frame}[fragile]{Visualização da contagem das interseções entres segmentos}
+
+    \begin{figure}
+        \centering
+
+        \begin{tikzpicture}
+            \coordinate (A) at (1, 2);
+            \coordinate (B) at (4, 5);
+            \coordinate (C) at (0, 3);
+            \coordinate (D) at (6, 3);
+            \coordinate (E) at (1, 6);
+            \coordinate (F) at (3, 0);
+            \coordinate (G) at (2, 5);
+            \coordinate (H) at (5, 2);
+
+            \coordinate (P1) at (2, 3);
+            \coordinate (P2) at (3, 4);
+            \coordinate (P3) at (4, 3);
+
+            \draw[thick,gray!50] (A) -- (B);
+            \draw[thick] (C) -- (D);
+            \draw[thick,gray!50] (E) -- (F);
+            \draw[thick] (G) -- (H);
+
+            \draw[dashed] (4, 0) -- (4, 7);
+
+            \fill (A) node[anchor=east] { $A$ } circle [radius=1.5pt];
+            \fill (B) node[anchor=west] { $B$ } circle [radius=1.5pt];
+            \fill (C) node[anchor=east] { $C$ } circle [radius=1.5pt];
+            \fill (D) node[anchor=west] { $D$ } circle [radius=1.5pt];
+            \fill (E) node[anchor=east] { $E$ } circle [radius=1.5pt];
+            \fill (F) node[anchor=west] { $F$ } circle [radius=1.5pt];
+            \fill (G) node[anchor=east] { $G$ } circle [radius=1.5pt];
+            \fill (H) node[anchor=west] { $H$ } circle [radius=1.5pt];
+            \fill (P1) node[anchor=south east] { $P_1$ } circle [radius=1.5pt];
+            \fill (P2) node[anchor=west] { $P_2$ } circle [radius=1.5pt];
+            \fill (P3) node[anchor=north east] { $P_3$ } circle [radius=1.5pt];
+
+        \end{tikzpicture}
+    \end{figure}
+
+\end{frame}
+
+\begin{frame}[fragile]{Visualização da contagem das interseções entres segmentos}
+
+    \begin{figure}
+        \centering
+
+        \begin{tikzpicture}
+            \coordinate (A) at (1, 2);
+            \coordinate (B) at (4, 5);
+            \coordinate (C) at (0, 3);
+            \coordinate (D) at (6, 3);
+            \coordinate (E) at (1, 6);
+            \coordinate (F) at (3, 0);
+            \coordinate (G) at (2, 5);
+            \coordinate (H) at (5, 2);
+
+            \coordinate (P1) at (2, 3);
+            \coordinate (P2) at (3, 4);
+            \coordinate (P3) at (4, 3);
+
+            \draw[thick,gray!50] (A) -- (B);
+            \draw[thick] (C) -- (D);
+            \draw[thick,gray!50] (E) -- (F);
+            \draw[thick,gray!50] (G) -- (H);
+
+            \draw[dashed] (5, 0) -- (5, 7);
+
+            \fill (A) node[anchor=east] { $A$ } circle [radius=1.5pt];
+            \fill (B) node[anchor=west] { $B$ } circle [radius=1.5pt];
+            \fill (C) node[anchor=east] { $C$ } circle [radius=1.5pt];
+            \fill (D) node[anchor=west] { $D$ } circle [radius=1.5pt];
+            \fill (E) node[anchor=east] { $E$ } circle [radius=1.5pt];
+            \fill (F) node[anchor=west] { $F$ } circle [radius=1.5pt];
+            \fill (G) node[anchor=east] { $G$ } circle [radius=1.5pt];
+            \fill (H) node[anchor=west] { $H$ } circle [radius=1.5pt];
+            \fill (P1) node[anchor=south east] { $P_1$ } circle [radius=1.5pt];
+            \fill (P2) node[anchor=west] { $P_2$ } circle [radius=1.5pt];
+            \fill (P3) node[anchor=north east] { $P_3$ } circle [radius=1.5pt];
+
+        \end{tikzpicture}
+    \end{figure}
+
+\end{frame}
+
+\begin{frame}[fragile]{Visualização da contagem das interseções entres segmentos}
+
+    \begin{figure}
+        \centering
+
+        \begin{tikzpicture}
+            \coordinate (A) at (1, 2);
+            \coordinate (B) at (4, 5);
+            \coordinate (C) at (0, 3);
+            \coordinate (D) at (6, 3);
+            \coordinate (E) at (1, 6);
+            \coordinate (F) at (3, 0);
+            \coordinate (G) at (2, 5);
+            \coordinate (H) at (5, 2);
+
+            \coordinate (P1) at (2, 3);
+            \coordinate (P2) at (3, 4);
+            \coordinate (P3) at (4, 3);
+
+            \draw[thick,gray!50] (A) -- (B);
+            \draw[thick,gray!50] (C) -- (D);
+            \draw[thick,gray!50] (E) -- (F);
+            \draw[thick,gray!50] (G) -- (H);
+
+            \draw[dashed] (6, 0) -- (6, 7);
+
+            \fill (A) node[anchor=east] { $A$ } circle [radius=1.5pt];
+            \fill (B) node[anchor=west] { $B$ } circle [radius=1.5pt];
+            \fill (C) node[anchor=east] { $C$ } circle [radius=1.5pt];
+            \fill (D) node[anchor=west] { $D$ } circle [radius=1.5pt];
+            \fill (E) node[anchor=east] { $E$ } circle [radius=1.5pt];
+            \fill (F) node[anchor=west] { $F$ } circle [radius=1.5pt];
+            \fill (G) node[anchor=east] { $G$ } circle [radius=1.5pt];
+            \fill (H) node[anchor=west] { $H$ } circle [radius=1.5pt];
+            \fill (P1) node[anchor=south east] { $P_1$ } circle [radius=1.5pt];
+            \fill (P2) node[anchor=west] { $P_2$ } circle [radius=1.5pt];
+            \fill (P3) node[anchor=north east] { $P_3$ } circle [radius=1.5pt];
+
+        \end{tikzpicture}
+    \end{figure}
+
+\end{frame}
