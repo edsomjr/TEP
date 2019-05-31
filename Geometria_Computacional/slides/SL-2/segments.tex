@@ -101,130 +101,100 @@
     \inputsnippet{cpp}{141}{161}{shamos_hoey.cpp}
 \end{frame}
 
+\begin{frame}[fragile]{Algoritmo de Bentley-Ottman}
 
+    \begin{itemize}
+        \item O algoritmo de Bentley-Ottman é uma extensão do algoritmo de Shamos-Hoey que
+            permite identificação todos os pontos de interseção entre os segmentos
 
+        \item A complexidade do algoritmo é $O((N + k)\log N)$, onde $k$ é o número de 
+        pontos de interseção entre os segmentos
 
+        \item Como o número máximo de intercessões $k$ entre $N$ segmentos é $O(N^2)$,
+            no pior caso o algoritmo de Bentley-Ottman tem complexidade pior do que a
+            busca completa
 
+        \item Este é um algoritmo sensível à entrada, pois sua complexidade depende de $k$
 
+    \end{itemize}
 
+\end{frame}
 
+\begin{frame}[fragile]{Implementação do algoritmo de busca completa}
+    \inputsnippet{cpp}{1}{21}{bf.cpp}
+\end{frame}
 
+\begin{frame}[fragile]{Implementação do algoritmo de busca completa}
+    \inputsnippet{cpp}{23}{43}{bf.cpp}
+\end{frame}
 
+\begin{frame}[fragile]{Implementação do algoritmo de busca completa}
+    \inputsnippet{cpp}{44}{64}{bf.cpp}
+\end{frame}
 
+\begin{frame}[fragile]{Implementação do algoritmo de busca completa}
+    \inputsnippet{cpp}{65}{85}{bf.cpp}
+\end{frame}
 
+\begin{frame}[fragile]{Algoritmo de Bentley-Ottman}
 
+    \begin{itemize}
+        \item A estrutura geral do algoritmo de Bentley-Ottman é a mesma do algoritmos de
+            Shamos-Hoey
 
+        \item A principal diferença é que os pontos de interseção entre os segmentos geram
+            novos eventos
 
+        \item Em um evento de interseção, os segmentos que se interceptaram devem trocar de
+            posições
 
+        \item Esta operação pode ser implementada em uma árvore binária de busca balanceada
+            aumentada, o que aumenta o tamanho e a complexidade da implementação
 
+        \item Para usar o contêiner \code{c}{set} da STL é preciso fazer algumas adaptações 
+            e assumir certas condições extras à entrada do problema
+    \end{itemize}
 
+\end{frame}
 
+\input{bentley_view}
 
+\begin{frame}[fragile]{Implementação do algoritmo de Bentley-Ottman}
+    \inputsnippet{cpp}{1}{20}{bentley_ottman.cpp}
+\end{frame}
 
+\begin{frame}[fragile]{Implementação do algoritmo de Bentley-Ottman}
+    \inputsnippet{cpp}{21}{41}{bentley_ottman.cpp}
+\end{frame}
 
+\begin{frame}[fragile]{Implementação do algoritmo de Bentley-Ottman}
+    \inputsnippet{cpp}{42}{62}{bentley_ottman.cpp}
+\end{frame}
 
+\begin{frame}[fragile]{Implementação do algoritmo de Bentley-Ottman}
+    \inputsnippet{cpp}{63}{83}{bentley_ottman.cpp}
+\end{frame}
 
+\begin{frame}[fragile]{Implementação do algoritmo de Bentley-Ottman}
+    \inputsnippet{cpp}{84}{102}{bentley_ottman.cpp}
+\end{frame}
 
+\begin{frame}[fragile]{Implementação do algoritmo de Bentley-Ottman}
+    \inputsnippet{cpp}{103}{122}{bentley_ottman.cpp}
+\end{frame}
 
+\begin{frame}[fragile]{Implementação do algoritmo de Bentley-Ottman}
+    \inputsnippet{cpp}{123}{142}{bentley_ottman.cpp}
+\end{frame}
 
+\begin{frame}[fragile]{Implementação do algoritmo de Bentley-Ottman}
+    \inputsnippet{cpp}{143}{163}{bentley_ottman.cpp}
+\end{frame}
 
+\begin{frame}[fragile]{Implementação do algoritmo de Bentley-Ottman}
+    \inputsnippet{cpp}{164}{184}{bentley_ottman.cpp}
+\end{frame}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+\begin{frame}[fragile]{Implementação do algoritmo de Bentley-Ottman}
+    \inputsnippet{cpp}{185}{194}{bentley_ottman.cpp}
+\end{frame}
