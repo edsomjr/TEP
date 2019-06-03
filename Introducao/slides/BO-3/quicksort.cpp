@@ -29,7 +29,11 @@ void quicksort(RandomAccessIterator first, RandomAccessIterator last)
 {
     auto p = partitioning(first, last);
 
-    cout << *p << '\n';
+    if (p - first > 1)
+        quicksort(first, p);
+
+    if (last - p - 1 > 1)
+        quicksort(p + 1, last); 
 }
 
 int main()

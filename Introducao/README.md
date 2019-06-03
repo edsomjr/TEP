@@ -18,6 +18,7 @@ Slides
 1. Busca e Ordenação
     1. [Algoritmos de Busca](slides/BO-1/BO-1.pdf) ([problemas resolvidos](problems/BO-1/BO-1.pdf))
     1. [Algoritmos de Ordenação Quadráticos](slides/BO-2/BO-2.pdf)
+    1. [Algoritmos de Ordenação $O(N\log N)$](slides/BO-3/BO-3.pdf)
     1. [Ordenação em C/C++](slides/BO-4/BO-4.pdf) ([problemas resolvidos](problems/BO-4/BO-4.pdf))
 1. [Recursão](slides/RS-1/RS-1.pdf) ([problemas resolvidos](problems/RS-1/RS-1.pdf))
 1. [Leituras Recomendadas](slides/BB-1/BB-1.pdf)
