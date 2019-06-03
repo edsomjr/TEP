@@ -1,0 +1,110 @@
+\section{Codeforces Round \#329 (Div. 2) -- Problem B: Anton and Lines}
+
+\begin{frame}[fragile]{Problema}
+
+
+The teacher gave Anton a large geometry homework, but he didn't do it (as usual) as he 
+participated in a regular round on Codeforces. In the task he was given a set of n lines defined 
+by the equations $y = k_ix + b_i$. It was necessary to determine whether there is at least one 
+point of intersection of two of these lines, that lays strictly inside the strip between 
+$x_1 < x_2$. In other words, is it true that there are $1\leq i < j\leq n$ and $x', y'$, such that:
+
+\begin{itemize}
+    \item $y' = k_ix' + b_i$, that is, point ($x', y'$) belongs to the line number $i$;
+    \item $y' = k_jx' + b_j$, that is, point ($x', y'$) belongs to the line number $j$;
+    \item $x_1 < x' < x_2$, that is, point ($x', y'$) lies inside the strip bounded by $x_1 < x_2$.
+\end{itemize}
+
+You can't leave Anton in trouble, can you? Write a program that solves the given task.
+
+\end{frame}
+
+\begin{frame}[fragile]{Entrada e saída}
+
+\textbf{Input}
+
+The first line of the input contains an integer $n$ $(2\leq n\leq 100 000)$ --  the number of lines 
+in the task given to Anton. The second line contains integers $x_1$ and $x_2$ 
+$(-1 000 000\leq x_1 < x_2\leq 1 000 000)$ defining the strip inside which you need to find a point 
+of intersection of at least two lines.
+
+The following $n$ lines contain integers $k_i, b_i$ $(-1 000 000\leq k_i, b_i\leq 1 000 000)$ -- the 
+descriptions of the lines. It is guaranteed that all lines are pairwise distinct, that is, for any 
+two $i\neq j$ it is true that either $k_i\neq k_j$, or $b_i\neq b_j$.
+
+\textbf{Output}
+
+Print "\texttt{Yes}" (without quotes), if there is at least one intersection of two distinct lines, located strictly inside the strip. Otherwise print "\texttt{No}" (without quotes).
+
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de entradas e saídas}
+
+\begin{minipage}[t]{0.5\textwidth}
+\textbf{Sample Input}
+\begin{verbatim}
+4
+1 2
+1 2
+1 0
+0 1
+0 2
+
+2
+1 3
+1 0
+-1 3
+\end{verbatim}
+\end{minipage}
+\begin{minipage}[t]{0.45\textwidth}
+\textbf{Sample Output}
+\begin{verbatim}
+YES
+
+
+
+
+
+
+NO
+\end{verbatim}
+\end{minipage}
+\end{frame}
+
+\begin{frame}[fragile]{Solução com complexidade $O(N\log N)$}
+
+    \begin{itemize}
+        \item A busca completa, que verifica todos os pares de segmentos de reta, tem
+            complexidade $O(N^2)$, o que leva ao TLE, pois $N\leq 10^5$
+
+        \item Contudo, é possível determinar as possíveis interseções no intervalo
+            $(x_1, x_2)$ com um algoritmo \textit{sweep line} 
+
+        \item Os segmentos devem ser ordenados, em ordem crescente, pelo valor da coordenada
+            $y$ do segmento no ponto $x_1$
+
+        \item Em caso de empate, deve-se ordenar pela coordena $y$ no ponto $x_2$
+
+        \item Cada segmento deve ser processado uma única vez, nesta ordem
+
+        \item Deve-se manter o registro da maior coordenada $y$ em $x_2$ já encontrada 
+            (inicialmente, este valor deve ser igual a $-\infty$
+
+        \item Se a coordenada $y$ em $x_2$ do segmento a ser processado for menor do que
+            a maior já encontrada, significa que houve uma interseção com algum dos segmentos
+            já processados 
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Solução com complexidade $O(N \log N)$}
+    \inputsnippet{cpp}{1}{21}{593B.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Solução com complexidade $O(N \log N)$}
+    \inputsnippet{cpp}{22}{42}{593B.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Solução com complexidade $O(N \log N)$}
+    \inputsnippet{cpp}{43}{60}{593B.cpp}
+\end{frame}
