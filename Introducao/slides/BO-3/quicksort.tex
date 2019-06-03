@@ -1,0 +1,65 @@
+\section{\it QuickSort}
+
+\begin{frame}[fragile]{Motivação}
+
+    \begin{itemize}
+        \item Embora o \textit{MergeSort} seja um algoritmo que atinja a limite
+            inferior $O(N\log N)$ para algoritmos de ordenação baseados em
+            comparações, ele demanda uma memória adicional $O(N)$, não sendo portando
+            um algoritmo \textit{in-place}
+
+        \item A ideia do \textit{QuickSort} é aproveita a ideia da divisão do vetor em
+            subvetores menores, como é feito no \textit{MergeSort}
+
+        \item Contudo, a ideia é que o algoritmo seja \textit{in-place}
+
+        \item Assim, a divisão do vetor não será posicional, mas sim baseada no valor de um
+            elemento escolhido arbitrariamente, denominado pivô
+
+        \item O pivô permite um rearranjo dos elementos usando a própria memória do vetor,
+            tornando o algoritmo \textit{in-place}
+
+        \item Embora o \textit{QuickSort} tenha complexidade média $O(N\log N)$, no pior caso
+            ele pode se degenerar para $O(N^2)$
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Pivoteamento}
+
+    \begin{itemize}
+        \item Pivoteamento é o processo de reposicionamento dos elementos do vetor
+            de acordo com o valor $x$ do elemento pivô que ocupa o índice $p$
+
+        \item Ao final do pivoteamento, todos elementos com valores menores que $x$ estarão
+            à esquerda do pivô, e os demais à direita
+
+        \item O pivô já estará na posição correta em relação ao ordenamento global, de modo que
+            o  \textit{QuickSort} pode prosseguir recursivamente nas duas partes separadas
+            pelo pivô
+
+        \item Para simplificar a rotina, no início do pivoteamento o pivô troca de posição
+            com o primeiro elemento do vetor
+
+        \item Ao final, o pivô se move para a posição adequada e esta posição é retornada
+
+        \item Para evitar o pior caso, a escolha do pivô deve ser aleatória entre todos 
+            os índices possíveis
+    \end{itemize}
+
+\end{frame}
+
+\input{partitioning_view}
+
+\begin{frame}[fragile]{Implementação da rotina de pivoteamento}
+    \inputsnippet{cpp}{5}{25}{quicksort.cpp}
+\end{frame}
+
+
+\input{quicksort_view}
+
+\begin{frame}[fragile]{Implementação do {\it quicksort}}
+    \inputsnippet{cpp}{27}{37}{quicksort.cpp}
+\end{frame}
+
+
