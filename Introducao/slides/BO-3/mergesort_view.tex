@@ -1,0 +1,1765 @@
+\begin{frame}[fragile]{Visualização do \code{c}{mergesort}}
+
+    \begin{figure}
+        \centering
+
+        \begin{tikzpicture}
+        \begin{scope}[scale=0.8]
+            \draw (0, 5) grid (9, 6);
+
+%            \draw (-1, 3) grid (4, 4);
+%            \draw (6, 3) grid (10, 4);
+%
+%            \foreach \x in {-1,...,1}:
+%                \draw ({\x - 0.5}, 1) rectangle ({\x + 0.5}, 2);
+%
+%            \foreach \x in {3,...,4}:
+%                \draw ({\x - 0.5}, 1) rectangle ({\x + 0.5}, 2);
+%
+%            \foreach \x in {6,...,7}:
+%                \draw ({\x - 0.5}, 1) rectangle ({\x + 0.5}, 2);
+%
+%            \foreach \x in {9,...,10}:
+%                \draw ({\x - 0.5}, 1) rectangle ({\x + 0.5}, 2);
+%
+%            \draw (-2, -1) grid (0, 0);
+            \draw[opacity=0] (-2.25, -3) rectangle (-1.25, -2);
+%            \draw (-0.75, -3) rectangle (0.25, -2);
+%
+%            \draw (0.5, -1) rectangle (1.5, 0);
+%
+%            \draw (2.25, -1) rectangle (3.25, 0);
+%            \draw (3.75, -1) rectangle (4.75, 0);
+%
+%            \draw (5.25, -1) rectangle (6.25, 0);
+%            \draw (6.75, -1) rectangle (7.75, 0);
+%
+%            \draw (8.25, -1) rectangle (9.25, 0);
+            \draw[opacity=0] (9.75, -1) rectangle (10.75, 0);
+
+            \node at (0.5, 5.5) { \textcolor{black}{$89$} };
+            \node at (1.5, 5.5) { \textcolor{black}{$60$} };
+            \node at (2.5, 5.5) { \textcolor{black}{$12$} };
+            \node at (3.5, 5.5) { \textcolor{black}{$45$} };
+            \node at (4.5, 5.5) { \textcolor{black}{$37$} };
+            \node at (5.5, 5.5) { \textcolor{black}{$52$} };
+            \node at (6.5, 5.5) { \textcolor{black}{$33$} };
+            \node at (7.5, 5.5) { \textcolor{black}{$97$} };
+            \node at (8.5, 5.5) { \textcolor{black}{$20$} };
+
+        \end{scope}
+        \end{tikzpicture}
+
+    \end{figure}
+
+\end{frame}
+
+\begin{frame}[fragile]{Visualização do \code{c}{mergesort}}
+
+    \begin{figure}
+        \centering
+
+        \begin{tikzpicture}
+        \begin{scope}[scale=0.8]
+            \draw (0, 5) grid (9, 6);
+
+            \draw (-1, 3) grid (4, 4);
+%            \draw (6, 3) grid (10, 4);
+%
+%            \foreach \x in {-1,...,1}:
+%                \draw ({\x - 0.5}, 1) rectangle ({\x + 0.5}, 2);
+%
+%            \foreach \x in {3,...,4}:
+%                \draw ({\x - 0.5}, 1) rectangle ({\x + 0.5}, 2);
+%
+%            \foreach \x in {6,...,7}:
+%                \draw ({\x - 0.5}, 1) rectangle ({\x + 0.5}, 2);
+%
+%            \foreach \x in {9,...,10}:
+%                \draw ({\x - 0.5}, 1) rectangle ({\x + 0.5}, 2);
+%
+%            \draw (-2, -1) grid (0, 0);
+            \draw[opacity=0] (-2.25, -3) rectangle (-1.25, -2);
+%            \draw (-0.75, -3) rectangle (0.25, -2);
+%
+%            \draw (0.5, -1) rectangle (1.5, 0);
+%
+%            \draw (2.25, -1) rectangle (3.25, 0);
+%            \draw (3.75, -1) rectangle (4.75, 0);
+%
+%            \draw (5.25, -1) rectangle (6.25, 0);
+%            \draw (6.75, -1) rectangle (7.75, 0);
+%
+%            \draw (8.25, -1) rectangle (9.25, 0);
+            \draw[opacity=0] (9.75, -1) rectangle (10.75, 0);
+
+            \node at (0.5, 5.5) { \textcolor{black}{$89$} };
+            \node at (1.5, 5.5) { \textcolor{black}{$60$} };
+            \node at (2.5, 5.5) { \textcolor{black}{$12$} };
+            \node at (3.5, 5.5) { \textcolor{black}{$45$} };
+            \node at (4.5, 5.5) { \textcolor{black}{$37$} };
+            \node at (5.5, 5.5) { \textcolor{black}{$52$} };
+            \node at (6.5, 5.5) { \textcolor{black}{$33$} };
+            \node at (7.5, 5.5) { \textcolor{black}{$97$} };
+            \node at (8.5, 5.5) { \textcolor{black}{$20$} };
+
+            \node at (-0.5, 3.5) { \textcolor{green!60!black}{$89$} };
+            \node at (0.5, 3.5) { \textcolor{green!60!black}{$60$} };
+            \node at (1.5, 3.5) { \textcolor{green!60!black}{$12$} };
+            \node at (2.5, 3.5) { \textcolor{green!60!black}{$45$} };
+            \node at (3.5, 3.5) { \textcolor{green!60!black}{$37$} };
+ 
+        \end{scope}
+        \end{tikzpicture}
+
+    \end{figure}
+
+\end{frame}
+
+\begin{frame}[fragile]{Visualização do \code{c}{mergesort}}
+
+    \begin{figure}
+        \centering
+
+        \begin{tikzpicture}
+        \begin{scope}[scale=0.8]
+            \draw (0, 5) grid (9, 6);
+
+            \draw (-1, 3) grid (4, 4);
+%            \draw (6, 3) grid (10, 4);
+%
+            \foreach \x in {-1,...,1}:
+                \draw ({\x - 0.5}, 1) rectangle ({\x + 0.5}, 2);
+%
+%            \foreach \x in {3,...,4}:
+%                \draw ({\x - 0.5}, 1) rectangle ({\x + 0.5}, 2);
+%
+%            \foreach \x in {6,...,7}:
+%                \draw ({\x - 0.5}, 1) rectangle ({\x + 0.5}, 2);
+%
+%            \foreach \x in {9,...,10}:
+%                \draw ({\x - 0.5}, 1) rectangle ({\x + 0.5}, 2);
+%
+%            \draw (-2, -1) grid (0, 0);
+            \draw[opacity=0] (-2.25, -3) rectangle (-1.25, -2);
+%            \draw (-0.75, -3) rectangle (0.25, -2);
+%
+%            \draw (0.5, -1) rectangle (1.5, 0);
+%
+%            \draw (2.25, -1) rectangle (3.25, 0);
+%            \draw (3.75, -1) rectangle (4.75, 0);
+%
+%            \draw (5.25, -1) rectangle (6.25, 0);
+%            \draw (6.75, -1) rectangle (7.75, 0);
+%
+%            \draw (8.25, -1) rectangle (9.25, 0);
+            \draw[opacity=0] (9.75, -1) rectangle (10.75, 0);
+
+            \node at (0.5, 5.5) { \textcolor{black}{$89$} };
+            \node at (1.5, 5.5) { \textcolor{black}{$60$} };
+            \node at (2.5, 5.5) { \textcolor{black}{$12$} };
+            \node at (3.5, 5.5) { \textcolor{black}{$45$} };
+            \node at (4.5, 5.5) { \textcolor{black}{$37$} };
+            \node at (5.5, 5.5) { \textcolor{black}{$52$} };
+            \node at (6.5, 5.5) { \textcolor{black}{$33$} };
+            \node at (7.5, 5.5) { \textcolor{black}{$97$} };
+            \node at (8.5, 5.5) { \textcolor{black}{$20$} };
+
+            \node at (-0.5, 3.5) { \textcolor{black}{$89$} };
+            \node at (0.5, 3.5) { \textcolor{black}{$60$} };
+            \node at (1.5, 3.5) { \textcolor{black}{$12$} };
+            \node at (2.5, 3.5) { \textcolor{black}{$45$} };
+            \node at (3.5, 3.5) { \textcolor{black}{$37$} };
+ 
+            \node at (-1, 1.5) { \textcolor{green!60!black}{$89$} };
+            \node at (0, 1.5) { \textcolor{green!60!black}{$60$} };
+            \node at (1, 1.5) { \textcolor{green!60!black}{$12$} };
+ 
+        \end{scope}
+        \end{tikzpicture}
+
+    \end{figure}
+
+\end{frame}
+
+\begin{frame}[fragile]{Visualização do \code{c}{mergesort}}
+
+    \begin{figure}
+        \centering
+
+        \begin{tikzpicture}
+        \begin{scope}[scale=0.8]
+            \draw (0, 5) grid (9, 6);
+
+            \draw (-1, 3) grid (4, 4);
+%            \draw (6, 3) grid (10, 4);
+%
+            \foreach \x in {-1,...,1}:
+                \draw ({\x - 0.5}, 1) rectangle ({\x + 0.5}, 2);
+%
+%            \foreach \x in {3,...,4}:
+%                \draw ({\x - 0.5}, 1) rectangle ({\x + 0.5}, 2);
+%
+%            \foreach \x in {6,...,7}:
+%                \draw ({\x - 0.5}, 1) rectangle ({\x + 0.5}, 2);
+%
+%            \foreach \x in {9,...,10}:
+%                \draw ({\x - 0.5}, 1) rectangle ({\x + 0.5}, 2);
+%
+            \draw (-2, -1) grid (0, 0);
+
+            \draw[opacity=0] (-2.25, -3) rectangle (-1.25, -2);
+%            \draw (-0.75, -3) rectangle (0.25, -2);
+%
+%            \draw (0.5, -1) rectangle (1.5, 0);
+%
+%            \draw (2.25, -1) rectangle (3.25, 0);
+%            \draw (3.75, -1) rectangle (4.75, 0);
+%
+%            \draw (5.25, -1) rectangle (6.25, 0);
+%            \draw (6.75, -1) rectangle (7.75, 0);
+%
+%            \draw (8.25, -1) rectangle (9.25, 0);
+            \draw[opacity=0] (9.75, -1) rectangle (10.75, 0);
+
+            \node at (0.5, 5.5) { \textcolor{black}{$89$} };
+            \node at (1.5, 5.5) { \textcolor{black}{$60$} };
+            \node at (2.5, 5.5) { \textcolor{black}{$12$} };
+            \node at (3.5, 5.5) { \textcolor{black}{$45$} };
+            \node at (4.5, 5.5) { \textcolor{black}{$37$} };
+            \node at (5.5, 5.5) { \textcolor{black}{$52$} };
+            \node at (6.5, 5.5) { \textcolor{black}{$33$} };
+            \node at (7.5, 5.5) { \textcolor{black}{$97$} };
+            \node at (8.5, 5.5) { \textcolor{black}{$20$} };
+
+            \node at (-0.5, 3.5) { \textcolor{black}{$89$} };
+            \node at (0.5, 3.5) { \textcolor{black}{$60$} };
+            \node at (1.5, 3.5) { \textcolor{black}{$12$} };
+            \node at (2.5, 3.5) { \textcolor{black}{$45$} };
+            \node at (3.5, 3.5) { \textcolor{black}{$37$} };
+ 
+            \node at (-1, 1.5) { \textcolor{black}{$89$} };
+            \node at (0, 1.5) { \textcolor{black}{$60$} };
+            \node at (1, 1.5) { \textcolor{black}{$12$} };
+ 
+            \node at (-1.5, -0.5) { \textcolor{green!60!black}{$89$} };
+            \node at (-0.5, -0.5) { \textcolor{green!60!black}{$60$} };
+            %\node at (1.0, -0.5) { \textcolor{blue}{$12$} };
+ 
+        \end{scope}
+        \end{tikzpicture}
+
+    \end{figure}
+
+\end{frame}
+
+\begin{frame}[fragile]{Visualização do \code{c}{mergesort}}
+
+    \begin{figure}
+        \centering
+
+        \begin{tikzpicture}
+        \begin{scope}[scale=0.8]
+            \draw (0, 5) grid (9, 6);
+
+            \draw (-1, 3) grid (4, 4);
+%            \draw (6, 3) grid (10, 4);
+%
+            \foreach \x in {-1,...,1}:
+                \draw ({\x - 0.5}, 1) rectangle ({\x + 0.5}, 2);
+%
+%            \foreach \x in {3,...,4}:
+%                \draw ({\x - 0.5}, 1) rectangle ({\x + 0.5}, 2);
+%
+%            \foreach \x in {6,...,7}:
+%                \draw ({\x - 0.5}, 1) rectangle ({\x + 0.5}, 2);
+%
+%            \foreach \x in {9,...,10}:
+%                \draw ({\x - 0.5}, 1) rectangle ({\x + 0.5}, 2);
+%
+            \draw (-2, -1) grid (0, 0);
+
+            \draw[opacity=1] (-2.25, -3) rectangle (-1.25, -2);
+            \draw (-0.75, -3) rectangle (0.25, -2);
+%
+%            \draw (0.5, -1) rectangle (1.5, 0);
+%
+%            \draw (2.25, -1) rectangle (3.25, 0);
+%            \draw (3.75, -1) rectangle (4.75, 0);
+%
+%            \draw (5.25, -1) rectangle (6.25, 0);
+%            \draw (6.75, -1) rectangle (7.75, 0);
+%
+%            \draw (8.25, -1) rectangle (9.25, 0);
+            \draw[opacity=0] (9.75, -1) rectangle (10.75, 0);
+
+            \node at (0.5, 5.5) { \textcolor{black}{$89$} };
+            \node at (1.5, 5.5) { \textcolor{black}{$60$} };
+            \node at (2.5, 5.5) { \textcolor{black}{$12$} };
+            \node at (3.5, 5.5) { \textcolor{black}{$45$} };
+            \node at (4.5, 5.5) { \textcolor{black}{$37$} };
+            \node at (5.5, 5.5) { \textcolor{black}{$52$} };
+            \node at (6.5, 5.5) { \textcolor{black}{$33$} };
+            \node at (7.5, 5.5) { \textcolor{black}{$97$} };
+            \node at (8.5, 5.5) { \textcolor{black}{$20$} };
+
+            \node at (-0.5, 3.5) { \textcolor{black}{$89$} };
+            \node at (0.5, 3.5) { \textcolor{black}{$60$} };
+            \node at (1.5, 3.5) { \textcolor{black}{$12$} };
+            \node at (2.5, 3.5) { \textcolor{black}{$45$} };
+            \node at (3.5, 3.5) { \textcolor{black}{$37$} };
+ 
+            \node at (-1, 1.5) { \textcolor{black}{$89$} };
+            \node at (0, 1.5) { \textcolor{black}{$60$} };
+            \node at (1, 1.5) { \textcolor{black}{$12$} };
+ 
+            \node at (-1.5, -0.5) { \textcolor{black}{$89$} };
+            \node at (-0.5, -0.5) { \textcolor{black}{$60$} };
+%            \node at (1.0, -0.5) { \textcolor{blue}{$12$} };
+ 
+            \node at (-1.75, -2.5) { \textcolor{blue}{$89$} };
+            \node at (-0.25, -2.5) { \textcolor{blue}{$60$} };
+ 
+        \end{scope}
+        \end{tikzpicture}
+
+    \end{figure}
+
+\end{frame}
+
+\begin{frame}[fragile]{Visualização do \code{c}{mergesort}}
+
+    \begin{figure}
+        \centering
+
+        \begin{tikzpicture}
+        \begin{scope}[scale=0.8]
+            \draw (0, 5) grid (9, 6);
+
+            \draw (-1, 3) grid (4, 4);
+%            \draw (6, 3) grid (10, 4);
+%
+            \foreach \x in {-1,...,1}:
+                \draw ({\x - 0.5}, 1) rectangle ({\x + 0.5}, 2);
+%
+%            \foreach \x in {3,...,4}:
+%                \draw ({\x - 0.5}, 1) rectangle ({\x + 0.5}, 2);
+%
+%            \foreach \x in {6,...,7}:
+%                \draw ({\x - 0.5}, 1) rectangle ({\x + 0.5}, 2);
+%
+%            \foreach \x in {9,...,10}:
+%                \draw ({\x - 0.5}, 1) rectangle ({\x + 0.5}, 2);
+%
+            \draw (-2, -1) grid (0, 0);
+
+            \draw[opacity=1] (-2.25, -3) rectangle (-1.25, -2);
+            \draw (-0.75, -3) rectangle (0.25, -2);
+%
+%            \draw (0.5, -1) rectangle (1.5, 0);
+%
+%            \draw (2.25, -1) rectangle (3.25, 0);
+%            \draw (3.75, -1) rectangle (4.75, 0);
+%
+%            \draw (5.25, -1) rectangle (6.25, 0);
+%            \draw (6.75, -1) rectangle (7.75, 0);
+%
+%            \draw (8.25, -1) rectangle (9.25, 0);
+            \draw[opacity=0] (9.75, -1) rectangle (10.75, 0);
+
+            \node at (0.5, 5.5) { \textcolor{black}{$89$} };
+            \node at (1.5, 5.5) { \textcolor{black}{$60$} };
+            \node at (2.5, 5.5) { \textcolor{black}{$12$} };
+            \node at (3.5, 5.5) { \textcolor{black}{$45$} };
+            \node at (4.5, 5.5) { \textcolor{black}{$37$} };
+            \node at (5.5, 5.5) { \textcolor{black}{$52$} };
+            \node at (6.5, 5.5) { \textcolor{black}{$33$} };
+            \node at (7.5, 5.5) { \textcolor{black}{$97$} };
+            \node at (8.5, 5.5) { \textcolor{black}{$20$} };
+
+            \node at (-0.5, 3.5) { \textcolor{black}{$89$} };
+            \node at (0.5, 3.5) { \textcolor{black}{$60$} };
+            \node at (1.5, 3.5) { \textcolor{black}{$12$} };
+            \node at (2.5, 3.5) { \textcolor{black}{$45$} };
+            \node at (3.5, 3.5) { \textcolor{black}{$37$} };
+ 
+            \node at (-1, 1.5) { \textcolor{black}{$89$} };
+            \node at (0, 1.5) { \textcolor{black}{$60$} };
+            \node at (1, 1.5) { \textcolor{black}{$12$} };
+ 
+            \node at (-1.5, -0.5) { \textcolor{blue}{$60$} };
+            \node at (-0.5, -0.5) { \textcolor{blue}{$89$} };
+            %\node at (1.0, -0.5) { \textcolor{blue}{$12$} };
+ 
+            \node at (-1.75, -2.5) { \textcolor{red}{$89$} };
+            \node at (-0.25, -2.5) { \textcolor{red}{$60$} };
+ 
+        \end{scope}
+        \end{tikzpicture}
+
+    \end{figure}
+
+\end{frame}
+
+\begin{frame}[fragile]{Visualização do \code{c}{mergesort}}
+
+    \begin{figure}
+        \centering
+
+        \begin{tikzpicture}
+        \begin{scope}[scale=0.8]
+            \draw (0, 5) grid (9, 6);
+
+            \draw (-1, 3) grid (4, 4);
+%            \draw (6, 3) grid (10, 4);
+%
+            \foreach \x in {-1,...,1}:
+                \draw ({\x - 0.5}, 1) rectangle ({\x + 0.5}, 2);
+%
+%            \foreach \x in {3,...,4}:
+%                \draw ({\x - 0.5}, 1) rectangle ({\x + 0.5}, 2);
+%
+%            \foreach \x in {6,...,7}:
+%                \draw ({\x - 0.5}, 1) rectangle ({\x + 0.5}, 2);
+%
+%            \foreach \x in {9,...,10}:
+%                \draw ({\x - 0.5}, 1) rectangle ({\x + 0.5}, 2);
+%
+            \draw (-2, -1) grid (0, 0);
+
+            \draw[opacity=0] (-2.25, -3) rectangle (-1.25, -2);
+%
+%            \draw (0.5, -1) rectangle (1.5, 0);
+%
+%            \draw (2.25, -1) rectangle (3.25, 0);
+%            \draw (3.75, -1) rectangle (4.75, 0);
+%
+%            \draw (5.25, -1) rectangle (6.25, 0);
+%            \draw (6.75, -1) rectangle (7.75, 0);
+%
+%            \draw (8.25, -1) rectangle (9.25, 0);
+            \draw[opacity=0] (9.75, -1) rectangle (10.75, 0);
+
+            \node at (0.5, 5.5) { \textcolor{black}{$89$} };
+            \node at (1.5, 5.5) { \textcolor{black}{$60$} };
+            \node at (2.5, 5.5) { \textcolor{black}{$12$} };
+            \node at (3.5, 5.5) { \textcolor{black}{$45$} };
+            \node at (4.5, 5.5) { \textcolor{black}{$37$} };
+            \node at (5.5, 5.5) { \textcolor{black}{$52$} };
+            \node at (6.5, 5.5) { \textcolor{black}{$33$} };
+            \node at (7.5, 5.5) { \textcolor{black}{$97$} };
+            \node at (8.5, 5.5) { \textcolor{black}{$20$} };
+
+            \node at (-0.5, 3.5) { \textcolor{black}{$89$} };
+            \node at (0.5, 3.5) { \textcolor{black}{$60$} };
+            \node at (1.5, 3.5) { \textcolor{black}{$12$} };
+            \node at (2.5, 3.5) { \textcolor{black}{$45$} };
+            \node at (3.5, 3.5) { \textcolor{black}{$37$} };
+ 
+            \node at (-1, 1.5) { \textcolor{black}{$89$} };
+            \node at (0, 1.5) { \textcolor{black}{$60$} };
+            \node at (1, 1.5) { \textcolor{black}{$12$} };
+ 
+            \node at (-1.5, -0.5) { \textcolor{blue}{$60$} };
+            \node at (-0.5, -0.5) { \textcolor{blue}{$89$} };
+%            \node at (1.0, -0.5) { \textcolor{blue}{$12$} };
+ 
+        \end{scope}
+        \end{tikzpicture}
+
+    \end{figure}
+
+\end{frame}
+
+\begin{frame}[fragile]{Visualização do \code{c}{mergesort}}
+
+    \begin{figure}
+        \centering
+
+        \begin{tikzpicture}
+        \begin{scope}[scale=0.8]
+            \draw (0, 5) grid (9, 6);
+
+            \draw (-1, 3) grid (4, 4);
+%            \draw (6, 3) grid (10, 4);
+%
+            \foreach \x in {-1,...,1}:
+                \draw ({\x - 0.5}, 1) rectangle ({\x + 0.5}, 2);
+%
+%            \foreach \x in {3,...,4}:
+%                \draw ({\x - 0.5}, 1) rectangle ({\x + 0.5}, 2);
+%
+%            \foreach \x in {6,...,7}:
+%                \draw ({\x - 0.5}, 1) rectangle ({\x + 0.5}, 2);
+%
+%            \foreach \x in {9,...,10}:
+%                \draw ({\x - 0.5}, 1) rectangle ({\x + 0.5}, 2);
+%
+            \draw (-2, -1) grid (0, 0);
+
+            \draw[opacity=0] (-2.25, -3) rectangle (-1.25, -2);
+%
+            \draw (0.5, -1) rectangle (1.5, 0);
+%
+%            \draw (2.25, -1) rectangle (3.25, 0);
+%            \draw (3.75, -1) rectangle (4.75, 0);
+%
+%            \draw (5.25, -1) rectangle (6.25, 0);
+%            \draw (6.75, -1) rectangle (7.75, 0);
+%
+%            \draw (8.25, -1) rectangle (9.25, 0);
+            \draw[opacity=0] (9.75, -1) rectangle (10.75, 0);
+
+            \node at (0.5, 5.5) { \textcolor{black}{$89$} };
+            \node at (1.5, 5.5) { \textcolor{black}{$60$} };
+            \node at (2.5, 5.5) { \textcolor{black}{$12$} };
+            \node at (3.5, 5.5) { \textcolor{black}{$45$} };
+            \node at (4.5, 5.5) { \textcolor{black}{$37$} };
+            \node at (5.5, 5.5) { \textcolor{black}{$52$} };
+            \node at (6.5, 5.5) { \textcolor{black}{$33$} };
+            \node at (7.5, 5.5) { \textcolor{black}{$97$} };
+            \node at (8.5, 5.5) { \textcolor{black}{$20$} };
+
+            \node at (-0.5, 3.5) { \textcolor{black}{$89$} };
+            \node at (0.5, 3.5) { \textcolor{black}{$60$} };
+            \node at (1.5, 3.5) { \textcolor{black}{$12$} };
+            \node at (2.5, 3.5) { \textcolor{black}{$45$} };
+            \node at (3.5, 3.5) { \textcolor{black}{$37$} };
+ 
+            \node at (-1, 1.5) { \textcolor{black}{$89$} };
+            \node at (0, 1.5) { \textcolor{black}{$60$} };
+            \node at (1, 1.5) { \textcolor{black}{$12$} };
+ 
+            \node at (-1.5, -0.5) { \textcolor{blue}{$60$} };
+            \node at (-0.5, -0.5) { \textcolor{blue}{$89$} };
+            \node at (1.0, -0.5) { \textcolor{blue}{$12$} };
+ 
+        \end{scope}
+        \end{tikzpicture}
+
+    \end{figure}
+
+\end{frame}
+
+\begin{frame}[fragile]{Visualização do \code{c}{mergesort}}
+
+    \begin{figure}
+        \centering
+
+        \begin{tikzpicture}
+        \begin{scope}[scale=0.8]
+            \draw (0, 5) grid (9, 6);
+
+            \draw (-1, 3) grid (4, 4);
+%            \draw (6, 3) grid (10, 4);
+%
+            \foreach \x in {-1,...,1}:
+                \draw ({\x - 0.5}, 1) rectangle ({\x + 0.5}, 2);
+%
+%            \foreach \x in {3,...,4}:
+%                \draw ({\x - 0.5}, 1) rectangle ({\x + 0.5}, 2);
+%
+%            \foreach \x in {6,...,7}:
+%                \draw ({\x - 0.5}, 1) rectangle ({\x + 0.5}, 2);
+%
+%            \foreach \x in {9,...,10}:
+%                \draw ({\x - 0.5}, 1) rectangle ({\x + 0.5}, 2);
+%
+            \draw (-2, -1) grid (0, 0);
+
+            \draw[opacity=0] (-2.25, -3) rectangle (-1.25, -2);
+%
+            \draw (0.5, -1) rectangle (1.5, 0);
+%
+%            \draw (2.25, -1) rectangle (3.25, 0);
+%            \draw (3.75, -1) rectangle (4.75, 0);
+%
+%            \draw (5.25, -1) rectangle (6.25, 0);
+%            \draw (6.75, -1) rectangle (7.75, 0);
+%
+%            \draw (8.25, -1) rectangle (9.25, 0);
+            \draw[opacity=0] (9.75, -1) rectangle (10.75, 0);
+
+            \node at (0.5, 5.5) { \textcolor{black}{$89$} };
+            \node at (1.5, 5.5) { \textcolor{black}{$60$} };
+            \node at (2.5, 5.5) { \textcolor{black}{$12$} };
+            \node at (3.5, 5.5) { \textcolor{black}{$45$} };
+            \node at (4.5, 5.5) { \textcolor{black}{$37$} };
+            \node at (5.5, 5.5) { \textcolor{black}{$52$} };
+            \node at (6.5, 5.5) { \textcolor{black}{$33$} };
+            \node at (7.5, 5.5) { \textcolor{black}{$97$} };
+            \node at (8.5, 5.5) { \textcolor{black}{$20$} };
+
+            \node at (-0.5, 3.5) { \textcolor{black}{$89$} };
+            \node at (0.5, 3.5) { \textcolor{black}{$60$} };
+            \node at (1.5, 3.5) { \textcolor{black}{$12$} };
+            \node at (2.5, 3.5) { \textcolor{black}{$45$} };
+            \node at (3.5, 3.5) { \textcolor{black}{$37$} };
+ 
+            \node at (-1, 1.5) { \textcolor{blue}{$12$} };
+            \node at (0, 1.5) { \textcolor{blue}{$60$} };
+            \node at (1, 1.5) { \textcolor{blue}{$89$} };
+ 
+            \node at (-1.5, -0.5) { \textcolor{red}{$60$} };
+            \node at (-0.5, -0.5) { \textcolor{red}{$89$} };
+            \node at (1.0, -0.5) { \textcolor{red}{$12$} };
+ 
+        \end{scope}
+        \end{tikzpicture}
+
+    \end{figure}
+
+\end{frame}
+
+\begin{frame}[fragile]{Visualização do \code{c}{mergesort}}
+
+    \begin{figure}
+        \centering
+
+        \begin{tikzpicture}
+        \begin{scope}[scale=0.8]
+            \draw (0, 5) grid (9, 6);
+
+            \draw (-1, 3) grid (4, 4);
+%            \draw (6, 3) grid (10, 4);
+%
+            \foreach \x in {-1,...,1}:
+                \draw ({\x - 0.5}, 1) rectangle ({\x + 0.5}, 2);
+%
+%            \foreach \x in {3,...,4}:
+%                \draw ({\x - 0.5}, 1) rectangle ({\x + 0.5}, 2);
+%
+%            \foreach \x in {6,...,7}:
+%                \draw ({\x - 0.5}, 1) rectangle ({\x + 0.5}, 2);
+%
+%            \foreach \x in {9,...,10}:
+%                \draw ({\x - 0.5}, 1) rectangle ({\x + 0.5}, 2);
+%
+            \draw[opacity=0] (-2.25, -3) rectangle (-1.25, -2);
+%
+%            \draw (2.25, -1) rectangle (3.25, 0);
+%            \draw (3.75, -1) rectangle (4.75, 0);
+%
+%            \draw (5.25, -1) rectangle (6.25, 0);
+%            \draw (6.75, -1) rectangle (7.75, 0);
+%
+%            \draw (8.25, -1) rectangle (9.25, 0);
+            \draw[opacity=0] (9.75, -1) rectangle (10.75, 0);
+
+            \node at (0.5, 5.5) { \textcolor{black}{$89$} };
+            \node at (1.5, 5.5) { \textcolor{black}{$60$} };
+            \node at (2.5, 5.5) { \textcolor{black}{$12$} };
+            \node at (3.5, 5.5) { \textcolor{black}{$45$} };
+            \node at (4.5, 5.5) { \textcolor{black}{$37$} };
+            \node at (5.5, 5.5) { \textcolor{black}{$52$} };
+            \node at (6.5, 5.5) { \textcolor{black}{$33$} };
+            \node at (7.5, 5.5) { \textcolor{black}{$97$} };
+            \node at (8.5, 5.5) { \textcolor{black}{$20$} };
+
+            \node at (-0.5, 3.5) { \textcolor{black}{$89$} };
+            \node at (0.5, 3.5) { \textcolor{black}{$60$} };
+            \node at (1.5, 3.5) { \textcolor{black}{$12$} };
+            \node at (2.5, 3.5) { \textcolor{black}{$45$} };
+            \node at (3.5, 3.5) { \textcolor{black}{$37$} };
+ 
+            \node at (-1, 1.5) { \textcolor{blue}{$12$} };
+            \node at (0, 1.5) { \textcolor{blue}{$60$} };
+            \node at (1, 1.5) { \textcolor{blue}{$89$} };
+ 
+        \end{scope}
+        \end{tikzpicture}
+
+    \end{figure}
+
+\end{frame}
+
+\begin{frame}[fragile]{Visualização do \code{c}{mergesort}}
+
+    \begin{figure}
+        \centering
+
+        \begin{tikzpicture}
+        \begin{scope}[scale=0.8]
+            \draw (0, 5) grid (9, 6);
+
+            \draw (-1, 3) grid (4, 4);
+%            \draw (6, 3) grid (10, 4);
+%
+            \foreach \x in {-1,...,1}:
+                \draw ({\x - 0.5}, 1) rectangle ({\x + 0.5}, 2);
+%
+            \foreach \x in {3,...,4}:
+                \draw ({\x - 0.5}, 1) rectangle ({\x + 0.5}, 2);
+%
+%            \foreach \x in {6,...,7}:
+%                \draw ({\x - 0.5}, 1) rectangle ({\x + 0.5}, 2);
+%
+%            \foreach \x in {9,...,10}:
+%                \draw ({\x - 0.5}, 1) rectangle ({\x + 0.5}, 2);
+%
+            \draw[opacity=0] (-2.25, -3) rectangle (-1.25, -2);
+%
+%            \draw (2.25, -1) rectangle (3.25, 0);
+%            \draw (3.75, -1) rectangle (4.75, 0);
+%
+%            \draw (5.25, -1) rectangle (6.25, 0);
+%            \draw (6.75, -1) rectangle (7.75, 0);
+%
+%            \draw (8.25, -1) rectangle (9.25, 0);
+            \draw[opacity=0] (9.75, -1) rectangle (10.75, 0);
+
+            \node at (0.5, 5.5) { \textcolor{black}{$89$} };
+            \node at (1.5, 5.5) { \textcolor{black}{$60$} };
+            \node at (2.5, 5.5) { \textcolor{black}{$12$} };
+            \node at (3.5, 5.5) { \textcolor{black}{$45$} };
+            \node at (4.5, 5.5) { \textcolor{black}{$37$} };
+            \node at (5.5, 5.5) { \textcolor{black}{$52$} };
+            \node at (6.5, 5.5) { \textcolor{black}{$33$} };
+            \node at (7.5, 5.5) { \textcolor{black}{$97$} };
+            \node at (8.5, 5.5) { \textcolor{black}{$20$} };
+
+            \node at (-0.5, 3.5) { \textcolor{black}{$89$} };
+            \node at (0.5, 3.5) { \textcolor{black}{$60$} };
+            \node at (1.5, 3.5) { \textcolor{black}{$12$} };
+            \node at (2.5, 3.5) { \textcolor{black}{$45$} };
+            \node at (3.5, 3.5) { \textcolor{black}{$37$} };
+ 
+            \node at (-1, 1.5) { \textcolor{blue}{$12$} };
+            \node at (0, 1.5) { \textcolor{blue}{$60$} };
+            \node at (1, 1.5) { \textcolor{blue}{$89$} };
+ 
+            \node at (3, 1.5) { \textcolor{green!60!black}{$45$} };
+            \node at (4, 1.5) { \textcolor{green!60!black}{$37$} };
+ 
+        \end{scope}
+        \end{tikzpicture}
+
+    \end{figure}
+
+\end{frame}
+
+\begin{frame}[fragile]{Visualização do \code{c}{mergesort}}
+
+    \begin{figure}
+        \centering
+
+        \begin{tikzpicture}
+        \begin{scope}[scale=0.8]
+            \draw (0, 5) grid (9, 6);
+
+            \draw (-1, 3) grid (4, 4);
+%            \draw (6, 3) grid (10, 4);
+%
+            \foreach \x in {-1,...,1}:
+                \draw ({\x - 0.5}, 1) rectangle ({\x + 0.5}, 2);
+%
+            \foreach \x in {3,...,4}:
+                \draw ({\x - 0.5}, 1) rectangle ({\x + 0.5}, 2);
+%
+%            \foreach \x in {6,...,7}:
+%                \draw ({\x - 0.5}, 1) rectangle ({\x + 0.5}, 2);
+%
+%            \foreach \x in {9,...,10}:
+%                \draw ({\x - 0.5}, 1) rectangle ({\x + 0.5}, 2);
+%
+            \draw[opacity=0] (-2.25, -3) rectangle (-1.25, -2);
+%
+            \draw (2.25, -1) rectangle (3.25, 0);
+            \draw (3.75, -1) rectangle (4.75, 0);
+%
+%            \draw (5.25, -1) rectangle (6.25, 0);
+%            \draw (6.75, -1) rectangle (7.75, 0);
+%
+%            \draw (8.25, -1) rectangle (9.25, 0);
+            \draw[opacity=0] (9.75, -1) rectangle (10.75, 0);
+
+            \node at (0.5, 5.5) { \textcolor{black}{$89$} };
+            \node at (1.5, 5.5) { \textcolor{black}{$60$} };
+            \node at (2.5, 5.5) { \textcolor{black}{$12$} };
+            \node at (3.5, 5.5) { \textcolor{black}{$45$} };
+            \node at (4.5, 5.5) { \textcolor{black}{$37$} };
+            \node at (5.5, 5.5) { \textcolor{black}{$52$} };
+            \node at (6.5, 5.5) { \textcolor{black}{$33$} };
+            \node at (7.5, 5.5) { \textcolor{black}{$97$} };
+            \node at (8.5, 5.5) { \textcolor{black}{$20$} };
+
+            \node at (-0.5, 3.5) { \textcolor{black}{$89$} };
+            \node at (0.5, 3.5) { \textcolor{black}{$60$} };
+            \node at (1.5, 3.5) { \textcolor{black}{$12$} };
+            \node at (2.5, 3.5) { \textcolor{black}{$45$} };
+            \node at (3.5, 3.5) { \textcolor{black}{$37$} };
+ 
+            \node at (-1, 1.5) { \textcolor{blue}{$12$} };
+            \node at (0, 1.5) { \textcolor{blue}{$60$} };
+            \node at (1, 1.5) { \textcolor{blue}{$89$} };
+ 
+            \node at (3, 1.5) { \textcolor{black}{$45$} };
+            \node at (4, 1.5) { \textcolor{black}{$37$} };
+ 
+            \node at (2.75, -0.5) { \textcolor{blue}{$45$} };
+            \node at (4.25, -0.5) { \textcolor{blue}{$37$} };
+ 
+        \end{scope}
+        \end{tikzpicture}
+
+    \end{figure}
+
+\end{frame}
+
+\begin{frame}[fragile]{Visualização do \code{c}{mergesort}}
+
+    \begin{figure}
+        \centering
+
+        \begin{tikzpicture}
+        \begin{scope}[scale=0.8]
+            \draw (0, 5) grid (9, 6);
+
+            \draw (-1, 3) grid (4, 4);
+%            \draw (6, 3) grid (10, 4);
+%
+            \foreach \x in {-1,...,1}:
+                \draw ({\x - 0.5}, 1) rectangle ({\x + 0.5}, 2);
+%
+            \foreach \x in {3,...,4}:
+                \draw ({\x - 0.5}, 1) rectangle ({\x + 0.5}, 2);
+%
+%            \foreach \x in {6,...,7}:
+%                \draw ({\x - 0.5}, 1) rectangle ({\x + 0.5}, 2);
+%
+%            \foreach \x in {9,...,10}:
+%                \draw ({\x - 0.5}, 1) rectangle ({\x + 0.5}, 2);
+%
+            \draw[opacity=0] (-2.25, -3) rectangle (-1.25, -2);
+%
+            \draw (2.25, -1) rectangle (3.25, 0);
+            \draw (3.75, -1) rectangle (4.75, 0);
+%
+%            \draw (5.25, -1) rectangle (6.25, 0);
+%            \draw (6.75, -1) rectangle (7.75, 0);
+%
+%            \draw (8.25, -1) rectangle (9.25, 0);
+            \draw[opacity=0] (9.75, -1) rectangle (10.75, 0);
+
+            \node at (0.5, 5.5) { \textcolor{black}{$89$} };
+            \node at (1.5, 5.5) { \textcolor{black}{$60$} };
+            \node at (2.5, 5.5) { \textcolor{black}{$12$} };
+            \node at (3.5, 5.5) { \textcolor{black}{$45$} };
+            \node at (4.5, 5.5) { \textcolor{black}{$37$} };
+            \node at (5.5, 5.5) { \textcolor{black}{$52$} };
+            \node at (6.5, 5.5) { \textcolor{black}{$33$} };
+            \node at (7.5, 5.5) { \textcolor{black}{$97$} };
+            \node at (8.5, 5.5) { \textcolor{black}{$20$} };
+
+            \node at (-0.5, 3.5) { \textcolor{black}{$89$} };
+            \node at (0.5, 3.5) { \textcolor{black}{$60$} };
+            \node at (1.5, 3.5) { \textcolor{black}{$12$} };
+            \node at (2.5, 3.5) { \textcolor{black}{$45$} };
+            \node at (3.5, 3.5) { \textcolor{black}{$37$} };
+ 
+            \node at (-1, 1.5) { \textcolor{blue}{$12$} };
+            \node at (0, 1.5) { \textcolor{blue}{$60$} };
+            \node at (1, 1.5) { \textcolor{blue}{$89$} };
+ 
+            \node at (3, 1.5) { \textcolor{blue}{$37$} };
+            \node at (4, 1.5) { \textcolor{blue}{$45$} };
+ 
+            \node at (2.75, -0.5) { \textcolor{red}{$45$} };
+            \node at (4.25, -0.5) { \textcolor{red}{$37$} };
+ 
+        \end{scope}
+        \end{tikzpicture}
+
+    \end{figure}
+
+\end{frame}
+
+\begin{frame}[fragile]{Visualização do \code{c}{mergesort}}
+
+    \begin{figure}
+        \centering
+
+        \begin{tikzpicture}
+        \begin{scope}[scale=0.8]
+            \draw (0, 5) grid (9, 6);
+
+            \draw (-1, 3) grid (4, 4);
+%            \draw (6, 3) grid (10, 4);
+%
+            \foreach \x in {-1,...,1}:
+                \draw ({\x - 0.5}, 1) rectangle ({\x + 0.5}, 2);
+%
+            \foreach \x in {3,...,4}:
+                \draw ({\x - 0.5}, 1) rectangle ({\x + 0.5}, 2);
+%
+%            \foreach \x in {6,...,7}:
+%                \draw ({\x - 0.5}, 1) rectangle ({\x + 0.5}, 2);
+%
+%            \foreach \x in {9,...,10}:
+%                \draw ({\x - 0.5}, 1) rectangle ({\x + 0.5}, 2);
+%
+            \draw[opacity=0] (-2.25, -3) rectangle (-1.25, -2);
+
+%            \draw (5.25, -1) rectangle (6.25, 0);
+%            \draw (6.75, -1) rectangle (7.75, 0);
+%
+%            \draw (8.25, -1) rectangle (9.25, 0);
+            \draw[opacity=0] (9.75, -1) rectangle (10.75, 0);
+
+            \node at (0.5, 5.5) { \textcolor{black}{$89$} };
+            \node at (1.5, 5.5) { \textcolor{black}{$60$} };
+            \node at (2.5, 5.5) { \textcolor{black}{$12$} };
+            \node at (3.5, 5.5) { \textcolor{black}{$45$} };
+            \node at (4.5, 5.5) { \textcolor{black}{$37$} };
+            \node at (5.5, 5.5) { \textcolor{black}{$52$} };
+            \node at (6.5, 5.5) { \textcolor{black}{$33$} };
+            \node at (7.5, 5.5) { \textcolor{black}{$97$} };
+            \node at (8.5, 5.5) { \textcolor{black}{$20$} };
+
+            \node at (-0.5, 3.5) { \textcolor{black}{$89$} };
+            \node at (0.5, 3.5) { \textcolor{black}{$60$} };
+            \node at (1.5, 3.5) { \textcolor{black}{$12$} };
+            \node at (2.5, 3.5) { \textcolor{black}{$45$} };
+            \node at (3.5, 3.5) { \textcolor{black}{$37$} };
+ 
+            \node at (-1, 1.5) { \textcolor{blue}{$12$} };
+            \node at (0, 1.5) { \textcolor{blue}{$60$} };
+            \node at (1, 1.5) { \textcolor{blue}{$89$} };
+ 
+            \node at (3, 1.5) { \textcolor{blue}{$37$} };
+            \node at (4, 1.5) { \textcolor{blue}{$45$} };
+ 
+        \end{scope}
+        \end{tikzpicture}
+
+    \end{figure}
+
+\end{frame}
+
+\begin{frame}[fragile]{Visualização do \code{c}{mergesort}}
+
+    \begin{figure}
+        \centering
+
+        \begin{tikzpicture}
+        \begin{scope}[scale=0.8]
+            \draw (0, 5) grid (9, 6);
+
+            \draw (-1, 3) grid (4, 4);
+%            \draw (6, 3) grid (10, 4);
+%
+            \foreach \x in {-1,...,1}:
+                \draw ({\x - 0.5}, 1) rectangle ({\x + 0.5}, 2);
+%
+            \foreach \x in {3,...,4}:
+                \draw ({\x - 0.5}, 1) rectangle ({\x + 0.5}, 2);
+%
+%            \foreach \x in {6,...,7}:
+%                \draw ({\x - 0.5}, 1) rectangle ({\x + 0.5}, 2);
+%
+%            \foreach \x in {9,...,10}:
+%                \draw ({\x - 0.5}, 1) rectangle ({\x + 0.5}, 2);
+%
+            \draw[opacity=0] (-2.25, -3) rectangle (-1.25, -2);
+
+%            \draw (5.25, -1) rectangle (6.25, 0);
+%            \draw (6.75, -1) rectangle (7.75, 0);
+%
+%            \draw (8.25, -1) rectangle (9.25, 0);
+            \draw[opacity=0] (9.75, -1) rectangle (10.75, 0);
+
+            \node at (0.5, 5.5) { \textcolor{black}{$89$} };
+            \node at (1.5, 5.5) { \textcolor{black}{$60$} };
+            \node at (2.5, 5.5) { \textcolor{black}{$12$} };
+            \node at (3.5, 5.5) { \textcolor{black}{$45$} };
+            \node at (4.5, 5.5) { \textcolor{black}{$37$} };
+            \node at (5.5, 5.5) { \textcolor{black}{$52$} };
+            \node at (6.5, 5.5) { \textcolor{black}{$33$} };
+            \node at (7.5, 5.5) { \textcolor{black}{$97$} };
+            \node at (8.5, 5.5) { \textcolor{black}{$20$} };
+
+            \node at (-0.5, 3.5) { \textcolor{blue}{$12$} };
+            \node at (0.5, 3.5) { \textcolor{blue}{$37$} };
+            \node at (1.5, 3.5) { \textcolor{blue}{$45$} };
+            \node at (2.5, 3.5) { \textcolor{blue}{$60$} };
+            \node at (3.5, 3.5) { \textcolor{blue}{$89$} };
+ 
+            \node at (-1, 1.5) { \textcolor{red}{$12$} };
+            \node at (0, 1.5) { \textcolor{red}{$60$} };
+            \node at (1, 1.5) { \textcolor{red}{$89$} };
+ 
+            \node at (3, 1.5) { \textcolor{red}{$37$} };
+            \node at (4, 1.5) { \textcolor{red}{$45$} };
+ 
+        \end{scope}
+        \end{tikzpicture}
+
+    \end{figure}
+
+\end{frame}
+
+\begin{frame}[fragile]{Visualização do \code{c}{mergesort}}
+
+    \begin{figure}
+        \centering
+
+        \begin{tikzpicture}
+        \begin{scope}[scale=0.8]
+            \draw (0, 5) grid (9, 6);
+
+            \draw (-1, 3) grid (4, 4);
+%            \draw (6, 3) grid (10, 4);
+%
+%            \foreach \x in {6,...,7}:
+%                \draw ({\x - 0.5}, 1) rectangle ({\x + 0.5}, 2);
+%
+%            \foreach \x in {9,...,10}:
+%                \draw ({\x - 0.5}, 1) rectangle ({\x + 0.5}, 2);
+%
+            \draw[opacity=0] (-2.25, -3) rectangle (-1.25, -2);
+
+%            \draw (5.25, -1) rectangle (6.25, 0);
+%            \draw (6.75, -1) rectangle (7.75, 0);
+%
+%            \draw (8.25, -1) rectangle (9.25, 0);
+            \draw[opacity=0] (9.75, -1) rectangle (10.75, 0);
+
+            \node at (0.5, 5.5) { \textcolor{black}{$89$} };
+            \node at (1.5, 5.5) { \textcolor{black}{$60$} };
+            \node at (2.5, 5.5) { \textcolor{black}{$12$} };
+            \node at (3.5, 5.5) { \textcolor{black}{$45$} };
+            \node at (4.5, 5.5) { \textcolor{black}{$37$} };
+            \node at (5.5, 5.5) { \textcolor{black}{$52$} };
+            \node at (6.5, 5.5) { \textcolor{black}{$33$} };
+            \node at (7.5, 5.5) { \textcolor{black}{$97$} };
+            \node at (8.5, 5.5) { \textcolor{black}{$20$} };
+
+            \node at (-0.5, 3.5) { \textcolor{blue}{$12$} };
+            \node at (0.5, 3.5) { \textcolor{blue}{$37$} };
+            \node at (1.5, 3.5) { \textcolor{blue}{$45$} };
+            \node at (2.5, 3.5) { \textcolor{blue}{$60$} };
+            \node at (3.5, 3.5) { \textcolor{blue}{$89$} };
+
+        \end{scope}
+        \end{tikzpicture}
+
+    \end{figure}
+
+\end{frame}
+
+\begin{frame}[fragile]{Visualização do \code{c}{mergesort}}
+
+    \begin{figure}
+        \centering
+
+        \begin{tikzpicture}
+        \begin{scope}[scale=0.8]
+            \draw (0, 5) grid (9, 6);
+
+            \draw (-1, 3) grid (4, 4);
+            \draw (6, 3) grid (10, 4);
+%
+%            \foreach \x in {6,...,7}:
+%                \draw ({\x - 0.5}, 1) rectangle ({\x + 0.5}, 2);
+%
+%            \foreach \x in {9,...,10}:
+%                \draw ({\x - 0.5}, 1) rectangle ({\x + 0.5}, 2);
+%
+            \draw[opacity=0] (-2.25, -3) rectangle (-1.25, -2);
+
+%            \draw (5.25, -1) rectangle (6.25, 0);
+%            \draw (6.75, -1) rectangle (7.75, 0);
+%
+%            \draw (8.25, -1) rectangle (9.25, 0);
+            \draw[opacity=0] (9.75, -1) rectangle (10.75, 0);
+
+            \node at (0.5, 5.5) { \textcolor{black}{$89$} };
+            \node at (1.5, 5.5) { \textcolor{black}{$60$} };
+            \node at (2.5, 5.5) { \textcolor{black}{$12$} };
+            \node at (3.5, 5.5) { \textcolor{black}{$45$} };
+            \node at (4.5, 5.5) { \textcolor{black}{$37$} };
+            \node at (5.5, 5.5) { \textcolor{black}{$52$} };
+            \node at (6.5, 5.5) { \textcolor{black}{$33$} };
+            \node at (7.5, 5.5) { \textcolor{black}{$97$} };
+            \node at (8.5, 5.5) { \textcolor{black}{$20$} };
+
+            \node at (-0.5, 3.5) { \textcolor{blue}{$12$} };
+            \node at (0.5, 3.5) { \textcolor{blue}{$37$} };
+            \node at (1.5, 3.5) { \textcolor{blue}{$45$} };
+            \node at (2.5, 3.5) { \textcolor{blue}{$60$} };
+            \node at (3.5, 3.5) { \textcolor{blue}{$89$} };
+
+            \node at (6.5, 3.5) { \textcolor{green!60!black}{$52$} };
+            \node at (7.5, 3.5) { \textcolor{green!60!black}{$33$} };
+            \node at (8.5, 3.5) { \textcolor{green!60!black}{$97$} };
+            \node at (9.5, 3.5) { \textcolor{green!60!black}{$20$} };
+
+
+        \end{scope}
+        \end{tikzpicture}
+
+    \end{figure}
+
+\end{frame}
+
+\begin{frame}[fragile]{Visualização do \code{c}{mergesort}}
+
+    \begin{figure}
+        \centering
+
+        \begin{tikzpicture}
+        \begin{scope}[scale=0.8]
+            \draw (0, 5) grid (9, 6);
+
+            \draw (-1, 3) grid (4, 4);
+            \draw (6, 3) grid (10, 4);
+
+            \foreach \x in {6,...,7}:
+                \draw ({\x - 0.5}, 1) rectangle ({\x + 0.5}, 2);
+
+            %\foreach \x in {9,...,10}:
+            %    \draw ({\x - 0.5}, 1) rectangle ({\x + 0.5}, 2);
+
+            \draw[opacity=0] (-2.25, -3) rectangle (-1.25, -2);
+
+%            \draw (5.25, -1) rectangle (6.25, 0);
+%            \draw (6.75, -1) rectangle (7.75, 0);
+%
+%            \draw (8.25, -1) rectangle (9.25, 0);
+            \draw[opacity=0] (9.75, -1) rectangle (10.75, 0);
+
+            \node at (0.5, 5.5) { \textcolor{black}{$89$} };
+            \node at (1.5, 5.5) { \textcolor{black}{$60$} };
+            \node at (2.5, 5.5) { \textcolor{black}{$12$} };
+            \node at (3.5, 5.5) { \textcolor{black}{$45$} };
+            \node at (4.5, 5.5) { \textcolor{black}{$37$} };
+            \node at (5.5, 5.5) { \textcolor{black}{$52$} };
+            \node at (6.5, 5.5) { \textcolor{black}{$33$} };
+            \node at (7.5, 5.5) { \textcolor{black}{$97$} };
+            \node at (8.5, 5.5) { \textcolor{black}{$20$} };
+
+            \node at (-0.5, 3.5) { \textcolor{blue}{$12$} };
+            \node at (0.5, 3.5) { \textcolor{blue}{$37$} };
+            \node at (1.5, 3.5) { \textcolor{blue}{$45$} };
+            \node at (2.5, 3.5) { \textcolor{blue}{$60$} };
+            \node at (3.5, 3.5) { \textcolor{blue}{$89$} };
+
+            \node at (6.5, 3.5) { \textcolor{black}{$52$} };
+            \node at (7.5, 3.5) { \textcolor{black}{$33$} };
+            \node at (8.5, 3.5) { \textcolor{black}{$97$} };
+            \node at (9.5, 3.5) { \textcolor{black}{$20$} };
+
+            \node at (6, 1.5) { \textcolor{green!60!black}{$52$} };
+            \node at (7, 1.5) { \textcolor{green!60!black}{$33$} };
+
+            %\node at (9, 1.5) { \textcolor{green!60!black}{$97$} };
+            %\node at (10, 1.5) { \textcolor{green!60!black}{$20$} };
+
+        \end{scope}
+        \end{tikzpicture}
+
+    \end{figure}
+
+\end{frame}
+
+\begin{frame}[fragile]{Visualização do \code{c}{mergesort}}
+
+    \begin{figure}
+        \centering
+
+        \begin{tikzpicture}
+        \begin{scope}[scale=0.8]
+            \draw (0, 5) grid (9, 6);
+
+            \draw (-1, 3) grid (4, 4);
+            \draw (6, 3) grid (10, 4);
+
+            \foreach \x in {6,...,7}:
+                \draw ({\x - 0.5}, 1) rectangle ({\x + 0.5}, 2);
+
+            %\foreach \x in {9,...,10}:
+            %    \draw ({\x - 0.5}, 1) rectangle ({\x + 0.5}, 2);
+
+            \draw[opacity=0] (-2.25, -3) rectangle (-1.25, -2);
+
+            \draw (5.25, -1) rectangle (6.25, 0);
+            \draw (6.75, -1) rectangle (7.75, 0);
+
+            %\draw (8.25, -1) rectangle (9.25, 0);
+            \draw[opacity=0] (9.75, -1) rectangle (10.75, 0);
+
+            \node at (0.5, 5.5) { \textcolor{black}{$89$} };
+            \node at (1.5, 5.5) { \textcolor{black}{$60$} };
+            \node at (2.5, 5.5) { \textcolor{black}{$12$} };
+            \node at (3.5, 5.5) { \textcolor{black}{$45$} };
+            \node at (4.5, 5.5) { \textcolor{black}{$37$} };
+            \node at (5.5, 5.5) { \textcolor{black}{$52$} };
+            \node at (6.5, 5.5) { \textcolor{black}{$33$} };
+            \node at (7.5, 5.5) { \textcolor{black}{$97$} };
+            \node at (8.5, 5.5) { \textcolor{black}{$20$} };
+
+            \node at (-0.5, 3.5) { \textcolor{blue}{$12$} };
+            \node at (0.5, 3.5) { \textcolor{blue}{$37$} };
+            \node at (1.5, 3.5) { \textcolor{blue}{$45$} };
+            \node at (2.5, 3.5) { \textcolor{blue}{$60$} };
+            \node at (3.5, 3.5) { \textcolor{blue}{$89$} };
+
+            \node at (6.5, 3.5) { \textcolor{black}{$52$} };
+            \node at (7.5, 3.5) { \textcolor{black}{$33$} };
+            \node at (8.5, 3.5) { \textcolor{black}{$97$} };
+            \node at (9.5, 3.5) { \textcolor{black}{$20$} };
+
+            \node at (6, 1.5) { \textcolor{black}{$52$} };
+            \node at (7, 1.5) { \textcolor{black}{$33$} };
+
+            %\node at (9, 1.5) { \textcolor{black}{$97$} };
+            %\node at (10, 1.5) { \textcolor{black}{$20$} };
+
+            \node at (5.75, -0.5) { \textcolor{blue}{$52$} };
+            \node at (7.25, -0.5) { \textcolor{blue}{$33$} };
+
+            %\node at (8.75, -0.5) { \textcolor{blue}{$97$} };
+            %\node at (10.25, -0.5) { \textcolor{blue}{$20$} };
+
+
+
+
+        \end{scope}
+        \end{tikzpicture}
+
+    \end{figure}
+
+\end{frame}
+
+\begin{frame}[fragile]{Visualização do \code{c}{mergesort}}
+
+    \begin{figure}
+        \centering
+
+        \begin{tikzpicture}
+        \begin{scope}[scale=0.8]
+            \draw (0, 5) grid (9, 6);
+
+            \draw (-1, 3) grid (4, 4);
+            \draw (6, 3) grid (10, 4);
+
+            \foreach \x in {6,...,7}:
+                \draw ({\x - 0.5}, 1) rectangle ({\x + 0.5}, 2);
+
+            %\foreach \x in {9,...,10}:
+            %    \draw ({\x - 0.5}, 1) rectangle ({\x + 0.5}, 2);
+
+            \draw[opacity=0] (-2.25, -3) rectangle (-1.25, -2);
+
+            \draw (5.25, -1) rectangle (6.25, 0);
+            \draw (6.75, -1) rectangle (7.75, 0);
+
+            %\draw (8.25, -1) rectangle (9.25, 0);
+            \draw[opacity=0] (9.75, -1) rectangle (10.75, 0);
+
+            \node at (0.5, 5.5) { \textcolor{black}{$89$} };
+            \node at (1.5, 5.5) { \textcolor{black}{$60$} };
+            \node at (2.5, 5.5) { \textcolor{black}{$12$} };
+            \node at (3.5, 5.5) { \textcolor{black}{$45$} };
+            \node at (4.5, 5.5) { \textcolor{black}{$37$} };
+            \node at (5.5, 5.5) { \textcolor{black}{$52$} };
+            \node at (6.5, 5.5) { \textcolor{black}{$33$} };
+            \node at (7.5, 5.5) { \textcolor{black}{$97$} };
+            \node at (8.5, 5.5) { \textcolor{black}{$20$} };
+
+            \node at (-0.5, 3.5) { \textcolor{blue}{$12$} };
+            \node at (0.5, 3.5) { \textcolor{blue}{$37$} };
+            \node at (1.5, 3.5) { \textcolor{blue}{$45$} };
+            \node at (2.5, 3.5) { \textcolor{blue}{$60$} };
+            \node at (3.5, 3.5) { \textcolor{blue}{$89$} };
+
+            \node at (6.5, 3.5) { \textcolor{black}{$52$} };
+            \node at (7.5, 3.5) { \textcolor{black}{$33$} };
+            \node at (8.5, 3.5) { \textcolor{black}{$97$} };
+            \node at (9.5, 3.5) { \textcolor{black}{$20$} };
+
+            \node at (6, 1.5) { \textcolor{blue}{$33$} };
+            \node at (7, 1.5) { \textcolor{blue}{$52$} };
+
+            %\node at (9, 1.5) { \textcolor{black}{$97$} };
+            %\node at (10, 1.5) { \textcolor{black}{$20$} };
+
+            \node at (5.75, -0.5) { \textcolor{red}{$52$} };
+            \node at (7.25, -0.5) { \textcolor{red}{$33$} };
+
+            %\node at (8.75, -0.5) { \textcolor{blue}{$97$} };
+            %\node at (10.25, -0.5) { \textcolor{blue}{$20$} };
+
+        \end{scope}
+        \end{tikzpicture}
+
+    \end{figure}
+
+\end{frame}
+
+\begin{frame}[fragile]{Visualização do \code{c}{mergesort}}
+
+    \begin{figure}
+        \centering
+
+        \begin{tikzpicture}
+        \begin{scope}[scale=0.8]
+            \draw (0, 5) grid (9, 6);
+
+            \draw (-1, 3) grid (4, 4);
+            \draw (6, 3) grid (10, 4);
+
+            \foreach \x in {6,...,7}:
+                \draw ({\x - 0.5}, 1) rectangle ({\x + 0.5}, 2);
+
+            %\foreach \x in {9,...,10}:
+            %    \draw ({\x - 0.5}, 1) rectangle ({\x + 0.5}, 2);
+
+            \draw[opacity=0] (-2.25, -3) rectangle (-1.25, -2);
+
+            %\draw (8.25, -1) rectangle (9.25, 0);
+            \draw[opacity=0] (9.75, -1) rectangle (10.75, 0);
+
+            \node at (0.5, 5.5) { \textcolor{black}{$89$} };
+            \node at (1.5, 5.5) { \textcolor{black}{$60$} };
+            \node at (2.5, 5.5) { \textcolor{black}{$12$} };
+            \node at (3.5, 5.5) { \textcolor{black}{$45$} };
+            \node at (4.5, 5.5) { \textcolor{black}{$37$} };
+            \node at (5.5, 5.5) { \textcolor{black}{$52$} };
+            \node at (6.5, 5.5) { \textcolor{black}{$33$} };
+            \node at (7.5, 5.5) { \textcolor{black}{$97$} };
+            \node at (8.5, 5.5) { \textcolor{black}{$20$} };
+
+            \node at (-0.5, 3.5) { \textcolor{blue}{$12$} };
+            \node at (0.5, 3.5) { \textcolor{blue}{$37$} };
+            \node at (1.5, 3.5) { \textcolor{blue}{$45$} };
+            \node at (2.5, 3.5) { \textcolor{blue}{$60$} };
+            \node at (3.5, 3.5) { \textcolor{blue}{$89$} };
+
+            \node at (6.5, 3.5) { \textcolor{black}{$52$} };
+            \node at (7.5, 3.5) { \textcolor{black}{$33$} };
+            \node at (8.5, 3.5) { \textcolor{black}{$97$} };
+            \node at (9.5, 3.5) { \textcolor{black}{$20$} };
+
+            \node at (6, 1.5) { \textcolor{blue}{$33$} };
+            \node at (7, 1.5) { \textcolor{blue}{$52$} };
+
+            %\node at (9, 1.5) { \textcolor{black}{$97$} };
+            %\node at (10, 1.5) { \textcolor{black}{$20$} };
+
+            %\node at (8.75, -0.5) { \textcolor{blue}{$97$} };
+            %\node at (10.25, -0.5) { \textcolor{blue}{$20$} };
+
+        \end{scope}
+        \end{tikzpicture}
+
+    \end{figure}
+
+\end{frame}
+
+\begin{frame}[fragile]{Visualização do \code{c}{mergesort}}
+
+    \begin{figure}
+        \centering
+
+        \begin{tikzpicture}
+        \begin{scope}[scale=0.8]
+            \draw (0, 5) grid (9, 6);
+
+            \draw (-1, 3) grid (4, 4);
+            \draw (6, 3) grid (10, 4);
+
+            \foreach \x in {6,...,7}:
+                \draw ({\x - 0.5}, 1) rectangle ({\x + 0.5}, 2);
+
+            \foreach \x in {9,...,10}:
+                \draw ({\x - 0.5}, 1) rectangle ({\x + 0.5}, 2);
+
+            \draw[opacity=0] (-2.25, -3) rectangle (-1.25, -2);
+
+            %\draw (8.25, -1) rectangle (9.25, 0);
+            \draw[opacity=0] (9.75, -1) rectangle (10.75, 0);
+
+            \node at (0.5, 5.5) { \textcolor{black}{$89$} };
+            \node at (1.5, 5.5) { \textcolor{black}{$60$} };
+            \node at (2.5, 5.5) { \textcolor{black}{$12$} };
+            \node at (3.5, 5.5) { \textcolor{black}{$45$} };
+            \node at (4.5, 5.5) { \textcolor{black}{$37$} };
+            \node at (5.5, 5.5) { \textcolor{black}{$52$} };
+            \node at (6.5, 5.5) { \textcolor{black}{$33$} };
+            \node at (7.5, 5.5) { \textcolor{black}{$97$} };
+            \node at (8.5, 5.5) { \textcolor{black}{$20$} };
+
+            \node at (-0.5, 3.5) { \textcolor{blue}{$12$} };
+            \node at (0.5, 3.5) { \textcolor{blue}{$37$} };
+            \node at (1.5, 3.5) { \textcolor{blue}{$45$} };
+            \node at (2.5, 3.5) { \textcolor{blue}{$60$} };
+            \node at (3.5, 3.5) { \textcolor{blue}{$89$} };
+
+            \node at (6.5, 3.5) { \textcolor{black}{$52$} };
+            \node at (7.5, 3.5) { \textcolor{black}{$33$} };
+            \node at (8.5, 3.5) { \textcolor{black}{$97$} };
+            \node at (9.5, 3.5) { \textcolor{black}{$20$} };
+
+            \node at (6, 1.5) { \textcolor{blue}{$33$} };
+            \node at (7, 1.5) { \textcolor{blue}{$52$} };
+
+            \node at (9, 1.5) { \textcolor{green!60!black}{$97$} };
+            \node at (10, 1.5) { \textcolor{green!60!black}{$20$} };
+
+            %\node at (8.75, -0.5) { \textcolor{blue}{$97$} };
+            %\node at (10.25, -0.5) { \textcolor{blue}{$20$} };
+
+        \end{scope}
+        \end{tikzpicture}
+
+    \end{figure}
+
+\end{frame}
+
+\begin{frame}[fragile]{Visualização do \code{c}{mergesort}}
+
+    \begin{figure}
+        \centering
+
+        \begin{tikzpicture}
+        \begin{scope}[scale=0.8]
+            \draw (0, 5) grid (9, 6);
+
+            \draw (-1, 3) grid (4, 4);
+            \draw (6, 3) grid (10, 4);
+
+            \foreach \x in {6,...,7}:
+                \draw ({\x - 0.5}, 1) rectangle ({\x + 0.5}, 2);
+
+            \foreach \x in {9,...,10}:
+                \draw ({\x - 0.5}, 1) rectangle ({\x + 0.5}, 2);
+
+            \draw[opacity=0] (-2.25, -3) rectangle (-1.25, -2);
+
+            \draw (8.25, -1) rectangle (9.25, 0);
+            \draw[opacity=1] (9.75, -1) rectangle (10.75, 0);
+
+            \node at (0.5, 5.5) { \textcolor{black}{$89$} };
+            \node at (1.5, 5.5) { \textcolor{black}{$60$} };
+            \node at (2.5, 5.5) { \textcolor{black}{$12$} };
+            \node at (3.5, 5.5) { \textcolor{black}{$45$} };
+            \node at (4.5, 5.5) { \textcolor{black}{$37$} };
+            \node at (5.5, 5.5) { \textcolor{black}{$52$} };
+            \node at (6.5, 5.5) { \textcolor{black}{$33$} };
+            \node at (7.5, 5.5) { \textcolor{black}{$97$} };
+            \node at (8.5, 5.5) { \textcolor{black}{$20$} };
+
+            \node at (-0.5, 3.5) { \textcolor{blue}{$12$} };
+            \node at (0.5, 3.5) { \textcolor{blue}{$37$} };
+            \node at (1.5, 3.5) { \textcolor{blue}{$45$} };
+            \node at (2.5, 3.5) { \textcolor{blue}{$60$} };
+            \node at (3.5, 3.5) { \textcolor{blue}{$89$} };
+
+            \node at (6.5, 3.5) { \textcolor{black}{$52$} };
+            \node at (7.5, 3.5) { \textcolor{black}{$33$} };
+            \node at (8.5, 3.5) { \textcolor{black}{$97$} };
+            \node at (9.5, 3.5) { \textcolor{black}{$20$} };
+
+            \node at (6, 1.5) { \textcolor{blue}{$33$} };
+            \node at (7, 1.5) { \textcolor{blue}{$52$} };
+
+            \node at (9, 1.5) { \textcolor{black}{$97$} };
+            \node at (10, 1.5) { \textcolor{black}{$20$} };
+
+            \node at (8.75, -0.5) { \textcolor{blue}{$97$} };
+            \node at (10.25, -0.5) { \textcolor{blue}{$20$} };
+
+        \end{scope}
+        \end{tikzpicture}
+
+    \end{figure}
+
+\end{frame}
+
+\begin{frame}[fragile]{Visualização do \code{c}{mergesort}}
+
+    \begin{figure}
+        \centering
+
+        \begin{tikzpicture}
+        \begin{scope}[scale=0.8]
+            \draw (0, 5) grid (9, 6);
+
+            \draw (-1, 3) grid (4, 4);
+            \draw (6, 3) grid (10, 4);
+
+            \foreach \x in {6,...,7}:
+                \draw ({\x - 0.5}, 1) rectangle ({\x + 0.5}, 2);
+
+            \foreach \x in {9,...,10}:
+                \draw ({\x - 0.5}, 1) rectangle ({\x + 0.5}, 2);
+
+            \draw[opacity=0] (-2.25, -3) rectangle (-1.25, -2);
+
+            \draw (8.25, -1) rectangle (9.25, 0);
+            \draw[opacity=1] (9.75, -1) rectangle (10.75, 0);
+
+            \node at (0.5, 5.5) { \textcolor{black}{$89$} };
+            \node at (1.5, 5.5) { \textcolor{black}{$60$} };
+            \node at (2.5, 5.5) { \textcolor{black}{$12$} };
+            \node at (3.5, 5.5) { \textcolor{black}{$45$} };
+            \node at (4.5, 5.5) { \textcolor{black}{$37$} };
+            \node at (5.5, 5.5) { \textcolor{black}{$52$} };
+            \node at (6.5, 5.5) { \textcolor{black}{$33$} };
+            \node at (7.5, 5.5) { \textcolor{black}{$97$} };
+            \node at (8.5, 5.5) { \textcolor{black}{$20$} };
+
+            \node at (-0.5, 3.5) { \textcolor{blue}{$12$} };
+            \node at (0.5, 3.5) { \textcolor{blue}{$37$} };
+            \node at (1.5, 3.5) { \textcolor{blue}{$45$} };
+            \node at (2.5, 3.5) { \textcolor{blue}{$60$} };
+            \node at (3.5, 3.5) { \textcolor{blue}{$89$} };
+
+            \node at (6.5, 3.5) { \textcolor{black}{$52$} };
+            \node at (7.5, 3.5) { \textcolor{black}{$33$} };
+            \node at (8.5, 3.5) { \textcolor{black}{$97$} };
+            \node at (9.5, 3.5) { \textcolor{black}{$20$} };
+
+            \node at (6, 1.5) { \textcolor{blue}{$33$} };
+            \node at (7, 1.5) { \textcolor{blue}{$52$} };
+
+            \node at (9, 1.5) { \textcolor{blue}{$20$} };
+            \node at (10, 1.5) { \textcolor{blue}{$97$} };
+
+            \node at (8.75, -0.5) { \textcolor{red}{$97$} };
+            \node at (10.25, -0.5) { \textcolor{red}{$20$} };
+
+        \end{scope}
+        \end{tikzpicture}
+
+    \end{figure}
+
+\end{frame}
+
+\begin{frame}[fragile]{Visualização do \code{c}{mergesort}}
+
+    \begin{figure}
+        \centering
+
+        \begin{tikzpicture}
+        \begin{scope}[scale=0.8]
+            \draw (0, 5) grid (9, 6);
+
+            \draw (-1, 3) grid (4, 4);
+            \draw (6, 3) grid (10, 4);
+
+            \foreach \x in {6,...,7}:
+                \draw ({\x - 0.5}, 1) rectangle ({\x + 0.5}, 2);
+
+            \foreach \x in {9,...,10}:
+                \draw ({\x - 0.5}, 1) rectangle ({\x + 0.5}, 2);
+
+            \draw[opacity=0] (-2.25, -3) rectangle (-1.25, -2);
+
+            \draw[opacity=0] (9.75, -1) rectangle (10.75, 0);
+
+            \node at (0.5, 5.5) { \textcolor{black}{$89$} };
+            \node at (1.5, 5.5) { \textcolor{black}{$60$} };
+            \node at (2.5, 5.5) { \textcolor{black}{$12$} };
+            \node at (3.5, 5.5) { \textcolor{black}{$45$} };
+            \node at (4.5, 5.5) { \textcolor{black}{$37$} };
+            \node at (5.5, 5.5) { \textcolor{black}{$52$} };
+            \node at (6.5, 5.5) { \textcolor{black}{$33$} };
+            \node at (7.5, 5.5) { \textcolor{black}{$97$} };
+            \node at (8.5, 5.5) { \textcolor{black}{$20$} };
+
+            \node at (-0.5, 3.5) { \textcolor{blue}{$12$} };
+            \node at (0.5, 3.5) { \textcolor{blue}{$37$} };
+            \node at (1.5, 3.5) { \textcolor{blue}{$45$} };
+            \node at (2.5, 3.5) { \textcolor{blue}{$60$} };
+            \node at (3.5, 3.5) { \textcolor{blue}{$89$} };
+
+            \node at (6.5, 3.5) { \textcolor{black}{$52$} };
+            \node at (7.5, 3.5) { \textcolor{black}{$33$} };
+            \node at (8.5, 3.5) { \textcolor{black}{$97$} };
+            \node at (9.5, 3.5) { \textcolor{black}{$20$} };
+
+            \node at (6, 1.5) { \textcolor{blue}{$33$} };
+            \node at (7, 1.5) { \textcolor{blue}{$52$} };
+
+            \node at (9, 1.5) { \textcolor{blue}{$20$} };
+            \node at (10, 1.5) { \textcolor{blue}{$97$} };
+
+        \end{scope}
+        \end{tikzpicture}
+
+    \end{figure}
+
+\end{frame}
+
+\begin{frame}[fragile]{Visualização do \code{c}{mergesort}}
+
+    \begin{figure}
+        \centering
+
+        \begin{tikzpicture}
+        \begin{scope}[scale=0.8]
+            \draw (0, 5) grid (9, 6);
+
+            \draw (-1, 3) grid (4, 4);
+            \draw (6, 3) grid (10, 4);
+
+            \foreach \x in {6,...,7}:
+                \draw ({\x - 0.5}, 1) rectangle ({\x + 0.5}, 2);
+
+            \foreach \x in {9,...,10}:
+                \draw ({\x - 0.5}, 1) rectangle ({\x + 0.5}, 2);
+
+            \draw[opacity=0] (-2.25, -3) rectangle (-1.25, -2);
+
+            \draw[opacity=0] (9.75, -1) rectangle (10.75, 0);
+
+            \node at (0.5, 5.5) { \textcolor{black}{$89$} };
+            \node at (1.5, 5.5) { \textcolor{black}{$60$} };
+            \node at (2.5, 5.5) { \textcolor{black}{$12$} };
+            \node at (3.5, 5.5) { \textcolor{black}{$45$} };
+            \node at (4.5, 5.5) { \textcolor{black}{$37$} };
+            \node at (5.5, 5.5) { \textcolor{black}{$52$} };
+            \node at (6.5, 5.5) { \textcolor{black}{$33$} };
+            \node at (7.5, 5.5) { \textcolor{black}{$97$} };
+            \node at (8.5, 5.5) { \textcolor{black}{$20$} };
+
+            \node at (-0.5, 3.5) { \textcolor{blue}{$12$} };
+            \node at (0.5, 3.5) { \textcolor{blue}{$37$} };
+            \node at (1.5, 3.5) { \textcolor{blue}{$45$} };
+            \node at (2.5, 3.5) { \textcolor{blue}{$60$} };
+            \node at (3.5, 3.5) { \textcolor{blue}{$89$} };
+
+            \node at (6.5, 3.5) { \textcolor{blue}{$20$} };
+            \node at (7.5, 3.5) { \textcolor{blue}{$33$} };
+            \node at (8.5, 3.5) { \textcolor{blue}{$52$} };
+            \node at (9.5, 3.5) { \textcolor{blue}{$97$} };
+
+            \node at (6, 1.5) { \textcolor{red}{$33$} };
+            \node at (7, 1.5) { \textcolor{red}{$52$} };
+
+            \node at (9, 1.5) { \textcolor{red}{$20$} };
+            \node at (10, 1.5) { \textcolor{red}{$97$} };
+
+        \end{scope}
+        \end{tikzpicture}
+
+    \end{figure}
+
+\end{frame}
+
+\begin{frame}[fragile]{Visualização do \code{c}{mergesort}}
+
+    \begin{figure}
+        \centering
+
+        \begin{tikzpicture}
+        \begin{scope}[scale=0.8]
+            \draw (0, 5) grid (9, 6);
+
+            \draw (-1, 3) grid (4, 4);
+            \draw (6, 3) grid (10, 4);
+
+            \draw[opacity=0] (-2.25, -3) rectangle (-1.25, -2);
+            \draw[opacity=0] (9.75, -1) rectangle (10.75, 0);
+
+            \node at (0.5, 5.5) { \textcolor{black}{$89$} };
+            \node at (1.5, 5.5) { \textcolor{black}{$60$} };
+            \node at (2.5, 5.5) { \textcolor{black}{$12$} };
+            \node at (3.5, 5.5) { \textcolor{black}{$45$} };
+            \node at (4.5, 5.5) { \textcolor{black}{$37$} };
+            \node at (5.5, 5.5) { \textcolor{black}{$52$} };
+            \node at (6.5, 5.5) { \textcolor{black}{$33$} };
+            \node at (7.5, 5.5) { \textcolor{black}{$97$} };
+            \node at (8.5, 5.5) { \textcolor{black}{$20$} };
+
+            \node at (-0.5, 3.5) { \textcolor{blue}{$12$} };
+            \node at (0.5, 3.5) { \textcolor{blue}{$37$} };
+            \node at (1.5, 3.5) { \textcolor{blue}{$45$} };
+            \node at (2.5, 3.5) { \textcolor{blue}{$60$} };
+            \node at (3.5, 3.5) { \textcolor{blue}{$89$} };
+
+            \node at (6.5, 3.5) { \textcolor{blue}{$20$} };
+            \node at (7.5, 3.5) { \textcolor{blue}{$33$} };
+            \node at (8.5, 3.5) { \textcolor{blue}{$52$} };
+            \node at (9.5, 3.5) { \textcolor{blue}{$97$} };
+
+        \end{scope}
+        \end{tikzpicture}
+
+    \end{figure}
+
+\end{frame}
+
+\begin{frame}[fragile]{Visualização do \code{c}{mergesort}}
+
+    \begin{figure}
+        \centering
+
+        \begin{tikzpicture}
+        \begin{scope}[scale=0.8]
+            \draw (0, 5) grid (9, 6);
+
+            \draw (-1, 3) grid (4, 4);
+            \draw (6, 3) grid (10, 4);
+
+            \draw[opacity=0] (-2.25, -3) rectangle (-1.25, -2);
+            \draw[opacity=0] (9.75, -1) rectangle (10.75, 0);
+
+            \node at (0.5, 5.5) { \textcolor{blue}{$12$} };
+            \node at (1.5, 5.5) { \textcolor{blue}{$20$} };
+            \node at (2.5, 5.5) { \textcolor{blue}{$33$} };
+            \node at (3.5, 5.5) { \textcolor{blue}{$37$} };
+            \node at (4.5, 5.5) { \textcolor{blue}{$45$} };
+            \node at (5.5, 5.5) { \textcolor{blue}{$52$} };
+            \node at (6.5, 5.5) { \textcolor{blue}{$60$} };
+            \node at (7.5, 5.5) { \textcolor{blue}{$89$} };
+            \node at (8.5, 5.5) { \textcolor{blue}{$97$} };
+
+            \node at (-0.5, 3.5) { \textcolor{red}{$12$} };
+            \node at (0.5, 3.5) { \textcolor{red}{$37$} };
+            \node at (1.5, 3.5) { \textcolor{red}{$45$} };
+            \node at (2.5, 3.5) { \textcolor{red}{$60$} };
+            \node at (3.5, 3.5) { \textcolor{red}{$89$} };
+
+            \node at (6.5, 3.5) { \textcolor{red}{$20$} };
+            \node at (7.5, 3.5) { \textcolor{red}{$33$} };
+            \node at (8.5, 3.5) { \textcolor{red}{$52$} };
+            \node at (9.5, 3.5) { \textcolor{red}{$97$} };
+
+        \end{scope}
+        \end{tikzpicture}
+
+    \end{figure}
+
+\end{frame}
+
+\begin{frame}[fragile]{Visualização do \code{c}{mergesort}}
+
+    \begin{figure}
+        \centering
+
+        \begin{tikzpicture}
+        \begin{scope}[scale=0.8]
+            \draw (0, 5) grid (9, 6);
+
+            \draw[opacity=0] (-2.25, -3) rectangle (-1.25, -2);
+            \draw[opacity=0] (9.75, -1) rectangle (10.75, 0);
+
+            \node at (0.5, 5.5) { \textcolor{black}{$12$} };
+            \node at (1.5, 5.5) { \textcolor{black}{$20$} };
+            \node at (2.5, 5.5) { \textcolor{black}{$33$} };
+            \node at (3.5, 5.5) { \textcolor{black}{$37$} };
+            \node at (4.5, 5.5) { \textcolor{black}{$45$} };
+            \node at (5.5, 5.5) { \textcolor{black}{$52$} };
+            \node at (6.5, 5.5) { \textcolor{black}{$60$} };
+            \node at (7.5, 5.5) { \textcolor{black}{$89$} };
+            \node at (8.5, 5.5) { \textcolor{black}{$97$} };
+
+        \end{scope}
+        \end{tikzpicture}
+
+    \end{figure}
+
+\end{frame}
