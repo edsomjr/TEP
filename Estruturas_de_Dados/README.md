@@ -42,3 +42,9 @@ Slides
     1. [Definição, endereçamento aberto e encadeamento](slides/HS-1/HS-1.pdf)
     1. [_Hash_ universal e _hash_perfeito](slides/HS-2/HS-2.pdf)
     1. [_Hash_em C++](slides/HS-3/HS-3.pdf) ([problemas resolvidos](problems/HS-3/HS-3.pdf))
+
+<!-- Assuntos pendentes:
+1. Árvores de segmentos
+2. Árvores AVL
+3. BITree: range query com range update
+-->

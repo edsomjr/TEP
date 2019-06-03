@@ -22,3 +22,9 @@ Slides
     1. [Ordenação em C/C++](slides/BO-4/BO-4.pdf) ([problemas resolvidos](problems/BO-4/BO-4.pdf))
 1. [Recursão](slides/RS-1/RS-1.pdf) ([problemas resolvidos](problems/RS-1/RS-1.pdf))
 1. [Leituras Recomendadas](slides/BB-1/BB-1.pdf)
+
+<!-- Assuntos pendentes:
+1. Algoritmos de ordenação O(1)
+2. Análise amortizada
+3. Master theorem para funções recursivas/dividir e conquistar
+-->
