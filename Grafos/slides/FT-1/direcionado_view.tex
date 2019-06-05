@@ -1,0 +1,36 @@
+\begin{frame}[fragile]{Visualização de um grafo denso, direcionado e não ponderado}
+
+    \begin{figure}
+        \centering
+
+        \begin{tikzpicture}
+            \node[draw,circle] (A) at (0, 3) { A };
+            \node[draw,circle] (B) at (2, 5) { B };
+            \node[draw,circle] (C) at (1, 0) { C };
+            \node[draw,circle] (D) at (4, 2) { D };
+            \node[draw,circle] (E) at (5, 4) { E };
+            \node[draw,circle] (F) at (6, 0.5) { F };
+
+            \draw[->] (A) to [bend left] (B);
+            \draw[->] (B) to [bend left] (A);
+            \draw[->] (A) to [bend left] (C);
+            \draw[->] (C) to [bend left] (A);
+            \draw[->] (D) to [bend left] (C);
+            \draw[->] (C) to [bend left] (D);
+            \draw[->] (B) to [bend left] (E);
+            \draw[->] (E) to [bend left] (B);
+
+
+
+
+            \draw[->] (A) -- (D);
+            \draw[->] (A) -- (F);
+            \draw[->] (B) -- (D);
+            \draw[->] (C) to [bend right] (F);
+            \draw[<-] (D) -- (F);
+            \draw[->] (E) -- (F);
+        \end{tikzpicture}
+
+    \end{figure}
+
+\end{frame}
