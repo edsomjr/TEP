@@ -59,7 +59,7 @@ int main()
 
     int N;
 
-    while (cin >> N)
+    while (cin >> N, N)
     {
         vector<int> xs(N);
 
@@ -68,7 +68,7 @@ int main()
 
         auto ans = mergesort(xs.begin(), xs.end());
 
-        cout << "Minimum exchange operations : " << ans << '\n';
+        cout << ans << '\n';
     }
 
     return 0;

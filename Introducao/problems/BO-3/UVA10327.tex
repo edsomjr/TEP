@@ -2,26 +2,15 @@
 
 \begin{frame}[fragile]{Problema}
 
-A number of students are members of a club that travels annually to exotic locations. Their 
-destinations in the past have included Indianapolis, Phoenix, Nashville, Philadelphia, San Jose, 
-Atlanta, Eindhoven, Orlando, Vancouver, Honolulu, Beverly Hills, Prague, Shanghai, and 
-San Antonio. This spring they are hoping to make a similar trip but aren’t quite sure where or when.
+Sorting in computer science is an important part. Almost every problem can be solved effeciently if
+sorted data are found. There are some excellent sorting algorithm which has already acheived the 
+lower bound $n\log n$. In this problem we will also discuss about a new sorting approach. In this 
+approach only one operation (Flip) is available and that is you can exchange two adjacent terms. 
+If you think a while, you will see that it is always possible to sort a set of numbers in this way.
 
-An issue with the trip is that their very generous sponsors always give them various knapsacks and 
-other carrying bags that they must pack for their trip home.  As the airline allows only so many 
-pieces of luggage, they decide to pool their gifts and to pack one bag within another so as to 
-minimize the total number of pieces they must carry.
-
-\end{frame}
-
-\begin{frame}[fragile]{Problema}
-
-The bags are all exactly the same shape and differ only in their linear dimension which is a 
-positive integer not exceeding 1000000. A bag with smaller dimension will fit in one with larger 
-dimension. You are to compute which bags to pack within which others so as to minimize the overall 
-number of pieces of luggage (i.e. the number of outermost bags). While maintaining the minimal 
-number of pieces you are also to minimize the total number of bags in any one piece that must be 
-carried.
+A set of integers will be given. Now using the above approach we want to sort the numbers in
+ascending order. You have to find out the minimum number of flips required. Such as to sort 
+‘1 2 3’ we need no flip operation whether to sort ‘2 3 1’ we need at least 2 flip operations.
 
 \end{frame}
 
@@ -29,39 +18,36 @@ carried.
 
 \textbf{Input}
 
-Standard input contains several test cases. Each test case consists of an integer 
-$1\leq n\leq 10000$ giving the number of bags followed by $n$ integers on one or more lines, 
-each giving the dimension of a piece.  A line containing $0$ follows the last test case.
+The input will start with a positive integer $N$ ($N\leq 1000$). In next few lines there will be 
+$N$ integers.  
+
+Input will be terminated by EOF.
 
 \vspace{0.1in}
 
 \textbf{Output}
 
-For each test case your output should consist of $k$, the minimum number of pieces, followed by 
-$k$ lines, each giving the dimensions of the bags comprising one piece, separated by spaces
-. Each dimension in the input should appear exactly once in the output, and the bags in each piece 
-must fit nested one
-within another. If there is more than one solution, any will do. Output an empty line between cases.
+For each data set print ‘\texttt{Minimum exchange operations :} $M$’ where $M$ is the minimum 
+flip operations required to perform sorting. Use a seperate line for each case.
 
 \end{frame}
 
 \begin{frame}[fragile]{Exemplo de entradas e saídas}
 
-\begin{minipage}[t]{0.5\textwidth}
+\begin{minipage}[t]{0.4\textwidth}
 \textbf{Exemplo de Entrada}
 \begin{verbatim}
-6
-1 1 2 2 2 3
-0
+3
+1 2 3
+3
+2 3 1
 \end{verbatim}
 \end{minipage}
-\begin{minipage}[t]{0.45\textwidth}
+\begin{minipage}[t]{0.55\textwidth}
 \textbf{Exemplo de Saída}
 \begin{verbatim}
-3
-1 2
-1 2
-3 2
+Minimum exchange operations : 0
+Minimum exchange operations : 2
 \end{verbatim}
 \end{minipage}
 \end{frame}
@@ -69,24 +55,43 @@ within another. If there is more than one solution, any will do. Output an empty
 \begin{frame}[fragile]{Solução $O(N\log N)$}
 
     \begin{itemize}
-        \item O principal ponto a ser observado é que objetos com a mesma dimensão devem ir
-            em bolsas distintas
+        \item Observe que o problema consiste, de fato, na contagem das inversões existentes no
+            vetor $a$
 
-        \item Logo, o número mínimo de bolsas necessárias é igual ao número de ocorrências $n$ da
-            dimensão $x$ mais frequente
+        \item Uma inversão consiste em um par de índices $(i, j)$, com $i < j$, tal que
+            $a_i > a_j$
 
-        \item Alocado o espaço para as bolsas, basta distribuir uniformemente os demais objetos 
-            entre as bolsas, do maior para o menor
+        \item Comparar todos os pares de índices possíveis leva a uma solução $O(N^2)$, a qual
+            pode ser aceita, uma vez que $N\leq 10^3$
 
-        \item Esta distribuição garante que há, no máximo, um elemento com dimensão $x$ em cada
-            bolsa, e que as bolsas estarão ordenadas, do maior para o menor
+        \item Porém há uma solução mais eficiente, com complexidade $O(N\log N)$
 
-        \item Por conta da ordenação utilizada na construção do histograma, esta solução tem 
-            complexidade $O(N\log N)$
+        \item Basta observar que, durante a etapa de fusão do \textit{MergeSort}, é possível
+            contar as inversões de forma eficiente
+
+        \item Considere dois vetores $L$ e $R$ a serem fundidos, com $L$ à esquerda e $R$ à direita
+
+        \item Para cada elemento de $L$ a ser copiado no vetor que conterá a fusão, haverão
+            $r$ inversões associadas a este elemento, onde $r$ é o número de elementos do
+            vetor $R$ já copiados 
+
+        \item Logo a solução terá a mesma complexidade do \textit{MergeSort}
    \end{itemize}
 
 \end{frame}
 
 \begin{frame}[fragile]{Solução $O(N\log N)$}
     \inputsnippet{cpp}{1}{21}{10327.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Solução $O(N\log N)$}
+    \inputsnippet{cpp}{22}{42}{10327.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Solução $O(N\log N)$}
+    \inputsnippet{cpp}{43}{61}{10327.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Solução $O(N\log N)$}
+    \inputsnippet{cpp}{62}{82}{10327.cpp}
 \end{frame}
