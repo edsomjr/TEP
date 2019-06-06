@@ -1,0 +1,78 @@
+\section{Codeforces Round \#464 (Div. 2) -- Problem A: Love Triangle}
+
+\begin{frame}[fragile]{Problema}
+
+As you could know there are no male planes nor female planes. However, each plane on Earth likes 
+some other plane. There are $n$ planes on Earth, numbered from $1$ to $n$, and the plane with 
+number $i$ likes the plane with number $f_i$, where $1\leq f_i\leq n$ and $f_i\neq i$.
+
+We call a love triangle a situation in which plane $A$ likes plane $B$, plane $B$ likes plane $C$
+and plane $C$ likes plane $A$. Find out if there is any love triangle on Earth.
+
+\end{frame}
+
+\begin{frame}[fragile]{Entrada e saída}
+
+\textbf{Input}
+
+The first line contains a single integer $n$ $(2\leq n\leq 5000)$ -- the number of planes.
+
+The second line contains $n$ integers $f_1, f_2, \ldots, f_n$ $(1\leq f_i\leq n, f_i\neq i)$, 
+meaning that the $i$-th plane likes the $f_i$-th.
+
+\textbf{Output}
+
+Output «\texttt{YES}» if there is a love triangle consisting of planes on Earth. Otherwise, output 
+«\texttt{NO}».
+
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de entradas e saídas}
+
+\begin{minipage}[t]{0.5\textwidth}
+\textbf{Sample Input}
+\begin{verbatim}
+5
+2 4 5 1 3
+
+5
+5 5 5 5 1
+\end{verbatim}
+\end{minipage}
+\begin{minipage}[t]{0.45\textwidth}
+\textbf{Sample Output}
+\begin{verbatim}
+YES
+
+
+NO
+\end{verbatim}
+\end{minipage}
+\end{frame}
+
+\begin{frame}[fragile]{Solução com complexidade $O(N)$}
+
+    \begin{itemize}
+        \item Considere que a cada plano seja associado um vértice $u$
+
+        \item De cada vértice $u$ parte uma única aresta direcionada $(u, f_u)$
+
+        \item O problema consiste em verificar se o caminho 
+        \[
+            A\to (B = f_A)\to (C = f_B)\to (D = f_C)
+        \]
+        é um ciclo, isto, é, se $A = D$
+
+        \item Como o caminho tem apenas 3 arestas para qualquer vértices, o algoritmo é
+            $O(N)$
+   \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Solução AC com complexidade $O(N)$}
+    \inputsnippet{cpp}{1}{21}{939A.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Solução AC com complexidade $O(N)$}
+    \inputsnippet{cpp}{22}{40}{939A.cpp}
+\end{frame}

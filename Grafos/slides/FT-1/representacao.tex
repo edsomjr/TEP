@@ -1,0 +1,110 @@
+\section{Representação de grafos}
+
+\begin{frame}[fragile]{Matriz de adjacências}
+
+    \begin{itemize}
+        \item Seja $N = |V|$ e considere que cada vértice $v\in V$ é representado por um
+            número positivo distinto do intervalo $[1, N]$
+
+        \item A representação de um grafo por matriz de adjacências utiliza uma matriz
+            $A_{N\times N}$, onde o elemento $a_{ij}$ armazena o peso da aresta que une o vértice
+            $i$ ao vértice $j$
+
+        \item Em um grafo não-ponderado, $a_{ij} = 1$ representa a existência da aresta, e 
+            $a_{ij} = 0$ a inexistência da mesma
+
+        \item Outra interpretação possível é considerar $a_{ij}$ o número de ocorrências da aresta
+            $(i, j)$ em um multigrafo não-ponderado
+
+        \item Em um grafo simples, $a_{ii} = 0, \forall i\in V$
+
+        \item Esta representação responde perguntas do tipo ``Há uma aresta entre $u$ e $v$? Qual
+            é o seu peso?'' em $O(1)$
+
+        \item Contudo, a complexidade de memória é alta ($O(N^2)$)
+    \end{itemize}
+
+\end{frame}
+
+\input{matriz_view}
+
+\begin{frame}[fragile]{Representação por matriz de adjacências}
+    \inputsnippet{cpp}{1}{21}{matriz.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Representação por lista de adjacências}
+
+    \begin{itemize}
+        \item Na representação por lista de adjacências, a cada vértice $u$ é associada uma lista
+            que contém os identificadores dos vértices $v$ relacionados a $u$
+
+        \item Caso o grafo seja ponderado, cada entrada da lista contém duas informações: o 
+            identificador do vértice $v$ e o peso $w$ da aresta $(u, v)$
+
+        \item Em C++, estas listas podem ser contêniers do tipo \code{c}{list}, \code{c}{vector}
+            ou \code{c}{forward_list}
+
+        \item A escolha depende do tipo de travessia que será feita em cada aresta que parte de $u$
+
+        \item Esta representação é mais adequada para grafos esparsos do que as matrizes de 
+            adjacência, uma vez que tem complexidade de memória $O(N + M)$
+
+        \item A maioria dos algoritmos clássicos de grafos utiliza esta representação
+    \end{itemize}
+
+\end{frame}
+
+\input{listas_view}
+
+\begin{frame}[fragile]{Representação por lista de adjacências}
+    \inputsnippet{cpp}{1}{21}{listas.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Representação por lista de arestas}
+
+    \begin{itemize}
+        \item Na representação por lista de arestas o grafo é representado pelo conjunto $E$
+            das arestas
+
+        \item Se o grafo é ponderado, cada aresta corresponderá a uma tripla com os valores
+            $(u, v, w)$, que indica que a aresta $(u, v)$ tem peso $w$
+
+        \item Observe que é possível obter o conjunto $V$ a partir de $E$ caso o grafo $G(V, E)$
+            não possua vértices isolados
+
+        \item Esta representação tem complexidade $O(M)$, onde $M = |E|$
+
+        \item Esta representação é utilizada no algoritmo de Kruskall para árvore mínima 
+            geradora
+
+        \item Nos demais algoritmos a implementação pode ficar mais trabalhosa, ou mesmo
+            ter maior complexidade assintótica, uma vez que os vértices $V$ não podem ser
+            acessados diretamente
+    \end{itemize}
+
+\end{frame}
+
+\input{arestas_view}
+
+\begin{frame}[fragile]{Representação por lista de arestas}
+    \inputsnippet{cpp}{1}{21}{arestas.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Representação implícita}
+
+    \begin{itemize}
+        \item Na representação implícita os vértices e arestas são dadas implicitamente, por 
+            meio de relações matemáticas ou pelo contexto do problema
+
+        \item Por exemplo, o grafo completo formado pelos pontos do plano cartesiano cujas 
+            coordenadas são números inteiros, e cujos pesos das arestas são dados pela distância 
+            euclidiana, é um grafo implícito
+
+        \item Esta representação é adequada quando o grafo for muito complexo ou quando a 
+            relação entre os vértices é óbvia ou diretamente computável
+
+        \item Também pode ser utilizada para construir um grafo sob demanda, o que é útil em
+            problemas de teoria dos jogos ou em simulações
+    \end{itemize}
+
+\end{frame}
