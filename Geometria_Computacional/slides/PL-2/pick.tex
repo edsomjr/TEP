@@ -44,8 +44,7 @@
                 aos eixos ordenados
             \item mostrar que a fórmula vale para triângulos retângulos
             \item mostrar que a fórmula vale para triângulos arbitrários
-            \item mostrar que se $P$ é um polígono e $T$ um triângulo que compartilhar uma
-                aresta com $P$, então o resultado vale para $P\cup T$
+            \item mostrar que a fórmula vale para é um polígono simples
         \end{enumerate}
 \end{frame}
 
@@ -203,4 +202,166 @@
     \end{align*}
 
     portanto o resultado vale para $T$.
+\end{frame}
+
+\begin{frame}[fragile]{Demonstração da parte (4)}
+
+    \textbf{(4)} Seja $T$ um triângulo qualquer.
+
+    \begin{figure}
+        \centering
+
+        \begin{tikzpicture}
+            \begin{scope}[scale=0.4]
+            \draw[gray!30] (-3, -3) grid (20,14);
+
+            \draw[thick,->] (-3, 0) -- (20, 0) node[anchor=west] { $x$ };
+            \draw[thick,->] (0, -3) -- (0, 14) node[anchor=west] { $y$ };
+
+            \draw[very thick] (8, 3) -- (16, 5) -- node[anchor=south east,yshift=0.3cm,xshift=0.1cm] { $T$ } (4, 12) -- (8, 3);
+
+            %\draw (3.3, 12) -- (3, 12) -- node[anchor=east] { $ h $ } (3, 3) -- (3.3, 3);
+            %\draw (4, 2.3) -- (4, 2) -- node[anchor=north] { $ b $ } (16, 2) -- (16, 2.3);
+            \end{scope}
+        \end{tikzpicture}
+    \end{figure}
+
+\end{frame}
+
+\begin{frame}[fragile]{Demonstração da parte (4)}
+
+    Seja $x_{min}, y_{min}, x_{max}, y_{max}$ os valores mínimos e máximos das coordenadas dos
+        vértices. É possível construir um retângulo com base $b = x_{max} - x_{min}$ e
+        altura $h = y_{max} - y_{min}$ através da união de $T$ com três triângulos retângulos
+        $T_1, T_2$ e $T_3$
+
+    \begin{figure}
+        \centering
+
+        \begin{tikzpicture}
+            \begin{scope}[scale=0.35]
+            \draw[gray!30] (-3, -2) grid (20,14);
+
+            \draw[thick,->] (-3, 0) -- (20, 0) node[anchor=west] { $x$ };
+            \draw[thick,->] (0, -2) -- (0, 14) node[anchor=west] { $y$ };
+
+            \draw[dashed] (4, 3) -- (8, 3) -- (4, 12) -- (4, 3);
+            \node at (5.5, 5.5) { $T_1$ };
+
+            \draw[dashed] (8, 3) -- (16, 3) -- (16, 5) -- (8, 3);
+            \node at (14.5, 3.75) { $T_2$ };
+
+            \draw[dashed] (16, 5) -- (16, 12) -- (4, 12) -- (16, 5);
+            \node at (12.5, 9.75) { $T_3$ };
+
+            \draw (8, 3) -- (16, 5) -- (4, 12) -- (8, 3);
+            \node at (9.5, 6.5) { $T$ };
+
+            \draw (3.3, 12) -- (3, 12) -- node[anchor=east] { $ h $ } (3, 3) -- (3.3, 3);
+            \draw (4, 2.3) -- (4, 2) -- node[anchor=north] { $ b $ } (16, 2) -- (16, 2.3);
+            \end{scope}
+        \end{tikzpicture}
+    \end{figure}
+
+\end{frame}
+
+\begin{frame}[fragile]{Demonstração da parte (4)}
+
+    O número de pontos com coordenadas inteiras no interior do retângulo $R$ é igual a
+    \[
+        I_R = I_{T_1} + I_{T_2} + I_{T_3} + I_{T} + (B_{T} - 3),
+    \]
+    onde $B_T$ é o número de pontos com coordenadas inteiras na borda de $T$
+
+    Por outro lado,
+    \[
+        B_R = B_{T_1} + B_{T_2} + B_{T_3} - B_{T}
+    \]
+
+    Como o resultado vale para retângulos e triângulos retângulos, e observando que
+    \[
+        A_T = A_R - (A_{T_1} + A_{T_2} + A_{T_3}),
+    \]
+
+\end{frame}
+
+\begin{frame}[fragile]{Demonstração da parte (4)}
+
+    segue que
+    \begin{align*}
+        A_T &= \left( I_R - \frac{B_R}{2} - 1\right) - \left[
+        \left( I_{T_1} + I_{T_2} + I_{T_3} \right) +
+        \left( \frac{B_{T_1} + B_{T_2} + B_{T_3}}{2}\right) - 3\right] \\
+        &= \left(I_R - I_{T_1} + I_{T_2} + I_{T_3} \right) +
+        \left( \frac{B_R - B_{T_1} - B_{T_2} - B_{T_3}}{2}\right) + 2\\
+        &= \left(I_T + B_T - 3 \right) -
+        \left( \frac{B_T}{2}\right) + 2\\
+        &= I_T + \frac{B_T}{2} - 1,
+    \end{align*}
+    logo o teorema é verdadeiro para um triângulo $T$ qualquer.
+
+\end{frame}
+
+\begin{frame}[fragile]{Demonstração da parte (5)}
+
+    \textbf{(5)} A última parte é demonstrada por indução. 
+
+    Seja $P$ um polígono simples. O caso base ocorre para um triângulo, e o resultado é 
+    verdadeiro para qualquer triângulo $T$, conforme já demonstrado.
+
+    Suponha que o resultado seja verdadeiro para qualquer polígono simples como $m\geq 3$ lados.
+    Seja $P$ um polígono simples com $m + 1$ lados. Como $P$ é simples, ele pode ser 
+        decomposto na forma $P = T\cup Q$, onde $T$ é um triângulo e $Q$ um polígono simples
+        com $m$ lados, ambos compartilhando uma aresta em comum. Considere que o número de
+        pontos com coordenadas inteiras na aresta comum de $T$ e $Q$ seja igual a $k$.
+
+    Desde modo, $I_P = I_T + I_Q + k$ e $B_P = B_T + B_Q - 2k$. Veja a figura a seguir.
+
+\end{frame}
+
+\begin{frame}[fragile]{Demonstração da parte (5)}
+
+    \begin{figure}
+        \centering
+
+        \begin{tikzpicture}
+            \begin{scope}[scale=0.45]
+            \draw[gray!30] (-3, -2) grid (20,14);
+
+            \draw[thick,->] (-3, 0) -- (20, 0) node[anchor=west] { $x$ };
+            \draw[thick,->] (0, -2) -- (0, 14) node[anchor=west] { $y$ };
+
+            \draw[ultra thick] (2, 3) -- (5, 1) -- (6, 4) -- (15, 2) -- (18, 4)
+                -- (17, 10) -- (11, 13) -- (8, 9) -- (5, 10) -- (3, 4) -- (1, 8) -- (2, 3);
+
+            \draw[dashed] (17, 10) -- (8, 9);
+
+            \node at (18, 10) { $P$ };
+            \node at (12, 11) { $T$ };
+
+            \node at (10, 6) { $Q$ };
+
+            \end{scope}
+        \end{tikzpicture}
+    \end{figure}
+
+\end{frame}
+\begin{frame}[fragile]{Demonstração da parte (5)}
+    Assim,
+    \begin{align*}
+        A_P &= A_T + A_Q \\
+            & = \left(I_T + \frac{B_T}{2} - 1\right) 
+            + \left(I_Q + \frac{B_Q}{2} - 1\right) \\
+            &= \left(I_T + I_Q + k\right) + 
+            \left(\frac{B_T + B_Q}{2} - k \right) - 1\\
+            &= I_P + \left(\frac{B_T + B_Q - 2k}{2} \right) - 1\\
+            &= I_P + \left(\frac{B_P}{2} \right) - 1,
+    \end{align*}
+
+    Portanto o resultado é válido para qualquer polígono simples.
+
+\begin{flushright}
+$\square$
+\end{flushright}
+
 \end{frame}
