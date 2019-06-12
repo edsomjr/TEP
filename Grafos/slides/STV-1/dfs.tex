@@ -15,7 +15,7 @@
         \item Um grafo conectado com $N$ nós tem $N!$ travessias possíveis
 
         \item Dentre todas estas travessias, duas se destacam pela aplicabilidade em situações
-            práticas: a travessia por profundidade e a travessia por largura.
+            práticas: a travessia por profundidade e a travessia por largura
     \end{itemize}
 
 \end{frame}
@@ -33,9 +33,9 @@
             uma única vez
 
         \item Em um grafo conectado com $N$ nós e $M$ arestas, a complexidade da DFS é
-            $O(N + M)$, pois cada nó e cada aresta é processada uma única vez
+            $O(N + M)$, pois cada nó e cada aresta são processados uma única vez
 
-        \item Se o grafo for representado como matrizes de adjacências, a complexidade é 
+        \item Se o grafo for representado como uma matriz de adjacências, a complexidade é 
             $O(N^2)$
 
     \end{itemize}
@@ -512,10 +512,31 @@
 
 \section{Implementação}
 
+
+\begin{frame}[fragile]{Implementação da DFS}
+
+    \begin{itemize}
+        \item A DFS é implementada naturalmente por meio de recursão
+
+        \item Deve se manter um registro dos vértices já visitados
+
+        \item O caso base da recursão acontece quando a busca atinge um vértice já visitado
+
+        \item Caso o vértice ainda não tenha sido visitado, ele deve ser marcado, processado, e
+            a busca deve prosseguir em todos os seus vizinhos ainda não visitados
+      
+        \item Se o registro dos vértices visitados não for passado como parâmetro da função,
+            ele deve ser reiniciado a cada busca
+
+        \item O processamento do vértice pode ser parametrizado, de modo que a rotina de
+            travessia possa ser reutilizada com vários processamentos distintos
+    \end{itemize}
+
+\end{frame}
 \begin{frame}[fragile]{Implementação da DFS em C++}
-    \inputsnippet{c++}{1}{21}{dfs.cpp}
+    \inputsnippet{c++}{1}{20}{dfs.cpp}
 \end{frame}
 
 \begin{frame}[fragile]{Implementação da DFS em C++}
-    \inputsnippet{c++}{23}{43}{dfs.cpp}
+    \inputsnippet{c++}{21}{41}{dfs.cpp}
 \end{frame}

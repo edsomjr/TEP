@@ -3,7 +3,7 @@ Teoria dos Grafos
 
 1. [Fundamentos](slides/FT-1/FT-1.pdf) ([problemas resolvidos](problems/FT-1/FT-1.pdf))
 1. Travessia
-    1. [Travessia por profundidade](slides/STV-1/STV-1.pdf)
+    1. [Travessia por profundidade](slides/STV-1/STV-1.pdf) ([problemas resolvidos](problems/STV-1/STV-1.pdf))
     1. [Travessia por largura](slides/STV-2/STV-2.pdf)
     1. [Aplicações](slides/STV-3/STV-3.pdf)
 1. Caminhos Mínimos
