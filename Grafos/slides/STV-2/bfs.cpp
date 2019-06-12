@@ -1,7 +1,4 @@
-#include <iostream>
-#include <vector>
-#include <bitset>
-#include <queue>
+#include <bits/stdc++.h>
 
 using namespace std;
 using ii = pair<int, int>;
@@ -12,10 +9,11 @@ vector<int> adj[MAX];
 bitset<MAX> visited;
 int dist[MAX];
 
-void bfs(int s)
+void bfs(int s, const function<void(int)>& process)
 {
-    queue<int> q;
     visited.reset();
+
+    queue<int> q;
     q.push(s);
     visited[s] = true;        
     dist[s] = 0;
@@ -25,7 +23,7 @@ void bfs(int s)
         auto u = q.front();
         q.pop();
 
-        cout << u << " ";
+        process(u);
 
         for (const auto& v : adj[u])
         {
@@ -51,8 +49,8 @@ int main()
         adj[v].push_back(u);
     }
 
-    bfs(1);
-    cout << endl;
+    bfs(1, [](int u) { cout << u << ' '; });
+    cout << '\n';
 
     return 0;
 } 
