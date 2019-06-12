@@ -41,7 +41,7 @@ bool is_bipartite(int N)
 
 int main()
 {
-    ii edges[] { ii(1, 2), ii(1, 3), ii(1, 4), ii(1, 5), ii(2, 6), 
+    vector<ii> edges { ii(1, 2), ii(1, 3), ii(1, 4), ii(1, 5), ii(2, 6), 
         ii(3, 6), ii(4, 8), ii(5, 7), ii(6, 9), ii(7, 9), ii(8, 9), 
         ii(9, 10) };
 
@@ -51,7 +51,7 @@ int main()
         adj[v].push_back(u);
     }
 
-    cout << (is_bipartite(10) ? "Sim" : "Nao") << endl;
+    cout << (is_bipartite(edges.size()) ? "Sim" : "Nao") << '\n';
 
     return 0;
 } 
