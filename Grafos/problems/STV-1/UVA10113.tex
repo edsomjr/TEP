@@ -1,0 +1,133 @@
+\section{UVA 10113 -- Exchange Rates}
+
+\begin{frame}[fragile]{Problema}
+
+Using money to pay for goods and services usually makes life easier, but sometimes people prefer 
+to trade items directly without any money changing hands. In order to ensure a consistent 
+``price'', traders set an exchange rate between items. The exchange rate between two items $A$ and 
+$B$ is expressed as two positive integers $m$ and $n$, and says that $m$ of item $A$ is worth 
+$n$ of item $B$. For example, 2 stoves might be worth 3 refrigerators. (Mathematically, 1 stove 
+is worth 1.5 refrigerators, but since it’s hard to find half a refrigerator, exchange rates are 
+always expressed using integers.)
+
+Your job is to write a program that, given a list of exchange rates, calculates the exchange rate
+between any two items.
+
+\end{frame}
+
+\begin{frame}[fragile]{Entrada e saída}
+
+\textbf{Input}
+
+The input file contains one or more commands, followed by a line beginning with a period that 
+signals the end of the file. Each command is on a line by itself and is either an assertion or a 
+query. An assertion begins with an exclamation point and has the format
+\[
+!\ m\ itema = n\ itemb
+\]
+
+where $itema$ and $itemb$ are distinct item names and $m$ and $n$ are both positive integers less 
+than 100.  This command says that $m$ of $itema$ are worth $n$ of $itemb$. A query begins with a 
+question mark, is of the form
+\[
+?\ itema = itemb
+\]
+and asks for the exchange rate between $itema$ and $itemb$, where $itema$ and $itemb$ are distinct 
+items that have both appeared in previous assertions (although not necessarily the same assertion).
+\end{frame}
+
+\begin{frame}[fragile]{Entrada e saída}
+\textbf{Output}
+
+For each query, output the exchange rate between itema and itemb based on all the assertions made 
+up to that point. Exchange rates must be in integers and must be reduced to lowest terms. If no 
+exchange rate can be determined at that point, use question marks instead of integers. Format all 
+output exactly as shown in the example.
+\end{frame}
+
+\begin{frame}[fragile]{Entrada e saída}
+\textbf{Note}:
+
+\begin{itemize}
+    \item Item names will have length at most 20 and will contain only lowercase letters.
+    \item Only the singular form of an item name will be used (no plurals).
+    \item There will be at most 60 distinct items.
+    \item There will be at most one assertion for any pair of distinct items.
+    \item There will be no contradictory assertions. For example, “2 pig = 1 cow”, “2 cow = 1 horse”, and “2 horse = 3 pig” are contradictory.
+    \item Assertions are not necessarily in lowest terms, but output must be.
+    \item Although assertions use numbers less than 100, queries may result in larger numbers that will not exceed 10000 when reduced to lowest terms
+\end{itemize}
+
+\end{frame}
+
+
+\begin{frame}[fragile]{Exemplo de entradas e saídas}
+
+\begin{minipage}[t]{0.6\textwidth}
+\textbf{Sample Input}
+\begin{verbatim}
+! 6 shirt = 15 sock
+! 47 underwear = 9 pant
+? sock = shirt
+? shirt = pant
+! 2 sock = 1 underwear
+? pant = shirt
+.
+\end{verbatim}
+\end{minipage}
+\begin{minipage}[t]{0.35\textwidth}
+\textbf{Sample Output}
+\begin{verbatim}
+5 sock = 2 shirt
+? shirt = ? pant
+45 pant = 188 shirt
+\end{verbatim}
+\end{minipage}
+\end{frame}
+
+\begin{frame}[fragile]{Solução com complexidade $O(QN^2)$}
+
+    \begin{itemize}
+        \item Para simplificar a solução, pode-se associar um número inteiro distinto para cada 
+            item
+
+        \item A cada \textit{query} do tipo `\code{c}{!}' deve se associar o identificador 
+            inteiro a cada item ainda não encontrado e registrar, em uma matriz de adjacências,
+            o par $(m, n)$ que corresponde à taxa de conversão entre ambos itens
+
+        \item Esta taxa deve ser convertida a um par de elementos co-primos através da divisão de
+            ambos pelo maior divisor comum entre eles
+
+        \item Para cada \textit{query} do tipo `\code{c}{?}' deve se determinar os identificadores
+            $u$ e $w$ de cada item e reiniciar a tabela de vetores encontrados DFS
+
+        \item Para cada item $v$ ainda não encontrado pela DFS, computa-se a taxa de conversão
+            entre $u$ e $v$
+
+        \item Esta taxa pode já estar registrada na tabela de conversões ou deve ser estabelecida
+            se a busca já visitou anteriormente outro nó
+
+        \item Se $v = w$ a busca retorna esta taxa; caso contrário, a busca continua com $u = v$
+   \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Solução com complexidade $O(QN^2)$}
+    \inputsnippet{cpp}{1}{21}{10113.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Solução com complexidade $O(QN^2)$}
+    \inputsnippet{cpp}{22}{42}{10113.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Solução com complexidade $O(QN^2)$}
+    \inputsnippet{cpp}{43}{63}{10113.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Solução com complexidade $O(QN^2)$}
+    \inputsnippet{cpp}{64}{84}{10113.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Solução com complexidade $O(QN^2)$}
+    \inputsnippet{cpp}{85}{105}{10113.cpp}
+\end{frame}
