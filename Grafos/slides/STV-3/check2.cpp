@@ -1,12 +1,10 @@
-#include <iostream>
-#include <functional>
-#include <vector>
-#include <bitset>
+#include <bits/stdc++.h>
 
 using namespace std;
 using ii = pair<int, int>;
 
 const int MAX { 100010 };
+
 bitset<MAX> visited;
 vector<int> adj[MAX];
 
@@ -44,7 +42,8 @@ bool has_cycle(int N) {
 
 int main()
 {
-    ii edges[] { ii(1,2), ii(2,3), ii(2,4), ii(2,6), ii(4,5), ii(4,6) };
+    vector<ii> edges { ii(1,2), ii(2,3), ii(2,4), ii(2,6),
+        ii(4,5), ii(4,6) };
 
     for (const auto& [u, v] : edges)
     {

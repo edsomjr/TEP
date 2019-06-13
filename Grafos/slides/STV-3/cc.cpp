@@ -1,6 +1,4 @@
-#include <iostream>
-#include <vector>
-#include <bitset>
+#include <bits/stdc++.h>
 
 using namespace std;
 using ii = pair<int, int>;
@@ -9,15 +7,15 @@ const int MAX { 100010 };
 bitset<MAX> visited;
 vector<int> adj[MAX];
 
-void dfs(int u)
+void dfs(int u, const function<void(int)>& process)
 {
     if (visited[u]) return;
     visited[u] = true;
 
-    cout << " " << u;
+    process(u);
 
     for (const auto& v : adj[u])
-        dfs(v);
+        dfs(v, process);
 }
 
 int connected_components(int N)
@@ -31,8 +29,8 @@ int connected_components(int N)
         if (not visited[u])
         {
             cout << "Component " << ++ans << ":";
-            dfs(u);
-            cout << endl;
+            dfs(u, [](int u) { cout << ' ' << u; });
+            cout << '\n';
         }
     }
 
@@ -41,7 +39,7 @@ int connected_components(int N)
 
 int main()
 {
-    ii edges[] { ii(1, 2), ii(1, 8), ii(2, 10), ii(3, 7), ii(4, 5),
+    vector<ii> edges { ii(1, 2), ii(1, 8), ii(2, 10), ii(3, 7), ii(4, 5),
         ii(4, 9), ii(5, 9) };
 
     for (const auto& [u, v] : edges)

@@ -3,15 +3,15 @@
 \begin{frame}[fragile]{Conectividade de um grafo}
 
     \begin{itemize}
-        \item Um grafo não-direcionado $G$ é dito conectado se, para qualquer par de vértices 
-            $u, v\in G$, com $u\neq v$, existe ao menos um caminho de $u$ até $v$
+        \item Um grafo simples não-direcionado $G$ é dito conectado se, para qualquer par de 
+            vértices $u, v\in G$, com $u\neq v$, existe ao menos um caminho de $u$ até $v$
 
         \item Uma maneira de se verificar se um grafo é conectado ou não é iniciar uma travessia
             em um vértice $s$ qualquer
 
-        \item Se a travessia visitar todos os $N$ nós de $G$ o grafo é conectado
+        \item Se a travessia visitar todos os $N$ nós de $G$, o grafo é conectado
 
-        \item Caso um ou mais vértices não seja visitado, os nós visitados formam um 
+        \item Caso um ou mais vértices não sejam visitados, os nós visitados formam um 
             componente conectado de $G$
 
         \item Para identificar todos os componentes conectados do grafo basta iniciar uma nova
@@ -308,13 +308,13 @@
 \end{frame}
 
 \begin{frame}[fragile]{Implementação da identificação dos componentes em C++}
-    \inputsnippet{c++}{1}{21}{cc.cpp}
+    \inputsnippet{c++}{1}{20}{cc.cpp}
 \end{frame}
 
 \begin{frame}[fragile]{Implementação da identificação dos componentes em C++}
-    \inputsnippet{c++}{22}{41}{cc.cpp}
+    \inputsnippet{c++}{21}{39}{cc.cpp}
 \end{frame}
 
 \begin{frame}[fragile]{Implementação da identificação dos componentes em C++}
-    \inputsnippet{c++}{42}{62}{cc.cpp}
+    \inputsnippet{c++}{40}{62}{cc.cpp}
 \end{frame}
