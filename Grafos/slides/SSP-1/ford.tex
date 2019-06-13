@@ -36,8 +36,8 @@
         \item O único tipo de grafo que ele não processa são grafos com ciclos negativos,
             mas é capaz de detectar tais grafos
 
-        \item Primeiramente ele inicializa a distância de $s$ a $s$ como zero e igual a
-            infinito para todos os demais nós
+        \item Primeiramente ele inicializa a distância de $s$ a $s$ como zero e as demais 
+            distâncias como  infinito 
 
         \item A cada iteração, ele visita todas as arestas na tentativa de encurtar um
             caminho já existente, até que não seja mais possível esta redução
@@ -1155,7 +1155,7 @@
             predecessor deve ser atualizado também: \code{c++}{pred[v] = u}
 
         \item Deste modo, o caminho pode ser recuperado, passando por todos os predecessores até
-            se atingir o nó um
+            se atingir o nó $s$
 
         \item Se o predecessor de $u$ for o valor sentinela, não há caminho de $s$ a $u$ no
             grafo
