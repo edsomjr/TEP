@@ -2,37 +2,41 @@
 
 \begin{frame}[fragile]{Problema}
 
-In Summer Informatics School, if a student doesn't behave well, teachers make a hole in his badge. 
-And today one of the teachers caught a group of $n$ students doing yet another trick.
+Vova promised himself that he would never play computer games... But recently Firestorm -- a 
+well-known game developing company -- published their newest game, World of Farcraft, and it became 
+really popular. Of course, Vova started playing it.
 
-Let's assume that all these students are numbered from 1 to $n$. The teacher came to student $a$ 
-and put a hole in his badge. The student, however, claimed that the main culprit is some other 
-student $p_a$.
+Now he tries to solve a quest. The task is to come to a settlement named Overcity and spread a 
+rumor in it.
 
-After that, the teacher came to student $p_a$ and made a hole in his badge as well. The student in 
-reply said that the main culprit was student $p_{pa}$.
-
-This process went on for a while, but, since the number of students was finite, eventually the teacher came to the student, who already had a hole in his badge.
+Vova knows that there are n characters in Overcity. Some characters are friends to each other, and they share information they got. Also Vova knows that he can bribe each character so he or she starts spreading the rumor; $i$-th character wants $c_i$ gold in exchange for spreading the rumor. When a character hears the rumor, he tells it to all his friends, and they start spreading the rumor to their friends (for free), and so on.
 \end{frame}
 
-\begin{frame}[fragile]{Problema}
-After that, the teacher put a second hole in the student's badge and decided that he is done with this process, and went to the sauna.
 
-You don't know the first student who was caught by the teacher. However, you know all the numbers pi. Your task is to find out for every student $a$, who would be the student with two holes in the badge if the first caught student was $a$.
+\begin{frame}[fragile]{Problema}
+The quest is finished when all n characters know the rumor. What is the minimum amount of gold Vova needs to spend in order to finish the quest?
+
+Take a look at the notes if you think you haven't understood the problem completely.
+
 \end{frame}
 
 \begin{frame}[fragile]{Entrada e saída}
 
 \textbf{Input}
 
-The first line of the input contains the only integer $n$ $(1\leq n\leq 1000)$ -- the number of the naughty students.
+The first line contains two integer numbers $n$ and $m$ $(1\leq n\leq 10^5, 0\leq m\leq 10^5)$ -- 
+the number of characters in Overcity and the number of pairs of friends.
 
-The second line contains $n$ integers $p_1, \ldots, p_n$ $(1\leq p_i\leq n)$, where $p_i$ indicates 
-the student who was reported to the teacher by student $i$.
+The second line contains $n$ integer numbers $c_i$ $(0\leq c_i\leq 10^9)$ -- the amount of gold 
+$i$-th character asks to start spreading the rumor.
+
+Then $m$ lines follow, each containing a pair of numbers $(x_i, y_i)$ which represent that 
+characters $x_i$ and $y_i$ are friends $(1\leq x_i, y_i\leq n, x_i\neq y_i)$. It is guaranteed 
+that each pair is listed at most once.
 
 \textbf{Output}
 
-For every student $a$ from 1 to $n$ print which student would receive two holes in the badge, if $a$ was the first student caught by the teacher.
+Print one number -- the minimum amount of gold Vova has to spend in order to finish the quest.
 
 \end{frame}
 
@@ -41,42 +45,70 @@ For every student $a$ from 1 to $n$ print which student would receive two holes 
 \begin{minipage}[t]{0.5\textwidth}
 \textbf{Sample Input}
 \begin{verbatim}
-3
-2 3 2
+5 2
+2 5 3 4 8
+1 4
+4 5
 
-3
-1 2 3
+10 0
+1 2 3 4 5 6 7 8 9 10
+
+10 5
+1 6 2 7 3 8 4 9 5 10
+1 2
+3 4
+5 6
+7 8
+9 10
 \end{verbatim}
+
 \end{minipage}
 \begin{minipage}[t]{0.45\textwidth}
 \textbf{Sample Output}
 \begin{verbatim}
-2 2 3 
+10
 
 
-1 2 3 
+
+
+55
+
+
+15
 \end{verbatim}
 \end{minipage}
 \end{frame}
 
-\begin{frame}[fragile]{Solução com complexidade $O(N^2)$}
+\begin{frame}[fragile]{Solução com complexidade $O(N + M)$}
 
     \begin{itemize}
-        \item Como a entrada é pequena $N\leq 10^3$, é possível resolver este problema
-            com um algoritmo quadrático
+        \item Observe que este problema pode ser modelado como um grafo não-direcionado,
+            onde cada vértice (e não aresta) tem um custo associado
 
-        \item Considere que cada estudante seja um vértice do grafo $G$, e que uma aresta
-            $(u, v)$ indique que o estudante $u$ indicou o estudante $v$ como principal
-            responsável
+        \item Como a pessoa é capaz de espalhar o rumo para todas as pessoas que estejam
+            em seu componente conectado, basta escolher o menor custo em cada um dos
+            componentes conectados
 
-        \item Logo $|V| = |E| = N$, de modo que cada travessia tem complexidade $O(N)$
+        \item Estes componentes podem ser identificados através de uma DFS ou uma BFS
 
-        \item Assim, basta realizar $N$ travessias por profundidade, interrompendo a 
-            mesma caso ela indifique um vértice que já foi encontrado anteriormente na travessia
+        \item Atente ao fato de que, no pior caso, o custo mínimo pode extrapolar a capacidade
+            de um número inteiro, sendo necessário utilizar o tipo \code{c}{long long}
    \end{itemize}
 
 \end{frame}
 
-\begin{frame}[fragile]{Solução AC com complexidade $O(N^2)$}
+\begin{frame}[fragile]{Solução AC com complexidade $O(N + M)$}
     \inputsnippet{cpp}{1}{21}{893C.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Solução AC com complexidade $O(N + M)$}
+    \inputsnippet{cpp}{22}{41}{893C.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Solução AC com complexidade $O(N + M)$}
+    \inputsnippet{cpp}{42}{62}{893C.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Solução AC com complexidade $O(N + M)$}
+    \inputsnippet{cpp}{63}{83}{893C.cpp}
 \end{frame}

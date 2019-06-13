@@ -2,7 +2,6 @@
 
 using namespace std;
 using ll = long long;
-
 const int MAX { 100010 };
 const ll oo { 2000000000000000000LL };
 
