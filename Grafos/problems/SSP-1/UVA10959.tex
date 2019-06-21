@@ -1,0 +1,126 @@
+\section{UVA 10959 -- The Party, Part I}
+
+\begin{frame}[fragile]{Problema}
+
+Don Giovanni likes to dance–especially with girls! And everyone else in the party enjoyed the 
+dance, too. Getting a chance to dance with the host (that is Don Giovanni) is the greatest honour; 
+failing that, dancing with someone who has danced with the host or will dance with the host is the 
+second greatest honour. This can go further. Define the Giovanni number of a person as follows, at 
+the time after the party is over and therefore who has danced with whom is completely known and 
+fixed:
+
+\begin{enumerate}
+    \item No one has a negative Giovanni number.
+    \item The Giovanni number of Don Giovanni is 0.
+    \item If a person $p$ is not Don Giovanni himself, and has danced with someone with Giovanni 
+        number $n$, and has not danced with anyone with a Giovanni number smaller than $n$, then 
+        $p$ has Giovanni number $n + 1$
+\end{enumerate}
+\end{frame}
+
+\begin{frame}[fragile]{Problema}
+\begin{enumerate}
+    \setcounter{enumi}{3}
+    \item If a person’s Giovanni number cannot be determined from the above rules (he/she has not 
+        danced with anyone with a finite Giovanni number), his/her Giovanni number is 
+        $\infty$. Fortunately, you will not need this rule in this problem.
+\end{enumerate}
+
+Your job is to write a program to compute Giovanni numbers.
+
+\end{frame}
+
+\begin{frame}[fragile]{Entrada e saída}
+
+\textbf{Input}
+
+The input begins with a single positive integer on a line by itself indicating the number of the 
+cases following, each of them as described below. This line is followed by a blank line, and there 
+is also a blank line between two consecutive inputs.
+
+The first line has two numbers $P$ and $D$; this means there are $P$ persons in the party 
+(including Don Giovanni) and $D$ dancing couples ($P\leq 1000$ and $D\leq P(P - 1)/2$). Then 
+$D$ lines follow, each containing two distinct persons, meaning the two persons has danced. 
+Persons are represented by numbers between 0 and $P - 1$; Don Giovanni is represented by 0.
+
+As noted, we design the input so that you will not need the $\infty$ rule in computing Giovanni 
+numbers.
+
+\end{frame}
+
+\begin{frame}[fragile]{Entrada e saída}
+
+We have made our best effort to eliminate duplications in listing the dancing couples, e.g., if 
+there is a line “\texttt{4 7}” among the $D$ lines, then this is the only occurrence of 
+“\texttt{4 7}”, and there is no occurrence of “\texttt{7 4}”. But just in case you see a 
+duplication, you can ignore it (the duplication, not the first occurrence).
+
+\textbf{Output}
+
+For each test case, the output must follow the description below. The outputs of two consecutive 
+cases will be separated by a blank line.
+
+Output $P - 1$ lines. Line $i$ is the Giovanni number of person $i$, for $1\leq i\leq P - 1$. Note 
+that it is $P - 1$ because we skip Don Giovanni in the output.
+
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de entradas e saídas}
+\begin{minipage}[t]{0.6\textwidth}
+\textbf{Sample Input}
+\begin{verbatim}
+1
+
+5 6
+0 1
+0 2
+3 2
+2 4
+4 3
+1 2
+\end{verbatim}
+\end{minipage}
+\begin{minipage}[t]{0.35\textwidth}
+\textbf{Sample Output}
+\begin{verbatim}
+1
+1
+2
+2
+\end{verbatim}
+\end{minipage}
+\end{frame}
+
+\begin{frame}[fragile]{Solução com complexidade $O(T(V + E))$}
+
+    \begin{itemize}
+        \item Observe que o número de Giovanni é, de fato, a distância do nó em questão até o
+         nó zero, em número de arestas
+
+        \item Esta distância pode ser computada por meio de uma BFS
+
+        \item Como há garantia de conectividade do grafo de entrada (condição 4 do problema),
+            uma única travessia é suficiente
+        
+        \item Como a complexidade da BFS é $O(V + E)$, a complexidade da solução é 
+            $O(T(V + E))$, onde $T$ é o número de casos de teste
+   \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Solução com complexidade $O(T(V + E))$}
+    \inputsnippet{cpp}{1}{21}{10959.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Solução com complexidade $O(T(V + E))$}
+    \inputsnippet{cpp}{22}{42}{10959.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Solução com complexidade $O(T(V + E))$}
+    \inputsnippet{cpp}{43}{63}{10959.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Solução com complexidade $O(T(V + E))$}
+    \inputsnippet{cpp}{64}{84}{10959.cpp}
+\end{frame}
+
