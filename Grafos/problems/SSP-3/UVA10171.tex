@@ -1,0 +1,139 @@
+\section{UVA 10171 -- Meeting Prof. Miguel...}
+
+\begin{frame}[fragile]{Problema}
+
+I have always thought that someday I will meet Professor Miguel,
+who has allowed me to arrange so many contests. But I have
+managed to miss all the opportunities in reality. At last with the
+help of a magician I have managed to meet him in the magical
+\textbf{City of Hope}. The city of hope has many roads. Some of
+them are bi-directional and others are unidirectional. Another
+important property of these streets are that some of the streets
+are for people whose age is less than thirty and rest are for the
+others. This is to give the minors freedom in their activities.
+Each street has a certain length. Given the description of such
+a city and our initial positions, you will have to find the most
+suitable place where we can meet. The most suitable place is the
+place where our combined effort of reaching is minimum. You can
+assume that I am 25 years old and Prof. Miguel is 40+.
+
+\end{frame}
+
+\begin{frame}[fragile]{Problema}
+
+\begin{figure}
+    \includegraphics[scale=1.2]{figure.png}
+    \caption{Shahriar Manzoor and Miguel A.  Revilla (Shanghai, 2005).  First meeting after five years of collaboration}
+\end{figure}
+
+\end{frame}
+
+\begin{frame}[fragile]{Entrada e saída}
+
+\textbf{Input}
+
+The input contains several descriptions of cities. Each description of city is started by a 
+integer $N$, which indicates how many streets are there. The next $N$ lines contain the 
+description of $N$ streets.  
+
+The description of each street consists of four uppercase alphabets and an integer. The first 
+alphabet is either ‘\texttt{Y}’ (indicates that the street is for young) or ‘\texttt{M}’ 
+(indicates that the road is for people aged 30 or more) and the second character is either 
+‘\texttt{U}’ (indicates that the street is unidirectional) or ‘\texttt{B}’ (indicates that the 
+street is bi-directional). The third and fourth characters, $X$ and $Y$ can be any uppercase 
+alphabet and they indicate that place named $X$ and $Y$ of the city are connected (in case of
+unidirectional it means that there is a one-way street from $X$ to $Y$) and the last non-negative 
+integer $C$ indicates the energy required to walk through the street. If we are in the same place 
+we can meet each other in zero cost anyhow. Every energy value is less than 500.
+
+\end{frame}
+
+\begin{frame}[fragile]{Entrada e saída}
+
+After the description of the city the last line of each input contains two place names, which are 
+the initial position of me and Prof. Miguel respectively.
+
+A value zero for $N$ indicates end of input.
+
+\textbf{Output}
+
+For each set of input, print the minimum energy cost and the place, which is most suitable for us to
+meet. If there is more than one place to meet print all of them in lexicographical order in the same
+line, separated by a single space. If there is no such places where we can meet then print the line ‘\texttt{You will never meet.}’
+
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de entradas e saídas}
+\begin{minipage}[t]{0.6\textwidth}
+\textbf{Sample Input}
+\begin{verbatim}
+4
+Y U A B 4
+Y U C A 1
+M U D B 6
+M B C D 2
+A D
+2
+Y U A B 10
+M U C D 20
+A D
+0
+\end{verbatim}
+\end{minipage}
+\begin{minipage}[t]{0.35\textwidth}
+\textbf{Sample Output}
+\begin{verbatim}
+10 B
+You will never meet.
+\end{verbatim}
+\end{minipage}
+\end{frame}
+
+\begin{frame}[fragile]{Solução com complexidade $O(TV^3)$}
+
+    \begin{itemize}
+        \item Observe que o valor de $N$ da entrada corresponde ao número de arestas, e não
+            de vértices
+
+        \item Como cada vértice corresponde a uma letra maiúscula do alfabeto, vale que
+            $V \leq 26$
+
+        \item Para a solução do problema é necessário computar as distâncias mínimas entre todos
+            os vértices dos dois grafos: o grafo associado ao professor Manzoor, cujas
+            arestas correspondem às pessoas com menos de 30 anos, e o grafo associado ao professor
+            Revilla, para pessoas com mais de 30 anos
+        
+        \item Em seguida, basta avaliar todos os 26 possíveis pontos de 
+            encontro, e escolher os que levam ao custo mínimo, que é a soma das distâncias
+            mínimas do ponto de partida de ambos até o destino
+
+        \item Deve-se ter cuidado em avaliar se ambos podem chegar ao destino, e também com
+            a possibilidade de \textit{autoloops}, que podem levar a respostas erradas, uma
+            vez que o texto atribui custo zero quando ambos estão na mesma posição
+   \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Solução com complexidade $O(TV^3)$}
+    \inputsnippet{cpp}{1}{21}{10171.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Solução com complexidade $O(TV^3)$}
+    \inputsnippet{cpp}{22}{42}{10171.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Solução com complexidade $O(TV^3)$}
+    \inputsnippet{cpp}{43}{63}{10171.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Solução com complexidade $O(TV^3)$}
+    \inputsnippet{cpp}{65}{85}{10171.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Solução com complexidade $O(TV^3)$}
+    \inputsnippet{cpp}{87}{107}{10171.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Solução com complexidade $O(TV^3)$}
+    \inputsnippet{cpp}{108}{128}{10171.cpp}
+\end{frame}
