@@ -2,32 +2,44 @@
 
 using namespace std;
 
-struct Edge { int u, v; };
-
 const int MAX { 1010 }, oo { 1000000010 };
 int dist[MAX], soldiers[MAX];
+vector<int> adj[MAX];
 
 double
-solve(int s, int e, int N, int K, double P, const vector<Edge>& edges)
+solve(int s, int e, int N, int K, double P)
 {
+    bitset<MAX> in_queue;
+
     for (int i = 1; i <= N; ++i)
         dist[i] = oo;
 
     dist[s] = soldiers[s];
 
-    for (int i = 1; i <= N - 1; i++)
+    queue<int> q;
+    q.push(s);
+    in_queue[s] = true;
+
+    while (not q.empty())
     {
-        bool updated = false;
+        auto u = q.front(); q.pop();
+        in_queue[u] = false;
 
-        for (const auto& edge : edges)
-            if (dist[edge.v] > dist[edge.u] + soldiers[edge.v])
+        for (const auto& v : adj[u])
+        {
+            auto w = soldiers[v];
+
+            if (dist[v] > dist[u] + w)
             {
-                dist[edge.v] = dist[edge.u] + soldiers[edge.v];
-                updated = true;
-            }
+                dist[v] = dist[u] + w;
 
-        if (not updated)
-            break;
+                if (not in_queue[v])
+                {
+                    q.push(v);
+                    in_queue[v] = true;
+                }
+            }
+        }
     }
 
     if (dist[e] > K)
@@ -47,15 +59,16 @@ int main()
     {
         memset(soldiers, 0, sizeof soldiers);
 
-        vector<Edge> edges;
+        for (int i = 1; i <= N; ++i)
+            adj[i].clear();
 
         while (M--)
         {
             int u, v;
             cin >> u >> v;
 
-            edges.push_back(Edge { u, v });
-            edges.push_back(Edge { v, u });
+            adj[u].push_back(v);
+            adj[v].push_back(u);
         }
 
         int A;
@@ -72,7 +85,7 @@ int main()
         int s, e;
         cin >> s >> e;
 
-        auto ans = solve(s, e, N, K, P, edges);
+        auto ans = solve(s, e, N, K, P);
 
         cout.precision(3);
         cout << fixed << ans << '\n';
