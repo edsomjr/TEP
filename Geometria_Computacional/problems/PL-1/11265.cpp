@@ -2,6 +2,8 @@
 
 using namespace std;
 
+const double EPS { 1e-6 };
+
 struct Point {
     double x, y;
 
@@ -12,9 +14,7 @@ struct Point {
         return hypot(x - P.x, y - P.y);
     }
 
-    bool operator==(const Point& P) const
-    {
-        const double EPS { 1e-6 };
+    bool operator==(const Point& P) const {
         return fabs(x - P.x) < EPS and fabs(y - P.y) < EPS;
     }
 };
@@ -23,9 +23,9 @@ struct Polygon {
     vector<Point> vs;
     int n;
 
-    Polygon(const vector<Point>& vs) : vs(vs), n(vs.size())
+    Polygon(const vector<Point>& v) : vs(v), n(v.size())
     {
-        vs.push_back(vs[0]);
+        vs.push_back(v[0]);
     }
 
     double area() const {
@@ -59,14 +59,14 @@ double D(const Point& P, const Point& Q, const Point& R)
         - (R.x * Q.y + R.y * P.x + Q.x * P.y);
 }
 
-Polygon cut_polygon(const Polygon& P, const Point& A, const Point& B)
-{
+Polygon cut_polygon(const Polygon& P, const Point& A, const Point& B) {
     vector<Point> points;
 
     for (int i = 0; i < P.n; ++i)
     {
         auto d1 = D(A, B, P.vs[i]);
         auto d2 = D(A, B, P.vs[i + 1]);
+
 
         if (d1 > -EPS)
             points.push_back(P.vs[i]);
@@ -81,7 +81,8 @@ Polygon cut_polygon(const Polygon& P, const Point& A, const Point& B)
 int main() {
     int N, W, H, x, y, test = 0;
 
-    while (cin >> N >> W >> x >> y) {
+    while(cin >> N >> W >> H >> x >> y)
+    {
         Polygon p({ Point(0, 0), Point(W, 0), Point(W, H), Point(0, H) });
         Point F(x, y);
 
