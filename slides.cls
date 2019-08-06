@@ -28,6 +28,8 @@
 \usepackage{enumerate}
 
 \usepackage{amsmath}
+\usepackage{algorithm}
+\usepackage[noend]{algpseudocode}
 
 % Setup
 \usetikzlibrary{calc}
@@ -66,3 +68,5 @@
 
 \DeclareMathSymbol{\mlq}{\mathord}{operators}{``}
 \DeclareMathSymbol{\mrq}{\mathord}{operators}{`'}
+
+\renewcommand*{\ALG@name}{Algoritmo}
