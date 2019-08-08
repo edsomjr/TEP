@@ -1,0 +1,112 @@
+\section{{\it Polynomial Rolling Hash}}
+
+\begin{frame}[fragile]{Definição}
+
+    \metroset{block=fill}
+    \begin{block}{Polynomial Rolling Hash}
+    Seja $S$ uma string de tamanho $N$, cujos elementos são indexados de 0 a $N - 1$. A função 
+    \begin{align*}
+        h(S) &= \left(\sum_{i=0}^{N - 1} S_ip^i\right)\ \mbox{mod}\ m \\
+        &= \left(S_0 + S_1p + S_2p^2 + \ldots + S_{N-1}p^{N-1}\right)\ \mbox{mod}\ m,
+    \end{align*}
+    onde $p$ e $m$ são dois inteiros positivos, é denominada \textit{polynomial rolling hash}.
+    \end{block}
+
+\end{frame}
+
+\begin{frame}[fragile]{Escolha dos parâmetros}
+
+    \begin{itemize}
+        \item Em geral, $p$ é um número primo aproximadamente igual ao tamanho do alfabeto
+        \item Para um alfabeto de 26 letras, uma escolha razoável seria $p = 31$
+        \item Para maiúsculas e minúsculas pode-se adotar $p = 53$
+        \item O valor de $m$ deve ser grande, pois a chance de colisão entre duas strings
+            sorteadas aleatoriamente é de $1/m$
+        \item Usar um número primo para $m$ também é uma boa escolha, no sentido de evitar 
+            colisões
+
+        \item O valor $m = 10^9 + 7$ tem a vantagem de ser fácil de lembrar e digitar, e também
+            de permitir a multiplicação sem \textit{overflow} usando variáveis do tipo
+            \code{c++}{long long} 
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Mapeamento de caracteres}
+
+    \begin{itemize}
+        \item Na definição da função $h$ o valor $s_i$ corresponde ao mapeamento do caractere
+        $S[i]$ da string para um inteiro
+
+        \item Em termos formais, dado um alfabeto $\mathcal{A}$ e uma função
+        \[
+            f : \mathcal{A} \to \mathbb{N},
+        \]
+        então $s_i = f(S[i])$, onde $S[i]\in\mathcal{A}$ para todo $i = 0, 1, 2, \ldots, N - 1$
+
+        \item Um mapeamento possível seria $f(\mathtt{a}) = 1, f(\mathtt{b}) = 2, \ldots,
+        f(\mathtt{z}) = 25$
+
+        \item Veja que o caractere \texttt{`a'} não é mapeado para zero, e sim para um, para
+            evitar que todas as strings compostas por repetições deste caractere tenham o 
+            mesmo \textit{hash} $h$
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Implementação do {\it rolling hash} em Haskell}
+    \inputsnippet{haskell}{1}{19}{h.hs}
+\end{frame}
+
+\begin{frame}[fragile]{Implementação do {\it rolling hash} em C++}
+    \inputsnippet{cpp}{1}{21}{h.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Calculo do {\it hash} das substrings de $S$}
+
+    \begin{itemize}
+        \item Dada uma string $S$, a definição de $h$ permite computar o valor de $h(S[i..j])$,
+            para qualquer par $i\leq j$ de índices válidos, em $O(1)$, se conhecidos os valores
+            de $h$ para todos os prefixos $S[0..i]$ de $S$
+        
+        \item A função $h$ é definida por
+        \begin{align*}
+        h(S) &= \left(\sum_{i=0}^{N - 1} S_ip^i\right)\ \mbox{mod}\ m
+        \end{align*}
+
+        \item Deste modo,
+        \begin{align*}
+        h(S[i..j])p^i &= \left(\sum_{k=i}^{j} S_ip^i\right)\ \mbox{mod}\ m \\
+        &= \left(h(S[0..j]) - h(S[0..(i - 1)])\right) \ \mbox{mod}\ m
+        \end{align*}
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Calculo do {\it hash} das substrings de $S$}
+
+    \begin{itemize}
+        \item Para obter o valor de $S[i..j]$, é necessário multiplicar a expressão acima
+            pelo inverso multiplicativo $(p^i)^{-1}$ de $p^i$ módulo $m$
+
+        \item Este pode ser obtido pelo Pequeno Teorema de Fermat: se $p$ é primo e 
+        $(a, p) = 1$, então
+        \[
+            a^{p-1}\equiv \Mod{1}{p}
+        \]
+
+        \item Assim, como $p \geq 2$,
+        \[
+            a\cdot a^{p-2}\equiv \Mod{1}{p},
+        \]
+        de modo que 
+        \[
+            a^{-1}\equiv \Mod{a^{p-2}}{p}
+        \]
+
+        \item Se os inversos de $p^i$ também forem precomputados, juntamente com os 
+        \textit{hashes} dos prefixos $S[0..i]$, os valores $h(S[i..j])$ podem ser calculados
+        em $O(1)$
+    \end{itemize}
+
+\end{frame}

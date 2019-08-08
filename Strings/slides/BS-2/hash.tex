@@ -1,0 +1,48 @@
+\section{Strings e {\it Hashes}}
+
+\begin{frame}[fragile]{Comparação de strings}
+
+    \begin{itemize}
+        \item Duas strings $S$ e $T$ são iguais se $S[i] = T[i]$, para $i\in [1,n]$, com
+            $n = |S| = |T|$
+
+        \item A comparação entre os caracteres de posições correspondentes faz com que esta
+            verificação tem complexidade $O(n)$
+
+        \item Uma maneira de realizar esta comparação de forma mais eficiente é utilizar uma 
+            função de 
+            \textit{hash} $h$, que transforma uma string $S$ em um inteiro $h(S)$, e comparar
+            $h(S)$ com $h(T)$
+
+        \item Como a comparação de inteiros, em geral, é feita em $O(1)$, a complexidade da 
+            comparação dependerá apenas do custo de se computar $h(S)$
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{{\it Hash}}
+
+    \begin{itemize}
+        \item Seja $\mathcal{S}$ o conjunto de todas as strings possíveis e $m$ um número natural
+
+        \item Denominamos
+        \[
+            h: \mathcal{S} \to [0,m]
+        \]
+        uma função de \textit{hash} em $\mathcal{S}$
+
+        \item Observe que, como $h$ é função, se $S = T$ então $h(S) = h(T)$
+
+        \item A recíproca não é necessariamente verdadeira: pode acontecer $h(S) = h(T)$ com
+            $S\neq T$
+
+        \item Isto ocorre porque o número de strings possíveis é, em geral, muito maior do que
+            o intervalo $[0,m]$, de modo que $h$ não é injetiva
+
+        \item Esta situação é denominada colisão
+
+        \item O desafio é definir $h$ de modo a minimizar o número de colisões
+
+    \end{itemize}
+
+\end{frame}
