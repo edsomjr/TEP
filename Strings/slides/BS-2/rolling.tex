@@ -110,3 +110,70 @@
     \end{itemize}
 
 \end{frame}
+
+\begin{frame}[fragile]{Contagem das substrings distintas em Haskell}
+    \inputsnippet{haskell}{1}{21}{subs.hs}
+\end{frame}
+
+\begin{frame}[fragile]{Contagem das substrings distintas em Haskell}
+    \inputsnippet{haskell}{22}{40}{subs.hs}
+\end{frame}
+
+\begin{frame}[fragile]{Contagem das substrings distintas em C++}
+    \inputsnippet{cpp}{1}{21}{subs.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Contagem das substrings distintas em C++}
+    \inputsnippet{cpp}{22}{40}{subs.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Contagem das substrings distintas em C++}
+    \inputsnippet{cpp}{41}{61}{subs.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Contagem das substrings distintas em C++}
+    \inputsnippet{cpp}{62}{81}{subs.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Contagem das substrings distintas em C++}
+    \inputsnippet{cpp}{82}{102}{subs.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Redução da probabilidade de colisão}
+
+    \begin{itemize}
+        \item Dadas duas strings $S$ e $T$ escolhidas aleatoriamente, a probabilidade de
+            colisão entre ambas é de $1/m$
+
+        \item Assim, com $m = 10^9 + 7$, se $S$ for comparado com $N = 10^6$ strings distintas,
+            a probabilidade de acontecer uma colisão é igual a $N/M = 10^3$
+
+        \item Um modo de diminuir esta probabilidade é utilizar o \textit{hash} duas vezes
+
+        \item Em termos mais preciso, seja $h_i$ a função de \textit{rolling hash} que utiliza
+            os parâmetros $p_i$ e $m_i$
+
+        \item O \textit{hash} duplo $h_{ij}$ associa uma string $S$ a um par de inteiros da 
+            seguinte maneira:
+            \[
+                h_{ij}(S) = (h_i(S), h_j(S))
+            \]
+
+        \item Se $m_i, m_j > 10^9$, a função $h_{ij}$ produz mais de $10^{18}$ pares distintos,
+            de forma que a comparação de $S$ com $N = 10^6$ strings distintas passa a ter
+            probabilidade de colisão igual a $N/(m_im_j) < 1/10^{12}$
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Implementação do {\it hash} duplo em Haskell}
+    \inputsnippet{haskell}{1}{21}{double_hash.hs}
+\end{frame}
+
+\begin{frame}[fragile]{Implementação do {\it hash} duplo em C++}
+    \inputsnippet{cpp}{1}{21}{double_hash.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Implementação do {\it hash} duplo em C++}
+    \inputsnippet{cpp}{22}{42}{double_hash.cpp}
+\end{frame}
