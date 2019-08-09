@@ -2,13 +2,13 @@ import Data.Char
 import Data.Set
 
 p = 31
-m = 10^9 + 7
+q = 10^9 + 7
 
 f :: Char -> Int
 f c = (ord c) - (ord 'a') + 1
 
 h :: String -> Int
-h s = sum (zipWith (*) fs ps) `mod` m where
+h s = sum (zipWith (*) fs ps) `mod` q where
     fs = Prelude.map f s
     ps = Prelude.map (\x -> p ^ x) $ take (length s) [0..]
 
@@ -17,15 +17,15 @@ prefixes s = [h $ take k s | k <- [1..n]] where n = length s
 
 fastExpMod :: Int -> Int -> Int
 fastExpMod _ 0 = 1
-fastExpMod a n = (b * fastExpMod (a^2 `mod` m) (n `div` 2)) `mod` m where
+fastExpMod a n = (b * fastExpMod (a^2 `mod` q) (n `div` 2)) `mod` q where
     b = if n `mod` 2 == 1 then a else 1
 
 inverses :: Int -> [Int]
-inverses n = [fastExpMod (fastExpMod p i) (m - 2) | i <- [0..(n-1)]]
+inverses n = [fastExpMod (fastExpMod p i) (q - 2) | i <- [0..(n-1)]]
 
 hsubs i j ps is
     | i == 0 = ps !! j
-    | otherwise = (ps !! j - ps !! (i - 1)) * is !! i `mod` m 
+    | otherwise = (ps !! j - ps !! (i - 1)) * is !! i `mod` q 
 
 unique_substrings s = length us where
     n = length s
@@ -36,5 +36,6 @@ unique_substrings s = length us where
     us = fromList hs        -- us :: Data.Set
 
 main = do
-    s <- getLine
-    print $ unique_substrings s
+    print $ unique_substrings "tep"
+    print $ unique_substrings "banana"
+    print $ unique_substrings "aaaaa"

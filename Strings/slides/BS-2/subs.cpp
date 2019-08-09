@@ -3,7 +3,7 @@
 using namespace std;
 using ll = long long;
 
-const ll m = 1000000007, p = 31;
+const ll p = 31, q = 1000000007;
 
 int f(char c)
 {
@@ -16,8 +16,8 @@ int h(const string& s)
 
     for (auto it = s.rbegin(); it != s.rend(); ++it)
     {
-        ans = (ans * p) % m;
-        ans = (ans + f(*it)) % m;
+        ans = (ans * p) % q;
+        ans = (ans + f(*it)) % q;
     }
 
     return ans;
@@ -40,9 +40,9 @@ ll fast_exp_mod(ll a, ll n)
 
     while (n) {
         if (n & 1)
-            res = (res * base) % m;
+            res = (res * base) % q;
 
-        base = (base * base) % m;
+        base = (base * base) % q;
         n >>= 1;
     }
 
@@ -56,8 +56,8 @@ vector<ll> inverses(ll N)
 
     for (int i = 0; i < N; ++i)
     {
-        is[i] = fast_exp_mod(base, m - 2);
-        base = (base * p) % m;
+        is[i] = fast_exp_mod(base, q - 2);
+        base = (base * p) % q;
     }
 
     return is;
@@ -66,9 +66,9 @@ vector<ll> inverses(ll N)
 int h(int i, int j, const vector<ll>& ps, const vector<ll>& is)
 {
     auto diff = i ? ps[j] - ps[i - 1] : ps[j];
-    diff = (diff * is[i]) % m;
+    diff = (diff * is[i]) % q;
 
-    return (diff + m) % m;
+    return (diff + q) % q;
 }
 
 int unique_substrings(const string& s)

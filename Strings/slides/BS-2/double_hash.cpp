@@ -7,14 +7,14 @@ int f(char c)
     return c - 'a' + 1;
 }
 
-int hi(long long pi, long long mi, const string& s)
+int hi(long long pi, long long qi, const string& s)
 {
     long long ans = 0;
 
     for (auto it = s.rbegin(); it != s.rend(); ++it)
     {
-        ans = (ans * pi) % mi;
-        ans = (ans + f(*it)) % mi;
+        ans = (ans * pi) % qi;
+        ans = (ans + f(*it)) % qi;
     }
 
     return ans;
@@ -22,10 +22,10 @@ int hi(long long pi, long long mi, const string& s)
 
 pair<int, int> h(const string& s)
 {
-    const long long p1 = 31, m1 = 1000000007;
-    const long long p2 = 29, m2 = 1000000009;
+    const long long p1 = 31, q1 = 1000000007;
+    const long long p2 = 29, q2 = 1000000009;
 
-    return make_pair(hi(p1, m1, s), hi(p2, m2, s));
+    return make_pair(hi(p1, q1, s), hi(p2, q2, s));
 }
 
 int main()
