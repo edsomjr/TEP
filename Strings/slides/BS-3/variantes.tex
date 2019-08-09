@@ -1,0 +1,88 @@
+\section{Variantes do algoritmo de Rabin-Karp}
+
+\begin{frame}[fragile]{Diminuição da complexidade para o cálculo dos {\it hashes}}
+
+    \begin{itemize}
+        \item  Da maneira como foi apresentada, o algoritmo de Rabin-Karp tem complexidade 
+            $O(mn)$ no pior caso, o mesmo da busca completa, e com \textit{runtime} maior,
+            por conta do cálculo dos \textit{hashes}
+
+        \item Uma primeira melhoria que pode ser feita é usar o \textit{rolling hash}, e computar
+            $h(S[(i+1)..(i+m)])$ a partir de $h(S[i..(i + m -1)])$ com custo $O(1)$
+
+        \item Isto é possível, pois se $h_i(S) = h(S[i..(i + m - 1)]$, então
+        \begin{small}
+        \begin{align*}
+            h_{i + 1}(S)
+            &= \left(S_{i+1} + S_{i + 2}p + \ldots + S_{i+m}p^{m - 1}\right)\ \mbox{mod}\ q \\
+            &= \left(\frac{S_i + S_{i+1}p + \ldots + S_{i+m-1}p^{n - 1} + S_{i+m}p^m - S_i}{p} \right)\ \mbox{mod}\ q \\
+            &= \left(\frac{S_i + S_{i+1}p + \ldots + S_{i+m-1}p^{n - 1} - S_i}{p} + S_{i+m}p^{m -1} \right)\ \mbox{mod}\ q \\
+            &= \left(\frac{h_i(S) - S_i}{p} + S_{i+m}p^{m -1}\right)\ \mbox{mod}\ q 
+        \end{align*}
+        \end{small}
+         
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Diminuição da complexidade para o cálculo dos {\it hashes}}
+
+    \begin{itemize}
+        \item Observe que a divisão deve ser feita por meio da multiplicação pelo inverso
+            multiplicativo de $p$ módulo $q$
+
+        \item Assim,
+        \[
+            h_{i+1}(S) = \left((h_{i} - S[i])p^{-1} + S_{i+m}p^{m -1}\right)\ \mbox{mod}\ q
+        \]
+
+        \item Se a constante $k\equiv \Mod{p^{m-1}}{q}$ for precomputado, cada atualização do
+            \textit{hash} tem custo $O(1)$
+
+        \item O inverso $i = \Mod{p^{-1}}{q}$ também pode ser precomputado, como no caso da constante $k$
+
+        \item O pior caso ainda tem complexidade $O(nm)$, mas o caso médio passa a ter
+            complexidade $O(n + m)$
+
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Pseudocódigo do algoritmo de Rabin-Karp}
+
+    \begin{algorithm}[H]
+        \caption{Algoritmo de Rabin-Karp com \textit{Rolling Hash}}
+        \begin{algorithmic}[1]
+            \Require Duas strings $P$ e $S$ e os parâmetros $p$ e $q$ do \textit{rolling hash} $h$
+            \Ensure O número de ocorrências $occ$ de $P$ em $S$
+
+            \Function{RabinKarp}{$P$,$S$}
+                \State $m \gets |P|$, $n \gets |S|$, $occ \gets 0$
+                \State $h_P \gets h(P)$, $h_S \gets h(S[1..m])$
+                \State $k \gets \Mod{p^{m - 1}}{q}$, $i \gets \Mod{p^{-1}}{q}$
+                \State
+                \For {$i \gets 1 \forto n - m + 1$}
+                    \If {$h_S = h_P$}
+                        \If {$S[i..(i + m - 1)] = P$}
+                            \State $occ \gets occ + 1$
+                        \EndIf
+                    \EndIf
+
+                    \If {$i \neq n - m + 1$}
+                        \State $h_S \gets \Mod{\left(i(h_S - S[i]) + kS[i + m + 1]\right)}{q}$
+                    \EndIf
+                \EndFor
+
+                \State \Return $occ$
+            \EndFunction
+        \end{algorithmic}
+    \end{algorithm}
+
+\end{frame}
+
+
+%        \item A complexidade do pior caso não se altera por conta da comparação direta das
+%            substrings $S[i..j]$ com o padrão $P$ no caso de colisão
+
+%        \item Esta comparação 
+ 

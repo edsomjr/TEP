@@ -30,7 +30,7 @@
     \begin{algorithm}[H]
         \caption{Algoritmo de Rabin-Karp -- Naive}
         \begin{algorithmic}[1]
-            \Require Duas strings $P$ e $S$
+            \Require Duas strings $P$ e $S$ e uma função de \textit{hash} $h$
             \Ensure O número de ocorrências $occ$ de $P$ em $S$
 
             \Function{RabinKarp}{$P$,$S$}
@@ -66,35 +66,3 @@
 \begin{frame}[fragile]{Implementação do algoritmo de Rabin-Karp em C++}
     \inputsnippet{cpp}{21}{41}{rk.cpp}
 \end{frame}
-
-\begin{frame}[fragile]{Pseudocódigo do algoritmo de Rabin-Karp}
-
-    \begin{algorithm}[H]
-        \caption{Algoritmo de Rabin-Karp -- Naive}
-        \begin{algorithmic}[1]
-            \Require Duas strings $P$ e $S$
-            \Ensure O número de ocorrências $occ$ de $P$ em $S$
-
-            \Function{RabinKarp}{$P$,$S$}
-                \State $m \gets |P|$
-                \State $n \gets |S|$
-                \State $occ \gets 0$
-                \State $h_P \gets h(P)$
-
-                \For {$i \gets 1 \forto n - m + 1$}
-                    \State $h_S \gets h(S[i..(i + m - 1)])$
-                    \If {$h_S = h_P$}
-                        \If {$S[i..(i + m - 1)] = P$}
-                            \State $occ \gets occ + 1$
-                        \EndIf
-                    \EndIf
-                \EndFor
-
-                \State \Return $occ$
-            \EndFunction
-        \end{algorithmic}
-    \end{algorithm}
-
-\end{frame}
-
-
