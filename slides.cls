@@ -70,3 +70,6 @@
 \DeclareMathSymbol{\mrq}{\mathord}{operators}{`'}
 
 \renewcommand*{\ALG@name}{Algoritmo}
+\renewcommand{\algorithmicrequire}{\textbf{Input:}}
+\renewcommand{\algorithmicensure}{\textbf{Output:}}
+\newcommand{\forto}{\ \mbox{\bf to}\ }
