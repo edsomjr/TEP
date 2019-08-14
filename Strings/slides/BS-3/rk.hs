@@ -18,4 +18,4 @@ rabin_karp s p = sum rs where
     xss = [take m (drop i s) | i <- [0..(n - m)]]
     rs = [fromEnum (h xs == hp && xs == p) | xs <- xss]
 
-main = print $ rabin_karp "abababababab" "aba"
+main = print $ rabin_karp "ababababababa" "aba"

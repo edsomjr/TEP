@@ -22,7 +22,7 @@ int rabin_karp(const std::string& s, const std::string& p)
 {
     int n = s.size(), m = p.size(), occ = 0, hp = h(p); 
 
-    for (int i = 0; i < n - m; i++)
+    for (int i = 0; i <= n - m; i++)
     {
         auto b = s.substr(i, m);
         occ += (h(b) == hp && b == p) ? 1 : 0;
@@ -33,7 +33,7 @@ int rabin_karp(const std::string& s, const std::string& p)
 
 int main()
 {
-    auto s = "abababababab", p = "aba";
+    auto s = "ababababababa", p = "aba";
 
     std::cout << rabin_karp(s, p) << '\n';
 

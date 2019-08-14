@@ -69,7 +69,7 @@
                     \EndIf
 
                     \If {$i \neq n - m + 1$}
-                        \State $h_S \gets \Mod{\left(i(h_S - S[i]) + kS[i + m + 1]\right)}{q}$
+                        \State $h_S \gets \Mod{\left(i(h_S - S[i]) + kS[i + m]\right)}{q}$
                     \EndIf
                 \EndFor
 
@@ -80,9 +80,96 @@
 
 \end{frame}
 
+\begin{frame}[fragile]{Implementação do algoritmo de Rabin-Karp em Haskell}
+    \inputsnippet{haskell}{1}{18}{rk2.hs}
+\end{frame}
 
-%        \item A complexidade do pior caso não se altera por conta da comparação direta das
-%            substrings $S[i..j]$ com o padrão $P$ no caso de colisão
+\begin{frame}[fragile]{Implementação do algoritmo de Rabin-Karp em Haskell}
+    \inputsnippet{haskell}{19}{39}{rk2.hs}
+\end{frame}
 
-%        \item Esta comparação 
+\begin{frame}[fragile]{Implementação do algoritmo de Rabin-Karp em C++}
+    \inputsnippet{cpp}{1}{21}{rk2.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Implementação do algoritmo de Rabin-Karp em C++}
+    \inputsnippet{cpp}{22}{42}{rk2.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Implementação do algoritmo de Rabin-Karp em C++}
+    \inputsnippet{cpp}{43}{63}{rk2.cpp}
+\end{frame}
+
+
+\begin{frame}[fragile]{Rabin-Karp com {\it hashes} perfeitos}
+
+    \begin{itemize}
+        \item A complexidade do pior caso não se alterou por conta da comparação direta das
+            substrings $S[i..j]$ com o padrão $P$ no caso de colisão
+
+        \item Esta comparação pode ser eliminada se a função de hash $h$ for perfeita para 
+            o conjunto $\mathcal{P}$ tal que
+        \[
+            \mathcal{P} = \lbrace P \rbrace \cup \lbrace S[i..j]\ |\ i\in [1,n], j\in [i,n]\rbrace
+        \]
+
+        \item O uso de \textit{hash} duplo pode auxiliar na obtenção de uma função de
+            \textit{hash} perfeita, uma vez que $|\mathcal{P}| \leq n + 1$            
  
+        \item A eliminação desta comparação reduz a complexidade do pior caso para 
+            $O(n + m)$
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Pseudocódigo do algoritmo de Rabin-Karp}
+
+    \begin{algorithm}[H]
+        \caption{Algoritmo de Rabin-Karp com \textit{hash} perfeito}
+        \begin{algorithmic}[1]
+            \Require Duas strings $P$ e $S$ e os parâmetros $p, q$ do \textit{rolling hash} perfeito $h$
+            \Ensure O número de ocorrências $occ$ de $P$ em $S$
+
+            \Function{RabinKarp}{$P$,$S$}
+                \State $m \gets |P|$, $n \gets |S|$, $occ \gets 0$
+                \State $h_P \gets h(P)$, $h_S \gets h(S[1..m])$
+                \State $k \gets \Mod{p^{m - 1}}{q}$, $i \gets \Mod{p^{-1}}{q}$
+                \State
+                \For {$i \gets 1 \forto n - m + 1$}
+                    \If {$h_S = h_P$}
+                        \State $occ \gets occ + 1$
+                    \EndIf
+
+                    \If {$i \neq n - m + 1$}
+                        \State $h_S \gets \Mod{\left(i(h_S - S[i]) + kS[i + m]\right)}{q}$
+                    \EndIf
+                \EndFor
+
+                \State \Return $occ$
+            \EndFunction
+        \end{algorithmic}
+    \end{algorithm}
+
+\end{frame}
+
+\begin{frame}[fragile]{Implementação do algoritmo de Rabin-Karp em Haskell}
+    \inputsnippet{haskell}{1}{18}{rk3.hs}
+\end{frame}
+
+\begin{frame}[fragile]{Implementação do algoritmo de Rabin-Karp em Haskell}
+    \inputsnippet{haskell}{19}{39}{rk3.hs}
+\end{frame}
+
+\begin{frame}[fragile]{Implementação do algoritmo de Rabin-Karp em C++}
+    \inputsnippet{cpp}{1}{21}{rk3.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Implementação do algoritmo de Rabin-Karp em C++}
+    \inputsnippet{cpp}{22}{42}{rk3.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Implementação do algoritmo de Rabin-Karp em C++}
+    \inputsnippet{cpp}{43}{63}{rk3.cpp}
+\end{frame}
+
+
