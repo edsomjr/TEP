@@ -1,0 +1,68 @@
+\section{Algoritmo de Rabin-Karp}
+
+\begin{frame}[fragile]{Definição}
+
+    \begin{itemize}
+        \item O algoritmo de Rabin-Karp é um algoritmo que contabiliza o número de ocorrências
+            da string $P$, de tamanho $m$, na string $S$, de tamanho $n$
+
+        \item Ele foi proposto por Michael O. Rabin e Richard M. Karp em 1987
+
+        \item A ideia principal do algoritmo é computar o \textit{hash} $h_P = h(P)$ e compará-lo
+            com todas as substrings $h_{ij} = S[i..j]$ de $S$ de tamanho $m$
+
+        \item Caso $h_P \neq h_{ij}$, segue que $P\neq S[i..j]$ e o algoritmo pode prosseguir
+
+        \item Se $h_P = h_{ij}$, as strings ou são iguais ou houve uma colisão
+
+        \item Esta dúvida pode ser sanada através da comparação direta, enquanto strings, entre
+            $S[i..j]$ e $P$
+
+        \item O algoritmo tem complexidade $O(mn)$ no pior caso, por conta do custo do cálculo
+            dos {\it hashes} e das possíveis comparações diretas entre as strings
+
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Pseudocódigo do algoritmo de Rabin-Karp}
+
+    \begin{algorithm}[H]
+        \caption{Algoritmo de Rabin-Karp -- Naive}
+        \begin{algorithmic}[1]
+            \Require Duas strings $P$ e $S$ e uma função de \textit{hash} $h$
+            \Ensure O número de ocorrências $occ$ de $P$ em $S$
+
+            \Function{RabinKarp}{$P$,$S$}
+                \State $m \gets |P|$
+                \State $n \gets |S|$
+                \State $occ \gets 0$
+                \State $h_P \gets h(P)$
+
+                \For {$i \gets 1 \forto n - m + 1$}
+                    \State $h_S \gets h(S[i..(i + m - 1)])$
+                    \If {$h_S = h_P$}
+                        \If {$S[i..(i + m - 1)] = P$}
+                            \State $occ \gets occ + 1$
+                        \EndIf
+                    \EndIf
+                \EndFor
+
+                \State \Return $occ$
+            \EndFunction
+        \end{algorithmic}
+    \end{algorithm}
+
+\end{frame}
+
+\begin{frame}[fragile]{Implementação do algoritmo de Rabin-Karp em Haskell}
+    \inputsnippet{haskell}{1}{21}{rk.hs}
+\end{frame}
+
+\begin{frame}[fragile]{Implementação do algoritmo de Rabin-Karp em C++}
+    \inputsnippet{cpp}{1}{20}{rk.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Implementação do algoritmo de Rabin-Karp em C++}
+    \inputsnippet{cpp}{21}{41}{rk.cpp}
+\end{frame}
