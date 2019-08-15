@@ -73,3 +73,4 @@
 \renewcommand{\algorithmicrequire}{\textbf{Input:}}
 \renewcommand{\algorithmicensure}{\textbf{Output:}}
 \newcommand{\forto}{\ \mbox{\bf to}\ }
+\newcommand{\algand}{\ \mbox{\bf and}\ }
