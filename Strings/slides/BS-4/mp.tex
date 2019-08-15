@@ -128,3 +128,94 @@
     \end{algorithm}
 
 \end{frame}
+
+\input{mp_view}
+
+\begin{frame}[fragile]{Complexidade do algoritmo de Morris-Pratt}
+
+    \begin{itemize}
+        \item O algoritmo de Morris-Pratt realiza, no máximo, um número de comparações linear em 
+            termos dos tamanhos de $S$ e $P$, a saber, $2n - m$ comparações
+
+        \item Isto porque a comparação $P[j + 1] = S[i + j]$ pode falhar, no máximo, 
+            $n - m + 1$ vezes, já que o primeiro laço é executado $n - m + 1$ vezes, e pode ter 
+            sucesso, no máximo, $n$ vezes, quando o $S$ e $P$ são compostos por um mesmo
+            caractere
+
+        \item Caso a primeira comparação seja bem sucedida, ela não pode falhar no índice 0
+
+        \item O pior caso, em termos de número de comparações, acontece quando $P$ é formado
+            por  apenas duas letras distinas e $S$ é uma repetição de $n - 1$ vezes a primeira 
+            letra de $P$ e a última letra é igual a segunda letra de $P$
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Complexidade do algoritmo de Morris-Pratt}
+
+    \begin{itemize}
+        \item Por exemplo, $P$ = \code{cpp}{"ab"} e $S$ = \code{cpp}{"aaaaaaaaaaaab"}
+
+        \item Neste caso, a primeira comparação será bem sucedida $n - 1$ vezes, haverão $n - 2$
+        falhas (em relação ao último caractere do padrão) e uma última comparação bem sucedida no 
+        último caractere
+
+        \item Daí o máximo de comparações será igual a $(n - 1) + (n - 2) + 1 = 2n - 2 = 2n - m$
+
+        \item Assim, o algoritmo MP é linear em relação ao tamanho do texto
+
+        \item Porém, para determinar sua complexidade, falta determinar a complexidade da 
+            construção do vetor $bs$
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Cálculo das bordas de $S$}
+
+    \begin{itemize}
+        \item Observe que
+        \[
+            border(S), border^2(S), \ldots, border^k(S),
+        \]
+        com $border^k(S) = $ \code{cpp}{""}, é uma sequência de strings, decrescente em relação
+        ao tamanho, cujos elementos são todos bordas de $S$
+
+        \item Este fato permite o cálculo de $b_j = |border(P[1..j])|$ para todos os prefixos de 
+            $P$ em $O(m)$
+
+        \item Observe que, $P[j + 1] = P[b_j + 1]$, então 
+        \[
+            b_{j + 1} = 1 + b_j
+        \]
+
+        \item Isto porque a maior borda de $P[1..j]$ tem tamanho $b_j$, então se o caractere
+            $P[j + 1]$ coincidir com o caractere que sucede o prefixo que forma a borda, 
+            a maior borda de $P[1..(j+1)]$  será uma unidade maior do que a maior borda de $P[1..j]$
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Cálculo das bordas de $S$}
+
+    \begin{itemize}
+        \item Se $P[j + 1] \neq P[b_j + 1]$, então a borda de $P[j + 1]$ deve ser reavaliada
+            em termos da segunda maior borda de $P[1..j]$, isto é,
+        \[
+            b_{j + 1} = 1 + |border^2(P)| = 1 + b_j^2
+        \]
+        se $P[j + 1] = P[b_j^2 + 1]$
+
+        \item Caso $P[j + 1] \neq P[b_j^2 + 1]$, o raciocínio se repete até atingir a $k$-ésima
+            borda de $P$
+
+        \item Portanto,
+        \[
+            b_{j + 1} = 1 + \max \lbrace\ border^i(P)\ |\ P[j + 1] = P[b_j^i + 1], i\in [1..k]\ \rbrace
+        \]
+
+        \item O caso base acontece no prefixo vazio, isto é, $P[1..0] = $ \code{cpp}{""}, onde
+            $b_0 = -1$, por conta do termo $+1$ na recorrência anterior
+
+    \end{itemize}
+
+\end{frame}

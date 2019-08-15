@@ -5,47 +5,41 @@ using namespace std;
 vector<int> borders(const string& pat)
 {
     int m = pat.size();
-    int t = -1;     // t = |border(pat[0..(j - 1)])|
+    int t = -1;
 
-    vector<int> bord(m + 1);
-    bord[0] = -1;
+    vector<int> bs(m + 1);
+    bs[0] = -1;
 
     for (int j = 0; j < m; ++j)
     {
         while (t > -1 and pat[t] != pat[j])
-            t = bord[t];
+            t = bs[t];
 
-        bord[j + 1] = ++t;
+        bs[j + 1] = ++t;
     }
 
-    return bord;
+    return bs;
 }
 
-int MP(const string& text, const string& pat)
+int MP(const string& S, const string& P)
 {
-    int n = text.size();
-    int m = pat.size();
+    int n = S.size();
+    int m = P.size();
     int i = 0, j = 0, occ = 0;
 
-    vector<int> bords = borders(pat);
+    vector<int> bords = borders(P);
 
     while (i <= n - m)
     {
-cout << "comparison between '" << text.substr(i) << "' and '" << pat << "'\n";
-        while (j < m and pat[j] == text[i + j])
+        while (j < m and P[j] == S[i + j])
             ++j;
 
-cout << "mismatch on char " << pat[j] << ", pos = " << j << '\n';
         if (j == m)
-        {
-cout << "match on position " << i << ": " << text.substr(i, m) << '\n';
             ++occ;
-        }
 
-        int MP_shift = j - bords[j];
-        i += MP_shift;
-        j = max(0, j - MP_shift);
-cout << "shift = " << MP_shift << ", new i = " << i << ", j = " << j << '\n';
+        int shift = j - bords[j];
+        i += shift;
+        j = max(0, j - shift);
     } 
 
     return occ;
@@ -53,14 +47,14 @@ cout << "shift = " << MP_shift << ", new i = " << i << ", j = " << j << '\n';
 
 int main()
 {
-    string s = "abcabdabcdabcabc", pat = "ababbababab";
-    auto bs = borders(pat);
+    string S = "abaabbabaabaaba", P = "abaaba";
+    auto bs = borders(P);
 
     cout << "i\tsubs\t\tborder\tshift\n";
 
-    for (size_t i = 0; i <= pat.size(); ++i)
+    for (size_t i = 0; i <= P.size(); ++i)
     {
-        cout << i << '\t' << pat.substr(0, i) << '\t';
+        cout << i << '\t' << P.substr(0, i) << '\t';
 
         if (i < 8)
             cout << '\t';
@@ -68,6 +62,7 @@ int main()
         cout << bs[i] << '\t' << i - bs[i] << '\n';
     }
 
-    cout << MP(s, pat) << '\n';
+    cout << '\n' << MP(S, P) << '\n';
+
     return 0;
 }
