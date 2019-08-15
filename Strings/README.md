@@ -15,3 +15,4 @@ Slides
 1. Algoritmos de Busca
     1. [Busca em Strings](slides/BS-1/BS-1.pdf)
     1. [Strings e _Hashes_](slides/BS-2/BS-2.pdf)
+    1. [Algoritmo de Rabin-Karp](slides/BS-3/BS-3.pdf)
