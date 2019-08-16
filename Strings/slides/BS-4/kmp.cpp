@@ -2,30 +2,30 @@
 
 using namespace std;
 
-vector<int> borders(const string& P)
+vector<int> strong_borders(const string& P)
 {
-    int m = P.size();
-    int t = -1;
-
+    int m = P.size(), t = -1;
     vector<int> bs(m + 1, -1);
 
-    for (int j = 0; j < m; ++j)
+    for (int j = 1; j <= m; ++j)
     {
-        while (t > -1 and P[t] != P[j])
+        while (t > -1 and P[t] != P[j - 1])
             t = bs[t];
 
-        bs[j + 1] = ++t;
+        ++t;
+
+        bs[j] = (j == m or P[t] != P[j]) ? t : bs[t];
     }
 
     return bs;
 }
 
-int MP(const string& S, const string& P)
+int KMP(const string& S, const string& P)
 {
     int n = S.size(), m = P.size();
     int i = 0, j = 0, occ = 0;
 
-    vector<int> bords = borders(P);
+    vector<int> bs = strong_borders(P);
 
     while (i <= n - m)
     {
@@ -34,7 +34,7 @@ int MP(const string& S, const string& P)
 
         if (j == m) ++occ;
 
-        int shift = j - bords[j];
+        int shift = j - bs[j];
         i += shift;
         j = max(0, j - shift);
     } 
@@ -44,9 +44,8 @@ int MP(const string& S, const string& P)
 
 int main()
 {
-    //string S = "abaabbabaabaaba", P = "abaaba";
-    string S = "abaabbabaabaaba", P = "abcdabd";
-    auto bs = borders(P);
+    string S = "abaabbabaabaaba", P = "abaaba";
+    auto bs = strong_borders(P);
 
     cout << "i\tsubs\t\tborder\tshift\n";
 
@@ -60,7 +59,7 @@ int main()
         cout << bs[i] << '\t' << i - bs[i] << '\n';
     }
 
-    cout << '\n' << MP(S, P) << '\n';
+    cout << '\n' << KMP(S, P) << '\n';
 
     return 0;
 }

@@ -160,12 +160,18 @@
         falhas (em relação ao último caractere do padrão) e uma última comparação bem sucedida no 
         último caractere
 
-        \item Daí o máximo de comparações será igual a $(n - 1) + (n - 2) + 1 = 2n - 2 = 2n - m$
+        \item Daí o máximo de comparações será igual a 
+        \[
+            (n - 1) + (n - 2) + 1 = 2n - 2 = 2n - m
+        \]
 
         \item Assim, o algoritmo MP é linear em relação ao tamanho do texto
 
         \item Porém, para determinar sua complexidade, falta determinar a complexidade da 
             construção do vetor $bs$
+
+        \item Se a construção de $bs$ tem complexidade $O(m)$, o algoritmo de Morris-Pratt tem
+            complexidade $O(n + m)$ no pior caso
     \end{itemize}
 
 \end{frame}
@@ -218,4 +224,12 @@
 
     \end{itemize}
 
+\end{frame}
+
+\begin{frame}[fragile]{Implementação do algoritmo de Morris-Pratt em C++}
+    \inputsnippet{cpp}{1}{21}{mp.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Implementação do algoritmo de Morris-Pratt em C++}
+    \inputsnippet{cpp}{23}{43}{mp.cpp}
 \end{frame}
