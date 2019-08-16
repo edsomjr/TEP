@@ -1,0 +1,102 @@
+\section{Algoritmo de Knuth-Morris-Pratt}
+
+
+\begin{frame}[fragile]{Diferenças entre os algoritmos MP e KMP}
+
+    \begin{itemize}
+        \item O algoritmo de Morris-Pratt tem como invariante
+        \[
+            inv(i, j) = (P[1..j] = S[i + 1, i + j + 1]),
+        \]
+        o qual permite os saltos seguros e que resulta na complexidade $O(n + m)$ no pior caso
+
+        \item Contudo, este invariante pode ser melhorada, ao se incorporar a propriedade da 
+        diferença, isto é,
+        \[
+            inv2(i, j) = (P[1..j] = S[i + 1, i + j + 1])\ \mathbf{and}\ (P[j + 1] \neq S[i + j + 1])
+        \]
+
+        \item Para entender o porque da melhora, considere o seguinte exemplo: seja 
+            $P$ = \code{cpp}{"abcabc"} e $S$ = \code{cpp}{"abcabdabc"}
+
+        \item Os 5 primeiros caracteres de ambos coincidem, e a diferença ocorre no sexto 
+            caractere: $P[6]$ = \code{cpp}{'c'} $\neq S[6]$ = \code{cpp}{'d'}
+
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Diferenças entre os algoritmos MP e KMP}
+
+    \begin{itemize}
+        \item Como $border(P[1..6])$ = \code{cpp}{"ab"}, cujo tamanho é igual a 2, a próxima 
+            comparação seria entre $P[3]$ e $S[6]$
+
+        \item Contudo, esta comparação é idêntica a anterior, pois a borda \code{cpp}{"ab"} não é 
+            própria, isto é, o próximo caractere (\code{cpp}{'c'}) gera uma nova borda 
+            \code{cpp}{"abc"}
+
+        \item A contribuição de Knuth para o algoritmo de Morris-Pratt é essa: incorporar a 
+            propriedade da diferença e definir as bordas estritas, nas quais o próximo caractere 
+            não gera uma nova borda, evitando comparações já realizadas
+    \end{itemize}
+
+\end{frame}
+
+
+\begin{frame}[fragile]{Bordas estritas}
+
+    \begin{itemize}
+        \item Uma borda estrita de $S[1..j]$ ($sborder(S[1..j]))$) é a maior borda própria 
+            $b = [1..k]$ de $S$ tal que $S[j + 1] \neq S[k + 1]$
+
+        \item Assim, os coeficientes $b_j$ podem ser redefinidos como
+        \[
+            b_j = |sborder(S[1..j])|,
+        \]
+        ou $b_j = -1$, caso não exista tal borda
+
+        \item Observe que a borda $b$ pode ser uma string vazia
+
+        \item Esta modificação melhora o tempo de execução de algoritmo, embora sua 
+            complexidade assintótica permaneça a mesma: $O(n + m)$
+
+        \item A implementação é quase idêntica a do algoritmo de Morris-Pratt, residindo a 
+            diferença a substituição de $border(P)$ por $sborder(P)$
+
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de bordas estritas e de saltos seguros}
+
+    \begin{center}
+    \begin{tabularx}{0.9\textwidth}{cXcc}
+        \toprule
+        $j$ & $P[1..j]$ & $sborder(P[1..j])$ & $shift(P, j)$ \\
+        \midrule
+            0&\textcolor{red!70}{\verb|""|}&-1&1\\
+            1&\textcolor{red!70}{\verb|"a"|}&0&1\\
+            2&\textcolor{red!70}{\verb|"ab"|}&-1&3\\
+            3&\textcolor{red!70}{\verb|"aba"|}&0&3\\
+            4&\textcolor{red!70}{\verb|"abab"|}&2&2\\
+            5&\textcolor{red!70}{\verb|"ababb"|}&-1&6\\
+            6&\textcolor{red!70}{\verb|"ababba"|}&0&6\\
+            7&\textcolor{red!70}{\verb|"ababbab"|}&-1&8\\
+            8&\textcolor{red!70}{\verb|"ababbaba"|}&0&8\\
+            9&\textcolor{red!70}{\verb|"ababbabab"|}&4&5\\
+            10&\textcolor{red!70}{\verb|"ababbababa"|}&0&10\\
+            11&\textcolor{red!70}{\verb|"ababbababab"|}&4&7\\
+        \bottomrule
+    \end{tabularx}
+    \end{center}
+
+\end{frame}
+
+\begin{frame}[fragile]{Implementação do algoritmo KMP em C++}
+    \inputsnippet{cpp}{1}{21}{kmp.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Implementação do algoritmo KMP em C++}
+    \inputsnippet{cpp}{23}{43}{kmp.cpp}
+\end{frame}
