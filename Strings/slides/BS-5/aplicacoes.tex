@@ -69,6 +69,14 @@
     \end{align*}
 \end{frame}
 
+\begin{frame}[fragile]{Implementação do número de ocorrências de $P$ em $S$ em C++}
+    \inputsnippet{cpp}{5}{24}{search.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Implementação do número de ocorrências de $P$ em $S$ em C++}
+    \inputsnippet{cpp}{25}{35}{search.cpp}
+\end{frame}
+
 \begin{frame}[fragile]{Aplicação \#2 -- Busca inexata}
 
     \begin{itemize}
@@ -134,7 +142,7 @@
 
         \item Portanto, $S[i..j]\in M$ se, e somente se
         \[
-            z_T[i + m + 1] + z_T[n - i + 3] \geq m - 1
+            z_T[i + m + 1] + z_R[n - i + 3] \geq m - 1
         \]
 
         \item Outras palavras, se o tamanhos do prefixo comum entre $S[i..j]$ e $P$, somado ao
@@ -146,44 +154,12 @@
 
 \end{frame}
 
-\begin{frame}[fragile]{Exemplo de uso da função $z$ para busca inexata}
+\input{search_view}
 
-    \begin{center}
-    \begin{tabular}{c|ccccccccccccc}
-        $i$ & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 & 11 & 12 \\
-        \hline
-        $T$
-& \texttt{\textcolor{red!80!black}{a}} 
-& \texttt{\textcolor{red!80!black}{n}} 
-& \texttt{\textcolor{red!80!black}{a}} 
-& \texttt{\textcolor{red!80!black}{\#}} 
-& \texttt{\textcolor{red!80!black}{r}} 
-& \texttt{\textcolor{red!80!black}{a}} 
-& \texttt{\textcolor{red!80!black}{b}} 
-& \texttt{\textcolor{red!80!black}{a}} 
-& \texttt{\textcolor{red!80!black}{n}} 
-& \texttt{\textcolor{red!80!black}{e}} 
-& \texttt{\textcolor{red!80!black}{t}} 
-& \texttt{\textcolor{red!80!black}{e}} 
-\\
-        $z_T(i)$
-& \textcolor{blue}{0} 
-& \textcolor{blue}{0} 
-& \textcolor{blue}{1} 
-& \textcolor{blue}{0} 
-& \textcolor{blue}{0} 
-& \underline{\textcolor{blue}{3}}
-& \textcolor{blue}{0} 
-& \underline{\textcolor{blue}{3}}
-& \textcolor{blue}{0} 
-& \textcolor{blue}{1} 
-\\
-    \end{tabular}
-    \end{center}
+\begin{frame}[fragile]{Implementação da busca inexata em C++}
+    \inputsnippet{cpp}{5}{24}{search2.cpp}
+\end{frame}
 
-    \begin{align*}
-        m &= 3 \\
-        occ &= 2 \\
-        pos &= 2\ (6 - 3 - 1)\ \mbox{e}\ 4\ (8 - 3 - 1)
-    \end{align*}
+\begin{frame}[fragile]{Implementação da busca inexata em C++}
+    \inputsnippet{cpp}{25}{45}{search2.cpp}
 \end{frame}
