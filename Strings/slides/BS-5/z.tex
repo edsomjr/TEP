@@ -1,0 +1,201 @@
+\section{$z$-{\it Function}}
+
+\begin{frame}[fragile]{Definição}
+
+    \begin{itemize}
+        \item Seja $S$ uma string de tamanho $n$
+
+        \item A função $z$ ($z$-\textit{function}) é definida por
+        \begin{align*}
+            z_S: \mathbb{N} & \to \mathbb{N}\cup \lbrace 0\rbrace \\
+               i & \to z_S(i) = \max\lbrace k\ |\ S[1..k] = S[i..n] \rbrace
+        \end{align*}
+
+        \item O caso especial $z_S(1)$ depende se o conjunto usado na definição acima inclui
+            apenas prefixos próprios ou não
+
+        \item Em geral, considera-se apenas sufixos próprios, de modo que $z_S(1) = 0$
+
+        \item A tabela abaixo ilustra a função $z$ para a string $S = $ \code{cpp}{"abaaba"}:
+    \end{itemize}
+
+    \begin{center}
+        \begin{tabular}{c|cccccc}
+        $i$ & 1 & 2 & 3 & 4 & 5 & 6 \\
+        \hline
+        $S$ & \texttt{\textcolor{red!80!black}{a}} & \texttt{\textcolor{red!80!black}{b}} & \texttt{\textcolor{red!80!black}{a}} & \texttt{\textcolor{red!80!black}{a}} & \texttt{\textcolor{red!80!black}{b}} & \texttt{\textcolor{red!80!black}{a}} \\
+        $z_S(i)$ & \textcolor{blue}{0} & \textcolor{blue}{0} & \textcolor{blue}{1} & \textcolor{blue}{3} & \textcolor{blue}{0} & \textcolor{blue}{1} \\
+        \end{tabular}
+    \end{center}
+\end{frame}
+
+\begin{frame}[fragile]{Pseudocódigo da função $z$ -- \textit{Naive}}
+
+    \begin{algorithm}[H]
+        \caption{Função $z$}
+        \begin{algorithmic}[1]
+            \Require Uma string $S$
+            \Ensure Um vetor $zs$ tal que $zs[i] = z_S(i)$
+
+            \Function{z}{$S$}
+                \State $n \gets |S|$
+                \State $zs[1] \gets 0$
+                \State 
+                \For {$i \gets 2 \forto n$}
+                    \State $j \gets 0$
+                    \While {$i + j \leq n\algand S[1 + j] = S[i + j]$}
+                        \State $j \gets j + 1$
+                    \EndWhile
+
+                    \State $zs[i] \gets j$
+                \EndFor
+                \State 
+                \State \Return $zs$
+            \EndFunction
+        \end{algorithmic}
+    \end{algorithm}
+
+\end{frame}
+
+\begin{frame}[fragile]{Cálculo da função $z$ em $O(n)$}
+
+    \begin{itemize}
+        \item O pseudocódigo para a função $z$ apresentado anteriormente tem complexidade
+            $O(n^2)$
+
+        \item É possível modificar este algoritmo de modo que seja possível computar todos os
+            valores $z_S(i)$, $i = 1, 2, \ldots, n$ em $O(n)$
+
+        \item A ideia central é utilizar os valores já computados da função $z$ evitar 
+            comparações já feitas
+
+        \item De fato, a implementação difere da versão \textit{naive} em apenas dois pontos,
+            referentes a duas condicionais
+
+        \item A seguir será apresentada a implementação em C++ desta versão modificada, e
+            as mudanças promovidas serão explicadas adiante
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Implementação da função $z$ em C++}
+    \inputsnippet{cpp}{1}{21}{z.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Detalhamento da implementação da função $z$}
+
+    \begin{itemize}
+        \item A ideia principal da implementação é o uso dos dois ponteiros $L$ e $R$
+
+        \item Para qualquer posição $i$ (na implementação a string é indexada de $0$ a $n - 1$), 
+            $L$ e $R$ representam o início e o fim de prefixo comum 
+            entre $S$ e algum sufixo $S[k..(n-1)]$, para $k < i$
+
+        \item Este prefixo deve ser não nulo, e caso exista mais de um prefixo comum já 
+            identificado, deve ser escolhido aquele termina mais à direita possível
+
+        \item Por exemplo, $S$ = \code{cpp}{"abacababac"}, a função $z$ assumiria os seguintes
+            valores:
+
+
+    \end{itemize}
+
+    \begin{center}
+        \begin{tabular}{c|cccccccccc}
+        $i$ & 0 & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 \\
+        \hline
+        $S$ & \texttt{\textcolor{red!80!black}{a}} & \texttt{\textcolor{red!80!black}{b}} & \texttt{\textcolor{red!80!black}{a}} & \texttt{\textcolor{red!80!black}{c}} & \texttt{\textcolor{red!80!black}{a}} & \texttt{\textcolor{red!80!black}{b}}
+& \texttt{\textcolor{red!80!black}{a}} 
+& \texttt{\textcolor{red!80!black}{b}}
+& \texttt{\textcolor{red!80!black}{a}}
+& \texttt{\textcolor{red!80!black}{c}} \\
+        $z_S(i)$ & \textcolor{blue}{0} & \textcolor{blue}{0} & \textcolor{blue}{1} & \textcolor{blue}{0} & \textcolor{blue}{3} & \textcolor{blue}{0}
+& \textcolor{blue}{4}
+& \textcolor{blue}{0}
+& \textcolor{blue}{1}
+& \textcolor{blue}{0} \\
+        \end{tabular}
+    \end{center}
+
+
+\end{frame}
+
+\begin{frame}[fragile]{Detalhamento da implementação da função $z$}
+
+    \begin{itemize}
+        \item Suponha que o laço \code{cpp}{for} está na nona iteração (isto é, $i = 8$)
+
+        \item Neste ponto, os prefixos comuns não nulos já encontrados são:
+
+        \vspace{0.1in}
+        \begin{center}
+            \begin{tabularx}{0.7\textwidth}{Xccc}
+            \toprule
+            \textbf{Prefixo} & \textbf{Posição} & \textbf{Tamanho} \\
+            \midrule
+            \textcolor{red!80!black}{\verb|"a"|} & $S[2..2]$ & 1 \\
+            \textcolor{red!80!black}{\verb|"aba"|} & $S[4..6]$ & 3 \\
+            \textcolor{red!80!black}{\verb|"abac"|} & $S[6..9]$ & 8 \\
+            \bottomrule
+            \end{tabularx}
+        \end{center}
+        \vspace{0.1in}
+
+        \item As posições destas substrings são os candidatos a valores de $L$ e $R$
+
+        \item Como a substring que termina mais à direita é $S[6..9]$, nesta iteração vale que
+            $L = 6$ e $R = 9$
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Detalhamento da implementação da função $z$}
+
+    \begin{itemize}
+        \item Nesta iteração o primeiro \code{cpp}{if} tem sua condição verdadeira: 
+
+        \vspace{0.1in}
+        \inputsnippet{cpp}{8}{9}{z.cpp}
+        \vspace{0.1in}
+
+        \item O fato de que $i$ pertence ao intervalo $[L, R]$ significa que a substring 
+            $S[i..R] = S[(i-L)..(R-L)]$, pois $S[0..(R-L)] = S[L..R]$
+
+        \item O índice $i-L$ corresponde à posição do caractere de $S[0..(R-L)]$ equivalente 
+            $i$ em $S[L..R]$
+
+        \item Como $zs[i-L]$ já foi computado, é conhecido o tamanho do maior prefixo comum entre 
+            $S$ e $S[i..R]$
+
+        \item Assim, $zs[i]$ será  mínimo entre $zs[i-L]$ e $|S[i..R] = R-i+1$, pois caso 
+            $zs[i-L]$ seja maior que o tamanho de $S[i..R]$, não há garantias de que os caracteres
+            que sucedem $S[R]$ coincidam com os caracteres que sucedem $S[R-L]$
+
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Detalhamento da implementação da função $z$}
+
+    \begin{itemize}
+        \item O segundo \code{cpp}{if} atualiza os ponteiros $L$ e $R$ caso o prefixo
+            comum da substring $S[i..(i+z[i]-1)]$ termine mais à direita do que o prefixo
+            comum armazenado em $L$ e $R$
+
+        \item Assim, se $i+z[i]-1 > R$, então o $L$ e $R$ passam a apontar para a substring 
+            $S[i..i+z[i]-1]$
+
+        \vspace{0.1in}
+        \inputsnippet{cpp}{14}{15}{z.cpp}
+        \vspace{0.1in}
+
+        \item Observe que, caso $z[i] = 0$, $S[i..i-1]$ é uma string vazia, e os valores de
+            $L$ e $R$ correspondem a um intervalo degenerado
+
+        \item Pode ser mostrado que a condição do laço \code{cpp}{while} pode ser verdadeira, no
+            máximo, $n - 1$ vezes, de modo que o algoritmo tem complexidade $O(n)$
+
+    \end{itemize}
+
+\end{frame}
+

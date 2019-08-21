@@ -1,0 +1,214 @@
+\begin{frame}[fragile]{Exemplo de uso da função $z$ para busca inexata}
+
+    \begin{center}
+    \begin{tabular}{c|ccccccccccccc}
+        $i$ & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 & 11 & 12 \\
+        \hline
+        $T$
+& \texttt{\textcolor{red!80!black}{a}} 
+& \texttt{\textcolor{red!80!black}{n}} 
+& \texttt{\textcolor{red!80!black}{a}} 
+& \texttt{\textcolor{red!80!black}{\#}} 
+& \texttt{\textcolor{red!80!black}{r}} 
+& \texttt{\textcolor{red!80!black}{a}} 
+& \texttt{\textcolor{red!80!black}{b}} 
+& \texttt{\textcolor{red!80!black}{a}} 
+& \texttt{\textcolor{red!80!black}{n}} 
+& \texttt{\textcolor{red!80!black}{e}} 
+& \texttt{\textcolor{red!80!black}{t}} 
+& \texttt{\textcolor{red!80!black}{e}} 
+\\
+        $z_T(i)$
+& \textcolor{blue}{0} 
+& \textcolor{blue}{0} 
+& \textcolor{blue}{1} 
+& \textcolor{blue}{0} 
+& \textcolor{blue}{0} 
+& {\textcolor{blue}{1}}
+& \textcolor{blue}{0} 
+& {\textcolor{blue}{2}}
+& \textcolor{blue}{0} 
+& \textcolor{blue}{0} 
+& \textcolor{blue}{0} 
+& \textcolor{blue}{0} 
+\\
+        $R$
+& \texttt{\textcolor{red!80!black}{a}} 
+& \texttt{\textcolor{red!80!black}{n}} 
+& \texttt{\textcolor{red!80!black}{a}} 
+& \texttt{\textcolor{red!80!black}{\#}} 
+& \texttt{\textcolor{red!80!black}{e}} 
+& \texttt{\textcolor{red!80!black}{t}} 
+& \texttt{\textcolor{red!80!black}{e}} 
+& \texttt{\textcolor{red!80!black}{n}} 
+& \texttt{\textcolor{red!80!black}{a}} 
+& \texttt{\textcolor{red!80!black}{b}} 
+& \texttt{\textcolor{red!80!black}{a}} 
+& \texttt{\textcolor{red!80!black}{r}} 
+\\
+        $z_R(i)$
+& \textcolor{blue}{0} 
+& \textcolor{blue}{0} 
+& \textcolor{blue}{1} 
+& \textcolor{blue}{0} 
+& \textcolor{blue}{0} 
+& {\textcolor{blue}{0}}
+& \textcolor{blue}{0} 
+& {\textcolor{blue}{0}}
+& \textcolor{blue}{1} 
+& \textcolor{blue}{0} 
+& \textcolor{blue}{1} 
+& \textcolor{blue}{0} 
+    \end{tabular}
+    \end{center}
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de uso da função $z$ para busca inexata}
+
+    \begin{center}
+    \begin{tabular}{c|ccccccccccccc}
+        $i$ & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 & 11 & 12 \\
+        \hline
+        $T$
+& \texttt{\textcolor{red!80!black}{a}} 
+& \texttt{\textcolor{red!80!black}{n}} 
+& \texttt{\textcolor{red!80!black}{a}} 
+& \texttt{\textcolor{red!80!black}{\#}} 
+& \texttt{\textcolor{red!80!black}{r}} 
+& \texttt{\textcolor{red!80!black}{a}} 
+& \texttt{\textcolor{red!80!black}{b}} 
+& \texttt{\textcolor{red!80!black}{a}} 
+& \texttt{\textcolor{red!80!black}{n}} 
+& \texttt{\textcolor{red!80!black}{e}} 
+& \texttt{\textcolor{red!80!black}{t}} 
+& \texttt{\textcolor{red!80!black}{e}} 
+\\
+        $z_T(i)$
+& \textcolor{blue}{0} 
+& \textcolor{blue}{0} 
+& \textcolor{blue}{1} 
+& \textcolor{blue}{0} 
+& \textcolor{blue}{0} 
+& \underline{\textcolor{blue}{1}}
+& \textcolor{blue}{0} 
+& {\textcolor{blue}{2}}
+& \textcolor{blue}{0} 
+& \textcolor{blue}{0} 
+& \textcolor{blue}{0} 
+& \textcolor{blue}{0} 
+\\
+        $R$
+& \texttt{\textcolor{red!80!black}{a}} 
+& \texttt{\textcolor{red!80!black}{n}} 
+& \texttt{\textcolor{red!80!black}{a}} 
+& \texttt{\textcolor{red!80!black}{\#}} 
+& \texttt{\textcolor{red!80!black}{e}} 
+& \texttt{\textcolor{red!80!black}{t}} 
+& \texttt{\textcolor{red!80!black}{e}} 
+& \texttt{\textcolor{red!80!black}{n}} 
+& \texttt{\textcolor{red!80!black}{a}} 
+& \texttt{\textcolor{red!80!black}{b}} 
+& \texttt{\textcolor{red!80!black}{a}} 
+& \texttt{\textcolor{red!80!black}{r}} 
+\\
+        $z_R(i)$
+& \textcolor{blue}{0} 
+& \textcolor{blue}{0} 
+& \textcolor{blue}{1} 
+& \textcolor{blue}{0} 
+& \textcolor{blue}{0} 
+& {\textcolor{blue}{0}}
+& \textcolor{blue}{0} 
+& {\textcolor{blue}{0}}
+& \underline{\textcolor{blue}{1}}
+& \textcolor{blue}{0} 
+& \textcolor{blue}{1} 
+& \textcolor{blue}{0} 
+    \end{tabular}
+    \end{center}
+
+    \begin{align*}
+        m &= 3 \\
+        n &= 8 \\
+        occ &= 1 \\
+        i &= 2 \\
+        i_T &= i + m + 1 = 6 \\
+        j_R &= n - i + 3 = 9 \\
+        z_T(6) + z_R(9) &= 2 \\
+    \end{align*}
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de uso da função $z$ para busca inexata}
+
+    \begin{center}
+    \begin{tabular}{c|ccccccccccccc}
+        $i$ & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 & 11 & 12 \\
+        \hline
+        $T$
+& \texttt{\textcolor{red!80!black}{a}} 
+& \texttt{\textcolor{red!80!black}{n}} 
+& \texttt{\textcolor{red!80!black}{a}} 
+& \texttt{\textcolor{red!80!black}{\#}} 
+& \texttt{\textcolor{red!80!black}{r}} 
+& \texttt{\textcolor{red!80!black}{a}} 
+& \texttt{\textcolor{red!80!black}{b}} 
+& \texttt{\textcolor{red!80!black}{a}} 
+& \texttt{\textcolor{red!80!black}{n}} 
+& \texttt{\textcolor{red!80!black}{e}} 
+& \texttt{\textcolor{red!80!black}{t}} 
+& \texttt{\textcolor{red!80!black}{e}} 
+\\
+        $z_T(i)$
+& \textcolor{blue}{0} 
+& \textcolor{blue}{0} 
+& \textcolor{blue}{1} 
+& \textcolor{blue}{0} 
+& \textcolor{blue}{0} 
+& {\textcolor{blue}{1}}
+& \textcolor{blue}{0} 
+& \underline{\textcolor{blue}{2}}
+& \textcolor{blue}{0} 
+& \textcolor{blue}{0} 
+& \textcolor{blue}{0} 
+& \textcolor{blue}{0} 
+\\
+        $R$
+& \texttt{\textcolor{red!80!black}{a}} 
+& \texttt{\textcolor{red!80!black}{n}} 
+& \texttt{\textcolor{red!80!black}{a}} 
+& \texttt{\textcolor{red!80!black}{\#}} 
+& \texttt{\textcolor{red!80!black}{e}} 
+& \texttt{\textcolor{red!80!black}{t}} 
+& \texttt{\textcolor{red!80!black}{e}} 
+& \texttt{\textcolor{red!80!black}{n}} 
+& \texttt{\textcolor{red!80!black}{a}} 
+& \texttt{\textcolor{red!80!black}{b}} 
+& \texttt{\textcolor{red!80!black}{a}} 
+& \texttt{\textcolor{red!80!black}{r}} 
+\\
+        $z_R(i)$
+& \textcolor{blue}{0} 
+& \textcolor{blue}{0} 
+& \textcolor{blue}{1} 
+& \textcolor{blue}{0} 
+& \textcolor{blue}{0} 
+& {\textcolor{blue}{0}}
+& \underline{\textcolor{blue}{0}}
+& {\textcolor{blue}{0}}
+& {\textcolor{blue}{1}}
+& \textcolor{blue}{0} 
+& \textcolor{blue}{1} 
+& \textcolor{blue}{0} 
+    \end{tabular}
+    \end{center}
+
+    \begin{align*}
+        m &= 3 \\
+        n &= 8 \\
+        occ &= 2 \\
+        i &= 4 \\
+        i_T &= i + m + 1 = 8 \\
+        j_R &= n - i + 3 = 7 \\
+        z_T(8) + z_R(7) &= 2 \\
+    \end{align*}
+\end{frame}
