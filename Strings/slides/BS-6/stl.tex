@@ -1,0 +1,87 @@
+\section{Busca em strings na STL}
+
+\begin{frame}[fragile]{Função {\tt search()} da STL}
+
+    \begin{itemize}
+        \item A função \code{cpp}{search()} da STL busca a primeira ocorrência da sequência de
+            elementos $[\mathtt{a}, \mathtt{b})$ no intervalo $[\mathtt{first},\mathtt{last})$:
+
+            \vspace{.1in}
+            \inputsyntax{cpp}{search1.st}
+            \vspace{.1in}
+
+        \item Sendo uma função paramétrica, ela pode ser aplicada no contexto de busca em
+            strings
+
+        \item Por exemplo, para procurar a primeira ocorrência do padrão $P$ em $S$ a chamada
+            seria
+
+            \vspace{.1in}
+            \inputcode{cpp}{search1.cpp}
+            \vspace{.1in}
+
+        \item A string $S$ tem tamanho $n$ e o padrão $P$ tem tamanho $m$, a complexidade será
+            $O(nm)$
+
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Função {\tt search()} da STL}
+
+    \begin{itemize}
+        \item A versão $C++17$ da STL trouxe uma assinatura adicional para a função 
+            \code{cpp}{search()}:
+
+            \vspace{.1in}
+            \inputsyntax{cpp}{search2.st}
+            \vspace{.1in}
+
+        \item Deste modo, é possível especificar o algoritmo de busca a ser utilizado para
+            o localizar o padrão indicado no construtor de \code{cpp}{search} na string
+            delimitada pelo intervalo $[\mathtt{begin}, \mathtt{last})$
+
+        \item A biblioteca padrão fornece três algoritmos:
+        \begin{enumerate}
+            \item \code{cpp}{default_searcher}
+            \item \code{cpp}{boyer_moore_searcher}
+            \item \code{cpp}{boyer_moore_horspool_searcher}
+        \end{enumerate}
+
+        \item É possível implementar um \code{cpp}{Searcher} customizado
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Função {\tt search()} da STL}
+
+    \begin{itemize}
+
+        \item O primeiro é o algoritmo utilizado nas demais versões da função \code{cpp}{search()}
+
+        \item O segundo implementa o algoritmo de Boyer-Moore, cuja complexidade assintótica é
+            $O(n + m)$ no pior caso
+
+        \item O terceiro algoritmo é uma versão simplificado do algoritmo de Boyer-Moore, que 
+            exige menos memória
+
+        \item Esta redução de memória, porém, implica em uma complexidade $O(nm)$ no pior caso
+
+        \item Embora o algoritmo de Boyer-Moore tenha sido proposto inicialmente como um algoritmo
+            de busca em strings, no caso da STL ele pode ser utilizado em um contêiner que
+            armazena um tipo \code{cpp}{T} arbitrário
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Teste de performance dos algoritmos de busca da STL}
+    \inputsnippet{cpp}{1}{21}{search2.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Teste de performance dos algoritmos de busca da STL}
+    \inputsnippet{cpp}{23}{43}{search2.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Teste de performance dos algoritmos de busca da STL}
+    \inputsnippet{cpp}{44}{64}{search2.cpp}
+\end{frame}

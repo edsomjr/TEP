@@ -1,7 +1,6 @@
 Strings
 =======
 
-1. [Algoritmos de Busca](text/Algoritmos_de_Busca.md)
 1. [Programação Dinâmica](text/Programacao_Dinamica.md)
 1. [Árvores de Sufixos](text/Arvores_de_Sufixos.md)
 
@@ -18,3 +17,4 @@ Slides
     1. [Algoritmo de Rabin-Karp](slides/BS-3/BS-3.pdf)
     1. [Algoritmo de Knuth-Morris-Pratt](slides/BS-4/BS-4.pdf)
     1. [z-_Function_](slides/BS-5/BS-5.pdf)
+    1. [String e Buscas em C++](slides/BS-6/BS-6.pdf)
