@@ -1,10 +1,9 @@
-
-\begin{frame}[fragile]{Visualização da rotina de fusão}
+\begin{frame}[fragile]{Visualização de $edit(S,T)$}
 
     \begin{table}
         \centering
 
-        \begin{tabular}{c|cccccccccc} $dist(i, j)$ &
+        \begin{tabular}{c|cccccccccc} $edit(i, j)$ &
         & \textcolor{red!80!black}{\texttt{'A'}}
         & \textcolor{red!80!black}{\texttt{'C'}}
         & \textcolor{red!80!black}{\texttt{'C'}}
@@ -27,12 +26,12 @@
 
 \end{frame}
 
-\begin{frame}[fragile]{Visualização da rotina de fusão}
+\begin{frame}[fragile]{Visualização de $edit(S,T)$}
 
     \begin{table}
         \centering
 
-        \begin{tabular}{c|cccccccccc} $dist(i, j)$ &
+        \begin{tabular}{c|cccccccccc} $edit(i, j)$ &
         & \textcolor{red!80!black}{\texttt{'A'}}
         & \textcolor{red!80!black}{\texttt{'C'}}
         & \textcolor{red!80!black}{\texttt{'C'}}
@@ -58,17 +57,17 @@
     por
 \textcolor{red!80!black}{\texttt{'A'}}
     \[
-        dist(1, 1) = dist(0, 0) + 1
+        edit(1, 1) = edit(0, 0) + 1
     \]    
 
 \end{frame}
 
-\begin{frame}[fragile]{Visualização da rotina de fusão}
+\begin{frame}[fragile]{Visualização de $edit(S,T)$}
 
     \begin{table}
         \centering
 
-        \begin{tabular}{c|cccccccccc} $dist(i, j)$ &
+        \begin{tabular}{c|cccccccccc} $edit(i, j)$ &
         & \textcolor{red!80!black}{\texttt{'A'}}
         & \textcolor{red!80!black}{\texttt{'C'}}
         & \textcolor{red!80!black}{\texttt{'C'}}
@@ -93,18 +92,18 @@
 \textcolor{red!80!black}{\texttt{'E'}}
     comum
     \[
-        dist(2, 4) = dist(1, 3) + 0
+        edit(2, 4) = edit(1, 3) + 0
     \]    
 
 
 \end{frame}
 
-\begin{frame}[fragile]{Visualização da rotina de fusão}
+\begin{frame}[fragile]{Visualização de $edit(S,T)$}
 
     \begin{table}
         \centering
 
-        \begin{tabular}{c|cccccccccc} $dist(i, j)$ &
+        \begin{tabular}{c|cccccccccc} $edit(i, j)$ &
         & \textcolor{red!80!black}{\texttt{'A'}}
         & \textcolor{red!80!black}{\texttt{'C'}}
         & \textcolor{red!80!black}{\texttt{'C'}}
@@ -130,18 +129,18 @@
     na string 
 \textcolor{red!80!black}{\texttt{"TEP"}}
     \[
-        dist(3, 4) = dist(2, 4) + 1
+        edit(3, 4) = edit(2, 4) + 1
     \]    
 
 
 \end{frame}
 
-\begin{frame}[fragile]{Visualização da rotina de fusão}
+\begin{frame}[fragile]{Visualização de $edit(S,T)$}
 
     \begin{table}
         \centering
 
-        \begin{tabular}{c|cccccccccc} $dist(i, j)$ &
+        \begin{tabular}{c|cccccccccc} $edit(i, j)$ &
         & \textcolor{red!80!black}{\texttt{'A'}}
         & \textcolor{red!80!black}{\texttt{'C'}}
         & \textcolor{red!80!black}{\texttt{'C'}}
@@ -167,7 +166,7 @@
     na string 
 \textcolor{red!80!black}{\texttt{"ACCEP"}}
     \[
-        dist(3, 6) = dist(3, 5) + 1
+        edit(3, 6) = edit(3, 5) + 1
     \]    
 
 

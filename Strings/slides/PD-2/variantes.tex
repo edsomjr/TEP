@@ -1,0 +1,32 @@
+\section{Variantes da LCS}
+
+\begin{frame}[fragile]{Identificação da LCS}
+
+    \begin{itemize}
+        \item Assim como o problema de \textit{edit distance}, uma variante comum do LCS é
+            determinar a sequência de operações que leva à maior subsequência comum
+
+        \item A implementação é idêntica à proposta para $edit(S, T)$, uma vez aplicada a 
+            modificação dos pesos e a alteração da operação \code{cpp}{min()} por 
+            \code{cpp}{max()}, de modo que a complexidade permanece sendo $O(nm)$
+
+        \item A maior subsequência comum corresponde aos caracteres onde os caracteres foram
+            mantidos
+
+        \item Assim esta rotina pode ser modificada para exibir a sequência, e não as operações
+            que levaram a ela
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Identificação da LCS em C++}
+    \inputsnippet{cpp}{74}{94}{lcs2.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Identificação da LCS em C++}
+    \inputsnippet{cpp}{95}{115}{lcs2.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Identificação da LCS em C++}
+    \inputsnippet{cpp}{116}{132}{lcs2.cpp}
+\end{frame}
