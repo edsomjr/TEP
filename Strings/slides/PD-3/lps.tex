@@ -1,0 +1,98 @@
+\section{Maior subsequência palíndroma}
+
+\begin{frame}[fragile]{Definição}
+
+    \begin{itemize}
+        \item Uma variante da maior substring comum é o problema de se encontrar a maior 
+            subsequência de uma string $S$ que forma um palíndromo (\textit{Longest Palindrome 
+            Subsequence} -- $LPS$)
+
+        \item Uma maneira de se enunciar este problema é a seguinte: qual é o maior palíndromo que 
+            pode ser formado removendo $m$ ($0 \leq m \leq n$) caracteres, de quaisquer posições, 
+            de uma string $S$ de tamanho $n$?
+
+        \item Este problema sempre tem solução, pois uma string com apenas um caractere é um 
+            palíndromo (o mesmo vale para strings vazias).
+
+        \item O tamanho do maior palíndromo, ou o palíndromo em si, pode ser determinado por
+            meio de programação dinâmica
+    \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{Formulação em programação dinâmica da LPS}
+
+    \begin{itemize}
+        \item O fato de uma string vazia ou com um único caractere serem palíndromos fornecem os
+            casos bases
+
+        \item Se $LPS[i,j]$ é o tamanho da maior subsequência palíndroma da substring 
+            $S[i..j]$, então
+            \[
+                LPS[i,i] = 1, \ \ \ \ \ \ LPS[i,j] = 0, \ \ \ \ \mbox{se}\ i > j
+            \]
+
+        \item São três transições possíveis:
+        a primeira é remover o caractere mais à esquerda de $S[i..j]$, isto é,
+        \[
+             LPS[i,j] = LPS[i+1,j]
+        \]
+
+        \item A segunda transição remove o caractere mais à direita $S[i..j]$:
+        \[
+            LPS[i, j] = LPS[i, j - 1]
+        \] 
+
+        \item No último caso, casos os caracteres que estão nos extremos da strings sejam iguais, 
+            eles podem ser parte do palíndromo: 
+        \[
+            LPS[i,j] = LPS[i+1,j-1] + 2,\ \ \ \ \mbox{se}\ S[i] = S[j]
+        \]
+
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Implementação {\it top-down} da LPS}
+    \inputsnippet{cpp}{5}{25}{lps.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Implementação {\it top-down} da LPS}
+    \inputsnippet{cpp}{27}{47}{lps.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Identificação da maior subsequência palíndroma}
+
+    \begin{itemize}
+        \item O algoritmo proposto para a LPS tem complexidade $O(n^2)$ tanto para a execução 
+            quanto para a memória
+
+        \item Para recuperar a string que corresponde à LPS, é preciso manter o registro das
+            operações utilizadas em cada transição:
+            \begin{itemize}
+                \item \code{cpp}{'B'}: os caracteres dos extremos são mantidos
+                \item \code{cpp}{'K'}: o único caractere da string é mantido
+                \item \code{cpp}{'L'}: remover o primeiro caractere 
+                \item \code{cpp}{'R'}: remover o último caractere 
+            \end{itemize}
+
+        \item Usando um valor sentinela (zero) para estados que não forem atingidos, é possível
+            remontar o palíndromo em $O(n^2)$
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Implementação da identificação da LPS}
+    \inputsnippet{cpp}{1}{21}{lps2.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Implementação da identificação da LPS}
+    \inputsnippet{cpp}{23}{43}{lps2.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Implementação da identificação da LPS}
+    \inputsnippet{cpp}{44}{64}{lps2.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Implementação da identificação da LPS}
+    \inputsnippet{cpp}{65}{85}{lps2.cpp}
+\end{frame}
