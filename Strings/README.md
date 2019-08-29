@@ -20,3 +20,4 @@ Slides
     1. [String e Buscas em C++](slides/BS-6/BS-6.pdf)
 1. Strings e Programação Dinâmica
     1. [_Edit Distance_](slides/PD-1/PD-1.pdf)
+    1. [Maior Subsequência Comum](slides/PD-2/PD-2.pdf)
