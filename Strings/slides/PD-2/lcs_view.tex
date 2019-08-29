@@ -1,0 +1,28 @@
+\begin{frame}[fragile]{Visualização de $LCS(S, T)$}
+
+    \begin{table}
+        \centering
+
+        \begin{tabular}{c|ccccccccc} $LCS(i, j)$ &
+        & \textcolor{red!80!black}{\texttt{'n'}}
+        & \textcolor{red!80!black}{\texttt{'e'}}
+        & \textcolor{red!80!black}{\texttt{'v'}}
+        & \textcolor{red!80!black}{\texttt{'a'}}
+        & \textcolor{red!80!black}{\texttt{'s'}}
+        & \textcolor{red!80!black}{\texttt{'c'}}
+        & \textcolor{red!80!black}{\texttt{'a'}} \\
+        \hline
+&0&0&0&0&0&0&0&0\\
+\textcolor{red!80!black}{\texttt{'c'}}
+&0&0&0&0&0&0&1&1\\
+\textcolor{red!80!black}{\texttt{'a'}}
+&0&0&0&0&1&1&1&2\\
+\textcolor{red!80!black}{\texttt{'s'}}
+&0&0&0&0&1&2&2&2\\
+\textcolor{red!80!black}{\texttt{'a'}}
+&0&0&0&0&1&2&2&3\\
+        \end{tabular}
+
+    \end{table}
+
+\end{frame}

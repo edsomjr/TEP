@@ -1,0 +1,61 @@
+\section{Variações de $edit(S, T)$}
+
+\begin{frame}[fragile]{Implementação de $edit(S, T)$ com memória $O(n)$}
+
+    \begin{itemize}
+        \item A implementação anterior tem complexidade $O(nm)$ tanto para o tempo de execução
+            quanto para a memória
+
+        \item Isto se deve à tabela de estados \code{cpp}{st}, que tem dimensões $m \times n$
+
+        \item  É possível implementar o mesmo algoritmo usando apenas $O(n)$ de memória, uma vez 
+            que é necesário apenas a linha anterior para computar os valores da próxima linha
+
+        \item Esta segunda implementação pode ser necessária em competições ou ambientes com 
+            restrição de memória
+
+        \item A complexidade do tempo de execução, porém, se mantém igual
+
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Implementação de $edit(S, T)$ com memória $O(n)$}
+    \inputsnippet{cpp}{1}{21}{edit2.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Implementação de $edit(S, T)$ com memória $O(n)$}
+    \inputsnippet{cpp}{22}{42}{edit2.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Sequência de operações ótima}
+
+    \begin{itemize}
+        \item Uma variante do problema {\it edit distance} é retorna um conjunto de operações
+            $O = \lbrace o_1, o_2, \ldots, o_s\rbrace$ tal que $s = edit(S, T)$ e $o_j$ é uma
+            das três operações: inserção, remoção ou alteração
+
+        \item Para obter tal sequência, na implementação com memória $O(nm)$, basta manter um 
+            registro da operação responsável pela atualização de cada elemento da tabela
+            \code{cpp}{st}
+
+        \item Ao final do algoritmo, uma sequência de operações que leva ao custo mínimo pode
+            ser reconstruída por meio da recursão
+
+        \item A construção da tabela tem complexidade $O(nm)$, e a identificação da sequência
+            de operações tem complexidade $O(n + m)$
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Implementação da sequência de operações ótima}
+    \inputsnippet{cpp}{9}{29}{edit3.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Implementação da sequência de operações ótima}
+    \inputsnippet{cpp}{30}{50}{edit3.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Implementação da sequência de operações ótima}
+    \inputsnippet{cpp}{52}{72}{edit3.cpp}
+\end{frame}
