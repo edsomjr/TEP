@@ -1,7 +1,6 @@
 Strings
 =======
 
-1. [Programação Dinâmica](text/Programacao_Dinamica.md)
 1. [Árvores de Sufixos](text/Arvores_de_Sufixos.md)
 
 Slides
