@@ -1,0 +1,138 @@
+\section{Geradores notáveis}
+
+\begin{frame}[fragile]{Produto cartesiano}
+
+    \begin{itemize}
+        \item Dados dois conjuntos $A$ e $B$, o produto cartesiano $A\times B$ de $A$ por
+            $B$ é o conjunto de todos os pares ordenados cujo primeiro elemento pertence
+            a $A$ e o segundo pertence a $B$, isto é,
+        \[
+            A\times B = \lbrace (a, b)\ |\ a\in A, b\in B\rbrace
+        \]
+
+        \item Se $|A| = m$ e $|B| = n$ então $|A\times B| = mn$
+
+        \item Por exemplo, se $A = \lbrace a, b, c\rbrace$ e $B = \lbrace 1, 2\rbrace$, então
+        \[
+            A\times B = \lbrace (a, 1), (a, 2), (b, 1), (b, 2), (c, 1), (c, 2)\rbrace
+        \]
+
+        \item Observe que $A\times B \neq B\times A$ e que $A\times A = A^2$
+
+        \item Se ambos conjuntos são finitos, o produto cartesiano pode ser obtido diretamente
+            por meio de um laço duplo
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Implementação da geração do produto cartesiano}
+    \inputsnippet{cpp}{1}{15}{produto.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Subconjuntos}
+
+    \begin{itemize}
+        \item Um conjunto $A$ composto por $N$ elementos tem $2^N$ subconjuntos
+
+        \item Por exemplo, para $N = 2$, os subconjuntos de $A = \lbrace 1, 2\rbrace$ são:
+            $\emptyset, \lbrace 1\rbrace, \lbrace 2\rbrace, \lbrace 1, 2\rbrace$
+
+        \item É possível listar todos estes conjuntos, em aproximadamente 1 segundo, para
+            $N\leq 23$, pois $2^{23} \approx 10^7$
+
+        \item As formas de se gerar estes subconjuntos estão vinculadas a forma escolhida para
+            representar estes subconjuntos
+
+        \item Se cada subconjunto $S\subset A$ é um vetor, contendo os índices dos elementos de
+            $A$ que pertencem a $S$, a estratégia é usar a recursão
+
+        \item Se $S$ corresponde a um vetor de $N$ \textit{bits}, onde o $i$-ésimo \textit{bit}
+            indica a presença ou a ausência do elemento $a_i$ em $S$, os subconjuntos podem ser
+            listados diretamente, por meio de um laço 
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Implementação recursiva dos subconjuntos de $A$}
+    \inputsnippet{cpp}{1}{19}{subsets_recursivo.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Implementação recursiva dos subconjuntos de $A$}
+    \inputsnippet{cpp}{20}{40}{subsets_recursivo.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Implementação iterativa dos subconjuntos de $A$}
+    \inputsnippet{cpp}{1}{12}{subsets_iterativo.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Implementação iterativa dos subconjuntos de $A$}
+    \inputsnippet{cpp}{13}{33}{subsets_iterativo.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Permutações}
+
+    \begin{itemize}
+        \item Uma permutação de $N$ elementos $\lbrace a_1, a_2, \ldots, a_N\rbrace$ consiste
+            em uma reordenação de seus índices $\lbrace b_1, b_2, \ldots, b_N\rbrace$ tal que,
+            para cada $i = 1, 2, \ldots, N$, existe um $j$ tal que $a_i = b_j$
+
+        \item Um conjunto $A$ composto por $N$ elementos tem $N!$ permutações distintas
+
+        \item Por exemplo, para $N = 3$, as permutações de $A = \lbrace 1, 2, 3\rbrace$ são:
+            $\lbrace 1, 2, 3\rbrace$, $\lbrace 1, 3, 2\rbrace$, $\lbrace 2, 1, 3\rbrace$,
+            $\lbrace 2, 3, 1\rbrace$, $\lbrace 3, 1, 2\rbrace$ e $\lbrace 3, 2, 1\rbrace$
+
+        \item É possível listar estas permutações, em aproximadamente 1 segundo, para
+            $N = 10$, pois $10! \leq 10^7$
+
+        \item Assim como no caso dos subconjuntos, é possível gerar todas as permutações por
+            meio de recursão
+        
+        \item Contudo, a biblioteca \code{cpp}{algorithm} da linguagem C++ provê duas funções
+            para a geração de permutações: \code{cpp}{next_permutation()} e
+            \code{cpp}{prev_permutation()}, baseadas em implementações iterativas
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Implementação recursiva das permutações de $A$}
+    \inputsnippet{cpp}{5}{25}{permutacoes_recursivo.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Implementação iterativa das permutações de $A$}
+    \inputsnippet{cpp}{1}{19}{permutacoes_iterativo.cpp}
+\end{frame}
+
+
+\begin{frame}[fragile]{Combinações}
+
+    \begin{itemize}
+        \item Seja $A$ um conjunto de $n$ elementos
+
+        \item Uma combinação de $m$ elementos de $A$ é uma sequência de elementos de
+            A $\lbrace a_{i1}, a_{i2}, \ldots, a_{im}\rbrace$ tal que $i_j \leq i_k$ se $i\leq k$
+
+        \item O número de combinações de $m$ elementos de $A$ é igual a 
+        \[
+            C_{n,m} = \binom{n}{m} = \frac{n!}{m!(n - m)!}
+        \]
+
+        \item As combinações de $m$ elementos de $A$ podem ser geradas recursivamente, a
+            partir de uma modificação na rotina que gera as permutações
+
+        \item Também é possível usar as funções \code{cpp}{prev_permutation()} ou
+            \code{cpp}{next_permutation()} para gerar tais combinações
+            
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Implementação recursiva das combinações}
+    \inputsnippet{cpp}{5}{25}{combinacoes_recursivo.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Implementação iterativa das combinações}
+    \inputsnippet{cpp}{1}{17}{combinacoes_iterativo.cpp}
+\end{frame}
+
+
