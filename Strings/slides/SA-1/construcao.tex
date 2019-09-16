@@ -1,9 +1,144 @@
 \section{Construção do vetor de sufixos em $O(N\log N)$}
 
-\begin{frame}[fragile]{Conceitos preliminares}
+\begin{frame}[fragile]{Substrings cíclicas}
 
     \begin{itemize}
-        \item
+        \item A notação de substrings de uma strings $S$ pode ser estendida para contemplar
+            substrings cíclicas
+
+        \item A notação padrão $S[i..j]$ pressupõe que $i \leq j$
+
+        \item Para representar substrings cíclicas, basta fazer
+        \[
+            S[i..j] = S[i..N] + S[1..j]
+        \]
+        quando $i > j$
+
+        \item Por exemplo, para $S = $ \code{cpp}{"casado"}, temos $S[6..2] = $ \code{cpp}{"oca"}
+            e $S[5..3] =$ \code{cpp}{"docas"}
+
+        \item Uma rotação cíclica de uma string $S$ é uma substring cíclica de tamanho $|S|$
+
+        \item Por exemplo, as rotações cíclicas de $S = $ \code{cpp}{"abcd"} são 
+            \code{cpp}{"abcd", "bcda", "cdab"} e \code{cpp}{"dabc"}
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Ideia central do algoritmo de construção $O(N\log N)$}
+
+    \begin{itemize}
+        \item A ideia central do algoritmo de construção do vetor de sufixos em $O(N\log N)$ é
+            que é possível ordenar, de forma eficiente, as rotações cíclicas de $S$
+
+        \item Para que a ordenação destas rotações cíclicas seja equivalente à ordenação dos
+            sufixos de $S$, basta concatenar um caractere sentinela ao final de $S$
+
+        \item Este sentinela deve ter um valor ASCII inferior a qualquer caractere do alfabeto
+
+        \item Em geral, este caractere é o caractere \texttt{'\$'}, sendo o caractere 
+            \texttt{'\#'} uma segunda opção viável, caso a string $S$ seja alfanumérica
+
+        \item Assim, após a ordenação, exceto a primeira rotação, as demais equivalem à 
+            ordenação dos prefixos de $S$
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Equivalências entre as rotações cíclicas e os sufixos de $S$}
+
+    \begin{table}
+        \centering
+        \begin{tabular}{clcl}
+            \toprule
+            $i$ & Rotação cíclica & $j$ & $S[j..N]$ \\
+            \midrule
+            0 & \code{cpp}{"$banana"} & - & - \\
+            1 & \code{cpp}{"a$banan"} & 6 & \code{cpp}{"a"} \\
+            2 & \code{cpp}{"ana$ban"} & 4 & \code{cpp}{"ana"} \\
+            3 & \code{cpp}{"anana$b"} & 2 & \code{cpp}{"anana"} \\
+            4 & \code{cpp}{"banana$"} & 1 & \code{cpp}{"banana"} \\
+            5 & \code{cpp}{"na$bana"} & 5 & \code{cpp}{"na"} \\
+            6 & \code{cpp}{"nana$ba"} & 3 & \code{cpp}{"nana"} \\
+            \bottomrule 
+        \end{tabular}
+    \end{table}
+
+\end{frame}
+
+\begin{frame}[fragile]{Permutações e classes de equivalência}
+
+    \begin{itemize}
+        \item A cada iteração do algoritmo serão ordenadas todas as substrings de $S[i..j]$ de 
+            tamanho $2^k$, para $k = 0, 1,\ldots, \lceil \log N\rceil$
+
+        \item Para tal fim, serão mantidos dois vetores auxiliares
+
+        \item O primeiro deles é o vetor de permutações $ps$, onde $ps[i]$ é o índice da 
+            substring $S[i..j]$ de tamanho $k$ após a ordenação
+
+        \item O segundo é o vetor $cs$ das classes de equivalência das substrings de tamanho $k$
+
+        \item Duas substrings iguais devem estar na mesma classe de equivalência
+
+        \item Se $S[i..j] < S[r..s]$, então $cs[i] < cs[r]$
+
+        \item Estas classes de equivalência permitem realizar comparações de forma mais
+            eficiente
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Exemplos de permutações e classes de equivalência}
+
+    \begin{footnotesize}
+    \begin{center}
+        \begin{tabular}{cccc}
+            \toprule
+            $k$ & Substrings cíclicas de tamanho $2^k$ & $ps$ & $cs$ \\
+            \midrule
+            0 & $\lbrace$ \code{cpp}{"c", "a", "s", "a"} $\rbrace$ & $\lbrace 2, 0, 3, 1\rbrace$ & $\lbrace 1, 0, 2, 0 \rbrace$ \\
+            1 & $\lbrace$ \code{cpp}{"ca", "as", "sa", "ac"} $\rbrace$ & $\lbrace 2, 1, 3, 0\rbrace$ & $\lbrace 2, 1, 3, 0 \rbrace$ \\
+            2 & $\lbrace$ \code{cpp}{"casa", "asac", "saca", "acas"} $\rbrace$ & $\lbrace 2, 1, 3, 0\rbrace$ & $\lbrace 2, 1, 3, 0 \rbrace$ \\
+            \bottomrule 
+        \end{tabular}
+    \end{center}
+
+    \vspace{0.1in}
+
+    \begin{center}
+        \begin{tabular}{cccc}
+            \toprule
+            $k$ & Substrings cíclicas de tamanho $2^k$ & $ps$ & $cs$ \\
+            \midrule
+            0 & $\lbrace$ \code{cpp}{"a", "b", "b", "a"} $\rbrace$ & $\lbrace 0, 2, 3, 1\rbrace$ & $\lbrace 0, 1, 1, 0 \rbrace$ \\
+            1 & $\lbrace$ \code{cpp}{"ab", "bb", "ba", "aa"} $\rbrace$ & $\lbrace 1, 3, 2, 0\rbrace$ & $\lbrace 1, 3, 2, 0 \rbrace$ \\
+            2 & $\lbrace$ \code{cpp}{"abba", "bbaa", "baab", "aabb"} $\rbrace$ & $\lbrace 1, 3, 2, 0\rbrace$ & $\lbrace 1, 3, 2, 0 \rbrace$ \\
+            \bottomrule 
+        \end{tabular}
+    \end{center}
+ 
+    \end{footnotesize}
+
+\end{frame}
+
+
+\begin{frame}[fragile]{Casos base: $k = 0$}
+
+    \begin{itemize}
+        \item O algoritmo inicia com o caso base, onde $k = 0$, ou seja, ordenado as substrings
+            cíclicas de tamanho 1
+
+        \item Isto pode ser feito em $O(N)$ usando o \textit{counting sort}
+
+        \item Após a ordenação e geração do vetor de permutações $ps$, é necessário atribuir
+            as classes de equivalência a cada substring, gerando o vetor $cs$
+
+        \item Vale lembrar que substrings iguais devem pertencer à mesma classe de
+            equivalência
+
+        \item O vetor $ps$ permite a construção de $cs$ também em $O(N)$, por meio da comparação
+            de caracteres adjacentes
     \end{itemize}
 
 \end{frame}
