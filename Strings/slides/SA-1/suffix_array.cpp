@@ -11,43 +11,58 @@ vector<int> counting_sort(const string& s)
 
     for (auto c : s)
         ++hs[c];
-    
-vector<char> ls;
-for (int i = 1; i < A; ++i)
-{
-    if (hs[i])
-    {
-        ls.push_back(i);
-        cout << (char) i << ": " << hs[i] << '\n';
-    }
-}
+
     // Faz a soma prefixada para estabelecer a ordem
     for (int i = 1; i < A; ++i)
         hs[i] += hs[i - 1];
 
-for (const auto& l : ls)
-{
-    cout << (char) l << ": " << hs[l] << '\n';
-}
     // Preenche a permutação referente à ordenação
     vector<int> ps(s.size());
 
     for (size_t i = 0; i < s.size(); ++i)
-    {
-        cout << "hs[" << s[i] << "] = " << hs[s[i]] << ", i = " << i << '\n';
-        ps[i] = --hs[s[i]];
-        
-cout << "ps = ";
-for (size_t i = 0; i < ps.size(); ++i)
-    cout << ps[i] << (i + 1 == ps.size() ? '\n' : ' ');
-    }
+        ps[--hs[s[i]]] = i;
 
     return ps;
+}
+
+vector<int> equivalence_classes(const string& s, const vector<int>& ps)
+{
+    int c = 0;
+    vector<int> cs(ps.size());
+
+    cs[ps[0]] = c;
+
+    // Processa os elementos de s na ordem indicada pela permutação
+    for (size_t i = 1; i < ps.size(); ++i)
+    {
+        // Elementos distintos pertencem a classes distintas
+        if (s[ps[i]] != s[ps[i - 1]])
+            ++c;    
+
+        cs[ps[i]] = c;
+    }
+
+    return cs;
+}
+
+void update_equivalence_classes(vector<int>& cs, const vector<int>& ps)
+{
 }
 
 vector<int> suffix_array(const string& s)
 {
     auto ps = counting_sort(s);
+    auto cs = equivalence_classes(s, ps);
+
+cout << "ps = ";
+for (auto c : ps)
+    cout << c << ' ';
+cout << '\n';
+
+cout << "cs = ";
+for (auto c : cs)
+    cout << c << ' ';
+cout << '\n';
 
     return ps;
 }
