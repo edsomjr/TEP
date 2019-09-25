@@ -143,11 +143,11 @@
 \end{frame}
 
 \begin{frame}[fragile]{Implementação do {\it counting sort}}
-    \inputsnippet{cpp}{5}{26}{suffix_array.cpp}
+    \inputsnippet{cpp}{4}{23}{suffix_array.cpp}
 \end{frame}
 
 \begin{frame}[fragile]{Preenchimento das classes de equivalência}
-    \inputsnippet{cpp}{28}{46}{suffix_array.cpp}
+    \inputsnippet{cpp}{25}{43}{suffix_array.cpp}
 \end{frame}
 
 \begin{frame}[fragile]{Complexidade da construção do {\it suffix array}}
@@ -175,6 +175,96 @@
         \item Observe que a substring de tamanho $2^k$ que inicia na posição $i$ é formada
             pela concatenação das strings de tamanho $2^{k - 1}$ que começam nas posições
             $i$ e $\Mod{i + 2^{k - 1}}{N}$, respectivamente
+
+        \item Assim, na ordenação das substrings de tamanho $2^k$, a comparação entre as 
+            strings com início em $i$ e $j$ equivale à comparação dos pares ordenados
+            $$(cs[i], cs[\Mod{i + 2^{k - 1}}{N}])\ \ \mbox{e}\ \ (cs[j], cs[\Mod{j + 2^{k - 1}}{N}])$$
+
+        \item Estas transições devem ser feitas para todos os valores $2^{k - 1} < N$
+
+        \item Após a última iteração é preciso remover do vetor de permutações $ps$ o índice
+            corresponde ao caractere sentinela que fora adicionado à string original antes do
+            caso base e das transições
+
+        \item O índice deste caractere ocupará a primeira posição de $ps$
+
+        \item As demais posições corresponderão ao vetor de sufixos da strings original
     \end{itemize}
 
+\end{frame}
+
+\begin{frame}[fragile]{Implementação $O(N\log^2 N)$ do {\it suffix array}}
+    \inputsnippet{cpp}{1}{21}{suffix_array_sort.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Implementação $O(N\log^2 N)$ do {\it suffix array}}
+    \inputsnippet{cpp}{22}{42}{suffix_array_sort.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Implementação $O(N\log^2 N)$ do {\it suffix array}}
+    \inputsnippet{cpp}{44}{64}{suffix_array_sort.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Implementação eficiente do {\it suffix array}}
+
+    \begin{itemize}
+        \item A ordenação dos pares ordenados pode ser feita em $O(N)$, através da combinação
+            do {\it counting sort} com uma técnica semelhante ao {\it radix sort}
+
+        \item A ideia é ordenar as substrings de tamanho $2^k$ inicialmente pela segunda metade, 
+            e em seguida, pela primeira metade
+
+        \item Porém as substrings de tamanho $2^{k - 1}$ já foram ordenadas na iteração anterior
+
+        \item Assim, a ordenação pela segunda metada pode ser realizada substraindo
+            $2^{k - 1}$ de todos os elementos do vetor $ps$
+
+        \item Isto porque se a menor substring de tamanho $2^{k - 1}$ começa no índice $i$, a
+            substring de tamanho $2^k$ com menor segunda metade começa no índice $i - 2^{k - 1}$
+
+        \item Esta subtração deve ser feita com aritmética modular, de modo que o vetor $ps$
+            permanece sendo uma permutação dos índices da string $S$
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Implementação eficiente do {\it suffix array}}
+
+    \begin{itemize}
+        \item Uma vez que $ps$ está ordenado pela segunda metade das substrings de tamanho $2^k$,
+            basta ordená-lo pela primeira metada, usando um algoritmo de ordenação estável e 
+            as classes de equivalência já estabelecidas
+
+        \item Para tal, basta usar o \textit{counting sort}
+
+        \item Para evitar duplicação de código, a implementação do \textit{counting sort} deve
+            retornar a permutação dos índices do vetor a ser ordenado, sem alterar tal vetor
+
+        \item Assim, após a geração da permutação que ordena $rs$, basta utilizá-la para gerar
+            o novo vetor $ps$
+                
+        \item Esta abordagem leva a um algoritmo $O(N\log N)$ para a geração do \textit{suffix
+            array}
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Implementação $O(N\log N)$ do {\it suffix array}}
+    \inputsnippet{cpp}{1}{19}{suffix_array.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Implementação $O(N\log N)$ do {\it suffix array}}
+    \inputsnippet{cpp}{20}{40}{suffix_array.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Implementação $O(N\log N)$ do {\it suffix array}}
+    \inputsnippet{cpp}{41}{56}{suffix_array.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Implementação $O(N\log N)$ do {\it suffix array}}
+    \inputsnippet{cpp}{57}{77}{suffix_array.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Implementação $O(N\log N)$ do {\it suffix array}}
+    \inputsnippet{cpp}{79}{99}{suffix_array.cpp}
 \end{frame}
