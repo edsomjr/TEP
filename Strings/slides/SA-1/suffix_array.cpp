@@ -1,53 +1,82 @@
 #include <bits/stdc++.h>
 
 using namespace std;
+using vi = vector<int>;
+using ii = pair<int, int>;
 
-vector<int> counting_sort(const string& s)
+template<typename T> void
+counting_sort(vi& ps, const T& xs, size_t alphabet_size)
 {
-    static const int A { 256 };     // Tamanho do alfabeto
+    // Gera o histograma dos elementos distintos
+    vector<int> hs(alphabet_size, 0);
 
-    // Gera o histograma dos caracteres
-    vector<int> hs(A, 0);
+    for (auto x : xs)
+        ++hs[x];
 
-    for (auto c : s)
-        ++hs[c];
-    
-vector<char> ls;
-for (int i = 1; i < A; ++i)
-{
-    if (hs[i])
-    {
-        ls.push_back(i);
-        cout << (char) i << ": " << hs[i] << '\n';
-    }
-}
     // Faz a soma prefixada para estabelecer a ordem
-    for (int i = 1; i < A; ++i)
+    for (size_t i = 1; i < alphabet_size; ++i)
         hs[i] += hs[i - 1];
 
-for (const auto& l : ls)
-{
-    cout << (char) l << ": " << hs[l] << '\n';
-}
     // Preenche a permutação referente à ordenação
-    vector<int> ps(s.size());
+    for (int i = ps.size() - 1; i >= 0; --i)
+        ps[--hs[xs[i]]] = i;
+}
 
-    for (size_t i = 0; i < s.size(); ++i)
+template<typename T> int
+update_equivalence_classes(vi& cs, const vi& ps, const T& xs)
+{
+    int c = 0;
+    cs[ps[0]] = c;
+
+    // Processa os elementos de s na ordem indicada pela permutação
+    for (size_t i = 1; i < ps.size(); ++i)
     {
-        cout << "hs[" << s[i] << "] = " << hs[s[i]] << ", i = " << i << '\n';
-        ps[i] = --hs[s[i]];
-        
-cout << "ps = ";
-for (size_t i = 0; i < ps.size(); ++i)
-    cout << ps[i] << (i + 1 == ps.size() ? '\n' : ' ');
+        // Elementos distintos pertencem a classes distintas
+        if (xs[ps[i - 1]] != xs[ps[i]])
+            ++c;
+
+        cs[ps[i]] = c;
     }
 
-    return ps;
+    // Retorna o número de classes distintas
+    return c + 1;
 }
 
-vector<int> suffix_array(const string& s)
+vector<int> suffix_array(const string& S)
 {
-    auto ps = counting_sort(s);
+    auto s = S + "$";
+    auto N = s.size();
+
+    vector<int> ps(N), cs(N), rs(N), xs(N);
+    vector<ii> ys(N);
+
+    // Caso base
+    counting_sort(ps, s, 256);
+    int c = update_equivalence_classes(cs, ps, s);
+
+    // Transições: mask = 2^(k - 1)
+    for (size_t mask = 1; mask < N; mask <<= 1)
+    {
+        // Atualiza as permutações e gera os pares
+        for (size_t i = 0; i < N; ++i)
+        {
+            rs[i] = (ps[i] + N - mask) % N;
+            xs[i] = cs[rs[i]];
+            ys[i] = ii(cs[i], cs[(i + mask) % N]);
+        }
+
+        // Gera a permutação que ordena rs, usando as classes xs
+        counting_sort(ps, xs, c);
+
+        // Atualiza ps a partir da ordenação de rs
+        for (size_t i = 0; i < N; ++i)
+            ps[i] = rs[ps[i]];
+
+        // Atualiza cs a partir dos pares de classes de equivalência
+        c = update_equivalence_classes(cs, ps, ys);
+    }
+
+    ps.erase(ps.begin());
 
     return ps;
 }

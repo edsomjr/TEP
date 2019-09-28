@@ -12,3 +12,11 @@ Teoria dos Grafos
     1. [Algoritmo de Floyd-Warshall](slides/SSP-3/SSP-3.pdf) ([problemas resolvidos](problems/SSP-3/SSP-3.pdf))
 1. Árvores
     1. [Travessias e Diâmetro](slides/TR-1/TR-1.pdf)
+
+<!---
+Pendências
+    - Fluxo
+    - Minimum Spanning Tree
+    - Pontes e pontos de articulação
+    - Maximum Independent Subset
+-->

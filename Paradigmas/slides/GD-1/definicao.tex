@@ -1,0 +1,44 @@
+\section{Algoritmos Gulosos}
+
+\begin{frame}[fragile]{Definição}
+
+    \begin{itemize}
+        \item Um algoritmo é dito guloso (\textit{greedy}, em inglês) se, a cada iteração,
+            ele faz uma escolha local ótima que converge para a solução global ótima
+
+        \item Para a estratégia gulosa levar a um algoritmo correto para todas as entradas
+            é preciso que o problema tenha duas características:
+
+        \begin{enumerate}
+            \item ter subestruturas ótimas
+            \item ter a propriedade gulosa
+        \end{enumerate}
+
+        \item Ter  subestruturas ótimas significa que a solução global ótima contém soluções
+            ótimas para os subproblemas que o compõem o problema principal
+
+        \item A propriedade gulosa garante que, uma vez tomada a decisão local ótima, ela não
+            precisará ser reconsiderada 
+
+        \item Em geral, é difícil provar que um problema tem ambas características
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Algoritmos gulosos em programação competitiva}
+
+    \begin{itemize}
+        \item É fácil pensar em algoritmos gulosos: difícil é provar a corretude destes algoritmos
+
+        \item Em competições, soluções gulosas ou estão corretas ou levam ao WA
+
+        \item Raramente obtém um TLE, por terem complexidades assintóticas relativamente baixas
+
+        \item Mesmo que o problema possa ser resolvido por um algoritmo guloso, a estratégia 
+            de escolha das soluções ótimas para os subproblemas pode não ser óbvia
+
+        \item Em geral, se o tamanho da entrada não for proibitivo, é melhor tentar uma abordagem
+            por busca completa ou por programação dinâmica antes de tentar uma abordagem gulosa
+    \end{itemize}
+
+\end{frame}
