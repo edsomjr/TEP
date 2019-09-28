@@ -16,6 +16,8 @@ Pendências:
 Busca completa:
     - retirar os algoritmos recursivos da definição e passá-los para a seção de backtracking
     - Nova seção com backtracking e poda
+    - Algoritmos de geração de combinações e permutações
+    - Meet in middle
 
 Algoritmos gulosos:
     - Algoritmo de Huffman
