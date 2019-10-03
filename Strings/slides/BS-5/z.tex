@@ -8,11 +8,11 @@
         \item A função $z$ ($z$-\textit{function}) é definida por
         \begin{align*}
             z_S: \mathbb{N} & \to \mathbb{N}\cup \lbrace 0\rbrace \\
-               i & \to z_S(i) = \max\lbrace k\ |\ S[1..k] = S[i..n] \rbrace
+               i & \to z_S(i) = \max\lbrace k\ |\ S[1..k]\ \mbox{é prefixo de}\ S[i..n] \rbrace
         \end{align*}
 
         \item O caso especial $z_S(1)$ depende se o conjunto usado na definição acima inclui
-            apenas prefixos próprios ou não
+            apenas sufixos próprios ou não
 
         \item Em geral, considera-se apenas sufixos próprios, de modo que $z_S(1) = 0$
 
@@ -167,7 +167,7 @@
         \item Como $zs[i-L]$ já foi computado, é conhecido o tamanho do maior prefixo comum entre 
             $S$ e $S[i..R]$
 
-        \item Assim, $zs[i]$ será  mínimo entre $zs[i-L]$ e $|S[i..R] = R-i+1$, pois caso 
+        \item Assim, $zs[i]$ será  mínimo entre $zs[i-L]$ e $|S[i..R]| = R-i+1$, pois caso 
             $zs[i-L]$ seja maior que o tamanho de $S[i..R]$, não há garantias de que os caracteres
             que sucedem $S[R]$ coincidam com os caracteres que sucedem $S[R-L]$
 
