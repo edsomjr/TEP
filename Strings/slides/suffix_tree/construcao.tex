@@ -1,0 +1,37 @@
+\section{Construção {\it naive} $O(N^2)$ da {\it trie}}
+
+\begin{frame}[fragile]{Construção {\it naive} da {\it trie}}
+
+    \begin{itemize}
+        \item Seja $s$ uma string de tamanho $N$
+
+        \item Cada nó da {\it trie} de $s$ pode ter até $|A|$ filhos, onde $A$ é o alfabeto
+
+        \item Assim, cada nó pode ser implementado como um vetor de pares ou como um mapa,
+            onde o par $(c, n)$, indicando que há uma aresta de rótulo $c$ que aponta para o
+            nó $n$
+
+        \item A raiz da árvore será o nó identificado por $n = 0$
+
+        \item Para cada caractere $c$ do sufixo sufixo $s[i..N]$, e iniciando na raiz,
+            verifica-se se existe a aresta $(c, n)$
+
+        \item Em caso, afirmativo, segue-se esta aresta e se processa o caractere que sucede $c$
+
+        \item Caso não exista, cria-se um novo nó $m$, adiciona-se ao nó atual a aresta
+            $(c, m)$, e segue o processamento para $m$ e para o próximo caractere
+    
+        \item Esta construção tem complexidade $O(N^2)$
+
+        \item A memória necessária também é $O(N^2)$
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Implementação {\it naive} da {\it trie}}
+    \inputsnippet{cpp}{1}{21}{trie_naive.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Implementação {\it naive} da {\it trie}}
+    \inputsnippet{cpp}{22}{35}{trie_naive.cpp}
+\end{frame}
