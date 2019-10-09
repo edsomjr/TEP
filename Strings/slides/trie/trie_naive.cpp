@@ -151,6 +151,28 @@ vector<int> find(const Trie& trie, const string& s)
     return is;
 }
 
+size_t unique_substrings(const Trie& trie)
+{
+    size_t count = 0;
+    queue<int> q;
+    q.push(0);
+    
+    while (not q.empty()) // BFS para contabilizar o número de nós
+    {
+        auto u = q.front();
+        q.pop();
+
+        for (auto [c, v] : trie[u]) {
+            if (c != '#') {
+                ++count;
+                q.push(v);
+            }
+        }
+    }    
+
+    return count;
+}
+
 int main()
 {
     string s;
@@ -177,6 +199,8 @@ int main()
     for (size_t i = 0; i < is.size(); ++i)
         cout << is[i] << (i + 1 == is.size() ? '\n' : ' ');
     
+
+    cout << s << " tem " << unique_substrings(trie2) << " substrings distintas\n";
 
     return 0;
 }

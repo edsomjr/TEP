@@ -180,3 +180,55 @@
 \begin{frame}[fragile]{Construção da {\it trie} com marcador}
     \inputsnippet{cpp}{104}{117}{trie_naive.cpp}
 \end{frame}
+
+\begin{frame}[fragile]{Identificação das ocorrências de uma substring em uma {\it trie} com marcadores}
+    \inputsnippet{cpp}{119}{136}{trie_naive.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Identificação das ocorrências de uma substring em uma {\it trie} com marcadores}
+    \inputsnippet{cpp}{137}{152}{trie_naive.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Número de substrings distintas}
+
+    \begin{itemize}
+        \item Outra informação que pode ser obtida a partir da \textit{trie} é o número de 
+            substring distintas de $s$
+
+        \item Se $s$ tem $n$ caracteres, ela terá $n(n + 1)/2$ substrings não vazias, não 
+            necessariamente distintas
+
+        \item Estas substrings correspondem a todos os pares de índices $(i, j)$, com 
+            $i \leq j$, onde $i, j = 1, 2, \ldots, n$
+
+        \item Em uma \textit{trie}, qualquer nó, exceto a raiz, representa uma substring 
+            distinta, formada pela concatenação dos rótulos do caminho da raiz até o nó em
+            questão
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Contagem de substrings distintas em uma {\it trie}}
+    \inputsnippet{cpp}{154}{174}{trie_naive.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Considerações sobre a construção {\it naive} da {\it trie}}
+
+    \begin{itemize}
+        \item Embora as buscas apresentadas satisfaçam o terceiro critério para uma boa árvore de 
+            sufixo, os outros dois critérios não são satisfeitos
+
+        \item Se a string $s$ inicial tem $N$ caracteres, a construção e o espaço em memória são 
+            $O(N^2)$.
+
+        \item É possível melhorar a complexidade da construção da {\it trie}, por meio de um
+            algoritmo \textit{online}
+
+        \item O espaço em memória, contudo, permanecerá $O(N^2)$, por conta da representação de
+            cada caractere por meio de uma aresta
+
+        \item Assim, a redução de memória só é possível por meio de uma mudança na representação
+            dos caracteres e dos sufixos, o que leva a uma outra estrutura, a \textit{suffix trie}
+    \end{itemize}
+
+\end{frame}
