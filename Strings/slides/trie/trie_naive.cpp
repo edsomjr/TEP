@@ -116,6 +116,41 @@ Trie build_naive_with_marker(const string& s)
     return trie;
 }
 
+vector<int> find(const Trie& trie, const string& s)
+{
+    vector<int> is;
+    int v = 0;
+
+    for (auto c : s)
+    {
+        auto it = trie[v].find(c);
+
+        if (it == trie[v].end())
+            return is;
+
+        v = it->second;
+    }
+
+    queue<int> q;
+    q.push(v);
+
+    while (not q.empty())
+    {
+        auto u = q.front();
+        q.pop();
+
+        for (auto [c, v] : trie[u])
+        {
+            if (c == '#')
+                is.push_back(v);
+            else
+                q.push(v);
+        }
+    }
+
+    return is;
+}
+
 int main()
 {
     string s;
@@ -132,6 +167,16 @@ int main()
     auto trie2 = build_naive_with_marker(s);
     cout << trie2 << '\n';
 
+    string p;
+    cin >> p;
+
+    auto is = find(trie2, p);
+
+    cout << "indexes: ";
+
+    for (size_t i = 0; i < is.size(); ++i)
+        cout << is[i] << (i + 1 == is.size() ? '\n' : ' ');
+    
 
     return 0;
 }
