@@ -146,3 +146,35 @@
 \end{frame}
 
 \input{trie_online_view}
+
+\begin{frame}[fragile]{Implementação da construção {\it online} da {\it trie}}
+    \inputsnippet{cpp}{9}{26}{trie_online.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Implementação da construção {\it online} da {\it trie}}
+    \inputsnippet{cpp}{27}{47}{trie_online.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Implementação da construção {\it online} da {\it trie}}
+    \inputsnippet{cpp}{48}{55}{trie_online.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Considerações sobre a construção {\it online} da {\it trie}}
+
+    \begin{itemize}
+        \item Observe que, na implementação proposta, os valores $v_k$ são usandos implicitamente
+
+        \item Para uma string $s$ de tamanho $n$, a construção \textit{online} da \textit{trie}
+            tem complexidade $O(|T_n|)$
+
+        \item Embora ainda não seja a complexidade desejada ($O(n)$), esta estratégia será 
+            pode ser utilizada, com alguns ajustes, para atingir tal complexidade
+
+        \item Para reduzir o tamanho em memória da \textit{trie} uma estratégia possível é 
+            compactar as cadeias, onde uma cadeia é o maior caminho possível composto por nós 
+            não-essenciais com grau de saída um 
+
+        \item Esta compactação resulta em uma nova estrutura, denominada \textit{suffix tree}
+    \end{itemize}
+
+\end{frame}

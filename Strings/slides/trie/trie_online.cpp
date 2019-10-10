@@ -8,59 +8,46 @@ ostream& operator<<(ostream& os, const Trie& trie);
 
 Trie build_online(const string& s)
 {
-    int next = 0, deepest = 0;              // deepest = v_(k-1)
-    string S = s + '#';                     // adiciona o terminador
-    vector<int> suf { -1 };                 // suf[root] = NULL
-    Trie trie(1);                           // Instancia o nó raiz vazio
+    int next = 0, deepest = 0;  // deepest = v_(k-1)
+    string S = s + '#';         // adiciona o terminador
+    vector<int> suf { -1 };     // suf[root] = NULL
+    Trie trie(1);               // Instancia o nó raiz vazio
 
     for (size_t i = 0; i < S.size(); ++i)
     {
-cout << "=============\n";
-cout << "i = " << i << ", k = " << i + 1 << '\n';
         // Calculo de Tk, com k = i + 1
         char c = S[i];    
         int u = deepest;
 
         while (u >= 0)
         {
-cout << "c = " << c << ", u = " << u << '\n';
             // Procura por c no nó u
             auto it = trie[u].find(c);
 
+            // Caso #1: link não encontrado
             if (it == trie[u].end())
             {
-cout << "Caso #1: link não encontrado\n";
                 // Adiciona um novo nó, com aresta c
                 trie.push_back({ });
                 trie[u][c] = ++next;
-                suf.push_back(0);               // lazy: será corrigido no próximo loop
+
+               // valor sentinela: será corrigido na próxima iteração
+                suf.push_back(0);
 
                 if (u != deepest)
                 {
-                    suf[next - 1] = next;       // correção atrasada delayed 
+                    suf[next - 1] = next;   // correção atrasada
                 } else
-                    deepest = next;             // v_k é o nó recém-criado
-cout << "-> novo nó criado (" << next << "), deepest = " << deepest << ", suf[" << next - 1 << "] = " << (next - 1 >= 0 ? suf[next - 1] : -1) << '\n';
+                    deepest = next;         // v_k é o nó recém-criado
             } else
             {
-cout << "Caso #2: link encontrado\n";
-                // Corner case: se s[k] é encontrado, suf[v_t] aponta para ele
+                // Caso #2: link encontrado: suf[v_t] aponta para ele
                 suf[next] = it->second;
-cout << "-> suf[" << next << "] = " << suf[next] << '\n';
                 break;
             }
 
-            u = suf[u];                         // v_(r-1) = suf[v_r]
-//break;
+            u = suf[u];     // v_(r-1) = suf[v_r]
         }
-cout << trie << '\n';
-cout << "suf = ";
-for (auto x : suf)
-    cout << x << ' ';
-cout << '\n';
-
-        if (i == 2)
-            break;
     }
 
     return trie;
@@ -100,7 +87,7 @@ int main()
     string s;
     cin >> s;
 
-    build_online(s);
+    cout << build_online(s) << '\n';
 
     return 0;
 }
