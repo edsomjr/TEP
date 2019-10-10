@@ -125,10 +125,24 @@
 
 \end{frame}
 
-%        \item Então a construção online de Tk a partir de T(k-1) pode ser feita por meio dos passos a seguir:
+\begin{frame}[fragile]{Construção {\it online} da {\it trie}}
 
-%identifique os nós essenciais v_(k-1), v_(k-2), ..., v_1, v_0 de T(k-1), em ordem decrescente em relação ao tamanho do sufixo relacionado;
-%escolha os v_i consecutivos até que se tenha um nó v_t tal que exista um filho de v_t cuja aresta é s[k];
-%para os nós escolhidos, crie novos nós filhos cujos arestas sejam s[k];
-%atualize os links de sufixos para os novos nós criados.
+    A construção \textit{online} de $T_k$ a partir de $T_{k-1}$ pode ser feita por meio dos 
+    seguintes passos:
 
+    \begin{enumerate}
+        \item identifique os nós essenciais $v_{k-1}, v_{k-2}, \ldots, v_1, v_0$ de $T_{k-1}$,
+        em ordem decrescente em relação ao tamanho do sufixo relacionado
+
+        \item escolha os nós $v_i$ consecutivos até que se atinja um nó $v_t$ tal que exista um 
+            filho de $v_t$ unido por uma aresta cujo rótulo é $s[k]$
+
+        \item para cada um dos nós escolhidos, crie novos nós filhos ligados por arestas 
+            cujos rótulos sejam $s[k]$
+
+        \item atualize os \textit{links} de sufixos para os novos nós recém-criados
+    \end{enumerate}
+
+\end{frame}
+
+\input{trie_online_view}
