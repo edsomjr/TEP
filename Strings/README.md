@@ -1,11 +1,3 @@
-Strings
-=======
-
-1. [Árvores de Sufixos](text/Arvores_de_Sufixos.md)
-
-Slides
-======
-
 1. Fundamentos
     1. [Definição de Strings](slides/ST-1/ST-1.pdf)
     1. [Representação de Strings](slides/ST-2/ST-2.pdf) ([problemas resolvidos](problems/ST-2/ST-2.pdf))
@@ -24,3 +16,9 @@ Slides
 1. Estruturas de Sufixos
     1. [_Trie_: Definição e Construção](slides/trie/trie.pdf)
     1. [Vetor de sufixos: Definição e Construção](slides/SA-1/SA-1.pdf)
+
+<!--- Conteúdos a adicionar:
+    1. Suffix trie
+    2. Aplicações do suffix array
+-->
+
