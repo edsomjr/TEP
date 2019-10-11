@@ -23,7 +23,7 @@ Os alunos da disciplina Programação para Competições podem seguir o seguinte
     1. [Ordenação em C/C++](Introducao/slides/BO-4/BO-4.pdf) ([problemas resolvidos](Introducao/problems/BO-4/BO-4.pdf))
 1. Vetores
     1. [Fundamentos](Estruturas_de_Dados/slides/VT-1/VT-1.pdf) ([problemas resolvidos](Estruturas_de_Dados/problems/VT-1/VT-1.pdf))
-    1. [Implementação de um contêniner `vector` em C++](Estruturas_de_Dados/slides/VT-2/VT-2.pdff) 
+    1. [Implementação de um contêniner `vector` em C++](Estruturas_de_Dados/slides/VT-2/VT-2.pdf) 
 1. Listas
     1. [Listas Encadeadas](Estruturas_de_Dados/slides/LE-1/LE-1.pdf)
     1. [Listas Duplamente Encadeadas](Estruturas_de_Dados/slides/LE-2/LE-2.pdf)
