@@ -27,7 +27,7 @@ int diameter(int u, int N)
     dfs(u, 0); 
 
     auto it = max_element(dist + 1, dist + 1 + N);
-    int w = *it;
+    int w = it - dist;
 
     // dist = 4 3 4 2 1 0 3
     dfs(w, 0); 
