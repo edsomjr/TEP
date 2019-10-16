@@ -71,23 +71,17 @@ string edit_operations(const string& s, const string& t)
     return ops;
 }
 
-// -        Deletion
-// c        Insertion of char c
-// =        Keep
-// [c->d]   Change (c to d)
 string LCS(const string& s, const string& t)
 {
     const int c_i = 0, c_r = 0, c_s = 1;      // Custos modificados
     int m = s.size(), n = t.size();
 
-    for (int i = 0; i <= m; ++i)
-    {
+    for (int i = 0; i <= m; ++i) {
         st[i][0] = i*c_r;
         ps[i][0] = 'r';
     }
 
-    for (int j = 1; j <= n; ++j)
-    {
+    for (int j = 1; j <= n; ++j) {
         st[0][j] = j*c_i;
         ps[0][j] = 'i';
     }

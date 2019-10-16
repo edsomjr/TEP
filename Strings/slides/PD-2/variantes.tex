@@ -24,11 +24,11 @@
 \end{frame}
 
 \begin{frame}[fragile]{Identificação da LCS em C++}
-    \inputsnippet{cpp}{95}{115}{lcs2.cpp}
+    \inputsnippet{cpp}{96}{116}{lcs2.cpp}
 \end{frame}
 
 \begin{frame}[fragile]{Identificação da LCS em C++}
-    \inputsnippet{cpp}{116}{132}{lcs2.cpp}
+    \inputsnippet{cpp}{117}{127}{lcs2.cpp}
 \end{frame}
 
 \begin{frame}[fragile]{LCS e LIS}
@@ -40,12 +40,12 @@
             (\textit{Longest Increasing Subsequence -- LIS})
 
         \item Para tal, seja $\lbrace a_i\rbrace$ a sequência crescente de índices de $S$ tais que
-            $S[a_i] = t[j]$ para algum $j\in [1,m]$
+            $S[a_i] = T[j]$ para algum $j\in [1,m]$
 
         \item Em outras palavras, $\lbrace a_i\rbrace$ é sequência crescente de índices de 
             caracteres de $S$ que coincidem com algum dos caracteres de $T$
 
-        \item Seja $\lbrace b_k\rbrace$ a sequência onde $b_k = j_k$, onde $S[a_k] = T[j_k$] 
+        \item Seja $\lbrace b_k\rbrace$ a sequência tal que $b_k = j_k$, onde $S[a_k] = T[j_k$] 
 
         \item A LIS de $\lbrace b_k\rbrace$ corresponderá a LCS entre as duas strings
 
