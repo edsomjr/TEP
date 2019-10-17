@@ -1,0 +1,28 @@
+\section{Busca em {\it array} de sufixos}
+
+\begin{frame}[fragile]{Busca em {\it array} de sufixos}
+
+    \begin{itemize}
+        \item O problema de se determinar se a string $P$, de tamanho $M$, é ou não uma substring 
+            de $S$, de tamanho $N$, pode ser
+            resolvido por meio de um {\it array} de sufixos
+
+        \item Isto porque, se $P$ é uma substring de $S$, ela será substring de algum dos
+            prefixos $S[i..N]$ de $S$
+
+        \item Assim, para localizar $P$ em $S$ basta fazer uma busca binária em $s_A(S)$
+
+        \item Em cada etapa da busca binária, a comparação de $T$ com o prefixo em questão
+            tem complexidade $O(M)$
+
+        \item Assim o algoritmo tem complexidade $O(M\log N)$, se $s_A(S)$ já estiver construído
+
+        \item O número de ocorrências de $P$ pode ser determinado por meio de uma segunda
+            busca binária, pois todas elas estarão adjacentes no {\it array} de sufixos
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Implementação da busca em {\it array} de sufixos em C++} 
+    \inputsnippet{cpp}{84}{101}{search.cpp}
+\end{frame}
