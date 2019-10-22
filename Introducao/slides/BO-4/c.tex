@@ -1,0 +1,54 @@
+\section{Ordenação em C}
+
+\begin{frame}[fragile]{Função \texttt{qsort()}}
+
+    \begin{itemize}
+        \item A biblioteca \code{c}{stdlib.h} da linguagem C contém a função 
+            \code{c}{qsort()}, a qual implementa o algoritmo \textit{quicksort}
+
+        \item A assinatura da função \code{c}{qsort()} é
+            \inputsyntax{c}{qsort.st}
+
+        \item O parâmetro \code{c}{base} é o ponteiro para o primeiro elemento do vetor a 
+            ser ordenado
+
+        \item Como o \textit{quicksort} é um algoritmo de ordenação \textit{in-place}, o vetor
+            apontado por \code{c}{base} será modificado pela função \code{c}{qsort()}
+
+        \item O parâmetro \code{c}{nmemb} deve indicar o número de elementos a serem ordenados
+
+        \item O parâmetro \code{c}{size} indica o tamanho de um elemento, em \textit{bytes}
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Função de comparação}
+
+    \begin{itemize}
+        \item O último parâmetro da função \code{c}{qsort} é um ponteiro para a função de
+            comparação \code{c}{compar}
+
+        \item Esta função deve receber dois ponteiros constantes \code{c}{a} e \code{c}{b} do tipo 
+            \code{c}{void *}
+
+        \item O retorno deve ser um número inteiro que representa a relação entre os ponteiros:
+            \begin{enumerate}
+                \item zero, se \code{c}{a} e \code{c}{b} são iguais
+                \item negativo, se \code{c}{a} é menor do que \code{c}{b}
+                \item positivo, se \code{c}{a} é maior do que \code{c}{b}
+            \end{enumerate}
+
+        \item Como os parâmetros são ponteiros do tipo \code{c}{void *}, é preciso fazer a 
+            coerção dos mesmos para o tipo apropriado na implementação
+
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de uso da função \texttt{qsort()}}
+    \inputsnippet{c}{1}{17}{qsort.c}
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de uso da função \texttt{qsort()}}
+    \inputsnippet{c}{18}{37}{qsort.c}
+\end{frame}

@@ -1,0 +1,122 @@
+\section{UVA 12504 -- Updating the Dictionary}
+
+\begin{frame}[fragile]{Problema}
+
+In this problem, a dictionary is collection of key-value pairs, where keys are lower-case letters, 
+and values are non-negative integers. Given an old dictionary and a new dictionary, find out what 
+were changed.
+
+Each dictionary is formatting as follows:
+\[
+    {key:value,key:value,\ldots,key:value}
+\]
+Each key is a string of lower-case letters, and each value is a non-negative integer without leading
+zeros or prefix ‘\texttt{+}’. (i.e. -4, 03 and +77 are illegal). Each key will appear at most once, 
+but keys can appear in any order
+
+\end{frame}
+
+\begin{frame}[fragile]{Entrada e saída}
+
+\textbf{Input}
+
+The first line contains the number of test cases $T$ ($T\leq 1000$). Each test case contains two 
+lines. The first line contains the old dictionary, and the second line contains the new dictionary. Each line will contain at most 100 characters and will not contain any whitespace characters. Both 
+dictionaries could be empty.
+
+\textbf{WARNING}: there are no restrictions on the lengths of each key and value in the dictionary. That means keys could be really long and values could be really large.
+
+\end{frame}
+
+\begin{frame}[fragile]{Entrada e saída}
+
+\textbf{Output}
+
+For each test case, print the changes, formatted as follows:
+\begin{itemize}
+    \item First, if there are any new keys, print ‘\texttt{+}’ and then the new keys in increasing 
+        order (lexicographically), separated by commas.
+    \item Second, if there are any removed keys, print ‘\texttt{-}’ and then the removed keys in 
+        increasing order (lexicographically), separated by commas.
+    \item Last, if there are any keys with changed value, print ‘\texttt{*}’ and then these keys 
+        in increasing order (lexicographically), separated by commas.
+\end{itemize}
+
+If the two dictionaries are identical, print ‘\texttt{No changes}’ (without quotes) instead.
+
+Print a blank line after each test case.
+\end{frame}
+
+
+\begin{frame}[fragile]{Exemplo de entradas e saídas}
+
+\begin{minipage}[t]{0.7\textwidth}
+\textbf{Sample Input}
+\begin{verbatim}
+3
+{a:3,b:4,c:10,f:6}
+{a:3,c:5,d:10,ee:4}
+{x:1,xyz:123456789123456789123456789}
+{xyz:123456789123456789123456789,x:1}
+{first:1,second:2,third:3}
+{third:3,second:2}
+\end{verbatim}
+\end{minipage}
+\begin{minipage}[t]{0.25\textwidth}
+\textbf{Sample Output}
+\begin{verbatim}
++d,ee
+-b,f
+*c
+
+No changes
+
+-first
+\end{verbatim}
+\end{minipage}
+\end{frame}
+
+\begin{frame}[fragile]{Solução com complexidade $O(TN)$}
+
+    \begin{itemize}
+        \item Seja $N$ o maior número possível de entradas em um dicionário
+
+        \item Cada dicionário pode ser representado por um \code{c}{unordered_map},
+            o que permite a construção de cada um deles em $O(N)$
+
+        \item Esta construção pode ser feita por meio de um \textit{parser} escrito manualmente
+            ou por meio de chamadas sucessivas da função \code{c}{getline()}, usando o 
+            separador apropriado
+
+        \item Para determinar os termos que foram removidos ou alterados, basta passar em todas
+            as entradas do primeiro dicionário ($x$) e tentar localizá-las no segundo ($y$)
+
+        \item Caso a chave $k\in x$ não pertença a $y$, ela deve ser armazenada entre os elementos
+            removidos
+
+        \item Se $k\in x$ e $x[k] \neq y[k]$, ela representa um dos elementos que foram alterados
+
+        \item Uma chave $k$ foi adicionada se $k\in y$ e $k\not\in x$
+   \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Solução com complexidade $O(TN)$}
+    \inputsnippet{cpp}{1}{20}{12504.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Solução com complexidade $O(TN)$}
+    \inputsnippet{cpp}{21}{41}{12504.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Solução com complexidade $O(TN)$}
+    \inputsnippet{cpp}{42}{62}{12504.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Solução com complexidade $O(TN)$}
+    \inputsnippet{cpp}{64}{84}{12504.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Solução com complexidade $O(TN)$}
+    \inputsnippet{cpp}{85}{105}{12504.cpp}
+\end{frame}

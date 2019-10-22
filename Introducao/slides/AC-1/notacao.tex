@@ -1,0 +1,292 @@
+\section{Notações Big-$O$, Big-$\Omega$ e Big-$\Theta$}
+
+\begin{frame}[fragile]{Notação Big-$O$}
+
+	\begin{itemize}
+		\item O Big-$O$ é uma notação para complexidade 
+		assintótica desenvolvida em 1894 por Paul Bachmann
+
+		\item Dadas duas funções de {valores positivos} $f$ e 
+		$g$, $f(n)$ é $O(g(n))$ se existem $c$ e $N$ positivos tais que
+		$f(n) \leq cg(n),\, \, \forall n\geq N$
+
+		\item Em termos matemáticos, $cg(n)$ é uma cota superior de $f(n)$
+
+		\item Informalmente, $f$ tende a crescer, no máximo, tão rápido quanto $g$ a partir de um 
+        determinado ponto
+	\end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Encontrando $c$ e $N$}
+
+    \begin{itemize}
+    \item Dados $f$ e $g$, como {determinar} $c$ e $N$?
+
+    \item Por exemplo, a função $f(n) = 2n^2 + 3n + 1$ {é} $O(n^2)$, pois
+    \begin{align*}
+    2n^2 + 3n + 1 & \leq cn^2 \\
+    2 + \frac{3}{n} + \frac{1}{n^2} & \leq c
+    \end{align*}
+
+	\item Assim, para todo $n \geq 1$, temos que o lado direito é menor ou igual a 6. Portanto,
+    $N = 1, c = 6$ satisfazem a definição da notação Big-$O$
+
+    \item A melhor escolha para $c$ e $N$ é aquela que baseada no ponto a partir do qual o termo 
+    principal se torna e se mantém o maior termo
+
+    \item Retornando à função $f(n)$, qual é a solução da inequação $2n^2 > 3n$? Resposta: $n > 1$
+
+    \item Para $N = 2$, temos $c = \frac{15}{4}$
+	\end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Observações sobre o Big-$O$}
+
+	\begin{itemize}
+		\item Para função anteriormente citada, a afirmação  $f(n)$ é $O(n^3)$ também é verdadeira
+
+		\item De fato, $f(n)$ é $O(g(n))$ para qualquer $g(n)=n^k,\, k \geq 2$ 
+
+		\item Na prática, escolhe-se a menor função possível
+
+		\item A aproximação Big-$O$ pode ser refinada se aplicada apenas em parte da função. Ex.:
+        \begin{align*}
+            f(n) & = O(n^2) \\
+            f(n) & = n^2 + O(n) \\
+            f(n) & = n^2 + 100n + O(\log_{10} n) \\
+            f(n) & = n^2 + 100n + \log_{10} n + O(1) \\
+            f(n) & = n^2 + 100n + \log_{10} n + 1000 
+        \end{align*}
+	\end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Propriedades da Notação Big-$O$}
+
+	\begin{enumerate}[\bfseries P1.]
+		\item \textit{Propriedade transitiva}
+
+        Se $f(n)=O(g(n))$ e $g(n) = O(h(n))$, então $f(n)=O(h(n))$
+
+		\item \textit{Soma de funções de mesma complexidade}
+
+        Se $f(n)=O(h(n))$ e $g(n)=O(h(n))$, então $f(n)+g(n)=O(h(n))$
+
+		\item \textit{Absorção de constante}
+
+        A função $an^k$ é $O(n^k)$
+
+		\item \textit{Cota superior para polinômios}
+
+        A função $n^k$ é $O(n^{k+j}), \, \, \forall j > 0$
+
+        \item Se $f(n) = cg(n)$, então $f(n)$ é $O(g(n))$
+
+		\item A função $f(n) = \log_a n$ é $O(\log_b n)$ para 
+		{quaisquer} $a$ e $b$ {positivos} diferentes de 1
+
+		\item A função $f(n) = \log_a n$ é $O(\log n)$ para 
+		{qualquer} $a$ {positivo} diferente de 1 e 
+		$\log n = \log_2 n$
+	\end{enumerate}
+
+\end{frame}
+
+\begin{frame}[fragile]{Notação Big-O e polinômios}
+
+    \metroset{block=fill}
+	\begin{block}{Proposição.}
+	Se $f(n)$ é um polinômio de grau $k$, então $f(n)$ é $O(n^k)$.
+	\end{block}
+
+	\textbf{Demonstração}: Considere os {monômios} 
+	$f_i(n) = a_ix^i,\, \, i = 0, 1, \ldots, k$.  Temos que
+	$$
+		f(n) = f_k(n) + f_{k-1}(n) + \ldots + f_0(n).
+	$$
+
+	A {propriedade} 3 nos diz que $f_k(n)$ é $O(n^k)$ e a 
+	{propriedade} 4 
+	nos diz que $f_{k-j}(n)$ é $O(n^{(k-j) + j}) = O(n^k)$.
+
+	Por fim, pela {propriedade} 2, 
+	\[f(n) = \sum_{j=0}^{k} f_{k - j}(n)\, \, \mbox{é}\, \, O(n^k).\]
+	\begin{flushright}
+    $\square$
+	\end{flushright}
+
+\end{frame}
+
+\begin{frame}[fragile]{Notação Big-$\Omega$}
+
+	\begin{itemize}
+		\item Dadas {duas} funções de valores 
+		{positivos} $f$ e $g$, $f(n)$ é $\Omega(g(n))$ se 
+		existem $c$ e $N$ {positivos} tais que $f(n) \geq cg(n),\, \, \forall n\geq N$
+
+		\item Lê-se $f$ é {Big-Ômega} $g$
+
+		\item Em termos matemáticos, $cg(n)$ é uma cota inferior de $f(n)$
+
+		\item {Informalmente}, $f(n)$ cresce, no mínimo, 
+		tão rápido quanto $g(n)$ a partir de determinado ponto
+
+		\item Enquanto o Big-$O$ se refere às cotas superiores de 
+		$f(n)$, o Big-$\Omega$ se refere às cotas inferiores
+
+		\item Equivalência: $f(n)$ é $\Omega(g(n))$ se, e 
+		somente se, $g(n)$ é $O(f(n))$
+
+		\item Tanto a definição do Big-$O$ quanto do Big-$\Omega$ 
+		permitem infinitas possibilidades para $c$ e $N$.
+
+		\item É possível restringir o conjunto de escolhas para 
+		$c$ e $N$ através da notação Big-$\Theta$
+	\end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Notação Big-$\Theta$}
+
+	\begin{itemize}
+		\item Dadas {duas} funções de valores 
+		{positivos} $f$ e $g$, $f(n)$ é $\Theta(g(n))$ se 
+		existem $c_1, c_2$ e $N$ {positivos} tais que
+		\[c_1g(n) \leq f(n) \leq c_2g(n),\, \, \forall n\geq N\] 
+
+		\item Lê-se $f$ é Big-Theta $g$ ou $f$ tem ordem de magnitude $g$
+
+		\item Equivalência: $f(n)$ é $\Theta(g(n))$ se, e somente 
+		se, $f(n)$ é $O(g(n))$ e $f(n)$ é $\Omega(g(n))$
+	\end{itemize}
+
+\end{frame}
+
+\begin{frame}{Exemplo da notação Big-$\Theta$}
+	\begin{itemize}
+
+		\item Seja $f(n) = 2n^2 + 3n + 1$. {Sabemos} que $f(n)$ 
+		é $O(n^2)$
+
+		\item {Pergunta}: $f(n)$ é $\Omega(n^2)$?
+		\begin{align*}
+			2n^2 + 3n + 1 & \geq  c_1n^2 \\
+			2 + \frac{3}{n} + \frac{1}{n^2} & \geq  c_1
+		\end{align*}
+		
+		\item A inequação é {verdadeira} para $c_1 = 2, N = 1$ 
+
+		\item Logo $f(n)$ é $\Omega(g(n))$ e, {portanto}, $f(n)$ 
+		é $\Theta(g(n))$
+
+	\end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Problemas possíveis}
+
+	\begin{itemize}
+		\item O fato de um algoritmo ter ordem de complexidade 
+		{menor} do que o outro não implica que ele seja o 
+		{mais eficaz} em todos os casos
+
+		\item Por exemplo, considere as funções $f(n) = 10^8n$ e 
+		$g(n) = 10n^2$ 
+	
+		\item Temos que $f(n)$ é $O(n)$ e $g(n)$ é $O(n^2)$
+
+		\item Para $n < 10^7$, o {tempo de execução} de $f(n)$ é 
+		{maior} do que o de $g(n)$
+
+        \item Apenas para valores maiores ou iguais a $10^7$ é que a função $f(n)$ se
+        torna mais eficiente do que a função $g(n)$
+	\end{itemize}
+
+\end{frame}
+ 
+\begin{frame}
+
+	\frametitle{Exemplos de complexidade ($n = 10$)}
+	\begin{small}
+
+	\begin{table}[ht]
+	\centering
+	\begin{tabular}{lrrr}
+	\toprule
+	\textbf{Classe} & \textbf{Notação} & \textbf{Número de operações} 
+	& \textbf{Tempo de execução$^1$} \\
+	\toprule
+	constante & $O(1)$ & $1$ & $1\mu$s \\
+	logarítmica & $O(\log n)$ & $2,3$ & $2\mu$s \\
+	linear & $O(n)$ & $10$ & $10\mu$s \\
+	$O(n\log n)$ & $O(n\log n)$ & $23$ & $23\mu$s \\
+	quadrática & $O(n^2)$ & $100$ & $100\mu$s \\
+	cúbica & $O(n^3)$ & $1000$ & $1$ms \\
+	exponencial & $O(2^n)$ & $1024$ & $10$ms \\
+	\bottomrule
+	\end{tabular}
+	\end{table}
+	$^1$ Uma instrução por $\mu$s
+
+	\end{small}
+
+\end{frame}
+
+\begin{frame}
+
+	\frametitle{Exemplos de complexidade ($n = 100$)}
+	\begin{small}
+
+	\begin{table}[ht]
+	\centering
+	\begin{tabular}{lrrr}
+	\toprule
+	\textbf{Classe} & \textbf{Notação} & \textbf{Número de operações} 
+	& \textbf{Tempo de execução$^1$} \\
+	\toprule
+	constante & $O(1)$ & $1$ & $1\mu$s \\
+	logarítmica & $O(\log n)$ & $4,6$ & $5\mu$s \\
+	linear & $O(n)$ & $100$ & $100\mu$s \\
+	$O(n\log n)$ & $O(n\log n)$ & $460$ & $460\mu$s \\
+	quadrática & $O(n^2)$ &$ 10000$ & $10$ms \\
+	cúbica & $O(n^3)$ & $10^6$ & $1$s \\
+	exponencial & $O(2^n)$ & $10^{30}$ & $10^7$a \\
+	\bottomrule
+	\end{tabular}
+	\end{table}
+	$^1$ Uma instrução por $\mu$s
+
+	\end{small}
+
+\end{frame}
+
+\begin{frame}
+
+	\frametitle{Exemplos de complexidade ($n = 1000$)}
+	\begin{small}
+
+	\begin{table}[ht]
+	\centering
+	\begin{tabular}{lrrr}
+	\toprule
+	\textbf{Classe} & \textbf{Notação} & \textbf{Número de operações} 
+	& \textbf{Tempo de execução$^1$} \\
+	\toprule
+	constante & $O(1)$ & $1$ & $1\mu$s \\
+	logarítmica & $O(\log n)$ & $6,9$ & $7\mu$s \\
+	linear & $O(n)$ & $1000$ & $1$ms \\
+	$O(n\log n)$ & $O(n\log n)$ & $6907$ & $60$ms \\
+	quadrática & $O(n^2)$ & $10^6$ & $1$s \\
+    cúbica & $O(n^3)$ & $10^9$ & $16,7$m \\
+	exponencial & $O(2^n)$ & $10^{301}$ & $\ldots$ \\
+	\bottomrule
+	\end{tabular}
+	\end{table}
+	$^1$ Uma instrução por $\mu$s
+
+	\end{small}
+
+\end{frame}
+

@@ -1,0 +1,48 @@
+\section{Construção e atualização de uma BITree}
+
+\begin{frame}[fragile]{Atualização de um elemento}
+
+    \begin{itemize}
+        \item A árvore de Fenwick permite a atualização de um valor da sequência $a_k$ 
+            original
+
+        \item Para incrementar o elemento $a_i$ em $x$ unidades, é preciso adicionar $x$ em
+             todos os intervalos onde este elemento é contabilizado
+
+        \item A sequência dos intervalos $I_{k_1}, I_{k_2}, \ldots, I_{k_s}$, com $s = O(\log N)$,
+            que contabilizam $a_i$, é tal que $k_1 = i$ e
+        \[
+            k_j = k_{j - 1} + p(k_{j - 1})
+        \]
+
+        \item A sequência é interrompida em $k_s$, onde $k_{s + 1} > N$
+
+        \item Assim, a operação \code{c}{add(i, x)} tem complexidade $O(\log N)$
+    \end{itemize}
+
+\end{frame}
+
+\input{update}
+
+\begin{frame}[fragile]{Implementação do método \code{c}{add(i, x)}}
+    \inputsnippet{cpp}{35}{48}{ft.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Construção de uma árvore de Fenwick}
+
+    \begin{itemize}
+        \item Uma maneira de se construir uma árvore de Fenwick é começar com um vetor cujos
+            elementos são todos iguais a zero
+
+        \item Depois, cada valor a ser atribuído à $i$-ésima posição deve ser somado a esta
+            posição
+
+        \item Como a operação de atualização/soma tem complexidade $O(\log N)$, onde $N$ é o 
+            número máximo de elementos a serem inseridos na árvore, esta rotina tem complexidade
+            $O(N\log N)$
+
+    \end{itemize}
+
+\end{frame}
+
+\input{build}

@@ -1,0 +1,308 @@
+\begin{frame}[fragile]{Visualização de $LCS(S, T)$ como $LIS$}
+
+    \begin{table}
+        \centering
+
+        \begin{tabular}{c|cccccccccc} 
+        \hline 
+        $i$ & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10\\
+        \hline
+        $S$
+        & \textcolor{blue!80!black}{\texttt{'t'}}
+        & \textcolor{blue!80!black}{\texttt{'r'}}
+        & \textcolor{blue!80!black}{\texttt{'a'}}
+        & \textcolor{blue!80!black}{\texttt{'p'}}
+        & \textcolor{blue!80!black}{\texttt{'e'}}
+        & \textcolor{blue!80!black}{\texttt{'z'}}
+        & \textcolor{blue!80!black}{\texttt{'i'}}
+        & \textcolor{blue!80!black}{\texttt{'o'}} \\
+        $T$
+        & \textcolor{green!50!black}{\texttt{'r'}}
+        & \textcolor{green!50!black}{\texttt{'e'}}
+        & \textcolor{green!50!black}{\texttt{'t'}}
+        & \textcolor{green!50!black}{\texttt{'i'}}
+        & \textcolor{green!50!black}{\texttt{'c'}}
+        & \textcolor{green!50!black}{\texttt{'u'}}
+        & \textcolor{green!50!black}{\texttt{'l'}}
+        & \textcolor{green!50!black}{\texttt{'a'}}
+        & \textcolor{green!50!black}{\texttt{'d'}}
+        & \textcolor{green!50!black}{\texttt{'o'}} \\
+        $a_i$ \\
+        $b_i$ \\
+        \hline
+        \end{tabular}
+
+    \end{table}
+
+\end{frame}
+
+\begin{frame}[fragile]{Visualização de $LCS(S, T)$ como $LIS$}
+
+    \begin{table}
+        \centering
+
+        \begin{tabular}{c|cccccccccc} 
+        \hline 
+        $i$ & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10\\
+        \hline
+        $S$
+        & \underline{\textcolor{blue!80!black}{\texttt{'t'}}}
+        & \textcolor{blue!80!black}{\texttt{'r'}}
+        & \textcolor{blue!80!black}{\texttt{'a'}}
+        & \textcolor{blue!80!black}{\texttt{'p'}}
+        & \textcolor{blue!80!black}{\texttt{'e'}}
+        & \textcolor{blue!80!black}{\texttt{'z'}}
+        & \textcolor{blue!80!black}{\texttt{'i'}}
+        & \textcolor{blue!80!black}{\texttt{'o'}} \\
+        $T$
+        & \textcolor{green!50!black}{\texttt{'r'}}
+        & \textcolor{green!50!black}{\texttt{'e'}}
+        & \underline{\textcolor{green!50!black}{\texttt{'t'}}}
+        & \textcolor{green!50!black}{\texttt{'i'}}
+        & \textcolor{green!50!black}{\texttt{'c'}}
+        & \textcolor{green!50!black}{\texttt{'u'}}
+        & \textcolor{green!50!black}{\texttt{'l'}}
+        & \textcolor{green!50!black}{\texttt{'a'}}
+        & \textcolor{green!50!black}{\texttt{'d'}}
+        & \textcolor{green!50!black}{\texttt{'o'}} \\
+        $a_i$ & 1\\
+        $b_i$ & 3\\
+        \hline
+        \end{tabular}
+
+    \end{table}
+
+\end{frame}
+
+\begin{frame}[fragile]{Visualização de $LCS(S, T)$ como $LIS$}
+
+    \begin{table}
+        \centering
+
+        \begin{tabular}{c|cccccccccc} 
+        \hline 
+        $i$ & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10\\
+        \hline
+        $S$
+        & {\textcolor{blue!80!black}{\texttt{'t'}}}
+        & \underline{\textcolor{blue!80!black}{\texttt{'r'}}}
+        & \textcolor{blue!80!black}{\texttt{'a'}}
+        & \textcolor{blue!80!black}{\texttt{'p'}}
+        & \textcolor{blue!80!black}{\texttt{'e'}}
+        & \textcolor{blue!80!black}{\texttt{'z'}}
+        & \textcolor{blue!80!black}{\texttt{'i'}}
+        & \textcolor{blue!80!black}{\texttt{'o'}} \\
+        $T$
+        & \underline{\textcolor{green!50!black}{\texttt{'r'}}}
+        & \textcolor{green!50!black}{\texttt{'e'}}
+        & \textcolor{green!50!black}{\texttt{'t'}}
+        & \textcolor{green!50!black}{\texttt{'i'}}
+        & \textcolor{green!50!black}{\texttt{'c'}}
+        & \textcolor{green!50!black}{\texttt{'u'}}
+        & \textcolor{green!50!black}{\texttt{'l'}}
+        & \textcolor{green!50!black}{\texttt{'a'}}
+        & \textcolor{green!50!black}{\texttt{'d'}}
+        & \textcolor{green!50!black}{\texttt{'o'}} \\
+        $a_i$ & 1 & 2\\
+        $b_i$ & 3 & 1\\
+        \hline
+        \end{tabular}
+
+    \end{table}
+
+\end{frame}
+
+\begin{frame}[fragile]{Visualização de $LCS(S, T)$ como $LIS$}
+
+    \begin{table}
+        \centering
+
+        \begin{tabular}{c|cccccccccc} 
+        \hline 
+        $i$ & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10\\
+        \hline
+        $S$
+        & {\textcolor{blue!80!black}{\texttt{'t'}}}
+        & {\textcolor{blue!80!black}{\texttt{'r'}}}
+        & \underline{\textcolor{blue!80!black}{\texttt{'a'}}}
+        & \textcolor{blue!80!black}{\texttt{'p'}}
+        & \textcolor{blue!80!black}{\texttt{'e'}}
+        & \textcolor{blue!80!black}{\texttt{'z'}}
+        & \textcolor{blue!80!black}{\texttt{'i'}}
+        & \textcolor{blue!80!black}{\texttt{'o'}} \\
+        $T$
+        & {\textcolor{green!50!black}{\texttt{'r'}}}
+        & \textcolor{green!50!black}{\texttt{'e'}}
+        & \textcolor{green!50!black}{\texttt{'t'}}
+        & \textcolor{green!50!black}{\texttt{'i'}}
+        & \textcolor{green!50!black}{\texttt{'c'}}
+        & \textcolor{green!50!black}{\texttt{'u'}}
+        & \textcolor{green!50!black}{\texttt{'l'}}
+        & \underline{\textcolor{green!50!black}{\texttt{'a'}}}
+        & \textcolor{green!50!black}{\texttt{'d'}}
+        & \textcolor{green!50!black}{\texttt{'o'}} \\
+        $a_i$ & 1 & 2 & 3\\
+        $b_i$ & 3 & 1 & 8\\
+        \hline
+        \end{tabular}
+
+    \end{table}
+
+\end{frame}
+
+\begin{frame}[fragile]{Visualização de $LCS(S, T)$ como $LIS$}
+
+    \begin{table}
+        \centering
+
+        \begin{tabular}{c|cccccccccc} 
+        \hline 
+        $i$ & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10\\
+        \hline
+        $S$
+        & {\textcolor{blue!80!black}{\texttt{'t'}}}
+        & {\textcolor{blue!80!black}{\texttt{'r'}}}
+        & {\textcolor{blue!80!black}{\texttt{'a'}}}
+        & \textcolor{blue!80!black}{\texttt{'p'}}
+        & \underline{\textcolor{blue!80!black}{\texttt{'e'}}}
+        & \textcolor{blue!80!black}{\texttt{'z'}}
+        & \textcolor{blue!80!black}{\texttt{'i'}}
+        & \textcolor{blue!80!black}{\texttt{'o'}} \\
+        $T$
+        & {\textcolor{green!50!black}{\texttt{'r'}}}
+        & \underline{\textcolor{green!50!black}{\texttt{'e'}}}
+        & \textcolor{green!50!black}{\texttt{'t'}}
+        & \textcolor{green!50!black}{\texttt{'i'}}
+        & \textcolor{green!50!black}{\texttt{'c'}}
+        & \textcolor{green!50!black}{\texttt{'u'}}
+        & \textcolor{green!50!black}{\texttt{'l'}}
+        & {\textcolor{green!50!black}{\texttt{'a'}}}
+        & \textcolor{green!50!black}{\texttt{'d'}}
+        & \textcolor{green!50!black}{\texttt{'o'}} \\
+        $a_i$ & 1 & 2 & 3 & 5\\
+        $b_i$ & 3 & 1 & 8 & 2\\
+        \hline
+        \end{tabular}
+
+    \end{table}
+
+\end{frame}
+
+\begin{frame}[fragile]{Visualização de $LCS(S, T)$ como $LIS$}
+
+    \begin{table}
+        \centering
+
+        \begin{tabular}{c|cccccccccc} 
+        \hline 
+        $i$ & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10\\
+        \hline
+        $S$
+        & {\textcolor{blue!80!black}{\texttt{'t'}}}
+        & {\textcolor{blue!80!black}{\texttt{'r'}}}
+        & {\textcolor{blue!80!black}{\texttt{'a'}}}
+        & \textcolor{blue!80!black}{\texttt{'p'}}
+        & {\textcolor{blue!80!black}{\texttt{'e'}}}
+        & \textcolor{blue!80!black}{\texttt{'z'}}
+        & \underline{\textcolor{blue!80!black}{\texttt{'i'}}}
+        & \textcolor{blue!80!black}{\texttt{'o'}} \\
+        $T$
+        & {\textcolor{green!50!black}{\texttt{'r'}}}
+        & {\textcolor{green!50!black}{\texttt{'e'}}}
+        & \textcolor{green!50!black}{\texttt{'t'}}
+        & \underline{\textcolor{green!50!black}{\texttt{'i'}}}
+        & \textcolor{green!50!black}{\texttt{'c'}}
+        & \textcolor{green!50!black}{\texttt{'u'}}
+        & \textcolor{green!50!black}{\texttt{'l'}}
+        & {\textcolor{green!50!black}{\texttt{'a'}}}
+        & \textcolor{green!50!black}{\texttt{'d'}}
+        & \textcolor{green!50!black}{\texttt{'o'}} \\
+        $a_i$ & 1 & 2 & 3 & 5 & 7\\
+        $b_i$ & 3 & 1 & 8 & 2 & 4\\
+        \hline
+        \end{tabular}
+
+    \end{table}
+
+\end{frame}
+
+\begin{frame}[fragile]{Visualização de $LCS(S, T)$ como $LIS$}
+
+    \begin{table}
+        \centering
+
+        \begin{tabular}{c|cccccccccc} 
+        \hline 
+        $i$ & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10\\
+        \hline
+        $S$
+        & {\textcolor{blue!80!black}{\texttt{'t'}}}
+        & {\textcolor{blue!80!black}{\texttt{'r'}}}
+        & {\textcolor{blue!80!black}{\texttt{'a'}}}
+        & \textcolor{blue!80!black}{\texttt{'p'}}
+        & {\textcolor{blue!80!black}{\texttt{'e'}}}
+        & \textcolor{blue!80!black}{\texttt{'z'}}
+        & {\textcolor{blue!80!black}{\texttt{'i'}}}
+        & \underline{\textcolor{blue!80!black}{\texttt{'o'}}} \\
+        $T$
+        & {\textcolor{green!50!black}{\texttt{'r'}}}
+        & {\textcolor{green!50!black}{\texttt{'e'}}}
+        & \textcolor{green!50!black}{\texttt{'t'}}
+        & {\textcolor{green!50!black}{\texttt{'i'}}}
+        & \textcolor{green!50!black}{\texttt{'c'}}
+        & \textcolor{green!50!black}{\texttt{'u'}}
+        & \textcolor{green!50!black}{\texttt{'l'}}
+        & {\textcolor{green!50!black}{\texttt{'a'}}}
+        & \textcolor{green!50!black}{\texttt{'d'}}
+        & \underline{\textcolor{green!50!black}{\texttt{'o'}}} \\
+        $a_i$ & 1 & 2 & 3 & 5 & 7 & 8\\
+        $b_i$ & 3 & 1 & 8 & 2 & 4 & 10\\
+        \hline
+        \end{tabular}
+
+    \end{table}
+
+\end{frame}
+
+\begin{frame}[fragile]{Visualização de $LCS(S, T)$ como $LIS$}
+
+    \begin{table}
+        \centering
+
+        \begin{tabular}{c|cccccccccc} 
+        \hline 
+        $i$ & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10\\
+        \hline
+        $S$
+        & {\textcolor{blue!80!black}{\texttt{'t'}}}
+        & {\textcolor{blue!80!black}{\texttt{'r'}}}
+        & {\textcolor{blue!80!black}{\texttt{'a'}}}
+        & \textcolor{blue!80!black}{\texttt{'p'}}
+        & {\textcolor{blue!80!black}{\texttt{'e'}}}
+        & \textcolor{blue!80!black}{\texttt{'z'}}
+        & {\textcolor{blue!80!black}{\texttt{'i'}}}
+        & {\textcolor{blue!80!black}{\texttt{'o'}}} \\
+        $T$
+        & \underline{\textcolor{green!50!black}{\texttt{'r'}}}
+        & \underline{\textcolor{green!50!black}{\texttt{'e'}}}
+        & \textcolor{green!50!black}{\texttt{'t'}}
+        & \underline{\textcolor{green!50!black}{\texttt{'i'}}}
+        & \textcolor{green!50!black}{\texttt{'c'}}
+        & \textcolor{green!50!black}{\texttt{'u'}}
+        & \textcolor{green!50!black}{\texttt{'l'}}
+        & {\textcolor{green!50!black}{\texttt{'a'}}}
+        & \textcolor{green!50!black}{\texttt{'d'}}
+        & \underline{\textcolor{green!50!black}{\texttt{'o'}}} \\
+        $a_i$ & 1 & 2 & 3 & 5 & 7 & 8\\
+        $b_i$ & 3 & \fbox{1} & 8 & \fbox{2} & \fbox{4} & \fbox{10}\\
+        \hline
+        \end{tabular}
+
+    \end{table}
+
+    \vspace{0.1in}
+    $LIS(b_k) = \lbrace 1, 2, 4, 10\rbrace$
+    
+    \vspace{0.1in}
+    $LCS(S, T) = $\code{cpp}{"reio"}
+\end{frame}

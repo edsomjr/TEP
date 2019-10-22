@@ -1,0 +1,53 @@
+\section{Busca Completa}
+
+
+\begin{frame}[fragile]{Busca completa em strings}
+
+    \begin{itemize}
+        \item A busca completa compara cada uma das $n - m + 1$ substrings de tamanho $m$ de $S$ 
+            com $P$, reportando cada igualdade
+
+        \item Como a comparação tem complexidade $O(m)$ e o número de substrings é $O(n)$, o 
+            algoritmo tem complexidade $O(mn)$ no pior caso
+
+        \item É preciso ter cuidado com os limites do laço, a depender da representação de 
+            strings utilizada, para que todas as substrings sejam verificadas
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Pseudocódigo para a busca completa em strings}
+
+    \begin{algorithm}[H]
+        \caption{Busca completa em Strings}
+        \begin{algorithmic}[1]
+            \Require Duas strings $P$ e $S$
+            \Ensure O número de ocorrências $occ$ de $P$ em $S$
+
+            \Function{search}{$P$,$S$}
+                \State $m \gets |P|$
+                \State $n \gets |S|$
+                \State $occ \gets 0$
+                \State $i \gets 1$
+
+                \While {$|S[i..n]| \leq m$}
+                    \If {$S[i..(i + m - 1)] = P$}
+                        \State $occ \gets occ + 1$
+                    \EndIf
+                    \State $i \gets i + 1$
+                \EndWhile
+
+                \State \Return $occ$
+            \EndFunction
+        \end{algorithmic}
+    \end{algorithm}
+
+\end{frame}
+
+\begin{frame}[fragile]{Implementação da busca completa em Haskell}
+    \inputsnippet{haskell}{1}{19}{search.hs}
+\end{frame}
+
+\begin{frame}[fragile]{Implementação da busca completa em C++}
+    \inputsnippet{cpp}{1}{19}{search.cpp}
+\end{frame}

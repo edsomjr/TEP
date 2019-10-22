@@ -1,0 +1,131 @@
+\section{UVA 12798 -- Handball}
+
+\begin{frame}[fragile]{Problema}
+
+Frustrated and disappointed with the results of its football team, the Super Brazilian Club (SBC)
+decided to invest in the handball team. In order to better rate the players, the coaches would like to
+analyse their regularity. Specifically, they are interested in knowing how many players scored goals in
+all matches.
+
+As the data volume is very big, they would like to have a computer program to do this counting.
+
+\end{frame}
+
+\begin{frame}[fragile]{Entrada e saída}
+
+\textbf{Input}
+
+The input contains several test cases. The first line of a test case contains two integers $N$ and 
+$M$ $(1\leq N\leq 100\ \mbox{and}\ 1\leq M\leq 100)$ indicating, respectively, the number of players and the number of matches. Each one of the next $N$ lines describes the performance of one player: 
+the $i$-th line contains $M$ integers $X_j$ $(0\leq X_j\leq 100, \mbox{for}\ 1\leq j\leq M)$, 
+giving the number of goals that the $i$-th player scored in each match.
+
+\textbf{Output}
+
+For each test case in the input your program must output one line, containing one integer, the number
+of players that scored goals in all matches!
+
+\end{frame}
+
+
+\begin{frame}[fragile]{Exemplo de entradas e saídas}
+
+\begin{footnotesize}
+\begin{minipage}[t]{0.6\textwidth}
+\textbf{Sample Input}
+\begin{verbatim}
+5 3
+0 0 0
+1 0 5
+0 0 0
+0 1 2
+1 1 0
+12 5
+4 4 2 3 7
+0 0 0 1 0
+7 4 7 0 6
+1 2 3 3 2
+0 0 0 0 0
+4 0 9 10 10
+0 1 0 0 0
+1 2 0 2 3
+10 10 10 1 0
+0 3 3 3 4
+10 10 0 10 10
+1 1 2 0 9
+\end{verbatim}
+\end{minipage}
+\begin{minipage}[t]{0.35\textwidth}
+\textbf{Sample Output}
+\begin{verbatim}
+0
+2
+\end{verbatim}
+\end{minipage}
+\end{footnotesize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Solução com complexidade $O(NM\log MN)$}
+
+    \begin{itemize}
+        \item O problema consiste em determinar quantos jogadores fizeram gols em todas as
+            partidas
+
+        \item Uma maneira de se manter este registro é inicializar uma árvore de Fenwinck 
+            onde todos os elementos da sequência $a_k$ são iguais a um
+
+        \item Assim, para cada jogador, caso ele não marque nenhum gol em uma determinada 
+            partida, basta fazer $a_i = 0$ atrás da soma de $-1$ na posição $i$
+
+        \item Este processo deve ser feito, no máximo, uma vez por jogador
+
+        \item Ao final, a resposta será $RSQ(1, N)$
+
+   \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Solução com complexidade $O(NM\log NM)$}
+    \inputsnippet{cpp}{1}{21}{12798.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Solução com complexidade $O(NM\log NM)$}
+    \inputsnippet{cpp}{22}{39}{12798.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Solução com complexidade $O(NM\log NM)$}
+    \inputsnippet{cpp}{40}{60}{12798.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Solução com complexidade $O(NM\log NM)$}
+    \inputsnippet{cpp}{61}{79}{12798.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Solução $O(NM)$}
+
+    \begin{itemize}
+        \item Observe que o problema é estático: o número de gols marcados por cada jogador
+            não muda dinamicamente, e a pergunta só é feita uma vez, ao final
+            
+        \item Assim, não é necessário o uso de uma árvore de Fenwick
+
+        \item O registro de cada jogador pode ser feito em um vetor de \textit{bits}, onde
+            1 significa que ele marcou gols em todos os jogos
+
+        \item A implementação fica semelhante à anterior, porém com acesso aos elementos em
+            $O(1)$
+
+        \item O método \code{c}{count()} do \code{c}{bitset} da STL pode ser utilizada para
+            totalizar o número de jogadores que marcaram gols em todos os jogos
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Solução com complexidade $O(NM)$}
+    \inputsnippet{cpp}{1}{20}{12798_linear.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Solução com complexidade $O(NM)$}
+    \inputsnippet{cpp}{21}{41}{12798_linear.cpp}
+\end{frame}

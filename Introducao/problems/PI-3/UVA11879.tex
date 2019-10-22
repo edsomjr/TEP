@@ -1,0 +1,75 @@
+\section{UVA 11879 -- Multiple of 17}
+
+\begin{frame}[fragile]{Problema}
+
+\begin{center}
+\textit{\textbf{Theorem}: If you drop the last digit d of an integer $n$ $(n \geq 10)$, subtract $5d$ from the remaining integer, then the difference is a multiple of 17 if and only if $n$ is a multiple of 17.}
+\end{center}
+
+For example, 34 is a multiple of 17, because 3-20=-17 is a multiple of 17; 201 is not a multiple of
+17, because 20-5=15 is not a multiple of 17.
+
+Given a positive integer $n$, your task is to determine whether it is a multiple of 17.
+
+\end{frame}
+
+\begin{frame}[fragile]{Entrada e saída}
+
+\textbf{Input}
+
+There will be at most 10 test cases, each containing a single line with an integer $n$ $(1 \leq n \leq 10^{100})$.
+
+The input terminates with $n = 0$, which should not be processed.
+
+\vspace{0.1in}
+
+\textbf{Output}
+
+For each case, print 1 if the corresponding integer is a multiple of 17, print 0 otherwise.
+
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de entradas e saídas}
+
+\textbf{Exemplo de Entrada}
+\begin{verbatim}
+34
+201
+2098765413
+1717171717171717171717171717171717171717171717171718
+0
+\end{verbatim}
+
+\textbf{Exemplo de Saída}
+\begin{verbatim}
+1
+0
+1
+0
+\end{verbatim}
+\end{frame}
+
+\begin{frame}[fragile]{Solução}
+
+    \begin{itemize}
+        \item O limite máximo da entrada não pode ser armazenada em tipos primitivos do C/C++
+
+        \item Uma alternativa é ler a entrada como strings, e aplicar o algoritmo descrito,
+            acumulando no total $S$, para cada dígito $d$, o valor $-5d$
+
+        \item Em seguida, basta verificar se $S$ é ou não múltiplo de 17
+
+        \item Outra alternativa é utilizar uma linguagem que tenha suporte nativo para 
+            aritmética estendida 
+
+        \item Uma opção é a linguagem Java e sua classe BigInteger
+
+        \item Outra opção é usar a linguagem Python
+
+   \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Solução AC}
+    \inputcode{py}{UVA11879.py}
+\end{frame}

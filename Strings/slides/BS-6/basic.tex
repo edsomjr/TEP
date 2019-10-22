@@ -1,0 +1,63 @@
+\section{Algoritmos elementares}
+
+\begin{frame}[fragile]{Métodos {\tt find()} e {\tt rfind()} da classe string}
+
+    \begin{itemize}
+        \item A classe string da linguagem C++ oferece dois métodos de busca em strings
+
+        \item O método \code{cpp}{find()} procura pela substring \code{cpp}{str} na 
+            substring $S[\mathtt{pos}..(n - 1)]$
+        \vspace{.1in}
+        \inputsyntax{cpp}{find.st}
+        \vspace{.1in}
+
+        \item O retorno é o índice da primeira ocorrência de \code{cpp}{str} na substring em
+            questão, ou \code{cpp}{string::npos}, caso \code{cpp}{str} não ocorra em
+            em nenhuma posição do intervalo especificado
+
+        \item A complexidade assintótica é $O(nm)$, onde $n = |S|$ e $m = |\mathtt{str}|$
+
+        \item O método \code{cpp}{rfind()} tem o mesmo comportamento e retorno, porém busca
+            a última ocorrência de \code{cpp}{str} em $S[0..\mathtt{pos}]$
+
+        \vspace{.1in}
+        \inputsyntax{cpp}{rfind.st}
+        \vspace{.1in}
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de uso dos métodos {\tt find()} e {\tt rfind()}}
+    \inputsnippet{cpp}{1}{21}{find.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Método {\tt find\_first\_of()}}
+
+    \begin{itemize}
+        \item Outro método relacionado à busca de strings é o \code{cpp}{find_first_of()}, cuja
+            assinatura é
+
+        \vspace{.1in}
+        \inputsyntax{cpp}{find_first_of.st}
+        \vspace{.1in}
+        
+        \item Ele retorna a primeira posição $i$ em $S$ tal que $S[i]$ é igual a um dos 
+            caracteres de \code{cpp}{str}, ou \code{cpp}{string::npos}, caso não encontre
+            nenhum correspondente de \code{cpp}{str} em $S$
+
+        \item A complexidade é a mesma do método \code{cpp}{find()}: $O(nm)$ 
+
+        \item O método \code{cpp}{find_first_not_of()} é semelhante, porém retorna o primeiro
+            caractere de $S$ que é diferente de todos os caracteres de \code{cpp}{str}
+
+        \item Os métodos \code{cpp}{find_last_of()} e \code{cpp}{find_last_not_of()} são
+            equivalentes a ambos, porém iniciando sua busca no sentido oposto
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de uso dos métodos {\tt find\_first\_of()} e {\tt find\_last\_of()}}
+    \inputsnippet{cpp}{1}{21}{find_first_of.cpp}
+\end{frame}
+
+

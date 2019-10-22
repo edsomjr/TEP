@@ -6,3 +6,4 @@ prog
 *.swp
 *.d
 *.exe
+*.class

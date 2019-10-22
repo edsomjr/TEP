@@ -1,0 +1,175 @@
+\begin{frame}[fragile]{Visualização de $edit(S,T)$}
+
+    \begin{table}
+        \centering
+
+        \begin{tabular}{c|cccccccccc} $edit(i, j)$ &
+        & \textcolor{red!80!black}{\texttt{'A'}}
+        & \textcolor{red!80!black}{\texttt{'C'}}
+        & \textcolor{red!80!black}{\texttt{'C'}}
+        & \textcolor{red!80!black}{\texttt{'E'}}
+        & \textcolor{red!80!black}{\texttt{'P'}}
+        & \textcolor{red!80!black}{\texttt{'T'}}
+        & \textcolor{red!80!black}{\texttt{'E'}}
+        & \textcolor{red!80!black}{\texttt{'D'}}\\
+        \hline
+&0 &1&2&3&4&5&6&7&8\\
+\textcolor{red!80!black}{\texttt{'T'}}
+&1 &1&2&3&4&5&5&6&7\\
+\textcolor{red!80!black}{\texttt{'E'}}
+&2 &2&2&3&3&4&5&5&6\\
+\textcolor{red!80!black}{\texttt{'P'}}
+&3 &3&3&3&4&3&4&5&6\\
+        \end{tabular}
+
+    \end{table}
+
+\end{frame}
+
+\begin{frame}[fragile]{Visualização de $edit(S,T)$}
+
+    \begin{table}
+        \centering
+
+        \begin{tabular}{c|cccccccccc} $edit(i, j)$ &
+        & \textcolor{red!80!black}{\texttt{'A'}}
+        & \textcolor{red!80!black}{\texttt{'C'}}
+        & \textcolor{red!80!black}{\texttt{'C'}}
+        & \textcolor{red!80!black}{\texttt{'E'}}
+        & \textcolor{red!80!black}{\texttt{'P'}}
+        & \textcolor{red!80!black}{\texttt{'T'}}
+        & \textcolor{red!80!black}{\texttt{'E'}}
+        & \textcolor{red!80!black}{\texttt{'D'}}\\
+        \hline
+&\underline{0} &1&2&3&4&5&6&7&8\\
+\textcolor{red!80!black}{\texttt{'T'}}
+&1 &\textbf{1}&2&3&4&5&5&6&7\\
+\textcolor{red!80!black}{\texttt{'E'}}
+&2 &2&2&3&3&4&5&5&6\\
+\textcolor{red!80!black}{\texttt{'P'}}
+&3 &3&3&3&4&3&4&5&6\\
+        \end{tabular}
+
+    \end{table}
+
+    Substituição de 
+\textcolor{red!80!black}{\texttt{'T'}}
+    por
+\textcolor{red!80!black}{\texttt{'A'}}
+    \[
+        edit(1, 1) = edit(0, 0) + 1
+    \]    
+
+\end{frame}
+
+\begin{frame}[fragile]{Visualização de $edit(S,T)$}
+
+    \begin{table}
+        \centering
+
+        \begin{tabular}{c|cccccccccc} $edit(i, j)$ &
+        & \textcolor{red!80!black}{\texttt{'A'}}
+        & \textcolor{red!80!black}{\texttt{'C'}}
+        & \textcolor{red!80!black}{\texttt{'C'}}
+        & \textcolor{red!80!black}{\texttt{'E'}}
+        & \textcolor{red!80!black}{\texttt{'P'}}
+        & \textcolor{red!80!black}{\texttt{'T'}}
+        & \textcolor{red!80!black}{\texttt{'E'}}
+        & \textcolor{red!80!black}{\texttt{'D'}}\\
+        \hline
+&0 &1&2&3&4&5&6&7&8\\
+\textcolor{red!80!black}{\texttt{'T'}}
+&1 &1&2&\underline{3}&4&5&5&6&7\\
+\textcolor{red!80!black}{\texttt{'E'}}
+&2 &2&2&3&\textbf{3}&4&5&5&6\\
+\textcolor{red!80!black}{\texttt{'P'}}
+&3 &3&3&3&4&3&4&5&6\\
+        \end{tabular}
+
+    \end{table}
+
+    Mantém o caractere
+\textcolor{red!80!black}{\texttt{'E'}}
+    comum
+    \[
+        edit(2, 4) = edit(1, 3) + 0
+    \]    
+
+
+\end{frame}
+
+\begin{frame}[fragile]{Visualização de $edit(S,T)$}
+
+    \begin{table}
+        \centering
+
+        \begin{tabular}{c|cccccccccc} $edit(i, j)$ &
+        & \textcolor{red!80!black}{\texttt{'A'}}
+        & \textcolor{red!80!black}{\texttt{'C'}}
+        & \textcolor{red!80!black}{\texttt{'C'}}
+        & \textcolor{red!80!black}{\texttt{'E'}}
+        & \textcolor{red!80!black}{\texttt{'P'}}
+        & \textcolor{red!80!black}{\texttt{'T'}}
+        & \textcolor{red!80!black}{\texttt{'E'}}
+        & \textcolor{red!80!black}{\texttt{'D'}}\\
+        \hline
+&0 &1&2&3&4&5&6&7&8\\
+\textcolor{red!80!black}{\texttt{'T'}}
+&1 &1&2&3&4&5&5&6&7\\
+\textcolor{red!80!black}{\texttt{'E'}}
+&2 &2&2&3&\underline{3}&4&5&5&6\\
+\textcolor{red!80!black}{\texttt{'P'}}
+&3 &3&3&3&\textbf{4}&3&4&5&6\\
+        \end{tabular}
+
+    \end{table}
+
+    Remove o caractere
+\textcolor{red!80!black}{\texttt{'P'}}
+    na string 
+\textcolor{red!80!black}{\texttt{"TEP"}}
+    \[
+        edit(3, 4) = edit(2, 4) + 1
+    \]    
+
+
+\end{frame}
+
+\begin{frame}[fragile]{Visualização de $edit(S,T)$}
+
+    \begin{table}
+        \centering
+
+        \begin{tabular}{c|cccccccccc} $edit(i, j)$ &
+        & \textcolor{red!80!black}{\texttt{'A'}}
+        & \textcolor{red!80!black}{\texttt{'C'}}
+        & \textcolor{red!80!black}{\texttt{'C'}}
+        & \textcolor{red!80!black}{\texttt{'E'}}
+        & \textcolor{red!80!black}{\texttt{'P'}}
+        & \textcolor{red!80!black}{\texttt{'T'}}
+        & \textcolor{red!80!black}{\texttt{'E'}}
+        & \textcolor{red!80!black}{\texttt{'D'}}\\
+        \hline
+&0 &1&2&3&4&5&6&7&8\\
+\textcolor{red!80!black}{\texttt{'T'}}
+&1 &1&2&3&4&5&5&6&7\\
+\textcolor{red!80!black}{\texttt{'E'}}
+&2 &2&2&3&3&4&5&5&6\\
+\textcolor{red!80!black}{\texttt{'P'}}
+&3 &3&3&3&4&\underline{3}&\textbf{4}&5&6\\
+        \end{tabular}
+
+    \end{table}
+
+    Insere o caractere
+\textcolor{red!80!black}{\texttt{'T'}}
+    na string 
+\textcolor{red!80!black}{\texttt{"ACCEP"}}
+    \[
+        edit(3, 6) = edit(3, 5) + 1
+    \]    
+
+
+\end{frame}
+
+

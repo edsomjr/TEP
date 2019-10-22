@@ -1,0 +1,61 @@
+\section{Variáveis em ponto flutuante}
+
+\begin{frame}[fragile]{Variáveis em ponto flutuante}
+
+    \begin{itemize}
+        \item Em C e C++ há dois tipos de variável em ponto flutuante: \code{c++}{float} e
+            \code{c++}{double}
+
+        \item O tipo \code{c++}{float} representa valores em ponto flutuante com precisão
+            simples (7 casas decimais de precisão)
+
+        \item O tipo \code{c++}{double} representa valores em ponto flutuante com precisão
+            dupla (15 casas decimais de precisão)
+
+        \item O GCC tem suporte para o tipo \code{c++}{long double}, com 80 \textit{bits} e 
+            precisão superior ao tipo \code{c++}{double}
+
+        \item A precisão extra traz custos de memória e também de performance
+
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Observações sobre variáveis em ponto flutuante}
+
+    \begin{itemize}
+        \item Nem todo valor pode ser representado exatamente em variáveis em ponto
+            flutuante:
+            \inputcode{c++}{one.cpp}
+
+        \item Multiplicações de valores muito pequenos por valores muito grandes geram erros
+            de precisão
+            \inputcode{c++}{multi.cpp}
+
+        \item Comparações entre valores flutuantes podem gerar resultados errados por conta
+            de erros de precisão:
+            \inputcode{c++}{comp.cpp}
+
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Observações sobre variáveis em ponto flutuante}
+
+    \begin{itemize}
+        \item Se possível, o ideal é evitar o uso de variáveis do tipo ponto flutuante
+
+        \item Em competições, algoritmos corretos podem receber o veredito \texttt{WA} por
+            conta de erros de precisão
+
+        \item No cálculo da distância entre dois pontos de coordenadas inteiras, o ideal é 
+        trabalhar com o quadrado da distância, evitando a extração da raiz quadrada
+
+        \item No caso de unidades monetárias, melhor trabalhar com múltiplos de centavos, de modo
+            que os valores passam a ser todos números inteiros
+
+        \item O mesmo vale para unidades de tempo: melhor trabalhar com a menor unidade inteira
+            possível
+    \end{itemize}
+
+\end{frame}

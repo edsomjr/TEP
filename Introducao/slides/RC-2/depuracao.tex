@@ -1,0 +1,96 @@
+\section{Depuração}
+
+\begin{frame}[fragile]{Depuração}
+
+	\begin{itemize}
+		\item A depuração (ou \textit{debug}) é o processo de remover ou reduzir o número de 
+		erros (\textit{bugs}) em um programa
+
+		\item Ela abrange desde impressões em pontos-chave do programa ou até programas que 
+        acompanham a execução passo-a-passo (depuradores ou \textit{debuggers})
+
+		\item Um depurador famoso e livre é o \texttt{gdb} (\textit{GNU Project Debugger})
+		
+		\item Para que o executável de um código gerado pelo \texttt{gcc} possa ser utilizado pelo 
+        \texttt{gdb}, é necessário adicionar a \textit{flag} \texttt{\lq -g\rq} na 
+		linha de compilação.
+		
+    \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{Invocando o \texttt{gdb}}
+
+	\begin{itemize}
+        \item O \texttt{gdb} é um programa em linha de comando, embora existam outros programas
+        que fornecem uma interface gráfica para os comandos do \texttt{gdb} 
+
+		\item O \texttt{gdb} pode ser invocado através do comando
+		\begin{description}
+			\item \texttt{\$ gdb prog}
+		\end{description}
+		onde \texttt{prog} é o nome do executável a ser depurado
+
+		\item Caso o executável tenha sido gerado por múltiplos arquivos, a opção 
+        \texttt{\lq -d\rq} indica o diretório onde se encontram os arquivos-fontes.
+
+        \item Um executável gerado com a opção de depuração contém informações extra que 
+        permitem a depuração, de modo que seu tamanho é, consequentemente, maior do que 
+        um executável gerado sem esta opção
+	\end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Comandos básicos do \texttt{gdb}}
+
+	\begin{description}
+		\item [\texttt{run}] inicia a {execução} do programa
+
+		\item [\texttt{kill}] {interrompe} a execução, permitindo a reinicialização com um novo \textit{run}
+
+		\item [\texttt{quit}] {encerra} o \texttt{gdb}
+
+		\item [\texttt{help}] fornece {informações} sobre o \texttt{gdb} e seus comandos
+
+		\item [\texttt{list}] {imprime} parte do código-fonte
+
+		\item [\texttt{break}] insere um {ponto de parada} (\textit{breakpoint}) na linha indicada.
+        Se houverem múltiplos arquivos, o argumento deve ser 
+        \texttt{nome\_do\_arquivo:numero\_da\_linha}. Também pode ser indicado o nome de uma função
+
+	\end{description}
+
+\end{frame}
+
+\begin{frame}[fragile]{Comandos básicos do \texttt{gdb}}
+
+	\begin{description}
+		\item [\texttt{continue}] {continua} a execução até o {próximo} \textit{breakpoint}
+
+		\item [\texttt{next}] {avança} para a {próxima linha} do código-fonte
+
+		\item [\texttt{step}] se houver uma {função} na linha atual, entra na função
+
+		\item [\texttt{print}] {imprime} o valor da {variável} passada como parâmetro
+
+		\item [\texttt{watch}] gera informações {adicionais} quando a variável passada como 
+        parâmetro é {lida} ou {escrita}
+
+		\item [\texttt{info break}] {lista} os \textit{breakpoints}
+					
+		\item [\texttt{info watch}] {lista} os \textit{watchpoints}
+
+	\end{description}
+
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo para teste de depuração}
+    \inputcode{c}{primes.h}
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo para teste de depuração}
+    \inputcode{c}{primes.c}
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo para teste de depuração}
+    \inputcode{c}{main.c}
+\end{frame}

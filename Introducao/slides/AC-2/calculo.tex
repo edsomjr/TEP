@@ -1,0 +1,147 @@
+\section{Exemplos de análise de complexidade assintótica}
+
+\begin{frame}[fragile]{Exemplo 01}
+
+	\textbf{Problema:} Determinar a soma dos elementos de um vetor \texttt{a} com \texttt{n}
+     elementos.
+	\vspace{0.1in}
+
+	\textbf{Algoritmo:} 
+        \inputcode{c}{sum.c}
+	\vspace{0.2in}
+
+	{\bf Complexidade: } 2 atribuições no início, $2n$ no laço. 
+	{Total de atribuições:} $2 + 2n$.
+	Logo o algoritmo é $O(n)$.
+
+\end{frame} 
+
+\begin{frame}[fragile]{Exemplo 02}
+
+    {\bf Problema:} Determinar a soma dos subvetores \code{c}{a[0-i]} de um vetor \texttt{a}.
+	\vspace{0.1in}
+
+    {\bf Algoritmo:} 
+        \inputcode{cpp}{subarray.cpp}
+	\vspace{0.2in}
+    
+    {\bf Complexidade: } 1 atribuição no início, $3n$ no laço 
+    externo e $$\sum_{i=1}^{n-1} 2i = n(n-1)$$ no laço interno. 
+    Total de atribuições: $1 + 3n + n(n-1)$.  O algoritmo é $O(n^2)$.
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo 03}
+
+    {\bf Problema:} Determinar a soma dos subvetores de cinco elementos de um vetor $a$.
+
+    {\bf Algoritmo:} 
+        \inputcode{cpp}{subarray2.cpp}
+    \vspace{0.2in}
+
+    {\bf Complexidade: } 1 atribuição no início, $3(n-4)$ no laço 
+    externo e $8(n-4)$ no laço interno.
+    {Total de atribuições:} $1 + 11(n-4)$. Logo o algoritmo é $O(n)$.
+
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo 04}
+
+	{\bf Problema:} Determinar o tamanho do maior subvetor ordenado de um 
+	vetor \texttt{a} com \texttt{n} elementos.
+	\vspace{0.1in}
+
+    {\bf Algoritmo:} 
+        \inputcode{cpp}{sorted.cpp}
+    \vspace{0.2in}
+    
+	{\bf Complexidade } 
+
+    {\it Caso 1: Vetor em ordem decrescente.} 
+    2 atribuições no início, $4(n-1)$ no laço externo e $0$ no laço 
+    interno. {Total de atribuições:} $2 + 4(n-1)$.  O algoritmo é $O(n)$.
+
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo 04}
+
+    {\it Caso 2: Vetor em ordem crescente.} 2 atribuições no 
+    início, $4(n-1)$ no laço externo e 
+    \[(n - 1) + \sum_{i=0}^{n-2} \left[2(n - 1 - i)\right] = (n - 1) + (n - 1)(n - 2) = (n - 1)^2\]
+    no laço interno. {Total de atribuições:} 
+    \[2 + 4(n-1) + (n-1)^2 = 2 + (n - 1)(n + 3)\]
+
+    O algoritmo é $O(n^2)$. 
+
+    \vspace{0.1in}
+    Como determinar o caso médio?
+
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo 05}
+
+	{\bf Problema:} Realizar uma busca binária de um elemento \texttt{k} um vetor 
+	ordenado de inteiros \texttt{a} de tamanho \texttt{n}.
+	\vspace{0.1in}
+
+    {\bf Algoritmo:} 
+        \inputcode{cpp}{bs.cpp}
+	\vspace{0.2in}
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo 05}
+
+    {\bf Complexidade} 
+    \vspace{0.1in}
+
+    {\it Caso 1: Chave no meio do vetor.} 2 atribuições no início, 
+    $1$ no laço. {Total de atribuições:} $3$.  O algoritmo é $O(1)$.
+
+    \vspace{0.1in}
+    {\it Caso 2: Chave não está no vetor.} 2 atribuições no início, 
+    laço executado $m$ vezes, onde $n/2^m = 1$.  {Total de atribuições:} $2 + 2\log n$. 
+    O algoritmo é $O(\log n)$.
+
+    \vspace{0.1in}
+    Caso médio?
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo 06}
+
+	{\bf Problema:} Busca sequêncial de um elemento \texttt{k} em um vetor \texttt{a} 
+	de tamanho \texttt{n}
+	\vspace{0.1in}
+
+	{\bf Algoritmo:} 
+        \inputcode{cpp}{seq.cpp}
+    \vspace{0.2in}
+
+	{\bf Complexidade} 
+
+	{\it Melhor caso: $k$ é o primeiro termo}. 1 atribuição no 
+	início. {Total de atribuições:} $1$. 
+	O algoritmo é $O(1)$.
+
+	{\it Pior caso: $k$ não se encontra no vetor}. 1 atribuição no 
+	início, $n$ no laço. {Total de atribuições:} 
+	$1 + n$.  O algoritmo é $O(n)$.
+
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo 06}
+
+	{\it Caso médio: $k$ está em alguma das $n$ posições ou não 
+	se encontra no vetor.} Considere a distribuição de probabilidade
+	{uniforme} $p(\mbox{input}_i) = 1/(n+1)$. 
+
+    Então
+	\begin{align*}
+	C_M &= \sum_{i=0}^{n} p(\mbox{input}_i)\mbox{steps}(\mbox{input}_i) \\ 
+	&= \frac{1}{n+1}\left[\sum_{i=0}^{n-1} (i+1) + (n+1) \right]\\ 
+	&= \frac{1}{n+1}\left[\frac{n(n+1)}{2} + (n+1)\right]= 
+	\frac{n+2}{2}
+	\end{align*}
+
+	Logo, no caso médio, o algoritmo é $O(n)$.
+
+\end{frame}
+

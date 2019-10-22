@@ -1,0 +1,94 @@
+\section{UVA 10245 -- The Closest Pair Problem}
+
+\begin{frame}[fragile]{Problema}
+
+Given a set of points in a two dimensional space, you will have to find the distance between the closest two points.
+
+\end{frame}
+
+\begin{frame}[fragile]{Entrada e saída}
+
+\textbf{Input}
+
+The input file contains several sets of input. Each set of input starts with an integer 
+$N$ $(0\leq N\leq 10000)$, which denotes the number of points in this set. The next $N$ line 
+contains the coordinates of $N$ twodimensional points. The first of the two numbers denotes the 
+$X$-coordinate and the latter denotes the $Y$-coordinate. The input is terminated by a set whose 
+$N = 0$. This set should not be processed. The value of the coordinates will be less than 40000 
+and non-negative.
+
+\textbf{Output}
+
+For each set of input produce a single line of output containing a floating point number 
+(with four digits after the decimal point) which denotes the distance between the closest two 
+points. If there is no such two points in the input whose distance is less than 10000, print the 
+line ‘\texttt{INFINITY}’.
+
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de entradas e saídas}
+
+\begin{minipage}[t]{0.5\textwidth}
+\textbf{Sample Input}
+\begin{verbatim}
+3
+0 0
+10000 10000
+20000 20000
+5
+0 2
+6 67
+43 71
+39 107
+189 140
+0
+\end{verbatim}
+\end{minipage}
+\begin{minipage}[t]{0.45\textwidth}
+\textbf{Sample Output}
+\begin{verbatim}
+INFINITY
+36.2215
+\end{verbatim}
+\end{minipage}
+\end{frame}
+
+\begin{frame}[fragile]{Solução $O(TN\log N)$}
+
+    \begin{itemize}
+        \item Este é o problema clássico de par de pontos mais próximos
+
+        \item O algoritmo de \textit{sweep line} para este problema pode ser utiliza,
+            porém é preciso ter cuidado com algumas restrições do problema
+
+        \item Em primeiro lugar, embora não fique claro no texto, a entrada admite coordenadas
+            em ponto flutuante para os pontos
+
+        \item Além disso, há o caso especial em que a entrada contém somente um ponto
+
+        \item Neste caso, a resposta deve ser \texttt{INFINITY}
+
+        \item Isto feito, cada caso de teste pode ser resolvido em $O(N\log N)$
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Solução com complexidade $O(TN\log N)$}
+    \inputsnippet{cpp}{1}{21}{10245.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Solução com complexidade $O(TN\log N)$}
+    \inputsnippet{cpp}{22}{42}{10245.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Solução com complexidade $O(TN\log N)$}
+    \inputsnippet{cpp}{43}{63}{10245.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Solução com complexidade $O(TN\log N)$}
+    \inputsnippet{cpp}{64}{84}{10245.cpp}
+\end{frame}
+
+
+
+

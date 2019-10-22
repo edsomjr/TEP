@@ -1,0 +1,94 @@
+\section{Definição}
+
+\begin{frame}[fragile]{Listas auto-organizáveis}
+
+    \begin{itemize}
+        \item Listas encadeadas e duplamente encadeadas não são eficientes ($O(N)$) em relação 
+            à busca de elementos
+
+        \item Diferentes organizações dos elementos da lista podem melhorar o tempo de execução
+            dos algoritmos de busca
+
+        \item Estas organizações geram as listas auto-organizáveis, que são listas que se 
+            alteram dinamicamente a cada busca
+
+        \item Em geral, estas listas não contém repetições de elementos (isto é, não há repetição
+            de valores nos campos \texttt{info} dos nós
+
+        \item Para efeitos de análise e implementação, se uma busca não localizar uma dada
+            informação, a mesma será inserida na lista ao final da busca
+
+        \item O comportamento dinâmico destas listas faz com que as buscas ganhem desempenho
+            através do posicionamento estratégico dos elementos já localizados
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Organizações possíveis}
+
+    \begin{enumerate}
+        \item Move o elemento localizado para o início da lista
+
+        \item Trocar o elemento localizado com o seu antecessor, caso não seja o primeiro 
+            elemento da lista
+
+        \item Ordenar a lista de acordo com a frequência de acesso de cada elemento
+
+        \item Ordenar a lista de acordo com um critério pré-estabelecido (ordem alfabética,
+            lexicográfica, etc)
+    \end{enumerate}
+
+\end{frame}
+
+\begin{frame}[fragile]{Observações sobre as formas de organização}
+
+    \begin{itemize}
+        \item As três primeiras formas incluem um novo nó ao final da lista se a informação
+            procurada não for localizada
+
+        \item Já a quarta forma adiciona o novo nó de acordo com o critério estabelecido
+
+        \item As três primeiras formas visam fazer com que o elemento seja localizado o mais
+            cedo possível
+
+        \item A última forma é útil em buscas de elementos que não estão na lista, uma vez que
+            sua organização subjacente pode suspender a busca quando for o caso
+
+        \item Se uma informação não consta na lista, nas três primeiras formas a lista deve ser
+            percorrida na íntegra, o que não acontece na quarta forma
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo das formas de organização}
+
+    \begin{center}
+    \begin{scriptsize}
+
+    \begin{tabular}{p{0.4in}lp{0.5in}lll}
+        \toprule
+        \textbf{Elemento acessado} & \textbf{Nenhuma forma} & 
+            \textbf{Mover para o início} & \textbf{Transposição} & 
+            \textbf{Frequência} & \textbf{Ordenação} \\
+        \toprule
+        A & A & A & A & A & A  \\
+        C & AC & AC & AC & AC & AC \\
+        B & ACB & ACB & ACB & ACB  & ABC \\
+        C  & ACB  & CAB  & CAB  & CAB  & ABC  \\
+        D  & ACBD & CABD & CABD & CABD & ABCD \\
+        A  & ACBD  & ACBD  & ACBD  & CABD  & ABCD  \\
+        D  & ACBD  & DACB  & ACDB  & CADB  & ABCD  \\
+        A  & ACBD  & ADCB  & ACDB  & ACDB  & ABCD  \\
+        C  & ACBD  & CADB  & CADB  & ACDB  & ABCD  \\
+        A  & ACBD  & ACDB  & ACDB  & ACDB  & ABCD  \\
+        C  & ACBD  & CADB  & CADB  & ACDB  & ABCD  \\
+        C  & ACBD  & CADB  & CADB  & CADB  & ABCD  \\
+        E  & ACBDE  & CADBE  & CADBE  & CADBE  & ABCDE  \\
+        E  & ACBDE  & ECADB  & CADEB  & CADEB  & ABCDE  \\
+        \bottomrule
+    \end{tabular}
+
+    \end{scriptsize}
+    \end{center}
+
+\end{frame}

@@ -1,0 +1,485 @@
+\section{\itshape Selection Sort}
+
+\begin{frame}[fragile]{\itshape Selection Sort}
+
+    \begin{itemize}
+        \item \textit{Selection sort} é um algoritmo de ordenação de simples entendimento e
+            codificação
+
+        \item Primeiramente ele identifica o menor dentre todos os elementos da sequência e 
+            o armazena na primeira posição
+
+        \item Em seguida, procura o menor elemento dentre os que restaram, e o move para 
+            segunda posição
+
+        \item Em faz o mesmo para a terceira, quarta, até a última posição
+
+        \item A complexidade assintótica é $O(N^2)$, onde $N$ é o número de elementos da 
+            sequência
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Visualização do \textit{selection sort}}
+
+    \begin{tikzpicture}
+        \node at (0.5, 2.5) { $k = 1$ };
+        \node at (0.5, 0.5) { $a_s = $ };
+        \draw (1, 0) grid (6, 1);
+
+        \node at (1.5, 1.5) { \texttt{1} };
+        \node at (2.5, 1.5) { \texttt{2} };
+        \node at (3.5, 1.5) { \texttt{3} };
+        \node at (4.5, 1.5) { \texttt{4} };
+        \node at (5.5, 1.5) { \texttt{5} };
+
+        \node at (1.5, 0.5) { $ \mathbf{3} $ };
+        \node at (2.5, 0.5) { $ \mathbf{5} $ };
+        \node at (3.5, 0.5) { $ \mathbf{1} $ };
+        \node at (4.5, 0.5) { $ \mathbf{2} $ };
+        \node at (5.5, 0.5) { $ \mathbf{4} $ };
+
+        \draw[->] (1.5, -0.8) -- (1.5, -0.2);
+        \node at (1.5, -1.2) { $ i $ };
+
+        \draw[->] (2.5, -0.8) -- (2.5, -0.2);
+        \node at (2.5, -1.2) { $ j $ };
+
+    \end{tikzpicture}
+
+\end{frame}
+
+\begin{frame}[fragile]{Visualização do \textit{selection sort}}
+
+    \begin{tikzpicture}
+        \node at (0.5, 2.5) { \textcolor{blue}{$k = 3$} };
+        \node at (0.5, 0.5) { $a_s = $ };
+        \draw (1, 0) grid (6, 1);
+
+        \node at (1.5, 1.5) { \texttt{1} };
+        \node at (2.5, 1.5) { \texttt{2} };
+        \node at (3.5, 1.5) { \texttt{3} };
+        \node at (4.5, 1.5) { \texttt{4} };
+        \node at (5.5, 1.5) { \texttt{5} };
+
+        \node at (1.5, 0.5) { $ \mathbf{3} $ };
+        \node at (2.5, 0.5) { $ \mathbf{5} $ };
+        \node at (3.5, 0.5) { $ \mathbf{1} $ };
+        \node at (4.5, 0.5) { $ \mathbf{2} $ };
+        \node at (5.5, 0.5) { $ \mathbf{4} $ };
+
+        \draw[->] (1.5, -0.8) -- (1.5, -0.2);
+        \node at (1.5, -1.2) { $ i $ };
+
+        \draw[->] (3.5, -0.8) -- (3.5, -0.2);
+        \node at (3.5, -1.2) { $ j $ };
+
+    \end{tikzpicture}
+
+\end{frame}
+
+\begin{frame}[fragile]{Visualização do \textit{selection sort}}
+
+    \begin{tikzpicture}
+        \node at (0.5, 2.5) { \textcolor{black}{$k = 3$} };
+        \node at (0.5, 0.5) { $a_s = $ };
+        \draw (1, 0) grid (6, 1);
+
+        \node at (1.5, 1.5) { \texttt{1} };
+        \node at (2.5, 1.5) { \texttt{2} };
+        \node at (3.5, 1.5) { \texttt{3} };
+        \node at (4.5, 1.5) { \texttt{4} };
+        \node at (5.5, 1.5) { \texttt{5} };
+
+        \node at (1.5, 0.5) { $ \mathbf{3} $ };
+        \node at (2.5, 0.5) { $ \mathbf{5} $ };
+        \node at (3.5, 0.5) { $ \mathbf{1} $ };
+        \node at (4.5, 0.5) { $ \mathbf{2} $ };
+        \node at (5.5, 0.5) { $ \mathbf{4} $ };
+
+        \draw[->] (1.5, -0.8) -- (1.5, -0.2);
+        \node at (1.5, -1.2) { $ i $ };
+
+        \draw[->] (4.5, -0.8) -- (4.5, -0.2);
+        \node at (4.5, -1.2) { $ j $ };
+
+    \end{tikzpicture}
+
+\end{frame}
+
+\begin{frame}[fragile]{Visualização do \textit{selection sort}}
+
+    \begin{tikzpicture}
+        \node at (0.5, 2.5) { \textcolor{black}{$k = 3$} };
+        \node at (0.5, 0.5) { $a_s = $ };
+        \draw (1, 0) grid (6, 1);
+
+        \node at (1.5, 1.5) { \texttt{1} };
+        \node at (2.5, 1.5) { \texttt{2} };
+        \node at (3.5, 1.5) { \texttt{3} };
+        \node at (4.5, 1.5) { \texttt{4} };
+        \node at (5.5, 1.5) { \texttt{5} };
+
+        \node at (1.5, 0.5) { $ \mathbf{3} $ };
+        \node at (2.5, 0.5) { $ \mathbf{5} $ };
+        \node at (3.5, 0.5) { $ \mathbf{1} $ };
+        \node at (4.5, 0.5) { $ \mathbf{2} $ };
+        \node at (5.5, 0.5) { $ \mathbf{4} $ };
+
+        \draw[->] (1.5, -0.8) -- (1.5, -0.2);
+        \node at (1.5, -1.2) { $ i $ };
+
+        \draw[->] (5.5, -0.8) -- (5.5, -0.2);
+        \node at (5.5, -1.2) { $ j $ };
+
+    \end{tikzpicture}
+
+\end{frame}
+
+\begin{frame}[fragile]{Visualização do \textit{selection sort}}
+
+    \begin{tikzpicture}
+        \node at (0.5, 2.5) { \textcolor{black}{$k = 3$} };
+        \node at (0.5, 0.5) { $a_s = $ };
+        \draw (1, 0) grid (6, 1);
+
+        \node at (1.5, 1.5) { \texttt{1} };
+        \node at (2.5, 1.5) { \texttt{2} };
+        \node at (3.5, 1.5) { \texttt{3} };
+        \node at (4.5, 1.5) { \texttt{4} };
+        \node at (5.5, 1.5) { \texttt{5} };
+
+        \node at (1.5, 0.5) { \textcolor{blue}{$ \mathbf{1} $} };
+        \node at (2.5, 0.5) { $ \mathbf{5} $ };
+        \node at (3.5, 0.5) { \textcolor{blue}{$ \mathbf{3} $} };
+        \node at (4.5, 0.5) { $ \mathbf{2} $ };
+        \node at (5.5, 0.5) { $ \mathbf{4} $ };
+
+        \draw[->] (1.5, -0.8) -- (1.5, -0.2);
+        \node at (1.5, -1.2) { $ i $ };
+
+        \draw[->] (6.5, -0.8) -- (6.5, -0.2);
+        \node at (6.5, -1.2) { $ j $ };
+
+    \end{tikzpicture}
+
+\end{frame}
+
+\begin{frame}[fragile]{Visualização do \textit{selection sort}}
+
+    \begin{tikzpicture}
+        \node at (0.5, 2.5) { \textcolor{blue}{$k = 3$} };
+        \node at (0.5, 0.5) { $a_s = $ };
+        \draw (1, 0) grid (6, 1);
+
+        \node at (1.5, 1.5) { \texttt{1} };
+        \node at (2.5, 1.5) { \texttt{2} };
+        \node at (3.5, 1.5) { \texttt{3} };
+        \node at (4.5, 1.5) { \texttt{4} };
+        \node at (5.5, 1.5) { \texttt{5} };
+
+        \node at (1.5, 0.5) { \textcolor{black}{$ \mathbf{1} $} };
+        \node at (2.5, 0.5) { $ \mathbf{5} $ };
+        \node at (3.5, 0.5) { \textcolor{black}{$ \mathbf{3} $} };
+        \node at (4.5, 0.5) { $ \mathbf{2} $ };
+        \node at (5.5, 0.5) { $ \mathbf{4} $ };
+
+        \draw[->] (2.5, -0.8) -- (2.5, -0.2);
+        \node at (2.5, -1.2) { $ i $ };
+
+        \draw[->] (3.5, -0.8) -- (3.5, -0.2);
+        \node at (3.5, -1.2) { $ j $ };
+
+    \end{tikzpicture}
+
+\end{frame}
+
+\begin{frame}[fragile]{Visualização do \textit{selection sort}}
+
+    \begin{tikzpicture}
+        \node at (0.5, 2.5) { \textcolor{blue}{$k = 4$} };
+        \node at (0.5, 0.5) { $a_s = $ };
+        \draw (1, 0) grid (6, 1);
+
+        \node at (1.5, 1.5) { \texttt{1} };
+        \node at (2.5, 1.5) { \texttt{2} };
+        \node at (3.5, 1.5) { \texttt{3} };
+        \node at (4.5, 1.5) { \texttt{4} };
+        \node at (5.5, 1.5) { \texttt{5} };
+
+        \node at (1.5, 0.5) { \textcolor{black}{$ \mathbf{1} $} };
+        \node at (2.5, 0.5) { $ \mathbf{5} $ };
+        \node at (3.5, 0.5) { \textcolor{black}{$ \mathbf{3} $} };
+        \node at (4.5, 0.5) { $ \mathbf{2} $ };
+        \node at (5.5, 0.5) { $ \mathbf{4} $ };
+
+        \draw[->] (2.5, -0.8) -- (2.5, -0.2);
+        \node at (2.5, -1.2) { $ i $ };
+
+        \draw[->] (4.5, -0.8) -- (4.5, -0.2);
+        \node at (4.5, -1.2) { $ j $ };
+
+    \end{tikzpicture}
+
+\end{frame}
+
+\begin{frame}[fragile]{Visualização do \textit{selection sort}}
+
+    \begin{tikzpicture}
+        \node at (0.5, 2.5) { \textcolor{black}{$k = 4$} };
+        \node at (0.5, 0.5) { $a_s = $ };
+        \draw (1, 0) grid (6, 1);
+
+        \node at (1.5, 1.5) { \texttt{1} };
+        \node at (2.5, 1.5) { \texttt{2} };
+        \node at (3.5, 1.5) { \texttt{3} };
+        \node at (4.5, 1.5) { \texttt{4} };
+        \node at (5.5, 1.5) { \texttt{5} };
+
+        \node at (1.5, 0.5) { \textcolor{black}{$ \mathbf{1} $} };
+        \node at (2.5, 0.5) { $ \mathbf{5} $ };
+        \node at (3.5, 0.5) { \textcolor{black}{$ \mathbf{3} $} };
+        \node at (4.5, 0.5) { $ \mathbf{2} $ };
+        \node at (5.5, 0.5) { $ \mathbf{4} $ };
+
+        \draw[->] (2.5, -0.8) -- (2.5, -0.2);
+        \node at (2.5, -1.2) { $ i $ };
+
+        \draw[->] (5.5, -0.8) -- (5.5, -0.2);
+        \node at (5.5, -1.2) { $ j $ };
+
+    \end{tikzpicture}
+
+\end{frame}
+
+
+\begin{frame}[fragile]{Visualização do \textit{selection sort}}
+
+    \begin{tikzpicture}
+        \node at (0.5, 2.5) { \textcolor{black}{$k = 4$} };
+        \node at (0.5, 0.5) { $a_s = $ };
+        \draw (1, 0) grid (6, 1);
+
+        \node at (1.5, 1.5) { \texttt{1} };
+        \node at (2.5, 1.5) { \texttt{2} };
+        \node at (3.5, 1.5) { \texttt{3} };
+        \node at (4.5, 1.5) { \texttt{4} };
+        \node at (5.5, 1.5) { \texttt{5} };
+
+        \node at (1.5, 0.5) { \textcolor{black}{$ \mathbf{1} $} };
+        \node at (2.5, 0.5) { \textcolor{blue}{$ \mathbf{2} $} };
+        \node at (3.5, 0.5) { \textcolor{black}{$ \mathbf{3} $} };
+        \node at (4.5, 0.5) { \textcolor{blue}{$ \mathbf{5} $} };
+        \node at (5.5, 0.5) { $ \mathbf{4} $ };
+
+        \draw[->] (2.5, -0.8) -- (2.5, -0.2);
+        \node at (2.5, -1.2) { $ i $ };
+
+        \draw[->] (6.5, -0.8) -- (6.5, -0.2);
+        \node at (6.5, -1.2) { $ j $ };
+
+    \end{tikzpicture}
+
+\end{frame}
+
+\begin{frame}[fragile]{Visualização do \textit{selection sort}}
+
+    \begin{tikzpicture}
+        \node at (0.5, 2.5) { \textcolor{black}{$k = 3$} };
+        \node at (0.5, 0.5) { $a_s = $ };
+        \draw (1, 0) grid (6, 1);
+
+        \node at (1.5, 1.5) { \texttt{1} };
+        \node at (2.5, 1.5) { \texttt{2} };
+        \node at (3.5, 1.5) { \texttt{3} };
+        \node at (4.5, 1.5) { \texttt{4} };
+        \node at (5.5, 1.5) { \texttt{5} };
+
+        \node at (1.5, 0.5) { \textcolor{black}{$ \mathbf{1} $} };
+        \node at (2.5, 0.5) { \textcolor{black}{$ \mathbf{2} $} };
+        \node at (3.5, 0.5) { \textcolor{black}{$ \mathbf{3} $} };
+        \node at (4.5, 0.5) { \textcolor{black}{$ \mathbf{5} $} };
+        \node at (5.5, 0.5) { $ \mathbf{4} $ };
+
+        \draw[->] (3.5, -0.8) -- (3.5, -0.2);
+        \node at (3.5, -1.2) { $ i $ };
+
+        \draw[->] (4.5, -0.8) -- (4.5, -0.2);
+        \node at (4.5, -1.2) { $ j $ };
+
+    \end{tikzpicture}
+
+\end{frame}
+
+\begin{frame}[fragile]{Visualização do \textit{selection sort}}
+
+    \begin{tikzpicture}
+        \node at (0.5, 2.5) { \textcolor{black}{$k = 3$} };
+        \node at (0.5, 0.5) { $a_s = $ };
+        \draw (1, 0) grid (6, 1);
+
+        \node at (1.5, 1.5) { \texttt{1} };
+        \node at (2.5, 1.5) { \texttt{2} };
+        \node at (3.5, 1.5) { \texttt{3} };
+        \node at (4.5, 1.5) { \texttt{4} };
+        \node at (5.5, 1.5) { \texttt{5} };
+
+        \node at (1.5, 0.5) { \textcolor{black}{$ \mathbf{1} $} };
+        \node at (2.5, 0.5) { \textcolor{black}{$ \mathbf{2} $} };
+        \node at (3.5, 0.5) { \textcolor{black}{$ \mathbf{3} $} };
+        \node at (4.5, 0.5) { \textcolor{black}{$ \mathbf{5} $} };
+        \node at (5.5, 0.5) { $ \mathbf{4} $ };
+
+        \draw[->] (3.5, -0.8) -- (3.5, -0.2);
+        \node at (3.5, -1.2) { $ i $ };
+
+        \draw[->] (5.5, -0.8) -- (5.5, -0.2);
+        \node at (5.5, -1.2) { $ j $ };
+
+    \end{tikzpicture}
+
+\end{frame}
+
+\begin{frame}[fragile]{Visualização do \textit{selection sort}}
+
+    \begin{tikzpicture}
+        \node at (0.5, 2.5) { \textcolor{black}{$k = 3$} };
+        \node at (0.5, 0.5) { $a_s = $ };
+        \draw (1, 0) grid (6, 1);
+
+        \node at (1.5, 1.5) { \texttt{1} };
+        \node at (2.5, 1.5) { \texttt{2} };
+        \node at (3.5, 1.5) { \texttt{3} };
+        \node at (4.5, 1.5) { \texttt{4} };
+        \node at (5.5, 1.5) { \texttt{5} };
+
+        \node at (1.5, 0.5) { \textcolor{black}{$ \mathbf{1} $} };
+        \node at (2.5, 0.5) { \textcolor{black}{$ \mathbf{2} $} };
+        \node at (3.5, 0.5) { \textcolor{black}{$ \mathbf{3} $} };
+        \node at (4.5, 0.5) { \textcolor{black}{$ \mathbf{5} $} };
+        \node at (5.5, 0.5) { $ \mathbf{4} $ };
+
+        \draw[->] (3.5, -0.8) -- (3.5, -0.2);
+        \node at (3.5, -1.2) { $ i $ };
+
+        \draw[->] (6.5, -0.8) -- (6.5, -0.2);
+        \node at (6.5, -1.2) { $ j $ };
+
+    \end{tikzpicture}
+
+\end{frame}
+
+\begin{frame}[fragile]{Visualização do \textit{selection sort}}
+
+    \begin{tikzpicture}
+        \node at (0.5, 2.5) { \textcolor{blue}{$k = 5$} };
+        \node at (0.5, 0.5) { $a_s = $ };
+        \draw (1, 0) grid (6, 1);
+
+        \node at (1.5, 1.5) { \texttt{1} };
+        \node at (2.5, 1.5) { \texttt{2} };
+        \node at (3.5, 1.5) { \texttt{3} };
+        \node at (4.5, 1.5) { \texttt{4} };
+        \node at (5.5, 1.5) { \texttt{5} };
+
+        \node at (1.5, 0.5) { \textcolor{black}{$ \mathbf{1} $} };
+        \node at (2.5, 0.5) { \textcolor{black}{$ \mathbf{2} $} };
+        \node at (3.5, 0.5) { \textcolor{black}{$ \mathbf{3} $} };
+        \node at (4.5, 0.5) { \textcolor{black}{$ \mathbf{5} $} };
+        \node at (5.5, 0.5) { $ \mathbf{4} $ };
+
+        \draw[->] (4.5, -0.8) -- (4.5, -0.2);
+        \node at (4.5, -1.2) { $ i $ };
+
+        \draw[->] (5.5, -0.8) -- (5.5, -0.2);
+        \node at (5.5, -1.2) { $ j $ };
+
+    \end{tikzpicture}
+
+\end{frame}
+
+\begin{frame}[fragile]{Visualização do \textit{selection sort}}
+
+    \begin{tikzpicture}
+        \node at (0.5, 2.5) { \textcolor{blue}{$k = 5$} };
+        \node at (0.5, 0.5) { $a_s = $ };
+        \draw (1, 0) grid (6, 1);
+
+        \node at (1.5, 1.5) { \texttt{1} };
+        \node at (2.5, 1.5) { \texttt{2} };
+        \node at (3.5, 1.5) { \texttt{3} };
+        \node at (4.5, 1.5) { \texttt{4} };
+        \node at (5.5, 1.5) { \texttt{5} };
+
+        \node at (1.5, 0.5) { \textcolor{black}{$ \mathbf{1} $} };
+        \node at (2.5, 0.5) { \textcolor{black}{$ \mathbf{2} $} };
+        \node at (3.5, 0.5) { \textcolor{black}{$ \mathbf{3} $} };
+        \node at (4.5, 0.5) { \textcolor{blue}{$ \mathbf{4} $} };
+        \node at (5.5, 0.5) { \textcolor{blue}{$ \mathbf{5} $} };
+
+        \draw[->] (4.5, -0.8) -- (4.5, -0.2);
+        \node at (4.5, -1.2) { $ i $ };
+
+        \draw[->] (6.5, -0.8) -- (6.5, -0.2);
+        \node at (6.5, -1.2) { $ j $ };
+
+    \end{tikzpicture}
+
+\end{frame}
+
+\begin{frame}[fragile]{Visualização do \textit{selection sort}}
+
+    \begin{tikzpicture}
+        \node at (0.5, 2.5) { \textcolor{black}{$k = 5$} };
+        \node at (0.5, 0.5) { $a_s = $ };
+        \draw (1, 0) grid (6, 1);
+
+        \node at (1.5, 1.5) { \texttt{1} };
+        \node at (2.5, 1.5) { \texttt{2} };
+        \node at (3.5, 1.5) { \texttt{3} };
+        \node at (4.5, 1.5) { \texttt{4} };
+        \node at (5.5, 1.5) { \texttt{5} };
+
+        \node at (1.5, 0.5) { \textcolor{black}{$ \mathbf{1} $} };
+        \node at (2.5, 0.5) { \textcolor{black}{$ \mathbf{2} $} };
+        \node at (3.5, 0.5) { \textcolor{black}{$ \mathbf{3} $} };
+        \node at (4.5, 0.5) { \textcolor{black}{$ \mathbf{4} $} };
+        \node at (5.5, 0.5) { \textcolor{black}{$ \mathbf{5} $} };
+
+        \draw[->] (5.5, -0.8) -- (5.5, -0.2);
+        \node at (5.5, -1.2) { $ i $ };
+
+        \draw[->] (6.5, -0.8) -- (6.5, -0.2);
+        \node at (6.5, -1.2) { $ j $ };
+
+    \end{tikzpicture}
+
+\end{frame}
+
+\begin{frame}[fragile]{Implementação do \textit{selection sort} em C++}
+    \inputsnippet{c++}{1}{21}{selection.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Implementação do \textit{selection sort} em C++}
+    \inputsnippet{c++}{22}{42}{selection.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Observações sobre o \textit{selection sort}}
+
+    \begin{itemize}
+        \item O pior caso do algoritmo acontece quando a sequência está ordenado em sentido 
+            contrário, isto é, $\forall i = 2, 3, \ldots, N, (a_i, a_{i - 1})\in R$
+
+        \item No pior caso, é feita $1$ atribuição no início, $6N$ atribuições no laço externo 
+            (considerando 3 atribuições por \code{c++}{swap()}) e
+            \[
+                \sum_{i = 0}^{N - 1} 2(N - i - 1) = 2\sum_{k = 0}^{N - 1} k = N(N - 1)
+            \]
+            atribuições no laço interno
+
+        \item Assim, $f(N) = 1 + 6N + N(N - 1)$ é $O(N^2)$
+
+        \item O \textit{selection sort} é um algoritmo instável \textit{in-place}
+    \end{itemize}
+
+\end{frame}

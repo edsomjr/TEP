@@ -1,0 +1,58 @@
+\section{Macros}
+
+\begin{frame}[fragile]{Dica \#9: Macro para laços \texttt{for}}
+
+    \begin{itemize}
+        \item O uso de macros pode encurtar o tamanho de padrões comuns em códigos C/C++
+
+        \item Um destes padrões é o laço for que faz a travessia de um vetor de $N$ elementos
+
+        \item Além da redução do tamanho, a macro tem a vantagem de evitar erros no incremento
+
+            \inputcode{c++}{mfor.cpp}
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Dica \#10: Macros para \texttt{debug}}
+
+    \begin{itemize}
+        \item Macros podem ser utilizadas para imprimir informações de \textit{debug} do código
+
+        \item Escrevendo as informações de saída em \code{c++}{cerr} a solução poderá ser
+            aceita mesmo com os \textit{logs} ativados (desde que a escrita destes \textit{logs}
+            não gere um TLE)
+
+        \item Os juízes online definem a macro \code{c++}{ONLINE_JUDGE}, que pode ser usada para
+            desabilitar os \textit{logs}
+
+        \item As macros de \textit{log} devem ser simples de usar e criadas para os tipos mais
+            comuns (variáveis de tipo primitivo, vetores, \textit{arrays}, etc)
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de uso de macros de \texttt{log}}
+    \inputcode{c++}{logs.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Dica \#11: Inclusão da biblioteca padrão do C++}
+
+    \begin{itemize}
+        \item A biblioteca padrão do C++ está dividida em várias sub-bibliotecas, cada uma
+            associada a um arquivo \textit{header} diferente
+
+        \item A inclusão apenas dos \textit{headers} necessários acelera o processo de
+            compilação
+
+        \item Contudo, a falta de algum \textit{header} necessário gera um erro de compilação,
+            e a identificação e correção do erro toma tempo
+
+        \item Uma alternativa utilizada por muitos competidores é incluir o \textit{header}
+            \code{c++}{bits/stdc++.h}
+
+        \item Este arquivo faz parte do GCC, e inclui todos os arquivos associados a biblioteca
+            padrão do C++
+    \end{itemize}
+
+\end{frame}

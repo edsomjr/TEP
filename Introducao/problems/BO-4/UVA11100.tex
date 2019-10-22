@@ -1,0 +1,100 @@
+\section{UVA 11100 -- The Trip, 2007}
+
+\begin{frame}[fragile]{Problema}
+
+A number of students are members of a club that travels annually to exotic locations. Their 
+destinations in the past have included Indianapolis, Phoenix, Nashville, Philadelphia, San Jose, 
+Atlanta, Eindhoven, Orlando, Vancouver, Honolulu, Beverly Hills, Prague, Shanghai, and 
+San Antonio. This spring they are hoping to make a similar trip but aren’t quite sure where or when.
+
+An issue with the trip is that their very generous sponsors always give them various knapsacks and 
+other carrying bags that they must pack for their trip home.  As the airline allows only so many 
+pieces of luggage, they decide to pool their gifts and to pack one bag within another so as to 
+minimize the total number of pieces they must carry.
+
+\end{frame}
+
+\begin{frame}[fragile]{Problema}
+
+The bags are all exactly the same shape and differ only in their linear dimension which is a 
+positive integer not exceeding 1000000. A bag with smaller dimension will fit in one with larger 
+dimension. You are to compute which bags to pack within which others so as to minimize the overall 
+number of pieces of luggage (i.e. the number of outermost bags). While maintaining the minimal 
+number of pieces you are also to minimize the total number of bags in any one piece that must be 
+carried.
+
+\end{frame}
+
+\begin{frame}[fragile]{Entrada e saída}
+
+\textbf{Input}
+
+Standard input contains several test cases. Each test case consists of an integer 
+$1\leq n\leq 10000$ giving the number of bags followed by $n$ integers on one or more lines, 
+each giving the dimension of a piece.  A line containing $0$ follows the last test case.
+
+\vspace{0.1in}
+
+\textbf{Output}
+
+For each test case your output should consist of $k$, the minimum number of pieces, followed by 
+$k$ lines, each giving the dimensions of the bags comprising one piece, separated by spaces
+. Each dimension in the input should appear exactly once in the output, and the bags in each piece 
+must fit nested one
+within another. If there is more than one solution, any will do. Output an empty line between cases.
+
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de entradas e saídas}
+
+\begin{minipage}[t]{0.5\textwidth}
+\textbf{Exemplo de Entrada}
+\begin{verbatim}
+6
+1 1 2 2 2 3
+0
+\end{verbatim}
+\end{minipage}
+\begin{minipage}[t]{0.45\textwidth}
+\textbf{Exemplo de Saída}
+\begin{verbatim}
+3
+1 2
+1 2
+3 2
+\end{verbatim}
+\end{minipage}
+\end{frame}
+
+\begin{frame}[fragile]{Solução $O(N\log N)$}
+
+    \begin{itemize}
+        \item O principal ponto a ser observado é que objetos com a mesma dimensão devem ir
+            em bolsas distintas
+
+        \item Logo, o número mínimo de bolsas necessárias é igual ao número de ocorrências $n$ da
+            dimensão $x$ mais frequente
+
+        \item Alocado o espaço para as bolsas, basta distribuir uniformemente os demais objetos 
+            entre as bolsas, do maior para o menor
+
+        \item Esta distribuição garante que há, no máximo, um elemento com dimensão $x$ em cada
+            bolsa, e que as bolsas estarão ordenadas, do maior para o menor
+
+        \item Por conta da ordenação utilizada na construção do histograma, esta solução tem 
+            complexidade $O(N\log N)$
+   \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Solução $O(N\log N)$}
+    \inputsnippet{cpp}{1}{21}{11100.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Solução $O(N\log N)$}
+    \inputsnippet{cpp}{22}{42}{11100.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Solução $O(N\log N)$}
+    \inputsnippet{cpp}{43}{63}{11100.cpp}
+\end{frame}

@@ -1,0 +1,26 @@
+\section{Listas duplamente encadeadas em C++}
+
+\begin{frame}[fragile]{\texttt{list}}
+
+    \begin{itemize}
+        \item Desde a versão C++, a linguagem C++ oferece uma implementação de listas
+            duplamente encadeadas: o contêiner \code{c}{list}
+
+        \item Ao contrário da \code{c}{forward_list}, seus iteradores são bidirecionais,
+            permitindo a travessia em ambos sentidos
+
+        \item Também de forma diferente da \code{c}{forward_list}, este contêiner possui o
+            método \code{c}{size()}
+
+        \item As inserções e remoções constantes devem ser feitas através dos métodos
+            \code{c}{push_front(), push_back(), pop_front()} e \code{c}{pop_back()}
+
+        \item Também está disponível o método \code{c}{insert()}, que insere um elemento
+            logo após o iterador indicado em complexidade constante
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de uso de \texttt{list}}
+    \inputsnippet{c++}{1}{21}{list.cpp}
+\end{frame}

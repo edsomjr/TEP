@@ -1,0 +1,121 @@
+\section{Exemplos de funções {\it hash}}
+
+\begin{frame}{Soma dos elementos}
+
+	\begin{table}
+		\begin{tabularx}{0.95\textwidth}{>{\bfseries\columncolor[gray]{0.85}}l X}
+			\toprule
+			Chave &  Uma {string $K$} \\
+			\midrule
+			Algoritmo &  Atribui-se um código numérico para cada um dos caracteres que aparecem 
+            na {string} $K$ e somam-se estes valores \\ 
+			\midrule
+			Nível de colisão & Alto \\
+			\bottomrule
+		\end{tabularx}
+	\end{table}
+
+    \inputcode{cpp}{hsum.cpp}
+\end{frame}  
+ 
+\begin{frame}{Resto da divisão}
+
+	\begin{table}
+		\centering
+		\begin{tabularx}{0.95\textwidth}{>{\bfseries\columncolor[gray]{0.85}}l X}
+			\toprule
+			Chave &  Um inteiro $K$ \\
+			\midrule
+			Algoritmo &  Obtêm-se o resto da divisão da chave $K$ pelo tamanho $T$ da tabela. De preferência, $T$ deve ser 
+			um número primo \\ 
+			\midrule
+			Nível de colisão & Inversamente proporcional a $T$ \\
+			\bottomrule
+		\end{tabularx}
+	\end{table}
+
+    \inputcode{cpp}{hdiv.cpp}
+\end{frame}  
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{Enlaçamento deslocado}
+
+	\begin{table}
+		\centering
+
+		\begin{tabularx}{0.95\textwidth}{>{\bfseries\columncolor[gray]{0.85}}l X}
+			\toprule
+			Chave &  Uma string $K$ \\
+			\midrule
+			Algoritmo &  Divide-se a string em $N$ partes de, no máximo, $m$ caracteres, e 
+            computa-se a chave aplicando-se a operação \texttt{XOR} em todas as partes \\ 
+			\midrule
+			Nível de colisão & Médio \\
+			\bottomrule
+		\end{tabularx}
+	\end{table}
+
+    \inputcode{cpp}{hshift.cpp}
+
+\end{frame}  
+ 
+\begin{frame}{Enlaçamento no limite}
+
+	\begin{table}
+		\centering
+
+		\begin{tabularx}{0.95\textwidth}{>{\bfseries\columncolor[gray]{0.85}}l X}
+			\toprule
+			Chave &  Uma string $K$ \\
+			\midrule
+			Algoritmo &  Variante do enlaçamento deslocado. Divide-se a chave eme 3 partes, e se 
+            enlaça os extremos com a parte do meio invertida \\ 
+			\midrule
+			Nível de colisão & Médio \\
+			\bottomrule
+		\end{tabularx}
+	\end{table}
+
+    \inputcode{cpp}{hlimit.cpp}
+
+\end{frame}  
+ 
+\begin{frame}{Meio quadrado}
+
+	\begin{table}
+		\centering
+
+		\begin{tabularx}{0.95\textwidth}{>{\bfseries\columncolor[gray]{0.85}}l X}
+			\toprule
+			Chave &  Um inteiro $K$ \\
+			\midrule
+			Algoritmo &  Eleva-se $K$ ao quadrado e toma-se a parte central do resultado \\ 
+			\midrule
+			Nível de colisão & Médio \\
+			\bottomrule
+		\end{tabularx}
+	\end{table}
+
+    \inputcode{cpp}{hsquare.cpp}
+\end{frame}  
+
+\begin{frame}{Polinomial}
+
+	\begin{table}
+		\centering
+
+		\begin{tabularx}{0.95\textwidth}{>{\bfseries\columncolor[gray]{0.85}}l X}
+			\toprule
+			Chave &  Uma string $K$ com $N$ caracteres \\
+			\midrule
+			Algoritmo &  $g(x)$ é um polinômio de grau $N - 1$ com coeficientes $a_i = K[i]$ e 
+                $h(K) = g(p)\ (\mbox{mod}\ T)$, onde $T$ é o tamanho da tabela e $p \neq T$ é 
+                primo\\
+			\midrule
+			Nível de colisão & Baixo \\
+			\bottomrule
+		\end{tabularx}
+	\end{table}
+
+    \inputcode{cpp}{hpoly.cpp}
+\end{frame}  

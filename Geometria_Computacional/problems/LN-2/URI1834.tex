@@ -1,0 +1,110 @@
+\section{URI 1834 -- Vogons!}
+
+\begin{frame}[fragile]{Problema}
+
+Os vogons são uma raça alienígena que habita a Vogosfera, segundo o Guia do Mochileiro das Galáxias, escrito por Douglas Adams. Nas palavras do próprio autor:
+
+\textit{
+\lq\lq Here is what to do if you want to get a lift from a Vogon: forget it. They are one of the most unpleasant races in the Galaxy. Not actually evil, but bad-tempered, bureaucratic, officious and callous. They wouldn't even lift a finger to save their own grandmothers from the Ravenous Bugblatter Beast of Traal without orders - signed in triplicate, sent in, sent back, queried, lost, found, subjected to public inquiry, lost again, and finally buried in soft peat for three months and recycled as firelighters. The best way to get a drink out of a Vogon is to stick your finger down his throat, and the best way to irritate him is to feed his grandmother to the Ravenous Bugblatter Beast of Traal. On no account should you allow a Vogon to read poetry at you\rq\rq.
+}
+
+\end{frame}
+
+\begin{frame}[fragile]{Problema}
+No romance, os vogons foram os responsáveis pela destruição da Terra, pois ela ficava na rota de construção de uma autoestrada intergalática. Este é o típico modo de trabalho vogon: muitas raças já foram exterminadas e planetas inteiros destruídos para que o trânsito entre as galáxias ficasse menos congestionado.
+
+Dados dois pontos de referência, pelos quais a nova autoestrada intergalática passará em linha reta, e as coordenadas e habitantes dos planetas do setor espacial, escreva um programa que gere um relatório para os vogons.
+
+\end{frame}
+
+\begin{frame}[fragile]{Entrada e saída}
+
+\textbf{Entrada}
+
+A primeira linha da entrada contém as coordenadas $X_1, Y_1, X_2, Y_2$ $(-10.000 \leq X_i, Y_i \leq 10.000)$ 
+dos pontos de referência $P_1$ e $P_2$ pelos quais a autoestrada passará em linha reta, separadas por um espaço em branco. As coordenadas são números inteiros e a unidade de distância é o ano-luz.
+
+A segunda linha da entrada contém o número $N (1 \leq N \leq 1.000)$ de planetas que fazem parte do 
+setor espacial onde a estrada passará. As próximas $N$ linhas contém, cada uma, as coordenadas $X$ e $Y$ $(-10.000 \leq X, Y \leq 10.000)$ do planeta e o número $H$ $(1 \leq H \leq 100.000)$ de habitantes, em bilhões. Estes valores são números inteiros separados por espaços em branco.
+\end{frame}
+
+\begin{frame}[fragile]{Entrada e saída}
+\textbf{Saída}
+
+O relatório a ser impresso contém várias linhas. A primeira delas deverá conter a mensagem 
+\lq\lq Relatorio Vogon \#35987-2\rq\rq. Em seguida, deve ser impressa, em uma linha, a mensagem \lq\lq Distancia entre referencias: $d$ anos-luz\rq\rq, onde $d$ é a distância entre os dois pontos de referência pelos quais a autoestrada deve passar, em anos-luz, com duas casas decimais de precisão.
+
+Na linha seguinte deve ser impressa a mensagem \lq\lq Setor Oeste:\rq\rq\ e, nas duas linhas seguintes, as mensagens \lq\lq $P$ planeta(s)\rq\rq\ e \lq\lq $H$ bilhao(oes) de habitante(s)\rq\rq, onde $P$ é o número de planetas que ficaram à esquerda da autoestrada, quando se viaja no sentido do primeiro ponto de referência ao segundo, e $H$ é o total de habitantes destes planetas. De modo semelhante, devem ser produzidas três mensagens equivalentes para o Setor Leste, que fica à direita da autoestrada.
+\end{frame}
+
+\begin{frame}[fragile]{Entrada e saída}
+Por fim, deve ser impressa a mensagem: \lq\lq Casualidades: $P$ planeta(s)\rq\rq, onde $P$ é o número de planetas que estavam na rota da construção da autoestrada e, naturalmente, tiveram que ser dizimados.
+
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de entradas e saídas}
+
+\begin{minipage}[t]{0.3\textwidth}
+\textbf{Sample Input}
+\begin{verbatim}
+-10 -10 30 30
+5
+1 10 6
+5 5 8
+2 0 4
+-3 -3 30
+-2 5 3
+\end{verbatim}
+\end{minipage}
+\begin{minipage}[t]{0.65\textwidth}
+\textbf{Sample Output}
+\begin{verbatim}
+Relatorio Vogon #35987-2
+Distancia entre referencias: 56.57 anos-luz
+Setor Oeste:
+- 2 planeta(s)
+- 9 bilhao(oes) de habitante(s)
+Setor Leste:
+- 1 planeta(s)
+- 4 bilhao(oes) de habitante(s)
+Casualidades: 2 planeta(s)
+\end{verbatim}
+\end{minipage}
+\end{frame}
+
+\begin{frame}[fragile]{Observações sobre o problema}
+
+    \begin{itemize}
+        \item A distância entre os dois pontos pode ser computada diretamente usando a função
+            $\code{c}{hypot}$
+
+        \item Os planetas $R$ que serão destruídos são colineares com os pontos de referência
+            $P$ e $Q$ (isto é, $D(P, Q, R) = 0$)
+
+        \item O discriminante também é usado para determinar à localização dos pontos: se 
+            $D(P, Q, R) < 0$, o planeta está à esquerda do sentido $PQ$; se $D(P, Q, R) > 0$,
+            o planeta está à direita
+
+        \item Exceto pela questão da distância, todo o restante do problema pode ser codificado
+            com aritmética inteira
+
+        \item A complexidade da solução é $O(N)$
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Solução AC com complexidade $O(N)$}
+    \inputsnippet{cpp}{1}{21}{ac.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Solução AC com complexidade $O(N)$}
+    \inputsnippet{cpp}{22}{42}{ac.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Solução AC com complexidade $O(N)$}
+    \inputsnippet{cpp}{43}{62}{ac.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Solução AC com complexidade $O(N)$}
+    \inputsnippet{cpp}{63}{83}{ac.cpp}
+\end{frame}

@@ -1,0 +1,61 @@
+\section{Esfera}
+
+\begin{frame}[fragile]{Definição de esfera}
+
+    \begin{itemize}
+        \item A esfera é o conjunto de pontos do espaço tridimensional que são equidistantes
+            de um ponto fixo
+
+        \item Este ponto fixo é denominado centro $C$ da esfera
+
+        \item A distância de um ponto da esfera a $C$ é denominada raio $r$
+
+        \item A esfera por ser representa, em coordenadas cartesianas, pela equação abaixo,
+onde ($x_0, y_0$) são as coordenadas do centro e $r$ é o raio
+        \[
+            (x - x_0)^2 + (y - y_0)^2 + (z - z_0)^2 = r^2
+        \]
+
+        \item Pode ser útil, porém, utilizar a representação da esfera em coordenadas esféricas, 
+            onde $r$ é o raio, $\theta$ um ângulo que varia de 0 a $2\pi$ e $\varphi$ é um ângulo 
+            que varia de 0 a $\pi$:
+        \[
+            \begin{array}{l}
+                x = x_0 + r\cos \theta\sin \varphi \\
+                y = y_0 + r\sin \theta\sin \varphi \\
+                z = z_0 + r\cos \varphi \\
+            \end{array}
+        \]
+
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Área e Volume}
+
+    \begin{itemize}
+        \item A área da superfície da esfera é dada por $A = 4\pi r^2$, onde $r$ é o raio
+            da esfera
+
+        \item O seu volume é igual a 
+        \[
+            V = \frac{4}{3}\pi r^3
+        \]
+
+        \item Estas expressões podem ser verificadas através das integrais de área e volume 
+            em coordenadas esféricas, cujo jacobiano é dado por $r^2\sin(\varphi)$:
+        \[
+            A = \int_0^\pi \int_0^{2\pi} r^2\sin(\varphi)\ d\theta d\varphi
+        \]
+        e
+        \[
+            V = \int_0^R \int_0^\pi \int_0^{2\pi} r^2\sin(\varphi)\ d\theta d\varphi dR
+        \]
+
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Implementação do cálculo da área e do volume da esfera}
+    \inputcode{cpp}{sphere.cpp}
+\end{frame}

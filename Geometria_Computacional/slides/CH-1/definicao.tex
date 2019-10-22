@@ -1,0 +1,29 @@
+\section{Definição}
+
+\begin{frame}[fragile]{Envoltório convexo}
+
+    \begin{itemize}
+        \item Dado um conjunto de $N$ pontos $P$, o envoltório convexo $C_H(P)$ de $P$
+        (\textit{convex hull}) é o menor polígono convexo tal que cada ponto de $P$ 
+        ou pertence ao interior de $C_H(P)$ ou é um de seus vértices
+
+        \item O termo menor na definição acima se refere à menor área
+
+        \item O envoltório convexo não é único, pois não impõem restrição na orientação
+            do polígono
+
+        \item Existem vários algoritmos para se determinar o envoltório convexo
+
+        \item O mais conhecido é o algoritmo de Graham
+
+        \item Além deles, outros dois algoritmos importantes são a cadeia monótona de
+        Andrew e a marcha de Jarvis
+
+        \item Como os vértices de $C_H(P)$ são pontos de $P$, a essência dos algoritmos é 
+            determinar, para cada ponto de $P$, se ele pertence ou não ao $C_H(P)$
+
+    \end{itemize}
+
+\end{frame}
+
+\input{ch.tex}

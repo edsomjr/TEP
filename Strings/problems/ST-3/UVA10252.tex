@@ -1,0 +1,77 @@
+\section{UVA 10252 -- Commom Permutation}
+
+\begin{frame}[fragile]{Problema}
+
+Given two strings of lowercase letters, $a$ and $b$, print the longest string $x$ of lowercase 
+letters such that there is a permutation of $x$ that is a subsequence of $a$ and there is a 
+permutation of $x$ that is a subsequence of $b$
+
+\end{frame}
+
+\begin{frame}[fragile]{Entrada e saída}
+
+\textbf{Input}
+
+Input file contains several lines of input. Consecutive two lines make a set of input. That means 
+in the input file line 1 and 2 is a set of input, line 3 and 4 is a set of input and so on. The 
+first line of a pair contains $a$ and the second contains $b$. Each string is on a separate line 
+and consists of at most 1000 lowercase letters.
+
+\vspace{0.1in}
+
+\textbf{Output}
+
+For each set of input, output a line containing $x$. If several $x$ satisfy the criteria above, 
+choose the first one in alphabetical order.
+
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de entradas e saídas}
+
+\begin{minipage}[t]{0.5\textwidth}
+\textbf{Exemplo de Entrada}
+\begin{verbatim}
+pretty
+women
+walking
+down
+the
+street
+\end{verbatim}
+\end{minipage}
+\begin{minipage}[t]{0.45\textwidth}
+\textbf{Exemplo de Saída}
+\begin{verbatim}
+e
+nw
+et
+\end{verbatim}
+\end{minipage}
+\end{frame}
+
+\begin{frame}[fragile]{Solução}
+
+    \begin{itemize}
+        \item Uma string $s$ de tamanho $|s| = n$ tem $2^n$ subsequências, não necessariamente
+            distintas
+
+        \item Avaliar todas estas subsequências leva ao TLE
+
+        \item Porém, se as strings forem visualizadas como conjuntos com elementos repetidos,
+            a maior subsequência comum entre ambas strings é a interseção entre estes conjuntos
+
+        \item Esta interseção pode ser obtida por meio da função \texttt{set\_intersection()} da STL
+
+        \item Por fim, como existem diferentes permutações desta interseção, é preciso ordená-la
+            para que se torne a primeira, na ordem lexicográfica
+   \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Solução AC}
+    \inputsnippet{cpp}{1}{16}{10252.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Solução AC}
+    \inputsnippet{cpp}{17}{36}{10252.cpp}
+\end{frame}

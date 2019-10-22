@@ -1,0 +1,64 @@
+\section{Ponteiros e arquivos}
+
+\begin{frame}[fragile]{Leitura e escrita em arquivos em C}
+
+	\begin{itemize}
+		\item Em C, a manipulação de arquivos é feita através da estrutura \code{c}{FILE}
+         e as funções associadas a ela, que fazem parte da biblioteca \code{c}{stdio.h}
+
+		\item A abertura de arquivos em C é feita através da função \code{c}{fopen()}, cuja 
+        assinatura é
+        \inputsyntax{c}{fopen.st}
+		\item Os parâmetros da função \code{c}{fopen()} são o caminho para o arquivo (\code{c}{path}) 
+        e o modo de abertura: \lq\lq \code{c}{r}\rq\rq\ para {leitura}, \lq\lq \code{c}{w}\rq\rq\ 
+        para escrita e \lq\lq \code{c}{a}\rq\rq\ para anexar
+
+		\item O retorno é um ponteiro para a estrutura \code{c}{FILE}, que deve ser passada         para as diversas funções que realizam a leitura e a escrita de dados em arquivo, além das 
+        funções de posicionamento do cursor
+
+	\end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Leitura e escrita em arquivos em C}
+
+	\begin{itemize}
+		\item Entre as funções de escrita, as mais comuns são: \code{c}{fprintf(), fputc(), fwrite()}
+
+		\item Entre as funções de leitura, as mais comuns são: \code{c}{fscanf(), fgetc(), fread()}
+
+		\item As funções para manipulação do cursor são: \code{c}{fseek(), ftell(), rewind()}
+
+		\item Ao finalizar o uso de um arquivo, a estrutura \code{c}{FILE} deve ser 
+        desalocada através da chamada da função \code{c}{fclose()}
+
+		\item Em C++, a manipulação de arquivos é feita pelas classes da biblioteca \code{c}{fstream}
+
+        \item Uma vez inicializados os fluxos de entrada e saída da \code{c}{fstream}, a leitura
+        e a escrita são feitas da mesma forma que são feitas com as classes \code{c}{cin} e 
+        \code{c}{cout}
+	\end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de manipulação de arquivos em C}
+    \inputcode{c}{cripto.h}
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de manipulação de arquivos em C}
+    \inputcode{c}{cripto.c}
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de manipulação de arquivos em C}
+    \inputsnippet{c}{1}{21}{criptofile.c}
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de manipulação de arquivos em C}
+    \inputsnippet{c}{23}{42}{criptofile.c}
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de manipulação de arquivos em C}
+    \inputsnippet{c}{43}{63}{criptofile.c}
+\end{frame}
+
+

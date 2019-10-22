@@ -1,0 +1,421 @@
+\section{Filas}
+
+\begin{frame}[fragile]{Definição de fila}
+
+    \begin{itemize}
+        \item Uma fila é um tipo de dados abstrato cuja interface define que o primeiro elemento
+            inserido na pilha é o primeiro a ser removido
+
+        \item Esta estratégia de inserção e remoção é denominada FIFO -- \textit{First In, First
+            Out}
+
+        \item De acordo com sua interface, uma fila não permite acesso aleatório ao seus
+            elementos (apenas o elemento do topo da fila pode ser acessado)
+
+        \item As operações de inserção e remoção devem ter complexidade $O(1)$
+
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Interface de uma fila}
+
+    \begin{table}
+        \centering
+        \begin{tabularx}{0.95\textwidth}{lcX}
+            \toprule
+            \textbf{Método} & \textbf{Complexidade} & \textbf{Descrição} \\
+            \midrule
+            \texttt{clear(F)} & $O(N)$ & Esvazia a fila \texttt{F}, removendo todos os seus elementos \\
+            \rowcolor[gray]{0.8}
+            \texttt{empty(F)} & $O(1)$ & Verifica se a fila \texttt{F} está vazia ou não \\
+            \texttt{push(F, x)} & $O(1)$ & Insere o elemento \texttt{x} no final da fila \texttt{F} \\
+            \rowcolor[gray]{0.8}
+            \texttt{pop(F)} & $O(1)$ & Remove o elemento que está no início da fila \texttt{F} \\
+            \texttt{front(F)} & $O(1)$ & Retorna o elemento que está no início da fila \texttt{F} \\
+            \rowcolor[gray]{0.8}
+            \texttt{size(F)} & $O(1)$ & Retorna o número de elementos armazenados na fila \texttt{F} \\
+            \bottomrule
+        \end{tabularx}
+    \end{table}
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo dos métodos da interface de uma fila}
+
+    \begin{tikzpicture}
+
+        \begin{scope}
+            \node[anchor=west] at (0, 6) { \textbf{Método} };
+            \node[anchor=west] at (6, 6) { \textbf{Retorno} };
+
+            \node[anchor=west] at (0, 3) { \textbf{Fila} };
+            \draw (1, 0) -- (9, 0);
+
+            \node[anchor=west] at (0, 5) { \texttt{empty(F)} };
+
+%            \node (4, 0) rectangle (5, 1);
+        \end{scope}
+
+    \end{tikzpicture}
+
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo dos métodos da interface de uma fila}
+
+    \begin{tikzpicture}
+
+        \begin{scope}
+            \node[anchor=west] at (0, 6) { \textbf{Método} };
+            \node[anchor=west] at (6, 6) { \textbf{Retorno} };
+            \node[anchor=west] at (6, 5) { \textbf{\texttt{True}} };
+
+            \node[anchor=west] at (0, 3) { \textbf{Fila} };
+            \draw (1, 0) -- (9, 0);
+
+            \node[anchor=west] at (0, 5) { \texttt{empty(F)} };
+
+%            \node (4, 0) rectangle (5, 1);
+        \end{scope}
+
+    \end{tikzpicture}
+
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo dos métodos da interface de uma fila}
+
+    \begin{tikzpicture}
+
+        \begin{scope}
+            \node[anchor=west] at (0, 6) { \textbf{Método} };
+            \node[anchor=west] at (6, 6) { \textbf{Retorno} };
+%            \node[anchor=west] at (6, 5) { \textbf{\texttt{True}} };
+
+            \node[anchor=west] at (0, 3) { \textbf{Fila} };
+            \draw (1, 0) -- (9, 0);
+
+            \node[anchor=west] at (0, 5) { \texttt{push(F, 5)} };
+
+%            \node (4, 0) rectangle (5, 1);
+        \end{scope}
+
+    \end{tikzpicture}
+
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo dos métodos da interface de uma fila}
+
+    \begin{tikzpicture}
+
+        \begin{scope}
+            \node[anchor=west] at (0, 6) { \textbf{Método} };
+            \node[anchor=west] at (6, 6) { \textbf{Retorno} };
+%            \node[anchor=west] at (6, 5) { \textbf{\texttt{True}} };
+
+            \node[anchor=west] at (0, 3) { \textbf{Fila} };
+            \draw (1, 0) -- (9, 0);
+
+            \node[anchor=west] at (0, 5) { \texttt{push(F, 5)} };
+
+            \draw (2, 0) rectangle (3, 1);
+            \node at (2.5, 0.5) { \texttt{5} };
+        \end{scope}
+
+    \end{tikzpicture}
+
+\end{frame}
+
+
+\begin{frame}[fragile]{Exemplo dos métodos da interface de uma fila}
+
+    \begin{tikzpicture}
+
+        \begin{scope}
+            \node[anchor=west] at (0, 6) { \textbf{Método} };
+            \node[anchor=west] at (6, 6) { \textbf{Retorno} };
+%            \node[anchor=west] at (6, 5) { \textbf{\texttt{True}} };
+
+            \node[anchor=west] at (0, 3) { \textbf{Fila} };
+            \draw (1, 0) -- (9, 0);
+
+            \node[anchor=west] at (0, 5) { \texttt{push(F, 11)} };
+
+            \draw (2, 0) rectangle (3, 1);
+            \node at (2.5, 0.5) { \texttt{5} };
+        \end{scope}
+
+    \end{tikzpicture}
+
+\end{frame}
+
+
+\begin{frame}[fragile]{Exemplo dos métodos da interface de uma fila}
+
+    \begin{tikzpicture}
+
+        \begin{scope}
+            \node[anchor=west] at (0, 6) { \textbf{Método} };
+            \node[anchor=west] at (6, 6) { \textbf{Retorno} };
+%            \node[anchor=west] at (6, 5) { \textbf{\texttt{True}} };
+
+            \node[anchor=west] at (0, 3) { \textbf{Fila} };
+            \draw (1, 0) -- (9, 0);
+
+            \node[anchor=west] at (0, 5) { \texttt{push(F, 11)} };
+
+            \draw (2, 0) rectangle (3, 1);
+            \node at (2.5, 0.5) { \texttt{5} };
+
+            \draw (4, 0) rectangle (5, 1);
+            \node at (4.5, 0.5) { \texttt{11} };
+        \end{scope}
+
+    \end{tikzpicture}
+
+\end{frame}
+
+
+\begin{frame}[fragile]{Exemplo dos métodos da interface de uma fila}
+
+    \begin{tikzpicture}
+
+        \begin{scope}
+            \node[anchor=west] at (0, 6) { \textbf{Método} };
+            \node[anchor=west] at (6, 6) { \textbf{Retorno} };
+%            \node[anchor=west] at (6, 5) { \textbf{\texttt{True}} };
+
+            \node[anchor=west] at (0, 3) { \textbf{Fila} };
+            \draw (1, 0) -- (9, 0);
+
+            \node[anchor=west] at (0, 5) { \texttt{push(F, 7)} };
+
+            \draw (2, 0) rectangle (3, 1);
+            \node at (2.5, 0.5) { \texttt{5} };
+
+            \draw (4, 0) rectangle (5, 1);
+            \node at (4.5, 0.5) { \texttt{11} };
+        \end{scope}
+
+    \end{tikzpicture}
+
+\end{frame}
+
+
+\begin{frame}[fragile]{Exemplo dos métodos da interface de uma fila}
+
+    \begin{tikzpicture}
+
+        \begin{scope}
+            \node[anchor=west] at (0, 6) { \textbf{Método} };
+            \node[anchor=west] at (6, 6) { \textbf{Retorno} };
+%            \node[anchor=west] at (6, 5) { \textbf{\texttt{True}} };
+
+            \node[anchor=west] at (0, 3) { \textbf{Fila} };
+            \draw (1, 0) -- (9, 0);
+
+            \node[anchor=west] at (0, 5) { \texttt{push(F, 7)} };
+
+            \draw (2, 0) rectangle (3, 1);
+            \node at (2.5, 0.5) { \texttt{5} };
+
+            \draw (4, 0) rectangle (5, 1);
+            \node at (4.5, 0.5) { \texttt{11} };
+
+            \draw (6, 0) rectangle (7, 1);
+            \node at (6.5, 0.5) { \texttt{7} };
+        \end{scope}
+
+    \end{tikzpicture}
+
+\end{frame}
+
+
+\begin{frame}[fragile]{Exemplo dos métodos da interface de uma fila}
+
+    \begin{tikzpicture}
+
+        \begin{scope}
+            \node[anchor=west] at (0, 6) { \textbf{Método} };
+            \node[anchor=west] at (6, 6) { \textbf{Retorno} };
+%            \node[anchor=west] at (6, 5) { \textbf{\texttt{True}} };
+
+            \node[anchor=west] at (0, 3) { \textbf{Fila} };
+            \draw (1, 0) -- (9, 0);
+
+            \node[anchor=west] at (0, 5) { \texttt{pop(F)} };
+
+            \draw (2, 0) rectangle (3, 1);
+            \node at (2.5, 0.5) { \texttt{5} };
+
+            \draw (4, 0) rectangle (5, 1);
+            \node at (4.5, 0.5) { \texttt{11} };
+
+            \draw (6, 0) rectangle (7, 1);
+            \node at (6.5, 0.5) { \texttt{7} };
+        \end{scope}
+
+    \end{tikzpicture}
+
+\end{frame}
+
+
+\begin{frame}[fragile]{Exemplo dos métodos da interface de uma fila}
+
+    \begin{tikzpicture}
+
+        \begin{scope}
+            \node[anchor=west] at (0, 6) { \textbf{Método} };
+            \node[anchor=west] at (6, 6) { \textbf{Retorno} };
+%            \node[anchor=west] at (6, 5) { \textbf{\texttt{True}} };
+
+            \node[anchor=west] at (0, 3) { \textbf{Fila} };
+            \draw (1, 0) -- (9, 0);
+
+            \node[anchor=west] at (0, 5) { \texttt{pop(F)} };
+
+            \draw (2, 0) rectangle (3, 1);
+            \node at (2.5, 0.5) { \texttt{11} };
+
+            \draw (4, 0) rectangle (5, 1);
+            \node at (4.5, 0.5) { \texttt{7} };
+        \end{scope}
+
+    \end{tikzpicture}
+
+\end{frame}
+
+
+\begin{frame}[fragile]{Exemplo dos métodos da interface de uma fila}
+
+    \begin{tikzpicture}
+
+        \begin{scope}
+            \node[anchor=west] at (0, 6) { \textbf{Método} };
+            \node[anchor=west] at (6, 6) { \textbf{Retorno} };
+%            \node[anchor=west] at (6, 5) { \textbf{\texttt{True}} };
+
+            \node[anchor=west] at (0, 3) { \textbf{Fila} };
+            \draw (1, 0) -- (9, 0);
+
+            \node[anchor=west] at (0, 5) { \texttt{size(F)} };
+
+            \draw (2, 0) rectangle (3, 1);
+            \node at (2.5, 0.5) { \texttt{11} };
+
+            \draw (4, 0) rectangle (5, 1);
+            \node at (4.5, 0.5) { \texttt{7} };
+        \end{scope}
+
+    \end{tikzpicture}
+
+\end{frame}
+
+
+\begin{frame}[fragile]{Exemplo dos métodos da interface de uma fila}
+
+    \begin{tikzpicture}
+
+        \begin{scope}
+            \node[anchor=west] at (0, 6) { \textbf{Método} };
+            \node[anchor=west] at (6, 6) { \textbf{Retorno} };
+            \node[anchor=west] at (6, 5) { \texttt{2} };
+
+            \node[anchor=west] at (0, 3) { \textbf{Fila} };
+            \draw (1, 0) -- (9, 0);
+
+            \node[anchor=west] at (0, 5) { \texttt{size(F)} };
+
+            \draw (2, 0) rectangle (3, 1);
+            \node at (2.5, 0.5) { \texttt{11} };
+
+            \draw (4, 0) rectangle (5, 1);
+            \node at (4.5, 0.5) { \texttt{7} };
+        \end{scope}
+
+    \end{tikzpicture}
+
+\end{frame}
+
+
+\begin{frame}[fragile]{Exemplo dos métodos da interface de uma fila}
+
+    \begin{tikzpicture}
+
+        \begin{scope}
+            \node[anchor=west] at (0, 6) { \textbf{Método} };
+            \node[anchor=west] at (6, 6) { \textbf{Retorno} };
+%            \node[anchor=west] at (6, 5) { \texttt{2} };
+
+            \node[anchor=west] at (0, 3) { \textbf{Fila} };
+            \draw (1, 0) -- (9, 0);
+
+            \node[anchor=west] at (0, 5) { \texttt{front(F)} };
+
+            \draw (2, 0) rectangle (3, 1);
+            \node at (2.5, 0.5) { \texttt{11} };
+
+            \draw (4, 0) rectangle (5, 1);
+            \node at (4.5, 0.5) { \texttt{7} };
+        \end{scope}
+
+    \end{tikzpicture}
+
+\end{frame}
+
+
+\begin{frame}[fragile]{Exemplo dos métodos da interface de uma fila}
+
+    \begin{tikzpicture}
+
+        \begin{scope}
+            \node[anchor=west] at (0, 6) { \textbf{Método} };
+            \node[anchor=west] at (6, 6) { \textbf{Retorno} };
+            \node[anchor=west] at (6, 5) { \texttt{11} };
+
+            \node[anchor=west] at (0, 3) { \textbf{Fila} };
+            \draw (1, 0) -- (9, 0);
+
+            \node[anchor=west] at (0, 5) { \texttt{front(F)} };
+
+            \draw (2, 0) rectangle (3, 1);
+            \node at (2.5, 0.5) { \texttt{11} };
+
+            \draw (4, 0) rectangle (5, 1);
+            \node at (4.5, 0.5) { \texttt{7} };
+        \end{scope}
+
+    \end{tikzpicture}
+
+\end{frame}
+
+\begin{frame}[fragile]{Implementação de uma fila}
+
+    \begin{itemize}
+        \item Como uma pilha é um tipo de dados abstrato, ela não impõe nenhuma restrição
+            quanto à sua implementação
+
+        \item É possível implementar uma pilha por composição, usando listas encadeadas ou um
+            deque
+
+        \item A estratégia FIFO precisa de operações de inserção e remoção eficientes nos
+            dois extremos do contêiner, o que inviabiliza o uso do \code{c}{vector} e da
+            \code{c}{forward_list}
+
+        \item Se há uma estimativa do tamanho máximo de elementos a serem inseridos na fila,
+            é possível usar um \textit{array} estático e o mesmo princípio de uma lista circular 
+            para implementar uma fila
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de implementação de fila em C++}
+    \inputsnippet{c++}{1}{21}{queue.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de implementação de fila em C++}
+    \inputsnippet{c++}{22}{42}{queue.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de implementação de fila em C++}
+    \inputsnippet{c++}{44}{64}{queue.cpp}
+\end{frame}
+

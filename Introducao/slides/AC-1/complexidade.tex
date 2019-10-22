@@ -1,0 +1,109 @@
+\section{Complexidade Computacional e Assintótica}
+
+\begin{frame}[fragile]{Complexidade Computacional}
+
+	\begin{itemize}
+		\item Um mesmo problema pode ser resolvido por algoritmos diferentes, com eficiências 
+        distintas
+
+		\item A complexidade computacional é uma medida de comparação da eficiência entre
+        diferentes algoritmos
+
+		\item Foi desenvolvida por Juris Hartmanis e Richard E. Stearns
+
+		\item Ela indica quanto esforço ou o custo de um algoritmo
+
+		\item Critérios para esforço: tempo de desenvolvimento, recursos humanos, viabilidade
+
+		\item Critérios para custo: tempo de execução e espaço em memória
+
+		\item Comparações de tempo de execução devem ser realizadas na mesma máquina e os 
+        algoritmos devem ser escritos na mesma linguagem de programação
+	\end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]\frametitle{Tempo de execução}
+
+	\begin{itemize}
+		\item O tempo deve ser expresso não em unidades de medidas físicas (segundos, milisegundos, 
+        etc), e sim em unidades de medidas lógicas (relação entre o número de elementos $N$ a serem 
+        processados e o tempo $t$ necessário para o processamento dos mesmos)
+		
+		\item Exemplos de medidas lógicas de tempo:
+        \begin{align*}
+        t &= 10N \\
+        t &= \log_2 N \\
+        t &= f(N)
+        \end{align*}
+    
+	\end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Complexidade assintótica}
+
+	\begin{itemize}
+		\item A função que expressa o tempo em função do número de 
+		termos tende a ser bastante elaborada e difícil de se explicitar
+
+        \item Por isso, geralmente considera-se apenas os termos que afetam a 
+		ordem de magnitude da função
+
+		\item A ordem de magnitude é determinada pelo termo que caracteriza o comportamento da 
+        função quando o número de elementos $N$ tende ao infinito
+
+		\item Esta aproximação é denominada complexidade assintótica
+	\end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Exemplos de complexidade assintótica}
+
+    \begin{table}[!ht]
+        \centering
+        \begin{tabular}{lll}
+        \toprule
+        \textbf{Função} & \textbf{Termo dominante} & \textbf{Ordem de magnitude} \\
+        \midrule
+        $a(N) = 123$ & $123$ & Constante \\
+        \rowcolor[gray]{0.9}
+        $b(N) = \log N$ & $\log N$ & Logarítmica \\
+        $c(N) = N + 7\log_3 N^2$ & $N$ & Linear \\
+        \rowcolor[gray]{0.9}
+        $d(N)  = N^2 + 50N +  250$ & $N^2$ & Quadrática \\
+        $e(N)  = N^2 + N^3$ & $N^3$ & Cúbica \\
+        \rowcolor[gray]{0.9}
+        $f(N) = N^4 + \sqrt[5]{N^{21}}$ & $\sqrt[5]{N^{21}}$ & Polinomial \\
+        $g(N) = \mbox{senh}\, N + N^3$ & $ \frac{1}{2}e^N$ & Exponencial \\
+        \rowcolor[gray]{0.9}
+        $h(N) = e^N + N!$ & $ N!$ & Fatorial \\
+        \bottomrule
+        \end{tabular}
+    \end{table}
+	
+\end{frame}
+
+\begin{frame}[fragile]{Visualização numérica da complexidade assintótica}
+    A complexidade assintótica pode ser determinada numericamente através da observação da 
+    contribuição de cada termo da função $f(N)$ a medida que $N$ cresce
+
+    Por exemplo, considere a função $f(N) = N^2 + 100N + \log_{10} N + 1000 $
+
+    \begin{table}[!ht]
+        \centering
+        \begin{tabular}{lrrrr}
+        \toprule
+            & $N = 1$ & $N = 10$ & $N = 100$ & $N = 1.000$ \\
+        \midrule
+        $1000$ & 90,8\% & 47,6\% & 4,8\% & 0,1\% \\
+        \rowcolor[gray]{0.9}
+        $\log_{10}(N)$ & 0,0\% & 0,1\% & 0,0\% & 0,0\% \\
+        $100N$ & 9,1\% & 47,6\% & 47,6\% & 9,1\% \\ 
+        \rowcolor[gray]{0.9}
+        $N^2$ & 0,1\% & 4,7\% & 47,6\% & 90,8\% \\
+        \bottomrule
+        \end{tabular}
+    \end{table}
+
+\end{frame}

@@ -1,0 +1,142 @@
+\section{URI 1454 -- O País das Bicicletas}
+
+\begin{frame}[fragile]{Problema}
+
+Como você já deve saber, a bicicleta é um dos meios de transportes mais populares da China. Quase todos os chineses possuem a sua, e utilizam-na para trabalho, recreação, e outras atividades.
+
+Após muitos anos pedalando, Mr. Lee já não têm a mesma disposição para encarar as diversas subidas da cidade onde mora. E a cidade em que Mr. Lee vive é extremamente montanhosa. Por razões sentimentais, ele não quer mudar para uma cidade mais plana. Resolveu, então, que tentaria evitar grandes altitudes em seus caminhos mesmo que, para isso, tivesse que pedalar um pouco mais.
+
+Mr. Lee obteve com o serviço topográfico chinês uma coleção de mapas de sua cidade, em que cada rua desses mapas possui a informação da maior altitude encontrada quando trafegada. Tudo que ele precisa fazer agora é determinar rotas que minimizem a altura percorrida entre pares (origem, destino).
+
+\end{frame}
+
+\begin{frame}[fragile]{Problema}
+
+Sabendo que você planeja visitar a cidade em que ele mora no próximo ano, Mr. Lee pediu sua ajuda. Em uma primeira etapa, ele deseja que você implemente um programa que receba mapas topográficos da cidade e uma coleção de pares (origem, destino). Para cada par, seu programa deve imprimir a maior altura encontrada em uma rota entre a origem e o destino. Lembre-se que as rotas devem minimizar tais alturas. As rotas propriamente ditas, serão determinadas em uma segunda etapa (quando você chegar à China para visitá-lo).
+
+Como o transporte utilizado é uma bicicleta, você pode considerar que todas as ruas da cidade são de mão dupla. Não demore, pois Mr. Lee conta com você. :-)
+
+\end{frame}
+
+\begin{frame}[fragile]{Entrada e saída}
+
+\textbf{Entrada}
+
+Seu programa deve estar preparado para trabalhar com diversos mapas, doravante denominados 
+instâncias. Cada instância tem a estrutura que segue.
+
+Na primeira linha são fornecidos dois inteiros $n$ $(0\leq n\leq 100)$ e $m$ $(0\leq m \leq 4950)$ 
+que representam, respectivamente, os números de interseções e de ruas. Por razões de clareza, as 
+interseções são numeradas de 1 a $n$, inclusive; toda rua começa e termina em uma interseção; e 
+não existem interseções fora das extremidades de uma rua.
+
+Nas próximas $m$ linhas são fornecidos três inteiros: $i$ e $j$ $(1\leq i, j\leq n)$ que indicam a 
+existência de uma rua entre as interseções $i$ e $j$; e $h$ que representa a maior altitude 
+encontrada quando a rua é trafegada. Esses inteiros estão separados por espaços em branco.
+
+\end{frame}
+
+\begin{frame}[fragile]{Entrada e saída}
+
+Na linha seguinte, é dado um inteiro $k$ $(1\leq k\leq 50)$ que representa o número de pares 
+(origem, destino) que serão especificados nas próximas $k$ linhas. Cada par é formado por dois 
+inteiros $i$ e $j$ como acima. Isto é, origem e destino são interseções de ruas, e também estão 
+separados por espaços em branco.
+
+Valores $n = m = 0$ indicam o final das instâncias e não devem ser processados.
+
+\textbf{Saída}
+
+Para cada instância solucionada, você deverá imprimir um identificador \texttt{Instancia} $h$ em 
+que $h$ é um número inteiro, sequencial e crescente a partir de 1. Nas próximas $k$ linhas, você 
+deve imprimir as maiores alturas encontradas nas rotas entre os $k$ pares (origem, destino) 
+fornecidos, um valor por linha, na ordem da entrada.
+
+Uma linha em branco deve ser impressa após cada instância.
+
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de entradas e saídas}
+\begin{scriptsize}
+\begin{minipage}[t]{0.5\textwidth}
+\textbf{Exemplo de Entrada}
+\begin{verbatim}
+12 17
+1 4 4
+4 7 6
+7 10 6
+2 5 4
+5 8 5
+8 11 2
+3 6 5
+6 9 3
+9 12 1
+1 2 1
+2 3 9
+4 5 3
+5 6 7
+7 8 7
+8 9 2
+10 11 1
+11 12 2
+4
+1 5
+6 8
+6 7
+11 10
+0 0
+\end{verbatim}
+\end{minipage}
+\begin{minipage}[t]{0.45\textwidth}
+\textbf{Exemplo de Saída}
+\begin{verbatim}
+Instancia 1
+4
+3
+6
+1
+\end{verbatim}
+\end{minipage}
+\end{scriptsize}
+\end{frame}
+
+\begin{frame}[fragile]{Solução com complexidade $O(TV^3)$}
+
+    \begin{itemize}
+        \item A maior altura observada no caminho de $u$ a $v$ que minimiza as alturas pode
+            ser obtida através de uma variação do algoritmo de Floyd-Warshall
+
+        \item A modificação a ser feita é no cálculo do custo do caminho mínimo: ao invés de
+            acumular os custos das arestas, deve ser registrada a menor entre as alturas já
+            observadas, e as alturas do caminho de $u$ a $k$ e do caminho de $k$ a $v$
+
+        \item A entrada não especifica dois pontos importantes, cuja interpretação errônea
+            pode levar ao WA
+            
+        \item Em primeiro lugar, não são informados os limites da variável $h$, a qual pode
+            ser negativa
+
+        \item Também não é especificado o comportamento do caminho de $u$ a $u$: como é 
+            possível ter alturas negativas, seria possível construir um caminho de $u$ a $u$
+            passando por $v$ com altura mínima menor do que zero, mas o problema espera zero
+            como resposta nestes casos
+
+   \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Solução com complexidade $O(TV^3)$}
+    \inputsnippet{cpp}{1}{21}{1454.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Solução com complexidade $O(TV^3)$}
+    \inputsnippet{cpp}{22}{42}{1454.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Solução com complexidade $O(TV^3)$}
+    \inputsnippet{cpp}{43}{63}{1454.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Solução com complexidade $O(TV^3)$}
+    \inputsnippet{cpp}{64}{84}{1454.cpp}
+\end{frame}

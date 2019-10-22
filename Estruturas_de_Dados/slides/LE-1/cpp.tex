@@ -1,0 +1,30 @@
+\section{Listas encadeadas em C++}
+
+\begin{frame}[fragile]{\texttt{forward\_list}}
+
+    \begin{itemize}
+        \item Desde a versão C++, a linguagem C++ oferece uma implementação de listas
+            simplesmente encadeadas: o contêiner \code{c}{forward_list}
+
+        \item Por padrão a implementação deve ser tão eficiente quanto a implementação
+            de uma lista simplesmente encadeada em C
+
+        \item Por este motivo, é o único dentre os contêiners da STL que não tem um método
+            \code{c}{size()}
+
+        \item As inserções e remoções constantes devem ser feitas através dos métodos
+            \code{c}{push_front()} e \code{c}{pop_front()}
+
+        \item Também está disponível o método \code{c}{insert_after()}, que insere um elemento
+            logo após o iterador indicado em complexidade constante
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de uso da \texttt{forward\_list}}
+    \inputsnippet{c++}{1}{21}{forward.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de uso da \texttt{forward\_list}}
+    \inputsnippet{c++}{22}{42}{forward.cpp}
+\end{frame}

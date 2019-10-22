@@ -1,0 +1,485 @@
+\section{Definição}
+
+\begin{frame}[fragile]{Definição de pilha}
+
+    \begin{itemize}
+        \item Uma pilha é um tipo de dados abstrato cuja interface define que o último elemento
+            inserido na pilha é o primeiro a ser removido
+
+        \item Esta estratégia de inserção e remoção é denominada LIFO -- \textit{Last In, First
+            Out}
+
+        \item De acordo com sua interface, uma pilha não permite acesso aleatório ao seus
+            elementos (apenas o elemento do topo da pilha pode ser acessado)
+
+        \item As operações de inserção e remoção devem ter complexidade $O(1)$
+
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Interface de uma pilha}
+
+    \begin{table}
+        \centering
+        \begin{tabularx}{0.95\textwidth}{lcX}
+            \toprule
+            \textbf{Método} & \textbf{Complexidade} & \textbf{Descrição} \\
+            \midrule
+            \texttt{clear(P)} & $O(N)$ & Esvazia a pilha \texttt{P}, removendo todos os seus elementos \\
+            \rowcolor[gray]{0.8}
+            \texttt{empty(P)} & $O(1)$ & Verifica se a pilha \texttt{P} está vazia ou não \\
+            \texttt{push(P, x)} & $O(1)$ & Insere o elemento \texttt{x} no topo da pilha \texttt{P} \\
+            \rowcolor[gray]{0.8}
+            \texttt{pop(P)} & $O(1)$ & Remove o elemento que está no topo da pilha \texttt{P} \\
+            \texttt{top(P)} & $O(1)$ & Retorna o elemento que está no topo da pilha \texttt{P} \\
+            \rowcolor[gray]{0.8}
+            \texttt{size(P)} & $O(1)$ & Retorna o número de elementos armazenados na pilha \texttt{P} \\
+            \bottomrule
+        \end{tabularx}
+    \end{table}
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo dos métodos da interface de uma pilha}
+
+    \begin{tikzpicture}
+
+        \begin{scope}
+            \node[anchor=west] at (0, 6) { \textbf{Método} };
+            \node[anchor=west] at (6, 6) { \textbf{Retorno} };
+
+            \node[anchor=west] at (0, 4) { \textbf{Pilha} };
+            \draw (2, 0) -- (7, 0);
+
+            \node[anchor=west] at (0, 5) { \texttt{empty(P)} };
+
+%            \node (4, 0) rectangle (5, 1);
+        \end{scope}
+
+    \end{tikzpicture}
+
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo dos métodos da interface de uma pilha}
+
+    \begin{tikzpicture}
+
+        \begin{scope}
+            \node[anchor=west] at (0, 6) { \textbf{Método} };
+            \node[anchor=west] at (6, 6) { \textbf{Retorno} };
+
+            \node[anchor=west] at (0, 4) { \textbf{Pilha} };
+            \draw (2, 0) -- (7, 0);
+
+            \node[anchor=west] at (0, 5) { \texttt{empty(P)} };
+            \node[anchor=west] at (6, 5) { \textbf{\texttt{True}} };
+
+%            \node (4, 0) rectangle (5, 1);
+        \end{scope}
+
+    \end{tikzpicture}
+
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo dos métodos da interface de uma pilha}
+
+    \begin{tikzpicture}
+
+        \begin{scope}
+            \node[anchor=west] at (0, 6) { \textbf{Método} };
+            \node[anchor=west] at (6, 6) { \textbf{Retorno} };
+
+            \node[anchor=west] at (0, 4) { \textbf{Pilha} };
+            \draw (2, 0) -- (7, 0);
+
+            \node[anchor=west] at (0, 5) { \texttt{push(P, 12)} };
+%            \node[anchor=west] at (6, 5) { \textbf{\texttt{True}} };
+
+%            \node (4, 0) rectangle (5, 1);
+        \end{scope}
+
+    \end{tikzpicture}
+
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo dos métodos da interface de uma pilha}
+
+    \begin{tikzpicture}
+
+        \begin{scope}
+            \node[anchor=west] at (0, 6) { \textbf{Método} };
+            \node[anchor=west] at (6, 6) { \textbf{Retorno} };
+
+            \node[anchor=west] at (0, 4) { \textbf{Pilha} };
+            \draw (2, 0) -- (7, 0);
+
+            \node[anchor=west] at (0, 5) { \texttt{push(P, 12)} };
+%            \node[anchor=west] at (6, 5) { \textbf{\texttt{True}} };
+
+            \draw (4, 0) rectangle (5, 1);
+            \node at (4.5, 0.5) { \texttt{12} };
+        \end{scope}
+
+    \end{tikzpicture}
+
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo dos métodos da interface de uma pilha}
+
+    \begin{tikzpicture}
+
+        \begin{scope}
+            \node[anchor=west] at (0, 6) { \textbf{Método} };
+            \node[anchor=west] at (6, 6) { \textbf{Retorno} };
+
+            \node[anchor=west] at (0, 4) { \textbf{Pilha} };
+            \draw (2, 0) -- (7, 0);
+
+            \node[anchor=west] at (0, 5) { \texttt{push(P, -3)} };
+%            \node[anchor=west] at (6, 5) { \textbf{\texttt{True}} };
+
+            \draw (4, 0) rectangle (5, 1);
+            \node at (4.5, 0.5) { \texttt{12} };
+        \end{scope}
+
+    \end{tikzpicture}
+
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo dos métodos da interface de uma pilha}
+
+    \begin{tikzpicture}
+
+        \begin{scope}
+            \node[anchor=west] at (0, 6) { \textbf{Método} };
+            \node[anchor=west] at (6, 6) { \textbf{Retorno} };
+
+            \node[anchor=west] at (0, 4) { \textbf{Pilha} };
+            \draw (2, 0) -- (7, 0);
+
+            \node[anchor=west] at (0, 5) { \texttt{push(P, -3)} };
+%            \node[anchor=west] at (6, 5) { \textbf{\texttt{True}} };
+
+            \draw (4, 0) rectangle (5, 1);
+            \node at (4.5, 0.5) { \texttt{12} };
+
+            \draw (4, 1) rectangle (5, 2);
+            \node at (4.5, 1.5) { \texttt{-3} };
+        \end{scope}
+
+    \end{tikzpicture}
+
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo dos métodos da interface de uma pilha}
+
+    \begin{tikzpicture}
+
+        \begin{scope}
+            \node[anchor=west] at (0, 6) { \textbf{Método} };
+            \node[anchor=west] at (6, 6) { \textbf{Retorno} };
+
+            \node[anchor=west] at (0, 4) { \textbf{Pilha} };
+            \draw (2, 0) -- (7, 0);
+
+            \node[anchor=west] at (0, 5) { \texttt{pop(P)} };
+%            \node[anchor=west] at (6, 5) { \textbf{\texttt{True}} };
+
+            \draw (4, 0) rectangle (5, 1);
+            \node at (4.5, 0.5) { \texttt{12} };
+
+            \draw (4, 1) rectangle (5, 2);
+            \node at (4.5, 1.5) { \texttt{-3} };
+        \end{scope}
+
+    \end{tikzpicture}
+
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo dos métodos da interface de uma pilha}
+
+    \begin{tikzpicture}
+
+        \begin{scope}
+            \node[anchor=west] at (0, 6) { \textbf{Método} };
+            \node[anchor=west] at (6, 6) { \textbf{Retorno} };
+
+            \node[anchor=west] at (0, 4) { \textbf{Pilha} };
+            \draw (2, 0) -- (7, 0);
+
+            \node[anchor=west] at (0, 5) { \texttt{pop(P)} };
+            %\node[anchor=west] at (6, 5) { \texttt{-3} };
+
+            \draw (4, 0) rectangle (5, 1);
+            \node at (4.5, 0.5) { \texttt{12} };
+
+%            \draw (4, 1) rectangle (5, 2);
+%            \node at (4.5, 1.5) { \texttt{-3} };
+        \end{scope}
+
+    \end{tikzpicture}
+
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo dos métodos da interface de uma pilha}
+
+    \begin{tikzpicture}
+
+        \begin{scope}
+            \node[anchor=west] at (0, 6) { \textbf{Método} };
+            \node[anchor=west] at (6, 6) { \textbf{Retorno} };
+
+            \node[anchor=west] at (0, 4) { \textbf{Pilha} };
+            \draw (2, 0) -- (7, 0);
+
+            \node[anchor=west] at (0, 5) { \texttt{push(P, 5)} };
+%            \node[anchor=west] at (6, 5) { \texttt{-3} };
+
+            \draw (4, 0) rectangle (5, 1);
+            \node at (4.5, 0.5) { \texttt{12} };
+
+%            \draw (4, 1) rectangle (5, 2);
+%            \node at (4.5, 1.5) { \texttt{-3} };
+        \end{scope}
+
+    \end{tikzpicture}
+
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo dos métodos da interface de uma pilha}
+
+    \begin{tikzpicture}
+
+        \begin{scope}
+            \node[anchor=west] at (0, 6) { \textbf{Método} };
+            \node[anchor=west] at (6, 6) { \textbf{Retorno} };
+
+            \node[anchor=west] at (0, 4) { \textbf{Pilha} };
+            \draw (2, 0) -- (7, 0);
+
+            \node[anchor=west] at (0, 5) { \texttt{push(P, 5)} };
+%            \node[anchor=west] at (6, 5) { \texttt{-3} };
+
+            \draw (4, 0) rectangle (5, 1);
+            \node at (4.5, 0.5) { \texttt{12} };
+
+            \draw (4, 1) rectangle (5, 2);
+            \node at (4.5, 1.5) { \texttt{5} };
+        \end{scope}
+
+    \end{tikzpicture}
+
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo dos métodos da interface de uma pilha}
+
+    \begin{tikzpicture}
+
+        \begin{scope}
+            \node[anchor=west] at (0, 6) { \textbf{Método} };
+            \node[anchor=west] at (6, 6) { \textbf{Retorno} };
+
+            \node[anchor=west] at (0, 4) { \textbf{Pilha} };
+            \draw (2, 0) -- (7, 0);
+
+            \node[anchor=west] at (0, 5) { \texttt{push(P, 47)} };
+%            \node[anchor=west] at (6, 5) { \texttt{-3} };
+
+            \draw (4, 0) rectangle (5, 1);
+            \node at (4.5, 0.5) { \texttt{12} };
+
+            \draw (4, 1) rectangle (5, 2);
+            \node at (4.5, 1.5) { \texttt{5} };
+        \end{scope}
+
+    \end{tikzpicture}
+
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo dos métodos da interface de uma pilha}
+
+    \begin{tikzpicture}
+
+        \begin{scope}
+            \node[anchor=west] at (0, 6) { \textbf{Método} };
+            \node[anchor=west] at (6, 6) { \textbf{Retorno} };
+
+            \node[anchor=west] at (0, 4) { \textbf{Pilha} };
+            \draw (2, 0) -- (7, 0);
+
+            \node[anchor=west] at (0, 5) { \texttt{push(P, 47)} };
+%            \node[anchor=west] at (6, 5) { \texttt{-3} };
+
+            \draw (4, 0) rectangle (5, 1);
+            \node at (4.5, 0.5) { \texttt{12} };
+
+            \draw (4, 1) rectangle (5, 2);
+            \node at (4.5, 1.5) { \texttt{5} };
+
+            \draw (4, 2) rectangle (5, 3);
+            \node at (4.5, 2.5) { \texttt{47} };
+        \end{scope}
+
+    \end{tikzpicture}
+
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo dos métodos da interface de uma pilha}
+
+    \begin{tikzpicture}
+
+        \begin{scope}
+            \node[anchor=west] at (0, 6) { \textbf{Método} };
+            \node[anchor=west] at (6, 6) { \textbf{Retorno} };
+
+            \node[anchor=west] at (0, 4) { \textbf{Pilha} };
+            \draw (2, 0) -- (7, 0);
+
+            \node[anchor=west] at (0, 5) { \texttt{top(P)} };
+%            \node[anchor=west] at (6, 5) { \texttt{-3} };
+
+            \draw (4, 0) rectangle (5, 1);
+            \node at (4.5, 0.5) { \texttt{12} };
+
+            \draw (4, 1) rectangle (5, 2);
+            \node at (4.5, 1.5) { \texttt{5} };
+
+            \draw (4, 2) rectangle (5, 3);
+            \node at (4.5, 2.5) { \texttt{47} };
+        \end{scope}
+
+    \end{tikzpicture}
+
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo dos métodos da interface de uma pilha}
+
+    \begin{tikzpicture}
+
+        \begin{scope}
+            \node[anchor=west] at (0, 6) { \textbf{Método} };
+            \node[anchor=west] at (6, 6) { \textbf{Retorno} };
+
+            \node[anchor=west] at (0, 4) { \textbf{Pilha} };
+            \draw (2, 0) -- (7, 0);
+
+            \node[anchor=west] at (0, 5) { \texttt{top(P)} };
+            \node[anchor=west] at (6, 5) { \texttt{47} };
+
+            \draw (4, 0) rectangle (5, 1);
+            \node at (4.5, 0.5) { \texttt{12} };
+
+            \draw (4, 1) rectangle (5, 2);
+            \node at (4.5, 1.5) { \texttt{5} };
+
+            \draw (4, 2) rectangle (5, 3);
+            \node at (4.5, 2.5) { \texttt{47} };
+        \end{scope}
+
+    \end{tikzpicture}
+
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo dos métodos da interface de uma pilha}
+
+    \begin{tikzpicture}
+
+        \begin{scope}
+            \node[anchor=west] at (0, 6) { \textbf{Método} };
+            \node[anchor=west] at (6, 6) { \textbf{Retorno} };
+
+            \node[anchor=west] at (0, 4) { \textbf{Pilha} };
+            \draw (2, 0) -- (7, 0);
+
+            \node[anchor=west] at (0, 5) { \texttt{size(P)} };
+%            \node[anchor=west] at (6, 5) { \texttt{47} };
+
+            \draw (4, 0) rectangle (5, 1);
+            \node at (4.5, 0.5) { \texttt{12} };
+
+            \draw (4, 1) rectangle (5, 2);
+            \node at (4.5, 1.5) { \texttt{5} };
+
+            \draw (4, 2) rectangle (5, 3);
+            \node at (4.5, 2.5) { \texttt{47} };
+        \end{scope}
+
+    \end{tikzpicture}
+
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo dos métodos da interface de uma pilha}
+
+    \begin{tikzpicture}
+
+        \begin{scope}
+            \node[anchor=west] at (0, 6) { \textbf{Método} };
+            \node[anchor=west] at (6, 6) { \textbf{Retorno} };
+
+            \node[anchor=west] at (0, 4) { \textbf{Pilha} };
+            \draw (2, 0) -- (7, 0);
+
+            \node[anchor=west] at (0, 5) { \texttt{size(P)} };
+            \node[anchor=west] at (6, 5) { \texttt{3} };
+
+            \draw (4, 0) rectangle (5, 1);
+            \node at (4.5, 0.5) { \texttt{12} };
+
+            \draw (4, 1) rectangle (5, 2);
+            \node at (4.5, 1.5) { \texttt{5} };
+
+            \draw (4, 2) rectangle (5, 3);
+            \node at (4.5, 2.5) { \texttt{47} };
+        \end{scope}
+
+    \end{tikzpicture}
+
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo dos métodos da interface de uma pilha}
+
+    \begin{tikzpicture}
+
+        \begin{scope}
+            \node[anchor=west] at (0, 6) { \textbf{Método} };
+            \node[anchor=west] at (6, 6) { \textbf{Retorno} };
+
+            \node[anchor=west] at (0, 4) { \textbf{Pilha} };
+            \draw (2, 0) -- (7, 0);
+
+            \node[anchor=west] at (0, 5) { \texttt{clear(P)} };
+%            \node[anchor=west] at (6, 5) { \texttt{3} };
+
+            \draw (4, 0) rectangle (5, 1);
+            \node at (4.5, 0.5) { \texttt{12} };
+
+            \draw (4, 1) rectangle (5, 2);
+            \node at (4.5, 1.5) { \texttt{5} };
+
+            \draw (4, 2) rectangle (5, 3);
+            \node at (4.5, 2.5) { \texttt{47} };
+        \end{scope}
+
+    \end{tikzpicture}
+
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo dos métodos da interface de uma pilha}
+
+    \begin{tikzpicture}
+
+        \begin{scope}
+            \node[anchor=west] at (0, 6) { \textbf{Método} };
+            \node[anchor=west] at (6, 6) { \textbf{Retorno} };
+
+            \node[anchor=west] at (0, 4) { \textbf{Pilha} };
+            \draw (2, 0) -- (7, 0);
+
+            \node[anchor=west] at (0, 5) { \texttt{clear(P)} };
+%            \node[anchor=west] at (6, 5) { \texttt{3} };
+
+       \end{scope}
+
+    \end{tikzpicture}
+
+\end{frame}

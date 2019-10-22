@@ -1,0 +1,165 @@
+\section{Aplicações da $z$-{\it Function}}
+
+\begin{frame}[fragile]{Aplicação \#1 -- Número de ocorrências de $P$ em $S$}
+
+    \begin{itemize}
+        \item A função $z$ também pode ser utilizada para determinar o número de ocorrências de 
+            uma string $P$, de tamanho $m$, em uma string $S$, de tamanho $n$
+
+        \item Defina a string $T$ como
+        \[
+            T = P + \mbox{\textcolor{red!80!black}{\texttt{`\#'}}} + S
+        \]
+
+        \item Assim, $T$ é a concatenação da string $P$, o caractere separador
+        \textcolor{red!80!black}{\texttt{`\#'}} e a string $S$
+
+        \item O separador pode ser qualquer caractere que não apareça nem em $S$ e nem em $T$ 
+
+        \item A string $P$ ocorre na posição $i$ de $S$ se, e somente se, 
+        \[
+            z_T(i + m + 1) = m
+        \]
+
+        \item Esta abordagem tem complexidade $O(n + m)$
+
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de uso da função $z$ para contagem de ocorrências de $P$ em $S$}
+
+    \begin{center}
+    \begin{large}
+    \begin{tabular}{c|cccccccccc}
+        $i$ & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 \\
+        \hline
+        $T$
+& \texttt{\textcolor{red!80!black}{a}} 
+& \texttt{\textcolor{red!80!black}{n}} 
+& \texttt{\textcolor{red!80!black}{a}} 
+& \texttt{\textcolor{red!80!black}{\#}} 
+& \texttt{\textcolor{red!80!black}{b}} 
+& \texttt{\textcolor{red!80!black}{a}} 
+& \texttt{\textcolor{red!80!black}{n}} 
+& \texttt{\textcolor{red!80!black}{a}} 
+& \texttt{\textcolor{red!80!black}{n}} 
+& \texttt{\textcolor{red!80!black}{a}} 
+\\
+        $z_T(i)$
+& \textcolor{blue}{0} 
+& \textcolor{blue}{0} 
+& \textcolor{blue}{1} 
+& \textcolor{blue}{0} 
+& \textcolor{blue}{0} 
+& \underline{\textcolor{blue}{3}}
+& \textcolor{blue}{0} 
+& \underline{\textcolor{blue}{3}}
+& \textcolor{blue}{0} 
+& \textcolor{blue}{1} 
+\\
+    \end{tabular}
+    \end{large}
+    \end{center}
+
+    \begin{align*}
+        m &= 3 \\
+        occ &= 2 \\
+        pos &= 2\ (6 - 3 - 1)\ \mbox{e}\ 4\ (8 - 3 - 1)
+    \end{align*}
+\end{frame}
+
+\begin{frame}[fragile]{Implementação do número de ocorrências de $P$ em $S$ em C++}
+    \inputsnippet{cpp}{5}{24}{search.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Implementação do número de ocorrências de $P$ em $S$ em C++}
+    \inputsnippet{cpp}{25}{35}{search.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Aplicação \#2 -- Busca inexata}
+
+    \begin{itemize}
+        \item A função $z$ também pode ser utilizada para localizar o número de ocorrências
+            de uma substring $P$, de tamanho $m$, em $S$, de tamanho $n$, permitindo que $P$
+            e a substring de $S$ sejam distintas em, no máximo, um caractere
+
+        \item Sejam $A$ e $B$ duas strings de mesmo tamanho $n$. A distância de Hamming $dist(A, B)$
+            de $A$ a $B$ é dada por
+        \[
+            dist(A, B) = | \lbrace i\ | \ i\in [1,n]\ \mbox{e}\ A[i] \neq B[i]\rbrace |
+        \]
+       
+        \item Em termos mais precisos, é possível determinar o tamanho do conjunto
+        \[
+            M = \lbrace S[i..j]\ | \ j - i + 1 = m\ \mbox{e}\ dist(P, S[i..j])\leq 1\rbrace
+        \]
+            
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Aplicação \#2 -- Busca inexata}
+
+    \begin{itemize}
+        \item Para computar o tamanho de $M$ é preciso montar duas strings
+
+        \item A primeira delas é a string $T$, definida na primeira aplicação, onde
+         \[
+            T = P + \mbox{\textcolor{red!80!black}{\texttt{`\#'}}} + S
+        \]
+
+        \item Deste modo, o caractere $S[i]$ corresponde ao caractere $T[i + m + 1]$
+
+        \item Seja $S'$ a string reversa de $S$, isto é, $S'[i] = S[n - i + 1]$, para todo
+            $i\in [1,n]$
+
+        \item A segunda string $R$ é definida por
+         \[
+            R = P' + \mbox{\textcolor{red!80!black}{\texttt{`\#'}}} + S'
+        \]
+
+        \item O caractere $S[i]$ corresponde ao caractere $S'[i']$ da string 
+            reversa, com $i' = n - i + 1$
+
+        \item Como $j = i + m - 1$, segue que $j' = i' - m + 1$ 
+
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Aplicação \#2 -- Busca inexata}
+
+    \begin{itemize}
+        \item Assim, o último caractere da substring $S[i..j]$ corresponde
+            ao caractere $R[k]$, onde
+        \begin{align*}
+            k &= j' + m + 1 \\
+              &= (i' - m + 1) + m + 1 \\
+              &= (n - i + 1) + 2 \\
+              &= n - i + 3
+        \end{align*}
+
+        \item Portanto, $S[i..j]\in M$ se, e somente se
+        \[
+            z_T[i + m + 1] + z_R[n - i + 3] \geq m - 1
+        \]
+
+        \item Outras palavras, se o tamanhos do prefixo comum entre $S[i..j]$ e $P$, somado ao
+            tamanho do sufixo comum entre $S[i..j]$ e $P$, resultar em $m - 1$, há apenas um
+            caractere de diferença entre ambos
+
+        \item Se a soma for maior ou igual a $m$ (de fato, igual a $2m$),  então $S[i..j] = P$
+    \end{itemize}
+
+\end{frame}
+
+\input{search_view}
+
+\begin{frame}[fragile]{Implementação da busca inexata em C++}
+    \inputsnippet{cpp}{5}{24}{search2.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Implementação da busca inexata em C++}
+    \inputsnippet{cpp}{25}{45}{search2.cpp}
+\end{frame}

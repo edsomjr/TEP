@@ -1,0 +1,123 @@
+\section{URI 1029 -- Fibonacci, quantas chamadas?}
+
+\begin{frame}[fragile]{Problema}
+
+Quase todo estudante de Ciência da Computação recebe em algum momento no início de seu curso de 
+graduação algum problema envolvendo a sequência de Fibonacci. Tal sequência tem como os dois 
+primeiros valores 0 (zero) e 1 (um) e cada próximo valor será sempre a soma dos dois valores 
+imediatamente anteriores. Por definição, podemos apresentar a seguinte fórmula para encontrar 
+qualquer número da sequência de Fibonacci:
+\begin{verbatim}
+fib(0) = 0
+fib(1) = 1
+fib(n) = fib(n-1) + fib(n-2);
+\end{verbatim}
+
+Uma das formas de encontrar o número de Fibonacci é através de chamadas recursivas. Isto é 
+ilustrado a seguir, apresentando a árvore de derivação ao calcularmos o valor \code{c}{fib(4)}, ou 
+seja o 5º valor desta sequência:
+\end{frame}
+
+\begin{frame}[fragile]{Problema}
+
+\begin{center}
+\includegraphics[scale=0.5]{figure.png}
+\end{center}
+
+Desta forma,
+\begin{verbatim}
+fib(4) = 1+0+1+1+0 = 3
+\end{verbatim}
+Foram feitas 8 calls, ou seja, 8 chamadas recursivas.
+\end{frame}
+
+\begin{frame}[fragile]{Entrada e saída}
+
+\textbf{Entrada}
+
+A primeira linha da entrada contém um único inteiro $N$, indicando o número de casos de teste. 
+Cada caso de teste contém um inteiro $X$ $(1 \leq X \leq 39)$.
+
+\textbf{Saída}
+
+Para cada caso de teste de entrada deverá ser apresentada uma linha de saída, no seguinte formato: 
+ \code{c}{fib(n) = num_calls calls = result}, aonde \code{c}{num_calls} é o número de chamadas 
+recursivas, tendo sempre um espaço antes e depois do sinal de igualdade, conforme o exemplo abaixo.
+
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de entradas e saídas}
+
+\begin{minipage}[t]{0.5\textwidth}
+\textbf{Exemplo de Entrada}
+\begin{verbatim}
+2
+5
+4
+\end{verbatim}
+\end{minipage}
+\begin{minipage}[t]{0.45\textwidth}
+\textbf{Exemplo de Saída}
+\begin{verbatim}
+fib(5) = 14 calls = 5
+fib(4) = 8 calls = 3
+\end{verbatim}
+\end{minipage}
+\end{frame}
+
+\begin{frame}[fragile]{Solução por força bruta}
+
+    \begin{itemize}
+        \item Basta acumular o número de chamadas na própria implementação recursiva dos
+            números de Fibonacci
+
+        \item Este acumulador deve ser ou uma variável global (o que simplifica a codificação)
+            ou um parâmetro passado como referência (o que torna a implementação mais trabalhosa)
+
+        \item Como para cada valor de $X$ maior do que 1 há duas chamadas, um limite superior
+            para o número de chamadas é $2^X$
+
+        \item Como $X\leq 39$, e $2^{39}$ é um valor superior à capacidade de uma variável inteira,
+            o mais prudente é utilizar uma variável do tipo \code{c}{long long} para o 
+            acumulador
+   \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Solução AC/TLE com complexidade $O(N2^X)$}
+    \inputsnippet{cpp}{1}{15}{ac_tle.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Solução AC/TLE com complexidade $O(N2^X)$}
+    \inputsnippet{cpp}{16}{36}{ac_tle.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Solução mais eficiente}
+
+    \begin{itemize}
+        \item Para diminuir a complexidade assintótica da solução, primeiro é preciso
+            observar que os números de Fibonacci podem ser computados sem o uso de recursão
+
+        \item Para tal, basta armazenar os valores em um vetor, e computar o próximo valor
+            a partir dos dois últimos valores já armazenados
+
+        \item Além disso, é preciso observar que o número de chamadas $C(X)$ também é definido
+            por uma recorrência, semelhante à de Fibonacci:
+        \[
+            C(X) = \left\lbrace \begin{array}{ll} 0, & \mbox{se}\, X = 0\ \mbox{ou}\ X = 1\\ C(X - 1) + C(X - 2) + 2, & \mbox{se}\, X > 1 \end{array}\right.
+        \]
+
+        \item Os valores de $C(X)$ podem ser computados da mesma maneira
+
+        \item Assim, o tempo de execução passa a ter complexidade $O(NX)$, e memória $O(X)$
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Solução AC com complexidade $O(NX)$}
+    \inputsnippet{cpp}{1}{21}{ac.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Solução AC com complexidade $O(NX)$}
+    \inputsnippet{cpp}{22}{42}{ac.cpp}
+\end{frame}

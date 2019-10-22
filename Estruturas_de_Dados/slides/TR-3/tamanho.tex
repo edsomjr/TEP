@@ -1,0 +1,64 @@
+\section{Tamanho de árvores binárias de busca}
+
+\begin{frame}[fragile]{Tamanho de uma árvore binária de busca}
+
+    \begin{itemize}
+        \item O tamanho de uma árvore corresponde ao número $N$ de nós que ela possui
+
+        \item O algoritmo abaixo computa este valor em $O(N)$:
+
+        \begin{enumerate}
+
+            \item Começe no nó {raiz} e inicialize a variável tamanho com 
+            {zero}
+
+            \item Para cada nó {não nulo}:
+
+            \begin{enumerate}[i.]
+                \item Incremente em {uma} unidade da variável {tamanho}
+
+                \item {Some} à variável o tamanho da subárvore {esquerda} do nó
+
+                \item {Some} à variável o tamanho da subárvore {direita} do nó
+            \end{enumerate}
+
+        \end{enumerate}
+
+        \item O algoritmo acima é recursivo
+
+        \item O caso base é a árvore vazia, que tem tamanho zero
+
+        \item O passo 2 corresponde à chamada recursiva, uma vez que cada uma das subárvores são,
+            de fato, árvores
+
+    \end{itemize}
+\end{frame} 
+
+\begin{frame}[fragile]{Implementação do tamanho de uma BST em C++}
+    \inputcode{cpp}{size.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Notas sobre o algoritmo de tamanho}
+
+	\begin{itemize}
+		\item O algoritmo apresentado pode ser {adaptado} para computar 
+		o tamanho de árvores no {caso geral}
+
+		\item Basta retornar a soma dos tamanho de 
+		{todas} as subárvore associadas ao nó atual
+
+		\item Conforme dito, no pior caso a complexidade é $O(N)$
+
+		\item Este é um exemplo de algoritmo cuja complexidade independente da forma da árvore,
+            e é $O(N)$ mesmo em árvores balanceadas (pois é preciso visitar cada nó ao menos
+            uma vez)
+
+        \item Uma alternativa é adicionar um membro \code{c}{size} na classe \code{c}{BST},
+            e atualizá-la a cada inserção e a cada remoção
+
+        \item Deste modo, o tamanho da árvore pode ser obtido em $O(1)$, bastando retornar o valor
+            desta variável
+	\end{itemize}
+
+\end{frame}
+

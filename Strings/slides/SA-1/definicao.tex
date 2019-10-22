@@ -1,0 +1,105 @@
+\section{Definição}
+
+\begin{frame}[fragile]{{\it Suffix Array}}
+
+    \begin{itemize}
+        \item Seja $S$ uma string de tamanho $N$
+
+        \item O $i$-ésimo sufixo de $S$ é a substring que inicia no índice $i$ e termina no
+            índice $N$, isto é, $S[i..N]$
+
+        \item Um vetor de sufixos (\textit{suffix array}) $s_A(S)$ de $S$ é um vetor de inteiros 
+            que representam
+            os índices iniciais $i$ dos prefixos de $S$, após a ordenação lexicográfica dos
+            mesmos
+
+        \item Os vetores de sufixos são usados em problemas que envolvem buscas em strings
+
+        \item Estes vetores foram propostos por Udi Manber e Gene Myers
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de {\it suffix array}}
+
+    \begin{center}
+    \begin{minipage}{0.4\textwidth}
+    \begin{tabular}{cl}
+        \toprule
+        $i$ & $S[i..N]$ \\
+        \midrule
+        1 & \code{cpp}{"abacaxi"} \\
+        2 & \code{cpp}{"bacaxi"} \\
+        3 & \code{cpp}{"acaxi"} \\
+        4 & \code{cpp}{"caxi"} \\
+        5 & \code{cpp}{"axi"} \\
+        6 & \code{cpp}{"xi"} \\
+        7 & \code{cpp}{"i"} \\
+        \bottomrule
+    \end{tabular}
+    \end{minipage}
+    \begin{minipage}{0.4\textwidth}
+    \begin{center}
+    \begin{tabular}{ccl}
+        \toprule
+        $j$ & $s_A[j]$ & $S[s_A[j]..N]$ \\
+        \midrule
+        1 & 1 & \code{cpp}{"abacaxi"} \\
+        2 & 3 & \code{cpp}{"acaxi"} \\
+        3 & 5 & \code{cpp}{"axi"} \\
+        4 & 2 & \code{cpp}{"bacaxi"} \\
+        5 & 4 & \code{cpp}{"caxi"} \\
+        6 & 7 & \code{cpp}{"i"} \\
+        7 & 6 & \code{cpp}{"xi"} \\
+        \bottomrule
+    \end{tabular}
+    \end{center}
+    \end{minipage}
+    \end{center}
+
+\end{frame}
+
+\begin{frame}[fragile]{Construção de $s_A(S)$ com complexidade $O(N^2\log N)$}
+
+    \begin{itemize}
+        \item A construção de $s_A(S)$ diretamente de sua definição tem complexidade 
+            $O(N^2\log N)$, onde $N$ é o tamanho da string $S$
+
+        \item Primeiramente é preciso construir um vetor $ps$ de pares $(S[i..N], i)$
+
+        \item Em seguida, este vetor deve ser ordenado
+
+        \item O algoritmo de ordenação tem complexidade $O(N\log N)$, e como as comparações
+            entre as substrings tem complexidade $O(N)$, a complexidade da solução é
+            $O(N^2\log N)$
+
+        \item Observe que, após ordenado o vetor $ps$, o vetor de sufixos $s_A(S)$ é composto apenas
+            pelos índices (segundo elemento de cada par), não sendo necessário armazenar os
+            prefixos explicitamente
+
+        \item Assim a complexidade de memória é $O(N)$
+            
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Construção {\it naive} de $s_A(S)$}
+    \inputsnippet{cpp}{5}{22}{suffix_array_naive.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Observações sobre a construção {\it naive} de $s_A(S)$}
+
+    \begin{itemize}
+        \item Embora a construção apresentada seja de fácil entendimento e implementação,
+            ela não é aplicável em strings grandes ($N \geq 10^4$)
+
+        \item É possível construir $s_A(S)$ com complexidade $O(N\log N)$, porém tanto a 
+            implementação é mais sofisticada
+
+        \item Além disso, a terminologia e os conceitos utilizados para esta redução na 
+            complexidade não são triviais
+
+        \item Estes conceitos e esta construção serão apresentados a seguir
+    \end{itemize}
+
+\end{frame}

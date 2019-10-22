@@ -1,0 +1,101 @@
+\section{Codeforces Round \#470 (rated, Div. 2, based on VK Cup 2018 (Round 1)}
+
+\begin{frame}[fragile]{Problema}
+
+Bob is a farmer. He has a large pasture with many sheep. Recently, he has lost some of them due to wolf attacks. He thus decided to place some shepherd dogs in such a way that all his sheep are protected.
+
+The pasture is a rectangle consisting of $R\times C$ cells. Each cell is either empty, contains a sheep, a wolf or a dog. Sheep and dogs always stay in place, but wolves can roam freely around the pasture, by repeatedly moving to the left, right, up or down to a neighboring cell. When a wolf enters a cell with a sheep, it consumes it. However, no wolf can enter a cell with a dog.
+
+Initially there are no dogs. Place dogs onto the pasture in such a way that no wolf can reach any sheep, or determine that it is impossible. Note that since you have many dogs, you do not need to minimize their number.
+
+\end{frame}
+
+\begin{frame}[fragile]{Entrada e saída}
+
+\textbf{Input}
+
+First line contains two integers $R$ $(1\leq R\leq 500)$ and $C$ $(1\leq C\leq 500)$, denoting the 
+number of rows and the numbers of columns respectively.
+
+Each of the following $R$ lines is a string consisting of exactly $C$ characters, representing one 
+row of the pasture. Here, '\texttt{S}' means a sheep, '\texttt{W}' a wolf and '\texttt{.}' an empty cell.
+\end{frame}
+
+\begin{frame}[fragile]{Entrada e saída}
+\textbf{Output}
+
+If it is impossible to protect all sheep, output a single line with the word "\texttt{No}".
+
+Otherwise, output a line with the word "\texttt{Yes}". Then print $R$ lines, representing the 
+pasture after placing dogs. Again, '\texttt{S}' means a sheep, '\texttt{W}' a wolf, '\texttt{D}' is 
+a dog and '\texttt{.}' an empty space. You are not allowed to move, remove or add a sheep or a wolf.
+
+If there are multiple solutions, you may print any of them. You don't have to minimize the number of dogs.
+
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de entradas e saídas}
+
+\begin{minipage}[t]{0.5\textwidth}
+\textbf{Sample Input}
+\begin{verbatim}
+6 6
+..S...
+..S.W.
+.S....
+..W...
+...W..
+......
+
+1 2
+SW
+\end{verbatim}
+\end{minipage}
+\begin{minipage}[t]{0.45\textwidth}
+\textbf{Sample Output}
+\begin{verbatim}
+Yes
+..SD..
+..SDW.
+.SD...
+.DW...
+DD.W..
+......
+
+No
+\end{verbatim}
+\end{minipage}
+\end{frame}
+
+\begin{frame}[fragile]{Solução com complexidade $O(RC)$}
+
+    \begin{itemize}
+        \item O problema pode ser modelado como um grafo
+
+        \item Os vértices são as células da malha, de cada vértice partem até quatro arestas,
+            para cada um dos vizinhos posicionados nas direções cardeais, se existirem
+
+        \item A travessia adequada é a BFS, uma vez que é necessário avaliar apenas os vizinhos
+            diretos de um nó
+
+        \item O problema não terá solução de uma ovelha tiver como um vizinho um lobo
+
+        \item Caso contrário, basta posicionar um cachorro nos vizinhos vazios de uma ovelha
+
+        \item De fato, como não é necessário minimizar o número de cachorros, basta colocar
+            cachorros em todas as células vazias
+   \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Solução AC com complexidade $O(RC)$}
+    \inputsnippet{cpp}{1}{21}{948A.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Solução AC com complexidade $O(RC)$}
+    \inputsnippet{cpp}{23}{43}{948A.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Solução AC com complexidade $O(RC)$}
+    \inputsnippet{cpp}{44}{64}{948A.cpp}
+\end{frame}

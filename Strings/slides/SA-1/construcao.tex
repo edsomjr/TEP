@@ -1,0 +1,270 @@
+\section{Construção do vetor de sufixos em $O(N\log N)$}
+
+\begin{frame}[fragile]{Substrings cíclicas}
+
+    \begin{itemize}
+        \item A notação de substrings de uma strings $S$ pode ser estendida para contemplar
+            substrings cíclicas
+
+        \item A notação padrão $S[i..j]$ pressupõe que $i \leq j$
+
+        \item Para representar substrings cíclicas, basta fazer
+        \[
+            S[i..j] = S[i..N] + S[1..j]
+        \]
+        quando $i > j$
+
+        \item Por exemplo, para $S = $ \code{cpp}{"casado"}, temos $S[6..2] = $ \code{cpp}{"oca"}
+            e $S[5..3] =$ \code{cpp}{"docas"}
+
+        \item Uma rotação cíclica de uma string $S$ é uma substring cíclica de tamanho $|S|$
+
+        \item Por exemplo, as rotações cíclicas de $S = $ \code{cpp}{"abcd"} são 
+            \code{cpp}{"abcd", "bcda", "cdab"} e \code{cpp}{"dabc"}
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Ideia central do algoritmo de construção $O(N\log N)$}
+
+    \begin{itemize}
+        \item A ideia central do algoritmo de construção do vetor de sufixos em $O(N\log N)$ é
+            que é possível ordenar, de forma eficiente, as rotações cíclicas de $S$
+
+        \item Para que a ordenação destas rotações cíclicas seja equivalente à ordenação dos
+            sufixos de $S$, basta concatenar um caractere sentinela ao final de $S$
+
+        \item Este sentinela deve ter um valor ASCII inferior a qualquer caractere do alfabeto
+
+        \item Em geral, este caractere é o caractere \texttt{'\$'}, sendo o caractere 
+            \texttt{'\#'} uma segunda opção viável, caso a string $S$ seja alfanumérica
+
+        \item Assim, após a ordenação, exceto a primeira rotação, as demais equivalem à 
+            ordenação dos prefixos de $S$
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Equivalências entre as rotações cíclicas e os sufixos de $S$}
+
+    \begin{table}
+        \centering
+        \begin{tabular}{clcl}
+            \toprule
+            $i$ & Rotação cíclica & $j$ & $S[j..N]$ \\
+            \midrule
+            0 & \code{cpp}{"$banana"} & - & - \\
+            1 & \code{cpp}{"a$banan"} & 6 & \code{cpp}{"a"} \\
+            2 & \code{cpp}{"ana$ban"} & 4 & \code{cpp}{"ana"} \\
+            3 & \code{cpp}{"anana$b"} & 2 & \code{cpp}{"anana"} \\
+            4 & \code{cpp}{"banana$"} & 1 & \code{cpp}{"banana"} \\
+            5 & \code{cpp}{"na$bana"} & 5 & \code{cpp}{"na"} \\
+            6 & \code{cpp}{"nana$ba"} & 3 & \code{cpp}{"nana"} \\
+            \bottomrule 
+        \end{tabular}
+    \end{table}
+
+\end{frame}
+
+\begin{frame}[fragile]{Permutações e classes de equivalência}
+
+    \begin{itemize}
+        \item A cada iteração do algoritmo serão ordenadas todas as substrings de $S[i..j]$ de 
+            tamanho $2^k$, para $k = 0, 1,\ldots, \lceil \log N\rceil$
+
+        \item Para tal fim, serão mantidos dois vetores auxiliares
+
+        \item O primeiro deles é o vetor de permutações $ps$, onde $ps[i]$ é o índice da 
+            $i$-ésima substring de tamanho $k$ após a ordenação
+
+        \item O segundo é o vetor $cs$ das classes de equivalência das substrings de tamanho $k$
+
+        \item Duas substrings iguais devem estar na mesma classe de equivalência
+
+        \item Se $S[i..j] < S[r..s]$, então $cs[i] < cs[r]$
+
+        \item Estas classes de equivalência permitem realizar comparações de forma eficiente
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Exemplos de permutações e classes de equivalência}
+
+    \begin{footnotesize}
+    \begin{center}
+        \begin{tabular}{cccc}
+            \toprule
+            $k$ & Substrings cíclicas de tamanho $2^k$ & $ps$ & $cs$ \\
+            \midrule
+            0 & $\lbrace$ \code{cpp}{"c", "a", "s", "a"} $\rbrace$ & $\lbrace 1, 3, 0, 2\rbrace$ & $\lbrace 1, 0, 2, 0 \rbrace$ \\
+            1 & $\lbrace$ \code{cpp}{"ca", "as", "sa", "ac"} $\rbrace$ & $\lbrace 3, 1, 0, 2\rbrace$ & $\lbrace 2, 1, 3, 0 \rbrace$ \\
+            2 & $\lbrace$ \code{cpp}{"casa", "asac", "saca", "acas"} $\rbrace$ & $\lbrace 3, 1, 0, 2\rbrace$ & $\lbrace 2, 1, 3, 0 \rbrace$ \\
+            \bottomrule 
+        \end{tabular}
+    \end{center}
+
+    \vspace{0.1in}
+
+    \begin{center}
+        \begin{tabular}{cccc}
+            \toprule
+            $k$ & Substrings cíclicas de tamanho $2^k$ & $ps$ & $cs$ \\
+            \midrule
+            0 & $\lbrace$ \code{cpp}{"a", "b", "b", "a"} $\rbrace$ & $\lbrace 0, 3, 1, 2\rbrace$ & $\lbrace 0, 1, 1, 0 \rbrace$ \\
+            1 & $\lbrace$ \code{cpp}{"ab", "bb", "ba", "aa"} $\rbrace$ & $\lbrace 3, 0, 2, 1\rbrace$ & $\lbrace 1, 3, 2, 0 \rbrace$ \\
+            2 & $\lbrace$ \code{cpp}{"abba", "bbaa", "baab", "aabb"} $\rbrace$ & $\lbrace 3, 0, 2, 1\rbrace$ & $\lbrace 1, 3, 2, 0 \rbrace$ \\
+            \bottomrule 
+        \end{tabular}
+    \end{center}
+ 
+    \end{footnotesize}
+
+\end{frame}
+
+
+\begin{frame}[fragile]{Casos base: $k = 0$}
+
+    \begin{itemize}
+        \item O algoritmo inicia com o caso base, onde $k = 0$, ou seja, ordenado as substrings
+            cíclicas de tamanho 1
+
+        \item Isto pode ser feito em $O(N)$ usando o \textit{counting sort}
+
+        \item Após a ordenação e geração do vetor de permutações $ps$, é necessário atribuir
+            as classes de equivalência a cada substring, gerando o vetor $cs$
+
+        \item Vale lembrar que substrings iguais devem pertencer à mesma classe de
+            equivalência
+
+        \item O vetor $ps$ permite a construção de $cs$ também em $O(N)$, por meio da comparação
+            de caracteres adjacentes
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Implementação do {\it counting sort}}
+    \inputsnippet{cpp}{4}{23}{suffix_array.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Preenchimento das classes de equivalência}
+    \inputsnippet{cpp}{25}{43}{suffix_array.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Complexidade da construção do {\it suffix array}}
+
+    \begin{itemize}
+        \item A transição consiste em computar os valores $ps$ e $cs$ para substrings de tamanho
+            $2^k$, se conhecidos estes vetores para strings de tamanho $2^{k - 1}$
+
+        \item Se esta  transição for feita em $O(N)$, a complexidade do algoritmo terá
+            complexidade $O(N\log N)$, pois esta atualização deverá ser feita $O(\log N)$ vezes
+
+        \item Esta transição pode ser feita em $O(N\log N)$, o que aumenta a complexidade 
+            assintótica do algoritmo para $O(N\log^2 N)$
+
+        \item Esta piora na complexidade é compensada por uma codificação mais curta em termos de 
+            linhas de código
+
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Transições}
+
+    \begin{itemize}
+        \item Observe que a substring de tamanho $2^k$ que inicia na posição $i$ é formada
+            pela concatenação das strings de tamanho $2^{k - 1}$ que começam nas posições
+            $i$ e $\Mod{i + 2^{k - 1}}{N}$, respectivamente
+
+        \item Assim, na ordenação das substrings de tamanho $2^k$, a comparação entre as 
+            strings com início em $i$ e $j$ equivale à comparação dos pares ordenados
+            $$(cs[i], cs[\Mod{i + 2^{k - 1}}{N}])\ \ \mbox{e}\ \ (cs[j], cs[\Mod{j + 2^{k - 1}}{N}])$$
+
+        \item Estas transições devem ser feitas para todos os valores $2^{k - 1} < N$
+
+        \item Após a última iteração é preciso remover do vetor de permutações $ps$ o índice
+            corresponde ao caractere sentinela que fora adicionado à string original antes do
+            caso base e das transições
+
+        \item O índice deste caractere ocupará a primeira posição de $ps$
+
+        \item As demais posições corresponderão ao vetor de sufixos da strings original
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Implementação $O(N\log^2 N)$ do {\it suffix array}}
+    \inputsnippet{cpp}{1}{21}{suffix_array_sort.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Implementação $O(N\log^2 N)$ do {\it suffix array}}
+    \inputsnippet{cpp}{22}{42}{suffix_array_sort.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Implementação $O(N\log^2 N)$ do {\it suffix array}}
+    \inputsnippet{cpp}{44}{64}{suffix_array_sort.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Implementação eficiente do {\it suffix array}}
+
+    \begin{itemize}
+        \item A ordenação dos pares ordenados pode ser feita em $O(N)$, através da combinação
+            do {\it counting sort} com uma técnica semelhante ao {\it radix sort}
+
+        \item A ideia é ordenar as substrings de tamanho $2^k$ inicialmente pela segunda metade, 
+            e em seguida, pela primeira metade
+
+        \item Porém as substrings de tamanho $2^{k - 1}$ já foram ordenadas na iteração anterior
+
+        \item Assim, a ordenação pela segunda metada pode ser realizada substraindo
+            $2^{k - 1}$ de todos os elementos do vetor $ps$
+
+        \item Isto porque se a menor substring de tamanho $2^{k - 1}$ começa no índice $i$, a
+            substring de tamanho $2^k$ com menor segunda metade começa no índice $i - 2^{k - 1}$
+
+        \item Esta subtração deve ser feita com aritmética modular, de modo que o vetor $ps$
+            permanece sendo uma permutação dos índices da string $S$
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Implementação eficiente do {\it suffix array}}
+
+    \begin{itemize}
+        \item Uma vez que $ps$ está ordenado pela segunda metade das substrings de tamanho $2^k$,
+            basta ordená-lo pela primeira metada, usando um algoritmo de ordenação estável e 
+            as classes de equivalência já estabelecidas
+
+        \item Para tal, basta usar o \textit{counting sort}
+
+        \item Para evitar duplicação de código, a implementação do \textit{counting sort} deve
+            retornar a permutação dos índices do vetor a ser ordenado, sem alterar tal vetor
+
+        \item Assim, após a geração da permutação que ordena $rs$, basta utilizá-la para gerar
+            o novo vetor $ps$
+                
+        \item Esta abordagem leva a um algoritmo $O(N\log N)$ para a geração do \textit{suffix
+            array}
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Implementação $O(N\log N)$ do {\it suffix array}}
+    \inputsnippet{cpp}{1}{19}{suffix_array.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Implementação $O(N\log N)$ do {\it suffix array}}
+    \inputsnippet{cpp}{20}{40}{suffix_array.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Implementação $O(N\log N)$ do {\it suffix array}}
+    \inputsnippet{cpp}{41}{56}{suffix_array.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Implementação $O(N\log N)$ do {\it suffix array}}
+    \inputsnippet{cpp}{57}{77}{suffix_array.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Implementação $O(N\log N)$ do {\it suffix array}}
+    \inputsnippet{cpp}{79}{99}{suffix_array.cpp}
+\end{frame}

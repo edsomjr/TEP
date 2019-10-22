@@ -1,0 +1,115 @@
+\section{URI 1242 -- Ácido Ribonucleico Alienígena}
+
+\begin{frame}[fragile]{Problema}
+
+Foi descoberta uma espécie alienígena de ácido ribonucleico (popularmente conhecido como RNA). Os cientistas, por falta de criatividade, batizaram a descoberta de ácido ribonucleico alienígena (RNAA). Similar ao RNA que conhecemos, o RNAA é uma fita composta de várias bases. As bases são B C F S e podem ligar-se em pares. Os únicos pares possíveis são entre as bases B e S e as bases C e F.
+Enquanto está ativo, o RNAA dobra vários intervalos da fita sobre si mesma, realizando ligações entre suas bases. Os cientistas perceberam que:
+
+\begin{itemize}
+\item Quando um intervalo da fita de RNAA se dobra, todas as bases neste intervalo se ligam com suas bases correspondentes;
+\item Cada base pode se ligar a apenas uma outra base;
+\item As dobras ocorrem de forma a maximizar o número de ligações feitas sobre fitas;
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Problema}
+
+As figuras abaixo ilustram dobras e ligacões feitas sobre fitas.
+
+\begin{figure}
+    \centering
+    \includegraphics[scale=0.7]{UOJ_1242.jpg}
+\end{figure}
+
+Sua tarefa será, dada a descrição de uma tira de RNAA, determinar quantas ligações serão realizadas entre suas bases se a tira ficar ativa.
+
+\end{frame}
+
+\begin{frame}[fragile]{Entrada e saída}
+
+\textbf{Entrada}
+
+A entrada é composta por diversos casos de teste e termina com EOF. Cada caso de teste possui uma linha descrevendo a sequência de bases da fita de RNAA. Uma fita de RNAA na entrada contém pelo menos 1 e no máximo 300 bases. Não existem espaços entre bases de uma fita da entrada. As bases são 'B', 'C', 'F' e 'S'.
+
+\vspace{0.2in}
+
+\textbf{Saída}
+
+Para cada instância imprima uma linha contendo o número total de ligações que ocorre quando a fita descrita é ativada.
+
+\end{frame}
+
+
+\begin{frame}[fragile]{Exemplo de entradas e saídas}
+
+\begin{minipage}[t]{0.5\textwidth}
+\textbf{Exemplo de Entrada}
+\begin{verbatim}
+SBC
+FCC
+SFBC
+SFBCFSCB
+CFCBSFFSBCCB
+\end{verbatim}
+\end{minipage}
+\begin{minipage}[t]{0.45\textwidth}
+\textbf{Exemplo de Saída}
+\begin{verbatim}
+1
+1
+0
+4
+5
+\end{verbatim}
+\end{minipage}
+\end{frame}
+
+\begin{frame}[fragile]{Solução com complexidade $O(N^2)$}
+
+    \begin{itemize}
+        \item A estratégia para a solução do problema é utilizar duas pilhas
+
+        \item A primeira deve ser preenchida com todos os elementos da string dada, na ordem da
+            entrada
+
+        \item A segunda guardará os elementos a serem pareadas, e inicialmente estará vazia
+
+        \item Em seguida, todos os elementos da primeira fila devem ser processados, do topo à
+            base
+
+        \item Se a segunda pilha estiver vazia, o elemento processado vai para o seu topo
+
+   \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Solução com complexidade $O(N^2)$}
+
+    \begin{itemize}
+        \item Caso contrário, tenta-se o pareamento do elemento processado com o topo da 
+            pilha
+
+        \item Se é um pareamento válido, a resposta é incrementada e ambos elementos descartados
+
+        \item Caso contrário, o elemento processado vai para segunda pilha
+
+        \item Ao final do processamento, se houve ao menos um pareamento válido, o processamento
+            deve recomeçar, tendo as filas trocadas de posição
+
+        \item Esta solução é quadrática no número de elementos da string dada
+   \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Solução com complexidade $O(N^2)$}
+    \inputsnippet{cpp}{1}{21}{1242.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Solução com complexidade $O(N^2)$}
+    \inputsnippet{cpp}{22}{42}{1242.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Solução com complexidade $O(N^2)$}
+    \inputsnippet{cpp}{43}{63}{1242.cpp}
+\end{frame}

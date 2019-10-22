@@ -1,0 +1,113 @@
+\section{UVA 11265 -- The Sultan's Problem}
+
+\begin{frame}[fragile]{Problema}
+
+Once upon a time, there lived a great sultan, who was very much fond of his wife. He wanted to build
+a Tajmahal for his wife (ya, our sultan idolized Mughal emperor Shahjahan). But alas, due to budget
+cuts, loans, dues and many many things, he had no fund to build something so big. So, he decided to
+build a beautiful garden, inside his palace.
+
+The garden is a rectangular piece of land. All the palaces water lines run through the garden, thus,
+dividing it into pieces of varying shapes. He wanted to cover each piece of the land with flowers of same
+kind.
+
+The figure above shows a sample flower garden. All the lines are straight lines, with two end points
+on two different edge of the rectangle. Each piece of the garden is covered with the same kind of flowers.
+
+The garden has a small fountain, located at position $(x, y)$. You can assume that, it is not on any
+of the lines. He wants to fill that piece with her favourite flower. So, he asks you to find the area of
+that piece.
+
+\end{frame}
+
+\begin{frame}[fragile]{Problema}
+
+\begin{center}
+\includegraphics[scale=0.7]{figure.png}
+\end{center}
+
+\end{frame}
+
+\begin{frame}[fragile]{Entrada e saída}
+
+\textbf{Input}
+
+Input contains around 500 test cases. Each case starts with 5 integers, $N, W, H, x, y$, the number 
+of lines, width and height of the garden and the location of the fountain. Next $N$ lines each 
+contain 4 integers, $x_1$ $y_1$ $x_2$ $y_2$, the two end points of the line. The end points are always 
+on the boundary of the garden. You can assume that, the fountain is not located on any line.
+
+\textbf{Constraints}
+
+\begin{itemize}
+    \item $1\leq W, H\leq 200,000$
+    \item $1\leq N\leq 500$
+\end{itemize}
+
+\textbf{Output}
+
+For each test case, output the case number, with the area of the piece covered with her favourite flower.
+Print 3 digits after the decimal point.
+
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de entradas e saídas}
+
+\begin{minipage}[t]{0.5\textwidth}
+\textbf{Sample Input}
+\begin{verbatim}
+3 100 100 20 30
+0 0 100 100
+100 0 0 100
+0 40 40 100
+\end{verbatim}
+\end{minipage}
+\begin{minipage}[t]{0.45\textwidth}
+\textbf{Sample Output}
+\begin{verbatim}
+Case #1: 1780.000
+\end{verbatim}
+\end{minipage}
+\end{frame}
+
+\begin{frame}[fragile]{Solução}
+
+    \begin{itemize}
+        \item A área que contém a fonte $F$ deve ser obtida através de sucessivos cortes do
+            polígono $P$ que representa o jardim
+
+        \item Inicialmente $P$ é um retângulo
+
+        \item Cada nova reta fará um corte em $P$, separando a área que contém $F$ do restante
+
+        \item A orientação do corte é importante: se $F$ está à esquerda dos pontos $A$ e $B$ da
+            reta, o corte é feito na orientação $AB$
+
+        \item Se estiver à direita, a orientação é feita no sentido oposto $BA$ 
+
+        \item Cada corte tem complexidade $O(n)$, onde $n$ é o número de vértices do polígono
+
+        \item No pior caso, a solução tem complexidade $O(N^2)$, onde $N$ é o número retas
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Solução AC}
+    \inputsnippet{cpp}{1}{21}{11265.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Solução AC}
+    \inputsnippet{cpp}{23}{43}{11265.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Solução AC}
+    \inputsnippet{cpp}{44}{61}{11265.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Solução AC}
+    \inputsnippet{cpp}{62}{80}{11265.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Solução AC}
+    \inputsnippet{cpp}{81}{101}{11265.cpp}
+\end{frame}

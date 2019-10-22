@@ -1,0 +1,62 @@
+\section{Paralelepípedos}
+
+\begin{frame}[fragile]{Definição e área}
+
+    \begin{itemize}
+        \item Um paralelepípedo é uma figura geométrica formada por seis paralelogramos
+
+        \item Em geral, um paralelepípedo é representado por três vetores linearmente 
+            independentes $\vec{u}, \vec{v}, \vec{w}$
+
+        \item Caso estes vetores sejam linearmente dependentes, o paralelepípedo resultante
+            é degenerado, tendo volume igual a zero
+
+        \item A área é dada pelas somas das áreas de suas faces
+
+        \item A face delimitada pelos vetores $\vec{u}$ e $\vec{v}$ tem área dada por
+        \[
+            A = |\vec{u} \times \vec{v}|
+        \]
+
+        \item O mesmo vale para as outras faces, usando-se os vetores apropriados
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Volume}
+
+    \begin{itemize}
+        \item O volume é igual ao módulo do produto misto 
+        \[
+            V = |(\vec{u} \times \vec{v}) \cdot \vec{w}|,
+        \]
+        onde $x\cdot y$ é o produto interno entre os vetores $x$ e $y$
+
+        \item Na prática, o produto misto é equivalente ao determinante 
+        \[
+            (\vec{u} \times \vec{v}) \cdot \vec{w}
+            = \det \begin{bmatrix}
+                u_x & u_y & u_z \\
+                v_x & v_y & v_z \\
+                w_x & w_y & w_z \\
+            \end{bmatrix}
+        \]
+
+        \item Se conhecidos apenas os comprimentos $a, b, c$ das arestas e os ângulos internos
+            $\alpha, \beta, \gamma$ formados entre elas, é possível computar o volume do paralelogramo
+                através da expressão:
+            \[
+                V = abc\sqrt{1 + 2\cos \alpha \cos \beta \cos \gamma - \cos^2 \alpha - \cos^2 \beta - \cos^2 \gamma}
+            \]
+
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Implementação do cálculo da área e do volume}
+    \inputsnippet{cpp}{1}{21}{volume_par.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Implementação do cálculo da área e do volume}
+    \inputsnippet{cpp}{22}{42}{volume_par.cpp}
+\end{frame}

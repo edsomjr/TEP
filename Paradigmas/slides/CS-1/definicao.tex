@@ -1,0 +1,107 @@
+\section{Busca Completa}
+
+\begin{frame}[fragile]{Definição}
+
+    \begin{itemize}
+        \item A busca completa, também denominada força bruta, consiste em avaliar todo o
+            espaço de soluções do problema em busca de uma solução
+
+        \item A complexidade de soluções de busca completa, em geral, são determinadas pelo
+            tamanho do espaço de soluções
+
+        \item Este espaço tende a ter um grande número de elementos, de modo que a força
+            bruta é aplicada, com eficiência, em problemas cujo contradomínio seja 
+            computacionalmente tratável
+
+        \item Algoritmos de força bruta, por outro lado, tendem a ter uma implementação simples e
+            direta
+
+        \item Em competições, mesmo que levem a um erro de TLE, podem servir para testar soluções
+            de menor complexidade assintótica, principalmente nos \textit{corner cases}
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de busca completa: localização de um elemento em um vetor}
+
+    \begin{itemize}
+        \item A título de ilustração de um algoritmo de busca completa, considere o problema
+            de se identificar se um elemento $x$ está contido ou não em um vetor de elementos
+            $a = \lbrace a_1, a_2, \ldots, a_N\rbrace$
+
+        \item Se não for imposta nenhuma ordenação subjancente dos elementos de $a$, a única
+            estratégia viável é a busca completa: olhar, um a um, todos os elementos de $a$,
+            comparando-os com $x$, de modo que a complexidade da solução seria $O(N)$
+
+        \item Se os elementos de $a$ estão ordenados, é possível melhorar o algoritmo por 
+            meio de uma busca binária, obtendo uma complexidade $O(\log N)$
+
+        \item Observe que, se for preciso ordenar $a$ a fim de usar a busca binária, a solução teria
+            complexidade $O(N\log N)$, de modo que a busca completa seria mais eficiente
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Localização de um elemento por busca completa}
+    \inputsnippet{cpp}{1}{21}{find.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Geradores e filtros}
+
+    \begin{itemize}
+        \item Uma etapa crucial de um algoritmo de busca completa é a geração de todos os elementos
+            do espaço de soluções $\mathcal{S}$ do problema
+
+        \item As soluções que geram explicitamente todos os elementos de $\mathcal{S}$, e 
+            então checam
+            cada um destes elementos em busca de uma solução, são denominadas filtros
+
+        \item Outra abordagem seria, na geração dos elementos de $\mathcal{S}$, tentar construir diretamente
+            aqueles que correspondem à uma solução do problema, ignorando aqueles que não
+            possam a constituir uma solução do problema
+
+        \item Algoritmos que utilizam esta segunda abordagem são chamados geradores
+
+        \item Em geral, os filtros são mais fáceis de implementar do que os geradores
+
+        \item Contudo, o tempo de execução dos filtros tende a ser maior, embora a complexidade
+            assintótica de ambos possa ser a mesma
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de geradores e filtros}
+
+    \begin{itemize}
+        \item Para ilustrar a diferença entre um gerador e um filtro, considere o problema de
+            listar todos os inteiros positivos menores ou iguais a $N$ que sejam múltiplos ou
+            de $a$ ou de $b$
+
+        \item Por exemplo, para $N = 20, a = 3$ e $b = 5$ a solução seria 
+            $s = \lbrace 3, 5, 6, 9, 10, 12, 15, 18\rbrace$
+
+        \item O espaço de soluções $\mathcal{S}$ seriam todos os subconjuntos de 
+            $A = \lbrace 1, 2, \ldots, N\rbrace$
+
+        \item Uma solução por filtro seria olhar cada um dos elementos $s\in \mathcal{S}$ e 
+            verificar se ele é composto apenas por $3$ ou por $5$
+
+        \item Como $|\mathcal{S}|$ é muito grande, é mais eficiente olhar todos os elementos de
+            $A$ e escolher somente aqueles que são múltiplos de $3$ ou $5$
+ 
+        \item A solução por gerador seria construir múltiplos $m$ de $3$ e $5$ diretamente, 
+            tomando o cuidado de excluir os elementos duplicados
+
+        \item As estratégias sejam distintas, mas a complexidade assintótica de ambas é a 
+            mesma: $O(N)$
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de gerador e de filtro}
+    \inputsnippet{cpp}{1}{14}{multiplos.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de gerador e de filtro}
+    \inputsnippet{cpp}{16}{28}{multiplos.cpp}
+\end{frame}

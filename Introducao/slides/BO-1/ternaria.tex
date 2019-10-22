@@ -1,0 +1,82 @@
+\section{Busca Ternária}
+
+\begin{frame}[fragile]{Motivação}
+
+    \begin{itemize}
+        \item Assim como a busca linear e a busca binária, e busca ternária também
+            pode ser utilizada para localizar um elemento específico em um vetor ordenado
+
+        \item Entretanto, ela pode ser utilizada também para localizar o valor máximo ou
+            mínimo de uma função unimodal em um intervalo $[a, b]$
+
+        \item Uma função $f(x)$ é unimodal no intervalo $I = [a, b]$ se ela existe um ponto 
+            $c\in I$ tal que
+            \begin{enumerate}
+                \item $f'(x) > 0$ se $x \in[a, c)$, $f'(c) = 0$ e $f'(x) < 0$ se $x\in (c, b]$; ou
+                \item $f'(x) < 0$ se $x \in[a, c)$, $f'(c) = 0$ e $f'(x) > 0$ se $x\in (c, b]$
+            \end{enumerate}
+
+        \item Observe que a busca binária não é capaz de localizar tal máximo diretamente
+            neste cenário
+    \end{itemize}
+
+\end{frame}
+
+\input{unimodal_view}
+
+\begin{frame}[fragile]{Algoritmo}
+
+    \begin{itemize}
+        \item Seja $f(x)$ uma função unimodal no intervalo $I = [a, b]$ e $m_1, m_2\in I$ tais
+            que $a < m_1 < m_2 < b$, com um valor máximo no ponto $c\in I$
+
+        \item Os valores $f(m_1)$ e $f(m_2)$ se relacionam de uma das três maneiras seguintes:
+        \begin{enumerate}
+            \item $f(m_1) < f(m_2)$
+            \item $f(m_1) > f(m_2)$
+            \item $f(m_1) = f(m_2)$
+        \end{enumerate}
+
+        \item No primeiro caso, o máximo não pode estar no intervalo $[a, m_1]$, pois ambos
+            pontos $m_1, m_2$ estão na área de crescimento da função
+
+        \item Assim $c > m_1$ e a busca deve prosseguir no intervalo $[m_1, b]$
+
+        \item O segundo caso é simétrico ao primeiro: ambos pontos estão na região de decrescimento,
+            logo $c$ deve estar no intervalo $[a, m_2]$
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Algoritmo}
+
+    \begin{itemize}
+        \item No terceiro caso ocorre ou quando $m_1 = m_2$ ou se $m_1$ está na área de crescimento
+            e $m_2$ na área de crescimento
+
+        \item Assim, $c\in [m_1, m_2]$
+
+        \item Para simplificar o algoritmo, o terceiro caso pode ser reduzido a um dos dois
+            primeiros
+
+        \item Se $m_1$ e $m_2$ dividirem $[a, b]$ em três regiões iguais, a cada etapa da busca
+            o intervalo é reduzido em um terço de seu tamanho
+
+        \item Para esta divisão os valores a serem escolhidos são
+        \begin{align*}
+            m_1 &= a + \left(\dfrac{b - a}{3}\right) \\
+            m_2 &= b - \left(\dfrac{b - a}{3}\right)
+        \end{align*}
+    \end{itemize}
+
+\end{frame}
+
+\input{ternary_view}
+
+\begin{frame}[fragile]{Implementação iterativa da busca ternária}
+    \inputsnippet{cpp}{1}{19}{ternary.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Implementação recursiva da busca ternária}
+    \inputsnippet{cpp}{1}{21}{recursive_ternary.cpp}
+\end{frame}

@@ -1,0 +1,129 @@
+\section{Exemplos de algoritmos gulosos}
+
+\begin{frame}[fragile]{Problema do troco}
+
+    \metroset{block=fill}
+    \begin{block}{Problema do Troco}
+        Seja $C = \lbrace c_1, c_2, \ldots, c_N\rbrace\subset \mathbb{N}$, com $c_i < c_j$ se 
+        $i < j$, o conjunto dos tipos de moedas disponíveis.
+        O problema do troco consiste em, dada uma quantia $Q\in\mathbb{N}$, determinar $N$ inteiros 
+        não-negativos $k_i$ tais que
+        \[
+            k_1c_1 + k_2c_2 + \ldots + k_Nc_N = Q
+        \] e que a soma
+        \[
+            \sum_{i = 1}^N k_i
+        \]
+        seja mínima.
+    \end{block}
+
+\end{frame}
+
+\begin{frame}[fragile]{Algoritmo guloso para o problema do troco}
+
+    \begin{itemize}
+        \item A estratégia gulosa para o problema do troco é escolher o maior número possíveis
+            de moedas do tipo $c_N$, em seguida o maior número de moedas do tipo $c_{N - 1}$,
+            e assim por diante, até a moeda $c_1$
+
+        \item Por exemplo, se $C = \lbrace 1, 2, 5, 10, 25, 50\rbrace$ e $Q = 198$, inicialmente
+            se escolhe $k_6 = 3$ moedas de $50$
+
+        \item Em seguida, toma-se uma moeda de $k_5 = 25$, totalizando $3\times 150 + 1\times 25 = 75$
+
+        \item Agora, seguindo o mesmo raciocínio, escolhe-se $k_4 = 2$, $k_3 = 0$, $k_2 = 1$ e 
+            $k_1 = 1$, de modo que
+        \[
+            3\times 50 + 1\times 25 + 2\times 10 + 0\times 5 + 1\times 2 + 1\times 1 = 198
+        \]
+        e
+        \[
+            \sum_{i = 1}^N k_i = 3 + 1 + 2 + 0 + 1 + 1 = 8
+        \]
+
+        \item A complexidade desta solução é $O(N)$, pois são feitas, no máximo, $N$ divisões,
+            uma para cada tipo de moeda
+            
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Implementação da estratégia gulosa para o problema do troco}
+    \inputsnippet{cpp}{5}{20}{coin_change.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Observações sobre a estratégia gulosa para o problema do troco}
+
+    \begin{itemize}
+        \item Observe que, se as moedas fossem processadas da menor para a maior, o algoritmo
+            não produziria a resposta correta
+
+        \item No exemplo anterior, a resposta seria $k_1 = 198$ e $k_i = 0$ para $i > 1$
+
+        \item Além disso, considere $C = \lbrace 1, 4, 5\rbrace$ e $Q = 8$
+
+        \item O algoritmo guloso para o problema do troco produziria $k_3 = 1$, $k_2 = 0$ e 
+            $k_1 = 3$, num total de $4$ moedas
+
+        \item Porém, é possível gerar $8$ com apenas duas moedas, fazendo $k_3 = k_1 = 0$ e 
+            $k_2 = 2$
+
+        \item Assim, o algoritmo guloso para o problema do troco não produz a saída correta para
+            todas as entradas
+
+        \item Um conjunto $C$ para o qual o algoritmo guloso produz sempre a saída correta é
+            denominada base canônica
+
+        \item Dentre as bases canônicas mais comuns estão o sistema monetário vigente (base do
+            primeiro exemplo), as potências de uma base $b > 1$ e os números de Fibonacci
+        
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Agendamento de eventos}
+
+    \metroset{block=fill}
+    \begin{block}{Agendamento de eventos}
+        Seja $E = \lbrace e_1, e_2, \ldots, e_N\rbrace$ um conjunto de $N$ eventos $e_i$ cuja
+            duração é determinada pelos intervalos $[a_i, b_i)$. O problema do agendamento de
+            eventos consiste em determinar um subconjunto $S\subset E$ tal que
+        \[
+            \forall s_i, s_j\in S, s_i \cap s_j = \emptyset, \ \ \mbox{se}\ \ i\neq j
+        \]
+        e $|S|$ é o maior possível.
+    \end{block}
+
+\end{frame}
+
+\begin{frame}[fragile]{Algoritmo guloso para o agendamento de eventos}
+
+    \begin{itemize}
+        \item O problema do agendamento de eventos pode ser resolvido com um algoritmo guloso
+            para todas as entradas possíveis, embora não seja óbvio à primeira vista qual seria
+            a escolha ótima para cada subproblema
+
+        \item Por exemplo, escolher pelo evento de menor duração ainda não escolhido e que não
+            conflita com os já escolhidos leva a resposta errada quando $E = \lbrace 
+                [1, 5), [4, 7), [6, 10)\rbrace$, pois o algoritmo escolheria apenas o evento 
+            $e_2$, sendo que a solução correta seria a escolha dos eventos $e_1$ e $e_3$
+
+        \item Outra abordagem incorreta seria escolher os eventos que começam o mais cedo possível
+            ainda não selecionados
+
+        \item O algoritmo correto resultada da escolha dos eventos que terminam o mais cedo
+            possível ainda não selecionados
+
+        \item Este algoritmo tem complexidade $O(N\log N)$, pois é preciso ordenar os eventos
+            pelos valores $b_i$
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Implementação do algoritmo guloso para o agendamento de eventos}
+    \inputsnippet{cpp}{1}{18}{scheduling.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Implementação do algoritmo guloso para o agendamento de eventos}
+    \inputsnippet{cpp}{19}{32}{scheduling.cpp}
+\end{frame}

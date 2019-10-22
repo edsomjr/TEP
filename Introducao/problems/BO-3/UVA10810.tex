@@ -1,0 +1,97 @@
+\section{UVA 10810 -- Ultra-QuickSort}
+
+\begin{frame}[fragile]{Problema}
+
+In this problem, you have to analyze a particular sorting algorithm. The algorithm
+processes a sequence of $n$ distinct integers by swapping two adjacent sequence elements until 
+the sequence is sorted in ascending order. For the input sequence
+\[
+9\ 1\ 0\ 5\ 4,
+\]
+Ultra-QuickSort produces the output
+\[
+0\ 1\ 4\ 5\ 9.
+\]
+Your task is to determine how many swap operations Ultra-QuickSort needs to
+perform in order to sort a given input sequence.
+
+\end{frame}
+
+\begin{frame}[fragile]{Entrada e saída}
+
+\textbf{Input}
+
+The input contains several test cases. Every test case begins with a line that
+contains a single integer $n < 500\ 000$ -- the length of the input sequence. Each of
+the the following n lines contains a single integer $0\leq a[i]\leq 999\ 999\ 999$, the $i$-th
+input sequence element. Input is terminated by a sequence of length $n = 0$. This
+sequence must not be processed.
+
+\textbf{Output}
+
+For every input sequence, your program prints a single line containing an integer
+number $op$, the minimum number of swap operations necessary to sort the given
+input sequence.
+
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de entradas e saídas}
+
+\begin{minipage}[t]{0.5\textwidth}
+\textbf{Exemplo de Entrada}
+\begin{verbatim}
+5
+9
+1
+0
+5
+4
+3
+1
+2
+3
+0
+\end{verbatim}
+\end{minipage}
+\begin{minipage}[t]{0.45\textwidth}
+\textbf{Exemplo de Saída}
+\begin{verbatim}
+6
+0
+\end{verbatim}
+\end{minipage}
+\end{frame}
+
+\begin{frame}[fragile]{Solução $O(N\log N)$}
+
+    \begin{itemize}
+        \item Este problema é idêntico ao anterior, com algumas diferenças pontuais
+
+        \item A primeira diferença está na entrada, que termina com $N = 0$, ao invés de EOF
+
+        \item A saída também é diferente, sem nenhuma outra informação a ser impressa além do
+            número de inversões
+
+        \item Como o número de elementos do vetor pode chegare a  $10^5$, o algoritmo quadrático
+            leva ao TLE
+
+        \item Exceto os pontos apresentados, ambas soluções são idênticas
+   \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Solução $O(N\log N)$}
+    \inputsnippet{cpp}{1}{21}{10810.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Solução $O(N\log N)$}
+    \inputsnippet{cpp}{22}{42}{10810.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Solução $O(N\log N)$}
+    \inputsnippet{cpp}{43}{61}{10810.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Solução $O(N\log N)$}
+    \inputsnippet{cpp}{62}{82}{10810.cpp}
+\end{frame}

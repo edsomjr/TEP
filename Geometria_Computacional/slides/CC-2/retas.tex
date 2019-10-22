@@ -1,0 +1,52 @@
+\section{Relação entre círculo e reta}
+
+\begin{frame}[fragile]{Interseção entre círculo e reta}
+
+    \begin{itemize}
+        \item Uma reta que passa pelos pontos $P_1$ e $P_2$ pode ser representada, de forma 
+            paramétrica, pela expressão vetorial $\vec{P} = \vec{P_1} + t(\vec{P_2} - \vec{P_1})$, 
+            onde $t$ é uma variável real
+
+        \item Assim, a coordenada $x$ de $P$ é dada por $x = x_1 + t(x_2 - x_1)$
+
+        \item De forma semelhante, a coordenada $y$ de $P$ é dada por $y = y_1 + t(y_2 - y_1)$
+
+        \item Se estas coordenadas forem levadas para a equação do círculo de centro $C$ e raio $r$
+         (isto é, $(x - x_C)^2 + (y - y_C)^2 = r^2$), o resultado é o polinômio 
+        \[
+            at^2 + bt + c = 0,
+        \]
+        onde
+        \begin{align*}
+            a &= (x_2 - x_1)^2 + (y_2 - y_1)^2 \\
+            b &= 2\left[(x_2 - x_1)(x_1 - C_x) + (y_2 - y_1)(y_1 - C_y)\right] \\
+            c &= C_x^2 + C_y^2 + x_1^2 + y_1^2 - 2(C_xx_1 + C_yy_1)
+        \end{align*}
+
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Interseção entre círculo e reta}
+
+    \begin{itemize}
+        \item O discriminante $\Delta = b^2 - 4ac$  desta equação caracteriza as possíveis 
+            interseções
+
+        \item se $\Delta < 0$, não há interseção entre o círculo e a reta
+        \item se $\Delta = 0$, há um único ponto de interseção (a reta é tangente ao círculo)
+        \item se $\Delta > 0$, há dois pontos distintos de interseção
+
+        \item As coordenadas dos pontos de interseção podem ser obtidas substuíndos os zeros
+            do polinômio nas equações paramêtricas de $x$ e $y$
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Implementação da interseção entre círculo e reta}
+    \inputsnippet{cpp}{1}{21}{inter_line_circle.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Implementação da interseção entre círculo e reta}
+    \inputsnippet{cpp}{22}{42}{inter_line_circle.cpp}
+\end{frame}

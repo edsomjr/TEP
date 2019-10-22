@@ -1,0 +1,142 @@
+\section{UVA 100 -- The $3n + 1$ problem}
+
+\begin{frame}[fragile]{Problema}
+
+Problems in Computer Science are often classified as belonging to a certain class of problems (e.g.,
+NP, Unsolvable, Recursive). In this problem you will be analyzing a property of an algorithm whose
+classification is not known for all possible inputs.
+
+Consider the following algorithm:
+
+\begin{enumerate}
+\item input $n$
+\item print $n$
+\item if $n = 1$ then STOP
+\item if $n$ is odd then $n \leftarrow 3n + 1$
+\item else $n \leftarrow n/2$
+\item GOTO 2
+\end{enumerate}
+
+Given the input 22, the following sequence of numbers will be printed
+\[
+22\ \ 11\ \ 34\ \ 17\ \ 52\ \ 26\ \ 13\ \ 40\ \ 20\ \ 10\ \ 5\ \ 16\ \ 8\ \ 4\ \ 2\ \ 1
+\]
+\end{frame}
+
+\begin{frame}[fragile]{Problema}
+It is conjectured that the algorithm above will terminate (when a 1 is printed) for any integral input
+value. Despite the simplicity of the algorithm, it is unknown whether this conjecture is true. It has
+been verified, however, for all integers n such that $0 < n < 1,000,000$ (and, in fact, for many more
+numbers than this.)
+
+Given an input $n$, it is possible to determine the number of numbers printed before and including
+the 1 is printed. For a given $n$ this is called the \textit{cycle-length} of $n$. In the example above, the cycle
+length of 22 is 16.
+
+For any two numbers $i$ and $j$ you are to determine the maximum cycle length over all numbers
+between and including both $i$ and $j$.
+\end{frame}
+
+\begin{frame}[fragile]{Entrada e saída}
+
+\textbf{Input}
+
+The input will consist of a series of pairs of integers $i$ and $j$, one pair of integers per line. All integers will be less than 10,000 and greater than 0.
+
+You should process all pairs of integers and for each pair determine the maximum cycle length over
+all integers between and including $i$ and $j$.
+
+You can assume that no operation overflows a 32-bit integer.
+
+\vspace{0.1in}
+
+\textbf{Output}
+
+For each pair of input integers $i$ and $j$ you should output $i, j$, and the maximum cycle length 
+for integers between and including $i$ and $j$. These three numbers should be separated by at 
+least one space with all three numbers on one line and with one line of output for each line of 
+input. The integers $i$ and $j$ must
+appear in the output in the same order in which they appeared in the input and should be followed by
+the maximum cycle length (on the same line).
+
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de entradas e saídas}
+
+\begin{minipage}[t]{0.5\textwidth}
+\textbf{Exemplo de Entrada}
+\begin{verbatim}
+1 10
+100 200
+201 210
+900 1000
+\end{verbatim}
+\end{minipage}
+\begin{minipage}[t]{0.45\textwidth}
+\textbf{Exemplo de Saída}
+\begin{verbatim}
+1 10 20
+100 200 125
+201 210 89
+900 1000 174
+\end{verbatim}
+\end{minipage}
+\end{frame}
+
+\begin{frame}[fragile]{Solução}
+
+    \begin{itemize}
+        \item A solução para este problema consiste em quatro etapas
+
+        \item A primeira é ler a entrada do problema
+
+        \item A segunda é codificar uma rotina que computa o \textit{cycle-length} de um inteiro
+            positivo $n$
+
+        \item A terceira é computar o \textit{cycle-length} de todos os números entre $i$ e $j$
+
+        \item Por fim, produzir a saída correta 
+
+        \item A segunda etapa é o cerne do problema, e efetivamente a implementação é a réplica
+            exata do algoritmo dado no problema
+   \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Solução WA}
+    \inputsnippet{cpp}{1}{21}{wa.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Solução WA}
+    \inputsnippet{cpp}{22}{42}{wa.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Solução correta}
+
+    \begin{itemize}
+        \item A solução anterior, embora aparentemente correta, tem veredito WA!
+
+        \item Importante notar que o problema não está na rotina que computa do
+            \textit{cycle-length}
+
+        \item O erro advém de uma leitura sem o rigor devido da entrada: não há, na descrição
+            da entrada, a garantia de que $i$ e $j$ estejam em ordem crescente!
+
+        \item Por exemplo, a entrada \texttt{10 1 20} produziria uma saída errada!
+
+        \item Para corrigir este problema é preciso garantir a ordem crescente dos limites
+            no laço do intervalo
+
+        \item Porém, é preciso preservar os valores de $i$ e $j$ para produzir a saída na 
+            ordem correta
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Solução AC}
+    \inputsnippet{cpp}{1}{21}{ac.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Solução AC}
+    \inputsnippet{cpp}{22}{42}{ac.cpp}
+\end{frame}

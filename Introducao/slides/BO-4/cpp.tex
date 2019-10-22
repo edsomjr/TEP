@@ -1,0 +1,163 @@
+\section{Ordenação em C++}
+
+\begin{frame}[fragile]{Algoritmos de ordenação em C++}
+
+    \begin{itemize}
+        \item A biblioteca \code{c++}{algorithm} da linguagem C++ oferece 4 algoritmos de
+            ordenação: \code{c++}{sort(), stable_sort(), partial_sort()} e \code{c++}{nth_element()}
+
+        \item As interfaces destas funções são semelhantes, e a diferença entre elas está 
+            no comportamento de cada uma
+
+        \item Se indicada, a comparação entre dois elementos a serem ordenados é feita por 
+            uma função de comparação binária $f(a, b)$, que deve retornar verdadeiro se
+            $a$ precede $b$ na ordenação, e falso, em caso contrário
+
+        \item Se a função de comparação for omitida, a comparação será feita através do
+            operador \code{c++}{<}
+
+        \item A complexidade média dos três primeiros algoritmos é $O(N\log N)$, e a função
+            \code{c++}{nth_element} tem complexidade média $O(N)$
+    \end{itemize}
+
+\end{frame}
+
+
+\begin{frame}[fragile]{Função \texttt{sort()}}
+
+    \begin{itemize}
+        \item A função \code{c++}{sort()} implementa um algoritmo de ordenação instável,
+            \textit{in-place}, com complexidade média $O(N\log N)$
+
+        \item Duas assinaturas possíveis da função \code{c++}{sort()} são
+            \inputsyntax{c++}{sort.st}
+
+        \item Ao final da execução, o intervalo \code{c++}{[first, last)} estará ordenado, de
+            acordo com o operator \code{c++}{<} ou o comparador \code{c++}{comp}, respectivamente
+
+        \item A segunda assinatura permite uma maior flexibilidade, pois permite a customização
+            do critério de comparação
+
+        \item Se o critério é apenas a substituição do operador \code{c++}{<} pelo operador
+            \code{c++}{>}, basta usar a estrutura \code{c++}{greater} da biblioteca padrão
+            do C++
+
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de uso da função \texttt{sort()}}
+    \inputcode{c++}{sort.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Comparadores}
+
+    \begin{itemize}
+        \item O comparador pode ser implementado de 3 maneiras: como uma função binária,
+            como uma função binária anônima (\textit{lambda}) ou como uma estrutura com
+            o operador booleano binário \code{c++}{()}
+
+        \item A primeira forma tem como vantagem a familiaridade da declaração de funções,
+            mas polui o código com uma função de uso específico
+
+        \item A terceira forma traz o mesmo problema, mas o uso da estrutura 
+            reduz a poluição do espaço de nomes
+
+        \item A segunda forma evita os problemas de nomes por usar uma função anônima, e a
+            declaração na chamada do algoritmo de ordenação reduz a distância entre declaração e uso
+
+        \item Contudo, tem sintaxe menos intuititva e pode levar à duplicação de código, caso
+            precise ser utilizada mais de uma vez
+        
+        \item Alternativamente, pode-se implementar o operador \code{c++}{<} na própria 
+            classe dos objetos a serem comparados e usar a primeira assinatura
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de uso de comparadores}
+    \inputsnippet{c++}{1}{21}{comp.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de uso de comparadores}
+    \inputsnippet{c++}{22}{42}{comp.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de uso de comparadores}
+    \inputsnippet{c++}{43}{63}{comp.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Função \texttt{stable\_sort()}}
+
+    \begin{itemize}
+
+        \item A função \code{c++}{stable_sort()} implementa um algoritmo de ordenação estável,
+            \textit{in-place}, com complexidade média $O(N\log N)$
+        
+        \item Duas assinaturas possíveis da função \code{c++}{stable_sort()} são
+            \inputsyntax{c++}{stable_sort.st}
+
+        \item Ao contrário da função \code{c++}{sort()}, a função \code{c++}{stable_sort()}
+            preserva a ordem relativa dos elementos considerados iguais
+
+        \item É possível transformar qualquer algoritmo de ordenação instável em um algoritmo
+            estável, adicionado-se a cada elemento da sequência um identificador inteiro 
+            único de posição 
+
+        \item Contudo, esta adaptação tem custo de memória $O(N)$, além de implicar ou na 
+            alteração dos elementos da sequência ou no uso de pares ao invés dos elementos
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de uso da função \texttt{stable\_sort()}}
+    \inputcode{c++}{stable.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Função \texttt{partial\_sort()}}
+
+    \begin{itemize}
+
+        \item A função \code{c++}{partial_sort()} tem assinaturas ligeiramente diferentes
+            das duas funções citadas anteriormente, por contar com um terceiro parâmetro:
+
+            \inputsyntax{c++}{partial.st}
+
+        \item Ela é semelhante à rotina de pivoteamente do
+            \textit{quicksort}, ordenando os elementos que ficam à esquerda da posição 
+            indicada e deixando os demais elementos em uma ordem não especificada
+
+        \item Em outras palavras, ela ordena apenas os elementos menores ou iguais ao
+            elemento apontado por \code{c++}{middle}
+
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de uso da função \texttt{partial\_sort()}}
+    \inputsnippet{c++}{1}{20}{partial.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de uso da função \texttt{partial\_sort()}}
+    \inputsnippet{c++}{21}{41}{partial.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Função \texttt{nth\_element()}}
+
+    \begin{itemize}
+        \item Uma função semelhante à \code{c++}{partial_sort()} é a função 
+            \code{c++}{nth_element()}, que posiciona corretamente apenas o elemento que
+            ocuparia a $n$-ésima posição do vetor, caso estivesse ordenado
+
+        \item A complexidade média é $O(N)$
+
+        \item Duas assinaturas possíveis são
+            \inputsyntax{c++}{nth.st}
+
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de uso da função \texttt{nth\_element()}}
+    \inputcode{c++}{nth.cpp}
+\end{frame}

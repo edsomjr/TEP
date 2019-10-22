@@ -1,0 +1,82 @@
+\section{Pontos de interseção}
+
+\begin{frame}[fragile]{Pontos de interseção entre segmentos verticais e horizontais}
+
+    \begin{itemize}
+        \item Considere o seguinte problema: seja $S$ o conjunto de $N$ segmentos de reta, 
+            horizontais ou verticais. Determine o conjuntos dos pontos de interseção
+            entre estes segmentos
+
+        \item Um ponto estará no conjunto das interseções se ele pertence, simultaneamente, a
+            um segmento vertical e a um segmento horizontal de $S$
+
+        \item Assuma que os segmentos horizontais não tenham interseção entre si; e o mesmo para
+            os segmentos verticais
+
+        \item O algoritmo de força bruta compara um segmento com todos os demais, tendo
+            complexidade $O(N^2)$
+    \end{itemize}
+
+\end{frame}
+
+\input{points1}
+
+\begin{frame}[fragile]{Solução utilizado \textit{sweep line}}
+
+    \begin{itemize}
+        \item O \textit{sweep line} pode ser utilizado em uma solução $O(N\log N)$
+
+        \item Os intervalos podem gerar três tipos de eventos:
+        \begin{enumerate}
+            \item Início de um intervalo horizontal com altura $y$
+            \item Intervalo vertical $[a, b]$
+            \item Fim de um intervalo horizontal com altura $y$
+        \end{enumerate}
+
+        \item Cada evento do tipo 1 deve armazenar as coordenadas $y$ dos intervalos abertos
+
+        \item Em cada evento do tipo 2 deve ser contabilizados quantos valores estão no conjunto
+            e que pertencem ao intervalo $[a, b]$
+
+        \item Para determinar esta quantia os valores $y$ devem ser armazenados em uma árvore
+            de Fenwick
+
+        \item Cada evento do tipo 3 remove a coordenada $y$ do intervalo a ser fechado
+            
+    \end{itemize}
+
+\end{frame}
+
+\input{points2}
+
+\begin{frame}[fragile]{Implementação da contagem dos pontos de interseção}
+    \inputsnippet{cpp}{1}{21}{points.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Implementação da contagem dos pontos de interseção}
+    \inputsnippet{cpp}{22}{42}{points.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Implementação da contagem dos pontos de interseção}
+    \inputsnippet{cpp}{43}{60}{points.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Implementação da contagem dos pontos de interseção}
+    \inputsnippet{cpp}{61}{81}{points.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Implementação da contagem dos pontos de interseção}
+    \inputsnippet{cpp}{82}{102}{points.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Implementação da contagem dos pontos de interseção}
+    \inputsnippet{cpp}{103}{123}{points.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Implementação da contagem dos pontos de interseção}
+    \inputsnippet{cpp}{124}{138}{points.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Implementação da contagem dos pontos de interseção}
+    \inputsnippet{cpp}{139}{159}{points.cpp}
+\end{frame}
