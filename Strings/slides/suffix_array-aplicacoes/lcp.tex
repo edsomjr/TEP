@@ -1,0 +1,116 @@
+\section{Maior prefixo comum entre duas substrings}
+
+\begin{frame}[fragile]{Maior prefixo comum entre duas substrings}
+
+    \begin{itemize}
+        \item O vetor de sufixos de $s$ pode ser utilizado para computar o maior prefixo 
+            comum (\textit{longest common prefix -- LCP}) entre duas substrings de $s$
+
+        \item A ideia central é calcular o maior prefixo comum entre os pares de sufixos
+            adjacentes em $s_A(s)$
+
+        \item Defina $lcp(i)$ como o tamanho do maior prefixo comum entre os sufixos
+           $s_A[i]$ e $s_A[i + 1]$, com $i = 1, 2, \ldots, N - 1$
+ 
+        \item Assim, o maior prefixo comum $LPC(i, j)$ entre os sufixos
+            $s_A[i]$ e $s_A[j]$ é dado por
+        \[
+            LPC(i, j) = \min\ \lbrace\ lpc(i + 1), lpc(i + 2), \ldots, lpc(j)\ \rbrace
+        \]
+
+        \item Desde modo, o problema $LPC(i, j)$ é reduzido a um problema de \textit{range 
+            minimun query -- RMQ}, o qual pode ser resolvido por meio de
+            uma árvores de segmentos, por exemplo
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Algoritmo de Kasai}
+
+    \begin{itemize}
+        \item Uma vez computado o vetor de sufixos $s_A(s)$ de uma string $s$ de tamanho $N$,
+            o algoritmo de Kasai permite computar os valores $lpc(i)$ em $O(N)$
+
+        \item Considere dois sufixos consecutivos no vetor de sufixos, que iniciem nas posições
+            $i$ e $j$ da string $s$, cujo maior prefixo comum entre eles tenha tamanho $k > 0$
+
+        \item Se removidos os primeiros caracteres de cada um destes
+            sufixos, serão obtidos os sufixos $i + 1$ e $j + 1$, os quais não são, 
+            necessariamente, consecutivos no vetor de sufixos
+
+        \item Contudo, estes novos sufixos tem, no mínimo, $k - 1$ caracteres comuns entre 
+            seus prefixos
+
+        \item Assim, $k - 1$ dentre as comparações feitas podem ser reaproveitadas para computar
+            o próximo valor de $lcp$
+
+        \item Um caso especial a ser considerado é o prefixo que ocupa a última posição
+            do vetor de sufixos, que não terá um prefixo que o sucede
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Algoritmo de Kasai}
+
+    \begin{itemize}
+        \item Para determinar em qual posição inicia o $t$-ésimo sufixo do vetor de sufixos,
+            é utilizado um vetor auxiliar $rank[t]$, que indica tal posição
+
+        \item A variável $k$ que registrará o tamanho do maior prefixo comum deve iniciar com
+            o valor zero
+
+        \item No caso especial onde $rank[t] = N$, este valor $k$ deve ser reiniciado para
+            o valor zero
+
+        \item Nos demais casos, para cada valor de $i = 1, 2, \ldots, N$, o índice $j$ onde inicia
+            o prefixo que o sucede $S[i..N]$ no vetor de sufixos será dado por 
+                $j = s_A[rank[i] + 1]$
+
+        \item O valor de $k$ deve ser incrementando enquanto $S[i + k]$ for igual a $S[j + k]$,
+            respeitados os limites da string
+
+        \item Assim, $lcp(rank[i]) = k$, e o valor $k$ deve ser decrementado para o próximo
+            índice
+    \end{itemize}
+
+\end{frame}
+
+\input{lcp_view}
+
+\begin{frame}[fragile]{Implementação da construção do vetor $lpc$}
+    \inputsnippet{cpp}{84}{104}{lcp.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Implementação da construção do vetor $lpc$}
+    \inputsnippet{cpp}{105}{116}{lcp.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Número de substrings distintas}
+
+    \begin{itemize}
+        \item Uma string $S$ de tamanho $N$ tem $N(N + 1)/2$ substrings no total
+
+        \item Isto porque a substring $S[i..j]$ de $S$ pode ser caracterizada pelo par de índices
+            $(i, j)$, com $1\leq i\leq j\leq N$
+
+        \item O início de cada substring coincide com o ínicio de algum sufixo de $S$
+
+        \item Deste modo, se $b = S[i..j] = S[r..s]$, isto significa que $b$ é prefixo comum entre              os sufixos $S[i..N]$ e $S[j..N]$
+
+        \item Logo, todos os índices relacionados os maiores prefixos comuns entre dois
+            prefixos consecutivos no vetor de prefixos geram substrings duplicadas
+
+        \item Assim, se removidas as duplicatas do total de strings, resta o número de
+            substrings distintas $D(S)$ de $S$
+
+        \item Logo,
+        \[
+            D(S) = \frac{N(N + 1)}{2} - \sum_{i = 1}^{N - 1} lcp[i]
+        \]
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Implementação da contagem de substrings distintas usando $lcp$}
+    \inputsnippet{cpp}{118}{128}{lcp.cpp}
+\end{frame}
