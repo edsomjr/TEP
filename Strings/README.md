@@ -19,9 +19,13 @@ Strings
 1. Estruturas de Sufixos
     1. [_Trie_: Definição e Construção](slides/trie/trie.pdf)
     1. [Vetor de sufixos: Definição e Construção](slides/SA-1/SA-1.pdf)
+    1. [Vetor de sufixos: Aplicações](slides/suffix_array-aplicacoes/suffix_array-aplicacoes.pdf)
 
 <!--- Conteúdos a adicionar:
     1. Suffix trie
-    2. Aplicações do suffix array
+    1. Algoritmo de Aho-Corasick
+    1. Algoritmo de Manacher
+    1. Automatos finitos
+    1. Fatorização de Lyndon
 -->
 
