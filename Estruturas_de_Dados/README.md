@@ -1,7 +1,6 @@
 Estruturas de Dados
 ===================
 
-1. [Grafos e Union-Find](text/Grafos_Union_Find.md)
 1. [Segment Tree e BIT Tree](text/Segment_Tree_BIT_Tree.md)
 1. [Dividir e Conquistar](text/Dividir_e_Conquistar.md)
 1. [Programação Dinâmica](text/PD.md)
