@@ -1,0 +1,89 @@
+\section{SPOJ -- Herding}
+
+\begin{frame}[fragile]{Problema}
+
+Oh no! A number of stray cats have been let loose in the city, and as the City Cat Catcher, you have been assigned the vital task of retrieving all of the cats. This is an ideal opportunity to test your latest invention, a cat trap which is guaranteed to retrieve every cat which walks into a square-shaped subsection of the city.
+
+Fortunately, you have the assistance of one of the world's foremost cat psychologists, who has the amazing ability of predicting, given a square subsection of the city, exactly which of the four cardinal directions (north, east, south or west) the cat will head. While this information is handy, you still don't know where all the cats currently are.
+
+In order to prove the cost-effectiveness of your method to the City it would, of course, be important to minimize the number of traps used.
+
+\end{frame}
+
+\begin{frame}[fragile]{Entrada e saída}
+
+\textbf{Input}
+
+The input will begin with a line consisting of two numbers $n$ and $m$, separated by a space 
+($1 \leq n, m \leq 1000$). The city will be an $n \times m$ grid of square subsections. The next 
+$n$ lines will each consist of a string of length $m$, consisting of the letters `\texttt{N}', 
+`\texttt{E}', `\texttt{S}', or `\texttt{W}', representing north, east, south and west, 
+respectively. (The first character of the first line will be the northwesternmost point.) The 
+direction in the square is the direction which cats will head if they are in that square. The cat 
+psychologist assures you that cats have no interest in leaving the city.
+
+\textbf{Output}
+
+Output the minimum number of traps needed.
+
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de entradas e saídas}
+
+\begin{minipage}[t]{0.5\textwidth}
+\textbf{Sample Input}
+\begin{verbatim}
+3 4
+SWWW
+SEWN
+EEEN
+\end{verbatim}
+\end{minipage}
+\begin{minipage}[t]{0.45\textwidth}
+\textbf{Sample Output}
+\begin{verbatim}
+2
+\end{verbatim}
+\end{minipage}
+\end{frame}
+
+\begin{frame}[fragile]{Solução}
+
+    \begin{itemize}
+        \item As informações dadas na entrada permitem determinar, a partir de uma célula
+            $(x, y)$ dada, quais são todas as demais células que um gato pode chegar tendo
+            passado por ela
+
+        \item Interpretando cada célula como um vértice de um grafo, e as arestas as ligações
+            entre a célula atual e o próximo destino do gato, o problema consiste em determinar
+            o número de componentes conectados do grafo
+
+        \item Isto pode ser feito por meio de uma DFS ou de uma UFDS
+
+        \item No caso da UFDS, é preciso adicionar um membro extra, que mantenha a contagem
+            do número de componentes conectados distintos
+
+        \item Esta solução terá complexidade $O(MN\log MN)$
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Solução AC com complexidade $O(MN\log MN)$}
+    \inputsnippet{cpp}{1}{21}{codes/HERDING.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Solução AC com complexidade $O(MN\log MN)$}
+    \inputsnippet{cpp}{22}{42}{codes/HERDING.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Solução AC com complexidade $O(MN\log MN)$}
+    \inputsnippet{cpp}{44}{64}{codes/HERDING.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Solução AC com complexidade $O(MN\log MN)$}
+    \inputsnippet{cpp}{66}{86}{codes/HERDING.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Solução AC com complexidade $O(MN\log MN)$}
+    \inputsnippet{cpp}{87}{107}{codes/HERDING.cpp}
+\end{frame}

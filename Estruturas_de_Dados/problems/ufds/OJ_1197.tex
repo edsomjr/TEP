@@ -1,0 +1,112 @@
+\section{UVA 1197 -- The Suspects}
+
+\begin{frame}[fragile]{Problema}
+
+Severe acute respiratory syndrome (SARS), an atypical pneumonia of unknown aetiology, was recognized as a global threat in mid-March 2003. To minimize transmission to others, the best strategy is
+to separate the suspects from others.
+
+In the Not-Spreading-Your-Sickness University (NSYSU), there are many student groups. Students
+in the same group intercommunicate with each other frequently, and a student may join several groups.
+
+To prevent the possible transmissions of SARS, the NSYSU collects the member lists of all student
+groups, and makes the following rule in their standard operation procedure (SOP).
+
+\begin{center}
+Once a member in a group is a suspect, all members in the group are suspects.
+\end{center}
+
+However, they find that it is not easy to identify all the suspects when a student is recognized as a
+suspect. Your job is to write a program which finds all the suspects.
+
+\end{frame}
+
+\begin{frame}[fragile]{Entrada e saída}
+
+\textbf{Input}
+
+The input file contains several cases. Each test case begins with two integers $n$ and $m$ in a 
+line, where $n$ is the number of students, and $m$ is the number of groups. You may assume that 
+$0 < n \leq 30000$ and $0 \leq m \leq 500$. Every student is numbered by a unique integer between 
+$0$ and $n - 1$, and initially student $0$ is recognized as a suspect in all the cases. This line 
+is followed by $m$ member lists of the groups, one line per group. Each line begins with an 
+integer $k$ by itself representing the number of members in the group. Following the number of 
+members, there are $k$ integers representing the students in this group.  All the integers in a 
+line are separated by at least one space.
+
+A case with $n = 0$ and $m = 0$ indicates the end of the input, and need not be processed.
+
+\textbf{Output}
+
+For each case, output the number of suspects in one line.
+
+\end{frame}
+
+
+\begin{frame}[fragile]{Exemplo de entradas e saídas}
+
+\begin{footnotesize}
+\begin{minipage}[t]{0.6\textwidth}
+\textbf{Sample Input}
+\begin{verbatim}
+100 4
+2 1 2
+5 10 13 11 12 14
+2 0 1
+2 99 2
+200 2
+1 5
+5 1 2 3 4 5
+1 0
+0 0
+\end{verbatim}
+\end{minipage}
+\begin{minipage}[t]{0.35\textwidth}
+\textbf{Sample Output}
+\begin{verbatim}
+4
+1
+1
+\end{verbatim}
+\end{minipage}
+\end{footnotesize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Solução com complexidade $O(NM\log NM)$}
+
+    \begin{itemize}
+        \item A relação ``teve contato com um suspeito'' é uma relação de equivalência
+            \begin{enumerate}[(a)]
+                \item O suspeito teve contato consigo mesmo (reflexiva)
+                \item Se o suspeito teve contato com uma pessoa, a pessoa teve contato com o 
+                    suspeito (simétrica)
+                \item Se o suspeito teve contato com uma pessoa, e a pessoa teve contato com 
+                    fulano, é considerado que fulano também teve contato com o suspeito
+            \end{enumerate}
+
+        \item Assim, para identificar o grupo de pessoas que teve contato com o suspeito,
+            basta usar uma UFDS
+
+        \item A resposta será o número de elementos do conjunto que contém o suspeito
+
+        \item A complexidade da solução, no pior caso, é $O(NM\log NM)$
+
+   \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Solução com complexidade $O(NM\log NM)$}
+    \inputsnippet{cpp}{1}{21}{codes/1197.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Solução com complexidade $O(NM\log NM)$}
+    \inputsnippet{cpp}{22}{42}{codes/1197.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Solução com complexidade $O(NM\log NM)$}
+    \inputsnippet{cpp}{44}{64}{codes/1197.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Solução com complexidade $O(NM\log NM)$}
+    \inputsnippet{cpp}{65}{85}{codes/1197.cpp}
+\end{frame}
