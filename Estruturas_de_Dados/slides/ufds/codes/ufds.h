@@ -28,7 +28,7 @@ public:
 
     void union_set(int x, int y)
     {
-        if (same_set(x, x))
+        if (same_set(x, y))
             return;
 
         int p = find_set(x);

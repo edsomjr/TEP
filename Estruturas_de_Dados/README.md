@@ -1,7 +1,6 @@
 Estruturas de Dados
 ===================
 
-1. [Grafos e Union-Find](text/Grafos_Union_Find.md)
 1. [Segment Tree e BIT Tree](text/Segment_Tree_BIT_Tree.md)
 1. [Dividir e Conquistar](text/Dividir_e_Conquistar.md)
 1. [Programação Dinâmica](text/PD.md)
@@ -34,7 +33,7 @@ Slides
     1. [Árvores-B](slides/BT-1/BT-1.pdf)
     1. [Árvores de Fenwick: Definição, _RSQ_ e _update_](slides/FT-1/FT-1.pdf) ([problemas resolvidos](problems/FT-1/FT-1.pdf))
     1. [Árvores de Fenwick: Aplicações e Variações](slides/FT-2/FT-2.pdf) ([problemas resolvidos](problems/FT-2/FT-2.pdf))
-    1. [_Union-Find Disjoint Sets_](slides/ufds/ufds.pdf)
+    1. [_Union-Find Disjoint Sets_](slides/ufds/ufds.pdf) ([problemas resolvidos](problems/ufds/ufds.pdf))
 1. Hashes
     1. [Definição, endereçamento aberto e encadeamento](slides/HS-1/HS-1.pdf)
     1. [_Hash_ universal e _hash_ perfeito](slides/HS-2/HS-2.pdf)
