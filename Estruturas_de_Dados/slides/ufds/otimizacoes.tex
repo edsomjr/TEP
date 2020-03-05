@@ -1,0 +1,49 @@
+\section{Otimizações e Aplicações}
+
+\begin{frame}[fragile]{Compressão de caminho}
+
+    \begin{itemize}
+        \item O método \code{cpp}{find_set(x)} pode ser modificado para que, ao percorrer o
+            caminho de $x$ até a raiz, os nós intermediários passem a ter a raiz da árvore 
+            como pai
+
+        \item Esta técnica é conhecida como compressão de caminho
+
+        \item A medida que o método for invocado para diferentes valores de $x$, as árvores tendem
+            a ter apenas dois níveis
+
+        \item Usada em conjunto com a união por tamanho (ou por ranqueamento), a complexidade 
+            amortizada de
+            ambas operações (união e identificação de representante) passa a ser $O(\alpha(n))$,
+            onde $\alpha(n)$ é a função inversa de Ackermann
+
+        \item Para qualquer $n$ representável no universo físico, $\alpha(n) < 5$, de modo que
+            as operações tem, na essência, complexidade constante
+    \end{itemize}
+
+\end{frame}
+
+\input{compression}
+
+\begin{frame}[fragile]{Implementação da compressão de caminho}
+    \inputsnippet{cpp}{1}{20}{codes/compression.h}
+\end{frame}
+
+\begin{frame}[fragile]{Aplicações}
+
+    \begin{itemize}
+        \item A UFDS pode ser aplicada em vários contextos
+
+        \item Uma aplicação comum é na implementação do algoritmo de Kruskall para determinar a
+            árvore mínima geradora (MST) de um grafo
+
+        \item De modo geral, ela pode ser usada para identificar os componentes conectados de
+            um grafof não-direcionado
+
+        \item Por fim, seja $R$ uma relação de equivalência
+
+        \item Se $(a, b)\in R$ (isto é, $a$ está relacionado a $b$), então 
+            \code{cpp}{same_set(a, b)} retorna verdadeiro
+    \end{itemize}
+
+\end{frame}

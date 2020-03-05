@@ -20,7 +20,7 @@ Slides
 1. Pilhas e Filas
     1. [Pilhas](slides/PF-1/PF-1.pdf) ([problemas resolvidos](problems/PF-1/PF-2.pdf))
     1. [Filas](slides/PF-2/PF-2.pdf) ([problemas resolvidos](problems/PF-2/PF-2.pdf))
-1. Árvores
+1. Árvores Binárias
     1. [Árvores Binárias: Definição](slides/TR-1/TR-1.pdf)
     1. [Árvores Binárias de Busca: Inserção e Remoção](slides/TR-2/TR-2.pdf)
     1. [Árvores Binárias de Busca: Busca e Travessia](slides/TR-3/TR-3.pdf) ([problemas resolvidos](problems/TR-3/TR-3.pdf))
@@ -30,9 +30,11 @@ Slides
     1. [Árvores Binárias de Busca na STL](slides/TR-7/TR-7.pdf) ([problemas resolvidos](problems/TR-7/TR-7.pdf))
     1. [_Heap_ binária](slides/BH-1/BH-1.pdf) 
     1. [_Heaps_ binárias na STL](slides/BH-2/BH-2.pdf) ([problemas resolvidos](problems/BH-2/BH-2.pdf))
+1. Árvores _m_-árias
     1. [Árvores-B](slides/BT-1/BT-1.pdf)
     1. [Árvores de Fenwick: Definição, _RSQ_ e _update_](slides/FT-1/FT-1.pdf) ([problemas resolvidos](problems/FT-1/FT-1.pdf))
     1. [Árvores de Fenwick: Aplicações e Variações](slides/FT-2/FT-2.pdf) ([problemas resolvidos](problems/FT-2/FT-2.pdf))
+    1. [_Union-Find Disjoint Sets_](slides/ufds/ufds.pdf)
 1. Hashes
     1. [Definição, endereçamento aberto e encadeamento](slides/HS-1/HS-1.pdf)
     1. [_Hash_ universal e _hash_ perfeito](slides/HS-2/HS-2.pdf)

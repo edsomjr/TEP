@@ -1,0 +1,137 @@
+\begin{frame}[fragile]{Visualização da compressão de caminho}
+
+    \begin{figure}
+        \centering
+
+        \begin{tikzpicture}
+            \node[anchor=west] at (0, 6) { \tt find\_set(6) };
+
+            \node[draw,circle] (A) at (4, 5) { 1 };
+            \node[draw,circle] (B) at (2, 3) { 2 };
+            \node[draw,circle] (C) at (6, 3) { 3 };
+            \node[draw,circle] (D) at (5, 1) { 4 };
+            \node[draw,circle] (E) at (8, 1) { 5 };
+            \node[draw,circle] (F) at (7, -1) { 6 };
+
+            \draw[->] (B) edge (A);
+            \draw[->] (C) edge (A);
+            \draw[->] (D) edge (C);
+            \draw[->] (E) edge (C);
+            \draw[->] (F) edge (E);
+
+        \end{tikzpicture}
+
+    \end{figure}
+
+\end{frame}
+
+\begin{frame}[fragile]{Visualização da compressão de caminho}
+
+    \begin{figure}
+        \centering
+
+        \begin{tikzpicture}
+            \node[anchor=west] at (0, 6) { \tt find\_set(6) };
+
+            \node[draw,circle] (A) at (4, 5) { 1 };
+            \node[draw,circle] (B) at (2, 3) { 2 };
+            \node[draw,circle] (C) at (6, 3) { 3 };
+            \node[draw,circle] (D) at (5, 1) { 4 };
+            \node[draw,circle,fill=red!30] (E) at (8, 1) { 5 };
+            \node[draw,circle,fill=green!80!black] (F) at (7, -1) { 6 };
+
+            \draw[->] (B) edge (A);
+            \draw[->] (C) edge (A);
+            \draw[->] (D) edge (C);
+            \draw[->] (E) edge (C);
+            \draw[->] (F) edge (E);
+
+        \end{tikzpicture}
+
+    \end{figure}
+
+\end{frame}
+
+\begin{frame}[fragile]{Visualização da compressão de caminho}
+
+    \begin{figure}
+        \centering
+
+        \begin{tikzpicture}
+            \node[anchor=west] at (0, 6) { \tt find\_set(6) };
+
+            \node[draw,circle] (A) at (4, 5) { 1 };
+            \node[draw,circle] (B) at (2, 3) { 2 };
+            \node[draw,circle,fill=red!30] (C) at (6, 3) { 3 };
+            \node[draw,circle] (D) at (5, 1) { 4 };
+            \node[draw,circle,fill=green!80!black] (E) at (8, 1) { 5 };
+            \node[draw,circle] (F) at (4, 3) { 6 };
+            \node[draw,circle,opacity=0] (G) at (6, -1) { 6 };
+
+            \draw[->] (B) edge (A);
+            \draw[->] (C) edge (A);
+            \draw[->] (D) edge (C);
+            \draw[->] (E) edge (C);
+            \draw[->] (F) edge (A);
+
+        \end{tikzpicture}
+
+    \end{figure}
+
+\end{frame}
+
+\begin{frame}[fragile]{Visualização da compressão de caminho}
+
+    \begin{figure}
+        \centering
+
+        \begin{tikzpicture}
+            \node[anchor=west] at (0, 6) { \tt find\_set(6) };
+
+            \node[draw,circle,fill=blue!30] (A) at (4, 5) { 1 };
+            \node[draw,circle] (B) at (2, 3) { 2 };
+            \node[draw,circle,fill=green!80!black] (C) at (6, 3) { 3 };
+            \node[draw,circle] (D) at (5, 1) { 4 };
+            \node[draw,circle] (E) at (8, 3) { 5 };
+            \node[draw,circle] (F) at (4, 3) { 6 };
+            \node[draw,circle,opacity=0] (G) at (6, -1) { 6 };
+
+            \draw[->] (B) edge (A);
+            \draw[->] (C) edge (A);
+            \draw[->] (D) edge (C);
+            \draw[->] (E) edge (A);
+            \draw[->] (F) edge (A);
+
+        \end{tikzpicture}
+
+    \end{figure}
+
+\end{frame}
+
+\begin{frame}[fragile]{Visualização da compressão de caminho}
+
+    \begin{figure}
+        \centering
+
+        \begin{tikzpicture}
+            \node[anchor=west] at (0, 6) { \tt find\_set(6) = \textcolor{blue}{1}};
+
+            \node[draw,circle] (A) at (4, 5) { 1 };
+            \node[draw,circle] (B) at (2, 3) { 2 };
+            \node[draw,circle] (C) at (6, 3) { 3 };
+            \node[draw,circle] (D) at (5, 1) { 4 };
+            \node[draw,circle] (E) at (8, 3) { 5 };
+            \node[draw,circle] (F) at (4, 3) { 6 };
+            \node[draw,circle,opacity=0] (G) at (6, -1) { 6 };
+
+            \draw[->] (B) edge (A);
+            \draw[->] (C) edge (A);
+            \draw[->] (D) edge (C);
+            \draw[->] (E) edge (A);
+            \draw[->] (F) edge (A);
+
+        \end{tikzpicture}
+
+    \end{figure}
+
+\end{frame}

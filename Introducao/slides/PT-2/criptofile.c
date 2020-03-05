@@ -5,7 +5,6 @@
  *  $ gcc cripto.c main.c -o decipherfile
  *
  */
-
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -30,7 +29,8 @@ int main(int argc, char *argv[]) {
 
     out = fopen(argv[2], "w");
 
-    if (!out) {
+    if (!out)
+    {
         fprintf(stderr, "Erro ao abrir %s para escrita\n", argv[2]);
         fclose(in);
         return -3;
