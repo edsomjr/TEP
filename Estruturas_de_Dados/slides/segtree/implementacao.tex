@@ -1,0 +1,82 @@
+\section{Implementação {\it bottom-up}}
+
+\begin{frame}[fragile]{Número total de nós}
+
+    \begin{itemize}
+        \item Suponha que $N = 2^k$, para algum $k$ positivo
+
+        \item Assim, o nível $i$ da árvore terá $2^i$ nós que representam um intervalo de tamanho
+            $N/2^i$
+
+        \item A altura $h$ da árvore é igual a $h = \log N = \log 2^k = k$
+
+        \item Logo, o total de nós da árvore será igual a
+        \[
+            \sum_{i = 0}^k 2^i = 1 + 2 + \ldots + 2^k = 2^{k + 1} - 1 < 2^{k + 1} = 2N
+        \]
+
+        \item Assim, a árvore de segmentos deve reservar espaço para $2N$ nós
+
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Construtor}
+
+    \begin{itemize}
+        \item Em um implementação \textit{bottom-up}, os nós da árvore de segmentos são armazenados
+            em um vetor $ns$ de $2N$ elementos, do mesmo tipo dos elementos de $xs$
+
+        \item A posição 0 (zero) não é utilizada, sendo a raiz armazenada no índice 1 (um)
+
+        \item Seja $u$ o nó que ocupa o índice $i$ de $ns$
+
+        \item O filho a esquerda de $u$ ocupará o índice $2i$, e o filho à direita o índice $2i + 1$
+
+        \item O pai de $u$ ocupará o índice $\lfloor i/2\rfloor$
+
+        \item Os elementos de $xs$ ocuparam os índices de $N$ até $2N - 1$
+
+        \item Das folhas até a raiz, um nível por vez, serão preenchidos os nós internos, usando
+            a operação subjacente
+    \end{itemize}
+
+\end{frame}
+
+\input{build}
+
+\begin{frame}[fragile]{Implementação do construtor da árvore de segmentos}
+    \inputsnippet{cpp}{1}{21}{codes/segtree.h}
+\end{frame}
+
+\begin{frame}[fragile]{\it Range query}
+
+    \begin{itemize}
+        \item Uma vez inicializada a árvore de segmentos, é possível determinar o resultado
+            da operação subjacente para um intervalo $[a, b]$ arbitrário
+
+        \item Para isto, três observações devem ser feitas:
+            \begin{enumerate}
+                \item Se $a$ é ímpar, ele é o filho à direita, logo ele deve ser processado
+                    separadamente
+
+                \item O mesmo acontece se $b$ é par
+
+                \item Nos outros casos, os valores de $a$ e $b$ já foram processados por seus
+                    pais, e o processamento deve seguir para estes pais
+            \end{enumerate}
+
+        \item Assim, como a altura da árvore é igual a $\log N$, esta rotina tem complexidade
+            $O(\log N)$
+
+        \item Se a operação subjacente é a soma dos elementos, esta operação recebe o nome de
+            \textit{range sum query} (RSQ)
+    \end{itemize}
+
+\end{frame}
+
+\input{rsq}
+
+\begin{frame}[fragile]{Implementação da {\it range query}}
+    \inputsnippet{cpp}{22}{42}{codes/segtree.h}
+\end{frame}
