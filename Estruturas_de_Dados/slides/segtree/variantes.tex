@@ -1,0 +1,66 @@
+\section{Variantes da árvore de segmentos}
+
+\begin{frame}[fragile]{\it Range update}
+
+    \begin{itemize}
+        \item Uma variante comum dentre as operação de uma árvore de segmentos é a atualização
+            de intervalo (\textit{range\_update})
+
+        \item A chamada \texttt{range\_update(a, b, value)} aplica o parâmetro \texttt{value}
+            a todos os elementos de $xs$ cujos índices pertencem ao intervalo $[a, b]$
+
+        \item Implementada diretamente, de forma semelhante a atualização pontual, esta função 
+            passa a ter complexidade $O(N)$ no pior caso, o que torna a árvore de segmentos 
+            irrelevante, pois esta seria a complexidade de ambas operações em uma implementação
+            \textit{naive} utilizando apenas vetores
+
+        \item Para implementar a atualização de intervalo com complexidade $O(\log N)$, é 
+            preciso utilizar uma técnica denominada \textit{lazy propagation}
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{\it Lazy propagation}
+
+    \begin{itemize}
+        \item A valoração não-estrita (\textit{lazy propagation}) é uma técnica oriunda das
+            linguagens funcionais, onde um valor só é computado quando for estritamente
+            necessário
+
+        \item No caso das árvores de segmentos, a ideia é adicionar um campo extra em cada
+            nó, que armazenará os valores que deveriam ser atualizados no nó (vetor \texttt{lazy})
+
+        \item A menos que o valor armazenado no nó seja necessário para algum cálculo, o
+            valor de \texttt{lazy} fica armazenado 
+
+        \item Se for preciso saber o valor correto do nó, o valor atual é corrigido pelo valor de
+            \texttt{lazy}, e os valores de \texttt{lazy} dos filhos à esquerda e à direita
+            são atualizados
+
+        \item Embora a memória necessária para a árvore de segmentos aumente para quase o dobro,
+            a complexidade da atualização de intervalo passa a ser $O(\log N)$
+    \end{itemize}
+
+\end{frame}
+
+\input{lazy}
+
+\begin{frame}[fragile]{Implementação da {\it lazy propagation}}
+    \inputsnippet{cpp}{1}{20}{codes/segtree_lazy.h}
+\end{frame}
+
+\begin{frame}[fragile]{Implementação da {\it lazy propagation}}
+    \inputsnippet{cpp}{21}{41}{codes/segtree_lazy.h}
+\end{frame}
+
+\begin{frame}[fragile]{Implementação da {\it lazy propagation}}
+    \inputsnippet{cpp}{43}{63}{codes/segtree_lazy.h}
+\end{frame}
+
+\begin{frame}[fragile]{Implementação da {\it lazy propagation}}
+    \inputsnippet{cpp}{64}{84}{codes/segtree_lazy.h}
+\end{frame}
+
+\begin{frame}[fragile]{Implementação da {\it lazy propagation}}
+    \inputsnippet{cpp}{85}{105}{codes/segtree_lazy.h}
+\end{frame}
