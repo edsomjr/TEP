@@ -31,17 +31,16 @@ Slides
     1. [_Heaps_ binárias na STL](slides/BH-2/BH-2.pdf) ([problemas resolvidos](problems/BH-2/BH-2.pdf))
 1. Árvores _m_-árias
     1. [Árvores-B](slides/BT-1/BT-1.pdf)
+    1. [_Union-Find Disjoint Sets_](slides/ufds/ufds.pdf) ([problemas resolvidos](problems/ufds/ufds.pdf))
     1. [Árvores de Fenwick: Definição, _RSQ_ e _update_](slides/FT-1/FT-1.pdf) ([problemas resolvidos](problems/FT-1/FT-1.pdf))
     1. [Árvores de Fenwick: Aplicações e Variações](slides/FT-2/FT-2.pdf) ([problemas resolvidos](problems/FT-2/FT-2.pdf))
-    1. [_Union-Find Disjoint Sets_](slides/ufds/ufds.pdf) ([problemas resolvidos](problems/ufds/ufds.pdf))
+    1. [Árvores de segmentos: Definição e Implementação](slides/segtree/segtree.pdf)
 1. Hashes
     1. [Definição, endereçamento aberto e encadeamento](slides/HS-1/HS-1.pdf)
     1. [_Hash_ universal e _hash_ perfeito](slides/HS-2/HS-2.pdf)
     1. [_Hash_ em C++](slides/HS-3/HS-3.pdf) ([problemas resolvidos](problems/HS-3/HS-3.pdf))
 
 <!-- Assuntos pendentes:
-1. Árvores de segmentos
 2. Árvores AVL
 3. BITree: range query com range update
-4. UFDS
 -->
