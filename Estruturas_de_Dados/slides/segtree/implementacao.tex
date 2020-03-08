@@ -80,3 +80,141 @@
 \begin{frame}[fragile]{Implementação da {\it range query}}
     \inputsnippet{cpp}{22}{42}{codes/segtree.h}
 \end{frame}
+
+\begin{frame}[fragile]{\it Update}
+
+    \begin{itemize}
+        \item A operação de atualização (\texttt{update(i, value)}) permite modificar o valor do
+            elemento $ns[i]$
+
+        \item O procedimento padrão é aplicar a operação subjacente ao atual valor de $ns[i]$
+            e um parâmetro \texttt{value}
+
+        \item Uma variante comum é a substituição do valor
+
+        \item Neste caso, é preciso determinar qual seria o valor atual $x$ e então aplicar a
+            atualização com o parâmetro \texttt{value} igual ao inverso de $x$ em relação à
+            operação subjacente
+
+        \item Uma vez modificado o valor, é preciso ir atualizado todos seus antepassados na
+            árvore: pai, avô, etc, até a raiz
+
+        \item Como a altura da árvore é igual a $\log N$, esta operação também tem complexidade
+            $O(\log N)$
+    \end{itemize}
+
+\end{frame}
+
+\input{update}
+
+
+\begin{frame}[fragile]{Implementação de {\it update}}
+    \inputsnippet{cpp}{43}{63}{codes/segtree.h}
+\end{frame}
+
+\section{Implementação {\it top-down}}
+
+\begin{frame}[fragile]{Número arbitrário de nós}
+
+    \begin{itemize}
+        \item Na implementação \textit{bottom-up} foi assumido que o tamanho $N$ do vetor
+            $xs$ era uma potência de 2
+
+        \item No caso geral, $N$ pode ser um inteiro positivo qualquer
+
+        \item A implementação \textit{top-down} é uma alternativa para estes casos
+
+        \item Se $N$ não é uma potência de 2, a próxima potência de 2 maior do que $N$ é menor
+            do que $2N$
+
+        \item Assim uma cota superior segura para o tamanho do vetor $ns$ é de $4N$
+
+        \item O preenchimento de $ns$ é feito por meio de $N$ chamadas de \texttt{update(i, xs[i])}
+
+        \item Este forma não é ótima em termos de complexidade, mas reusa código e diminui o
+            tamanho da implementação
+
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Implementação do construtor na versão {\it top-down}}
+    \inputsnippet{cpp}{1}{18}{codes/segtree_topdown.h}
+\end{frame}
+
+\begin{frame}[fragile]{\it Update}
+
+    \begin{itemize}
+        \item A atualização deve ser feita por meio de recursão
+
+        \item Os parâmetros da versão recursiva devem ser: o índice do nó atual (\texttt{node}),
+            o intervalo que o nó representa (\texttt{[L, R]}), o índice do elemento a ser 
+            atualizado em $xs$ (\texttt{i}) e o valor da atualização (\texttt{value})
+
+        \item Há dois casos base: o primeiro acontece se \texttt{i} não pertencer ao intervalo 
+            \texttt{[L, R]}, onde a função deve retornar sem fazer nada
+
+        \item Caso contrário, o valor armazenado em \texttt{node} deve ser atualizado usando
+            \texttt{value}
+
+        \item Em seguida há o segundo caso base: se \texttt{node} aponta para um folha, a função
+            também retorna
+
+        \item As chamadas recursivas repassam a atualização para os filhos à esquerda e à direita
+            de \texttt{node}
+
+    \end{itemize}
+
+\end{frame}
+
+\include{update_topdown}
+
+\begin{frame}[fragile]{Implementação de {\it update} na versão {\it top-down}}
+    \inputsnippet{cpp}{19}{39}{codes/segtree_topdown.h}
+\end{frame}
+
+\begin{frame}[fragile]{\it Range query}
+
+    \begin{itemize}
+        \item As \textit{range queries} também podem ser respondidas por meio de recursão
+
+        \item A chamada \texttt{range\_query(a, b)} retorna o valor da operação subjacente em todos
+            os elementos de $xs$ cujos índices estão no intervalo $[a, b]$
+
+        \item Para tal, a chamada recursiva deve ter como parâmetros o nó atual (\texttt{node}),
+            o intervalo $[L, R]$ que o nó representa e o intervalo $[a, b]$
+
+        \item O primeiro caso base acontece quando $[L, R]\cap [a, b] = \emptyset$, onde a
+            função deve retornar o elemento neutro da operação
+
+        \item O segundo caso base acontece quando $[L, R]\subset [a, b]$: neste caso, o valor
+            armazenado no nó deve ser retornado
+
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{\it Range query}
+
+    \begin{itemize}
+        \item A chamada recursiva computa a \textit{range\_query} para as subárvores da esquerda
+            e da direita, e computa o resultado para o nó a partir destes retornos
+
+        \item A complexidade desta operação é $O(\log N)$
+
+        \item Isto porque, na decomposição 
+            \[
+                [a, b] = [x_1, y_1]\cap [x_2, y_2]\cap \ldots \cap [x_k, y_k],
+            \] 
+            onde $[x_i, y_i]$ é um dos intervalos que aparecem na árvore e $[x_i, y_i]\cap
+                [x_j, y_j] = \emptyset$ se $i\neq j$, pode haver no máximo um intervalo
+                de cada nível da árvore
+    \end{itemize}
+
+\end{frame}
+
+\input{range_query}
+
+\begin{frame}[fragile]{Implementação de {\it update} na versão {\it top-down}}
+    \inputsnippet{cpp}{41}{61}{codes/segtree_topdown.h}
+\end{frame}

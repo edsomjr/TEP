@@ -40,16 +40,16 @@ public:
         return s;
     }
 
-/*    void add(int i, T v)                          // Adds v to position i
+    void update(int i, T value)
     {
-        int a = i + n;
+        int a = i + N;
 
-        tree[a] += v;                               // Update the leaf
+        ns[a] += value;
 
+        // Atualiza todos os pais de a
         while (a >>= 1)
-            tree[a] = tree[2*a] + tree[2*a + 1];    // Update its parents
+            ns[a] = ns[2*a] + ns[2*a + 1];
     }
-*/
 };
 
 #endif
