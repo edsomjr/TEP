@@ -1,9 +1,6 @@
 Estruturas de Dados
 ===================
 
-1. [Dividir e Conquistar](text/Dividir_e_Conquistar.md)
-1. [Programação Dinâmica](text/PD.md)
-
 Slides
 ======
 
