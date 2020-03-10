@@ -1,0 +1,90 @@
+\section{Codeforces Round \#197 (Div. 2) -- Problem D: Xenia and Bit Operations}
+
+%\begin{frame}[fragile]{Problema}
+
+%\end{frame}
+
+%\begin{frame}[fragile]{Entrada e saída}
+
+%\textbf{Input}
+
+%\textbf{Output}
+
+%\end{frame}
+
+%\begin{frame}[fragile]{Exemplo de entradas e saídas}
+
+%\begin{minipage}[t]{0.5\textwidth}
+%\textbf{Sample Input}
+%\begin{verbatim}
+%3 3 3
+%1 2 3
+%1 2 1
+%1 3 2
+%2 3 4
+%1 2
+%1 3
+%2 3
+%1 1 1
+%1
+%1 1 1
+%1 1
+%\end{verbatim}
+%\end{minipage}
+%\begin{minipage}[t]{0.45\textwidth}
+%\textbf{Sample Output}
+%\begin{verbatim}
+%9 18 17
+%2
+%\end{verbatim}
+%\end{minipage}
+%teste
+%\end{frame}
+
+%\begin{frame}[fragile]{Solução com complexidade $O(N + (M + K)\log (M + K))$}
+
+%    \begin{itemize}
+%        \item A solução tem três partes
+%
+%        \item A primeira é acumular o número de vezes que cada operação deverá ser realizada
+%
+%        \item Isto pode ser feito com uma árvore de Fenwick com suporte para \textit{range update}
+%
+%        \item Em seguida, deve-se acumular o impacto de cada operação no vetor original
+%
+%        \item O número de vezes $x$ que a operação $i$ será aplicada pode ser feita com uma
+%            \textit{point query} na árvore
+%
+%        \item Novamente é necessária uma árvore de Fenwick com suporte para \textit{range update}
+%
+%        \item O intervalo $[L, R]$ deve ser atualizado com o valor $dx$
+%
+%        \item Por fim, a cada posição do vetor $i$ deve ser adicionado o valor $y$ obtido
+%            pela \textit{point query} do índice $i$ da árvore
+%   \end{itemize}
+%
+%\end{frame}
+
+%\begin{frame}[fragile]{Solução com complexidade $O(N + (M + K)\log (M + K))$}
+%    \inputsnippet{cpp}{1}{21}{codes/339D.cpp}
+%\end{frame}
+%
+%\begin{frame}[fragile]{Solução com complexidade $O(N + (M + K)\log (M + K))$}
+%    \inputsnippet{cpp}{22}{41}{codes/339D.cpp}
+%\end{frame}
+%
+%\begin{frame}[fragile]{Solução com complexidade $O(N + (M + K)\log (M + K))$}
+%    \inputsnippet{cpp}{42}{62}{codes/339D.cpp}
+%\end{frame}
+%
+%\begin{frame}[fragile]{Solução com complexidade $O(N + (M + K)\log (M + K))$}
+%    \inputsnippet{cpp}{63}{83}{codes/339D.cpp}
+%\end{frame}
+%
+%\begin{frame}[fragile]{Solução com complexidade $O(N + (M + K)\log (M + K))$}
+%    \inputsnippet{cpp}{84}{104}{codes/339D.cpp}
+%\end{frame}
+%
+%\begin{frame}[fragile]{Solução com complexidade $O(N + (M + K)\log (M + K))$}
+%    \inputsnippet{cpp}{105}{125}{codes/339D.cpp}
+%\end{frame}
