@@ -1,0 +1,103 @@
+\section{Codeforces Round \#197 (Div. 2) -- Problem D: Xenia and Bit Operations}
+
+\begin{frame}[fragile]{Problema}
+
+Xenia the beginner programmer has a sequence $a$, consisting of $2^n$ non-negative integers: 
+$a_1, a_2, \ldots, a_{2^n}$. Xenia is currently studying bit operations. To better understand how 
+they work, Xenia decided to calculate some value $v$ for $a$.
+
+Namely, it takes several iterations to calculate value $v$. At the first iteration, Xenia writes 
+a new sequence $a_1\ \mbox{or}\ a_2, a_3\ \mbox{or}\ a_4, \ldots, a_{2^n - 1}\ \mbox{or}\ a_{2^n}$, consisting of $2^{n - 1}$
+elements. In other words, she writes down the bit-wise OR of adjacent elements of sequence $a$. At 
+the second iteration, Xenia writes the bitwise exclusive OR of adjacent elements of the sequence 
+obtained after the first iteration. At the third iteration Xenia writes the bitwise OR of the 
+adjacent elements of the sequence obtained after the second iteration. And so on; the operations 
+of bitwise exclusive OR and bitwise OR alternate. In the end, she obtains a sequence consisting of 
+one element, and that element is $v$.
+\end{frame}
+
+\begin{frame}[fragile]{Problema}
+Let's consider an example. Suppose that sequence $a = (1, 2, 3, 4)$. Then let's write down all the 
+transformations $(1, 2, 3, 4) \to (1\ \mbox{or}\ 2 = 3,$ $3\ \mbox{or}\ 4 = 7) \to (3\ \mbox{xor}\ 
+7 = 4)$. The result is $v = 4$.
+
+You are given Xenia's initial sequence. But to calculate value $v$ for a given sequence would be 
+too easy, so you are given additional m queries. Each query is a pair of integers $p, b$. Query 
+$p, b$ means that you need to perform the assignment $a_p = b$. After each query, you need to 
+print the new value $v$ for the new sequence $a$.
+\end{frame}
+
+
+\begin{frame}[fragile]{Entrada e saída}
+
+\textbf{Input}
+
+The first line contains two integers $n$ and $m$ ($1\leq n\leq 17, 1\leq m\leq 10^5$). The next 
+line contains $2^n$ integers $a_1, a_2, \ldots, a^{2n} (0\leq a_i < 2^{30})$. Each of the next 
+$m$ lines contains queries. The $i$-th line contains integers $p_i, b_i (1\leq p_i\leq 2^n, 0 \leq 
+b_i < 2^{30})$ -- the $i$-th query.
+
+\textbf{Output}
+
+Print $m$ integers -- the $i$-th integer denotes value $v$ for sequence a after the $i$-th query.
+
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de entradas e saídas}
+
+\begin{minipage}[t]{0.5\textwidth}
+\textbf{Sample Input}
+\begin{verbatim}
+2 4
+1 6 3 5
+1 4
+3 4
+1 2
+1 2
+\end{verbatim}
+\end{minipage}
+\begin{minipage}[t]{0.45\textwidth}
+\textbf{Sample Output}
+\begin{verbatim}
+1
+3
+3
+3
+\end{verbatim}
+\end{minipage}
+\end{frame}
+
+\begin{frame}[fragile]{Solução com complexidade $O(M\log N + N)$}
+
+    \begin{itemize}
+        \item O problema consiste em um vetor cujo tamanho é uma potência de 2, cujas operações
+            são a atualização de um elemento em particular ou uma consulta (\textit{query}) em
+            todo intervalo de índices $[1, 2^N]$
+
+        \item Assim, ele pode ser solucionado de forma eficiente através do uso de uma árvore de
+            segmentos com implementação \textit{bottom-up}
+
+        \item A alternância entre as duas operações (OR e XOR) pode ser feita por meio de
+            ponteiros para funções e \textit{swaps}
+
+        \item Esta solução tem complexidade $O(M\log N + N)$
+
+   \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Solução com complexidade $O(M\log N + N)$}
+    \inputsnippet{cpp}{1}{20}{codes/339D.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Solução com complexidade $O(M\log N + N)$}
+    \inputsnippet{cpp}{21}{41}{codes/339D.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Solução com complexidade $O(M\log N + N)$}
+    \inputsnippet{cpp}{42}{60}{codes/339D.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Solução com complexidade $O(M\log N + N)$}
+    \inputsnippet{cpp}{61}{81}{codes/339D.cpp}
+\end{frame}
