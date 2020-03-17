@@ -10,6 +10,7 @@ void process_combinations(int n, int m,
     ns.resize(n);
 
     // As combinações são geradas em ordem lexicográfica
+    // ns[i] = 1 significa que (i + 1) pertence a combinação
     do {
         process(ns);
     } while (prev_permutation(ns.begin(), ns.end()));

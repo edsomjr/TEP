@@ -16,8 +16,9 @@
         \item Algoritmos de força bruta, por outro lado, tendem a ter uma implementação simples e
             direta
 
-        \item Em competições, mesmo que levem a um erro de TLE, podem servir para testar soluções
-            de menor complexidade assintótica, principalmente nos \textit{corner cases}
+        \item Em competições, mesmo que levem a um erro de TLE, estes algoritmos podem servir para 
+            testar soluções de menor complexidade assintótica, principalmente nos 
+            \textit{corner cases}
     \end{itemize}
 
 \end{frame}
@@ -29,7 +30,7 @@
             de se identificar se um elemento $x$ está contido ou não em um vetor de elementos
             $a = \lbrace a_1, a_2, \ldots, a_N\rbrace$
 
-        \item Se não for imposta nenhuma ordenação subjancente dos elementos de $a$, a única
+        \item Se não for imposta nenhuma ordenação subjacente aos elementos de $a$, a única
             estratégia viável é a busca completa: olhar, um a um, todos os elementos de $a$,
             comparando-os com $x$, de modo que a complexidade da solução seria $O(N)$
 
@@ -43,7 +44,7 @@
 \end{frame}
 
 \begin{frame}[fragile]{Localização de um elemento por busca completa}
-    \inputsnippet{cpp}{1}{21}{find.cpp}
+    \inputsnippet{cpp}{1}{21}{codes/find.cpp}
 \end{frame}
 
 \begin{frame}[fragile]{Geradores e filtros}
@@ -65,7 +66,7 @@
         \item Em geral, os filtros são mais fáceis de implementar do que os geradores
 
         \item Contudo, o tempo de execução dos filtros tende a ser maior, embora a complexidade
-            assintótica de ambos possa ser a mesma
+            assintótica de ambos possam, eventualmente, virem a serem as mesmas
     \end{itemize}
 
 \end{frame}
@@ -92,16 +93,16 @@
         \item A solução por gerador seria construir múltiplos $m$ de $3$ e $5$ diretamente, 
             tomando o cuidado de excluir os elementos duplicados
 
-        \item As estratégias sejam distintas, mas a complexidade assintótica de ambas é a 
+        \item As estratégias são distintas, mas a complexidade assintótica de ambas é a 
             mesma: $O(N)$
     \end{itemize}
 
 \end{frame}
 
 \begin{frame}[fragile]{Exemplo de gerador e de filtro}
-    \inputsnippet{cpp}{1}{14}{multiplos.cpp}
+    \inputsnippet{cpp}{1}{14}{codes/multiplos.cpp}
 \end{frame}
 
 \begin{frame}[fragile]{Exemplo de gerador e de filtro}
-    \inputsnippet{cpp}{16}{28}{multiplos.cpp}
+    \inputsnippet{cpp}{16}{28}{codes/multiplos.cpp}
 \end{frame}

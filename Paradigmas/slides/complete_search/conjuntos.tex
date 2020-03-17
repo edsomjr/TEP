@@ -1,4 +1,4 @@
-\section{Geradores notáveis}
+\section{Conjuntos notáveis}
 
 \begin{frame}[fragile]{Produto cartesiano}
 
@@ -26,7 +26,7 @@
 \end{frame}
 
 \begin{frame}[fragile]{Implementação da geração do produto cartesiano}
-    \inputsnippet{cpp}{1}{15}{produto.cpp}
+    \inputsnippet{cpp}{1}{15}{codes/produto.cpp}
 \end{frame}
 
 \begin{frame}[fragile]{Subconjuntos}
@@ -43,8 +43,8 @@
         \item As formas de se gerar estes subconjuntos estão vinculadas a forma escolhida para
             representar estes subconjuntos
 
-        \item Se cada subconjunto $S\subset A$ é um vetor, contendo os índices dos elementos de
-            $A$ que pertencem a $S$, a estratégia é usar a recursão
+        \item Se cada subconjunto $S\subset A$ é um vetor contendo os índices dos elementos de
+            $A$ que pertencem a $S$, a estratégia mais adequada é usar recursão
 
         \item Se $S$ corresponde a um vetor de $N$ \textit{bits}, onde o $i$-ésimo \textit{bit}
             indica a presença ou a ausência do elemento $a_i$ em $S$, os subconjuntos podem ser
@@ -53,20 +53,12 @@
 
 \end{frame}
 
-\begin{frame}[fragile]{Implementação recursiva dos subconjuntos de $A$}
-    \inputsnippet{cpp}{1}{19}{subsets_recursivo.cpp}
-\end{frame}
-
-\begin{frame}[fragile]{Implementação recursiva dos subconjuntos de $A$}
-    \inputsnippet{cpp}{20}{40}{subsets_recursivo.cpp}
+\begin{frame}[fragile]{Implementação iterativa dos subconjuntos de $A$}
+    \inputsnippet{cpp}{1}{12}{codes/subsets.cpp}
 \end{frame}
 
 \begin{frame}[fragile]{Implementação iterativa dos subconjuntos de $A$}
-    \inputsnippet{cpp}{1}{12}{subsets_iterativo.cpp}
-\end{frame}
-
-\begin{frame}[fragile]{Implementação iterativa dos subconjuntos de $A$}
-    \inputsnippet{cpp}{13}{33}{subsets_iterativo.cpp}
+    \inputsnippet{cpp}{13}{33}{codes/subsets.cpp}
 \end{frame}
 
 \begin{frame}[fragile]{Permutações}
@@ -76,7 +68,7 @@
             em uma reordenação de seus índices $\lbrace b_1, b_2, \ldots, b_N\rbrace$ tal que,
             para cada $i = 1, 2, \ldots, N$, existe um $j$ tal que $a_i = b_j$
 
-        \item Um conjunto $A$ composto por $N$ elementos tem $N!$ permutações distintas
+        \item Um conjunto $A$ composto por $N$ elementos distintos tem $N!$ permutações distintas
 
         \item Por exemplo, para $N = 3$, as permutações de $A = \lbrace 1, 2, 3\rbrace$ são:
             $\lbrace 1, 2, 3\rbrace$, $\lbrace 1, 3, 2\rbrace$, $\lbrace 2, 1, 3\rbrace$,
@@ -95,14 +87,9 @@
 
 \end{frame}
 
-\begin{frame}[fragile]{Implementação recursiva das permutações de $A$}
-    \inputsnippet{cpp}{5}{25}{permutacoes_recursivo.cpp}
-\end{frame}
-
 \begin{frame}[fragile]{Implementação iterativa das permutações de $A$}
-    \inputsnippet{cpp}{1}{19}{permutacoes_iterativo.cpp}
+    \inputsnippet{cpp}{1}{19}{codes/permutacoes.cpp}
 \end{frame}
-
 
 \begin{frame}[fragile]{Combinações}
 
@@ -127,12 +114,14 @@
 
 \end{frame}
 
-\begin{frame}[fragile]{Implementação recursiva das combinações}
-    \inputsnippet{cpp}{5}{25}{combinacoes_recursivo.cpp}
+\begin{frame}[fragile]{Implementação iterativa das combinações}
+    \inputsnippet{cpp}{1}{18}{codes/combinacoes.cpp}
 \end{frame}
 
 \begin{frame}[fragile]{Implementação iterativa das combinações}
-    \inputsnippet{cpp}{1}{17}{combinacoes_iterativo.cpp}
+    \inputsnippet{cpp}{19}{39}{codes/combinacoes.cpp}
 \end{frame}
+
+
 
 
