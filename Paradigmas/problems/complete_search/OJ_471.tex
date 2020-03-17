@@ -1,0 +1,92 @@
+\section{OJ 471 -- Magic Numbers}
+
+\begin{frame}[fragile]{Problema}
+
+Write a program that finds and displays all pairs of integers $s_1$ and $s_2$ such that:
+
+\begin{enumerate}
+    \item neither $s_1$ nor $s_2$ have any digits repeated; and
+    \item $s_1/s_2 = N$, where $N$ is a given integer;
+\end{enumerate}
+
+\end{frame}
+
+\begin{frame}[fragile]{Entrada e saída}
+
+\textbf{Input}
+
+The input file consist a integer at the beginning indicating the number of test case followed by a 
+blank line. Each test case consists of one line of input containing $N$.
+
+Two input are separated by a blank line.
+
+\textbf{Output}
+
+For each input the output consists of a sequence of zero or more lines each containing ‘$s_1 / 
+s_2 = N$’, where $s_1, s_2$ and $N$ are the integers described above. When there are two or more 
+solutions, sort them by increasing numerator values.
+
+Two consecutive output set will separated by a blank line.
+
+\end{frame}
+
+
+\begin{frame}[fragile]{Exemplo de entradas e saídas}
+
+\begin{minipage}[t]{0.45\textwidth}
+\textbf{Sample Input}
+\begin{verbatim}
+1
+
+1234567890
+\end{verbatim}
+\end{minipage}
+\begin{minipage}[t]{0.5\textwidth}
+\textbf{Sample Output}
+\begin{verbatim}
+1234567890 / 1 = 1234567890
+2469135780 / 2 = 1234567890
+4938271560 / 4 = 1234567890
+6172839450 / 5 = 1234567890
+8641975230 / 7 = 1234567890
+9876543120 / 8 = 1234567890
+\end{verbatim}
+\end{minipage}
+\end{frame}
+
+\begin{frame}[fragile]{Solução com complexidade $O(N)$}
+
+    \begin{itemize}
+        \item Como o total de pares deve ser listado, a solução deve utilizar a busca completa
+
+        \item Observe que não são informados os limites da entrada
+
+        \item O pior caso aconteceria com $N = 1$, onde todos os pares $(x, x)$, com $x \leq 
+            10^{10}$, seriam válidos
+
+        \item Assim, é assumido que as entradas levam a uma quantidade razoável de pares
+
+        \item Da relação apresentada, $s_2$ é um múltiplo de $N$
+
+        \item Assim, basta testar os valores $s_1 = 1, 2, 3, \ldots$, até que o produto
+            $p = s_1N \geq 10^{10}$
+
+        \item Isto porque se $p$ tem 11 ou mais dígitos, certamente ele terá duas ou mais repetições
+            de um mesmo dígito
+   \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Solução com complexidade $O(N)$}
+    \inputsnippet{cpp}{1}{19}{codes/OJ_471.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Solução com complexidade $O(N)$}
+    \inputsnippet{cpp}{20}{38}{codes/OJ_471.cpp}
+\end{frame}
+\begin{frame}[fragile]{Solução com complexidade $O(N)$}
+    \inputsnippet{cpp}{39}{58}{codes/OJ_471.cpp}
+\end{frame}
+\begin{frame}[fragile]{Solução com complexidade $O(N)$}
+    \inputsnippet{cpp}{59}{79}{codes/OJ_471.cpp}
+\end{frame}
