@@ -1,9 +1,6 @@
 Paradigmas de Resolução de Problemas
 ====================================
 
-Slides
-======
-
 1. Busca Completa
     1. [Definição](slides/complete_search/complete_search.pdf) ([problemas resolvidos](problems/complete_search/complete_search.pdf))
 
