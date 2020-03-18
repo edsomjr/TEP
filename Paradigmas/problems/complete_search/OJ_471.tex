@@ -54,7 +54,7 @@ Two consecutive output set will separated by a blank line.
 \end{minipage}
 \end{frame}
 
-\begin{frame}[fragile]{Solução com complexidade $O(N)$}
+\begin{frame}[fragile]{Solução com complexidade $O(1/N)$}
 
     \begin{itemize}
         \item Como o total de pares deve ser listado, a solução deve utilizar a busca completa
@@ -64,8 +64,6 @@ Two consecutive output set will separated by a blank line.
         \item O pior caso aconteceria com $N = 1$, onde todos os pares $(x, x)$, com $x \leq 
             10^{10}$, seriam válidos
 
-        \item Assim, é assumido que as entradas levam a uma quantidade razoável de pares
-
         \item Da relação apresentada, $s_2$ é um múltiplo de $N$
 
         \item Assim, basta testar os valores $s_1 = 1, 2, 3, \ldots$, até que o produto
@@ -73,20 +71,22 @@ Two consecutive output set will separated by a blank line.
 
         \item Isto porque se $p$ tem 11 ou mais dígitos, certamente ele terá duas ou mais repetições
             de um mesmo dígito
+
+        \item De fato, para cada $N$ existem $10^{10}/N$ pares possíveis a serem verificados
    \end{itemize}
 
 \end{frame}
 
-\begin{frame}[fragile]{Solução com complexidade $O(N)$}
+\begin{frame}[fragile]{Solução com complexidade $O(1/N)$}
     \inputsnippet{cpp}{1}{19}{codes/OJ_471.cpp}
 \end{frame}
 
-\begin{frame}[fragile]{Solução com complexidade $O(N)$}
+\begin{frame}[fragile]{Solução com complexidade $O(1/N)$}
     \inputsnippet{cpp}{20}{38}{codes/OJ_471.cpp}
 \end{frame}
-\begin{frame}[fragile]{Solução com complexidade $O(N)$}
+\begin{frame}[fragile]{Solução com complexidade $O(1/N)$}
     \inputsnippet{cpp}{39}{58}{codes/OJ_471.cpp}
 \end{frame}
-\begin{frame}[fragile]{Solução com complexidade $O(N)$}
+\begin{frame}[fragile]{Solução com complexidade $O(1/N)$}
     \inputsnippet{cpp}{59}{79}{codes/OJ_471.cpp}
 \end{frame}
