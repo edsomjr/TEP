@@ -1,0 +1,93 @@
+\section{Exemplos de aplicação do {\it backtracking}}
+
+\begin{frame}[fragile]{Subconjuntos de um conjunto}
+
+    \begin{itemize}
+        \item O \textit{backtracking} pode ser utilizado para listar todos os subconjuntos de
+            um conjunto dado
+
+        \item Os parâmetros do problema são: o vetor $as$ com os elementos do conjunto, o número
+            de elementos $N$ de $as$ e o índice $i$ do elemento de $as$ que será considerado
+
+        \item Cada subconjunto será caracterizado após todos os elementos terem sido considerados
+
+        \item A cada passo, o único candidato a entrar ou não no subconjunto é o elemento $a_i$
+
+        \item Por conta da possibilidade de $a_i$ estar ou não no subconjunto, serão necessárias
+            duas chamadas recursivas
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Listagem de subconjuntos usando {\it backtracking}}
+    \inputsnippet{cpp}{1}{21}{codes/subsets.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Listagem de subconjuntos usando {\it backtracking}}
+    \inputsnippet{cpp}{22}{42}{codes/subsets.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Listagem de subconjuntos usando {\it backtracking}}
+    \inputsnippet{cpp}{43}{63}{codes/subsets.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Permutações de um conjunto de elementos}
+
+    \begin{itemize}
+        \item As $N!$ permutações de um conjunto de $N$ elementos também podem ser
+            listadas utilizando-se o \textit{backtracking}
+
+        \item Os parâmetros do problema são: um vetor $as$ representando os elementos do
+            conjunto
+
+        \item Neste caso, cada solução é composta por todos os elementos de $as$, em alguma ordem
+
+        \item Os candidatos a serem inseridos em uma solução parcial são todos os elementos de
+            $as$ que ainda não estão presentes em $xs$
+
+        \item Para simplificar o algoritmo, $xs$ armazenará os índices, e não os elementos de
+            $as$
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Listagem de permutações usando {\it backtracking}}
+    \inputsnippet{cpp}{1}{19}{codes/permutacoes.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Listagem de permutações usando {\it backtracking}}
+    \inputsnippet{cpp}{20}{38}{codes/permutacoes.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Listagem de permutações usando {\it backtracking}}
+    \inputsnippet{cpp}{39}{59}{codes/permutacoes.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Combinações}
+
+    \begin{itemize}
+        \item A listagem de todas as combinações de $N$ elementos de um conjunto, tomados
+            $M$ a $M$, também pode ser criada usando a técnica do \textit{backtracking}
+
+        \item O procedimento é semelhante ao da listagem de permutações
+
+        \item A primeira diferença é que o problema tem um parâmetro a mais: o valor de $M$
+
+        \item A segunda diferença reside na construção dos candidatos: devem ser considerados
+            apenas os elementos de $as$ que não estão presentes em $xs$ e que são estritamente
+            maiores do que todos os elementos já listados
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Listagem de combinações usando {\it backtracking}}
+    \inputsnippet{cpp}{1}{21}{codes/combinacoes.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Listagem de combinações usando {\it backtracking}}
+    \inputsnippet{cpp}{22}{40}{codes/combinacoes.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Listagem de combinações usando {\it backtracking}}
+    \inputsnippet{cpp}{41}{61}{codes/combinacoes.cpp}
+\end{frame}

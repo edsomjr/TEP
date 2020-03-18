@@ -1,0 +1,39 @@
+\section{Poda}
+
+\begin{frame}[fragile]{Poda}
+
+    \begin{itemize}
+        \item A poda (\textit{prunning}) é uma estratégia de otimização dos algoritmo que 
+            utilizam o \textit{backtracking}
+
+        \item A poda avalia a solução parcial $xs$ e os candidatos disponíveis $cs$
+
+        \item Se os candidatos ainda disponíveis não são mais capazes de tornar $xs$ uma solução
+            válida, então o \textit{backtracking} deve retornar imediatamente, sem realizar
+            as chamadas recursivas
+
+        \item A poda pode não reduzir a complexidade assintótica do algoritmo, mas pode reduzir
+            a constante
+
+        \item O ganho com o não-processamentos de ramos da árvore de decisão que não levam à
+            soluções pode resultar em um AC onde um \textit{backtracking} sem poda resulta em
+            TLE
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Listagem de combinações com poda}
+    \inputsnippet{cpp}{1}{20}{codes/combinacoes_poda.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Listagem de combinações com poda}
+    \inputsnippet{cpp}{21}{41}{codes/combinacoes_poda.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Listagem de combinações com poda}
+    \inputsnippet{cpp}{42}{62}{codes/combinacoes_poda.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Listagem de combinações com poda}
+    \inputsnippet{cpp}{63}{83}{codes/combinacoes_poda.cpp}
+\end{frame}

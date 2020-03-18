@@ -1,0 +1,77 @@
+\section{\it Backtracking}
+
+\begin{frame}[fragile]{Definição}
+
+    \begin{itemize}
+        \item \textit{Backtracking} é uma técnica de busca completa que, por meio de recursão,
+            investiga todo o espaço de soluções
+
+        \item Ela parte de uma solução, inicialmente vazia, e tenta construir uma nova solução
+            estendendo a solução parcial um elemento por vez
+
+        \item A cada passo são avaliados todos os possíveis elementos que podem vir a integrar
+            uma nova solução, a depender dos elementos já inseridos na solução parcial
+
+        \item Quando uma solução é encontrada, ela é processada e ou o algoritmo para ou segue
+            para identificar todas as demais soluções
+
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Pseudo-código do {\it backtracking}}
+
+    \begin{algorithm}[H]
+        \caption{\it Backtracking}
+
+        \begin{algorithmic}[1]
+            \Require um vetor solução $xs$ e os parâmetros $P$ do problema
+            \Ensure O processamento de todas as soluções possíveis
+
+            \State $xs \gets \emptyset$
+            \State 
+ 
+            \Function{backtracking}{$xs, P$}
+                \If { \Call{is\_solution}{$xs$, $P$} }
+                    \State \Call{process\_solution}{$xs$, $P$}
+                \Else
+                    \State $cs \gets $ \Call{candidades}{$xs$, $P$}
+
+                    \ForAll { $c \in cs$ }
+                        \State \Call{push\_back}{$c, xs$}
+                        \State \Call{update}{$P, c$}
+                        \State \Call{backtracking}{$xs, P$}
+                        \State \Call{restore}{$P, c$}
+                        \State \Call{pop\_back}{$xs$}
+                    \EndFor
+                \EndIf
+            \EndFunction
+        \end{algorithmic}
+    \end{algorithm}
+
+\end{frame}
+
+\begin{frame}[fragile]{Observações sobre o {\it backtracking}}
+
+    \begin{itemize}
+        \item No pseudo-código apresentado, para cada algoritmo em particular é necessário
+            implementar as funções \code{cpp}{is_solution()}, \code{cpp}{process_solution()} e
+             \code{cpp}{candidates()}
+
+        \item O vetor $xs$ pode ser tanto um \code{cpp}{vector} do C++ ou um \textit{array} 
+            estático de C
+
+        \item A construção dos possíveis candidatos depende do estado do vetor $xs$ e dos
+            parâmetros $P$ do problema
+
+        \item Cada candidato deve ser inserido ao final de $xs$, e após o retorno da chamada
+            recursiva, ele deve ser removido
+
+        \item Assim, não é necessário fazer novas cópias de $xs$ a cada chamada: basta passar este
+            vetor por referência
+
+        \item A inserção de um candidato em $xs$ pode vir a modificar os parâmetros $P$: esta
+            atualização também deve ser desfeita após a chamada recursiva
+    \end{itemize}
+
+\end{frame}
