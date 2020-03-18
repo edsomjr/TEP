@@ -3,6 +3,7 @@ Paradigmas de Resolução de Problemas
 
 1. Busca Completa
     1. [Definição](slides/complete_search/complete_search.pdf) ([problemas resolvidos](problems/complete_search/complete_search.pdf))
+    1. [_Backtracking_](slides/backtracking/backtracking.pdf) ([problemas resolvidos](problems/backtracking/backtracking.pdf))
 
 1. Algoritmos Gulosos
     1. [Definição](slides/GD-1/GD-1.pdf) ([problemas resolvidos](problems/GD-1/GD-1.pdf))
