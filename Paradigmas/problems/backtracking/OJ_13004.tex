@@ -1,0 +1,75 @@
+\section{OJ 13004 -- At most twice}
+
+\begin{frame}[fragile]{Problema}
+
+Given a positive integer $U$, find the largest integer $L$ such that $L\leq U$ and $L$ does not 
+contain any digit more than twice.
+
+\end{frame}
+
+\begin{frame}[fragile]{Entrada e saída}
+
+\textbf{Input}
+
+The input contains several test cases; each test case is formatted as follows. A test case 
+consists of a single line that contains an integer $U$ ($1\leq U\leq 10^{18}$).
+
+\textbf{Output}
+
+For each test case in the input, output a line with an integer representing the largest number 
+less than or equal to $U$ that does not contain any digit more than twice.
+
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de entradas e saídas}
+
+\begin{minipage}[t]{0.45\textwidth}
+\textbf{Sample Input}
+\begin{verbatim}
+2210102960
+1000000000000000000
+1001223343
+20152015
+\end{verbatim}
+\end{minipage}
+\begin{minipage}[t]{0.5\textwidth}
+\textbf{Sample Output}
+\begin{verbatim}
+2210099887
+998877665544332211
+998877665
+20152015
+\end{verbatim}
+\end{minipage}
+\end{frame}
+
+\begin{frame}[fragile]{Solução}
+
+    \begin{itemize}
+        \item Uma forma de obter a solução para este problema é utilizar o \textit{backtracking}
+
+        \item O vetor $xs$ será solução se tiver o mesmo número de dígitos de $U$ (talvez com
+            zeros à esquerda) e não tiver um dígito repetido mais do que 2 vezes
+
+        \item A cada etapa, os candidatos são os dígitos que ainda não se repetiram duas vezes
+
+        \item A título de poda, os dígitos serão acrescentados à direita, e sempre do maior
+            para o menor candidato disponível
+            
+        \item Assim, a primeira solução encontrada já será a ótima, o que permite encerrar a
+            busca imediatamente
+   \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Solução}
+    \inputsnippet{cpp}{1}{21}{codes/OJ_13004.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Solução}
+    \inputsnippet{cpp}{22}{42}{codes/OJ_13004.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Solução}
+    \inputsnippet{cpp}{43}{63}{codes/OJ_13004.cpp}
+\end{frame}
