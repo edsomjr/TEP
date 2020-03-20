@@ -9,7 +9,7 @@
         \item É possível implementar uma pilha por composição, usando listas encadeadas ou vetores
 
         \item A estratégia LIFO pode ser implementada fazendo-se a inserção e a remoção em uma
-            mesma ponta da lista, de modo que uma lista simplemente encadeada é suficiente
+            mesma ponta da lista, de modo que uma lista simplesmente encadeada é suficiente
 
         \item Basta utilizar as operações \code{c}{push_front()} e \code{c}{pop_front()}, 
             respectivamente, uma vez que ambas tem complexidade $O(1)$
@@ -26,15 +26,15 @@
 \end{frame}
 
 \begin{frame}[fragile]{Implementação de uma pilha em C++}
-    \inputsnippet{c++}{4}{22}{stack.h}
+    \inputsnippet{c++}{4}{22}{codes/stack.h}
 \end{frame}
 
 \begin{frame}[fragile]{Implementação de uma pilha em C++}
-    \inputsnippet{c++}{1}{21}{main.cpp}
+    \inputsnippet{c++}{1}{21}{codes/main.cpp}
 \end{frame}
 
 \begin{frame}[fragile]{Implementação de uma pilha em C++}
-    \inputsnippet{c++}{22}{42}{main.cpp}
+    \inputsnippet{c++}{22}{42}{codes/main.cpp}
 \end{frame}
 
 \begin{frame}[fragile]{Pilhas em C++}
@@ -47,7 +47,7 @@
             são parametrizáveis
 
         \item Por padrão, o contêiner utilizado é um \code{c}{deque} (\textit{double-ended queue}),
-            mas os contêiners \code{c}{vector} e \code{c}{list} são igualmente válidos
+            mas os contêineres \code{c}{vector} e \code{c}{list} são igualmente válidos
 
         \item A interface é idêntica à apresentada anteriormente, com a adição apenas do método
             \code{c}{swap()}, que troca os elementos de duas pilhas em $O(1)$, e não possui o
@@ -58,9 +58,9 @@
 \end{frame}
 
 \begin{frame}[fragile]{Exemplo de uso da classe stack da STL}
-    \inputsnippet{c++}{1}{17}{stl.cpp}
+    \inputsnippet{c++}{1}{17}{codes/stl.cpp}
 \end{frame}
 
 \begin{frame}[fragile]{Exemplo de uso da classe stack da STL}
-    \inputsnippet{c++}{18}{38}{stl.cpp}
+    \inputsnippet{c++}{18}{38}{codes/stl.cpp}
 \end{frame}
