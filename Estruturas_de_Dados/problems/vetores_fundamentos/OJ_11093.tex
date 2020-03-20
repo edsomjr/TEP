@@ -1,4 +1,4 @@
-\section{UVA 11093 -- Just Finish it Up}
+\section{OJ 11093 -- Just Finish it Up}
 
 \begin{frame}[fragile]{Problema}
 
@@ -84,7 +84,7 @@ Case 2: Possible from station 4
         \item Ao iniciar a corrida em $i$, o combustível inicial é igual a $p_i$
 
         \item Esta solução deveria levar ao TLE, dado que $N \leq 10^5$, mas os casos de
-            teste do UVA são fracos e levam ao AC
+            teste são fracos e levam ao AC
    \end{itemize}
 
 \end{frame}
@@ -107,8 +107,8 @@ Case 2: Possible from station 4
             $i + 1$ significa ter ou a mesma quantidade de combustível resultante de se 
             começar em (se $p_i = q_i$), ou ter menos combustível (se $p_i > q_i$)
 
-        \item Assim, se partir de $i$ significa não alcançar $k + 1$, partir de $i + 1$ levará ao
-            mesmo obstáculo
+        \item Assim, se partir de $i$ significa não alcançar $k + 1$, partir de $i + 1$ também
+            não será possível
 
         \item Portanto, cada posto será visitado, no máximo, duas vezes, levando a uma solução
             linear
@@ -117,18 +117,18 @@ Case 2: Possible from station 4
 \end{frame}
 
 \begin{frame}[fragile]{Solução com complexidade $O(N)$}
-    \inputsnippet{cpp}{1}{21}{11093.cpp}
+    \inputsnippet{cpp}{1}{21}{codes/11093.cpp}
 \end{frame}
 
 \begin{frame}[fragile]{Solução com complexidade $O(N)$}
-    \inputsnippet{cpp}{22}{42}{11093.cpp}
+    \inputsnippet{cpp}{22}{42}{codes/11093.cpp}
 \end{frame}
 
 \begin{frame}[fragile]{Solução com complexidade $O(N)$}
-    \inputsnippet{cpp}{43}{63}{11093.cpp}
+    \inputsnippet{cpp}{43}{63}{codes/11093.cpp}
 \end{frame}
 
 \begin{frame}[fragile]{Solução com complexidade $O(N)$}
-    \inputsnippet{cpp}{64}{84}{11093.cpp}
+    \inputsnippet{cpp}{64}{84}{codes/11093.cpp}
 \end{frame}
 

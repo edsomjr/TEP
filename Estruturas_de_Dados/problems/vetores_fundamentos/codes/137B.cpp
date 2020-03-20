@@ -1,6 +1,4 @@
-#include <iostream>
-#include <algorithm>
-#include <vector>
+#include <bits/stdc++.h>
 
 using namespace std;
 
@@ -9,7 +7,8 @@ int solve(int N, vector<int>& as)
     vector<int> found(N + 1, 0);
 
     for (const auto& a : as)
-        found[a] = 1;
+        if (a >= 1 and a <= N)
+            found[a] = 1;
 
     int total = 0;
 
