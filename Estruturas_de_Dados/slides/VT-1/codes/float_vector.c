@@ -1,7 +1,7 @@
 #include <float.h>
 #include <float_vector.h>
 
-float limits(const FloatVector *v, char limit) {
+static float limits(const FloatVector *v, char limit) {
     register int i;
     float a = FLT_MAX, b = -FLT_MAX;
     

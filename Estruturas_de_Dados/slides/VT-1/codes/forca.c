@@ -1,9 +1,9 @@
+/* Compile com a flag -lncurses */
 #include <ncurses.h>
 #include <ctype.h> 
  
-char word[] = "TESTE", uppercase[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 int found[4096], i;
-
+char word[] = "TESTE", uppercase[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 typedef enum { STARTING, RUNNING, WAITING, VICTORY, GAME_OVER } State;
 
 void print(int tries, State state) {

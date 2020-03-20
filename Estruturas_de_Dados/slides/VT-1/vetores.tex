@@ -13,7 +13,7 @@
 		\item O acesso aleatório é imediato: qualquer posição do vetor pode ser lida ou escrita
 		em $O(1)$
 
-		\item Porém a inserção e remoção aleatória é lenta: os elementos tem que ser transpostos no         momento da inserção/remoção (ordem de complexidade $O(N)$)
+		\item Porém a inserção e remoção aleatória é lenta: os elementos tem que ser transpostos no         momento da inserção/remoção (complexidade $O(N)$)
 	\end{itemize}
 
 \end{frame} 
@@ -22,7 +22,7 @@
 
     \metroset{block=fill}
     \begin{block}{Sintaxe para declaração de vetores}
-        \inputsyntax{c}{vec.st}
+        \inputsyntax{c}{codes/vec.st}
     \end{block}
 
 	\begin{itemize}
@@ -41,38 +41,38 @@
 \end{frame}
 
 \begin{frame}[fragile]{Exemplo de uso de vetores}
-    \inputsnippet{c}{1}{21}{forca.c}
+    \inputsnippet{c}{1}{21}{codes/forca.c}
 \end{frame}
 
 \begin{frame}[fragile]{Exemplo de uso de vetores}
-    \inputsnippet{c}{23}{43}{forca.c}
+    \inputsnippet{c}{23}{43}{codes/forca.c}
 \end{frame}
 
 \begin{frame}[fragile]{Exemplo de uso de vetores}
-    \inputsnippet{c}{44}{64}{forca.c}
+    \inputsnippet{c}{44}{64}{codes/forca.c}
 \end{frame}
 
 \begin{frame}[fragile]{Exemplo de uso de vetores}
-    \inputsnippet{c}{65}{80}{forca.c}
+    \inputsnippet{c}{65}{80}{codes/forca.c}
 \end{frame}
 
 \begin{frame}[fragile]{Exemplo de uso de vetores}
-    \inputsnippet{c}{81}{101}{forca.c}
+    \inputsnippet{c}{81}{101}{codes/forca.c}
 \end{frame}
 
 \begin{frame}[fragile]{Declaração de vetores dinâmicos}
 
 	\begin{itemize}
-		\item Também foi visto na aula de ponteiros que é possível alocar um vetor dinamicamente, 
+		\item Também é possível alocar um vetor dinamicamente, 
         postergando o conhecimento do seu tamanho para a execução
 
 		\item Em linguagem C, um vetor pode ser alocado dinamicamente 
 		de {duas} maneiras:
-		    \inputsyntax{c}{ex_vec.st}
+		    \inputsyntax{c}{codes/ex_vec.st}
 
 		\item Em linguagem C++, um vetor pode ser alocado através do 
 		operador \code{c++}{new}:
-		    \inputsyntax{c++}{ex2_vec.st}
+		    \inputsyntax{c++}{codes/ex2_vec.st}
 
 		\item A mémoria alocada para o vetor em C deve ser liberada através da função 
         \code{c++}{free()}
@@ -84,11 +84,11 @@
 \end{frame}
 
 \begin{frame}[fragile]{Exemplo de uso de vetores dinâmicos}
-    \inputsnippet{cpp}{1}{21}{megasena.cpp}
+    \inputsnippet{cpp}{1}{21}{codes/megasena.cpp}
 \end{frame}
 
 \begin{frame}[fragile]{Exemplo de uso de vetores dinâmicos}
-    \inputsnippet{cpp}{23}{43}{megasena.cpp}
+    \inputsnippet{cpp}{23}{43}{codes/megasena.cpp}
 \end{frame}
 
 \begin{frame}
@@ -103,12 +103,10 @@
 
 		\item Como consequência da afirmação anterior, ao passar um 
 		vetor como parâmetro de uma função é necessário ou 
-		{informar} o tamanho ou {definir} um termo 
-		delimitador (sentinela)
+		{informar} o tamanho ou {definir} um elemento delimitador (sentinela)
 
 		\item Uma forma de evitar este problema é criar um 
-		{novo tipo de dado} que represente um vetor e seu
-		respectivo tamanho
+		{novo tipo de dado} que armazene os elementos do vetor e seu tamanho
 
         \item Importante notar que, no caso de vetores (\textit{arrays}), o tamanho físico
         (capacidade, número máximo de elementos que ele comporta) coincide com o tamanho lógico
@@ -116,23 +114,23 @@
 
         \item Esta superposição de conceitos pode gerar problemas de interpretação (por exemplo,
             ler um elemento que não deveria ser considerado) e alinhamento de memória (pois as
-            alocações indicar a quantidade exata a ser usada)
+            alocações precisam indicar a quantidade exata a ser usada)
 	\end{itemize}
 
 \end{frame}
 
 \begin{frame}[fragile]{Exemplo de uma estrutura para vetores}
-    \inputcode{c}{float_vector.h}
+    \inputcode{c}{codes/float_vector.h}
 \end{frame}
 
 \begin{frame}[fragile]{Exemplo de uma estrutura para vetores}
-    \inputcode{c}{float_vector.c}
+    \inputcode{c}{codes/float_vector.c}
 \end{frame}
 
 \begin{frame}[fragile]{Exemplo de uma estrutura para vetores}
-    \inputsnippet{c}{1}{20}{test_float_vector.c}
+    \inputsnippet{c}{1}{20}{codes/test_float_vector.c}
 \end{frame}
 
 \begin{frame}[fragile]{Exemplo de uma estrutura para vetores}
-    \inputsnippet{c}{21}{40}{test_float_vector.c}
+    \inputsnippet{c}{21}{40}{codes/test_float_vector.c}
 \end{frame}
