@@ -1,0 +1,134 @@
+\section{OJ 11093 -- Just Finish it Up}
+
+\begin{frame}[fragile]{Problema}
+
+Along a circular track, there are $N$ gas stations, which are numbered clockwise from 1 up to $N$. 
+At station $i$, there are $p_i$ gallons of petrol available. To race from station $i$ to its 
+clockwise neighbor one need $q_i$ gallons of petrol. Consider a race where a car will start the 
+race with an empty fuel tank. Your task is to find whether the car can complete the race from any 
+of the stations or not. If it can then mention the smallest possible station $i$ from which the 
+lap can be completed.
+
+\end{frame}
+ 
+\begin{frame}[fragile]{Entrada e saída}
+
+\textbf{Input}
+
+First line of the input contains one integer $T$ the number of test cases. Each test case will 
+start with a line containing one integer $N$, which denotes the number of gas stations. In the 
+next few lines contain $2N$ integers. First $N$ integers denote the values of $p_i$s 
+(petrol available at station $i$), subsequent $N$ integers denote the value of $q_i$s 
+(amount of patrol needed to go to the next station in the clockwise direction).
+
+\textbf{Output}
+
+For each test case, output the case number in the format \lq\lq \texttt{Case $c$:}” , 
+where $c$ is the case number starting from 1. Then display whether it is possible to complete a 
+lap by a car with an empty tank or not. If it is not possible to complete the lap then display 
+\lq\lq \texttt{Not possible}”. If possible, then display \lq\lq 
+\texttt{Possible from station $X$}”, where $X$ is the first possible station from which the car 
+can complete the lap.
+
+\end{frame}
+
+
+\begin{frame}[fragile]{Exemplo de entradas e saídas}
+
+\textbf{Constraints}
+
+\begin{itemize}
+    \item $T < 25$
+    \item $N < 100001$
+\end{itemize}
+
+\vspace{0.2in}
+
+\begin{minipage}[t]{0.5\textwidth}
+\textbf{Sample Input}
+\begin{verbatim}
+2
+5
+1 1 1 1 1
+1 1 2 1 1
+7
+1 1 1 10 1 1 1
+2 2 2 2 2 2 2
+\end{verbatim}
+\end{minipage}
+\begin{minipage}[t]{0.45\textwidth}
+\textbf{Sample Output}
+\begin{verbatim}
+Case 1: Not possible
+Case 2: Possible from station 4
+\end{verbatim}
+\end{minipage}
+\end{frame}
+
+\begin{frame}[fragile]{Solução com complexidade $O(N^2)$}
+
+    \begin{itemize}
+        \item A solução do problema com complexidade $O(N^2)$ consiste em simular, a partir 
+            de todos os postos possíveis, uma corrida, verificando se é possível 
+            completar uma volta ou não
+
+        \item Importante: uma corrida equivale a uma volta completa, isto é,
+            partir de um posto $i$ e retornar a $i$
+
+        \item A cada estação, é preciso ver se o valor de $q_i$ é menor ou igual ao combustível
+            disponível
+
+        \item Se for, esta quantia é subtraída, e o combustível disponível no novo posto deve
+            ser adicionado ao total
+
+        \item Ao iniciar a corrida em $i$, o combustível inicial é igual a $p_i$
+
+        \item Esta solução deveria levar ao TLE, dado que $N \leq 10^5$, mas os casos de
+            teste são fracos e levam ao AC
+   \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Solução com complexidade $O(N)$}
+
+    \begin{itemize}
+        \item Contudo, é possível resolver este problema com complexidade $O(N)$
+
+        \item Para tal, é preciso verificar uma propriedade da solução 
+
+        \item Suponha que a corrida comece no posto $i$ e que, no posto $k$, verifique-se que
+            não é possível chegar ao posto $k + 1$
+
+        \item Na solução quadrática, a simulação recomeçaria no posto $i + 1$
+
+        \item Contudo, é possível começar direto no posto $k + 1$, saltando todos os intermediários
+
+        \item Eis a prova: se é possível chegar em $i + 1$ a partir de $i$, começar a prova em
+            $i + 1$ significa ter ou a mesma quantidade de combustível resultante de se 
+            começar em (se $p_i = q_i$), ou ter menos combustível (se $p_i > q_i$)
+
+        \item Assim, se partir de $i$ significa não alcançar $k + 1$, partir de $i + 1$ também
+            não será possível
+
+        \item Portanto, cada posto será visitado, no máximo, duas vezes, levando a uma solução
+            linear
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Solução com complexidade $O(N)$}
+    \inputsnippet{cpp}{1}{21}{codes/11093.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Solução com complexidade $O(N)$}
+    \inputsnippet{cpp}{22}{42}{codes/11093.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Solução com complexidade $O(N)$}
+    \inputsnippet{cpp}{43}{63}{codes/11093.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Solução com complexidade $O(N)$}
+    \inputsnippet{cpp}{64}{84}{codes/11093.cpp}
+\end{frame}
+

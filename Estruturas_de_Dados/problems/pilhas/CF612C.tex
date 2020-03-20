@@ -1,0 +1,84 @@
+\section{Educational Codeforces Round 4 -- Problema C: Replace To Make Regular Bracket Sequence}
+
+\begin{frame}[fragile]{Problema}
+
+You are given string s consists of opening and closing brackets of four kinds \texttt{<>, \{\}, [], ()}. There are two types of brackets: opening and closing. You can replace any bracket by another of the same type. For example, you can replace \texttt{<} by the bracket \texttt{\{}, but you can't replace it by \texttt{)} or \texttt{>}.
+
+The following definition of a regular bracket sequence is well-known, so you can be familiar with it.
+
+Let's define a regular bracket sequence (RBS). Empty string is RBS. Let $s_1$ and $s_2$ be a RBS then the strings \texttt{<}$s_1$\texttt{>}$s_2$, \{$s_1$\} $s_2$, [$s_1$]$s_2$, ($s_1$)$s_2$ are also RBS.
+
+For example the string "\texttt{[[()\{\}]<>]}" is RBS, but the strings "\texttt{[)()}" and "\texttt{][()()}" are not.
+
+Determine the least number of replaces to make the string $s$ RBS.
+
+\end{frame}
+
+\begin{frame}[fragile]{Entrada e saída}
+
+\textbf{Input}
+
+The only line contains a non empty string $s$, consisting of only opening and closing brackets of four kinds. The length of s does not exceed $10^6$.
+
+\textbf{Output}
+
+If it's impossible to get RBS from $s$ print \texttt{Impossible}.
+
+Otherwise print the least number of replaces needed to get RBS from $s$.
+
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de entradas e saídas}
+
+\begin{minipage}[t]{0.5\textwidth}
+\textbf{Sample Input}
+\begin{verbatim}
+[<}){}
+{()}[]
+]]
+\end{verbatim}
+\end{minipage}
+\begin{minipage}[t]{0.45\textwidth}
+\textbf{Sample Output}
+\begin{verbatim}
+2
+0
+Impossible
+\end{verbatim}
+\end{minipage}
+\end{frame}
+
+\begin{frame}[fragile]{Solução com complexidade $O(N)$}
+
+    \begin{itemize}
+        \item Para que a string seja uma RBS, é preciso que cada símbolo aberto seja fechado
+            pelo símbolo correspondente
+
+        \item Em tais expressões, o símbolo de fechar será associado ao símbolo de abrir 
+            correspondente mais próximo à esquerda
+
+        \item Logo, os símbolos ainda em aberto devem ser armazenados em uma pilha
+
+        \item A cada símbolo de fechar, o topo da pilha deve ser consultado: se não for o símbolo
+            correspondente, uma substituição deve ser feita
+
+        \item Caso a pilha esteja vazia, ou tenha ao menos um símbolo pendente após o processamento
+            de toda string $S$, a sequência não corresponde a uma RBS
+
+        \item Como cada caractere é avaliado, no máximo, 2 vezes (uma na inserção e outra na 
+            remoção da pilha), esta solução tem complexidade $O(N)$
+   \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Solução AC com complexidade $O(N)$}
+    \inputsnippet{cpp}{1}{21}{codes/612C.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Solução AC com complexidade $O(N)$}
+    \inputsnippet{cpp}{22}{42}{codes/612C.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Solução AC com complexidade $O(N)$}
+    \inputsnippet{cpp}{43}{63}{codes/612C.cpp}
+\end{frame}

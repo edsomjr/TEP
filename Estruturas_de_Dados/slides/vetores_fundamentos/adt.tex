@@ -1,0 +1,77 @@
+\section{Tipos de dados abstratos}
+
+\begin{frame}[fragile]{Tipos de dados abstratos}
+
+	\begin{itemize}
+		\item Os tipos de dados abstratos (\textit{Abstract Data Type -- ADT}) são definidos pelas 
+		operações que agem sobre estes dados, e não pela implementação destas operações
+
+		\item Conhecidas as operações, é possível escolher a implementação mais eficiente para 
+        cada caso
+
+		\item Em alguns casos também é preciso determinar as restrições que cada operação possui, 
+        sejam restrições de comportamento ou de complexidade
+		
+	\end{itemize}
+ 
+\end{frame}  
+
+\begin{frame}[fragile]{Operações típicas de tipos de dados abstratos}
+
+	\begin{table}
+        \centering
+        \begin{tabularx}{\textwidth}{lX}
+        \toprule
+        \textbf{Operação} & \textbf{Descrição} \\
+        \midrule
+		\rawcode{create()} & cria uma nova instância \rawcode{S} \\
+        \rowcolor[gray]{0.9}
+		\rawcode{initialize(S)} & prepara a instância \rawcode{S} para o seu estado inicial, 
+        permitindo seu uso em operações subsequentes \\
+		\rawcode{free(S)} & libera a memória utilizada pela instância \rawcode{S} \\
+        \rowcolor[gray]{0.9}
+		\rawcode{empty(S)} & retorna verdadeiro se a instância \rawcode{S} está vazia\\
+		\rawcode{size(S)} & lista o número de elementos contidos em \rawcode{S} \\
+        \rowcolor[gray]{0.9}
+		\rawcode{compare(S, T)} & retorna verdadeiro se as instâncias \rawcode{S} e 
+        \rawcode{T} tem os mesmos elementos, na mesma ordem \\
+		\rawcode{print(S)} & produz uma representação visual da instância \rawcode{S} \\
+        \rowcolor[gray]{0.9}
+		\rawcode{copy(S, T)} & faz com que a instância \rawcode{S} fique com o mesmo estado
+        que a instância \rawcode{T} \\
+        \rawcode{clone(S)} & cria uma {nova} instância \rawcode{T} com o mesmo estado de \rawcode{S} \\
+        \bottomrule
+        \end{tabularx}
+    \end{table}
+
+\end{frame}
+
+\begin{frame}[fragile]{Contêineres}
+
+	\begin{itemize}
+
+		\item Contêineres são tipos de dados abstratos que representam coleções de outros objetos
+
+		\item Além das operações \code{c}{create} e \code{c}{size}, os contêineres devem fornecer 
+        operações para:
+		\begin{itemize}
+			\item remover todos os elementos de uma só vez (\code{c}{clear})
+			\item inserir novos elementos (\code{c}{push})
+			\item remover elementos (\code{c}{pop})
+			\item acesso aos elementos armazenados (\code{c}{element})
+		\end{itemize}
+
+		\item A classe \code{c}{vector} de C++ é um contêiner
+
+		\item É possível criar um contêiner semelhante em C, implementando as operações listadas 
+		anteriormente
+
+		\item Para tal, é preciso definir uma estrutura que contenha as variáveis necessárias para 
+        a implementação das funções que agirão sobre esta estrutura
+	\end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de uso da classe \texttt{vector}}
+    \inputcode{cpp}{codes/vec.cpp}
+\end{frame}

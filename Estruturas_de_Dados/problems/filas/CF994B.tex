@@ -1,0 +1,103 @@
+\section{Codeforces Round \#488 -- Problem B: Knights of a Polygonal Table}
+
+\begin{frame}[fragile]{Problema}
+
+Unlike Knights of a Round Table, Knights of a Polygonal Table deprived of nobility and happy to kill each other. But each knight has some power and a knight can kill another knight if and only if his power is greater than the power of victim. However, even such a knight will torment his conscience, so he can kill no more than $k$ other knights. Also, each knight has some number of coins. After a kill, a knight can pick up all victim's coins.
+
+Now each knight ponders: how many coins he can have if only he kills other knights?
+
+You should answer this question for each knight.
+
+\end{frame}
+
+\begin{frame}[fragile]{Entrada e saída}
+
+\textbf{Input}
+
+The first line contains two integers $n$ and $k$ $(1\leq n\leq 10^5,0\leq k\leq\min(n-1,10))$ -- the number of knights and the number $k$ from the statement.
+
+The second line contains $n$ integers $p_1,p_2,\ldots,p_n$ $(1\leq p_i\leq 10^9)$ -- powers of the knights. All $p_i$ are distinct.
+
+The third line contains $n$ integers $c_1,c_2,\ldots,c_n$ $(0\leq c_i\leq 10^9)$ -- the number of coins each knight has.
+
+\textbf{Output}
+
+Print $n$ integers -- the maximum number of coins each knight can have it only he kills other knights.
+
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de entradas e saídas}
+
+\begin{minipage}[t]{0.5\textwidth}
+\textbf{Sample Input}
+\begin{verbatim}
+4 2
+4 5 9 7
+1 2 11 33
+
+5 1
+1 2 3 4 5
+1 2 3 4 5
+
+1 0
+2
+3
+\end{verbatim}
+\end{minipage}
+\begin{minipage}[t]{0.45\textwidth}
+\textbf{Sample Output}
+\begin{verbatim}
+1 3 46 36 
+
+
+
+1 3 5 7 9 
+
+
+
+3
+\end{verbatim}
+\end{minipage}
+\end{frame}
+
+\begin{frame}[fragile]{Solução com complexidade $O(N\log N)$}
+
+    \begin{itemize}
+        \item Uma abordagem quadrática, avaliando todos os demais cavaleiros para cada
+            cavaleiro $i$ leva ao TLE, uma vez que $n\leq 10^5$
+
+        \item Assim, é preciso ordernar os cavaleiros para evitar o processamento 
+            desnecessário e reaproveitar ao máximo o que já foi computado para o próximo
+            cavaleiro
+
+        \item Primeiramente, os cavaleiros devem ser ordenados em ordem crescente por sua força
+
+        \item É preciso guardar o índice de cada cavaleiro em relação à entrada, para que a 
+            saída fique na ordem correta
+
+        \item Com esta ordenação, o cavaleiro $i$ será capaz de derrotar todos os cavaleiros
+            cujo índice $j$ é menor do que $i$
+
+        \item Para computar o ganho do cavaleiro, é preciso manter o registro das $k$ maiores
+            moedas disponíveis até então
+
+        \item Uma fila com prioridades pode ser utilizada para alcançar tal fim
+   \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Solução AC com complexidade $O(N\log N)$}
+    \inputsnippet{cpp}{1}{21}{codes/994B.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Solução AC com complexidade $O(N\log N)$}
+    \inputsnippet{cpp}{22}{40}{codes/994B.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Solução AC com complexidade $O(N\log N)$}
+    \inputsnippet{cpp}{41}{60}{codes/994B.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Solução AC com complexidade $O(N\log N)$}
+    \inputsnippet{cpp}{61}{80}{codes/994B.cpp}
+\end{frame}

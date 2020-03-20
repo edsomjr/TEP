@@ -1,0 +1,178 @@
+\section{OJ 11111 -- Generalized Matrioshkas}
+
+\begin{frame}[fragile]{Problema}
+
+Vladimir worked for years making matrioshkas, those nesting dolls that certainly represent truly 
+Russian craft. A matrioshka is a doll that may be opened in two halves, so that one finds another 
+doll inside.  Then this doll may be opened to find another one inside it. This can be repeated 
+several times, till a final doll -- that cannot be opened -- is reached.
+
+Recently, Vladimir realized that the idea of nesting dolls might be generalized to nesting toys.
+Indeed, he has designed toys that contain toys but in a more general sense. One of these toys may
+be opened in two halves and it may have more than one toy inside it. That is the new feature that
+Vladimir wants to introduce in his new line of toys.
+\end{frame}
+
+\begin{frame}[fragile]{Problema}
+
+Vladimir has developed a notation to describe how nesting toys should be constructed. A toy
+is represented with a positive integer, according to its size. More precisely: if when opening the 
+toy represented by $m$ we find the toys represented by $n_1, n_2, \ldots, n_r$, it must be true 
+that $n_1+n_2+. . .+n_r < m$. And if this is the case, we say that toy $m$ contains directly the 
+toys $n_1, n_2, \ldots, n_r$. It should be clear that toys that may be contained in any of the toys 
+$n_1, n_2, \ldots, n_r$ are not considered as directly contained in the toy $m$.
+
+A \textit{generalized matrioshka} is denoted with a non-empty sequence of non zero integers of the 
+form:
+\[
+a_1\ \ a_2\ \ \ldots\ \ a_N
+\]
+such that toy $k$ is represented in the sequence with two integers $-k$ and $k$, with the negative 
+one occurring in the sequence first that the positive one.
+
+\end{frame}
+
+\begin{frame}[fragile]{Problema}
+For example, the sequence
+\[
+-9\ \ -7\ \ -2\ \ 2\ \ -3\ \ -2\ \ -1\ \ 1\ \ 2\ \ 3\ \ 7\ \ 9
+\]
+represents a generalized matrioshka conformed by six toys, namely, 1, 2 (twice), 3, 7 and 9. 
+Note that toy 7 contains directly toys 2 and 3. Note that the first copy of toy 2 occurs left 
+from the second one and that the second copy contains directly a toy 1. It would be wrong to 
+understand that the first -2 and the last 2 should be paired.
+
+On the other hand, the following sequences do not describe generalized matrioshkas:
+\begin{itemize}
+\item
+\[
+-9\ \ -7\ \ -2\ \ 2\ \ -3\ \ -1\ \ -2\ \ 2\ \ 1\ \ 3\ \ 7\ \ 9
+\]
+because toy 2 is bigger than toy 1 and cannot be allocated inside it.
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{Problema}
+\begin{itemize}
+    \item
+\[
+-9\ \ -7\ \ -2\ \ 2\ \ -3\ \ -2\ \ -1\ \ 1\ \ 2\ \ 3\ \ 7\ \ -2\ \ 2\ \ 9
+\]
+because 7 and 2 may not be allocated together inside 9.
+    \item
+\[
+-9\ \ -7\ \ -2\ \ 2\ \ -3\ \ -1\ \ -2\ \ 3\ \ 2\ \ 1\ \ 7\ \ 9
+\]
+because there is a nesting problem within toy 3.
+\end{itemize}
+
+Your problem is to write a program to help Vladimir telling good designs from bad ones.
+\end{frame}
+
+\begin{frame}[fragile]{Entrada e saída}
+
+\textbf{Input}
+
+The input file contains several test cases, each one of them in a separate line. Each test case is a
+sequence of non zero integers, each one with an absolute value less than $10^7$.
+
+\textbf{Output}
+
+Output texts for each input case are presented in the same order that input is read.
+
+For each test case the answer must be a line of the form
+
+\begin{flushleft}
+\texttt{:-) Matrioshka!}
+\end{flushleft}
+
+if the design describes a generalized matrioshka. In other case, the answer should be of the form
+
+\begin{flushleft}
+\texttt{:-( Try again.}
+\end{flushleft}
+
+\end{frame}
+
+
+\begin{frame}[fragile]{Exemplo de entradas e saídas}
+
+\begin{minipage}[t]{0.6\textwidth}
+\textbf{Sample Input}
+\begin{verbatim}
+-9 -7 -2 2 -3 -2 -1 1 2 3 7 9
+-9 -7 -2 2 -3 -1 -2 2 1 3 7 9
+-9 -7 -2 2 -3 -1 -2 3 2 1 7 9
+-100 -50 -6 6 50 100
+-100 -50 -6 6 45 100
+-10 -5 -2 2 5 -4 -3 3 4 10
+-9 -5 -2 2 5 -4 -3 3 4 9
+\end{verbatim}
+\end{minipage}
+\begin{minipage}[t]{0.35\textwidth}
+\textbf{Sample Output}
+\begin{verbatim}
+:-) Matrioshka!
+:-( Try again.
+:-( Try again.
+:-) Matrioshka!
+:-( Try again.
+:-) Matrioshka!
+:-( Try again.
+\end{verbatim}
+\end{minipage}
+\end{frame}
+
+\begin{frame}[fragile]{Solução com complexidade $O(N)$}
+
+    \begin{itemize}
+        \item Primeiramente, é preciso avaliar se cada brinquedo aberto ($-x$) é fechado
+            corretamente (tem um $-x$ associado)
+
+        \item Entre os valores $-x$ e $x$ devem haver brinquedos que abrem e fecham corretamente,
+            cuja soma dos valores seja menor do que $x$
+
+        \item Este problema é uma variante do problema do pareamento de parêntesis
+
+        \item O uso de uma pilha permite a verificação de ambas condições simultaneamente
+
+        \item Para cada valor $x$ da entrada, duas providências devem ser tomadas
+
+        \item Se $x$ por negativo, ele deve ser inserido no topo da pilha
+   \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Solução com complexidade $O(N)$}
+
+    \begin{itemize}
+        \item Se $x$ for positivo, deve se contabilizar os valores de todos os brinquedos que
+            estão dentro de $x$
+
+        \item Para tal, basta acumular os valores positivos que forem removidos da pilha até
+            se alcançar um valor negativo
+
+        \item Caso o valor negativo seja diferente de $-x$, ou se a pilha se tornar vazia antes
+            de atingir um valor negativo, ou se o total dos valores dos brinquedos dentro de $x$
+            for maior ou igual a $x$, o design não é válido
+
+        \item Caso o valor atingido seja $-x$ e o total acumulado seja menor que $x$, o valor
+            $-x$ deve ser retirado da pilha e o valor $x$ inserido no topo
+
+        \item Ao final do processo, o design será válido se a pilha contiver apenas valores
+            positivos
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Solução com complexidade $O(N)$}
+    \inputsnippet{cpp}{1}{21}{codes/11111.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Solução com complexidade $O(N)$}
+    \inputsnippet{cpp}{22}{42}{codes/11111.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Solução com complexidade $O(N)$}
+    \inputsnippet{cpp}{43}{63}{codes/11111.cpp}
+\end{frame}

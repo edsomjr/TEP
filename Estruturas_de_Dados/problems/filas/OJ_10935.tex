@@ -1,0 +1,90 @@
+\section{OJ 10935 -- Throwing Cards Away I}
+
+\begin{frame}[fragile]{Problema}
+
+Given is an ordered deck of $n$ cards numbered 1 to
+$n$ with card 1 at the top and card $n$ at the bottom.
+The following operation is performed as long as there
+are at least two cards in the deck:
+
+\begin{center}
+Throw away the top card and move the
+card that is now on the top of the deck to
+the bottom of the deck.
+\end{center}
+
+Your task is to find the sequence of discarded
+cards and the last, remaining card.
+
+\end{frame}
+
+\begin{frame}[fragile]{Entrada e saída}
+
+\textbf{Input}
+
+Each line of input (except the last) contains a number
+$n\leq 50$. The last line contains ‘\texttt{0}’ and this line should
+not be processed.
+
+\textbf{Output}
+
+For each number from the input produce two lines of
+output. The first line presents the sequence of discarded cards, the second line reports the last remaining card. No line will have leading or trailing spaces.
+See the sample for the expected format.
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de entradas e saídas}
+
+\begin{footnotesize}
+\textbf{Sample Input}
+\begin{verbatim}
+7
+19
+10
+6
+0
+\end{verbatim}
+
+\textbf{Sample Output}
+\begin{verbatim}
+Discarded cards: 1, 3, 5, 7, 4, 2
+Remaining card: 6
+Discarded cards: 1, 3, 5, 7, 9, 11, 13, 15, 17, 19, 4, 8, 12, 16, 2, 10, 18, 14
+Remaining card: 6
+Discarded cards: 1, 3, 5, 7, 9, 2, 6, 10, 8
+Remaining card: 4
+Discarded cards: 1, 3, 5, 2, 6
+Remaining card: 4
+\end{verbatim}
+\end{footnotesize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Solução com complexidade $O(N)$}
+
+    \begin{itemize}
+        \item O processo descrito no problema pode ser simulado através do uso de uma fila
+
+        \item Os elementos removidos podem ser armazenados ou em uma outra fila ou em um
+            vetor
+
+        \item Como, a cada ciclo, o tamanho da fila diminui em uma unidade, o algoritmo tem
+            complexidade $O(N)$
+
+        \item A saída deve ser formatada com cuidado: no caso $n = 1$ não há elementos a serem
+            removidos
+   \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Solução com complexidade $O(N)$}
+    \inputsnippet{cpp}{1}{20}{codes/10935.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Solução com complexidade $O(N)$}
+    \inputsnippet{cpp}{21}{41}{codes/10935.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Solução com complexidade $O(N)$}
+    \inputsnippet{cpp}{42}{62}{codes/10935.cpp}
+\end{frame}

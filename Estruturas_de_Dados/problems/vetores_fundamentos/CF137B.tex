@@ -1,0 +1,85 @@
+\section{Codeforces Beta Round \#98 -- Problema B: Permutation}
+
+\begin{frame}[fragile]{Problema}
+
+\lq\lq Hey, it's homework time\rq\rq\ -- thought Polycarpus and of course he started with his favourite subject, IT. Polycarpus managed to solve all tasks but for the last one in 20 minutes. However, as he failed to solve the last task after some considerable time, the boy asked you to help him.
+
+The sequence of $n$ integers is called a permutation if it contains all integers from 1 to $n$ exactly once.
+
+You are given an arbitrary sequence $a_1, a_2, \ldots, a_n$ containing $n$ integers. Each integer 
+is not less than 1 and not greater than 5000. Determine what minimum number of elements Polycarpus needs to change to get a permutation (he should not delete or add numbers). In a single change he can modify any single sequence element (i. e. replace it with another integer).
+
+\end{frame}
+
+\begin{frame}[fragile]{Entrada e saída}
+
+\textbf{Input}
+
+The first line of the input data contains an integer $n$ $(1\leq n\leq 5000)$ which represents how 
+many numbers are in the sequence. The second line contains a sequence of integers 
+$a_i$ $(1\leq a_i\leq 5000, 1\leq i\leq n)$.
+
+\textbf{Output}
+
+Print the only number -- the minimum number of changes needed to get the permutation.
+
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de entradas e saídas}
+
+\begin{minipage}[t]{0.5\textwidth}
+\textbf{Sample Input}
+\begin{verbatim}
+3
+3 1 2
+
+2
+2 2
+
+5
+5 3 3 3 1
+\end{verbatim}
+\end{minipage}
+\begin{minipage}[t]{0.45\textwidth}
+\textbf{Sample Output}
+\begin{verbatim}
+0
+
+
+1
+
+
+2
+
+
+\end{verbatim}
+\end{minipage}
+\end{frame}
+
+\begin{frame}[fragile]{Solução com complexidade $O(N\log N)$}
+
+    \begin{itemize}
+        \item É possível resolver este problema com complexidade $O(N^2)$: basta, para cada valor
+            $i = 1, 2, \ldots, N$, percorrer todo o vetor em busca deste valor
+
+        \item Se o valor não for localizado, basta incrementar a resposta
+
+        \item Contudo, há uma solução com complexidade $O(N\log N)$
+
+        \item Basta criar um vetor auxiliar $v$ com $N + 1$ elementos, todos iguais a zero
+
+        \item Para cada elemento $a$ do vetor da entrada, faça $v_a = 1$
+
+        \item O número de elementos a serem alterados é igual ao total $N$, subtraído do 
+            número de encontrados (a soma de todos os valores armazenados em $v$)
+   \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Solução AC com complexidade $O(N\log N)$}
+    \inputsnippet{cpp}{1}{20}{codes/137B.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Solução AC com complexidade $O(N\log N)$}
+    \inputsnippet{cpp}{21}{41}{codes/137B.cpp}
+\end{frame}
