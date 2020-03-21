@@ -56,7 +56,7 @@ Print the only number -- the minimum number of changes needed to get the permuta
 \end{minipage}
 \end{frame}
 
-\begin{frame}[fragile]{Solução com complexidade $O(N\log N)$}
+\begin{frame}[fragile]{Solução com complexidade $O(N)$}
 
     \begin{itemize}
         \item É possível resolver este problema com complexidade $O(N^2)$: basta, para cada valor
@@ -64,7 +64,7 @@ Print the only number -- the minimum number of changes needed to get the permuta
 
         \item Se o valor não for localizado, basta incrementar a resposta
 
-        \item Contudo, há uma solução com complexidade $O(N\log N)$
+        \item Contudo, há uma solução com complexidade $O(N)$
 
         \item Basta criar um vetor auxiliar $v$ com $N + 1$ elementos, todos iguais a zero
 
@@ -76,10 +76,10 @@ Print the only number -- the minimum number of changes needed to get the permuta
 
 \end{frame}
 
-\begin{frame}[fragile]{Solução AC com complexidade $O(N\log N)$}
+\begin{frame}[fragile]{Solução AC com complexidade $O(N)$}
     \inputsnippet{cpp}{1}{20}{codes/137B.cpp}
 \end{frame}
 
-\begin{frame}[fragile]{Solução AC com complexidade $O(N\log N)$}
+\begin{frame}[fragile]{Solução AC com complexidade $O(N)$}
     \inputsnippet{cpp}{21}{41}{codes/137B.cpp}
 \end{frame}
