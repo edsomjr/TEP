@@ -1,0 +1,105 @@
+\section{SPOJ UCI2009D -- Digger Octaves}
+
+\begin{frame}[fragile]{Problema}
+
+After many years spent playing Digger, little Ivan realized he was not taking advantage of the octaves. Oops, sorry! Most of you were not born when Digger came to light!
+
+Digger is a Canadian computer game, originally designed for the IBM personal computer, back in 1983. The aim of the game is to collect precious gold and emeralds buried deep in subterranean levels of and old abandoned mine.
+
+We Digger gurus call a set of eight consecutive emeralds an octave. Notice that, by consecutive we mean that we can collect them one after another. Your Digger Mobile is able to move in the four directions: North, South, West and East.
+
+In a simplified Digger version, consisting only of emeralds and empty spaces, you will have to count how many octaves are present for a given map.
+
+\end{frame}
+
+\begin{frame}[fragile]{Entrada e saída}
+
+\textbf{Input}
+
+Input starts with an integer $T$, representing the number of test cases ($1\leq T\leq 20$). Each 
+test case consists of a map, described as follows:
+
+An integer $N$ ($1\leq N\leq 8$), representing the side length of the square-shaped map. $N$ lines 
+follow, $N$ characters each. A `\texttt{X}' character represents an emerald, and a `\texttt{.}' 
+represents an empty space.
+
+\textbf{Output}
+
+For each test case print the number of octaves on a single line.
+
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de entradas e saídas}
+
+\begin{minipage}[t]{0.45\textwidth}
+\textbf{Sample Input}
+\begin{verbatim}
+2
+3
+XXX
+X.X
+XXX
+3
+XXX
+XXX
+XXX
+\end{verbatim}
+\end{minipage}
+\begin{minipage}[t]{0.5\textwidth}
+\textbf{Sample Output}
+\begin{verbatim}
+1
+5
+\end{verbatim}
+\end{minipage}
+\end{frame}
+
+\begin{frame}[fragile]{Solução}
+
+    \begin{itemize}
+        \item Cada cadeia de esmeraldas pode ser identificada por meio do uso do
+            \textit{backtracking} 
+
+        \item É preciso tomar cuidado, porém, para contar apenas cadeias únicas
+
+        \item Duas cadeias são idênticas se elas passam pelas mesmas coordenadas, indepentemente
+            da ordem de travessia
+
+        \item Além disso, cada cadeia só pode começar em uma coordenada que contém uma
+            esmeralda
+            
+        \item Também não pode haver repetições de uma mesma coordenada em uma cadeia
+
+        \item Há, no pior caso, $8^2 = 64 = 2^6$ pontos iniciais possíveis
+
+        \item Para cada ponto inicial, são $4^7 = 2^{14}$ possíveis cadeias
+
+        \item Logo há, no máximo, $2^6 \times 2^{14} = 2^{20} \approx 10^6$ caminhos a serem
+            verificados em cada caso de teste
+   \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Solução}
+    \inputsnippet{cpp}{1}{19}{codes/SPOJ_UCI2009D.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Solução}
+    \inputsnippet{cpp}{20}{38}{codes/SPOJ_UCI2009D.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Solução}
+    \inputsnippet{cpp}{39}{56}{codes/SPOJ_UCI2009D.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Solução}
+    \inputsnippet{cpp}{57}{75}{codes/SPOJ_UCI2009D.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Solução}
+    \inputsnippet{cpp}{76}{94}{codes/SPOJ_UCI2009D.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Solução}
+    \inputsnippet{cpp}{95}{115}{codes/SPOJ_UCI2009D.cpp}
+\end{frame}
