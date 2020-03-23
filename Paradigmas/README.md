@@ -4,6 +4,7 @@ Paradigmas de Resolução de Problemas
 1. Busca Completa
     1. [Definição](slides/complete_search/complete_search.pdf) ([problemas resolvidos](problems/complete_search/complete_search.pdf))
     1. [_Backtracking_](slides/backtracking/backtracking.pdf) ([problemas resolvidos](problems/backtracking/backtracking.pdf))
+    1. [_Meet in the middle_](slides/meet_in_the_middle/meet_in_the_middle.pdf) ([problemas resolvidos](problems/meet_in_the_middle/meet_in_the_middle.pdf))
 
 1. Algoritmos Gulosos
     1. [Definição](slides/GD-1/GD-1.pdf) ([problemas resolvidos](problems/GD-1/GD-1.pdf))
@@ -11,7 +12,6 @@ Paradigmas de Resolução de Problemas
 <!---
 Busca completa:
     - Algoritmos de geração de combinações e permutações
-    - Meet in middle
 
 Algoritmos gulosos:
     - Algoritmo de Huffman
