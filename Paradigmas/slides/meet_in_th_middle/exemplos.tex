@@ -1,0 +1,84 @@
+\section{Exemplos de aplicação do encontro no meio}
+
+\begin{frame}[fragile]{Soma de subconjuntos}
+
+    \begin{itemize}
+        \item Considere o seguinte problema: dados $N$ inteiros $x_1, x_2, \ldots, x_N$, e um
+            inteiro $x$, determine se existem $k$ ($1\leq k\leq N$) inteiros 
+            $x_{i_1}, x_{i_2}, \ldots, x_{i_k}$ tais que
+            \[
+                x = x_{i_1} + x_{i_2} + \ldots + x_{i_k},
+            \] 
+
+        \item Uma solução por força bruta avaliaria todos os $2^N$ subconjuntos possíveis, de modo
+            que a complexidade seria igual a $O(N2^N)$, sendo viável para valores de $N \approx 20$
+
+        \item Contudo, o encontro no meio pode ser utilizado para obter uma complexidade
+            igual a $O(N2^{N/2}\log N)$, de modo que o problema poderia ser resolvido para valores de
+            $N\approx 40$
+       
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Soma de subconjuntos}
+
+    \begin{itemize}
+        \item A solução iniciaria subdividindo os inteiros em dois grupos
+        \[
+            G_1 = \lbrace x_1, x_2, \ldots, x_{\lfloor N/2\rfloor}\rbrace
+        \]
+        e
+        \[
+            G_2 = \lbrace x_{\lfloor N/2\rfloor + 1}, x_{\lfloor N/2\rfloor + 2}, \ldots, x_{N}\rbrace
+        \]
+
+        \item Em seguida, geria os subconjuntos $S_1$ e $S_2$ das somas de todos os subconjuntos de
+            $G_1$ e $G_2$, respectivamente
+
+        \item Assim, ambos subconjuntos teriam, aproximadamente, $2^{N/2}$ elementos
+
+        \item Em seguida, para cada elemento $s\in S_1$, uma busca binária tentaria localizar o
+            elemento $r = x - s$ no conjunto $S_2$
+
+        \item Assim, caso $r\in S_2$, a solução seria $x = s + r$, e a complexidade seria
+            $O(N2^{N/2}\log N)$
+    \end{itemize}
+
+\end{frame}
+
+\input{sum_view}
+
+\begin{frame}[fragile]{Implementação da soma de subconjuntos}
+    \inputsnippet{cpp}{1}{21}{codes/sum.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Implementação da soma de subconjuntos}
+    \inputsnippet{cpp}{22}{38}{codes/sum.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{\it 4sum}
+
+    \begin{itemize}
+        \item \textit{4sum} é um problema comum em entrevistas de emprego
+
+        \item Dado um vetor de inteiros $xs = \lbrace x_1, x_2, \ldots, x_N\rbrace$, determine 
+            $a, b, c, d\in xs$ tais que $a + b + c + d = 0$, se existirem
+
+        \item Observe que um mesmo elemento de $xs$ pode ser escolhido mais de uma vez
+
+        \item Uma solução \textit{naive} computaria e checaria todas as $O(N^4)$ quádruplas
+
+        \item Uma solução, também de busca completa, computaria $O(N^3)$ triplas $(a, b, c)$ e 
+            procuraria pelo elemento $d = -(a + b + c)$ em $xs$ usando busca binária, melhorando
+            a complexidade para $O(N^3\log N)$
+
+        \item Observado que $a + b = -(c + d)$ e usando \textit{hashes} em conjunto com o encontro
+            no meio, é possível resolver este problema com complexidade $O(N^2)$
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Implementação de {\it 4sum} em $O(N^2)$}
+    \inputsnippet{cpp}{1}{19}{codes/4sum.cpp}
+\end{frame}

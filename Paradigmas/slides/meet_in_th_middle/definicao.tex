@@ -1,0 +1,23 @@
+\section{\it Meet in the Middle}
+
+\begin{frame}[fragile]{Definição}
+
+    \begin{itemize}
+        \item \textit{Meet in the middle} (encontro no meio) é uma técnica de busca completa que
+            divide o espaço de busca em duas partes, de aproximadamente mesmo tamanho, e tenta
+            combinar as soluções parciais de cada metade em uma solução para o problema 
+
+        \item Ela foi introduzida em 1974 por E. Horowitz e S. Sahni
+
+        \item Esta técnica só é viável se existir uma maneira eficiente de combinar os resultados
+            de ambas metades
+
+        \item Se existir, será mais eficiente fazer duas buscas em ambas metades do que uma única
+            busca em todo o espaço
+
+        \item Se o problema original tem complexidade $O(2^n)$, esta técnica tem o potencial
+            de reduzir a complexidade para $O(2^{n/2})$
+
+    \end{itemize}
+
+\end{frame}
