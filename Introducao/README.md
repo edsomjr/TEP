@@ -2,7 +2,7 @@ Introdução à Programação Competitiva
 ====================================
 
 1. Programação Competitiva
-    1. [Introdução à Programação Competitiva](slides/PI-1/PI-1.pdf)
+    1. [Introdução à Programação Competitiva](slides/introducao_a_programacao_competitiva/introducao_a_programacao_competitiva.pdf)
     1. [Juízes Eletrônicos](slides/PI-2/PI-2.pdf) ([problemas resolvidos](problems/PI-2/PI-2.pdf))
     1. [Tipos Primitivos de Dados](slides/PI-3/PI-3.pdf) ([problemas resolvidos](problems/PI-3/PI-3.pdf))
     1. [Encurtamento de Código](slides/PI-4/PI-4.pdf)
