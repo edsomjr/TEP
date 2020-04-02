@@ -5,9 +5,9 @@
     \begin{itemize}
         \item Os problemas de programação competitiva requerem que as soluções 
         leiam suas entradas e escrevam suas saídas em arquivos específicos
-        \item na maioria dos casos, estes arquivos são a entrada e a saída padrão do sistema
-        \item Cada linguagem tem mecanismos para ler a entrada e escrever na saída padrão do 
-        sistema (console)
+        \item Na maioria dos casos, estes arquivos são a entrada (\texttt{stdin}) e a saída 
+            (\texttt{stdout}) padrão do sistema
+        \item Cada linguagem tem mecanismos para ler a entrada e escrever nestes arquivos
         \item As entradas se encaixam em quatro categorias:
         \begin{enumerate}
             \item Uma única instância do problema
@@ -64,74 +64,74 @@
 \end{frame}
 
 \begin{frame}[fragile]{Solução C: Categoria 1}
-    \inputcode{c}{1.c}
+    \inputcode{c}{codes/1.c}
 \end{frame}
 
 \begin{frame}[fragile]{Solução C: Categoria 2}
-    \inputcode{c}{2.c}
+    \inputcode{c}{codes/2.c}
 \end{frame}
 
 \begin{frame}[fragile]{Solução C: Categoria 3}
-    \inputcode{c}{3.c}
+    \inputcode{c}{codes/3.c}
 \end{frame}
 
 \begin{frame}[fragile]{Solução C: Categoria 4}
-    \inputcode{c}{4.c}
+    \inputcode{c}{codes/4.c}
 \end{frame}
 
 \begin{frame}[fragile]{Solução C++: Categoria 1}
-    \inputcode{cpp}{1.cpp}
+    \inputcode{cpp}{codes/1.cpp}
 \end{frame}
 
 \begin{frame}[fragile]{Solução C++: Categoria 2}
-    \inputcode{cpp}{2.cpp}
+    \inputcode{cpp}{codes/2.cpp}
 \end{frame}
 
 \begin{frame}[fragile]{Solução C++: Categoria 3}
-    \inputcode{cpp}{3.cpp}
+    \inputcode{cpp}{codes/3.cpp}
 \end{frame}
 
 \begin{frame}[fragile]{Solução C++: Categoria 4}
-    \inputcode{cpp}{4.cpp}
+    \inputcode{cpp}{codes/4.cpp}
 \end{frame}
 
 \begin{frame}[fragile]{Solução Java: Categoria 1}
-    \inputcode{java}{C1.java}
+    \inputcode{java}{codes/C1.java}
 \end{frame}
 
 \begin{frame}[fragile]{Solução Java: Categoria 2}
-    \inputcode{java}{C2.java}
+    \inputcode{java}{codes/C2.java}
 \end{frame}
 
 \begin{frame}[fragile]{Solução Java: Categoria 3}
-    \inputcode{java}{C3.java}
+    \inputcode{java}{codes/C3.java}
 \end{frame}
 
 \begin{frame}[fragile]{Solução Java: Categoria 4}
-    \inputcode{java}{C4.java}
+    \inputcode{java}{codes/C4.java}
 \end{frame}
 
 \begin{frame}[fragile]{Solução Python: Categoria 1}
-    \inputcode{python}{1.py3}
+    \inputcode{python}{codes/1.py3}
 \end{frame}
 
 \begin{frame}[fragile]{Solução Python: Categoria 2}
-    \inputcode{python}{2.py3}
+    \inputcode{python}{codes/2.py3}
 \end{frame}
 
 \begin{frame}[fragile]{Solução Python: Categoria 3}
-    \inputcode{python}{3.py3}
+    \inputcode{python}{codes/3.py3}
 \end{frame}
 
 \begin{frame}[fragile]{Solução Python: Categoria 4}
-    \inputcode{python}{4.py3}
+    \inputcode{python}{codes/4.py3}
 \end{frame}
 
 
 \begin{frame}[fragile]{Teste das soluções}
 
-    Assuma que a entrada do problema esteja no arquivo \texttt{in.txt}, e que a solução desta
-    entrada esteja no arquivo \texttt{out.txt}.
+    Assuma que a entrada do problema esteja no arquivo \texttt{in.txt}, e que a solução do 
+    juiz para esta entrada esteja no arquivo \texttt{out.txt}.
 
     Para gerar o arquivo \texttt{ans.txt} referente à saída produzida pela solução proposta,
     podemos usar um dos três comandos abaixo:
@@ -142,7 +142,8 @@
         \item[\$] \texttt{python sol.py < in.txt > ans.txt  \textcolor{gray}{\ \# Python}}
     \end{description}
 
-    Para verificar se a soluções está correta, basta usar o comando \texttt{diff}:
+    Para verificar se a solução proposta está correta, basta usar o comando \texttt{diff} do
+    Linux:
 
     \begin{description}
         \item[\$] \texttt{diff ans.txt out.txt}
