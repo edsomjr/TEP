@@ -88,37 +88,25 @@ private:
         return acos(num / den);
     }
 
-    bool equals(double x, double y)
-    {
-        static const double EPS { 1e-9 };
-
+    bool equals(double x, double y) {
+        static const double EPS { 1e-6 };
         return fabs(x - y) < EPS;
     }
 
 public:
     bool contains(const Point<T>& P) const
     {
-        if (n < 3)
-            return false;
+        if (n < 3) return false;
 
         auto sum = 0.0;
 
-        for (int i = 0; i < n; ++i)
-        {
+        for (int i = 0; i < n - 1; ++i) {
             auto d = D(P, vs[i], vs[i + 1]);
-
-            // Pontos sobre as arestas ou vértices são considerados
-            // interiores
-            if (equals(d, 0) and AB_contains(P))
-                return true;
-
             auto a = angle(P, vs[i], vs[i + 1]);
-
             sum += d > 0 ? a : -a;
         }
 
         static const double PI = acos(-1.0);
-
         return equals(fabs(sum), 2*PI);
     }
 
@@ -142,7 +130,7 @@ public:
     Polygon cut_polygon(const Point<T>& A, const Point<T>& B) const
     {
         vector<Point<T>> points;
-        const double EPS { 1e-9 };
+        const double EPS { 1e-6 };
 
         for (int i = 0; i < n; ++i)
         {
