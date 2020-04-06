@@ -1,4 +1,4 @@
-\section{UVA 100 -- The $3n + 1$ problem}
+\section{OJ 100 -- The $3n + 1$ problem}
 
 \begin{frame}[fragile]{Problema}
 
@@ -104,11 +104,11 @@ the maximum cycle length (on the same line).
 \end{frame}
 
 \begin{frame}[fragile]{Solução WA}
-    \inputsnippet{cpp}{1}{21}{wa.cpp}
+    \inputsnippet{cpp}{1}{21}{codes/OJ100_wa.cpp}
 \end{frame}
 
 \begin{frame}[fragile]{Solução WA}
-    \inputsnippet{cpp}{22}{42}{wa.cpp}
+    \inputsnippet{cpp}{22}{42}{codes/OJ100_wa.cpp}
 \end{frame}
 
 \begin{frame}[fragile]{Solução correta}
@@ -116,13 +116,13 @@ the maximum cycle length (on the same line).
     \begin{itemize}
         \item A solução anterior, embora aparentemente correta, tem veredito WA!
 
-        \item Importante notar que o problema não está na rotina que computa do
+        \item Importante notar que o problema não está na rotina que computa o
             \textit{cycle-length}
 
-        \item O erro advém de uma leitura sem o rigor devido da entrada: não há, na descrição
+        \item O erro advém de uma interpretação equivocada da entrada: não há, na descrição
             da entrada, a garantia de que $i$ e $j$ estejam em ordem crescente!
 
-        \item Por exemplo, a entrada \texttt{10 1 20} produziria uma saída errada!
+        \item Por exemplo, a entrada \texttt{10 1} produziria uma saída errada!
 
         \item Para corrigir este problema é preciso garantir a ordem crescente dos limites
             no laço do intervalo
@@ -134,9 +134,9 @@ the maximum cycle length (on the same line).
 \end{frame}
 
 \begin{frame}[fragile]{Solução AC}
-    \inputsnippet{cpp}{1}{21}{ac.cpp}
+    \inputsnippet{cpp}{1}{21}{codes/OJ100_ac.cpp}
 \end{frame}
 
 \begin{frame}[fragile]{Solução AC}
-    \inputsnippet{cpp}{22}{42}{ac.cpp}
+    \inputsnippet{cpp}{22}{42}{codes/OJ100_ac.cpp}
 \end{frame}
