@@ -4,7 +4,7 @@ Introdução à Programação Competitiva
 1. Programação Competitiva
     1. [Introdução à Programação Competitiva](slides/introducao_a_programacao_competitiva/introducao_a_programacao_competitiva.pdf)
     1. [Juízes Eletrônicos](slides/juizes_eletronicos/juizes_eletronicos.pdf) ([problemas resolvidos](problems/juizes_eletronicos/juizes_eletronicos.pdf))
-    1. [Tipos Primitivos de Dados](slides/PI-3/PI-3.pdf) ([problemas resolvidos](problems/PI-3/PI-3.pdf))
+    1. [Tipos Primitivos de Dados](slides/tipos_primitivos/tipos_primitivos.pdf) ([problemas resolvidos](problems/tipos_primitivos/tipos_primitivos.pdf))
     1. [Encurtamento de Código](slides/PI-4/PI-4.pdf)
     1. [Estratégias de Treinamento](slides/PI-5/PI-5.pdf)
 1. Fundamentos de C/C++
