@@ -33,7 +33,7 @@ Input is given from Standard Input in the following format:
 
 \textbf{Output}
 
-Print the minimum number of operations required.
+Print the $K$-th character from the left in Mr. Infinity's string after $5\times 10^{15}$ days.
 
 \end{frame}
 
@@ -70,7 +70,7 @@ Print the minimum number of operations required.
 
     \begin{itemize}
         \item O primeiro fato a ser observado é, se o número inicial $x$ da string for diferente de 
-        1, ele será replicado $x^{5\times 10^5}$ vezes, de modo que a resposta será o próprio $x$
+        1, ele será replicado $x^{5\times 10^{15}}$ vezes, de modo que a resposta será o próprio $x$
 
         \item O caso especial ocorre quando a string é prefixada por uma sequência de 1s
 
@@ -83,9 +83,9 @@ Print the minimum number of operations required.
 \end{frame}
 
 \begin{frame}[fragile]{Solução AC}
-    \inputsnippet{cpp}{1}{19}{B106C.cpp}
+    \inputsnippet{cpp}{1}{19}{codes/B106C.cpp}
 \end{frame}
 
 \begin{frame}[fragile]{Solução AC}
-    \inputsnippet{cpp}{20}{40}{B106C.cpp}
+    \inputsnippet{cpp}{20}{40}{codes/B106C.cpp}
 \end{frame}

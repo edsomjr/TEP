@@ -27,7 +27,7 @@
 
         \begin{tabular}{lcr}
             \toprule
-            \textbf{Tipo} & \textit{bits} & \textbf{Intervalo} \\
+            \textbf{Tipo} & \textbf{Tamanho} (em \textit{bits}) & \textbf{Intervalo} \\
             \midrule
             \texttt{\textbf{char}} & 8 & $[-128, 127]$ \\
             \rowcolor[gray]{0.9}
@@ -61,8 +61,8 @@
             valores representáveis, de modo que o \lq\lq excesso\rq\rq\ é descartado
 
         \item A multiplicação de dois inteiros, em geral, resulta em \textit{overflow}: nestes
-            casos, o ideal é converter ambos operando para \code{c++}{long long} e guarda o
-            resultado também no tipo \code{c++}{long long}:
+            casos, o ideal é converter ambos operando para \code{c++}{long long} e guardar o
+            resultado uma variável também do tipo \code{c++}{long long}:
             \inputcode{c++}{overflow.cpp}
     \end{itemize}
 
@@ -74,7 +74,7 @@
         \item Para armazenar valores inteiros que excedem o limite de variáveis do tipo
             \code{c++}{long long}, é necessário o uso de aritmética estendida
 
-        \item Até a versão C++17, o C++ não tem suporte nativo à aritemética estendida
+        \item Até a versão C++17, o C++ não tem suporte nativo à aritmética estendida
 
         \item Uma alternativa é utilizar o Python 3:
             \inputcode{python3}{python.py3} 

@@ -7,10 +7,10 @@
             \code{c++}{double}
 
         \item O tipo \code{c++}{float} representa valores em ponto flutuante com precisão
-            simples (7 casas decimais de precisão)
+            simples (7 dígitos de precisão)
 
         \item O tipo \code{c++}{double} representa valores em ponto flutuante com precisão
-            dupla (15 casas decimais de precisão)
+            dupla (15 casas dígitos de precisão)
 
         \item O GCC tem suporte para o tipo \code{c++}{long double}, com 80 \textit{bits} e 
             precisão superior ao tipo \code{c++}{double}
@@ -32,7 +32,7 @@
             de precisão
             \inputcode{c++}{multi.cpp}
 
-        \item Comparações entre valores flutuantes podem gerar resultados errados por conta
+        \item Comparações entre valores flutuantes podem gerar resultados incorretos por conta
             de erros de precisão:
             \inputcode{c++}{comp.cpp}
 
@@ -54,8 +54,8 @@
         \item No caso de unidades monetárias, melhor trabalhar com múltiplos de centavos, de modo
             que os valores passam a ser todos números inteiros
 
-        \item O mesmo vale para unidades de tempo: melhor trabalhar com a menor unidade inteira
-            possível
+        \item O mesmo vale para unidades de tempo: utilize com a menor unidade de tempo inteira
+            possível (dias, segundos, etc)
     \end{itemize}
 
 \end{frame}
