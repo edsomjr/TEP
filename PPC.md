@@ -1,4 +1,4 @@
-# Roteiro de Estudo para a disciplina Programação para Competições
+# Programação para Competições
 
 1. Programação Competitiva
     1. [Introdução à Programação Competitiva](slides/introducao_a_programacao_competitiva/introducao_a_programacao_competitiva.pdf)

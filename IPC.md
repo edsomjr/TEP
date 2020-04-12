@@ -1,4 +1,4 @@
-# Roteiro de Estudo do curso Introdução à Programação Competitiva
+# Introdução à Programação Competitiva
 
 1. Programação Competitiva
     1. [Introdução à Programação Competitiva](slides/introducao_a_programacao_competitiva/introducao_a_programacao_competitiva.pdf)
