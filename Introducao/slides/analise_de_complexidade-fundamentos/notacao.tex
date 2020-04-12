@@ -2,13 +2,16 @@
 
 \begin{frame}[fragile]{Notação Big-$O$}
 
+    \metroset{block=fill}
+    \begin{block}{Definição}
+		Dadas duas funções de {valores positivos} $f$ e 
+		$g$, $f(n)$ é $O(g(n))$ se existem $c$ e $N$ positivos tais que
+		$f(n) \leq cg(n),\, \, \forall n\geq N$
+    \end{block}
+
 	\begin{itemize}
 		\item O Big-$O$ é uma notação para complexidade 
 		assintótica desenvolvida em 1894 por Paul Bachmann
-
-		\item Dadas duas funções de {valores positivos} $f$ e 
-		$g$, $f(n)$ é $O(g(n))$ se existem $c$ e $N$ positivos tais que
-		$f(n) \leq cg(n),\, \, \forall n\geq N$
 
 		\item Em termos matemáticos, $cg(n)$ é uma cota superior de $f(n)$
 
@@ -18,7 +21,7 @@
 
 \end{frame}
 
-\begin{frame}[fragile]{Encontrando $c$ e $N$}
+\begin{frame}[fragile]{Determinando $c$ e $N$}
 
     \begin{itemize}
     \item Dados $f$ e $g$, como {determinar} $c$ e $N$?
@@ -49,7 +52,7 @@
 
 		\item De fato, $f(n)$ é $O(g(n))$ para qualquer $g(n)=n^k,\, k \geq 2$ 
 
-		\item Na prática, escolhe-se a menor função possível
+		\item Na prática, escolhe-se o monômio de menor grau possível
 
 		\item A aproximação Big-$O$ pode ser refinada se aplicada apenas em parte da função. Ex.:
         \begin{align*}
@@ -65,32 +68,62 @@
 
 \begin{frame}[fragile]{Propriedades da Notação Big-$O$}
 
-	\begin{enumerate}[\bfseries P1.]
-		\item \textit{Propriedade transitiva}
+    \metroset{block=fill}
+	\begin{block}{P1. Propriedade Transitiva}
+        Se $f(n)=O(g(n))$ e $g(n) = O(h(n))$, então 
+        \[
+            f(n)=O(h(n))
+        \]
+	\end{block}
 
-        Se $f(n)=O(g(n))$ e $g(n) = O(h(n))$, então $f(n)=O(h(n))$
+    \vspace{0.1in}
 
-		\item \textit{Soma de funções de mesma complexidade}
+    \metroset{block=fill}
+	\begin{block}{P2. Soma de funções de mesma complexidade}
+        Se $f(n)=O(h(n))$ e $g(n)=O(h(n))$, então 
+        \[
+            f(n)+g(n)=O(h(n))
+        \]
+	\end{block}
 
-        Se $f(n)=O(h(n))$ e $g(n)=O(h(n))$, então $f(n)+g(n)=O(h(n))$
+    \vspace{0.1in}
 
-		\item \textit{Absorção de constante}
+    \metroset{block=fill}
+	\begin{block}{P3. Absorção de constante em monômios}
+        A função $an^k$ é $O(n^k)$.
+	\end{block}
 
-        A função $an^k$ é $O(n^k)$
+\end{frame}
 
-		\item \textit{Cota superior para polinômios}
+\begin{frame}[fragile]{Propriedades da Notação Big-$O$}
 
-        A função $n^k$ é $O(n^{k+j}), \, \, \forall j > 0$
+    \metroset{block=fill}
+	\begin{block}{P4. Cota superior para polinômios}
+        A função $n^k$ é $O(n^{k+j}), \, \, \forall j > 0$.
+	\end{block}
 
-        \item Se $f(n) = cg(n)$, então $f(n)$ é $O(g(n))$
+    \vspace{0.1in}
 
-		\item A função $f(n) = \log_a n$ é $O(\log_b n)$ para 
-		{quaisquer} $a$ e $b$ {positivos} diferentes de 1
+    \metroset{block=fill}
+	\begin{block}{P5. Absorção de constante}
+        Se $f(n) = cg(n)$, então $f(n)$ é $O(g(n))$.
+	\end{block}
 
-		\item A função $f(n) = \log_a n$ é $O(\log n)$ para 
-		{qualquer} $a$ {positivo} diferente de 1 e 
-		$\log n = \log_2 n$
-	\end{enumerate}
+    \vspace{0.1in}
+
+    \metroset{block=fill}
+	\begin{block}{P6. Equivalência entre logaritmos}
+		A função $f(n) = \log_a n$ é $O(\log_b n)$ para 
+		{quaisquer} $a$ e $b$ {positivos} diferentes de 1.
+	\end{block}
+
+    \vspace{0.1in}
+
+    \metroset{block=fill}
+	\begin{block}{P7. Normalização da base logarítmica}
+		A função $f(n) = \log_a n$ é $O(\log n)$ para 
+		{qualquer} $a$ {positivo} diferente de 1, com $\log n = \log_2 n$.
+	\end{block}
 
 \end{frame}
 
@@ -121,12 +154,15 @@
 
 \begin{frame}[fragile]{Notação Big-$\Omega$}
 
-	\begin{itemize}
-		\item Dadas {duas} funções de valores 
+    \metroset{block=fill}
+    \begin{block}{Definição}
+		Dadas {duas} funções de valores 
 		{positivos} $f$ e $g$, $f(n)$ é $\Omega(g(n))$ se 
 		existem $c$ e $N$ {positivos} tais que $f(n) \geq cg(n),\, \, \forall n\geq N$
+    \end{block}
 
-		\item Lê-se $f$ é {Big-Ômega} $g$
+	\begin{itemize}
+		\item Lê-se ``$f$ é {Big-Ômega} $g$''
 
 		\item Em termos matemáticos, $cg(n)$ é uma cota inferior de $f(n)$
 
@@ -150,13 +186,16 @@
 
 \begin{frame}[fragile]{Notação Big-$\Theta$}
 
-	\begin{itemize}
-		\item Dadas {duas} funções de valores 
+    \metroset{block=fill}
+    \begin{block}{Definição}
+		Dadas {duas} funções de valores 
 		{positivos} $f$ e $g$, $f(n)$ é $\Theta(g(n))$ se 
 		existem $c_1, c_2$ e $N$ {positivos} tais que
 		\[c_1g(n) \leq f(n) \leq c_2g(n),\, \, \forall n\geq N\] 
-
-		\item Lê-se $f$ é Big-Theta $g$ ou $f$ tem ordem de magnitude $g$
+    \end{block}
+		
+	\begin{itemize}
+		\item Lê-se ``$f$ é Big-Theta $g$'', ou ``$f$ tem ordem de magnitude $g$''
 
 		\item Equivalência: $f(n)$ é $\Theta(g(n))$ se, e somente 
 		se, $f(n)$ é $O(g(n))$ e $f(n)$ é $\Omega(g(n))$

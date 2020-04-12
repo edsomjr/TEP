@@ -11,23 +11,31 @@
 
 		\item Foi desenvolvida por Juris Hartmanis e Richard E. Stearns
 
-		\item Ela indica quanto esforço ou o custo de um algoritmo
+		\item Ela indica o esforço ou custo de um algoritmo
 
 		\item Critérios para esforço: tempo de desenvolvimento, recursos humanos, viabilidade
 
 		\item Critérios para custo: tempo de execução e espaço em memória
 
-		\item Comparações de tempo de execução devem ser realizadas na mesma máquina e os 
-        algoritmos devem ser escritos na mesma linguagem de programação
+		\item Comparações absolutas do tempo de execução entre dois algoritmos distintos devem ser 
+            realizadas na mesma máquina, e os algoritmos devem ser escritos na mesma linguagem de 
+            programação
 	\end{itemize}
 
 \end{frame}
 
-\begin{frame}[fragile]\frametitle{Tempo de execução}
+\begin{frame}[fragile]\frametitle{Comparação relativa do tempo de execução}
 
 	\begin{itemize}
-		\item O tempo deve ser expresso não em unidades de medidas físicas (segundos, milisegundos, 
-        etc), e sim em unidades de medidas lógicas (relação entre o número de elementos $N$ a serem 
+        \item Comparações absolutas do tempo de execução são difíceis de realizar e de pouca
+            utilidade prática
+
+        \item Sendo assim, uma alternativa é comparar relativamente os tempos de execução entre
+            algoritmos distintos, abstraindo fatores concretos
+            
+		\item Neste contexto, o tempo deve ser expresso não em unidades de medidas físicas 
+        (segundos, milissegundos, etc), e sim em unidades de medidas lógicas (relação entre o 
+        número de elementos $N$ a serem 
         processados e o tempo $t$ necessário para o processamento dos mesmos)
 		
 		\item Exemplos de medidas lógicas de tempo:
@@ -52,6 +60,12 @@
 
 		\item A ordem de magnitude é determinada pelo termo que caracteriza o comportamento da 
         função quando o número de elementos $N$ tende ao infinito
+
+        \item Em notação matemática, $t(N)$ caracteriza o comportamento da função $f(N)$ se
+        \[
+            \lim_{N\to \infty} \frac{f(N)}{t(N)} = c,
+        \]
+        onde $c$ é uma constante
 
 		\item Esta aproximação é denominada complexidade assintótica
 	\end{itemize}
@@ -85,7 +99,7 @@
 \end{frame}
 
 \begin{frame}[fragile]{Visualização numérica da complexidade assintótica}
-    A complexidade assintótica pode ser determinada numericamente através da observação da 
+    A complexidade assintótica pode ser aproximada numericamente através da observação da 
     contribuição de cada termo da função $f(N)$ a medida que $N$ cresce
 
     Por exemplo, considere a função $f(N) = N^2 + 100N + \log_{10} N + 1000 $
