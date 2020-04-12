@@ -12,4 +12,5 @@ Material da disciplina Tópicos Especiais em Programação da Faculdade UnB Gama
 
 # Roteiros de Estudo
 
+1. [Introdução à Programação Competitiva](IPC.md)
 1. [Programação para Competições](PPC.md)

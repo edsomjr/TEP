@@ -4,8 +4,6 @@
     1. [Introdução à Programação Competitiva](slides/introducao_a_programacao_competitiva/introducao_a_programacao_competitiva.pdf)
     1. [Juízes Eletrônicos](slides/juizes_eletronicos/juizes_eletronicos.pdf) ([problemas resolvidos](problems/juizes_eletronicos/juizes_eletronicos.pdf))
     1. [Tipos Primitivos de Dados](slides/tipos_primitivos/tipos_primitivos.pdf) ([problemas resolvidos](problems/tipos_primitivos/tipos_primitivos.pdf))
-1. Análise de Complexidade
-    1. [Fundamentos](slides/analise_de_complexidade-fundamentos/analise_de_complexidade-fundamentos.pdf)
 1. Busca e Ordenação
     1. [Ordenação em C/C++](Introducao/slides/BO-4/BO-4.pdf) ([problemas resolvidos](Introducao/problems/BO-4/BO-4.pdf))
 1. Vetores
@@ -32,7 +30,8 @@ Tópicos extras que podem ser de interesse do estudante de PPC:
     1. [Ponteiros: Alocação de Memória](Introducao/slides/PT-1/PT-1.pdf)
     1. [Ponteiros: Funções e Arquivos](Introducao/slides/PT-2/PT-2.pdf)
 1. Análise de Complexidade
-    1. [Fundamentos](Introducao/slides/AC-1/AC-1.pdf)
+1. Análise de Complexidade
+    1. [Fundamentos](slides/analise_de_complexidade-fundamentos/analise_de_complexidade-fundamentos.pdf)
     1. [Pior caso, melhor caso, caso médio](Introducao/slides/AC-2/AC-2.pdf)
 1. Busca e Ordenação
     1. [Algoritmos de Busca](Introducao/slides/BO-1/BO-1.pdf) ([problemas resolvidos](Introducao/problems/BO-1/BO-1.pdf))
