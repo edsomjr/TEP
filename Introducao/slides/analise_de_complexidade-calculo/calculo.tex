@@ -1,46 +1,78 @@
 \section{Exemplos de análise de complexidade assintótica}
 
-\begin{frame}[fragile]{Exemplo 01}
+\begin{frame}[fragile]{Exemplo 1}
 
-	\textbf{Problema:} Determinar a soma dos elementos de um vetor \texttt{a} com \texttt{n}
-     elementos.
+	\textbf{Problema:} Implementar uma função que torne maíscula a primeira letra da string
+        dada como parâmetro
 	\vspace{0.1in}
 
-	\textbf{Algoritmo:} 
-        \inputcode{c}{sum.c}
+	\textbf{Solução:} 
+        \inputcode{cpp}{codes/capitalize.cpp}
 	\vspace{0.2in}
 
-	{\bf Complexidade: } 2 atribuições no início, $2n$ no laço. 
-	{Total de atribuições:} $2 + 2n$.
-	Logo o algoritmo é $O(n)$.
+	{\bf Complexidade: } A implementação da função faz uma única atribuição, de modo que, se
+        a string tem $n$ caracteres, $f(n) = 1, \forall n$. Assim, o algoritmo tem complexidade
+        $O(1)$.
 
 \end{frame} 
 
-\begin{frame}[fragile]{Exemplo 02}
+\begin{frame}[fragile]{Exemplo 2}
 
-    {\bf Problema:} Determinar a soma dos subvetores \code{c}{a[0-i]} de um vetor \texttt{a}.
+	\textbf{Problema:} Implementar uma função que retorne a string dada, com a primeira letra 
+        em maiúsculo
 	\vspace{0.1in}
 
-    {\bf Algoritmo:} 
-        \inputcode{cpp}{subarray.cpp}
+	\textbf{Solução:} 
+        \inputcode{cpp}{codes/capitalize2.cpp}
 	\vspace{0.2in}
-    
-    {\bf Complexidade: } 1 atribuição no início, $3n$ no laço 
-    externo e $$\sum_{i=1}^{n-1} 2i = n(n-1)$$ no laço interno. 
-    Total de atribuições: $1 + 3n + n(n-1)$.  O algoritmo é $O(n^2)$.
+
+	{\bf Complexidade: } Observe que os $n$ caracteres da string $s$ devem ser copiados em $r$,
+        além da atribuição feita na linha 4. Assim, $f(n) = n + 1$, de modo que o algoritmo tem 
+        complexidade $O(n)$.
+
+\end{frame} 
+
+
+\begin{frame}[fragile]{Exemplo 3}
+
+    {\bf Problema:} Implementar uma função que retorne o produto cartesiano dos conjuntos
+        de números inteiros $A$ e $B$.
+	\vspace{0.1in}
+
+    {\bf Solução:} 
+        \inputcode{cpp}{codes/prod.cpp}
+\end{frame} 
+
+\begin{frame}[fragile]{Exemplo 3}
+
+    {\bf Complexidade: } Na linha 4 são feitas duas atribuições (variáveis $n$ e $m$, 
+        respectivamente). No início do laço externo (linha 6) é feita mais uma atribuição
+        (\code{cpp}{i = 0}).
+
+        A cada iteração do laço externo, são feitas 2 atribuições (\code{cpp}{j = 0} e o 
+        incremento \code{cpp}{++i}, respectivamente). Como o laço externo é executado $n$ vezes, 
+        são mais $2n$ atribuições.
+
+        Em cada iteração do laço interno são feitas mais duas atribuições: o incremento 
+        \code{cpp}{++j} e a adição do pair $(i, j)$ ao vetor \code{cpp}{P} por meio do método
+        \code{cpp}{push_back()}. Como este método tem complexidade constante, ele equivale a 
+        $c$ atribuições. Este laço será iniciado $n$ vezes, e em cada execução são $m$ iterações.
+        Assim, serão mais
+        \[
+            \sum_{i = 0}^n\sum_{j = 0}^m (c + 1) = (c + 1)nm
+        \]
+        atribuições, de modo que $f(n, m) = 3 + 2n + (c + 1)nm$ é $O(nm)$.
 \end{frame}
 
-\begin{frame}[fragile]{Exemplo 03}
+\begin{frame}[fragile]{Exemplo 4}
 
-    {\bf Problema:} Determinar a soma dos subvetores de cinco elementos de um vetor $a$.
+    {\bf Problema:} Implementar uma função que retorne todos os pares de naturais $(a, b)$ tais
+        que $a < b \leq N$, para um inteiro positivo $N$ dado.
+	\vspace{0.1in}
 
-    {\bf Algoritmo:} 
-        \inputcode{cpp}{subarray2.cpp}
+    {\bf Solução:} 
+        \inputcode{cpp}{codes/pairs.cpp}
     \vspace{0.2in}
-
-    {\bf Complexidade: } 1 atribuição no início, $3(n-4)$ no laço 
-    externo e $8(n-4)$ no laço interno.
-    {Total de atribuições:} $1 + 11(n-4)$. Logo o algoritmo é $O(n)$.
 
 \end{frame}
 
