@@ -76,104 +76,148 @@
 
 \end{frame}
 
-\begin{frame}[fragile]{Exemplo 04}
+\begin{frame}[fragile]{Exemplo 4}
+    
+    \textbf{Complexidade:} No início do laço externo (linha 5) é feita uma atribuição. Este
+    laço tem $N$ iterações, e em cada uma delas são feitas mais duas atribuições: o incremento
+    \code{cpp}{++a} e a inicialização \code{cpp}{b = i + 1}.
 
-	{\bf Problema:} Determinar o tamanho do maior subvetor ordenado de um 
-	vetor \texttt{a} com \texttt{n} elementos.
+    A cada execução o laço interno itera ($N - i$ vezes), sendo que em cada iteração são duas
+    atribuições: o incremento \code{cpp}{++b} e a inserção do par no vetor por meio do
+    método \code{cpp}{push_back()} (para fins de simplicação, considere que o custo deste método
+    seja o mesmo de uma atribuição). Assim, serão
+    \[
+        \sum_{i = 1}^N 2(N - i) = 2\sum_{k = 1}^{N - 1} k = 2\left[\frac{N(N - 1)}{2}\right] 
+            = N(N - 1)
+    \]
+    atribuições.  Portanto,
+    \[
+        f(N) = 1 + 2N + N(N - 1),
+    \]
+    de modo que o algoritmo tem complexidade $O(N^2)$.
+    
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo 5}
+
+	{\bf Problema:} Implemente uma função que compute o produto da matriz $A_{n\times m}$ pela
+        matriz $B_{m\times p}$.
+
 	\vspace{0.1in}
 
-    {\bf Algoritmo:} 
-        \inputcode{cpp}{sorted.cpp}
+    {\bf Solução:} 
+        \inputcode{cpp}{codes/matrix.cpp}
     \vspace{0.2in}
     
-	{\bf Complexidade } 
+\end{frame}
 
-    {\it Caso 1: Vetor em ordem decrescente.} 
-    2 atribuições no início, $4(n-1)$ no laço externo e $0$ no laço 
-    interno. {Total de atribuições:} $2 + 4(n-1)$.  O algoritmo é $O(n)$.
+\begin{frame}[fragile]{Exemplo 5}
+	{\bf Complexidade:} No cálculo da complexidade assintótica de um algoritmo não é necessário
+    determinar a função $f(n)$ exatamente, e sim determinar o termo dominante.
+
+    A cada execução, o laço externo, o laço intermediário e o laço interno iteram $n, p$ e $m$ 
+    vezes, respectivamente. Observe que, em cada execução de um destes laços, o número de 
+    atribuições associadas a ele é constante.
+
+    Assim, o algoritmo terá complexidade $O(nmp)$. A título de curiosidade, a função $f(n, m, p)$
+    é dada por
+    \[
+        f(n, m, p) = 4 + 2n + 3np + 2nmp
+    \]
 
 \end{frame}
 
-\begin{frame}[fragile]{Exemplo 04}
+\begin{frame}[fragile]{Exemplo 6}
 
-    {\it Caso 2: Vetor em ordem crescente.} 2 atribuições no 
-    início, $4(n-1)$ no laço externo e 
-    \[(n - 1) + \sum_{i=0}^{n-2} \left[2(n - 1 - i)\right] = (n - 1) + (n - 1)(n - 2) = (n - 1)^2\]
-    no laço interno. {Total de atribuições:} 
-    \[2 + 4(n-1) + (n-1)^2 = 2 + (n - 1)(n + 3)\]
+	{\bf Problema:} Computar um vetor de inteiros $v$ tal que $v_i = 1$, se $i$ é primo, e
+        $v_i = 0$, caso contrário, para $i \leq N$.
 
-    O algoritmo é $O(n^2)$. 
-
-    \vspace{0.1in}
-    Como determinar o caso médio?
-
-\end{frame}
-
-\begin{frame}[fragile]{Exemplo 05}
-
-	{\bf Problema:} Realizar uma busca binária de um elemento \texttt{k} um vetor 
-	ordenado de inteiros \texttt{a} de tamanho \texttt{n}.
 	\vspace{0.1in}
 
     {\bf Algoritmo:} 
-        \inputcode{cpp}{bs.cpp}
+        \inputcode{cpp}{codes/sieve.cpp}
+
 	\vspace{0.2in}
 \end{frame}
 
-\begin{frame}[fragile]{Exemplo 05}
+\begin{frame}[fragile]{Exemplo 6}
 
-    {\bf Complexidade} 
-    \vspace{0.1in}
+    \textbf{Complexidade:} Na linha 3 é alocado um vetor com $N + 1$ posições, e cada uma
+        destas posições é inicializada com o valor $1$, de modo que são $N + 1$ atribuições. A
+        linha seguinte faz mais duas atribuições, uma vez que $0$ e $1$ não são primos.
 
-    {\it Caso 1: Chave no meio do vetor.} 2 atribuições no início, 
-    $1$ no laço. {Total de atribuições:} $3$.  O algoritmo é $O(1)$.
+        O laço externo inicia com uma atribuição (\code{cpp}{i = 2}) e itera $N - 1$ vezes,
+        incrementando a variável \code{cpp}{i} (\code{cpp}{++i}) em cada uma destas iterações. Já
+        a inicialização da variável \code{cpp}{j} (\code{cpp}{j = 2*i}) depende do valor de 
+        \code{cpp}{v[i]}: só acontecerá quando \code{cpp}{v[i] = 1}, ou seja, quando \code{cpp}{i}
+        for primo.
 
-    \vspace{0.1in}
-    {\it Caso 2: Chave não está no vetor.} 2 atribuições no início, 
-    laço executado $m$ vezes, onde $n/2^m = 1$.  {Total de atribuições:} $2 + 2\log n$. 
-    O algoritmo é $O(\log n)$.
-
-    \vspace{0.1in}
-    Caso médio?
+        Para terminar $f(N)$ precisamente seria necessário determinar o número exato de primos no
+        intervalo $[1, N]$ (função $\pi(N)$). Existem boas aproximações para esta quantidade 
+        (por exemplo,
+            $\pi(N) \approx N/\log N$), porém quanto mais precisa a aproximação, mas sofisticada é a
+            função.
 \end{frame}
 
-\begin{frame}[fragile]{Exemplo 06}
+\begin{frame}[fragile]{Exemplo 6}
 
-	{\bf Problema:} Busca sequêncial de um elemento \texttt{k} em um vetor \texttt{a} 
-	de tamanho \texttt{n}
-	\vspace{0.1in}
+    Importante lembrar que a notação Big-$O$ fornece uma cota superior.
+    Deste modo, o número de execuções do laço interno pode ser majorado, pois $\pi(N) < N$ 
+    (pois nem todos os números do intervalo são primos).
 
-	{\bf Algoritmo:} 
-        \inputcode{cpp}{seq.cpp}
-    \vspace{0.2in}
-
-	{\bf Complexidade} 
-
-	{\it Melhor caso: $k$ é o primeiro termo}. 1 atribuição no 
-	início. {Total de atribuições:} $1$. 
-	O algoritmo é $O(1)$.
-
-	{\it Pior caso: $k$ não se encontra no vetor}. 1 atribuição no 
-	início, $n$ no laço. {Total de atribuições:} 
-	$1 + n$.  O algoritmo é $O(n)$.
-
+    A cada execução do laço interno itera $\lfloor N/i\rfloor$ vezes, fazendo duas atribuições
+    (o incremento \code{cpp}{j += i} e a atribuição \code{cpp}{v[j] = 0}) em cada iteração. Assim,
+    o número total de atribuições associadas ao laço interno é
+    \begin{align*}
+        \sum_{p\ \mbox{\tiny primo} }^N 2\left\lfloor \frac{N}{p}\right\rfloor 
+        &\leq  \sum_{i = 1}^N 2\left\lfloor \frac{N}{i}\right\rfloor 
+        \leq  2\sum_{i = 1}^N \frac{N}{i} \\
+        &\leq  2N\sum_{i = 1}^N \frac{1}{i}
+        \leq  2N\sum_{i = 1}^\infty \frac{1}{i} \\
+        &<  2N\int_{i = 1}^\infty \frac{1}{i} dN = 2N\log N
+    \end{align*}
 \end{frame}
 
-\begin{frame}[fragile]{Exemplo 06}
+\begin{frame}[fragile]{Exemplo 6}
 
-	{\it Caso médio: $k$ está em alguma das $n$ posições ou não 
-	se encontra no vetor.} Considere a distribuição de probabilidade
-	{uniforme} $p(\mbox{input}_i) = 1/(n+1)$. 
+    A sequência de aproximações utilizada forneceu uma cota superior para o número de atribuições
+    desejado. Embora efetivamente ele seja menor do que a aproximação, ao menos há a garantia
+    de que o número total de atribuições feitas pelo laço interno seja sempre menor do que a 
+    cota estabelecida.
 
-    Então
-	\begin{align*}
-	C_M &= \sum_{i=0}^{n} p(\mbox{input}_i)\mbox{steps}(\mbox{input}_i) \\ 
-	&= \frac{1}{n+1}\left[\sum_{i=0}^{n-1} (i+1) + (n+1) \right]\\ 
-	&= \frac{1}{n+1}\left[\frac{n(n+1)}{2} + (n+1)\right]= 
-	\frac{n+2}{2}
-	\end{align*}
-
-	Logo, no caso médio, o algoritmo é $O(n)$.
+    Assim, a função $f(n)$ pode ser aproximada por
+    \[
+        f(n) = 3 + (N + 1) + 2(N - 1) + 2N\log N,
+    \]
+    de modo que o algoritmo é $O(N\log N)$.
 
 \end{frame}
 
+\begin{frame}[fragile]{Exemplo 7}
+
+	{\bf Problema:} Localizar o índice de uma ocorrência do valor $x$ no vetor ordenado
+        $v$, ou $-1$, caso $x$ não esteja presente em $v$.
+
+    {\bf Algoritmo:} 
+        \inputcode{cpp}{codes/bs.cpp}
+
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo 7}
+
+    {\bf Complexidade:} Observe que, neste algoritmo, o número total de atribuições depende
+    dos valores da entrada.
+
+    No melhor caso, o elemento $x$ se encontra no índice $\lfloor (N - 1)/2\rfloor$, de modo que
+    o algoritmo realiza apenas $4$ atribuições:
+    \begin{center} \code{cpp}{N = v.size(), a = 0, b = N - 1,  m = a + (b - a)/2}
+    \end{center}
+
+    Assim, $f(N) = 3$ e o algoritmo tem complexidade $O(1)$.
+
+    No pior caso, $x$ não está no vetor. Além das 3 atribuições iniciais, o laço itera $k$ vezes, 
+    onde $N/2^k \leq 1$, realizando duas atribuições ($m$ e uma dentre as variáveis \code{cpp}{a} e
+    \code{cpp}{b}) a cada iteração. Logo $f(N) = 3 + 2\log N$ e o algoritmo tem complexidade 
+    $O(\log n)$.
+
+\end{frame}
