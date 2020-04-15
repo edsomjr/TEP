@@ -97,7 +97,7 @@
         \item Seja $A$ um conjunto de $n$ elementos
 
         \item Uma combinação de $m$ elementos de $A$ é uma sequência de elementos de
-            A $\lbrace a_{i1}, a_{i2}, \ldots, a_{im}\rbrace$ tal que $i_j \leq i_k$ se $i\leq k$
+            A $\lbrace a_{i1}, a_{i2}, \ldots, a_{im}\rbrace$ tal que $i_j < i_k$ se $j < k$
 
         \item O número de combinações de $m$ elementos de $A$ é igual a 
         \[
@@ -120,6 +120,39 @@
 
 \begin{frame}[fragile]{Implementação iterativa das combinações}
     \inputsnippet{cpp}{19}{39}{codes/combinacoes.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Combinações com repetições}
+
+    \begin{itemize}
+        \item Seja $A$ um conjunto de $n$ elementos
+
+        \item Uma combinação de $m$ elementos de $A$ com repetição é uma sequência de elementos 
+            de A $\lbrace a_{i1}, a_{i2}, \ldots, a_{im}\rbrace$ tais que os índices $i_k$ estão
+            em ordem não-decrescente
+
+        \item O número de combinações de $m$ elementos de $A$ com repetição é igual a 
+        \[
+            CR_{n,m} =\left(\!\!\!\binom{n}{k}\!\!\!\right) = \binom{n + m - 1}{m}
+        \]
+
+        \item As combinações de $m$ elementos de $A$ podem ser geradas recursivamente, a
+            partir de uma modificação na rotina que gera as combinações
+
+        \item Também é possível gerar tais combinações iterativamente, simulando uma soma
+            com vai-um, e saltando os números cuja sequência não obedençam a ordenação
+            não-decrescente
+ 
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Implementação iterativa das combinações com repetitcoes}
+    \inputsnippet{cpp}{1}{21}{codes/combinacoes_com_repeticoes.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Implementação iterativa das combinações com repetitcoes}
+    \inputsnippet{cpp}{23}{43}{codes/combinacoes_com_repeticoes.cpp}
 \end{frame}
 
 
