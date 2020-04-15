@@ -2,7 +2,7 @@
 
 \begin{frame}[fragile]{Exemplo 1}
 
-	\textbf{Problema:} Implementar uma função que torne maíscula a primeira letra da string
+	\textbf{Problema:} Implementar uma função que torne maiúscula a primeira letra da string
         dada como parâmetro
 	\vspace{0.1in}
 
@@ -54,14 +54,14 @@
         são mais $2n$ atribuições.
 
         Em cada iteração do laço interno são feitas mais duas atribuições: o incremento 
-        \code{cpp}{++j} e a adição do pair $(i, j)$ ao vetor \code{cpp}{P} por meio do método
+        \code{cpp}{++j} e a adição do par $(A[i], B[j])$ ao vetor \code{cpp}{P} por meio do método
         \code{cpp}{push_back()}. Como este método tem complexidade constante, ele equivale a 
         $c$ atribuições. Este laço será iniciado $n$ vezes, e em cada execução são $m$ iterações.
         Assim, serão mais
         \[
-            \sum_{i = 0}^n\sum_{j = 0}^m (c + 1) = (c + 1)nm
+            \sum_{i = 0}^{n - 1}\sum_{j = 0}^{m - 1} (c + 1) = (c + 1)(n - 1)(m - 1)
         \]
-        atribuições, de modo que $f(n, m) = 3 + 2n + (c + 1)nm$ é $O(nm)$.
+        atribuições, de modo que $f(n, m) = 3 + 2n + (c + 1)(n - 1)(m - 1)$ é $O(nm)$.
 \end{frame}
 
 \begin{frame}[fragile]{Exemplo 4}
@@ -80,14 +80,14 @@
     
     \textbf{Complexidade:} No início do laço externo (linha 5) é feita uma atribuição. Este
     laço tem $N$ iterações, e em cada uma delas são feitas mais duas atribuições: o incremento
-    \code{cpp}{++a} e a inicialização \code{cpp}{b = i + 1}.
+    \code{cpp}{++a} e a inicialização \code{cpp}{b = a + 1}.
 
-    A cada execução o laço interno itera ($N - i$ vezes), sendo que em cada iteração são duas
+    A cada execução o laço interno itera ($N - a$) vezes, sendo que em cada iteração são duas
     atribuições: o incremento \code{cpp}{++b} e a inserção do par no vetor por meio do
-    método \code{cpp}{push_back()} (para fins de simplicação, considere que o custo deste método
+    método \code{cpp}{push_back()} (para fins de simplificação, considere que o custo deste método
     seja o mesmo de uma atribuição). Assim, serão
     \[
-        \sum_{i = 1}^N 2(N - i) = 2\sum_{k = 1}^{N - 1} k = 2\left[\frac{N(N - 1)}{2}\right] 
+        \sum_{a = 1}^N 2(N - a) = 2\sum_{k = 1}^{N - 1} k = 2\left[\frac{N(N - 1)}{2}\right] 
             = N(N - 1)
     \]
     atribuições.  Portanto,
@@ -171,10 +171,8 @@
     \begin{align*}
         \sum_{p\ \mbox{\tiny primo} }^N 2\left\lfloor \frac{N}{p}\right\rfloor 
         &\leq  \sum_{i = 1}^N 2\left\lfloor \frac{N}{i}\right\rfloor 
-        \leq  2\sum_{i = 1}^N \frac{N}{i} \\
-        &\leq  2N\sum_{i = 1}^N \frac{1}{i}
-        \leq  2N\sum_{i = 1}^\infty \frac{1}{i} \\
-        &<  2N\int_{i = 1}^\infty \frac{1}{i} dN = 2N\log N
+        \leq  2\sum_{i = 1}^N \frac{N}{i}  \leq  2N\sum_{i = 1}^N \frac{1}{i} \\
+        &<  2N\int_1^N \frac{1}{i} di = 2N\log N
     \end{align*}
 \end{frame}
 
@@ -213,11 +211,11 @@
     \begin{center} \code{cpp}{N = v.size(), a = 0, b = N - 1,  m = a + (b - a)/2}
     \end{center}
 
-    Assim, $f(N) = 3$ e o algoritmo tem complexidade $O(1)$.
+    Assim, $f(N) = 4$ e o algoritmo tem complexidade $O(1)$.
 
     No pior caso, $x$ não está no vetor. Além das 3 atribuições iniciais, o laço itera $k$ vezes, 
     onde $N/2^k \leq 1$, realizando duas atribuições ($m$ e uma dentre as variáveis \code{cpp}{a} e
     \code{cpp}{b}) a cada iteração. Logo $f(N) = 3 + 2\log N$ e o algoritmo tem complexidade 
-    $O(\log n)$.
+    $O(\log N)$.
 
 \end{frame}
