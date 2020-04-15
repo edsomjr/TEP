@@ -14,7 +14,7 @@ Introdução à Programação Competitiva
     1. [Ponteiros: Funções e Arquivos](slides/PT-2/PT-2.pdf)
 1. Análise de Complexidade
     1. [Fundamentos](slides/analise_de_complexidade-fundamentos/analise_de_complexidade-fundamentos.pdf)
-    1. [Pior caso, melhor caso, caso médio](slides/AC-2/AC-2.pdf)
+    1. [Pior caso, melhor caso, caso médio](slides/analise_de_complexidade-calculo/analise_de_complexidade-calculo.pdf)
 1. Busca e Ordenação
     1. [Algoritmos de Busca](slides/BO-1/BO-1.pdf) ([problemas resolvidos](problems/BO-1/BO-1.pdf))
     1. [Algoritmos de Ordenação Quadráticos](slides/BO-2/BO-2.pdf)

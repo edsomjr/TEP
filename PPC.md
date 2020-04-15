@@ -31,7 +31,7 @@ Tópicos extras que podem ser de interesse do estudante de PPC:
     1. [Ponteiros: Funções e Arquivos](Introducao/slides/PT-2/PT-2.pdf)
 1. Análise de Complexidade
     1. [Fundamentos](slides/analise_de_complexidade-fundamentos/analise_de_complexidade-fundamentos.pdf)
-    1. [Pior caso, melhor caso, caso médio](Introducao/slides/AC-2/AC-2.pdf)
+    1. [Pior caso, melhor caso, caso médio](slides/analise_de_complexidade-calculo/analise_de_complexidade-calculo.pdf)
 1. Busca e Ordenação
     1. [Algoritmos de Busca](Introducao/slides/BO-1/BO-1.pdf) ([problemas resolvidos](Introducao/problems/BO-1/BO-1.pdf))
     1. [Algoritmos de Ordenação Quadráticos](Introducao/slides/BO-2/BO-2.pdf)
