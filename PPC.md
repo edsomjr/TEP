@@ -5,6 +5,7 @@
     1. [Juízes Eletrônicos](slides/juizes_eletronicos/juizes_eletronicos.pdf) ([problemas resolvidos](problems/juizes_eletronicos/juizes_eletronicos.pdf))
     1. [Tipos Primitivos de Dados](slides/tipos_primitivos/tipos_primitivos.pdf) ([problemas resolvidos](problems/tipos_primitivos/tipos_primitivos.pdf))
 1. Busca e Ordenação
+    1. [Algoritmos de Busca](slides/algoritmos_de_busca/algoritmos_de_busca.pdf) ([problemas resolvidos](problems/algoritmos_de_busca/algoritmos_de_busca.pdf))
     1. [Ordenação em C/C++](Introducao/slides/BO-4/BO-4.pdf) ([problemas resolvidos](Introducao/problems/BO-4/BO-4.pdf))
 1. Vetores
     1. [Fundamentos](Estruturas_de_Dados/slides/vetores_fundamentos/vetores_fundamentos.pdf) ([problemas resolvidos](Estruturas_de_Dados/problems/vetores_fundamentos/vetores_fundamentos.pdf))

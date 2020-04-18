@@ -7,3 +7,5 @@
 1. Análise de Complexidade
     1. [Fundamentos](slides/analise_de_complexidade-fundamentos/analise_de_complexidade-fundamentos.pdf)
     1. [Pior caso, melhor caso, caso médio](Introducao/slides/AC-2/AC-2.pdf)
+1. Busca e Ordenação
+    1. [Algoritmos de Busca](slides/algoritmos_de_busca/algoritmos_de_busca.pdf) ([problemas resolvidos](problems/algoritmos_de_busca/algoritmos_de_busca.pdf))
