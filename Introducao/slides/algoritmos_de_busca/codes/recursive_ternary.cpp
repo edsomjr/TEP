@@ -13,7 +13,7 @@ double ternary_search(double a, double b, double eps = 1e-6)
     auto m1 = a + (b - a)/3.0;
     auto m2 = b - (b - a)/3.0;
 
-    if (f(m1) < f(m2))
+    if (f(m1) < f(m2) 
         return ternary_search(m1, b, eps);
     else
         return ternary_search(a, m2, eps);

@@ -1,5 +1,4 @@
-#include <iostream>
-#include <algorithm>
+#include <bits/stdc++.h>
 
 using namespace std;
 
@@ -10,12 +9,12 @@ int main()
     transform(xs, xs + 3, zs, [](int x) { return abs(x); });
 
     for (int i = 0; i < 3; ++i)
-        printf("%d%c", zs[i], " \n"[i + 1 == 3]);
+        cout << z[i] << (i + 1 == 3 ? '\n' : ' ');
     
     transform(xs, xs + 3, ys, zs, [](int x, int y) { return x * y; });
 
     for (int i = 0; i < 3; ++i)
-        printf("%d%c", zs[i], " \n"[i + 1 == 3]);
+        cout << z[i] << (i + 1 == 3 ? '\n' : ' ');
 
     return 0;
 }
