@@ -1,6 +1,6 @@
 \section{Busca Sequencial}
 
-\begin{frame}[fragile]\frametitle{Algoritmos de busca}
+\begin{frame}[fragile]\frametitle{Busca sequencial}
 
 	\begin{itemize}
         \item Um algoritmo de busca consiste em uma função que identifica se um elemento $x$
@@ -193,12 +193,8 @@
 
 \end{frame}
 
-\begin{frame}[fragile]{Exemplo de uso de buca sequencial}
-    \inputsnippet{c}{1}{21}{quadrinhos.c}
-\end{frame}
-
-\begin{frame}[fragile]{Exemplo de uso de buca sequencial}
-    \inputsnippet{c}{23}{43}{quadrinhos.c}
+\begin{frame}[fragile]{Implementação da busca sequencial}
+    \inputsnippet{cpp}{1}{21}{codes/search.cpp}
 \end{frame}
 
 \begin{frame}[fragile]{Busca sequencial em C++}
@@ -215,18 +211,18 @@
 
         \item Caso $x$ não esteja no intervalo, é retornado o valor $b$
 
-        \item A sintaxe da função \code{c++}{find()} é
-            \inputsyntax{c++}{find.st}
+        \item A assinatura da função \code{c++}{find()} é
+            \inputsyntax{c++}{codes/find.st}
 
         \item Esta função pode ser usada em qualquer contêiner que tenha iteradores que suportem
-            a operação de incremento e que armazenem qualquer tipo que suporte o operador de
+            a operação de incremento e que armazenem um tipo que suporte o operador de
             comparação \code{c++}{==}
     \end{itemize}
 
 \end{frame}
 
 \begin{frame}[fragile]{Exemplo de uso da função \code{c++}{find()}}
-    \inputcode{c++}{find.cpp}
+    \inputcode{c++}{codes/find.cpp}
 \end{frame}
 
 \begin{frame}[fragile]{Travessias e Filtros}
@@ -239,16 +235,17 @@
             do contêiner contra o valor que se deseja localizar
 
         \item Um padrão comum associado à travessia é o de se escolher um ou mais elementos do
-            contêiner, de acordo com um predicato $P$
+            contêiner, de acordo com um predicado $P$
 
-        \item Um predicato $P$ é uma função que recebe, dentre seus parâmetros, um elemento $e$ do 
+        \item Um predicado $P$ é uma função que recebe, dentre seus parâmetros, um elemento $e$ do 
         tipo $T$ e retorna ou verdadeiro ou falso
 
         \item Este padrão recebe o nome de filtro
 
-        \item Uma busca sequencial é um filtro que seleciona um (ou mais) elemento do contêiner
-            com o predicado $P$ definido como
-            \inputsyntax{c++}{P.cpp}
+        \item A busca sequencial pode ser interpretada como um filtro que seleciona um (ou mais) 
+            elemento do contêiner a partir do predicado
+
+            \inputsyntax{c++}{codes/P.cpp}
 
     \end{itemize}
 
@@ -262,26 +259,26 @@
 
         \item A função \code{c++}{copy_if()} recebe um par de iteradores $a$ e $b$, que 
             definem um intervalo $[a, b)$; um iterador de saída $s$, onde serão escritos
-            os elementos que atendem o filtro; e um predicato $P$ unário (que aceita um único
+            os elementos que atendem o filtro; e um predicado $P$ unário (que aceita um único
             parâmetro do tipo $T$)
 
         \item Todos os elementos $e$ tais que $P(e)$ é verdadeiro serão copiados no iterador de
             saída $s$
 
-        \item A sintaxe da função \code{c++}{copy_if()} é 
-            \inputsyntax{c++}{copy_if.st}
+        \item A assinatura da função \code{c++}{copy_if()} é 
+            \inputsyntax{c++}{codes/copy_if.st}
 
         \item A função \code{c++}{back_inserter()}, da biblioteca \code{c++}{iterator}, gera
             um iterador de saída para o contêiner passado como parâmetro
 
-        \item O contêiner em questão deve ter suporte para a função \code{c++}{push_back()}
+        \item O contêiner em questão deve implementar a função \code{c++}{push_back()}
 
     \end{itemize}
 
 \end{frame}
 
 \begin{frame}[fragile]{Exemplo de uso de filtro}
-    \inputcode{c++}{bs.cpp}
+    \inputcode{c++}{codes/bs.cpp}
 \end{frame}
 
 \begin{frame}[fragile]{Transformações}
@@ -292,18 +289,20 @@
         \item Uma transformação visita cada um dos elementos $x$ de $S$, e o substitui pelo 
             resultado da transformação $T(x)$
 
-        \item A bilioteca \code{c++}{algorithm} do C++ implementa transformações através da
+        \item A biblioteca \code{c++}{algorithm} do C++ implementa transformações através da
             função \code{c++}{transform()}
 
-        \item A sintaxe da função \code{c++}{transform()} é
-            \inputsyntax{c++}{transform.st}
+        \item A assinatura da função \code{c++}{transform()} é
+            \inputsyntax{c++}{codes/transform.st}
 
         \item Há também uma versão da função \code{c++}{transform()} que aceita uma operação
-            binária
+            binária, cuja assinatura é
+            \inputsyntax{c++}{codes/transform2.st}
+
     \end{itemize}
 
 \end{frame}
 
 \begin{frame}[fragile]{Exemplo de uso de transformações}
-    \inputcode{c++}{dot.cpp}
+    \inputcode{c++}{codes/dot.cpp}
 \end{frame}

@@ -5,7 +5,7 @@ using ll = long long;
 
 const ll oo { 1000000010LL };
 
-ll f(ll x, const vector<ll>& as, const vector<ll>& bs)
+ll h(ll x, const vector<ll>& as, const vector<ll>& bs)
 {
     ll y = 0;
 
@@ -21,14 +21,14 @@ ll f(ll x, const vector<ll>& as, const vector<ll>& bs)
 ll solve(const vector<ll>& as, const vector<ll>& bs)
 {
     // f(x) é convexa: busca ternária
-    ll a = 0, b = oo, ans = 2000000000000000010L;
+    ll a = 0, b = oo, ans = 2000000000000000010LL;
     
     while (a <= b)
     {
         auto m1 = a + (b - a)/3;
         auto m2 = b - (b - a)/3;
 
-        auto y1 = f(m1, as, bs), y2 = f(m2, as, bs);
+        auto y1 = h(m1, as, bs), y2 = h(m2, as, bs);
 
         ans = min(ans, y1);
         ans = min(ans, y2);

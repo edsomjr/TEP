@@ -4,8 +4,6 @@ using namespace std;
 using ll = long long;
 using ii = pair<ll, ll>;
 
-const int MAX { 10000010 };
-
 bool operator<(const ii& m, const ii& n)
 {
     return m.first * n.second < m.second * n.first;

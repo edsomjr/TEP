@@ -1,4 +1,4 @@
-\section{UVA 10077 -- The Stern-Brocot Number System}
+\section{OJ 10077 -- The Stern-Brocot Number System}
 
 \begin{frame}[fragile]{Problema}
 
@@ -213,30 +213,28 @@ RRLRRLRLLLLRLRRR
 \begin{frame}[fragile]{Solução}
 
     \begin{itemize}
-        \item A árvore apresentada no exemplo e das sequências iniciais permitem a observação
-            que a sequência é crescente
+        \item A árvore apresentada no exemplo e as sequências iniciais permitem a observação
+            que a árvore com raiz $\frac{1}{1}$ é uma árvore binária de busca
 
-        \item Mais precisamente, a árvore com raiz $\frac{1}{1}$ é uma árvore binária de busca
-
-        \item Isto permite o uso da busca binária para determinar, a cada elemento, se é 
+        \item Este fato permite o uso da busca binária para determinar, a cada elemento, se é 
             preciso seguir à esquerda ou à direita
 
         \item A busca se encerra quando o número a ser representado é atingido
 
-        \item Deste modo, a solução tem complexidade $O(N\log N)$, onde $N$ é o número máximo
-            de elementos da árvore até que se atinja a fração desejada
+        \item Deste modo, a solução tem complexidade $O(H)$, onde $H$ é o número
+            de elementos que compõem a representam da fração $n/m$ no sistema apresentado
    \end{itemize}
 
 \end{frame}
 
-\begin{frame}[fragile]{Solução $O(N\log N)$}
-    \inputsnippet{cpp}{1}{21}{10077.cpp}
+\begin{frame}[fragile]{Solução $O(H)$}
+    \inputsnippet{cpp}{1}{21}{codes/10077.cpp}
 \end{frame}
 
-\begin{frame}[fragile]{Solução $O(N\log N)$}
-    \inputsnippet{cpp}{22}{42}{10077.cpp}
+\begin{frame}[fragile]{Solução $O(H)$}
+    \inputsnippet{cpp}{23}{43}{codes/10077.cpp}
 \end{frame}
 
-\begin{frame}[fragile]{Solução $O(N\log N)$}
-    \inputsnippet{cpp}{43}{63}{10077.cpp}
+\begin{frame}[fragile]{Solução $O(H)$}
+    \inputsnippet{cpp}{44}{64}{codes/10077.cpp}
 \end{frame}
