@@ -35,5 +35,5 @@ Tópicos extras que podem ser de interesse do estudante de PPC:
     1. [Pior caso, melhor caso, caso médio](slides/analise_de_complexidade-calculo/analise_de_complexidade-calculo.pdf)
 1. Busca e Ordenação
     1. [Algoritmos de Busca](Introducao/slides/algoritmos_de_busca/algoritmos_de_busca.pdf) ([problemas resolvidos](problems/algoritmos_de_busca/algoritmos_de_busca.pdf))
-    1. [Algoritmos de Ordenação Quadráticos](Introducao/slides/BO-2/BO-2.pdf)
+    1. [Algoritmos de Ordenação Quadráticos](slides/algoritmos_de_ordenacao_quadraticos/algoritmos_de_ordenacao_quadraticos.pdf)
     1. [Algoritmos de Ordenação O(N log N)](Introducao/slides/BO-3/BO-3.pdf) ([problemas resolvidos](Introducao/problems/BO-3/BO-3.pdf))

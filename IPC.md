@@ -9,3 +9,4 @@
     1. [Pior caso, melhor caso, caso médio](Introducao/slides/analise_de_complexidade-calculo/analise_de_complexidade-calculo.pdf)
 1. Busca e Ordenação
     1. [Algoritmos de Busca](Introducao/slides/algoritmos_de_busca/algoritmos_de_busca.pdf) ([problemas resolvidos](problems/algoritmos_de_busca/algoritmos_de_busca.pdf))
+    1. [Algoritmos de Ordenação Quadráticos](slides/algoritmos_de_ordenacao_quadraticos/algoritmos_de_ordenacao_quadraticos.pdf)
