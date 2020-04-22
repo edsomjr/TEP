@@ -1,11 +1,11 @@
 # Programação para Competições
 
 1. Programação Competitiva
-    1. [Introdução à Programação Competitiva](slides/introducao_a_programacao_competitiva/introducao_a_programacao_competitiva.pdf)
-    1. [Juízes Eletrônicos](slides/juizes_eletronicos/juizes_eletronicos.pdf) ([problemas resolvidos](problems/juizes_eletronicos/juizes_eletronicos.pdf))
-    1. [Tipos Primitivos de Dados](slides/tipos_primitivos/tipos_primitivos.pdf) ([problemas resolvidos](problems/tipos_primitivos/tipos_primitivos.pdf))
+    1. [Introdução à Programação Competitiva](Introducao/slides/introducao_a_programacao_competitiva/introducao_a_programacao_competitiva.pdf)
+    1. [Juízes Eletrônicos](Introducao/slides/juizes_eletronicos/juizes_eletronicos.pdf) ([problemas resolvidos](problems/juizes_eletronicos/juizes_eletronicos.pdf))
+    1. [Tipos Primitivos de Dados](Introducao/slides/tipos_primitivos/tipos_primitivos.pdf) ([problemas resolvidos](problems/tipos_primitivos/tipos_primitivos.pdf))
 1. Busca e Ordenação
-    1. [Algoritmos de Busca](slides/algoritmos_de_busca/algoritmos_de_busca.pdf) ([problemas resolvidos](problems/algoritmos_de_busca/algoritmos_de_busca.pdf))
+    1. [Algoritmos de Busca](Introducao/slides/algoritmos_de_busca/algoritmos_de_busca.pdf) ([problemas resolvidos](problems/algoritmos_de_busca/algoritmos_de_busca.pdf))
     1. [Ordenação em C/C++](Introducao/slides/BO-4/BO-4.pdf) ([problemas resolvidos](Introducao/problems/BO-4/BO-4.pdf))
 1. Vetores
     1. [Fundamentos](Estruturas_de_Dados/slides/vetores_fundamentos/vetores_fundamentos.pdf) ([problemas resolvidos](Estruturas_de_Dados/problems/vetores_fundamentos/vetores_fundamentos.pdf))
@@ -34,6 +34,6 @@ Tópicos extras que podem ser de interesse do estudante de PPC:
     1. [Fundamentos](slides/analise_de_complexidade-fundamentos/analise_de_complexidade-fundamentos.pdf)
     1. [Pior caso, melhor caso, caso médio](slides/analise_de_complexidade-calculo/analise_de_complexidade-calculo.pdf)
 1. Busca e Ordenação
-    1. [Algoritmos de Busca](Introducao/slides/BO-1/BO-1.pdf) ([problemas resolvidos](Introducao/problems/BO-1/BO-1.pdf))
+    1. [Algoritmos de Busca](Introducao/slides/algoritmos_de_busca/algoritmos_de_busca.pdf) ([problemas resolvidos](problems/algoritmos_de_busca/algoritmos_de_busca.pdf))
     1. [Algoritmos de Ordenação Quadráticos](Introducao/slides/BO-2/BO-2.pdf)
     1. [Algoritmos de Ordenação O(N log N)](Introducao/slides/BO-3/BO-3.pdf) ([problemas resolvidos](Introducao/problems/BO-3/BO-3.pdf))
