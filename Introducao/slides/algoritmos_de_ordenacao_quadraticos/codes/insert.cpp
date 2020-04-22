@@ -1,5 +1,4 @@
-#include <iostream>
-#include <vector>
+#include <bits/stdc++.h>
 
 using namespace std;
 
@@ -23,7 +22,7 @@ int main()
 {
     vector<int> as { 3, 5, 1, 2, 4 };
 
-    insert_sort<int>(as);
+    insert_sort(as);
 
     for (size_t i = 0; i < as.size(); ++i)
         cout << as[i] << (i + 1 == as.size() ? '\n' : ' ');

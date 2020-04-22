@@ -3,16 +3,17 @@
 \begin{frame}[fragile]{Ordenação parcial e ordenação total}
 
     \begin{itemize}
-        \item Seja $a_s = \lbrace a_1, a_2, \ldots, a_N\rbrace $ uma sequência de 
-        $N$ objetos, denominados elementos
+        \item Seja $a = \lbrace a_1, a_2, \ldots, a_N\rbrace $ uma sequência de 
+        $N$ elementos
 
-        \item Seja $R\subset a_s\times a_s$ uma relação 
+        \item Seja $R\subset a\times a$ uma relação 
 
-        \item Dados dois elementos $a_i, a_j\in a_s$, $a_i$ se relaciona com $a_j$ se 
-            $(a_i, a_j)\in R$ (isto não implica necessariamente que $a_j$ se relaciona com
-            $a_i$)
+        \item Dados dois elementos $a_i, a_j\in a$, $a_i$ se relaciona com $a_j$ se 
+            $(a_i, a_j)\in R$ 
 
-        \item Seja $S = \lbrace a\in a_s\ | \ \exists b\in a_s : (a, b)\in R \vee (b, a)\in R
+        \item $(a_i, a_j)\in R$ não implica, necessariamente, $(a_j, a_i)\in R$
+
+        \item Seja $S = \lbrace a_k\in a\ | \ \exists b\in a : (a_k, b)\in R \vee (b, a_k)\in R
             \rbrace$
 
         \item Dizemos que $R$ é uma relação de ordem parcial se, para todos $a, b, c\in S$, 
@@ -23,7 +24,7 @@
                 \item se $(a, b)\in R$ e $(b, c)\in R$ então $(a, c)\in R$
             \end{enumerate}
 
-        \item Se para todos $a, b\in a_s$ vale $(a, b)\in R$ ou $(b, a)\in R$, então $R$ é uma
+        \item Se para todos $a, b\in a$ vale $(a, b)\in R$ ou $(b, a)\in R$, então $R$ é uma
             relação de ordem total
     \end{itemize}
 
@@ -32,12 +33,12 @@
 \begin{frame}[fragile]{Definição de ordenação}
 
     \begin{itemize}
-        \item Dizemos que uma sequência $a_s$ está ordenada de acordo com a relação de 
+        \item Dizemos que uma sequência $a$ está ordenada de acordo com a relação de 
             ordem $R$ se, para todos $i = 2, 3, \ldots, N$, temos que $(a_{i - 1}, a_i) \in R$
 
-        \item Uma algoritmo de ordenação $A(a_s, R)$ recebe, como entrada, uma sequência $a_s$ e 
-            uma relação de ordem $R$ e, ao final do algoritmo, a sequência $a_s$ (ou uma nova
-            sequência $b_s$) está ordenada de acordo com a relação $R$
+        \item Uma algoritmo de ordenação $A(a, R)$ recebe, como entrada, uma sequência $a$ e 
+            uma relação de ordem $R$ e, ao final do algoritmo, a sequência $a$ está ordenada de 
+            acordo com a relação $R$
 
         \item Na prática, a relação $R$ é implementada como uma função binária $f$ tal que
             $f(a, b)$ retorna verdadeiro se $(a, b)\in R$

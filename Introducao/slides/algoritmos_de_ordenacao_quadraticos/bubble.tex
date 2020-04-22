@@ -1,29 +1,30 @@
-\section{\itshape Insertion Sort}
+\section{\it Bubble Sort}
 
-\begin{frame}[fragile]{Insertion Sort}
+\begin{frame}[fragile]{\it Bubble Sort}
 
     \begin{itemize}
-        \item \textit{Insertion sort} é um algoritmo de ordenação similar ao \textit{selection
-            sort}
+        \item \textit{Bubble sort} é um algoritmo de ordenação estável, \textit{in-place} e
+            quadrático
 
-        \item Ele é estável, \textit{in-place} e tem complexidade $O(N^2)$
+        \item É um algoritmo popular em cursos introdutórios de algoritmos
 
-        \item Ele considera, inicialmente, que um sequência com um único elemento já 
-            está ordenada
+        \item Ele itera até $N$ vezes sobre os elementos
 
-        \item Em seguida, para cada elemento da sequência, ele procura a posição correta
-            no vetor ordenado que está à esquerda do elemento, e o insere nesta posição
+        \item Em cada iteração, se ele encontrar um par de elementos adjacentes que estão
+            fora de ordem, ele inverte a posição de ambos
 
-        \item É o tipo de ordenação que os jogadores de cartas costumam usar
-        
+        \item Se uma dada iteração não fizer nenhuma troca, o algoritmo é finalizado
+
+        \item Como, a cada iteração, ao menos o maior elemento fora de posição será 
+            posicionado corretamente, o algoritmo sempre termina com o vetor ordenado
     \end{itemize}
 
 \end{frame}
 
-\begin{frame}[fragile]{Visualização do \textit{insert sort}}
+\begin{frame}[fragile]{Visualização do {\it bubble sort}}
 
     \begin{tikzpicture}
-        \node at (0.5, 2.5) { $v = 5$ };
+        \node[anchor=west] at (-2.0, 2.5) { updated = \textbf{\texttt{false}} };
         \node at (0.5, 0.5) { $a_s = $ };
         \draw (1, 0) grid (6, 1);
 
@@ -42,46 +43,14 @@
         \draw[->] (2.5, -0.8) -- (2.5, -0.2);
         \node at (2.5, -1.2) { $ i $ };
 
-        \draw[->] (2.5, 2.5) -- (2.5, 1.9);
-        \node at (2.5, 2.9) { $ j $ };
-
     \end{tikzpicture}
 
 \end{frame}
 
-\begin{frame}[fragile]{Visualização do \textit{insert sort}}
+\begin{frame}[fragile]{Visualização do {\it bubble sort}}
 
     \begin{tikzpicture}
-        \node at (0.5, 2.5) { $v = 5$ };
-        \node at (0.5, 0.5) { $a_s = $ };
-        \draw (1, 0) grid (6, 1);
-
-        \node at (1.5, 1.5) { \texttt{1} };
-        \node at (2.5, 1.5) { \texttt{2} };
-        \node at (3.5, 1.5) { \texttt{3} };
-        \node at (4.5, 1.5) { \texttt{4} };
-        \node at (5.5, 1.5) { \texttt{5} };
-
-        \node at (1.5, 0.5) { $ \mathbf{3} $ };
-        \node at (2.5, 0.5) { \textcolor{blue}{$ \mathbf{5} $} };
-        \node at (3.5, 0.5) { $ \mathbf{1} $ };
-        \node at (4.5, 0.5) { $ \mathbf{2} $ };
-        \node at (5.5, 0.5) { $ \mathbf{4} $ };
-
-        \draw[->] (2.5, -0.8) -- (2.5, -0.2);
-        \node at (2.5, -1.2) { $ i $ };
-
-        \draw[->] (2.5, 2.5) -- (2.5, 1.9);
-        \node at (2.5, 2.9) { $ j $ };
-
-    \end{tikzpicture}
-
-\end{frame}
-
-\begin{frame}[fragile]{Visualização do \textit{insert sort}}
-
-    \begin{tikzpicture}
-        \node at (0.5, 2.5) { $v = 1$ };
+        \node[anchor=west] at (-2.0, 2.5) { updated = \textbf{\texttt{false}} };
         \node at (0.5, 0.5) { $a_s = $ };
         \draw (1, 0) grid (6, 1);
 
@@ -100,17 +69,14 @@
         \draw[->] (3.5, -0.8) -- (3.5, -0.2);
         \node at (3.5, -1.2) { $ i $ };
 
-        \draw[->] (3.5, 2.5) -- (3.5, 1.9);
-        \node at (3.5, 2.9) { $ j $ };
-
     \end{tikzpicture}
 
 \end{frame}
 
-\begin{frame}[fragile]{Visualização do \textit{insert sort}}
+\begin{frame}[fragile]{Visualização do {\it bubble sort}}
 
     \begin{tikzpicture}
-        \node at (0.5, 2.5) { $v = 1$ };
+        \node[anchor=west] at (-2.0, 2.5) { updated = \textcolor{blue}{\textbf{\texttt{true}}} };
         \node at (0.5, 0.5) { $a_s = $ };
         \draw (1, 0) grid (6, 1);
 
@@ -121,7 +87,7 @@
         \node at (5.5, 1.5) { \texttt{5} };
 
         \node at (1.5, 0.5) { $ \mathbf{3} $ };
-        \node at (2.5, 0.5) { \textcolor{black}{$ \mathbf{ } $} };
+        \node at (2.5, 0.5) { \textcolor{blue}{$ \mathbf{1} $} };
         \node at (3.5, 0.5) { \textcolor{blue}{$ \mathbf{5} $} };
         \node at (4.5, 0.5) { $ \mathbf{2} $ };
         \node at (5.5, 0.5) { $ \mathbf{4} $ };
@@ -129,17 +95,119 @@
         \draw[->] (3.5, -0.8) -- (3.5, -0.2);
         \node at (3.5, -1.2) { $ i $ };
 
-        \draw[->] (3.5, 2.5) -- (3.5, 1.9);
-        \node at (3.5, 2.9) { $ j $ };
+    \end{tikzpicture}
+
+\end{frame}
+
+
+\begin{frame}[fragile]{Visualização do {\it bubble sort}}
+
+    \begin{tikzpicture}
+        \node[anchor=west] at (-2.0, 2.5) { updated = \textcolor{blue}{\textbf{\texttt{true}}} };
+        \node at (0.5, 0.5) { $a_s = $ };
+        \draw (1, 0) grid (6, 1);
+
+        \node at (1.5, 1.5) { \texttt{1} };
+        \node at (2.5, 1.5) { \texttt{2} };
+        \node at (3.5, 1.5) { \texttt{3} };
+        \node at (4.5, 1.5) { \texttt{4} };
+        \node at (5.5, 1.5) { \texttt{5} };
+
+        \node at (1.5, 0.5) { $ \mathbf{3} $ };
+        \node at (2.5, 0.5) { \textcolor{black}{$ \mathbf{1} $} };
+        \node at (3.5, 0.5) { \textcolor{red}{$ \mathbf{5} $} };
+        \node at (4.5, 0.5) { $ \mathbf{2} $ };
+        \node at (5.5, 0.5) { $ \mathbf{4} $ };
+
+        \draw[->] (4.5, -0.8) -- (4.5, -0.2);
+        \node at (4.5, -1.2) { $ i $ };
 
     \end{tikzpicture}
 
 \end{frame}
 
-\begin{frame}[fragile]{Visualização do \textit{insert sort}}
+\begin{frame}[fragile]{Visualização do {\it bubble sort}}
 
     \begin{tikzpicture}
-        \node at (0.5, 2.5) { $v = 1$ };
+        \node[anchor=west] at (-2.0, 2.5) { updated = \textcolor{blue}{\textbf{\texttt{true}}} };
+        \node at (0.5, 0.5) { $a_s = $ };
+        \draw (1, 0) grid (6, 1);
+
+        \node at (1.5, 1.5) { \texttt{1} };
+        \node at (2.5, 1.5) { \texttt{2} };
+        \node at (3.5, 1.5) { \texttt{3} };
+        \node at (4.5, 1.5) { \texttt{4} };
+        \node at (5.5, 1.5) { \texttt{5} };
+
+        \node at (1.5, 0.5) { $ \mathbf{3} $ };
+        \node at (2.5, 0.5) { \textcolor{black}{$ \mathbf{1} $} };
+        \node at (3.5, 0.5) { \textcolor{blue}{$ \mathbf{2} $} };
+        \node at (4.5, 0.5) { \textcolor{blue}{$ \mathbf{5} $} };
+        \node at (5.5, 0.5) { $ \mathbf{4} $ };
+
+        \draw[->] (4.5, -0.8) -- (4.5, -0.2);
+        \node at (4.5, -1.2) { $ i $ };
+
+    \end{tikzpicture}
+
+\end{frame}
+
+\begin{frame}[fragile]{Visualização do {\it bubble sort}}
+
+    \begin{tikzpicture}
+        \node[anchor=west] at (-2.0, 2.5) { updated = \textcolor{blue}{\textbf{\texttt{true}}} };
+        \node at (0.5, 0.5) { $a_s = $ };
+        \draw (1, 0) grid (6, 1);
+
+        \node at (1.5, 1.5) { \texttt{1} };
+        \node at (2.5, 1.5) { \texttt{2} };
+        \node at (3.5, 1.5) { \texttt{3} };
+        \node at (4.5, 1.5) { \texttt{4} };
+        \node at (5.5, 1.5) { \texttt{5} };
+
+        \node at (1.5, 0.5) { $ \mathbf{3} $ };
+        \node at (2.5, 0.5) { \textcolor{black}{$ \mathbf{1} $} };
+        \node at (3.5, 0.5) { \textcolor{black}{$ \mathbf{2} $} };
+        \node at (4.5, 0.5) { \textcolor{red}{$ \mathbf{5} $} };
+        \node at (5.5, 0.5) { $ \mathbf{4} $ };
+
+        \draw[->] (5.5, -0.8) -- (5.5, -0.2);
+        \node at (5.5, -1.2) { $ i $ };
+
+    \end{tikzpicture}
+
+\end{frame}
+
+\begin{frame}[fragile]{Visualização do {\it bubble sort}}
+
+    \begin{tikzpicture}
+        \node[anchor=west] at (-2.0, 2.5) { updated = \textcolor{blue}{\textbf{\texttt{true}}} };
+        \node at (0.5, 0.5) { $a_s = $ };
+        \draw (1, 0) grid (6, 1);
+
+        \node at (1.5, 1.5) { \texttt{1} };
+        \node at (2.5, 1.5) { \texttt{2} };
+        \node at (3.5, 1.5) { \texttt{3} };
+        \node at (4.5, 1.5) { \texttt{4} };
+        \node at (5.5, 1.5) { \texttt{5} };
+
+        \node at (1.5, 0.5) { $ \mathbf{3} $ };
+        \node at (2.5, 0.5) { \textcolor{black}{$ \mathbf{1} $} };
+        \node at (3.5, 0.5) { \textcolor{black}{$ \mathbf{2} $} };
+        \node at (4.5, 0.5) { \textcolor{blue}{$ \mathbf{4} $} };
+        \node at (5.5, 0.5) { \textcolor{blue}{$ \mathbf{5} $} };
+
+        \draw[->] (5.5, -0.8) -- (5.5, -0.2);
+        \node at (5.5, -1.2) { $ i $ };
+
+    \end{tikzpicture}
+
+\end{frame}
+
+\begin{frame}[fragile]{Visualização do {\it bubble sort}}
+
+    \begin{tikzpicture}
+        \node[anchor=west] at (-2.0, 2.5) { updated = \textcolor{black}{\textbf{\texttt{false}}} };
         \node at (0.5, 0.5) { $a_s = $ };
         \draw (1, 0) grid (6, 1);
 
@@ -150,83 +218,22 @@
         \node at (5.5, 1.5) { \texttt{5} };
 
         \node at (1.5, 0.5) { \textcolor{red}{$ \mathbf{3} $} };
-        \node at (2.5, 0.5) { \textcolor{black}{$ \mathbf{ } $} };
-        \node at (3.5, 0.5) { \textcolor{black}{$ \mathbf{5} $} };
-        \node at (4.5, 0.5) { $ \mathbf{2} $ };
-        \node at (5.5, 0.5) { $ \mathbf{4} $ };
+        \node at (2.5, 0.5) { \textcolor{black}{$ \mathbf{1} $} };
+        \node at (3.5, 0.5) { \textcolor{black}{$ \mathbf{2} $} };
+        \node at (4.5, 0.5) { \textcolor{black}{$ \mathbf{4} $} };
+        \node at (5.5, 0.5) { \textcolor{black}{$ \mathbf{5} $} };
 
-        \draw[->] (3.5, -0.8) -- (3.5, -0.2);
-        \node at (3.5, -1.2) { $ i $ };
-
-        \draw[->] (2.5, 2.5) -- (2.5, 1.9);
-        \node at (2.5, 2.9) { $ j $ };
+        \draw[->] (2.5, -0.8) -- (2.5, -0.2);
+        \node at (2.5, -1.2) { $ i $ };
 
     \end{tikzpicture}
 
 \end{frame}
 
-\begin{frame}[fragile]{Visualização do \textit{insert sort}}
+\begin{frame}[fragile]{Visualização do {\it bubble sort}}
 
     \begin{tikzpicture}
-        \node at (0.5, 2.5) { $v = 1$ };
-        \node at (0.5, 0.5) { $a_s = $ };
-        \draw (1, 0) grid (6, 1);
-
-        \node at (1.5, 1.5) { \texttt{1} };
-        \node at (2.5, 1.5) { \texttt{2} };
-        \node at (3.5, 1.5) { \texttt{3} };
-        \node at (4.5, 1.5) { \texttt{4} };
-        \node at (5.5, 1.5) { \texttt{5} };
-
-        \node at (1.5, 0.5) { \textcolor{black}{$ \mathbf{ } $} };
-        \node at (2.5, 0.5) { \textcolor{blue}{$ \mathbf{3} $} };
-        \node at (3.5, 0.5) { \textcolor{black}{$ \mathbf{5} $} };
-        \node at (4.5, 0.5) { $ \mathbf{2} $ };
-        \node at (5.5, 0.5) { $ \mathbf{4} $ };
-
-        \draw[->] (3.5, -0.8) -- (3.5, -0.2);
-        \node at (3.5, -1.2) { $ i $ };
-
-        \draw[->] (2.5, 2.5) -- (2.5, 1.9);
-        \node at (2.5, 2.9) { $ j $ };
-
-    \end{tikzpicture}
-
-\end{frame}
-
-\begin{frame}[fragile]{Visualização do \textit{insert sort}}
-
-    \begin{tikzpicture}
-        \node at (0.5, 2.5) { $v = 1$ };
-        \node at (0.5, 0.5) { $a_s = $ };
-        \draw (1, 0) grid (6, 1);
-
-        \node at (1.5, 1.5) { \texttt{1} };
-        \node at (2.5, 1.5) { \texttt{2} };
-        \node at (3.5, 1.5) { \texttt{3} };
-        \node at (4.5, 1.5) { \texttt{4} };
-        \node at (5.5, 1.5) { \texttt{5} };
-
-        \node at (1.5, 0.5) { \textcolor{blue}{$ \mathbf{ } $} };
-        \node at (2.5, 0.5) { \textcolor{black}{$ \mathbf{3} $} };
-        \node at (3.5, 0.5) { \textcolor{black}{$ \mathbf{5} $} };
-        \node at (4.5, 0.5) { $ \mathbf{2} $ };
-        \node at (5.5, 0.5) { $ \mathbf{4} $ };
-
-        \draw[->] (3.5, -0.8) -- (3.5, -0.2);
-        \node at (3.5, -1.2) { $ i $ };
-
-        \draw[->] (1.5, 2.5) -- (1.5, 1.9);
-        \node at (1.5, 2.9) { $ j $ };
-
-    \end{tikzpicture}
-
-\end{frame}
-
-\begin{frame}[fragile]{Visualização do \textit{insert sort}}
-
-    \begin{tikzpicture}
-        \node at (0.5, 2.5) { $v = 1$ };
+        \node[anchor=west] at (-2.0, 2.5) { updated = \textcolor{blue}{\textbf{\texttt{true}}} };
         \node at (0.5, 0.5) { $a_s = $ };
         \draw (1, 0) grid (6, 1);
 
@@ -237,84 +244,22 @@
         \node at (5.5, 1.5) { \texttt{5} };
 
         \node at (1.5, 0.5) { \textcolor{blue}{$ \mathbf{1} $} };
-        \node at (2.5, 0.5) { \textcolor{black}{$ \mathbf{3} $} };
-        \node at (3.5, 0.5) { \textcolor{black}{$ \mathbf{5} $} };
-        \node at (4.5, 0.5) { $ \mathbf{2} $ };
-        \node at (5.5, 0.5) { $ \mathbf{4} $ };
+        \node at (2.5, 0.5) { \textcolor{blue}{$ \mathbf{3} $} };
+        \node at (3.5, 0.5) { \textcolor{black}{$ \mathbf{2} $} };
+        \node at (4.5, 0.5) { \textcolor{black}{$ \mathbf{4} $} };
+        \node at (5.5, 0.5) { \textcolor{black}{$ \mathbf{5} $} };
 
-        \draw[->] (3.5, -0.8) -- (3.5, -0.2);
-        \node at (3.5, -1.2) { $ i $ };
-
-        \draw[->] (1.5, 2.5) -- (1.5, 1.9);
-        \node at (1.5, 2.9) { $ j $ };
+        \draw[->] (2.5, -0.8) -- (2.5, -0.2);
+        \node at (2.5, -1.2) { $ i $ };
 
     \end{tikzpicture}
 
 \end{frame}
 
-\begin{frame}[fragile]{Visualização do \textit{insert sort}}
+\begin{frame}[fragile]{Visualização do {\it bubble sort}}
 
     \begin{tikzpicture}
-        \node at (0.5, 2.5) { $v = 2$ };
-        \node at (0.5, 0.5) { $a_s = $ };
-        \draw (1, 0) grid (6, 1);
-
-        \node at (1.5, 1.5) { \texttt{1} };
-        \node at (2.5, 1.5) { \texttt{2} };
-        \node at (3.5, 1.5) { \texttt{3} };
-        \node at (4.5, 1.5) { \texttt{4} };
-        \node at (5.5, 1.5) { \texttt{5} };
-
-        \node at (1.5, 0.5) { \textcolor{black}{$ \mathbf{1} $} };
-        \node at (2.5, 0.5) { \textcolor{black}{$ \mathbf{3} $} };
-        \node at (3.5, 0.5) { \textcolor{red}{$ \mathbf{5} $} };
-        \node at (4.5, 0.5) { $ \mathbf{2} $ };
-        \node at (5.5, 0.5) { $ \mathbf{4} $ };
-
-        \draw[->] (4.5, -0.8) -- (4.5, -0.2);
-        \node at (4.5, -1.2) { $ i $ };
-
-        \draw[->] (4.5, 2.5) -- (4.5, 1.9);
-        \node at (4.5, 2.9) { $ j $ };
-
-    \end{tikzpicture}
-
-\end{frame}
-
-
-\begin{frame}[fragile]{Visualização do \textit{insert sort}}
-
-    \begin{tikzpicture}
-        \node at (0.5, 2.5) { $v = 2$ };
-        \node at (0.5, 0.5) { $a_s = $ };
-        \draw (1, 0) grid (6, 1);
-
-        \node at (1.5, 1.5) { \texttt{1} };
-        \node at (2.5, 1.5) { \texttt{2} };
-        \node at (3.5, 1.5) { \texttt{3} };
-        \node at (4.5, 1.5) { \texttt{4} };
-        \node at (5.5, 1.5) { \texttt{5} };
-
-        \node at (1.5, 0.5) { \textcolor{black}{$ \mathbf{1} $} };
-        \node at (2.5, 0.5) { \textcolor{black}{$ \mathbf{3} $} };
-        \node at (3.5, 0.5) { \textcolor{black}{$ \mathbf{} $} };
-        \node at (4.5, 0.5) { \textcolor{blue}{$ \mathbf{5} $} };
-        \node at (5.5, 0.5) { $ \mathbf{4} $ };
-
-        \draw[->] (4.5, -0.8) -- (4.5, -0.2);
-        \node at (4.5, -1.2) { $ i $ };
-
-        \draw[->] (4.5, 2.5) -- (4.5, 1.9);
-        \node at (4.5, 2.9) { $ j $ };
-
-    \end{tikzpicture}
-
-\end{frame}
-
-\begin{frame}[fragile]{Visualização do \textit{insert sort}}
-
-    \begin{tikzpicture}
-        \node at (0.5, 2.5) { $v = 2$ };
+        \node[anchor=west] at (-2.0, 2.5) { updated = \textcolor{blue}{\textbf{\texttt{true}}} };
         \node at (0.5, 0.5) { $a_s = $ };
         \draw (1, 0) grid (6, 1);
 
@@ -326,84 +271,21 @@
 
         \node at (1.5, 0.5) { \textcolor{black}{$ \mathbf{1} $} };
         \node at (2.5, 0.5) { \textcolor{red}{$ \mathbf{3} $} };
-        \node at (3.5, 0.5) { \textcolor{black}{$ \mathbf{} $} };
-        \node at (4.5, 0.5) { \textcolor{black}{$ \mathbf{5} $} };
-        \node at (5.5, 0.5) { $ \mathbf{4} $ };
+        \node at (3.5, 0.5) { \textcolor{black}{$ \mathbf{2} $} };
+        \node at (4.5, 0.5) { \textcolor{black}{$ \mathbf{4} $} };
+        \node at (5.5, 0.5) { \textcolor{black}{$ \mathbf{5} $} };
 
-        \draw[->] (4.5, -0.8) -- (4.5, -0.2);
-        \node at (4.5, -1.2) { $ i $ };
-
-        \draw[->] (3.5, 2.5) -- (3.5, 1.9);
-        \node at (3.5, 2.9) { $ j $ };
+        \draw[->] (3.5, -0.8) -- (3.5, -0.2);
+        \node at (3.5, -1.2) { $ i $ };
 
     \end{tikzpicture}
 
 \end{frame}
 
-
-\begin{frame}[fragile]{Visualização do \textit{insert sort}}
-
-    \begin{tikzpicture}
-        \node at (0.5, 2.5) { $v = 2$ };
-        \node at (0.5, 0.5) { $a_s = $ };
-        \draw (1, 0) grid (6, 1);
-
-        \node at (1.5, 1.5) { \texttt{1} };
-        \node at (2.5, 1.5) { \texttt{2} };
-        \node at (3.5, 1.5) { \texttt{3} };
-        \node at (4.5, 1.5) { \texttt{4} };
-        \node at (5.5, 1.5) { \texttt{5} };
-
-        \node at (1.5, 0.5) { \textcolor{black}{$ \mathbf{1} $} };
-        \node at (2.5, 0.5) { \textcolor{black}{$ \mathbf{ } $} };
-        \node at (3.5, 0.5) { \textcolor{blue}{$ \mathbf{3} $} };
-        \node at (4.5, 0.5) { \textcolor{black}{$ \mathbf{5} $} };
-        \node at (5.5, 0.5) { $ \mathbf{4} $ };
-
-        \draw[->] (4.5, -0.8) -- (4.5, -0.2);
-        \node at (4.5, -1.2) { $ i $ };
-
-        \draw[->] (3.5, 2.5) -- (3.5, 1.9);
-        \node at (3.5, 2.9) { $ j $ };
-
-    \end{tikzpicture}
-
-\end{frame}
-
-\begin{frame}[fragile]{Visualização do \textit{insert sort}}
+\begin{frame}[fragile]{Visualização do {\it bubble sort}}
 
     \begin{tikzpicture}
-        \node at (0.5, 2.5) { $v = 2$ };
-        \node at (0.5, 0.5) { $a_s = $ };
-        \draw (1, 0) grid (6, 1);
-
-        \node at (1.5, 1.5) { \texttt{1} };
-        \node at (2.5, 1.5) { \texttt{2} };
-        \node at (3.5, 1.5) { \texttt{3} };
-        \node at (4.5, 1.5) { \texttt{4} };
-        \node at (5.5, 1.5) { \texttt{5} };
-
-        \node at (1.5, 0.5) { \textcolor{black}{$ \mathbf{1} $} };
-        \node at (2.5, 0.5) { \textcolor{black}{$ \mathbf{ } $} };
-        \node at (3.5, 0.5) { \textcolor{black}{$ \mathbf{3} $} };
-        \node at (4.5, 0.5) { \textcolor{black}{$ \mathbf{5} $} };
-        \node at (5.5, 0.5) { $ \mathbf{4} $ };
-
-        \draw[->] (4.5, -0.8) -- (4.5, -0.2);
-        \node at (4.5, -1.2) { $ i $ };
-
-        \draw[->] (2.5, 2.5) -- (2.5, 1.9);
-        \node at (2.5, 2.9) { $ j $ };
-
-    \end{tikzpicture}
-
-\end{frame}
-
-
-\begin{frame}[fragile]{Visualização do \textit{insert sort}}
-
-    \begin{tikzpicture}
-        \node at (0.5, 2.5) { $v = 2$ };
+        \node[anchor=west] at (-2.0, 2.5) { updated = \textcolor{blue}{\textbf{\texttt{true}}} };
         \node at (0.5, 0.5) { $a_s = $ };
         \draw (1, 0) grid (6, 1);
 
@@ -415,24 +297,47 @@
 
         \node at (1.5, 0.5) { \textcolor{black}{$ \mathbf{1} $} };
         \node at (2.5, 0.5) { \textcolor{blue}{$ \mathbf{2} $} };
+        \node at (3.5, 0.5) { \textcolor{blue}{$ \mathbf{3} $} };
+        \node at (4.5, 0.5) { \textcolor{black}{$ \mathbf{4} $} };
+        \node at (5.5, 0.5) { \textcolor{black}{$ \mathbf{5} $} };
+
+        \draw[->] (3.5, -0.8) -- (3.5, -0.2);
+        \node at (3.5, -1.2) { $ i $ };
+
+    \end{tikzpicture}
+
+\end{frame}
+
+\begin{frame}[fragile]{Visualização do {\it bubble sort}}
+
+    \begin{tikzpicture}
+        \node[anchor=west] at (-2.0, 2.5) { updated = \textcolor{blue}{\textbf{\texttt{true}}} };
+        \node at (0.5, 0.5) { $a_s = $ };
+        \draw (1, 0) grid (6, 1);
+
+        \node at (1.5, 1.5) { \texttt{1} };
+        \node at (2.5, 1.5) { \texttt{2} };
+        \node at (3.5, 1.5) { \texttt{3} };
+        \node at (4.5, 1.5) { \texttt{4} };
+        \node at (5.5, 1.5) { \texttt{5} };
+
+        \node at (1.5, 0.5) { \textcolor{black}{$ \mathbf{1} $} };
+        \node at (2.5, 0.5) { \textcolor{black}{$ \mathbf{2} $} };
         \node at (3.5, 0.5) { \textcolor{black}{$ \mathbf{3} $} };
-        \node at (4.5, 0.5) { \textcolor{black}{$ \mathbf{5} $} };
-        \node at (5.5, 0.5) { \textcolor{black}{$ \mathbf{4} $} };
+        \node at (4.5, 0.5) { \textcolor{black}{$ \mathbf{4} $} };
+        \node at (5.5, 0.5) { \textcolor{black}{$ \mathbf{5} $} };
 
         \draw[->] (4.5, -0.8) -- (4.5, -0.2);
         \node at (4.5, -1.2) { $ i $ };
 
-        \draw[->] (2.5, 2.5) -- (2.5, 1.9);
-        \node at (2.5, 2.9) { $ j $ };
-
     \end{tikzpicture}
 
 \end{frame}
 
-\begin{frame}[fragile]{Visualização do \textit{insert sort}}
+\begin{frame}[fragile]{Visualização do {\it bubble sort}}
 
     \begin{tikzpicture}
-        \node at (0.5, 2.5) { $v = 4$ };
+        \node[anchor=west] at (-2.0, 2.5) { updated = \textcolor{blue}{\textbf{\texttt{true}}} };
         \node at (0.5, 0.5) { $a_s = $ };
         \draw (1, 0) grid (6, 1);
 
@@ -445,81 +350,20 @@
         \node at (1.5, 0.5) { \textcolor{black}{$ \mathbf{1} $} };
         \node at (2.5, 0.5) { \textcolor{black}{$ \mathbf{2} $} };
         \node at (3.5, 0.5) { \textcolor{black}{$ \mathbf{3} $} };
-        \node at (4.5, 0.5) { \textcolor{red}{$ \mathbf{5} $} };
-        \node at (5.5, 0.5) { \textcolor{black}{$ \mathbf{4} $} };
-
-        \draw[->] (5.5, -0.8) -- (5.5, -0.2);
-        \node at (5.5, -1.2) { $ i $ };
-
-        \draw[->] (5.5, 2.5) -- (5.5, 1.9);
-        \node at (5.5, 2.9) { $ j $ };
-
-    \end{tikzpicture}
-
-\end{frame}
-
-\begin{frame}[fragile]{Visualização do \textit{insert sort}}
-
-    \begin{tikzpicture}
-        \node at (0.5, 2.5) { $v = 4$ };
-        \node at (0.5, 0.5) { $a_s = $ };
-        \draw (1, 0) grid (6, 1);
-
-        \node at (1.5, 1.5) { \texttt{1} };
-        \node at (2.5, 1.5) { \texttt{2} };
-        \node at (3.5, 1.5) { \texttt{3} };
-        \node at (4.5, 1.5) { \texttt{4} };
-        \node at (5.5, 1.5) { \texttt{5} };
-
-        \node at (1.5, 0.5) { \textcolor{black}{$ \mathbf{1} $} };
-        \node at (2.5, 0.5) { \textcolor{black}{$ \mathbf{2} $} };
-        \node at (3.5, 0.5) { \textcolor{black}{$ \mathbf{3} $} };
-        \node at (4.5, 0.5) { \textcolor{black}{$ \mathbf{} $} };
-        \node at (5.5, 0.5) { \textcolor{blue}{$ \mathbf{5} $} };
-
-        \draw[->] (5.5, -0.8) -- (5.5, -0.2);
-        \node at (5.5, -1.2) { $ i $ };
-
-        \draw[->] (5.5, 2.5) -- (5.5, 1.9);
-        \node at (5.5, 2.9) { $ j $ };
-
-    \end{tikzpicture}
-
-\end{frame}
-
-\begin{frame}[fragile]{Visualização do \textit{insert sort}}
-
-    \begin{tikzpicture}
-        \node at (0.5, 2.5) { $v = 4$ };
-        \node at (0.5, 0.5) { $a_s = $ };
-        \draw (1, 0) grid (6, 1);
-
-        \node at (1.5, 1.5) { \texttt{1} };
-        \node at (2.5, 1.5) { \texttt{2} };
-        \node at (3.5, 1.5) { \texttt{3} };
-        \node at (4.5, 1.5) { \texttt{4} };
-        \node at (5.5, 1.5) { \texttt{5} };
-
-        \node at (1.5, 0.5) { \textcolor{black}{$ \mathbf{1} $} };
-        \node at (2.5, 0.5) { \textcolor{black}{$ \mathbf{2} $} };
-        \node at (3.5, 0.5) { \textcolor{black}{$ \mathbf{3} $} };
-        \node at (4.5, 0.5) { \textcolor{black}{$ \mathbf{} $} };
+        \node at (4.5, 0.5) { \textcolor{black}{$ \mathbf{4} $} };
         \node at (5.5, 0.5) { \textcolor{black}{$ \mathbf{5} $} };
 
         \draw[->] (5.5, -0.8) -- (5.5, -0.2);
         \node at (5.5, -1.2) { $ i $ };
 
-        \draw[->] (4.5, 2.5) -- (4.5, 1.9);
-        \node at (4.5, 2.9) { $ j $ };
-
     \end{tikzpicture}
 
 \end{frame}
 
-\begin{frame}[fragile]{Visualização do \textit{insert sort}}
+\begin{frame}[fragile]{Visualização do {\it bubble sort}}
 
     \begin{tikzpicture}
-        \node at (0.5, 2.5) { $v = 4$ };
+        \node[anchor=west] at (-2.0, 2.5) { updated = \textcolor{black}{\textbf{\texttt{false}}} };
         \node at (0.5, 0.5) { $a_s = $ };
         \draw (1, 0) grid (6, 1);
 
@@ -532,24 +376,99 @@
         \node at (1.5, 0.5) { \textcolor{black}{$ \mathbf{1} $} };
         \node at (2.5, 0.5) { \textcolor{black}{$ \mathbf{2} $} };
         \node at (3.5, 0.5) { \textcolor{black}{$ \mathbf{3} $} };
-        \node at (4.5, 0.5) { \textcolor{blue}{$ \mathbf{4} $} };
+        \node at (4.5, 0.5) { \textcolor{black}{$ \mathbf{4} $} };
         \node at (5.5, 0.5) { \textcolor{black}{$ \mathbf{5} $} };
 
-        \draw[->] (5.5, -0.8) -- (5.5, -0.2);
-        \node at (5.5, -1.2) { $ i $ };
-
-        \draw[->] (4.5, 2.5) -- (4.5, 1.9);
-        \node at (4.5, 2.9) { $ j $ };
+        \draw[->] (2.5, -0.8) -- (2.5, -0.2);
+        \node at (2.5, -1.2) { $ i $ };
 
     \end{tikzpicture}
 
 \end{frame}
 
-\begin{frame}[fragile]{Implementação do \textit{insert sort} em C++}
-    \inputsnippet{c++}{1}{21}{insert.cpp}
+\begin{frame}[fragile]{Visualização do {\it bubble sort}}
+
+    \begin{tikzpicture}
+        \node[anchor=west] at (-2.0, 2.5) { updated = \textcolor{black}{\textbf{\texttt{false}}} };
+        \node at (0.5, 0.5) { $a_s = $ };
+        \draw (1, 0) grid (6, 1);
+
+        \node at (1.5, 1.5) { \texttt{1} };
+        \node at (2.5, 1.5) { \texttt{2} };
+        \node at (3.5, 1.5) { \texttt{3} };
+        \node at (4.5, 1.5) { \texttt{4} };
+        \node at (5.5, 1.5) { \texttt{5} };
+
+        \node at (1.5, 0.5) { \textcolor{black}{$ \mathbf{1} $} };
+        \node at (2.5, 0.5) { \textcolor{black}{$ \mathbf{2} $} };
+        \node at (3.5, 0.5) { \textcolor{black}{$ \mathbf{3} $} };
+        \node at (4.5, 0.5) { \textcolor{black}{$ \mathbf{4} $} };
+        \node at (5.5, 0.5) { \textcolor{black}{$ \mathbf{5} $} };
+
+        \draw[->] (3.5, -0.8) -- (3.5, -0.2);
+        \node at (3.5, -1.2) { $ i $ };
+
+    \end{tikzpicture}
+
 \end{frame}
 
-\begin{frame}[fragile]{Implementação do \textit{insert sort} em C++}
-    \inputsnippet{c++}{22}{42}{insert.cpp}
+\begin{frame}[fragile]{Visualização do {\it bubble sort}}
+
+    \begin{tikzpicture}
+        \node[anchor=west] at (-2.0, 2.5) { updated = \textcolor{black}{\textbf{\texttt{false}}} };
+        \node at (0.5, 0.5) { $a_s = $ };
+        \draw (1, 0) grid (6, 1);
+
+        \node at (1.5, 1.5) { \texttt{1} };
+        \node at (2.5, 1.5) { \texttt{2} };
+        \node at (3.5, 1.5) { \texttt{3} };
+        \node at (4.5, 1.5) { \texttt{4} };
+        \node at (5.5, 1.5) { \texttt{5} };
+
+        \node at (1.5, 0.5) { \textcolor{black}{$ \mathbf{1} $} };
+        \node at (2.5, 0.5) { \textcolor{black}{$ \mathbf{2} $} };
+        \node at (3.5, 0.5) { \textcolor{black}{$ \mathbf{3} $} };
+        \node at (4.5, 0.5) { \textcolor{black}{$ \mathbf{4} $} };
+        \node at (5.5, 0.5) { \textcolor{black}{$ \mathbf{5} $} };
+
+        \draw[->] (4.5, -0.8) -- (4.5, -0.2);
+        \node at (4.5, -1.2) { $ i $ };
+
+    \end{tikzpicture}
+
+\end{frame}
+
+\begin{frame}[fragile]{Visualização do {\it bubble sort}}
+
+    \begin{tikzpicture}
+        \node[anchor=west] at (-2.0, 2.5) { updated = \textcolor{black}{\textbf{\texttt{false}}} };
+        \node at (0.5, 0.5) { $a_s = $ };
+        \draw (1, 0) grid (6, 1);
+
+        \node at (1.5, 1.5) { \texttt{1} };
+        \node at (2.5, 1.5) { \texttt{2} };
+        \node at (3.5, 1.5) { \texttt{3} };
+        \node at (4.5, 1.5) { \texttt{4} };
+        \node at (5.5, 1.5) { \texttt{5} };
+
+        \node at (1.5, 0.5) { \textcolor{black}{$ \mathbf{1} $} };
+        \node at (2.5, 0.5) { \textcolor{black}{$ \mathbf{2} $} };
+        \node at (3.5, 0.5) { \textcolor{black}{$ \mathbf{3} $} };
+        \node at (4.5, 0.5) { \textcolor{black}{$ \mathbf{4} $} };
+        \node at (5.5, 0.5) { \textcolor{black}{$ \mathbf{5} $} };
+
+        \draw[->] (5.5, -0.8) -- (5.5, -0.2);
+        \node at (5.5, -1.2) { $ i $ };
+
+    \end{tikzpicture}
+
+\end{frame}
+
+\begin{frame}[fragile]{Implementação do {\it bubble sort} em C++}
+    \inputsnippet{c++}{1}{21}{codes/bubble.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Implementação do {\it bubble sort} em C++}
+    \inputsnippet{c++}{22}{42}{codes/bubble.cpp}
 \end{frame}
 
