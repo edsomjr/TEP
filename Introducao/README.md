@@ -17,9 +17,9 @@ Introdução à Programação Competitiva
     1. [Pior caso, melhor caso, caso médio](slides/analise_de_complexidade-calculo/analise_de_complexidade-calculo.pdf)
 1. Busca e Ordenação
     1. [Algoritmos de Busca](slides/algoritmos_de_busca/algoritmos_de_busca.pdf) ([problemas resolvidos](problems/algoritmos_de_busca/algoritmos_de_busca.pdf))
-    1. [Algoritmos de Ordenação Quadráticos](slides/BO-2/BO-2.pdf)
-    1. [Algoritmos de Ordenação O(N log N)](slides/BO-3/BO-3.pdf) ([problemas resolvidos](problems/BO-3/BO-3.pdf))
-    1. [Ordenação em C/C++](slides/BO-4/BO-4.pdf) ([problemas resolvidos](problems/BO-4/BO-4.pdf))
+    1. [Algoritmos de Ordenação Quadráticos](slides/algoritmos_de_ordenacao_quadraticos/algoritmos_de_ordenacao_quadraticos.pdf)
+    1. [Algoritmos de Ordenação Linearítmicos](slides/algoritmos_de_ordenacao_linearitmicos/algoritmos_de_ordenacao_linearitmicos.pdf) ([problemas resolvidos](problems/algoritmos_de_ordenacao_linearitmicos/algoritmos_de_ordenacao_linearitmicos.pdf))
+    1. [Ordenação em C/C++](slides/ordenacao_em_Cpp/ordenacao_em_Cpp.pdf) ([problemas resolvidos](problems/ordenacao_em_Cpp/ordenacao_em_Cpp.pdf))
 1. [Recursão](slides/RS-1/RS-1.pdf) ([problemas resolvidos](problems/RS-1/RS-1.pdf))
 1. [Leituras Recomendadas](slides/BB-1/BB-1.pdf)
 
