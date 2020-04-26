@@ -10,3 +10,4 @@
 1. Busca e Ordenação
     1. [Algoritmos de Busca](Introducao/slides/algoritmos_de_busca/algoritmos_de_busca.pdf) ([problemas resolvidos](problems/algoritmos_de_busca/algoritmos_de_busca.pdf))
     1. [Algoritmos de Ordenação Quadráticos](slides/algoritmos_de_ordenacao_quadraticos/algoritmos_de_ordenacao_quadraticos.pdf)
+    1. [Algoritmos de Ordenação Linearítmicos](slides/algoritmos_de_ordenacao_linearitmicos/algoritmos_de_ordenacao_linearitmicos.pdf) ([problemas resolvidos](problems/algoritmos_de_ordenacao_linearitmicos/algoritmos_de_ordenacao_linearitmicos.pdf))
