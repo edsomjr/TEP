@@ -30,7 +30,7 @@
             \textit{in-place}, com complexidade média $O(N\log N)$
 
         \item Duas assinaturas possíveis da função \code{c++}{sort()} são
-            \inputsyntax{c++}{sort.st}
+            \inputsyntax{c++}{codes/sort.st}
 
         \item Ao final da execução, o intervalo \code{c++}{[first, last)} estará ordenado, de
             acordo com o operator \code{c++}{<} ou o comparador \code{c++}{comp}, respectivamente
@@ -47,7 +47,7 @@
 \end{frame}
 
 \begin{frame}[fragile]{Exemplo de uso da função \texttt{sort()}}
-    \inputcode{c++}{sort.cpp}
+    \inputcode{c++}{codes/sort.cpp}
 \end{frame}
 
 \begin{frame}[fragile]{Comparadores}
@@ -58,7 +58,7 @@
             o operador booleano binário \code{c++}{()}
 
         \item A primeira forma tem como vantagem a familiaridade da declaração de funções,
-            mas polui o código com uma função de uso específico
+            mas amplia o código com uma função de uso específico
 
         \item A terceira forma traz o mesmo problema, mas o uso da estrutura 
             reduz a poluição do espaço de nomes
@@ -76,15 +76,15 @@
 \end{frame}
 
 \begin{frame}[fragile]{Exemplo de uso de comparadores}
-    \inputsnippet{c++}{1}{21}{comp.cpp}
+    \inputsnippet{c++}{1}{21}{codes/comp.cpp}
 \end{frame}
 
 \begin{frame}[fragile]{Exemplo de uso de comparadores}
-    \inputsnippet{c++}{22}{42}{comp.cpp}
+    \inputsnippet{c++}{22}{42}{codes/comp.cpp}
 \end{frame}
 
 \begin{frame}[fragile]{Exemplo de uso de comparadores}
-    \inputsnippet{c++}{43}{63}{comp.cpp}
+    \inputsnippet{c++}{43}{63}{codes/comp.cpp}
 \end{frame}
 
 \begin{frame}[fragile]{Função \texttt{stable\_sort()}}
@@ -95,7 +95,7 @@
             \textit{in-place}, com complexidade média $O(N\log N)$
         
         \item Duas assinaturas possíveis da função \code{c++}{stable_sort()} são
-            \inputsyntax{c++}{stable_sort.st}
+            \inputsyntax{c++}{codes/stable_sort.st}
 
         \item Ao contrário da função \code{c++}{sort()}, a função \code{c++}{stable_sort()}
             preserva a ordem relativa dos elementos considerados iguais
@@ -111,7 +111,7 @@
 \end{frame}
 
 \begin{frame}[fragile]{Exemplo de uso da função \texttt{stable\_sort()}}
-    \inputcode{c++}{stable.cpp}
+    \inputcode{c++}{codes/stable.cpp}
 \end{frame}
 
 \begin{frame}[fragile]{Função \texttt{partial\_sort()}}
@@ -121,7 +121,7 @@
         \item A função \code{c++}{partial_sort()} tem assinaturas ligeiramente diferentes
             das duas funções citadas anteriormente, por contar com um terceiro parâmetro:
 
-            \inputsyntax{c++}{partial.st}
+            \inputsyntax{c++}{codes/partial.st}
 
         \item Ela é semelhante à rotina de pivoteamente do
             \textit{quicksort}, ordenando os elementos que ficam à esquerda da posição 
@@ -135,11 +135,11 @@
 \end{frame}
 
 \begin{frame}[fragile]{Exemplo de uso da função \texttt{partial\_sort()}}
-    \inputsnippet{c++}{1}{20}{partial.cpp}
+    \inputsnippet{c++}{1}{20}{codes/partial.cpp}
 \end{frame}
 
 \begin{frame}[fragile]{Exemplo de uso da função \texttt{partial\_sort()}}
-    \inputsnippet{c++}{21}{41}{partial.cpp}
+    \inputsnippet{c++}{21}{41}{codes/partial.cpp}
 \end{frame}
 
 \begin{frame}[fragile]{Função \texttt{nth\_element()}}
@@ -152,12 +152,12 @@
         \item A complexidade média é $O(N)$
 
         \item Duas assinaturas possíveis são
-            \inputsyntax{c++}{nth.st}
+            \inputsyntax{c++}{codes/nth.st}
 
     \end{itemize}
 
 \end{frame}
 
 \begin{frame}[fragile]{Exemplo de uso da função \texttt{nth\_element()}}
-    \inputcode{c++}{nth.cpp}
+    \inputcode{c++}{codes/nth.cpp}
 \end{frame}
