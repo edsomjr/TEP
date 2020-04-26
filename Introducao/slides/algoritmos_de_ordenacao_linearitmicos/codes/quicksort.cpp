@@ -32,7 +32,7 @@ void quicksort(RandomAccessIterator first, RandomAccessIterator last)
     if (p - first > 1)
         quicksort(first, p);
 
-    if (last - p - 1 > 1)
+    if (last - (p + 1) > 1)
         quicksort(p + 1, last); 
 }
 

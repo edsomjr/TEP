@@ -13,9 +13,10 @@
            funde ambas partes em um todo ordenado
 
         \item O algoritmo é replicado em cada uma das metades, até que o tamanho de cada
-            parte seja ordenável trivialmente 
+            parte seja trivialmente ordenável 
 
-        \item A complexidade é $O(N\log N)$, onde $N$ é o número de elementos no vetor
+        \item A complexidade é linearítmica, isto é, $O(N\log N)$, onde $N$ é o número de 
+            elementos no vetor
     \end{itemize}
 
 \end{frame}
@@ -24,21 +25,21 @@
 
     \begin{itemize}
         \item A divisão do vetor em partes cada vez menores corresponde à etapa 
-            \textit{dividir} do algoritmo
+            \textbf{dividir} do algoritmo
 
-        \item Se $N = 1$, o vetor já estará trivialmente ordenado
+        \item Se $N = 1$, o vetor já está trivialmente ordenado
 
-        \item A fusão de duas metades ordenadas consiste na etapa \textit{conquistar} do
+        \item A fusão de duas partes ordenadas consiste na etapa \textbf{conquistar} do
             paradigma
 
         \item Esta não é uma etapa trivial, e é linear em relação à soma do número de elementos
             de cada parte
 
         \item O procedimento consiste em inicializar um ponteiro para o primeiro elemento de 
-            cada metade e, sucessivamente, escolher o menor dentre os elementos disponíveis
+            cada parte e, sucessivamente, escolher o menor dentre os elementos disponíveis
 
         \item Este procedimento não pode ser feito \textit{in-place}, gerando um custo de
-            memória adicional $O(N)$ ao algoritmo
+            memória $O(N)$ adicional ao algoritmo
     \end{itemize}
 
 \end{frame}
@@ -46,11 +47,11 @@
 \input{merge_view}
 
 \begin{frame}[fragile]{Implementação da rotina de fusão}
-    \inputsnippet{cpp}{5}{25}{mergesort.cpp}
+    \inputsnippet{cpp}{5}{25}{codes/mergesort.cpp}
 \end{frame}
 
 \input{mergesort_view}
 
 \begin{frame}[fragile]{Implementação do \code{c}{mergesort}}
-    \inputsnippet{cpp}{26}{42}{mergesort.cpp}
+    \inputsnippet{cpp}{26}{42}{codes/mergesort.cpp}
 \end{frame}
