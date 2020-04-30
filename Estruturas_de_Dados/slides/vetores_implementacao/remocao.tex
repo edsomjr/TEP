@@ -12,6 +12,9 @@
 
         \item Embora o valor permaneça inalterado na memória, ele se torna inacessível
 
+        \item A tentativa de remoção de elemento em um vetor vazio constitui um erro, o qual
+            deve ser tratado
+
         \item A função \rawcode{clear()} é semelhante, com a única diferença que o campo
         \rawcode{size} é zerado
     \end{itemize}
@@ -52,7 +55,7 @@
 
 
 \begin{frame}[fragile]{Implementação das funções \rawcode{pop\_back()} e \rawcode{clear()}}
-    \inputsnippet{c}{108}{128}{vector_adt.c}
+    \inputsnippet{c}{108}{128}{codes/vector_adt.c}
 \end{frame}
 
 \begin{frame}[fragile]{Remoção em posição arbitrária}
@@ -155,22 +158,22 @@
 
 
 \begin{frame}[fragile]{Implementação da função \rawcode{pop}}
-    \inputsnippet{c}{130}{150}{vector_adt.c}
+    \inputsnippet{c}{130}{150}{codes/vector_adt.c}
 \end{frame}
 
 \begin{frame}[fragile]{Exemplo de remoção em posição arbitrária}
-    \inputsnippet{c}{1}{21}{passageiros2.c}
+    \inputsnippet{c}{1}{21}{codes/passageiros2.c}
 \end{frame}
 
 \begin{frame}[fragile]{Exemplo de remoção em posição arbitrária}
-    \inputsnippet{c}{23}{43}{passageiros2.c}
+    \inputsnippet{c}{23}{43}{codes/passageiros2.c}
 \end{frame}
 
 \begin{frame}[fragile]{Exemplo de remoção em posição arbitrária}
-    \inputsnippet{c}{44}{64}{passageiros2.c}
+    \inputsnippet{c}{44}{64}{codes/passageiros2.c}
 \end{frame}
 
 \begin{frame}[fragile]{Exemplo de remoção em posição arbitrária}
-    \inputsnippet{c}{65}{85}{passageiros2.c}
+    \inputsnippet{c}{65}{85}{codes/passageiros2.c}
 \end{frame}
 

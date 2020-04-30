@@ -4,7 +4,7 @@
 
     \begin{itemize}
         \item O primeiro passo a ser feito é definir quais as operações que serão suportadas
-        pelo tipo abstrado de dados
+        pelo tipo abstrato de dados
 
         \item Por motivos didáticos, serão implementadas apenas as operações listadas no 
         próximo \textit{slide}
@@ -48,7 +48,7 @@
 \end{frame}
 
 \begin{frame}[fragile]{Cabeçalho \texttt{vector.h}}
-    \inputcode{c}{vector.h}
+    \inputcode{c}{codes/vector.h}
 \end{frame}
 
 \begin{frame}[fragile]{Funções de criação e destruição}
@@ -72,11 +72,11 @@
 \end{frame}
 
 \begin{frame}[fragile]{Implementação da função \texttt{create\_vector()}}
-    \inputsnippet{c}{1}{21}{vector.c}
+    \inputsnippet{c}{1}{21}{codes/vector.c}
 \end{frame}
 
 \begin{frame}[fragile]{Implementação da função \texttt{free\_vector()}}
-    \inputsnippet{c}{23}{32}{vector.c}
+    \inputsnippet{c}{23}{32}{codes/vector.c}
 \end{frame}
 
 \begin{frame}[fragile]{Operações de acesso}
@@ -101,21 +101,21 @@
         \item Na implementação seria necessária a coerção para a estrutura correta, a qual seria 
         definida apenas no arquivo de implementação
 
-        \item A esta técnica chamamos de \textit{private implementation (PIMPL)}
+        \item Esta técnica é chamada \textit{private implementation (PIMPL)}
     \end{itemize}
 
 \end{frame}
 
 \begin{frame}[fragile]{Interface com a técnica do \texttt{PIMPL}}
-    \inputcode{c}{vector_adt.h}
+    \inputcode{c}{codes/vector_adt.h}
 \end{frame}
 
 \begin{frame}[fragile]{Implementação com a técnica do \texttt{handler}}
-    \inputsnippet{c}{1}{20}{vector_adt.c}
+    \inputsnippet{c}{1}{20}{codes/vector_adt.c}
 \end{frame}
 
 \begin{frame}[fragile]{Implementação com a técnica do \texttt{handler}}
-    \inputsnippet{c}{21}{40}{vector_adt.c}
+    \inputsnippet{c}{21}{40}{codes/vector_adt.c}
 \end{frame}
 
 \begin{frame}[fragile]{Funções de acesso}
@@ -127,9 +127,9 @@
         é nulo ou não
 
         \item Isto é necessário porque tentar acessar um campo a partir de um ponteiro nulo
-        gerar um erro de segmentação
+        gera um erro de segmentação
 
-        \item Além disso, há outro erro a ser considerado: o índice passado por estar fora do
+        \item Além disso, há outro erro a ser considerado: o índice passado pode estar fora do
         intervalo $[0, N - 1]$
 
         \item Uma forma de reportar o erro ao usuário da função é retornar um código erro númerico
@@ -143,9 +143,9 @@
 \end{frame}
 
 \begin{frame}[fragile]{Códigos de erros}
-    \inputcode{c}{vector_errors.h}
+    \inputcode{c}{codes/vector_errors.h}
 \end{frame}
 
 \begin{frame}[fragile]{Implementação das funções de acesso}
-    \inputsnippet{c}{42}{62}{vector_adt.c}
+    \inputsnippet{c}{42}{62}{codes/vector_adt.c}
 \end{frame}
