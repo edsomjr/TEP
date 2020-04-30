@@ -14,4 +14,4 @@
     1. [Ordenação em C/C++](slides/ordenacao_em_Cpp/ordenacao_em_Cpp.pdf) ([problemas resolvidos](problems/ordenacao_em_Cpp/ordenacao_em_Cpp.pdf))
 1. Estruturas de Dados
     1. Vetores
-        1. [Fundamentos](slides/vetores_fundamentos/vetores_fundamentos.pdf) ([problemas resolvidos](problems/vetores_fundamentos/vetores_fundamentos.pdf))
+        1. [Fundamentos](Estruturas_de_Dados/slides/vetores_fundamentos/vetores_fundamentos.pdf) ([problemas resolvidos](Estruturas_de_Dados/problems/vetores_fundamentos/vetores_fundamentos.pdf))
