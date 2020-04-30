@@ -9,7 +9,7 @@
     1. [Ordenação em C/C++](slides/ordenacao_em_Cpp/ordenacao_em_Cpp.pdf) ([problemas resolvidos](problems/ordenacao_em_Cpp/ordenacao_em_Cpp.pdf))
 1. Vetores
     1. [Fundamentos](Estruturas_de_Dados/slides/vetores_fundamentos/vetores_fundamentos.pdf) ([problemas resolvidos](Estruturas_de_Dados/problems/vetores_fundamentos/vetores_fundamentos.pdf))
-    1. [Implementação de um contêniner `vector` em C++](Estruturas_de_Dados/slides/VT-2/VT-2.pdf) 
+    1. [Implementação de um contêniner `vector` em C++](Estruturas_de_Dados/slides/vetores_implementacao/vetores_implementacao.pdf) 
 1. Listas
     1. [Listas Encadeadas](Estruturas_de_Dados/slides/LE-1/LE-1.pdf)
     1. [Listas Duplamente Encadeadas](Estruturas_de_Dados/slides/LE-2/LE-2.pdf)
