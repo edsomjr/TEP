@@ -12,3 +12,6 @@
     1. [Algoritmos de Ordenação Quadráticos](slides/algoritmos_de_ordenacao_quadraticos/algoritmos_de_ordenacao_quadraticos.pdf)
     1. [Algoritmos de Ordenação Linearítmicos](slides/algoritmos_de_ordenacao_linearitmicos/algoritmos_de_ordenacao_linearitmicos.pdf) ([problemas resolvidos](problems/algoritmos_de_ordenacao_linearitmicos/algoritmos_de_ordenacao_linearitmicos.pdf))
     1. [Ordenação em C/C++](slides/ordenacao_em_Cpp/ordenacao_em_Cpp.pdf) ([problemas resolvidos](problems/ordenacao_em_Cpp/ordenacao_em_Cpp.pdf))
+1. Estruturas de Dados
+    1. Vetores
+        1. [Fundamentos](slides/vetores_fundamentos/vetores_fundamentos.pdf) ([problemas resolvidos](problems/vetores_fundamentos/vetores_fundamentos.pdf))
