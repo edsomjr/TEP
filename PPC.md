@@ -14,8 +14,8 @@
     1. [Listas Encadeadas](Estruturas_de_Dados/slides/LE-1/LE-1.pdf)
     1. [Listas Duplamente Encadeadas](Estruturas_de_Dados/slides/LE-2/LE-2.pdf)
 1. Pilhas e Filas
-    1. [Pilhas](Estruturas_de_Dados/slides/PF-1/PF-1.pdf) ([problemas resolvidos](Estruturas_de_Dados/problems/PF-1/PF-1.pdf))
-    1. [Filas](Estruturas_de_Dados/slides/PF-2/PF-2.pdf) ([problemas resolvidos](Estruturas_de_Dados/problems/PF-2/PF-2.pdf))
+    1. [Pilhas](Estruturas_de_Dados/slides/pilhas/pilhas.pdf) ([problemas resolvidos](problems/pilhas/PF-2.pdf))
+    1. [Filas](Estruturas_de_Dados/slides/filas/filas.pdf) ([problemas resolvidos](problems/filas/filas.pdf))
 1. Árvores
     1. [Árvores Binárias de Busca na STL](Estruturas_de_Dados/slides/TR-7/TR-7.pdf) ([problemas resolvidos](Estruturas_de_Dados/problems/TR-7/TR-7.pdf))
     1. [_Heaps_ binárias na STL](Estruturas_de_Dados/slides/BH-2/BH-2.pdf) ([problemas resolvidos](Estruturas_de_Dados/problems/BH-2/BH-2.pdf))

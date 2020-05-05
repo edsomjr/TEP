@@ -16,3 +16,6 @@
     1. Vetores
         1. [Fundamentos](Estruturas_de_Dados/slides/vetores_fundamentos/vetores_fundamentos.pdf) ([problemas resolvidos](Estruturas_de_Dados/problems/vetores_fundamentos/vetores_fundamentos.pdf))
         1. [Implementação de um contêiner `vector` em C](Estruturas_de_Dados/slides/vetores_implementacao/vetores_implementacao.pdf) 
+    1. Pilhas e Filas
+        1. [Pilhas](Estruturas_de_Dados/slides/pilhas/pilhas.pdf) ([problemas resolvidos](problems/pilhas/PF-2.pdf))
+        1. [Filas](Estruturas_de_Dados/slides/filas/filas.pdf) ([problemas resolvidos](problems/filas/filas.pdf))
