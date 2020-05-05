@@ -1,0 +1,64 @@
+\section{LeetCode 933 - Number of Recent Calls}
+
+\begin{frame}[fragile]{Problema}
+
+Write a class RecentCounter to count recent requests.
+
+It has only one method: \code{c}{ping(int t)}, where $t$ represents some time in milliseconds.
+
+Return the number of pings that have been made from 3000 milliseconds ago until now.
+
+Any ping with time in $[t - 3000, t]$ will count, including the current ping.
+
+It is guaranteed that every call to ping uses a strictly larger value of $t$ than before.
+
+\end{frame}
+
+\begin{frame}[fragile]{Entrada e saída}
+
+\textbf{Example 1:}
+
+\begin{small}
+\texttt{\noindent \textbf{Input}: inputs = ["RecentCounter","ping","ping","ping","ping"], inputs = [[],[1],[100],[3001],[3002]] \\
+\noindent \textbf{Output}: [null,1,2,3,3] 
+}
+\end{small}
+
+\vspace{0.1in}
+
+\textbf{Note:}
+
+\begin{enumerate}
+    \item Each test case will have at most 10000 calls to ping.
+    \item Each test case will call ping with strictly increasing values of $t$.
+    \item Each call to ping will have $1 \leq t \leq 10^9$.
+\end{enumerate}
+
+\end{frame}
+
+\begin{frame}[fragile]{Solução com complexidade $O(N)$}
+
+    \begin{itemize}
+        \item Seja $N$ o número de chamadas do método \code{cpp}{ping()}
+
+        \item Para determinar quantas chamadas se encontram no intervalo $[t, t + 3000]$, é
+            preciso manter uma fila com os valores de $t$ já invocados
+
+        \item O primeiro elemento da fila conterá o valor $t_a$ da chamada mais antiga
+
+        \item O último elemento da fila será o valor $t_b$ da chamada atual
+
+        \item Enquanto $t_b - t_a > 3000$, o primeiro elemento da fila deve ser descartado
+
+        \item O retorno da chamada deve ser o tamanho da fila
+
+        \item Como cada elemento será inserido ou removido uma única vez, a complexidade desta
+            solução é $O(N)$
+
+   \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Solução AC com complexidade $O(N)$}
+    \inputsnippet{cpp}{1}{21}{codes/933.cpp}
+\end{frame}
