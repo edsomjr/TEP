@@ -5,10 +5,9 @@
 
     \begin{itemize}
         \item Uma árvore binária pode ser {implementada}, no mínimo, de 
-        {duas} maneiras: utilizando vetores ou utilizando listas encadeadas
+        {duas} maneiras: utilizando vetores ou utilizando ponteiros
         
-
-        \item no caso dos vetores, a informação da raiz fica armazenada no índice 1 (o índice
+        \item No caso dos vetores, a informação da raiz fica armazenada no índice 1 (o índice
             zero não é utilizado)
             
         \item Dado um nó pai armazenado no índice $p$, o nó à esquerda ocupa o índice $2p$ e o
@@ -16,16 +15,16 @@
 
         \item Se um nó ocupa o índice $i\neq 1$, seu pai está armazenado no índice $i/2$
 
-        \item No caso das listas duplamente encadeadas, cada {nó} da lista representa um nó da 
-            árvore binária
+        \item No caso da implementação via ponteiros, a estrutura que representa um {nó} contém 
+            dois ponteiros: um para cada filho 
     \end{itemize}
 
 \end{frame}
 
-\begin{frame}[fragile]{Implementação de uma árvore usando listas encadeadas}
-    \inputcode{cpp}{list.cpp}
+\begin{frame}[fragile]{Implementação de uma árvore usando ponteiros}
+    \inputcode{cpp}{codes/pointers.cpp}
 \end{frame}
 
 \begin{frame}[fragile]{Implementação de uma árvore usando vetores}
-    \inputcode{cpp}{vector.cpp}
+    \inputcode{cpp}{codes/vector.cpp}
 \end{frame}

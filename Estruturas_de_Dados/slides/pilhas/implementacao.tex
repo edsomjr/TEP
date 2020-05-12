@@ -49,6 +49,9 @@
         \item Por padrão, o contêiner utilizado é um \code{c}{deque} (\textit{double-ended queue}),
             mas os contêineres \code{c}{vector} e \code{c}{list} são igualmente válidos
 
+        \item O contêiner escolhido deve ter, em sua interface, os métodos \code{cpp}{push_back()}
+            e \code{cpp}{pop_back()}
+
         \item A interface é idêntica à apresentada anteriormente, exceto pela adição do método
             \code{c}{swap()}, que troca os elementos de duas pilhas em $O(1)$, e pela exclusão
             do método \code{c}{clear()}
