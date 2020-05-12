@@ -13,9 +13,9 @@ Estruturas de Dados
     1. [Pilhas](slides/pilhas/pilhas.pdf) ([problemas resolvidos](problems/pilhas/PF-2.pdf))
     1. [Filas](slides/filas/filas.pdf) ([problemas resolvidos](problems/filas/filas.pdf))
 1. Árvores Binárias
-    1. [Árvores Binárias: Definição](slides/TR-1/TR-1.pdf)
-    1. [Árvores Binárias de Busca: Inserção e Remoção](slides/TR-2/TR-2.pdf)
-    1. [Árvores Binárias de Busca: Busca e Travessia](slides/TR-3/TR-3.pdf) ([problemas resolvidos](problems/TR-3/TR-3.pdf))
+    1. [Árvores Binárias: Definição](slides/arvore_binaria-definicao/arvore_binaria-definicao.pdf)
+    1. [Árvores Binárias de Busca: Inserção e Remoção](slides/arvore_binaria_de_busca-insercao_e_remocao/arvore_binaria_de_busca-insercao_e_remocao.pdf)
+    1. [Árvores Binárias de Busca: Busca e Travessia](slides/arvore_binaria_de_busca-busca_e_travessia/arvore_binaria_de_busca-busca_e_travessia.pdf) ([problemas resolvidos](problems/arvore_binaria_de_busca-busca_e_travessia/arvore_binaria_de_busca-busca_e_travessia.pdf))
     1. [Árvores Binárias de Busca: Balanceamento](slides/TR-4/TR-4.pdf)
     1. [Árvores _Red-Black_: Definição e Inserção](slides/TR-5/TR-5.pdf)
     1. [Árvores _Red-Black_: Remoção](slides/TR-6/TR-6.pdf)

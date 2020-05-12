@@ -17,5 +17,9 @@
         1. [Fundamentos](Estruturas_de_Dados/slides/vetores_fundamentos/vetores_fundamentos.pdf) ([problemas resolvidos](Estruturas_de_Dados/problems/vetores_fundamentos/vetores_fundamentos.pdf))
         1. [Implementação de um contêiner `vector` em C](Estruturas_de_Dados/slides/vetores_implementacao/vetores_implementacao.pdf) 
     1. Pilhas e Filas
-        1. [Pilhas](Estruturas_de_Dados/slides/pilhas/pilhas.pdf) ([problemas resolvidos](problems/pilhas/PF-2.pdf))
-        1. [Filas](Estruturas_de_Dados/slides/filas/filas.pdf) ([problemas resolvidos](problems/filas/filas.pdf))
+        1. [Pilhas](Estruturas_de_Dados/slides/pilhas/pilhas.pdf) ([problemas resolvidos](Estruturas_de_Dados/problems/pilhas/PF-2.pdf))
+        1. [Filas](Estruturas_de_Dados/slides/filas/filas.pdf) ([problemas resolvidos](Estruturas_de_Dados/problems/filas/filas.pdf))
+    1. Árvores Binárias
+        1. [Árvores Binárias: Definição](Estruturas_de_Dados/slides/arvore_binaria-definicao/arvore_binaria-definicao.pdf)
+        1. [Árvores Binárias de Busca: Inserção e Remoção](Estruturas_de_Dados/slides/arvore_binaria_de_busca-insercao_e_remocao/arvore_binaria_de_busca-insercao_e_remocao.pdf)
+        1. [Árvores Binárias de Busca: Busca e Travessia](Estruturas_de_Dados/slides/arvore_binaria_de_busca-busca_e_travessia/arvore_binaria_de_busca-busca_e_travessia.pdf) ([problemas resolvidos](Estruturas_de_Dados/problems/arvore_binaria_de_busca-busca_e_travessia/arvore_binaria_de_busca-busca_e_travessia.pdf))
