@@ -34,6 +34,8 @@ Estruturas de Dados
     1. [_Hash_ em C++](slides/HS-3/HS-3.pdf) ([problemas resolvidos](problems/HS-3/HS-3.pdf))
 
 <!-- Assuntos pendentes:
+1. Filas monótonas: https://medium.com/algorithms-and-leetcode/monotonic-queue-explained-with-leetcode-problems-7db7c530c1d6
 2. Árvores AVL
 3. BITree: range query com range update
+4. Pilhas que retornam o max/min em O(1) com um campo extra: tal valor no momento da inserção (o próprio valor ou o do anterior, o que for melhor)
 -->
