@@ -7,7 +7,7 @@
             acessados ou inseridos de acordo com a prioridade estabelecida
 
         \item Assim, a estratégia FIFO não se mantém: o primeiro elemento a sair não é mais
-            o primeiro a entrar, e sim o elemento com maior prioridade ainda na fila
+            o primeiro a entrar, e sim o elemento com maior prioridade presente na fila
 
         \item O desafio é encontrar uma implementação eficiente
 
@@ -46,11 +46,11 @@
 \end{frame}
 
 \begin{frame}[fragile]{Exemplo de filas com prioridades}
-    \inputsnippet{c++}{1}{21}{priority.cpp}
+    \inputsnippet{c++}{1}{21}{codes/priority.cpp}
 \end{frame}
 
 \begin{frame}[fragile]{Exemplo de filas com prioridades}
-    \inputsnippet{c++}{22}{42}{priority.cpp}
+    \inputsnippet{c++}{22}{42}{codes/priority.cpp}
 \end{frame}
 
 \begin{frame}[fragile]{Min heap na STL}
@@ -68,8 +68,8 @@
         \item Deve-se, contudo, tomar o cuidado de utilizar o simétrico do elemento máximo,
             quando este for extraído
 
-        \item A segunda maneira é utilizar a função \code{c}{greater()} da STL, a qual inverte
-            o operator \code{c}{<} que é utilizado por padrão
+        \item A segunda maneira é utilizar a estrutura \code{c}{greater()} da STL, a qual 
+            faz com que o operator \code{c}{>} seja utilizado nas comparações de ordenação
 
         \item Se a classe ou estrutura não tiver tal operador por padrão, o mesmo deve ser
             implementado
@@ -78,9 +78,9 @@
 \end{frame}
 
 \begin{frame}[fragile]{Exemplo de min heap na STL}
-    \inputsnippet{cpp}{1}{21}{min.cpp}
+    \inputsnippet{cpp}{1}{21}{codes/min.cpp}
 \end{frame}
 
 \begin{frame}[fragile]{Exemplo de min heap na STL}
-    \inputsnippet{cpp}{22}{42}{min.cpp}
+    \inputsnippet{cpp}{22}{42}{codes/min.cpp}
 \end{frame}
