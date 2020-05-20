@@ -19,7 +19,7 @@ Estruturas de Dados
     1. [Árvores Binárias de Busca: Balanceamento](slides/TR-4/TR-4.pdf)
     1. [Árvores _Red-Black_: Definição e Inserção](slides/TR-5/TR-5.pdf)
     1. [Árvores _Red-Black_: Remoção](slides/TR-6/TR-6.pdf)
-    1. [Árvores Binárias de Busca na STL](slides/TR-7/TR-7.pdf) ([problemas resolvidos](problems/TR-7/TR-7.pdf))
+    1. [Árvores Binárias de Busca na STL](slides/arvore_binaria_de_busca-stl/arvore_binaria_de_busca-stl.pdf) ([problemas resolvidos](problems/arvore_binaria_de_busca-stl/arvore_binaria_de_busca-stl.pdf))
     1. [_Heap_ binária](slides/heaps-definicao/heaps-definicao.pdf) 
     1. [_Heaps_ binárias na STL](slides/heaps-stl/heaps-stl.pdf) ([problemas resolvidos](problems/heaps-stl/heaps-stl.pdf))
 1. Árvores _m_-árias

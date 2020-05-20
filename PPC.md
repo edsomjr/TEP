@@ -17,8 +17,8 @@
     1. [Pilhas](Estruturas_de_Dados/slides/pilhas/pilhas.pdf) ([problemas resolvidos](problems/pilhas/PF-2.pdf))
     1. [Filas](Estruturas_de_Dados/slides/filas/filas.pdf) ([problemas resolvidos](problems/filas/filas.pdf))
 1. Árvores
-    1. [Árvores Binárias de Busca na STL](Estruturas_de_Dados/slides/TR-7/TR-7.pdf) ([problemas resolvidos](Estruturas_de_Dados/problems/TR-7/TR-7.pdf))
     1. [_Heaps_ binárias na STL](Estruturas_de_Dados/slides/heaps-stl/heaps-stl.pdf) ([problemas resolvidos](Estruturas_de_Dados/problems/heaps-stl/heaps-stl.pdf))
+    1. [Árvores Binárias de Busca na STL](Estruturas_de_Dados/slides/arvore_binaria_de_busca-stl/arvore_binaria_de_busca-stl.pdf) ([problemas resolvidos](Estruturas_de_Dados/problems/arvore_binaria_de_busca-stl/arvore_binaria_de_busca-stl.pdf))
 
 Tópicos extras que podem ser de interesse do estudante de PPC:
 
