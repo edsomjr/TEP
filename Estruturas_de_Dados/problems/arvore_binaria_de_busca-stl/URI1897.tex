@@ -65,11 +65,12 @@ A saída é o número mínimo de operações para converter $N$ em $M$.
 
         \item De forma semelhante, a sequência 1, 2, 6, 4, 3 subtrai uma unidade de $N$
 
-        \item Assim, em no máximo $5|N - M|$ operações é possível alcançar $M$ e o problema sempre terá
-            solução
+        \item Assim, em no máximo $5|N - M|$ operações é possível alcançar $M$ e o problema sempre 
+            terá solução
 
         \item Para determinar o mínimo de soluções com complexidade $O(|N - M|)$, basta armazenar
-            $N$ em uma fila e inserir seu valor em um conjunto
+            $N$ em uma fila e inserir seu valor em um conjunto, para que ele não seja processado
+            mais do que uma vez
 
         \item A cada etapa, se o próximo elemento da fila $x$ não for igual a $M$, todos os 
             resultados
@@ -84,13 +85,13 @@ A saída é o número mínimo de operações para converter $N$ em $M$.
 \end{frame}
 
 \begin{frame}[fragile]{Solução com complexidade $O(|N - M|)$}
-    \inputsnippet{cpp}{1}{21}{URI1897.cpp}
+    \inputsnippet{cpp}{1}{21}{codes/URI1897.cpp}
 \end{frame}
 
 \begin{frame}[fragile]{Solução com complexidade $O(|N - M|)$}
-    \inputsnippet{cpp}{22}{39}{URI1897.cpp}
+    \inputsnippet{cpp}{22}{39}{codes/URI1897.cpp}
 \end{frame}
 
 \begin{frame}[fragile]{Solução com complexidade $O(|N - M|)$}
-    \inputsnippet{cpp}{40}{60}{URI1897.cpp}
+    \inputsnippet{cpp}{40}{60}{codes/URI1897.cpp}
 \end{frame}
