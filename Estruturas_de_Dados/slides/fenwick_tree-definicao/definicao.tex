@@ -11,7 +11,7 @@
 
         \item A ideia principal da árvore de Fenwick é armazenar as somas de certos intervalos
             de índices da sequência de modo que qualquer intervalo $[1, j]$
-            possa ser representado unicamente pela união de, no máximo, $O(\log N)$ intervalos
+            possa ser representado, de forma única, pela união de, no máximo, $O(\log N)$ intervalos
             disjuntos
 
         \item Embora ela seja uma árvore, ela é implementada implicitamente por meio de um 
@@ -28,7 +28,7 @@
 
         \item Seja $p(n)$ a maior potência de 2 que divide o inteiro positivo $n$
 
-        \item Assim, $t_i$ será a soma dos elementos de $a_k$ cujos intervalos pertencem ao
+        \item Assim, $t_i$ será a soma dos elementos de $a_k$ cujos índices pertencem ao
             intervalo $I_i = [i - p(i) + 1, i]$, isto é,
         \[
             t_i = \sum_{k = i - p(i) + 1}^i a_k
@@ -111,5 +111,5 @@
 \end{frame}
 
 \begin{frame}[fragile]{Exemplo de representação de uma BITree em C++}
-    \inputsnippet{cpp}{1}{13}{ft.cpp}
+    \inputsnippet{cpp}{1}{13}{codes/ft.cpp}
 \end{frame}

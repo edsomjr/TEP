@@ -1,6 +1,6 @@
 \section{Motivação}
 
-\begin{frame}[fragile]{\textit{Range sum query}}
+\begin{frame}[fragile]{\it {Range sum query}}
 
     \begin{itemize}
         \item O problema conhecido como \textit{range sum query} ($RSQ(i, j)$) consiste em 
@@ -24,8 +24,8 @@
 
 \end{frame}
 
-\begin{frame}[fragile]{Implementação do $RSQ$ com complexidade $O(N)$ por \textit{query}}
-    \inputcode{cpp}{rsq.cpp}
+\begin{frame}[fragile]{Implementação do $RSQ$ com complexidade $O(N)$ por {\it query}}
+    \inputcode{cpp}{codes/rsq.cpp}
 \end{frame}
 
 \begin{frame}[fragile]{Soma dos prefixos de uma sequência}
@@ -47,24 +47,24 @@
             RSQ(i, j) = p_j - p_{i - 1}
         \]
 
-        \item Como a sequência $p_k$ é gerada com complexidade $O(N)$, a resposta para $Q$ tem
-            complexidade $O(N + Q)$
+        \item Como a sequência $p_k$ é gerada com complexidade $O(N)$, a resposta para $Q$ 
+            \textit{queries} tem complexidade $O(N + Q)$
     \end{itemize}
 
 \end{frame}
 
 \begin{frame}[fragile]{Implementação da soma dos prefixos}
-    \inputcode{cpp}{prefix_sum.cpp}
+    \inputcode{cpp}{codes/prefix_sum.cpp}
 \end{frame}
 
-\begin{frame}[fragile]{\textit{Range sum queries} com sequência dinâmica}
+\begin{frame}[fragile]{{\it Range sum queries} com sequência dinâmica}
 
     \begin{itemize}
         \item Embora a soma dos prefixos resolva o problema quando a sequência $a_k$ é 
             estática, ela não se aplica em sequências dinâmicas
 
         \item Se a sequência modificar um ou mais de seus elementos entre duas \textit{queries},
-            a sequência $p_k$ também fica modifica, e esta atualização tem complexidade $O(N)$,
+            a sequência $p_k$ também será modificada, e esta atualização tem complexidade $O(N)$,
             voltando à complexidade da solução original
 
         \item Para responder \textit{range sum queries} em sequências dinâmicas com melhor
