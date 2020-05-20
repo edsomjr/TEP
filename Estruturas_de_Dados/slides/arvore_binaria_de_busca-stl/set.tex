@@ -49,7 +49,7 @@
 
 \begin{frame}[fragile]{Exemplo de uso dos construtores do \texttt{set}}
 
-    \inputcode{c++}{set_constructor.cpp}
+    \inputcode{c++}{codes/set_constructor.cpp}
 
 \end{frame}
 
@@ -57,7 +57,8 @@
 
     \begin{itemize}
         \item As principais operações em um conjunto são a inserção, remoção e busca,
-        todas com complexidade $O(N)$
+        todas com complexidade $O(\log N)$, onde $N$ é o número de elementos armazenados
+        no conjunto
 
         \item A inserção é feita através do método \code{c}{insert()}, que pode receber ou o
             valor a ser inserido ou uma lista de inicialização com os elementos a serem
@@ -67,7 +68,13 @@
 
         \item O método \code{c}{erase()} remove o nó que contém o valor passado como parâmetro,
             se existir tal valor no conjunto
+    \end{itemize}
 
+\end{frame}
+
+\begin{frame}[fragile]{Principais operações}
+
+    \begin{itemize}
         \item O retorno do método pode ser utilizado para se determinar quantos elementos foram
             removidos
 
@@ -83,7 +90,7 @@
 \end{frame}
 
 \begin{frame}[fragile]{Exemplo de uso das principais operações do \texttt{set}}
-    \inputcode{cpp}{set_operations.cpp}
+    \inputcode{cpp}{codes/set_operations.cpp}
 \end{frame}
 
 \begin{frame}[fragile]{Operações relevantes}
@@ -107,7 +114,7 @@
 \end{frame}
 
 \begin{frame}[fragile]{Exemplo de uso de operações relevantes no \code{c}{set}}
-    \inputcode{cpp}{set_ops.cpp}
+    \inputcode{cpp}{codes/set_ops.cpp}
 \end{frame}
 
 \begin{frame}[fragile]{\texttt{multiset}}
@@ -136,5 +143,5 @@
 \end{frame}
 
 \begin{frame}[fragile]{Exemplo de uso de \texttt{multiset}}
-    \inputcode{cpp}{multiset.cpp}
+    \inputcode{cpp}{codes/multiset.cpp}
 \end{frame}
