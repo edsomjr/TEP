@@ -19,14 +19,14 @@ Estruturas de Dados
     1. [Árvores Binárias de Busca: Balanceamento](slides/TR-4/TR-4.pdf)
     1. [Árvores _Red-Black_: Definição e Inserção](slides/TR-5/TR-5.pdf)
     1. [Árvores _Red-Black_: Remoção](slides/TR-6/TR-6.pdf)
-    1. [Árvores Binárias de Busca na STL](slides/TR-7/TR-7.pdf) ([problemas resolvidos](problems/TR-7/TR-7.pdf))
+    1. [Árvores Binárias de Busca na STL](slides/arvore_binaria_de_busca-stl/arvore_binaria_de_busca-stl.pdf) ([problemas resolvidos](problems/arvore_binaria_de_busca-stl/arvore_binaria_de_busca-stl.pdf))
     1. [_Heap_ binária](slides/heaps-definicao/heaps-definicao.pdf) 
     1. [_Heaps_ binárias na STL](slides/heaps-stl/heaps-stl.pdf) ([problemas resolvidos](problems/heaps-stl/heaps-stl.pdf))
 1. Árvores _m_-árias
     1. [Árvores-B](slides/BT-1/BT-1.pdf)
     1. [_Union-Find Disjoint Sets_](slides/ufds/ufds.pdf) ([problemas resolvidos](problems/ufds/ufds.pdf))
-    1. [Árvores de Fenwick: Definição, _RSQ_ e _update_](slides/FT-1/FT-1.pdf) ([problemas resolvidos](problems/FT-1/FT-1.pdf))
-    1. [Árvores de Fenwick: Aplicações e Variações](slides/FT-2/FT-2.pdf) ([problemas resolvidos](problems/FT-2/FT-2.pdf))
+    1. [Árvores de Fenwick: Definição, _RSQ_ e _update_](slides/fenwick_tree-definicao/fenwick_tree-definicao.pdf) ([problemas resolvidos](problems/fenwick_tree-definicao/fenwick_tree-definicao.pdf))
+    1. [Árvores de Fenwick: Aplicações e Variações](slides/arvore_de_fenwick-aplicacoes/arvore_de_fenwick-aplicacoes.pdf) ([problemas resolvidos](problems/arvore_de_fenwick-aplicacoes/arvore_de_fenwick-aplicacoes.pdf))
     1. [Árvores de segmentos: Definição e Implementação](slides/segtree/segtree.pdf) ([problemas resolvidos](problems/segtree/segtree.pdf))
 1. Hashes
     1. [Definição, endereçamento aberto e encadeamento](slides/HS-1/HS-1.pdf)

@@ -1,0 +1,58 @@
+\section{\texttt{map}}
+
+\begin{frame}[fragile]{\texttt{map}}
+
+    \begin{itemize}
+        \item \texttt{map} é um tipo abstrato de dados da STL do C++ que abstrai o conceito de
+            dicionário
+
+        \item Cada elemento do \texttt{map} é composto de uma chave (\textit{key}) e um valor
+            associado (\textit{value})
+
+        \item Tanto o tipo da chave quanto do valor são paramétricos, e podem ser distintos
+
+        \item Os elementos são ordenados por meio de suas chaves
+
+        \item As chaves são únicas
+
+        \item A inserção de um par (\textit{key}, \textit{value}) para uma chave já inserida 
+            modifica o valor da chave existente
+
+        \item As operações de inserção, remoção e busca são eficientes, com complexidade
+            $O(\log N)$, onde $N$ é o número de elementos inseridos no \texttt{map}
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Operações um \texttt{map}}
+
+    \begin{itemize}
+        \item Embora sejam ADTs distintos, as interfaces do \texttt{map} e do \texttt{set}
+            contém inúmeras interseções
+
+        \item De fato, todos os métodos apresentados anteriormente para o \texttt{set} estão
+            também disponíveis para o \texttt{map}
+
+        \item A principal diferença reside no fato de que os iteradores do \texttt{map} são
+            pares 
+
+        \item O primeiro elemento de um iterador é a chave e o segundo elemento é o valor
+
+        \item Além do \texttt{map}, a STL também oferece o \texttt{multimap}, o qual suporta
+            chaves repetidas
+            
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de uso de \texttt{map} e \texttt{multimap}}
+    \inputsnippet{cpp}{1}{20}{codes/map.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de uso de \texttt{map} e \texttt{multimap}}
+    \inputsnippet{cpp}{21}{41}{codes/map.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de uso de \texttt{map} e \texttt{multimap}}
+    \inputsnippet{cpp}{42}{62}{codes/map.cpp}
+\end{frame}

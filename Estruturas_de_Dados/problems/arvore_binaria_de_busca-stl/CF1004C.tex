@@ -1,0 +1,110 @@
+\section{Codeforces Round \#492 -- Problema C: Sonya and Robots}
+
+\begin{frame}[fragile]{Problema}
+
+Since Sonya is interested in robotics too, she decided to construct robots that will read and recognize numbers.
+
+Sonya has drawn $n$ numbers in a row, $a_i$ is located in the $i$-th position. 
+She also has put a robot at each end of the row (to the left of the first number and to the right of the last number). Sonya will give a number to each robot (they can be either same or different) and run them. When a robot is running, it is moving toward to another robot, reading numbers in the row. When a robot is reading a number that is equal to the number that was given to that robot, it will turn off and stay in the same position.
+
+Sonya does not want robots to break, so she will give such numbers that robots will stop before they meet. That is, the girl wants them to stop at different positions so that the first robot is to the left of the second one.
+
+\end{frame}
+
+
+\begin{frame}[fragile]{Problema}
+
+For example, if the numbers $[1,5,4,1,3]$ are written, and Sonya gives the number $1$ to the first 
+robot and the number $4$ to the second one, the first robot will stop in the $1$-st position while the second one in the $3$-rd position. In that case, robots will not meet each other. As a result, robots will not be broken. But if Sonya gives the number $4$ to the first robot and the number $5$ to the second one, they will meet since the first robot will stop in the $3$-rd position while the second one is in the $2$-nd position.
+
+Sonya understands that it does not make sense to give a number that is not written in the row because a robot will not find this number and will meet the other robot.
+
+\end{frame}
+
+\begin{frame}[fragile]{Problema}
+
+Sonya is now interested in finding the number of different pairs that she can give to robots so that they will not meet. In other words, she wants to know the number of pairs $(p, q)$, where she 
+will give $p$ to the first robot and $q$ to the second one. Pairs $(p_i, q_i)$ and $(p_j, q_j)$ 
+are different if $p_i\neq p_j$ or $q_i\neq q_j$.
+
+Unfortunately, Sonya is busy fixing robots that broke after a failed launch. That is why she is asking you to find the number of pairs that she can give to robots so that they will not meet.
+
+\end{frame}
+
+\begin{frame}[fragile]{Entrada e saída}
+
+\textbf{Input}
+
+The first line contains a single integer $n$ $(1\leq n\leq 10^5)$ -- the number of numbers in a row.
+
+The second line contains $n$ integers $a_1, a_2, \ldots, a_n$ $(1\leq a_i\leq 10^5)$ -- the numbers in a row.
+
+\textbf{Output}
+
+Print one number -- the number of possible pairs that Sonya can give to robots so that they will not meet.
+
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de entradas e saídas}
+
+\begin{minipage}[t]{0.5\textwidth}
+\textbf{Sample Input}
+\begin{verbatim}
+5
+1 5 4 1 3
+
+7
+1 2 1 1 1 3 2
+\end{verbatim}
+\end{minipage}
+\begin{minipage}[t]{0.45\textwidth}
+\textbf{Sample Output}
+\begin{verbatim}
+9
+
+
+7
+\end{verbatim}
+\end{minipage}
+\end{frame}
+
+\begin{frame}[fragile]{Solução com complexidade $O(N\log N)$}
+
+    \begin{itemize}
+        \item Para computar o número de pares $(a, b)$ distintos, é preciso observar que $a$
+            pode assumir apenas valores distintos
+
+        \item Para cada $a$, $b$ pode assumir todos os valores distintos que
+            estão à direita da primeira ocorrência de $a$ no vetor
+
+        \item Um conjunto pode ser usado manter o registro dos valores de $a$ já processados
+
+        \item O registro do valores à direita de $a$ pode ser mantido através do uso de um
+            histograma
+
+        \item Com estas duas estruturas auxiliares, para cada elemento $a_i$ do vetor, na
+            ordem dada na entrada, são três passos a serem realizados
+
+        \item O primeiro é a atualização do histograma, removendo o valor $a_i$ se for a 
+            última ocorrência no vetor
+
+        \item O segundo é verificar se $a_i$ já foi processado ou não: em caso positivo, deve-se
+            seguir para o próximo valor
+
+        \item Por fim, se $a_i$ não foi processado, devem ser acumulados na resposta todos 
+            os valores distintos ainda presentes no histograma
+   \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Solução AC com complexidade $O(N\log N)$}
+    \inputsnippet{cpp}{1}{20}{codes/CF1004C.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Solução AC com complexidade $O(N\log N)$}
+    \inputsnippet{cpp}{21}{30}{codes/CF1004C.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Solução AC com complexidade $O(N\log N)$}
+    \inputsnippet{cpp}{31}{51}{codes/CF1004C.cpp}
+\end{frame}

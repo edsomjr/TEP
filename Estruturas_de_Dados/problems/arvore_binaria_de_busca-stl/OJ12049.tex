@@ -1,0 +1,104 @@
+\section{OJ 12049 -- Just Prune The List}
+
+\begin{frame}[fragile]{Problema}
+
+You are given two list of integers. You can remove any number of elements from any of them. You
+have to ensure that after removing some elements both of the list will contain same elements, but not
+necessarily in same order. For example consider the following two lists
+\begin{table}[h]
+    \centering
+    \begin{tabular}{|l|ccccc|}
+    \hline
+    List \# 1 & 1 & 2 & 3 & 2 & 1 \\
+    List \# 2 & 1 & 2 & 5 & 2 & 3 \\
+    \hline
+    \end{tabular}
+\end{table}
+
+After removing 1 from first list and 5 from second list, both lists will contain same elements. We
+will find the following lists after removing two elements.
+\begin{table}[h]
+    \centering
+    \begin{tabular}{|l|cccc|}
+    \hline
+    List \# 1 & 1 & 2 & 3 & 2 \\
+    List \# 2 & 1 & 2 & 2 & 3 \\
+    \hline
+    \end{tabular}
+\end{table}
+
+What is the minimum number of elements to be removed to obtain two list having same elements?
+\end{frame}
+
+\begin{frame}[fragile]{Entrada e saída}
+
+\textbf{Input}
+
+The first line of the input file contains an integer $T$ $(T\leq 100)$ which denotes the total 
+number of test cases. The description of each test case is given below:
+
+First line will contain two integers $N$ $(1 \leq N \leq 10000)$, the number of element in the 
+first list and $M$ $(1\leq M\leq 10000)$, the number of element in the second list. The next line 
+will contain $N$ integers
+representing the first list followed by another line having $M$ elements representing the second list. Each integers in the input is 32 bit signed integer.
+
+\textbf{Output}
+
+For each test case output a single line containing the number of elements to be removed. See sample
+output for exact format.
+\end{frame}
+
+
+\begin{frame}[fragile]{Exemplo de entradas e saídas}
+
+\begin{minipage}[t]{0.6\textwidth}
+\textbf{Sample Input}
+\begin{verbatim}
+1
+5 5
+1 2 3 2 1
+1 2 5 2 3
+\end{verbatim}
+\end{minipage}
+\begin{minipage}[t]{0.35\textwidth}
+\textbf{Sample Output}
+\begin{verbatim}
+2
+\end{verbatim}
+\end{minipage}
+\end{frame}
+
+\begin{frame}[fragile]{Solução com complexidade $O(N\log N)$}
+
+    \begin{itemize}
+        \item O problema consiste em determinar quantos elementos, em ambas listas, não
+            pertencem a interseção de ambas
+
+        \item Observe que as listas podem conter elementos repetidos: armazená-los em um
+            \texttt{set} levaria a perda de informações importantes
+
+        \item Uma solução é armazenar ambas listas nos \code{c}{multisets} $s$ e $r$ e, para
+            cada elemento de $r$, verificar se ele está ou não em $s$
+
+        \item Se estiver, uma cópia dele deve ser removida de $s$
+
+        \item Caso contrário, é um elemento a ser eliminado, acrescentando uma unidade à resposta
+
+        \item Ao final do processo, cada elemento restante em $s$ acrescenta uma unidade ao
+            resultado final
+
+        \item A STL do C++ pode ser utilizada: a função \code{c}{set_intersection()} computa
+            a interseção entre dois contêiners ordenados
+
+        \item Daí a resposta para a ser a soma $N + M$, subtraída do dobro da interseção
+   \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Solução com complexidade $O(N\log N)$}
+    \inputsnippet{cpp}{1}{21}{codes/12049.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Solução com complexidade $O(N\log N)$}
+    \inputsnippet{cpp}{22}{42}{codes/12049.cpp}
+\end{frame}

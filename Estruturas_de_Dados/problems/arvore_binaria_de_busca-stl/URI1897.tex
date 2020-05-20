@@ -1,0 +1,97 @@
+\section{URI 1897 -- Jogo Esperto}
+
+\begin{frame}[fragile]{Problema}
+
+Enquanto Bino descansava, inventou um jogo esperto. Dado um número $N$ e um número $M$, Bino quer 
+saber qual a quantidade mínima de operações para converter $N$ em $M$.
+
+Existe seis operações permitidas.
+
+\begin{itemize}
+    \item Operação 1: $N = N*2$
+    \item Operação 2: $N = N*3$
+    \item Operação 3: $N = N/2$
+    \item Operação 4: $N = N/3$
+    \item Operação 5: $N = N+7$
+    \item Operação 6: $N = N-7$
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Entrada e saída}
+
+\textbf{Entrada}
+
+A entrada contém dois inteiros $N$ $(0\leq N\leq 10000)$ e $M$ $(0\leq M\leq 10000)$.
+
+\textbf{Saída}
+
+A saída é o número mínimo de operações para converter $N$ em $M$.
+
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de entradas e saídas}
+
+\begin{minipage}[t]{0.5\textwidth}
+\textbf{Exemplo de Entrada}
+\begin{verbatim}
+10 15
+
+45 15
+
+84 63
+\end{verbatim}
+\end{minipage}
+\begin{minipage}[t]{0.45\textwidth}
+\textbf{Exemplo de Saída}
+\begin{verbatim}
+2
+
+1
+
+3
+\end{verbatim}
+\end{minipage}
+\end{frame}
+
+\begin{frame}[fragile]{Solução com complexidade $O(|N - M|)$}
+
+    \begin{itemize}
+        \item Observe que a sequência de operações 1, 2, 5, 4, 3 efetivamente acrescenta 
+            uma unidade em $N$:
+            \[
+                N \to 2N \to 6N \to 6N + 7 \to 2N + 2 \to N + 1
+            \]
+
+        \item De forma semelhante, a sequência 1, 2, 6, 4, 3 subtrai uma unidade de $N$
+
+        \item Assim, em no máximo $5|N - M|$ operações é possível alcançar $M$ e o problema sempre 
+            terá solução
+
+        \item Para determinar o mínimo de soluções com complexidade $O(|N - M|)$, basta armazenar
+            $N$ em uma fila e inserir seu valor em um conjunto, para que ele não seja processado
+            mais do que uma vez
+
+        \item A cada etapa, se o próximo elemento da fila $x$ não for igual a $M$, todos os 
+            resultados
+            das operações em $x$ que não tiverem sido inseridos no conjunto ainda devem
+            entrar na fila e no conjunto
+
+        \item Na fila deve ser armazenado, além do valor $x$, quantas operações foram necessárias
+            para encontrá-lo
+
+   \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Solução com complexidade $O(|N - M|)$}
+    \inputsnippet{cpp}{1}{21}{codes/URI1897.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Solução com complexidade $O(|N - M|)$}
+    \inputsnippet{cpp}{22}{39}{codes/URI1897.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Solução com complexidade $O(|N - M|)$}
+    \inputsnippet{cpp}{40}{60}{codes/URI1897.cpp}
+\end{frame}
