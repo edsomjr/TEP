@@ -26,3 +26,5 @@
         1. [_Heap_ binária](Estruturas_de_Dados/slides/heaps-definicao/heaps-definicao.pdf) 
         1. [_Heaps_ binárias na STL](Estruturas_de_Dados/slides/heaps-stl/heaps-stl.pdf) ([problemas resolvidos](Estruturas_de_Dados/problems/heaps-stl/heaps-stl.pdf))
         1. [Árvores Binárias de Busca na STL](Estruturas_de_Dados/slides/arvore_binaria_de_busca-stl/arvore_binaria_de_busca-stl.pdf) ([problemas resolvidos](Estruturas_de_Dados/problems/arvore_binaria_de_busca-stl/arvore_binaria_de_busca-stl.pdf))
+    1. Árvores _m_-árias
+        1. [Árvores de Fenwick: Definição, _RSQ_ e _update_](Estruturas_de_Dados/slides/fenwick_tree-definicao/fenwick_tree-definicao.pdf) ([problemas resolvidos](Estruturas_de_Dados/problems/fenwick_tree-definicao/fenwick_tree-definicao.pdf))
