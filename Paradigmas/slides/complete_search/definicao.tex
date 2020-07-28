@@ -54,8 +54,7 @@
             do espaço de soluções $\mathcal{S}$ do problema
 
         \item As soluções que geram explicitamente todos os elementos de $\mathcal{S}$, e 
-            então checam
-            cada um destes elementos em busca de uma solução, são denominadas filtros
+            então checam cada um destes elementos em busca da solução, são denominadas filtros
 
         \item Outra abordagem seria, na geração dos elementos de $\mathcal{S}$, tentar construir diretamente
             aqueles que correspondem à uma solução do problema, ignorando aqueles que não
@@ -66,7 +65,7 @@
         \item Em geral, os filtros são mais fáceis de implementar do que os geradores
 
         \item Contudo, o tempo de execução dos filtros tende a ser maior, embora a complexidade
-            assintótica de ambos possam, eventualmente, virem a serem as mesmas
+            assintótica possa ser a mesma do gerador equivalente
     \end{itemize}
 
 \end{frame}
@@ -85,10 +84,10 @@
             $A = \lbrace 1, 2, \ldots, N\rbrace$
 
         \item Uma solução por filtro seria olhar cada um dos elementos $s\in \mathcal{S}$ e 
-            verificar se ele é composto apenas por $3$ ou por $5$
+            verificar se ele é composto apenas por múltiplo de $3$ ou de $5$
 
-        \item Como $|\mathcal{S}|$ é muito grande, é mais eficiente olhar todos os elementos de
-            $A$ e escolher somente aqueles que são múltiplos de $3$ ou $5$
+        \item Como $|\mathcal{S}|$ é muito grande, é mais eficiente olhar individualmente os
+            elementos de $A$ e escolher somente os múltiplos de $3$ ou $5$
  
         \item A solução por gerador seria construir múltiplos $m$ de $3$ e $5$ diretamente, 
             tomando o cuidado de excluir os elementos duplicados

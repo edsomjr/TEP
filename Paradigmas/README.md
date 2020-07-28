@@ -12,6 +12,7 @@ Paradigmas de Resolução de Problemas
 <!---
 Busca completa:
     - Algoritmos de geração de combinações e permutações
+    - Two pointers
 
 Algoritmos gulosos:
     - Algoritmo de Huffman
@@ -21,4 +22,23 @@ Algoritmos gulosos:
         - Minimização de tarefas e deadlines (CPH pg 60)
         - Distribuição em buckets (CP 1)
         - Minimização de somas (média e mediana, CPH pg 61)
+
+Divisão e conquista:
+    - Master Theorem
+    - Exemplo: Multiplicação de Matrizes em O(n^2.7)
+    - Transformada de Fourier
+    - Binary Lifting
+    
+Programação dinâmica:
+    - DP by digits
+    - Forward DP
+    - Coin Change
+    - LIS
+    - Knapsack
+    - Paths in a grid
+    - Edit Distance? (Strings?)
+    - TSP
+    - Max 1D range sum
+    - Tilings (Geometry)?
+    - prefix sum 
 -->
