@@ -29,7 +29,8 @@
         \item Por exemplo, se $C = \lbrace 1, 2, 5, 10, 25, 50\rbrace$ e $Q = 198$, inicialmente
             se escolhe $k_6 = 3$ moedas de $50$
 
-        \item Em seguida, toma-se uma moeda de $k_5 = 25$, totalizando $3\times 150 + 1\times 25 = 75$
+        \item Em seguida, toma-se uma moeda de $k_5 = 25$, totalizando $3\times 150 + 1\times 25 
+            = 175$
 
         \item Agora, seguindo o mesmo raciocínio, escolhe-se $k_4 = 2$, $k_3 = 0$, $k_2 = 1$ e 
             $k_1 = 1$, de modo que
@@ -49,7 +50,7 @@
 \end{frame}
 
 \begin{frame}[fragile]{Implementação da estratégia gulosa para o problema do troco}
-    \inputsnippet{cpp}{5}{20}{coin_change.cpp}
+    \inputsnippet{cpp}{5}{20}{codes/coin_change.cpp}
 \end{frame}
 
 \begin{frame}[fragile]{Observações sobre a estratégia gulosa para o problema do troco}
@@ -71,7 +72,8 @@
         \item Assim, o algoritmo guloso para o problema do troco não produz a saída correta para
             todas as entradas
 
-        \item Um conjunto $C$ para o qual o algoritmo guloso produz sempre a saída correta é
+        \item Um conjunto $C$ para o qual o algoritmo guloso produz sempre a saída correta 
+        para o problema do troco é
             denominada base canônica
 
         \item Dentre as bases canônicas mais comuns estão o sistema monetário vigente (base do
@@ -121,9 +123,9 @@
 \end{frame}
 
 \begin{frame}[fragile]{Implementação do algoritmo guloso para o agendamento de eventos}
-    \inputsnippet{cpp}{1}{18}{scheduling.cpp}
+    \inputsnippet{cpp}{1}{18}{codes/scheduling.cpp}
 \end{frame}
 
 \begin{frame}[fragile]{Implementação do algoritmo guloso para o agendamento de eventos}
-    \inputsnippet{cpp}{19}{32}{scheduling.cpp}
+    \inputsnippet{cpp}{19}{32}{codes/scheduling.cpp}
 \end{frame}
