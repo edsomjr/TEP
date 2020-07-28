@@ -1,0 +1,194 @@
+\section{Exemplos de aplicação de {\it two pointers}}
+
+\begin{frame}[fragile]{Maior substring em ordem lexicográfica}
+
+    \begin{itemize}
+        \item Seja $S$ uma string com $N$ caracteres
+
+        \item O problema consiste em determinar o tamanho $M$ da maior substring $b$ de $S$ tal
+            que os caracteres de $b$ estão em ordem lexicográfica
+
+        \item Em outras palavras, o problema é determinar a maior substring $b=b[1..M]$ de
+            $S$ tal que $b_{i - 1} \leq b_i, \forall i\in[2, M]$
+
+        \item A string $S$ tem $O(N^2)$ substrings, e a verificação se uma substring está em
+            ordem lexicográfica ou não é feita em $O(N)$
+
+        \item Assim um algoritmo de busca completa tem complexidade $O(N^3)$
+
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Maior substring em ordem lexicográfica}
+
+    \begin{itemize}
+        \item Porém, é possível utilizar a técnica \textit{two pointeirs} neste problema
+
+        \item Inicie $L$ no primeiro caractere de $S$
+
+        \item Para cada valor de $L$, faça $R = L + 1$
+
+        \item A substring $S[L..(R - 1)]$ tem, inicialmente, um único caractere, de modo que
+            está em ordem lexicográfica
+
+        \item Enquanto $R\leq N$ e $S[R] \leq S[R-1]$, incremente $R$
+
+        \item Ao final do processo, a substring $S[L..(R - 1)]$ terá $R - L$ caracteres e estará
+            em ordem lexicográfica
+
+        \item Atualize $L$ para $R$ e prossiga enquanto $L\leq N$
+
+        \item Como tanto $L$ quanto $R$ observam cada caractere de $S$ uma única vez, esta 
+            solução tem complexidade $O(N)$ e memória $O(1)$
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Tamanho da maior substring ordenada}
+    \inputsnippet{cpp}{1}{21}{codes/substring.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Tamanho da maior substring ordenada}
+    \inputsnippet{cpp}{22}{42}{codes/substring.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Maior subvetor com, no máximo, $K$ números ímpares}
+
+    \begin{itemize}
+        \item Seja $\vec{v}$ um vetor com $N$ númerors inteiros
+
+        \item O problema consiste em terminar o maior subvetor $\vec{x} = \vec{v}[i..j]$ de 
+            $\vec{v}$ que contenha, no máximo, $K$ números ímpares
+
+        \item Novamente, $\vec{v}$ em $O(N^2)$ subvetores, de modo que uma solução de busca
+            completa que verifique cada um deles terá complexidade $O(N^3)$
+
+        \item A ideia central da solução usando \textit{two pointers} é identificar intervalos
+            $[L, R)$ tais que os subvetores $\vec{v}[L..(R - 1)]$ tenham, no máximo, $K$ números
+            ímpares
+
+        \item Observe que $|\vec{v}[L..(R-1)| = R - L$
+ 
+        \item O ponteiro $L$ observará, um a um, os elementos de $\vec{v}$, do primeiro para o 
+            último
+
+        \item O ponteiro $R$ iniciará apontando para o primeiro elemento
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Maior subvetor com, no máximo, $K$ números ímpares}
+
+    \begin{itemize}
+        \item Um contador $c$, inicialmente igual a zero, manterá o registro do número de elementos
+            ímpares dentre os elementos de $\vec{v}$ cujos índices estão no intervalo $[L, R)$
+
+        \item Assim, para cada valor $L$, primeiramente se atualiza o contador $c$, de acordo
+            com o valor de $\vec{v}[L]$
+
+        \item Caso $c\leq K$, o ponteiro $R$ apontará para $L + 1$ ou manterá o seu valor, o que
+            estiver mais distante do início do vetor
+
+        \item Enquanto $R$ apontar para um elemento par, ou apontar para um ímpar com o contador
+            $c < K$, o contador é atualizado com o valor de $\vec{v}[R]$ e $R$ é incrementado
+
+        \item Ao final deste processo, a resposta é atualizada em relação ao tamanho do subvetor
+            válido ($R - L$)
+
+        \item Por fim, o contador é decrementado, de acordo com o valor de $\vec{v}[L]$, e $L$
+            é incrementado
+
+        \item A complexidade da solução é $O(N)$
+    \end{itemize}
+
+\end{frame}
+
+\input{subarray_view}
+
+\begin{frame}[fragile]{Implementação do maior subvetor com, no máximo, $K$ ímpares}
+    \inputsnippet{cpp}{1}{21}{codes/subarray.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Implementação do maior subvetor com, no máximo, $K$ ímpares}
+    \inputsnippet{cpp}{22}{42}{codes/subarray.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Menor elemento em um subvetor de tamanho $K$}
+
+    \begin{itemize}
+        \item Quando o intervalo delimitador por $[L, R)$ tem um tamanho $K$ fixo, a técnica dos
+            dois ponteiros também é conhecida como \textit{sliding window}
+
+        \item Seja $\vec{v}$ um veto com $N$ inteiros
+
+        \item O problema de se deteminar o menor elemento de cada um dos $N - K + 1$ subintervalos
+            de tamanho $K$ pode ser resolvido com dois ponteiros e duas pilhas $P_{in}$ e 
+            $P_{out}$
+
+        \item As pilhas armazenarão pares de valores $(x, m)$, onde $x$ é o elemento do vetor a
+            ser inserido, e $m$ é o menor dentre os valores contidos na pilha e o próprio $x$
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Menor elemento em um subvetor de tamanho $K$}
+
+    \begin{itemize}
+        \item Observe que $m$ será igual ao próprio $x$, caso a pilha esteja vazia
+
+        \item Nos demais casos, $m = \min\{ x, M \}$, onde $M$ é o segundo elemento do par que
+            está no topo da pilha
+
+        \item Inicialmente, inseri os primeiros $K$ elementos de $\vec{v}$ na pilha $P_{in}$
+
+        \item O segundo elemento do par do topo de $P_{in}$ será a resposta para o primeiro 
+            intervalo
+
+        \item Faça $L = 0$ e $R = K$
+
+        \item Caso a pilha $P_{out}$ esteja vazia mova, um a um, os elementos de $P_{in}$ para
+            $P_{out}$, atualizando corretamente os valores de $m$
+
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Menor elemento em um subvetor de tamanho $K$}
+
+    \begin{itemize}
+        \item Exclua o elemento do topo de $P_{out}$: isto removerá o elemento
+            $\vec{v}[L]$ das pilhas
+
+        \item Em seguida, incremente $L$
+
+        \item Agora, insira $\vec{v}[R]$ na pilha $P_{in}$  e incremente $R$
+
+        \item Após estes ajustes, as pilhas conterão os elementos do intervalo de tamanho $K$
+            adjacente ao anterior (isto é, a janela se moveu de $[L, R)$ para $[L + 1, R + 1)$)
+
+        \item A resposta para $L$ será o menor entre os valores $m$ dos topos das pilhas
+
+        \item Como cada ponteiros observa cada elemento de $\vec{v}$ no máximo uma vez, e cada
+            elemento passa por, no máximo, duas pilhas, a complexidade do algoritmo é $O(N)$
+    \end{itemize}
+
+\end{frame}
+
+\input{minimum_view}
+
+\begin{frame}[fragile]{Implementação}
+    \inputsnippet{cpp}{1}{21}{codes/minimum.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Implementação}
+    \inputsnippet{cpp}{22}{42}{codes/minimum.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Implementação}
+    \inputsnippet{cpp}{43}{63}{codes/minimum.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Implementação}
+    \inputsnippet{cpp}{64}{84}{codes/minimum.cpp}
+\end{frame}

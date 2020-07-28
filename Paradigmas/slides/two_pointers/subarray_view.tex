@@ -1,0 +1,344 @@
+\begin{frame}[fragile]{Visualização do algoritmo do maior subvetor com, no máximo, $K=1$ números
+ímpares}
+
+        \begin{tikzpicture}
+            \node[anchor=west] at (0, 7) { $ans = 0$ };
+            \node[anchor=west] at (0, 6.5) { $c = 0$ };
+            \node[opacity=0,anchor=west] at (0, 2) { $c = 0$ };
+
+            \draw (3, 4) grid (8, 5);
+
+            \node at (3.5, 4.5) { \tt 1 };
+            \node at (4.5, 4.5) { \tt 2 };
+            \node at (5.5, 4.5) { \tt 3 };
+            \node at (6.5, 4.5) { \tt 4 };
+            \node at (7.5, 4.5) { \tt 5 };
+ 
+%            \draw[->] (3.5, 5.5) node[anchor=south] { $L$ } -- (3.5, 5.2);
+%            \draw[->] (3.5, 3.5) node[anchor=north] { $R$ } -- (3.5, 3.8);
+
+        \end{tikzpicture}
+
+\end{frame}
+
+\begin{frame}[fragile]{Visualização do algoritmo do maior subvetor com, no máximo, $K=1$ números
+ímpares}
+
+        \begin{tikzpicture}
+            \node[anchor=west] at (0, 7) { $ans = 0$ };
+            \node[anchor=west] at (0, 6.5) { $c = \textcolor{blue}{1}$ };
+            \node[opacity=0,anchor=west] at (0, 2) { $c = 0$ };
+
+            \draw (3, 4) grid (8, 5);
+
+            \node at (3.5, 4.5) { \tt 1 };
+            \node at (4.5, 4.5) { \tt 2 };
+            \node at (5.5, 4.5) { \tt 3 };
+            \node at (6.5, 4.5) { \tt 4 };
+            \node at (7.5, 4.5) { \tt 5 };
+ 
+            \draw[->] (3.5, 5.5) node[anchor=south] { $L$ } -- (3.5, 5.2);
+%            \draw[->] (3.5, 3.5) node[anchor=north] { $R$ } -- (3.5, 3.8);
+
+        \end{tikzpicture}
+
+\end{frame}
+
+\begin{frame}[fragile]{Visualização do algoritmo do maior subvetor com, no máximo, $K=1$ números
+ímpares}
+
+        \begin{tikzpicture}
+            \node[anchor=west] at (0, 7) { $ans = 0$ };
+            \node[anchor=west] at (0, 6.5) { $c = \textcolor{black}{1}$ };
+            \node[opacity=0,anchor=west] at (0, 2) { $c = 0$ };
+
+            \draw (3, 4) grid (8, 5);
+
+            \node at (3.5, 4.5) { \tt 1 };
+            \node at (4.5, 4.5) { \tt 2 };
+            \node at (5.5, 4.5) { \tt 3 };
+            \node at (6.5, 4.5) { \tt 4 };
+            \node at (7.5, 4.5) { \tt 5 };
+ 
+            \draw[->] (3.5, 5.5) node[anchor=south] { $L$ } -- (3.5, 5.2);
+            \draw[->] (4.5, 3.5) node[anchor=north] { $R$ } -- (4.5, 3.8);
+
+        \end{tikzpicture}
+
+\end{frame}
+
+\begin{frame}[fragile]{Visualização do algoritmo do maior subvetor com, no máximo, $K=1$ números
+ímpares}
+
+        \begin{tikzpicture}
+            \node[anchor=west] at (0, 7) { $ans = 0$ };
+            \node[anchor=west] at (0, 6.5) { $c = \textcolor{black}{1}$ };
+            \node[opacity=0,anchor=west] at (0, 2) { $c = 0$ };
+
+            \draw (3, 4) grid (8, 5);
+
+            \node at (3.5, 4.5) { \tt 1 };
+            \node at (4.5, 4.5) { \tt 2 };
+            \node at (5.5, 4.5) { \tt 3 };
+            \node at (6.5, 4.5) { \tt 4 };
+            \node at (7.5, 4.5) { \tt 5 };
+ 
+            \draw[->] (3.5, 5.5) node[anchor=south] { $L$ } -- (3.5, 5.2);
+            \draw[->] (5.5, 3.5) node[anchor=north] { $R$ } -- (5.5, 3.8);
+
+        \end{tikzpicture}
+
+\end{frame}
+
+\begin{frame}[fragile]{Visualização do algoritmo do maior subvetor com, no máximo, $K=1$ números
+ímpares}
+
+        \begin{tikzpicture}
+            \node[anchor=west] at (0, 7) { $ans = \textcolor{blue}{2}$ };
+            \node[anchor=west] at (0, 6.5) { $c = \textcolor{black}{1}$ };
+            \node[opacity=0,anchor=west] at (0, 2) { $c = 0$ };
+
+            \draw (3, 4) grid (8, 5);
+
+            \node at (3.5, 4.5) { \tt \textcolor{red}{1} };
+            \node at (4.5, 4.5) { \tt \textcolor{blue}{2} };
+            \node at (5.5, 4.5) { \tt 3 };
+            \node at (6.5, 4.5) { \tt 4 };
+            \node at (7.5, 4.5) { \tt 5 };
+ 
+            \draw[->] (3.5, 5.5) node[anchor=south] { $L$ } -- (3.5, 5.2);
+            \draw[->] (5.5, 3.5) node[anchor=north] { $R$ } -- (5.5, 3.8);
+
+        \end{tikzpicture}
+
+\end{frame}
+
+\begin{frame}[fragile]{Visualização do algoritmo do maior subvetor com, no máximo, $K=1$ números
+ímpares}
+
+        \begin{tikzpicture}
+            \node[anchor=west] at (0, 7) { $ans = \textcolor{black}{2}$ };
+            \node[anchor=west] at (0, 6.5) { $c = \textcolor{blue}{0}$ };
+            \node[opacity=0,anchor=west] at (0, 2) { $c = 0$ };
+
+            \draw (3, 4) grid (8, 5);
+
+            \node at (3.5, 4.5) { \tt \textcolor{black}{1} };
+            \node at (4.5, 4.5) { \tt \textcolor{black}{2} };
+            \node at (5.5, 4.5) { \tt 3 };
+            \node at (6.5, 4.5) { \tt 4 };
+            \node at (7.5, 4.5) { \tt 5 };
+ 
+            \draw[->] (4.5, 5.5) node[anchor=south] { $L$ } -- (4.5, 5.2);
+            \draw[->] (5.5, 3.5) node[anchor=north] { $R$ } -- (5.5, 3.8);
+
+        \end{tikzpicture}
+
+\end{frame}
+
+\begin{frame}[fragile]{Visualização do algoritmo do maior subvetor com, no máximo, $K=1$ números
+ímpares}
+
+        \begin{tikzpicture}
+            \node[anchor=west] at (0, 7) { $ans = \textcolor{black}{2}$ };
+            \node[anchor=west] at (0, 6.5) { $c = \textcolor{blue}{1}$ };
+            \node[opacity=0,anchor=west] at (0, 2) { $c = 0$ };
+
+            \draw (3, 4) grid (8, 5);
+
+            \node at (3.5, 4.5) { \tt \textcolor{black}{1} };
+            \node at (4.5, 4.5) { \tt \textcolor{black}{2} };
+            \node at (5.5, 4.5) { \tt 3 };
+            \node at (6.5, 4.5) { \tt 4 };
+            \node at (7.5, 4.5) { \tt 5 };
+ 
+            \draw[->] (4.5, 5.5) node[anchor=south] { $L$ } -- (4.5, 5.2);
+            \draw[->] (6.5, 3.5) node[anchor=north] { $R$ } -- (6.5, 3.8);
+
+        \end{tikzpicture}
+
+\end{frame}
+
+\begin{frame}[fragile]{Visualização do algoritmo do maior subvetor com, no máximo, $K=1$ números
+ímpares}
+
+        \begin{tikzpicture}
+            \node[anchor=west] at (0, 7) { $ans = \textcolor{black}{2}$ };
+            \node[anchor=west] at (0, 6.5) { $c = \textcolor{black}{1}$ };
+            \node[opacity=0,anchor=west] at (0, 2) { $c = 0$ };
+
+            \draw (3, 4) grid (8, 5);
+
+            \node at (3.5, 4.5) { \tt \textcolor{black}{1} };
+            \node at (4.5, 4.5) { \tt \textcolor{black}{2} };
+            \node at (5.5, 4.5) { \tt 3 };
+            \node at (6.5, 4.5) { \tt 4 };
+            \node at (7.5, 4.5) { \tt 5 };
+ 
+            \draw[->] (4.5, 5.5) node[anchor=south] { $L$ } -- (4.5, 5.2);
+            \draw[->] (7.5, 3.5) node[anchor=north] { $R$ } -- (7.5, 3.8);
+
+        \end{tikzpicture}
+
+\end{frame}
+
+\begin{frame}[fragile]{Visualização do algoritmo do maior subvetor com, no máximo, $K=1$ números
+ímpares}
+
+        \begin{tikzpicture}
+            \node[anchor=west] at (0, 7) { $ans = \textcolor{blue}{3}$ };
+            \node[anchor=west] at (0, 6.5) { $c = \textcolor{black}{1}$ };
+            \node[opacity=0,anchor=west] at (0, 2) { $c = 0$ };
+
+            \draw (3, 4) grid (8, 5);
+
+            \node at (3.5, 4.5) { \tt \textcolor{black}{1} };
+            \node at (4.5, 4.5) { \tt \textcolor{blue}{2} };
+            \node at (5.5, 4.5) { \tt \textcolor{red}{3} };
+            \node at (6.5, 4.5) { \tt \textcolor{blue}{4} };
+            \node at (7.5, 4.5) { \tt 5 };
+ 
+            \draw[->] (4.5, 5.5) node[anchor=south] { $L$ } -- (4.5, 5.2);
+            \draw[->] (7.5, 3.5) node[anchor=north] { $R$ } -- (7.5, 3.8);
+
+        \end{tikzpicture}
+
+\end{frame}
+
+\begin{frame}[fragile]{Visualização do algoritmo do maior subvetor com, no máximo, $K=1$ números
+ímpares}
+
+        \begin{tikzpicture}
+            \node[anchor=west] at (0, 7) { $ans = \textcolor{black}{3}$ };
+            \node[anchor=west] at (0, 6.5) { $c = \textcolor{black}{1}$ };
+            \node[opacity=0,anchor=west] at (0, 2) { $c = 0$ };
+
+            \draw (3, 4) grid (8, 5);
+
+            \node at (3.5, 4.5) { \tt \textcolor{black}{1} };
+            \node at (4.5, 4.5) { \tt \textcolor{black}{2} };
+            \node at (5.5, 4.5) { \tt \textcolor{black}{3} };
+            \node at (6.5, 4.5) { \tt \textcolor{black}{4} };
+            \node at (7.5, 4.5) { \tt 5 };
+ 
+            \draw[->] (5.5, 5.5) node[anchor=south] { $L$ } -- (5.5, 5.2);
+            \draw[->] (7.5, 3.5) node[anchor=north] { $R$ } -- (7.5, 3.8);
+
+        \end{tikzpicture}
+
+\end{frame}
+
+\begin{frame}[fragile]{Visualização do algoritmo do maior subvetor com, no máximo, $K=1$ números
+ímpares}
+
+        \begin{tikzpicture}
+            \node[anchor=west] at (0, 7) { $ans = \textcolor{black}{3}$ };
+            \node[anchor=west] at (0, 6.5) { $c = \textcolor{black}{1}$ };
+            \node[opacity=0,anchor=west] at (0, 2) { $c = 0$ };
+
+            \draw (3, 4) grid (8, 5);
+
+            \node at (3.5, 4.5) { \tt \textcolor{black}{1} };
+            \node at (4.5, 4.5) { \tt \textcolor{black}{2} };
+            \node at (5.5, 4.5) { \tt \textcolor{red}{3} };
+            \node at (6.5, 4.5) { \tt \textcolor{blue}{4} };
+            \node at (7.5, 4.5) { \tt 5 };
+ 
+            \draw[->] (5.5, 5.5) node[anchor=south] { $L$ } -- (5.5, 5.2);
+            \draw[->] (7.5, 3.5) node[anchor=north] { $R$ } -- (7.5, 3.8);
+
+        \end{tikzpicture}
+
+\end{frame}
+
+\begin{frame}[fragile]{Visualização do algoritmo do maior subvetor com, no máximo, $K=1$ números
+ímpares}
+
+        \begin{tikzpicture}
+            \node[anchor=west] at (0, 7) { $ans = \textcolor{black}{3}$ };
+            \node[anchor=west] at (0, 6.5) { $c = \textcolor{blue}{0}$ };
+            \node[opacity=0,anchor=west] at (0, 2) { $c = 0$ };
+
+            \draw (3, 4) grid (8, 5);
+
+            \node at (3.5, 4.5) { \tt \textcolor{black}{1} };
+            \node at (4.5, 4.5) { \tt \textcolor{black}{2} };
+            \node at (5.5, 4.5) { \tt \textcolor{black}{3} };
+            \node at (6.5, 4.5) { \tt \textcolor{black}{4} };
+            \node at (7.5, 4.5) { \tt 5 };
+ 
+            \draw[->] (6.5, 5.5) node[anchor=south] { $L$ } -- (6.5, 5.2);
+            \draw[->] (7.5, 3.5) node[anchor=north] { $R$ } -- (7.5, 3.8);
+
+        \end{tikzpicture}
+
+\end{frame}
+
+\begin{frame}[fragile]{Visualização do algoritmo do maior subvetor com, no máximo, $K=1$ números
+ímpares}
+
+        \begin{tikzpicture}
+            \node[anchor=west] at (0, 7) { $ans = \textcolor{black}{3}$ };
+            \node[anchor=west] at (0, 6.5) { $c = \textcolor{blue}{1}$ };
+            \node[opacity=0,anchor=west] at (0, 2) { $c = 0$ };
+
+            \draw (3, 4) grid (8, 5);
+
+            \node at (3.5, 4.5) { \tt \textcolor{black}{1} };
+            \node at (4.5, 4.5) { \tt \textcolor{black}{2} };
+            \node at (5.5, 4.5) { \tt \textcolor{black}{3} };
+            \node at (6.5, 4.5) { \tt \textcolor{black}{4} };
+            \node at (7.5, 4.5) { \tt 5 };
+ 
+            \draw[->] (6.5, 5.5) node[anchor=south] { $L$ } -- (6.5, 5.2);
+            \draw[->] (8.5, 3.5) node[anchor=north] { $R$ } -- (8.5, 3.8);
+
+        \end{tikzpicture}
+
+\end{frame}
+
+\begin{frame}[fragile]{Visualização do algoritmo do maior subvetor com, no máximo, $K=1$ números
+ímpares}
+
+        \begin{tikzpicture}
+            \node[anchor=west] at (0, 7) { $ans = \textcolor{black}{3}$ };
+            \node[anchor=west] at (0, 6.5) { $c = \textcolor{black}{1}$ };
+            \node[opacity=0,anchor=west] at (0, 2) { $c = 0$ };
+
+            \draw (3, 4) grid (8, 5);
+
+            \node at (3.5, 4.5) { \tt \textcolor{black}{1} };
+            \node at (4.5, 4.5) { \tt \textcolor{black}{2} };
+            \node at (5.5, 4.5) { \tt \textcolor{black}{3} };
+            \node at (6.5, 4.5) { \tt \textcolor{blue}{4} };
+            \node at (7.5, 4.5) { \tt \textcolor{red}{5} };
+ 
+            \draw[->] (6.5, 5.5) node[anchor=south] { $L$ } -- (6.5, 5.2);
+            \draw[->] (8.5, 3.5) node[anchor=north] { $R$ } -- (8.5, 3.8);
+
+        \end{tikzpicture}
+
+\end{frame}
+
+\begin{frame}[fragile]{Visualização do algoritmo do maior subvetor com, no máximo, $K=1$ números
+ímpares}
+
+        \begin{tikzpicture}
+            \node[anchor=west] at (0, 7) { $ans = \textcolor{black}{3}$ };
+            \node[anchor=west] at (0, 6.5) { $c = \textcolor{black}{1}$ };
+            \node[opacity=0,anchor=west] at (0, 2) { $c = 0$ };
+
+            \draw (3, 4) grid (8, 5);
+
+            \node at (3.5, 4.5) { \tt \textcolor{black}{1} };
+            \node at (4.5, 4.5) { \tt \textcolor{black}{2} };
+            \node at (5.5, 4.5) { \tt \textcolor{black}{3} };
+            \node at (6.5, 4.5) { \tt \textcolor{black}{4} };
+            \node at (7.5, 4.5) { \tt \textcolor{red}{5} };
+ 
+            \draw[->] (7.5, 5.5) node[anchor=south] { $L$ } -- (7.5, 5.2);
+            \draw[->] (8.5, 3.5) node[anchor=north] { $R$ } -- (8.5, 3.8);
+
+        \end{tikzpicture}
+
+\end{frame}
