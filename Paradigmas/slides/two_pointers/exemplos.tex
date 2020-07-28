@@ -23,7 +23,7 @@
 \begin{frame}[fragile]{Maior substring em ordem lexicográfica}
 
     \begin{itemize}
-        \item Porém, é possível utilizar a técnica \textit{two pointeirs} neste problema
+        \item Porém, é possível utilizar a técnica \textit{two pointers} neste problema
 
         \item Inicie $L$ no primeiro caractere de $S$
 
@@ -56,7 +56,7 @@
 \begin{frame}[fragile]{Maior subvetor com, no máximo, $K$ números ímpares}
 
     \begin{itemize}
-        \item Seja $\vec{v}$ um vetor com $N$ númerors inteiros
+        \item Seja $\vec{v}$ um vetor com $N$ números inteiros
 
         \item O problema consiste em terminar o maior subvetor $\vec{x} = \vec{v}[i..j]$ de 
             $\vec{v}$ que contenha, no máximo, $K$ números ímpares
@@ -122,7 +122,7 @@
 
         \item Seja $\vec{v}$ um veto com $N$ inteiros
 
-        \item O problema de se deteminar o menor elemento de cada um dos $N - K + 1$ subintervalos
+        \item O problema de se determinar o menor elemento de cada um dos $N - K + 1$ subintervalos
             de tamanho $K$ pode ser resolvido com dois ponteiros e duas pilhas $P_{in}$ e 
             $P_{out}$
 
@@ -191,4 +191,57 @@
 
 \begin{frame}[fragile]{Implementação}
     \inputsnippet{cpp}{64}{84}{codes/minimum.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{2SUM}
+
+    \begin{itemize}
+        \item O 2SUM é um problema bastante conhecido: dado um vetor $\vec{v}$ com $N$ inteiros,
+            determine se, para um dado S, existem dois elementos $v_i$ e $v_j$ tais que 
+            $v_i + v_j = S$
+
+        \item Há $O(N^2)$ pares de elementos de $\vec{v}$, de modo que uma solução que verificasse
+            cada um destes pares teria complexidade $O(N^2)$
+
+        \item É possível usar a técnica dos dois ponteiros para reduzir complexidade
+
+        \item Se $\vec{v}$ não estiver ordenado, ordene-o em ordem não-decrescente
+
+        \item Inicie os ponteiros $L = 0$ e $R = N - 1$
+
+        \item Enquanto $R > L$ (ou $R\geq L$, se um elemento puder se utilizado duas vezes) e
+            $\vec{v}[L] + \vec{v}[R] > S$, decremente $R$
+
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{2SUM}
+
+    \begin{itemize}
+        \item Caso $\vec{v}[L] + \vec{v}[R] = S$, a solução foi encontrada e o algoritmo
+            termina
+
+        \item Caso contrário, incremente $L$ e repita o processo
+
+        \item Se $L$ atingir o valor $N$, ou se, em algum momento, $R < L$, o algoritmo finalizará
+            e o problema não tem solução
+
+        \item Este problema é um exemplo onde os ponteiros avançam em direções opostas
+
+        \item Como cada elemento é observado, no máximo, uma única vez por cada ponteiros, a
+            complexidade do algoritmo é $O(N)$
+
+        \item Caso o vetor não esteja inicialmente ordenado, a complexidade passa a ser
+            $O(N\log N)$, devido ao algoritmo de ordenação
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Implementação do 2SUM}
+    \inputsnippet{cpp}{1}{21}{codes/2sum.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Implementação do 2SUM}
+    \inputsnippet{cpp}{22}{42}{codes/2sum.cpp}
 \end{frame}
