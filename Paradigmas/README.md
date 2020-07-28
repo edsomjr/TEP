@@ -7,7 +7,7 @@ Paradigmas de Resolução de Problemas
     1. [_Meet in the middle_](slides/meet_in_the_middle/meet_in_the_middle.pdf) ([problemas resolvidos](problems/meet_in_the_middle/meet_in_the_middle.pdf))
     1. [_Two Pointers_](slides/two_pointers/two_pointers.pdf)
 1. Algoritmos Gulosos
-    1. [Definição](slides/GD-1/GD-1.pdf) ([problemas resolvidos](problems/GD-1/GD-1.pdf))
+    1. [Definição](slides/gulosos/gulosos.pdf) ([problemas resolvidos](problems/gulosos/gulosos.pdf))
 
 <!---
 Busca completa:
