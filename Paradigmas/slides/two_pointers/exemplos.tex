@@ -84,11 +84,8 @@
         \item Um contador $c$, inicialmente igual a zero, manterá o registro do número de elementos
             ímpares dentre os elementos de $\vec{v}$ cujos índices estão no intervalo $[L, R)$
 
-        \item Assim, para cada valor $L$, primeiramente se atualiza o contador $c$, de acordo
-            com o valor de $\vec{v}[L]$
-
-        \item Caso $c\leq K$, o ponteiro $R$ apontará para $L + 1$ ou manterá o seu valor, o que
-            estiver mais distante do início do vetor
+        \item Para cada valor de $L$, o ponteiro $R$ apontará para $L$ ou manterá o seu valor, o 
+            que estiver mais distante do início do vetor
 
         \item Enquanto $R$ apontar para um elemento par, ou apontar para um ímpar com o contador
             $c < K$, o contador é atualizado com o valor de $\vec{v}[R]$ e $R$ é incrementado
@@ -96,8 +93,8 @@
         \item Ao final deste processo, a resposta é atualizada em relação ao tamanho do subvetor
             válido ($R - L$)
 
-        \item Por fim, o contador é decrementado, de acordo com o valor de $\vec{v}[L]$, e $L$
-            é incrementado
+        \item Por fim, o contador é ajustado, caso o valor de $\vec{v}[L]$ tenha sido
+            considerado, e $L$ é incrementado
 
         \item A complexidade da solução é $O(N)$
     \end{itemize}
@@ -140,7 +137,7 @@
         \item Nos demais casos, $m = \min\{ x, M \}$, onde $M$ é o segundo elemento do par que
             está no topo da pilha
 
-        \item Inicialmente, inseri os primeiros $K$ elementos de $\vec{v}$ na pilha $P_{in}$
+        \item Inicialmente, insera os primeiros $K$ elementos de $\vec{v}$ na pilha $P_{in}$
 
         \item O segundo elemento do par do topo de $P_{in}$ será a resposta para o primeiro 
             intervalo
@@ -224,7 +221,7 @@
 
         \item Caso contrário, incremente $L$ e repita o processo
 
-        \item Se $L$ atingir o valor $N$, ou se, em algum momento, $R < L$, o algoritmo finalizará
+        \item Se, em algum momento, $R < L$, o algoritmo finalizará
             e o problema não tem solução
 
         \item Este problema é um exemplo onde os ponteiros avançam em direções opostas
