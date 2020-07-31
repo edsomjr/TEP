@@ -1,0 +1,114 @@
+\section{Codechef -- Naruto and Rectangles}
+
+\begin{frame}[fragile]{Problema}
+
+Given $n$ non-negative integers $a_1, a_2, \ldots, a_n$, where each represents a point at 
+coordinate $(i, a_i)$. $n$ vertical lines are drawn such that the two endpoints of the line $i$ is
+at $(i, a_i)$ and $(i, 0)$.
+
+Naruto wants to draw a rectangle using these lines. The base should be the $x$-axis, while the 
+two sides should be any two lines from the above-given lines. The other lines will magically 
+disappear. Note that he cannot move the lines. The only action done my Naruto is to draw the top 
+line of the rectangle by connecting any two lines.
+
+Now naruto wants to know the maximum possible area of rectangle he can get. Help him find it.
+\end{frame}
+
+\begin{frame}[fragile]{Entrada e saída}
+
+\textbf{Input}
+
+\begin{itemize}
+    \item First line will contain $T$, number of testcases. Then the testcases follow.
+    \item First line of each testcase contains $n$.
+    \item Second line contains $n$ space separated integers $a_1, a_2, \ldots, a_n$.
+\end{itemize}
+
+\textbf{Output}
+
+For each testcase, output in a single line, the maximum area.
+
+\textbf{Constraints}
+
+\begin{itemize}
+    \item $1 \leq T \leq 10$
+    \item $2 \leq N \leq 10^5$
+    \item $2 \leq a_i \leq 10^3$
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de entradas e saídas}
+
+\begin{minipage}[t]{0.5\textwidth}
+\textbf{Sample Input}
+\begin{verbatim}
+1
+9
+1 8 6 2 5 4 8 3 7
+\end{verbatim}
+\end{minipage}
+\begin{minipage}[t]{0.45\textwidth}
+\textbf{Sample Output}
+\begin{verbatim}
+49
+\end{verbatim}
+\end{minipage}
+\end{frame}
+
+\begin{frame}[fragile]{Solução com complexidade $O(N\log N)$}
+
+    \begin{itemize}
+        \item Para cada par $(i, j)$, com $j > i$, o retângulo de maior área que pode ser
+            formado terá base $b = (j - i)$ e altura $h = \min(a_i, a_j)$
+
+        \item Como há $O(N^2)$ pares deste tipo, uma solução que verifique todos eles tem
+            complexidade $O(N^2)$ e, neste problema, tem veredito TLE
+
+        \item Observe que, para um $i$ fixo, basta verificar apenas dois índices: o elemento $L$
+            mais à esquerda de $i$ com $a_L \geq a_i$ e o elemento $R$ mais à direita de $i$ tal
+            que $a_R\geq a_i$
+
+        \item Estes dois elementos podem ser identificados, de forma eficiente, por meio de
+            ordenação e dois ponteiros
+
+        \item Primeiramente, monte um vetor de pares $(a_i, i)$ e ordene este vetor em ordem
+            não-crescente
+   \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Solução com complexidade $O(N)$}
+
+    \begin{itemize}
+        \item Inicialize os ponteiros $L = \infty$ e $R = -\infty$, e a resposta com zero
+
+        \item Para cada par do vetor ordenado, processe o par $(L, i)$, se $L < i$, e o par
+            $(i, R)$, se $R > i$
+
+        \item Após uma possível atualização da resposta, ajuste os ponteiros: $L = \min(L, i)$,
+            $R = \max(R, i)$
+
+        \item Observe que, com esta estratégia, a altura $a_i$ do próximo elemento a ser processado
+            será inferior à altura dos elementos já processados, de modo que ela pode ser 
+            combinada, de forma ótima, com qualquer um deles
+        
+        \item Por isso basta manter o registro, dentre eles, do que está mais à esquerda ($L$)
+            e mais à direta ($R$) do vetor
+
+        \item Esta solução tem complexidade $O(N\log N)$, por causa da ordenação
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Solução AC com complexidade $O(N\log N)$}
+    \inputsnippet{cpp}{1}{21}{codes/COW207.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Solução AC com complexidade $O(N\log N)$}
+    \inputsnippet{cpp}{22}{42}{codes/COW207.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Solução AC com complexidade $O(N\log N)$}
+    \inputsnippet{cpp}{43}{63}{codes/COW207.cpp}
+\end{frame}
