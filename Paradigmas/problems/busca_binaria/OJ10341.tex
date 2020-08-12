@@ -1,0 +1,83 @@
+\section{OJ 10341 -- Solve It}
+
+\begin{frame}[fragile]{Problema}
+
+Solve the equation:
+\[
+    p\times e^{-x} + q\times \sin(x) + r\times \cos(x) + s\times \tan(x) + t\times x^2 + u = 0
+\]
+where $0\leq x\leq 1$.
+
+\end{frame}
+
+\begin{frame}[fragile]{Entrada e saída}
+
+\textbf{Input}
+
+Input consists of multiple test cases and terminated by an \texttt{EOF}. Each test case consists 
+of 6 integers in a single line: $p, q, r, s, t$ and $u$ (where $0\leq p, r\leq 20$ and $-20\leq q, s, t\leq 0$). There will be maximum 2100 lines in the input file.
+
+\vspace{0.1in}
+
+\textbf{Output}
+
+For each set of input, there should be a line containing the value of $x$, correct up to 4 
+decimal places, or the string `\texttt{No solution}', whichever is applicable.
+
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de entradas e saídas}
+
+\begin{minipage}[t]{0.5\textwidth}
+\textbf{Exemplo de Entrada}
+\begin{verbatim}
+0 0 0 0 -2 1
+1 0 0 0 -1 2
+1 -1 1 -1 -1 1
+\end{verbatim}
+\end{minipage}
+\begin{minipage}[t]{0.45\textwidth}
+\textbf{Exemplo de Saída}
+\begin{verbatim}
+0.7071
+No solution
+0.7554
+\end{verbatim}
+\end{minipage}
+\end{frame}
+
+\begin{frame}[fragile]{Solução}
+
+    \begin{itemize}
+        \item Seja
+        \[
+            f(x) = p\times e^{-x} + q\times \sin(x) + r\times \cos(x) + s\times \tan(x) + t\times x^2 + u
+        \]
+
+        \item Observe que $f(x)$ é contínua no intervalo $[0, 1]$
+
+        \item Assim, caso $f(0)$ e $f(1)$ tenham sinais opostos, há garantias de que existe ao
+            ao menos um $c \in [0, 1]$ tal que $f(c) = 0$ 
+
+        \item Logo, se $f(0)$ e $f(1)$ tem sinais iguais, a resposta será `\texttt{No solution}'
+
+        \item Caso contrário, a resposta pode ser determinada por meio de uma busca binária
+
+        \item A busca deve continuar até que se tenha a garantia de 4 casas decimais corretas
+
+        \item Estabelecer um limiar $\epsilon = 10^{-6}$ é suficiente para tal precisão
+   \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Solução}
+    \inputsnippet{cpp}{1}{21}{codes/10341.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Solução}
+    \inputsnippet{cpp}{22}{42}{codes/10341.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Solução}
+    \inputsnippet{cpp}{43}{63}{codes/10341.cpp}
+\end{frame}

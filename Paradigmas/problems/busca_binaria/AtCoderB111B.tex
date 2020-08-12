@@ -1,0 +1,84 @@
+\section{AtCoder Beginner Contest 111 -- Problem B: AtCoder Beginner Contest 111}
+
+\begin{frame}[fragile]{Problema}
+
+Kurohashi has never participated in AtCoder Beginner Contest (ABC).
+
+The next ABC to be held is ABC $N$ (the $N$-th ABC ever held). Kurohashi wants to make his debut 
+in some ABC $x$ such that all the digits of $x$ in base ten are the same.
+
+What is the earliest ABC where Kurohashi can make his debut?
+
+\end{frame}
+
+\begin{frame}[fragile]{Entrada e saída}
+
+\textbf{Constraints}
+
+\begin{itemize}
+    \item $100\leq N\leq 999$
+    \item $N$ is an integer.
+\end{itemize}
+
+\textbf{Input}
+
+Input is given from Standard Input in the following format:
+\begin{align*}
+N
+\end{align*}
+
+\textbf{Output}
+
+If the earliest ABC where Kurohashi can make his debut is ABC $n$, print $n$.
+
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de entradas e saídas}
+
+\begin{minipage}[t]{0.5\textwidth}
+\textbf{Exemplo de Entrada}
+\begin{verbatim}
+111
+
+112
+
+750
+\end{verbatim}
+\end{minipage}
+\begin{minipage}[t]{0.45\textwidth}
+\textbf{Exemplo de Saída}
+\begin{verbatim}
+111
+
+222
+
+777
+\end{verbatim}
+\end{minipage}
+\end{frame}
+
+\begin{frame}[fragile]{Solução}
+
+    \begin{itemize}
+        \item Há apenas 9 possibilidades para a resposta: $111, 222, 333, 444, 555, 666, 777,
+            888$ e $999$
+
+        \item A resposta será o menor dentre entes valores que é maior ou igual a $N$
+
+        \item Tal valor pode ser localizado através de uma busca linear simples
+
+        \item Outra alternativa é utilizar a função \code{c}{lower_bound()} da STL
+
+        \item Em ambos casos, a complexidade da solução é constante, pois há, no máximo, 9
+            comparações a serem feitas, independentemente do valor de $N$
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Solução $O(1)$}
+    \inputsnippet{cpp}{1}{16}{codes/111B.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Solução $O(1)$}
+    \inputsnippet{cpp}{17}{37}{codes/111B.cpp}
+\end{frame}

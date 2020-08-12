@@ -1,0 +1,108 @@
+\section{Codeforces Round \#251 (Div. 2) -- Problem D: Devu and his Brother}
+
+\begin{frame}[fragile]{Problema}
+
+Devu and his brother love each other a lot. As they are super geeks, they only like to play with 
+arrays. They are given two arrays $a$ and $b$ by their father. The array $a$ is given to Devu and 
+$b$ to his brother.
+
+As Devu is really a naughty kid, he wants the minimum value of his array $a$ should be at least as 
+much as the maximum value of his brother's array $b$.
+
+Now you have to help Devu in achieving this condition. You can perform multiple operations on the 
+arrays. In a single operation, you are allowed to decrease or increase any element of any of the 
+arrays by 1. Note that you are allowed to apply the operation on any index of the array multiple 
+times.
+
+You need to find minimum number of operations required to satisfy Devu's condition so that the 
+brothers can play peacefully without fighting.
+
+\end{frame}
+
+\begin{frame}[fragile]{Entrada e saída}
+
+\textbf{Input}
+
+The first line contains two space-separated integers $n$, $m$ $(1\leq n, m\leq 10^5)$. The second 
+line will contain $n$ space-separated integers representing content of the array $a$ 
+$(1\leq a_i\leq 10^9)$. The third line will contain $m$ space-separated integers representing 
+content of the array $b$ $(1\leq b_i\leq 10^9)$.
+
+\textbf{Output}
+
+You need to output a single integer representing the minimum number of operations needed to satisfy Devu's condition.
+
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de entradas e saídas}
+
+\begin{minipage}[t]{0.5\textwidth}
+\textbf{Sample Input}
+\begin{verbatim}
+2 2
+2 3
+3 5
+
+3 2
+1 2 3
+3 4
+
+3 2
+4 5 6
+1 2
+\end{verbatim}
+\end{minipage}
+\begin{minipage}[t]{0.45\textwidth}
+\textbf{Sample Output}
+\begin{verbatim}
+3
+
+
+
+4
+
+
+
+0
+\end{verbatim}
+\end{minipage}
+\end{frame}
+
+\begin{frame}[fragile]{Solução com complexidade $O(N\log N)$}
+
+    \begin{itemize}
+        \item Seja $f(x) = \sum_i \alpha(a_i, x)$, onde $\alpha(a_i, x) = x - a_i$, se $a_i < x$,
+            e $\alpha(a_i, x) = 0$, caso contrário
+
+        \item De forma semelhante, seja $g(x) = \sum_j \beta(b_j, x)$, onde 
+            $\beta(b_j, x) = b_j - x$, se $b_j > x$, e $\beta(b_j, x) = 0$, caso contrário
+
+        \item Observe que as funções $f(x)$ e $g(x)$ representam os custos para tornar $x$ uma
+            cota inferior ou superior dos vetores $a$ e $b$, respectivamente
+
+        \item Assim, o problema consiste em determinar o mínimo da função $h(x) = f(x) + g(x)$
+
+        \item Observe que $h'(x) = \mu(a, x) - \rho(b, x)$, onde $\mu(c, x)$ é o número de 
+            elementos do vetor $a$ menores do que $x$ e $\rho(b, x)$ é o número de elementos do
+            vetor $b$ maiores do que $x$
+
+        \item Como a função $\mu(a, x)$ é não-decrescente e a função $\rho(c, x)$ é não-crescente, 
+            a $h'(x)$ é não-decrescente
+
+        \item Isto significa que $h''(x) \geq 0$, ou seja, $h(x)$ é convexa (unimodal),
+            de modo que seu mínimo pode ser obtido através de uma busca ternária
+   \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Solução AC com complexidade $O(N\log N)$}
+    \inputsnippet{cpp}{1}{20}{codes/439D.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Solução AC com complexidade $O(N\log N)$}
+    \inputsnippet{cpp}{21}{41}{codes/439D.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Solução AC com complexidade $O(N\log N)$}
+    \inputsnippet{cpp}{42}{62}{codes/439D.cpp}
+\end{frame}
