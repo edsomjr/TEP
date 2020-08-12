@@ -28,4 +28,6 @@ Introdução à Programação Competitiva
 2. Análise amortizada
 3. Master theorem para funções recursivas/dividir e conquistar
 4. Análise de complexidade: exemplo do Donald Knuth
+5. Novos algoritmos de ordenação: https://github.com/scandum/quadsort e https://github.com/scandum/wolfsort
+
 -->
