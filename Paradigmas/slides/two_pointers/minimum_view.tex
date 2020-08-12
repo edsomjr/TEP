@@ -1,0 +1,798 @@
+\begin{frame}[fragile]{Visualização do menor elemento em cada um dos subvetores de tamanho $K = 3$}
+
+    \begin{figure}
+        \centering
+
+        \begin{tikzpicture}
+            \draw (1, 4) grid (11, 5);
+
+            \node at (1.5, 4.5) { \tt 1 };
+            \node at (2.5, 4.5) { \tt 3 };
+            \node at (3.5, 4.5) { \tt 2 };
+            \node at (4.5, 4.5) { \tt 3 };
+            \node at (5.5, 4.5) { \tt 4 };
+            \node at (6.5, 4.5) { \tt 5 };
+            \node at (7.5, 4.5) { \tt 8 };
+            \node at (8.5, 4.5) { \tt 2 };
+            \node at (9.5, 4.5) { \tt 7 };
+            \node at (10.5, 4.5) { \tt 5 };
+
+            \draw (1, 0) -- (11, 0);
+
+%            \draw[->] (1.5, 5.5) node[anchor=south] { $L$ } -- (1.5, 5.2);
+            \draw[->,opacity=0] (1.5, 5.5) node[anchor=south] { $R$ } -- (1.5, 5.2);
+
+            \draw[opacity=0] (3, 0) rectangle (5, 1);
+            \draw[opacity=0] (3, 1) rectangle (5, 2);
+            \draw[opacity=0] (3, 2) rectangle (5, 3);
+
+            \draw[opacity=0] (7, 0) rectangle (9, 1);
+            \draw[opacity=0] (7, 1) rectangle (9, 2);
+            \draw[opacity=0] (7, 2) rectangle (9, 3);
+
+            \node at (4, -0.5) { $P_{in}$ };
+            \node at (8, -0.5) { $P_{out}$ };
+
+        \end{tikzpicture}
+
+    \end{figure}
+
+\end{frame}
+
+\begin{frame}[fragile]{Visualização do menor elemento em cada um dos subvetores de tamanho $K = 3$}
+
+    \begin{figure}
+        \centering
+
+        \begin{tikzpicture}
+            \draw (1, 4) grid (11, 5);
+
+            \node at (1.5, 4.5) { \tt 1 };
+            \node at (2.5, 4.5) { \tt 3 };
+            \node at (3.5, 4.5) { \tt 2 };
+            \node at (4.5, 4.5) { \tt 3 };
+            \node at (5.5, 4.5) { \tt 4 };
+            \node at (6.5, 4.5) { \tt 5 };
+            \node at (7.5, 4.5) { \tt 8 };
+            \node at (8.5, 4.5) { \tt 2 };
+            \node at (9.5, 4.5) { \tt 7 };
+            \node at (10.5, 4.5) { \tt 5 };
+
+            \draw (1, 0) -- (11, 0);
+
+%            \draw[->] (1.5, 5.5) node[anchor=south] { $L$ } -- (1.5, 5.2);
+            \draw[->,opacity=1] (1.5, 5.5) node[anchor=south] { $R$ } -- (1.5, 5.2);
+
+            \draw[opacity=1] (3, 0) rectangle (5, 1);
+            \node at (4, 0.5) { \tt (1, 1) };
+
+            \draw[opacity=0] (3, 1) rectangle (5, 2);
+            \draw[opacity=0] (3, 2) rectangle (5, 3);
+
+            \draw[opacity=0] (7, 0) rectangle (9, 1);
+            \draw[opacity=0] (7, 1) rectangle (9, 2);
+            \draw[opacity=0] (7, 2) rectangle (9, 3);
+
+            \node at (4, -0.5) { $P_{in}$ };
+            \node at (8, -0.5) { $P_{out}$ };
+
+        \end{tikzpicture}
+
+    \end{figure}
+
+\end{frame}
+
+\begin{frame}[fragile]{Visualização do menor elemento em cada um dos subvetores de tamanho $K = 3$}
+
+    \begin{figure}
+        \centering
+
+        \begin{tikzpicture}
+            \draw (1, 4) grid (11, 5);
+
+            \node at (1.5, 4.5) { \tt 1 };
+            \node at (2.5, 4.5) { \tt 3 };
+            \node at (3.5, 4.5) { \tt 2 };
+            \node at (4.5, 4.5) { \tt 3 };
+            \node at (5.5, 4.5) { \tt 4 };
+            \node at (6.5, 4.5) { \tt 5 };
+            \node at (7.5, 4.5) { \tt 8 };
+            \node at (8.5, 4.5) { \tt 2 };
+            \node at (9.5, 4.5) { \tt 7 };
+            \node at (10.5, 4.5) { \tt 5 };
+
+            \draw (1, 0) -- (11, 0);
+
+%            \draw[->] (1.5, 5.5) node[anchor=south] { $L$ } -- (1.5, 5.2);
+            \draw[->,opacity=1] (2.5, 5.5) node[anchor=south] { $R$ } -- (2.5, 5.2);
+
+            \draw[opacity=1] (3, 0) rectangle (5, 1);
+            \node at (4, 0.5) { \tt (1, 1) };
+
+            \draw[opacity=1] (3, 1) rectangle (5, 2);
+            \node at (4, 1.5) { \tt (3, 1) };
+
+            \draw[opacity=0] (3, 2) rectangle (5, 3);
+
+            \draw[opacity=0] (7, 0) rectangle (9, 1);
+            \draw[opacity=0] (7, 1) rectangle (9, 2);
+            \draw[opacity=0] (7, 2) rectangle (9, 3);
+
+            \node at (4, -0.5) { $P_{in}$ };
+            \node at (8, -0.5) { $P_{out}$ };
+
+        \end{tikzpicture}
+
+    \end{figure}
+
+\end{frame}
+
+\begin{frame}[fragile]{Visualização do menor elemento em cada um dos subvetores de tamanho $K = 3$}
+
+    \begin{figure}
+        \centering
+
+        \begin{tikzpicture}
+            \draw (1, 4) grid (11, 5);
+
+            \node at (1.5, 4.5) { \tt 1 };
+            \node at (2.5, 4.5) { \tt 3 };
+            \node at (3.5, 4.5) { \tt 2 };
+            \node at (4.5, 4.5) { \tt 3 };
+            \node at (5.5, 4.5) { \tt 4 };
+            \node at (6.5, 4.5) { \tt 5 };
+            \node at (7.5, 4.5) { \tt 8 };
+            \node at (8.5, 4.5) { \tt 2 };
+            \node at (9.5, 4.5) { \tt 7 };
+            \node at (10.5, 4.5) { \tt 5 };
+
+            \draw (1, 0) -- (11, 0);
+
+%            \draw[->] (1.5, 5.5) node[anchor=south] { $L$ } -- (1.5, 5.2);
+            \draw[->,opacity=1] (3.5, 5.5) node[anchor=south] { $R$ } -- (3.5, 5.2);
+
+            % Pin
+            \draw[opacity=1] (3, 0) rectangle (5, 1);
+            \node at (4, 0.5) { \tt (1, 1) };
+
+            \draw[opacity=1] (3, 1) rectangle (5, 2);
+            \node at (4, 1.5) { \tt (3, 1) };
+
+            \draw[opacity=1] (3, 2) rectangle (5, 3);
+            \node at (4, 2.5) { \tt (2, 1) };
+
+            % Pout
+            \draw[opacity=0] (7, 0) rectangle (9, 1);
+            \draw[opacity=0] (7, 1) rectangle (9, 2);
+            \draw[opacity=0] (7, 2) rectangle (9, 3);
+
+            \node at (4, -0.5) { $P_{in}$ };
+            \node at (8, -0.5) { $P_{out}$ };
+
+        \end{tikzpicture}
+
+    \end{figure}
+
+\end{frame}
+
+\begin{frame}[fragile]{Visualização do menor elemento em cada um dos subvetores de tamanho $K = 3$}
+
+    \begin{figure}
+        \centering
+
+        \begin{tikzpicture}
+            \draw (1, 4) grid (11, 5);
+
+            \node at (1.5, 4.5) { \texttt{\textbf{1}} };
+            \node at (2.5, 4.5) { \tt \textcolor{blue}{3} };
+            \node at (3.5, 4.5) { \tt \textcolor{blue}{2} };
+            \node at (4.5, 4.5) { \tt 3 };
+            \node at (5.5, 4.5) { \tt 4 };
+            \node at (6.5, 4.5) { \tt 5 };
+            \node at (7.5, 4.5) { \tt 8 };
+            \node at (8.5, 4.5) { \tt 2 };
+            \node at (9.5, 4.5) { \tt 7 };
+            \node at (10.5, 4.5) { \tt 5 };
+
+            \draw (1, 0) -- (11, 0);
+
+%            \draw[->] (1.5, 5.5) node[anchor=south] { $L$ } -- (1.5, 5.2);
+            \draw[->,opacity=1] (3.5, 5.5) node[anchor=south] { $R$ } -- (3.5, 5.2);
+
+            % Pin
+            \draw[opacity=1] (3, 0) rectangle (5, 1);
+            \node at (4, 0.5) { \tt (1, 1) };
+
+            \draw[opacity=1] (3, 1) rectangle (5, 2);
+            \node at (4, 1.5) { \tt (3, 1) };
+
+            \draw[opacity=1] (3, 2) rectangle (5, 3);
+            \node at (4, 2.5) { \tt (2, \texttt{\textbf{1}}) };
+
+            % Pout
+            \draw[opacity=0] (7, 0) rectangle (9, 1);
+            \draw[opacity=0] (7, 1) rectangle (9, 2);
+            \draw[opacity=0] (7, 2) rectangle (9, 3);
+
+            \node at (4, -0.5) { $P_{in}$ };
+            \node at (8, -0.5) { $P_{out}$ };
+
+        \end{tikzpicture}
+
+    \end{figure}
+
+\end{frame}
+
+\begin{frame}[fragile]{Visualização do menor elemento em cada um dos subvetores de tamanho $K = 3$}
+
+    \begin{figure}
+        \centering
+
+        \begin{tikzpicture}
+            \draw (1, 4) grid (11, 5);
+
+            \node at (1.5, 4.5) { {1} };
+            \node at (2.5, 4.5) { \tt \textcolor{black}{3} };
+            \node at (3.5, 4.5) { \tt \textcolor{black}{2} };
+            \node at (4.5, 4.5) { \tt 3 };
+            \node at (5.5, 4.5) { \tt 4 };
+            \node at (6.5, 4.5) { \tt 5 };
+            \node at (7.5, 4.5) { \tt 8 };
+            \node at (8.5, 4.5) { \tt 2 };
+            \node at (9.5, 4.5) { \tt 7 };
+            \node at (10.5, 4.5) { \tt 5 };
+
+            \draw (1, 0) -- (11, 0);
+
+            \draw[->] (1.5, 5.5) node[anchor=south] { $L$ } -- (1.5, 5.2);
+            \draw[->,opacity=1] (4.5, 5.5) node[anchor=south] { $R$ } -- (4.5, 5.2);
+
+            % Pin
+            \draw[opacity=1] (3, 0) rectangle (5, 1);
+            \node at (4, 0.5) { \tt (1, 1) };
+
+            \draw[opacity=1] (3, 1) rectangle (5, 2);
+            \node at (4, 1.5) { \tt (3, 1) };
+
+            \draw[opacity=1] (3, 2) rectangle (5, 3);
+            \node at (4, 2.5) { \tt (2, {{1}}) };
+
+            % Pout
+            \draw[opacity=0] (7, 0) rectangle (9, 1);
+            \draw[opacity=0] (7, 1) rectangle (9, 2);
+            \draw[opacity=0] (7, 2) rectangle (9, 3);
+
+            \node at (4, -0.5) { $P_{in}$ };
+            \node at (8, -0.5) { $P_{out}$ };
+
+        \end{tikzpicture}
+
+    \end{figure}
+
+\end{frame}
+
+\begin{frame}[fragile]{Visualização do menor elemento em cada um dos subvetores de tamanho $K = 3$}
+
+    \begin{figure}
+        \centering
+
+        \begin{tikzpicture}
+            \draw (1, 4) grid (11, 5);
+
+            \node at (1.5, 4.5) { {1} };
+            \node at (2.5, 4.5) { \tt \textcolor{black}{3} };
+            \node at (3.5, 4.5) { \tt \textcolor{black}{2} };
+            \node at (4.5, 4.5) { \tt 3 };
+            \node at (5.5, 4.5) { \tt 4 };
+            \node at (6.5, 4.5) { \tt 5 };
+            \node at (7.5, 4.5) { \tt 8 };
+            \node at (8.5, 4.5) { \tt 2 };
+            \node at (9.5, 4.5) { \tt 7 };
+            \node at (10.5, 4.5) { \tt 5 };
+
+            \draw (1, 0) -- (11, 0);
+
+            \draw[->] (1.5, 5.5) node[anchor=south] { $L$ } -- (1.5, 5.2);
+            \draw[->,opacity=1] (4.5, 5.5) node[anchor=south] { $R$ } -- (4.5, 5.2);
+
+            % Pin
+            \draw[opacity=1] (3, 0) rectangle (5, 1);
+            \node at (4, 0.5) { \tt (1, 1) };
+
+            \draw[opacity=1] (3, 1) rectangle (5, 2);
+            \node at (4, 1.5) { \tt (3, 1) };
+
+            %\draw[opacity=1] (3, 2) rectangle (5, 3);
+            %\node at (4, 2.5) { \tt (2, {{1}}) };
+
+            % Pout
+            \draw[opacity=1] (7, 0) rectangle (9, 1);
+            \node at (8, 0.5) { \tt (2, {{2}}) };
+
+            \draw[opacity=0] (7, 1) rectangle (9, 2);
+            \draw[opacity=0] (7, 2) rectangle (9, 3);
+
+            \node at (4, -0.5) { $P_{in}$ };
+            \node at (8, -0.5) { $P_{out}$ };
+
+        \end{tikzpicture}
+
+    \end{figure}
+
+\end{frame}
+
+\begin{frame}[fragile]{Visualização do menor elemento em cada um dos subvetores de tamanho $K = 3$}
+
+    \begin{figure}
+        \centering
+
+        \begin{tikzpicture}
+            \draw (1, 4) grid (11, 5);
+
+            \node at (1.5, 4.5) { {1} };
+            \node at (2.5, 4.5) { \tt \textcolor{black}{3} };
+            \node at (3.5, 4.5) { \tt \textcolor{black}{2} };
+            \node at (4.5, 4.5) { \tt 3 };
+            \node at (5.5, 4.5) { \tt 4 };
+            \node at (6.5, 4.5) { \tt 5 };
+            \node at (7.5, 4.5) { \tt 8 };
+            \node at (8.5, 4.5) { \tt 2 };
+            \node at (9.5, 4.5) { \tt 7 };
+            \node at (10.5, 4.5) { \tt 5 };
+
+            \draw (1, 0) -- (11, 0);
+
+            \draw[->] (1.5, 5.5) node[anchor=south] { $L$ } -- (1.5, 5.2);
+            \draw[->,opacity=1] (4.5, 5.5) node[anchor=south] { $R$ } -- (4.5, 5.2);
+
+            % Pin
+            \draw[opacity=1] (3, 0) rectangle (5, 1);
+            \node at (4, 0.5) { \tt (1, 1) };
+
+            %\draw[opacity=1] (3, 1) rectangle (5, 2);
+            %\node at (4, 1.5) { \tt (3, 1) };
+
+            %\draw[opacity=1] (3, 2) rectangle (5, 3);
+            %\node at (4, 2.5) { \tt (2, {{1}}) };
+
+            % Pout
+            \draw[opacity=1] (7, 0) rectangle (9, 1);
+            \node at (8, 0.5) { \tt (2, {{2}}) };
+
+            \draw[opacity=1] (7, 1) rectangle (9, 2);
+            \node at (8, 1.5) { \tt (3, {{2}}) };
+
+            \draw[opacity=0] (7, 2) rectangle (9, 3);
+
+            \node at (4, -0.5) { $P_{in}$ };
+            \node at (8, -0.5) { $P_{out}$ };
+
+        \end{tikzpicture}
+
+    \end{figure}
+
+\end{frame}
+
+\begin{frame}[fragile]{Visualização do menor elemento em cada um dos subvetores de tamanho $K = 3$}
+
+    \begin{figure}
+        \centering
+
+        \begin{tikzpicture}
+            \draw (1, 4) grid (11, 5);
+
+            \node at (1.5, 4.5) { {1} };
+            \node at (2.5, 4.5) { \tt \textcolor{black}{3} };
+            \node at (3.5, 4.5) { \tt \textcolor{black}{2} };
+            \node at (4.5, 4.5) { \tt 3 };
+            \node at (5.5, 4.5) { \tt 4 };
+            \node at (6.5, 4.5) { \tt 5 };
+            \node at (7.5, 4.5) { \tt 8 };
+            \node at (8.5, 4.5) { \tt 2 };
+            \node at (9.5, 4.5) { \tt 7 };
+            \node at (10.5, 4.5) { \tt 5 };
+
+            \draw (1, 0) -- (11, 0);
+
+            \draw[->] (1.5, 5.5) node[anchor=south] { $L$ } -- (1.5, 5.2);
+            \draw[->,opacity=1] (4.5, 5.5) node[anchor=south] { $R$ } -- (4.5, 5.2);
+
+            % Pin
+            %\draw[opacity=1] (3, 0) rectangle (5, 1);
+            %\node at (4, 0.5) { \tt (1, 1) };
+
+            %\draw[opacity=1] (3, 1) rectangle (5, 2);
+            %\node at (4, 1.5) { \tt (3, 1) };
+
+            %\draw[opacity=1] (3, 2) rectangle (5, 3);
+            %\node at (4, 2.5) { \tt (2, {{1}}) };
+
+            % Pout
+            \draw[opacity=1] (7, 0) rectangle (9, 1);
+            \node at (8, 0.5) { \tt (2, {{2}}) };
+
+            \draw[opacity=1] (7, 1) rectangle (9, 2);
+            \node at (8, 1.5) { \tt (3, {{2}}) };
+
+            \draw[opacity=1] (7, 2) rectangle (9, 3);
+            \node at (8, 2.5) { \tt (1, {{1}}) };
+
+            \node at (4, -0.5) { $P_{in}$ };
+            \node at (8, -0.5) { $P_{out}$ };
+
+        \end{tikzpicture}
+
+    \end{figure}
+
+\end{frame}
+
+\begin{frame}[fragile]{Visualização do menor elemento em cada um dos subvetores de tamanho $K = 3$}
+
+    \begin{figure}
+        \centering
+
+        \begin{tikzpicture}
+            \draw (1, 4) grid (11, 5);
+
+            \node at (1.5, 4.5) { {1} };
+            \node at (2.5, 4.5) { \tt \textcolor{black}{3} };
+            \node at (3.5, 4.5) { \tt \textcolor{black}{2} };
+            \node at (4.5, 4.5) { \tt 3 };
+            \node at (5.5, 4.5) { \tt 4 };
+            \node at (6.5, 4.5) { \tt 5 };
+            \node at (7.5, 4.5) { \tt 8 };
+            \node at (8.5, 4.5) { \tt 2 };
+            \node at (9.5, 4.5) { \tt 7 };
+            \node at (10.5, 4.5) { \tt 5 };
+
+            \draw (1, 0) -- (11, 0);
+
+            \draw[->] (2.5, 5.5) node[anchor=south] { $L$ } -- (2.5, 5.2);
+            \draw[->,opacity=1] (4.5, 5.5) node[anchor=south] { $R$ } -- (4.5, 5.2);
+
+            % Pin
+            %\draw[opacity=1] (3, 0) rectangle (5, 1);
+            %\node at (4, 0.5) { \tt (1, 1) };
+
+            %\draw[opacity=1] (3, 1) rectangle (5, 2);
+            %\node at (4, 1.5) { \tt (3, 1) };
+
+            %\draw[opacity=1] (3, 2) rectangle (5, 3);
+            %\node at (4, 2.5) { \tt (2, {{1}}) };
+
+            % Pout
+            \draw[opacity=1] (7, 0) rectangle (9, 1);
+            \node at (8, 0.5) { \tt (2, {{2}}) };
+
+            \draw[opacity=1] (7, 1) rectangle (9, 2);
+            \node at (8, 1.5) { \tt (3, {{2}}) };
+
+            %\draw[opacity=1] (7, 2) rectangle (9, 3);
+            %\node at (8, 2.5) { \tt (1, {{1}}) };
+
+            \node at (4, -0.5) { $P_{in}$ };
+            \node at (8, -0.5) { $P_{out}$ };
+
+        \end{tikzpicture}
+
+    \end{figure}
+
+\end{frame}
+
+\begin{frame}[fragile]{Visualização do menor elemento em cada um dos subvetores de tamanho $K = 3$}
+
+    \begin{figure}
+        \centering
+
+        \begin{tikzpicture}
+            \draw (1, 4) grid (11, 5);
+
+            \node at (1.5, 4.5) { {1} };
+            \node at (2.5, 4.5) { \tt \textcolor{black}{3} };
+            \node at (3.5, 4.5) { \tt \textcolor{black}{2} };
+            \node at (4.5, 4.5) { \tt 3 };
+            \node at (5.5, 4.5) { \tt 4 };
+            \node at (6.5, 4.5) { \tt 5 };
+            \node at (7.5, 4.5) { \tt 8 };
+            \node at (8.5, 4.5) { \tt 2 };
+            \node at (9.5, 4.5) { \tt 7 };
+            \node at (10.5, 4.5) { \tt 5 };
+
+            \draw (1, 0) -- (11, 0);
+
+            \draw[->] (2.5, 5.5) node[anchor=south] { $L$ } -- (2.5, 5.2);
+            \draw[->,opacity=1] (5.5, 5.5) node[anchor=south] { $R$ } -- (5.5, 5.2);
+
+            % Pin
+            \draw[opacity=1] (3, 0) rectangle (5, 1);
+            \node at (4, 0.5) { \tt (3, 3) };
+
+            %\draw[opacity=1] (3, 1) rectangle (5, 2);
+            %\node at (4, 1.5) { \tt (3, 1) };
+
+            %\draw[opacity=1] (3, 2) rectangle (5, 3);
+            %\node at (4, 2.5) { \tt (2, {{1}}) };
+
+            % Pout
+            \draw[opacity=1] (7, 0) rectangle (9, 1);
+            \node at (8, 0.5) { \tt (2, {{2}}) };
+
+            \draw[opacity=1] (7, 1) rectangle (9, 2);
+            \node at (8, 1.5) { \tt (3, {{2}}) };
+
+            %\draw[opacity=1] (7, 2) rectangle (9, 3);
+            %\node at (8, 2.5) { \tt (1, {{1}}) };
+
+            \node at (4, -0.5) { $P_{in}$ };
+            \node at (8, -0.5) { $P_{out}$ };
+
+        \end{tikzpicture}
+
+    \end{figure}
+
+\end{frame}
+
+\begin{frame}[fragile]{Visualização do menor elemento em cada um dos subvetores de tamanho $K = 3$}
+
+    \begin{figure}
+        \centering
+
+        \begin{tikzpicture}
+            \draw (1, 4) grid (11, 5);
+
+            \node at (1.5, 4.5) { {1} };
+            \node at (2.5, 4.5) { \tt \textcolor{blue}{3} };
+            \node at (3.5, 4.5) { \tt \texttt{\textbf{2}} };
+            \node at (4.5, 4.5) { \tt \textcolor{blue}{3} };
+            \node at (5.5, 4.5) { \tt 4 };
+            \node at (6.5, 4.5) { \tt 5 };
+            \node at (7.5, 4.5) { \tt 8 };
+            \node at (8.5, 4.5) { \tt 2 };
+            \node at (9.5, 4.5) { \tt 7 };
+            \node at (10.5, 4.5) { \tt 5 };
+
+            \draw (1, 0) -- (11, 0);
+
+            \draw[->] (2.5, 5.5) node[anchor=south] { $L$ } -- (2.5, 5.2);
+            \draw[->,opacity=1] (5.5, 5.5) node[anchor=south] { $R$ } -- (5.5, 5.2);
+
+            % Pin
+            \draw[opacity=1] (3, 0) rectangle (5, 1);
+            \node at (4, 0.5) { \tt (3, 3) };
+
+            %\draw[opacity=1] (3, 1) rectangle (5, 2);
+            %\node at (4, 1.5) { \tt (3, 1) };
+
+            %\draw[opacity=1] (3, 2) rectangle (5, 3);
+            %\node at (4, 2.5) { \tt (2, {{1}}) };
+
+            % Pout
+            \draw[opacity=1] (7, 0) rectangle (9, 1);
+            \node at (8, 0.5) { \tt (2, {{2}}) };
+
+            \draw[opacity=1] (7, 1) rectangle (9, 2);
+            \node at (8, 1.5) { \tt (3, \texttt{\textbf{2}}) };
+
+            %\draw[opacity=1] (7, 2) rectangle (9, 3);
+            %\node at (8, 2.5) { \tt (1, {{1}}) };
+
+            \node at (4, -0.5) { $P_{in}$ };
+            \node at (8, -0.5) { $P_{out}$ };
+
+        \end{tikzpicture}
+
+    \end{figure}
+
+\end{frame}
+
+\begin{frame}[fragile]{Visualização do menor elemento em cada um dos subvetores de tamanho $K = 3$}
+
+    \begin{figure}
+        \centering
+
+        \begin{tikzpicture}
+            \draw (1, 4) grid (11, 5);
+
+            \node at (1.5, 4.5) { {1} };
+            \node at (2.5, 4.5) { \tt \textcolor{black}{3} };
+            \node at (3.5, 4.5) { \tt {{2}} };
+            \node at (4.5, 4.5) { \tt \textcolor{black}{3} };
+            \node at (5.5, 4.5) { \tt 4 };
+            \node at (6.5, 4.5) { \tt 5 };
+            \node at (7.5, 4.5) { \tt 8 };
+            \node at (8.5, 4.5) { \tt 2 };
+            \node at (9.5, 4.5) { \tt 7 };
+            \node at (10.5, 4.5) { \tt 5 };
+
+            \draw (1, 0) -- (11, 0);
+
+            \draw[->] (2.5, 5.5) node[anchor=south] { $L$ } -- (2.5, 5.2);
+            \draw[->,opacity=1] (5.5, 5.5) node[anchor=south] { $R$ } -- (5.5, 5.2);
+
+            % Pin
+            \draw[opacity=1] (3, 0) rectangle (5, 1);
+            \node at (4, 0.5) { \tt (3, 3) };
+
+            %\draw[opacity=1] (3, 1) rectangle (5, 2);
+            %\node at (4, 1.5) { \tt (3, 1) };
+
+            %\draw[opacity=1] (3, 2) rectangle (5, 3);
+            %\node at (4, 2.5) { \tt (2, {{1}}) };
+
+            % Pout
+            \draw[opacity=1] (7, 0) rectangle (9, 1);
+            \node at (8, 0.5) { \tt (2, {{2}}) };
+
+            \draw[opacity=1] (7, 1) rectangle (9, 2);
+            \node at (8, 1.5) { \tt (3, {{2}}) };
+
+            %\draw[opacity=1] (7, 2) rectangle (9, 3);
+            %\node at (8, 2.5) { \tt (1, {{1}}) };
+
+            \node at (4, -0.5) { $P_{in}$ };
+            \node at (8, -0.5) { $P_{out}$ };
+
+        \end{tikzpicture}
+
+    \end{figure}
+
+\end{frame}
+
+\begin{frame}[fragile]{Visualização do menor elemento em cada um dos subvetores de tamanho $K = 3$}
+
+    \begin{figure}
+        \centering
+
+        \begin{tikzpicture}
+            \draw (1, 4) grid (11, 5);
+
+            \node at (1.5, 4.5) { {1} };
+            \node at (2.5, 4.5) { \tt \textcolor{black}{3} };
+            \node at (3.5, 4.5) { \tt {{2}} };
+            \node at (4.5, 4.5) { \tt \textcolor{black}{3} };
+            \node at (5.5, 4.5) { \tt 4 };
+            \node at (6.5, 4.5) { \tt 5 };
+            \node at (7.5, 4.5) { \tt 8 };
+            \node at (8.5, 4.5) { \tt 2 };
+            \node at (9.5, 4.5) { \tt 7 };
+            \node at (10.5, 4.5) { \tt 5 };
+
+            \draw (1, 0) -- (11, 0);
+
+            \draw[->] (3.5, 5.5) node[anchor=south] { $L$ } -- (3.5, 5.2);
+            \draw[->,opacity=1] (5.5, 5.5) node[anchor=south] { $R$ } -- (5.5, 5.2);
+
+            % Pin
+            \draw[opacity=1] (3, 0) rectangle (5, 1);
+            \node at (4, 0.5) { \tt (3, 3) };
+
+            %\draw[opacity=1] (3, 1) rectangle (5, 2);
+            %\node at (4, 1.5) { \tt (3, 1) };
+
+            %\draw[opacity=1] (3, 2) rectangle (5, 3);
+            %\node at (4, 2.5) { \tt (2, {{1}}) };
+
+            % Pout
+            \draw[opacity=1] (7, 0) rectangle (9, 1);
+            \node at (8, 0.5) { \tt (2, {{2}}) };
+
+            %\draw[opacity=1] (7, 1) rectangle (9, 2);
+            %\node at (8, 1.5) { \tt (3, {{2}}) };
+
+            %\draw[opacity=1] (7, 2) rectangle (9, 3);
+            %\node at (8, 2.5) { \tt (1, {{1}}) };
+
+            \node at (4, -0.5) { $P_{in}$ };
+            \node at (8, -0.5) { $P_{out}$ };
+
+        \end{tikzpicture}
+
+    \end{figure}
+
+\end{frame}
+
+\begin{frame}[fragile]{Visualização do menor elemento em cada um dos subvetores de tamanho $K = 3$}
+
+    \begin{figure}
+        \centering
+
+        \begin{tikzpicture}
+            \draw (1, 4) grid (11, 5);
+
+            \node at (1.5, 4.5) { {1} };
+            \node at (2.5, 4.5) { \tt \textcolor{black}{3} };
+            \node at (3.5, 4.5) { \tt {{2}} };
+            \node at (4.5, 4.5) { \tt \textcolor{black}{3} };
+            \node at (5.5, 4.5) { \tt 4 };
+            \node at (6.5, 4.5) { \tt 5 };
+            \node at (7.5, 4.5) { \tt 8 };
+            \node at (8.5, 4.5) { \tt 2 };
+            \node at (9.5, 4.5) { \tt 7 };
+            \node at (10.5, 4.5) { \tt 5 };
+
+            \draw (1, 0) -- (11, 0);
+
+            \draw[->] (3.5, 5.5) node[anchor=south] { $L$ } -- (3.5, 5.2);
+            \draw[->,opacity=1] (6.5, 5.5) node[anchor=south] { $R$ } -- (6.5, 5.2);
+
+            % Pin
+            \draw[opacity=1] (3, 0) rectangle (5, 1);
+            \node at (4, 0.5) { \tt (3, 3) };
+
+            \draw[opacity=1] (3, 1) rectangle (5, 2);
+            \node at (4, 1.5) { \tt (4, 3) };
+
+            %\draw[opacity=1] (3, 2) rectangle (5, 3);
+            %\node at (4, 2.5) { \tt (2, {{1}}) };
+
+            % Pout
+            \draw[opacity=1] (7, 0) rectangle (9, 1);
+            \node at (8, 0.5) { \tt (2, {{2}}) };
+
+            %\draw[opacity=1] (7, 1) rectangle (9, 2);
+            %\node at (8, 1.5) { \tt (3, {{2}}) };
+
+            %\draw[opacity=1] (7, 2) rectangle (9, 3);
+            %\node at (8, 2.5) { \tt (1, {{1}}) };
+
+            \node at (4, -0.5) { $P_{in}$ };
+            \node at (8, -0.5) { $P_{out}$ };
+
+        \end{tikzpicture}
+
+    \end{figure}
+
+\end{frame}
+
+\begin{frame}[fragile]{Visualização do menor elemento em cada um dos subvetores de tamanho $K = 3$}
+
+    \begin{figure}
+        \centering
+
+        \begin{tikzpicture}
+            \draw (1, 4) grid (11, 5);
+
+            \node at (1.5, 4.5) { {1} };
+            \node at (2.5, 4.5) { \tt \textcolor{black}{3} };
+            \node at (3.5, 4.5) { \tt \texttt{\textbf{2}} };
+            \node at (4.5, 4.5) { \tt \textcolor{blue}{3} };
+            \node at (5.5, 4.5) { \tt \textcolor{blue}{4} };
+            \node at (6.5, 4.5) { \tt 5 };
+            \node at (7.5, 4.5) { \tt 8 };
+            \node at (8.5, 4.5) { \tt 2 };
+            \node at (9.5, 4.5) { \tt 7 };
+            \node at (10.5, 4.5) { \tt 5 };
+
+            \draw (1, 0) -- (11, 0);
+
+            \draw[->] (3.5, 5.5) node[anchor=south] { $L$ } -- (3.5, 5.2);
+            \draw[->,opacity=1] (6.5, 5.5) node[anchor=south] { $R$ } -- (6.5, 5.2);
+
+            % Pin
+            \draw[opacity=1] (3, 0) rectangle (5, 1);
+            \node at (4, 0.5) { \tt (3, 3) };
+
+            \draw[opacity=1] (3, 1) rectangle (5, 2);
+            \node at (4, 1.5) { \tt (4, 3) };
+
+            %\draw[opacity=1] (3, 2) rectangle (5, 3);
+            %\node at (4, 2.5) { \tt (2, {{1}}) };
+
+            % Pout
+            \draw[opacity=1] (7, 0) rectangle (9, 1);
+            \node at (8, 0.5) { \tt (2, \texttt{\textbf{2}}) };
+
+            %\draw[opacity=1] (7, 1) rectangle (9, 2);
+            %\node at (8, 1.5) { \tt (3, {{2}}) };
+
+            %\draw[opacity=1] (7, 2) rectangle (9, 3);
+            %\node at (8, 2.5) { \tt (1, {{1}}) };
+
+            \node at (4, -0.5) { $P_{in}$ };
+            \node at (8, -0.5) { $P_{out}$ };
+
+        \end{tikzpicture}
+
+    \end{figure}
+
+\end{frame}

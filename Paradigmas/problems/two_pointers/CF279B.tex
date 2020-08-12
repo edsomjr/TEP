@@ -1,0 +1,106 @@
+\section{Codeforces Round \#171 -- Problem B: Books}
+
+\begin{frame}[fragile]{Problema}
+
+When Valera has got some free time, he goes to the library to read some books. Today he's got $t$
+free minutes to read. That's why Valera took $n$ books in the library and for each book he 
+estimated the time he is going to need to read it. Let's number the books by integers from $1$ to
+$n$. Valera needs $a_i$ minutes to read the $i$-th book.
+
+Valera decided to choose an arbitrary book with number $i$ and read the books one by one, starting
+from this book. In other words, he will first read book number $i$, then book number $i + 1$, then
+book number $i + 2$ and so on. He continues the process until he either runs out of the free time
+or finishes reading the $n$-th book. Valera reads each book up to the end, that is, he doesn't
+start reading the book if he doesn't have enough free time to finish reading it.
+
+Print the maximum number of books Valera can read.
+\end{frame}
+
+\begin{frame}[fragile]{Entrada e saída}
+
+\textbf{Input}
+
+The first line contains two integers $n$ and $t$ ($1\leq n\leq 10^5; 1\leq t\leq 10^9$) -- the
+number of books and the number of free minutes Valera's got. The second line contains a sequence
+of $n$ integers $a_1, a_2, \ldots, a_n$ ($1\leq a_i\leq 10^4$), where number a $i$ shows the
+number of minutes that the boy needs to read the $i$-th book.
+
+\textbf{Output}
+
+Print a single integer -- the maximum number of books Valera can read.
+
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de entradas e saídas}
+
+\begin{minipage}[t]{0.5\textwidth}
+\textbf{Sample Input}
+\begin{verbatim}
+4 5
+3 1 2 1
+
+3 3
+2 2 3
+\end{verbatim}
+\end{minipage}
+\begin{minipage}[t]{0.45\textwidth}
+\textbf{Sample Output}
+\begin{verbatim}
+3
+
+1
+\end{verbatim}
+\end{minipage}
+\end{frame}
+
+\begin{frame}[fragile]{Solução com complexidade $O(N)$}
+
+    \begin{itemize}
+        \item O problema consiste em avaliar, para cada $i\in [1, N]$, o maior número de
+            livros que podem ser lidos começando no $i$-ésimo livro
+
+        \item Uma solução de busca completa avaliaria cada $i$ em $O(N)$, tendo portanto
+            complexidade $O(N^2)$
+
+        \item O uso de dois ponteiros reduz esta complexidade para $O(N)$
+
+        \item O ponteiro $L$ inicia no primeiro elemento, e deve ser incrementado sequenciamente
+            até o último elemento, representando aqui o $i$ do problema
+
+        \item Já o ponteiro $R$ também inicia no primeiro elemento, e a cada iteração ele será
+            o maior dentre $L$ e $R$, pois cada livro será avaliado uma única vez por $R$
+
+   \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Solução com complexidade $O(N)$}
+
+    \begin{itemize}
+        \item Deve ser mantida uma variável $t$, inicialmente igual a $T$, que mantém o registro
+            do tempo ainda disponível para leitura
+
+        \item A cada iteração, enquanto $R$ apontar para um elemento do vetor e houver tempo para
+            ler o $R$-ésimo livro, $R$ deve ser incrementado e $t$ atualizado
+
+        \item Ao fim de cada iteração o $R - L$ livros do intervalo $[L, R)$ podem ser lidos
+
+        \item A variável $t$ deve ser atualizada, acrescentado o tempo de leitura do $L$-ésimo
+            livro, caso tenha sido decrementado de $t$ previamente
+
+        \item A resposta será o tamanho do maior dentre estes intervalos
+   \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Solução AC com complexidade $O(N)$}
+    \inputsnippet{cpp}{1}{21}{codes/CF279B.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Solução AC com complexidade $O(N)$}
+    \inputsnippet{cpp}{22}{42}{codes/CF279B.cpp}
+\end{frame}
+
+
+
+

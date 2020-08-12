@@ -1,0 +1,45 @@
+\section{\it Two pointers}
+
+\begin{frame}[fragile]{Definição}
+
+    \begin{itemize}
+        \item \textit{Two pointers} é uma técnica de busca completa aplicada em problemas em
+            vetores
+
+        \item Nela são utilizados dois ponteiros unidirecionais $L$ e $R$
+
+        \item Assim, a cada iteração do algoritmo, estes ponteiros só podem avançar na direção
+            pré-definida, sem recuar
+
+        \item Isto faz com que cada ponteiro observe cada elemento do vetor uma única vez
+
+        \item Para tal, é preciso considerar quais valores ainda podem fazer parte da solução,
+            e quais podem, e devem, ser descartados
+
+        \item Desde modo, esta é uma técnica de busca completa com poda, que faz uso inteligente
+            dos valores já processados
+
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Implementação}
+
+    \begin{itemize}
+        \item Em geral, o ponteiro $L$ (\textit{left}) aponta para o início do vetor, e é incrementado
+            a cada passo do algoritmo
+
+        \item O ponteiro $R$ (\textit{right}) geralmente parte de $L$ (ou $L + 1$), e avança enquanto
+            o intervalo $[L, R)$ constituir uma subsolução válida do problema
+
+        \item Em alguns problemas, o ponteiro $L$ pode saltar diretamente para $R$, caso $R$ não
+            possa mais avançar
+
+        \item Também há problemas onde $R$ inicia no último elemento do vetor, e caminha em direção
+            ao início do mesmo
+
+        \item Na maioria dos casos, o uso desta técnica leva a algoritmos $O(N)$, onde $N$ é o tamanho
+            do vetor
+    \end{itemize}
+
+\end{frame}
