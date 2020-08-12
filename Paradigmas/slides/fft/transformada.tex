@@ -1,0 +1,52 @@
+\section{Transformada de Fourier}
+
+\begin{frame}[fragile]{Série de Fourier}
+
+    \begin{itemize}
+        \item Uma série de Fourier consiste na expansão de uma função períodica $f(x)$ em termos
+            de senos e cosenos
+
+        \item Isto possível porque as funções $\sin(mx)$ e $\sin(ny)$ são ortogonais para 
+            $m\neq n$ no intervalo $[-\pi, \pi]$:
+
+        \begin{align*}
+            \int_{-\pi}^\pi \sin(mx)\sin(nx) dx &= 
+            \int_{-\pi}^\pi \sin(mx)\cos(nx) dx \\
+            &= \int_{-\pi}^\pi \cos(mx)\cos(nx) dx = 0
+        \end{align*}
+
+        \item Para $m = n$, segue que
+        \[
+            \int_{-\pi}^\pi \sin^2(mx) dx = 
+            \int_{-\pi}^\pi \cos^2(mx) dx = \pi
+        \]
+
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Série de Fourier}
+
+    \begin{itemize}
+        \item Deste modo,
+        \[
+            f(x) = \frac{1}{2}a_0 + \sum_{n=1}^\infty a_n\cos(n x) + \sum_{n=1}^\infty b_n\sin(nx),
+        \]
+        onde
+        \begin{align*}
+            a_0 &= \frac{1}{\pi}\int_{-\pi}^{\pi} f(x)dx \\    
+            a_n &= \frac{1}{\pi}\int_{-\pi}^{\pi} f(x)\cos(nx)dx \\    
+            b_n &= \frac{1}{\pi}\int_{-\pi}^{\pi} f(x)\sin(nx)dx    
+        \end{align*}
+    
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo}
+
+    \begin{itemize}
+        \item
+    \end{itemize}
+
+\end{frame}
