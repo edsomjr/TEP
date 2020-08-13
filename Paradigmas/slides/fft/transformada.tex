@@ -45,7 +45,7 @@
 
 \begin{frame}[fragile]{Exemplo: Onda Quadrada}
 
-    Considere a onda quadrada $x(t) = a\,\mathrm{sign}(\sin(t))$:
+    Considere a onda quadrada abaixo:
 
     \begin{figure}
         \centering
@@ -98,8 +98,6 @@
 
 \begin{frame}[fragile]{Exemplo: Aproximação da onda quadrada com $n = 0$}
 
-    Considere a onda quadrada $x(t) = a\,\mathrm{sign}(\sin(t))$:
-
     \begin{figure}
         \centering
 
@@ -127,8 +125,6 @@
 \end{frame}
 
 \begin{frame}[fragile]{Exemplo: Aproximação da onda quadrada com $n = 1$}
-
-    Considere a onda quadrada $x(t) = a\,\mathrm{sign}(\sin(t))$:
 
     \begin{figure}
         \centering
@@ -158,8 +154,6 @@
 
 \begin{frame}[fragile]{Exemplo: Aproximação da onda quadrada com $n = 3$}
 
-    Considere a onda quadrada $x(t) = a\,\mathrm{sign}(\sin(t))$:
-
     \begin{figure}
         \centering
 
@@ -187,8 +181,6 @@
 \end{frame}
 
 \begin{frame}[fragile]{Exemplo: Aproximação da onda quadrada com $n = 5$}
-
-    Considere a onda quadrada $x(t) = a\,\mathrm{sign}(\sin(t))$:
 
     \begin{figure}
         \centering
@@ -218,8 +210,6 @@
 
 \begin{frame}[fragile]{Exemplo: Aproximação da onda quadrada com $n = 7$}
 
-    Considere a onda quadrada $x(t) = a\,\mathrm{sign}(\sin(t))$:
-
     \begin{figure}
         \centering
 
@@ -246,3 +236,341 @@
 
 \end{frame}
 
+\begin{frame}[fragile]{Série de Fourier com coeficientes complexos}
+
+    \begin{itemize}
+        \item A série de Fourier pode ser estendida para coeficientes complexos a partir da
+            observação que
+        \[
+            e^{bi} = \cos b + i\sin b
+        \]
+
+        \item Seja $f(x)$ uma função nos reais. Faça
+        \[
+            f(x) = \sum_{-\infty}^\infty A_ne^{inx}
+        \]
+
+        \item Assim, vale que
+        \[
+            \int_{-\pi}^\pi f(x)e^{-imx}dx = 2\pi A_m,
+        \]
+        de modo que
+        \[
+            A_n = \frac{1}{2\pi}\int_{-\pi}^{\pi} f(x)e^{-in x}dx
+        \]
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo: Onda Triangular}
+
+    Considere a onda triangular abaixo:
+
+    \begin{figure}
+        \centering
+
+        \begin{tikzpicture}
+            \draw[very thick] (-1, 1) -- (0, 0) -- (pi, pi) -- (2*pi, 0) -- (3*pi, pi) -- (10, 2.566);
+
+            \node[anchor=east] at (0, pi) { $\pi$ };
+            \node[anchor=north] at (pi, 0) { $\pi$ };
+            \node[anchor=north] at (2*pi, 0) { $2\pi$ };
+            \node[anchor=north] at (3*pi, 0) { $3\pi$ };
+
+%            \draw[blue!60!black,domain=-1:10,samples=201] plot (\x, {pi*(1/2) 
+%                - (1/(2)*(4)*cos(\x*180/pi)
+%               - (1/(2))*(4/9)*cos(\x*3*180/pi)
+%               - (1/(2))*(4/25)*cos(\x*5*180/pi)
+%               - (1/(2))*(4/49)*cos(\x*7*180/pi)
+%               - (1/(2))*(4/81)*cos(\x*9*180/pi)
+%});
+
+            \draw[->] (0,-1) -- (0, 4.2) node[anchor=east] { $x$ };
+            \draw[->] (-1,0) -- (10.2, 0) node[anchor=north] { $t$ };
+        \end{tikzpicture}
+    \end{figure}
+
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo: Onda Triangular}
+
+    \begin{itemize}
+        \item No intervalo $[-\pi, \pi]$ temos que
+        \[
+            f(x) = \left\{ \begin{array}{cc}
+                                -x,& \mbox{se}\ x \leq 0,\\
+                                x,& \mbox{caso contrário}
+                           \end{array}\right.
+        \]
+
+        \item Daí
+        \[
+            A_0 = \frac{1}{2\pi}\int_{-\pi}^\pi f(x)dx = \frac{\pi}{2}
+        \]
+
+        \item Para $n > 1$ ímpar vale que
+        \[
+            A_n = \frac{1}{2\pi}\int_{-\pi}^\pi f(x)e^{inx}dx = -\frac{4}{n^2}
+        \]
+        
+        \item $A_n = 0$, se $n$ é par
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo: Aproximação com $n = 0$}
+
+    \begin{figure}
+        \centering
+
+        \begin{tikzpicture}
+            \draw[very thick] (-1, 1) -- (0, 0) -- (pi, pi) -- (2*pi, 0) -- (3*pi, pi) -- (10, 2.566);
+
+            \node[anchor=east] at (0, pi) { $\pi$ };
+            \node[anchor=north] at (pi, 0) { $\pi$ };
+            \node[anchor=north] at (2*pi, 0) { $2\pi$ };
+            \node[anchor=north] at (3*pi, 0) { $3\pi$ };
+
+            \draw[blue!60!black,domain=-1:10,samples=201] plot (\x, {pi*(1/2) 
+%                - (1/(2)*(4)*cos(\x*180/pi)
+%               - (1/(2))*(4/9)*cos(\x*3*180/pi)
+%               - (1/(2))*(4/25)*cos(\x*5*180/pi)
+%               - (1/(2))*(4/49)*cos(\x*7*180/pi)
+%               - (1/(2))*(4/81)*cos(\x*9*180/pi)
+});
+
+            \draw[->] (0,-1) -- (0, 4.2) node[anchor=east] { $x$ };
+            \draw[->] (-1,0) -- (10.2, 0) node[anchor=north] { $t$ };
+        \end{tikzpicture}
+    \end{figure}
+
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo: Aproximação com $n = 1$}
+
+    \begin{figure}
+        \centering
+
+        \begin{tikzpicture}
+            \draw[very thick] (-1, 1) -- (0, 0) -- (pi, pi) -- (2*pi, 0) -- (3*pi, pi) -- (10, 2.566);
+
+            \node[anchor=east] at (0, pi) { $\pi$ };
+            \node[anchor=north] at (pi, 0) { $\pi$ };
+            \node[anchor=north] at (2*pi, 0) { $2\pi$ };
+            \node[anchor=north] at (3*pi, 0) { $3\pi$ };
+
+            \draw[blue!60!black,domain=-1:10,samples=201] plot (\x, {pi*(1/2) 
+                - (1/(2)*(4)*cos(\x*180/pi)
+%               - (1/(2))*(4/9)*cos(\x*3*180/pi)
+%               - (1/(2))*(4/25)*cos(\x*5*180/pi)
+%               - (1/(2))*(4/49)*cos(\x*7*180/pi)
+%               - (1/(2))*(4/81)*cos(\x*9*180/pi)
+});
+
+            \draw[->] (0,-1) -- (0, 4.2) node[anchor=east] { $x$ };
+            \draw[->] (-1,0) -- (10.2, 0) node[anchor=north] { $t$ };
+        \end{tikzpicture}
+    \end{figure}
+
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo: Aproximação com $n = 3$}
+
+    \begin{figure}
+        \centering
+
+        \begin{tikzpicture}
+            \draw[very thick] (-1, 1) -- (0, 0) -- (pi, pi) -- (2*pi, 0) -- (3*pi, pi) -- (10, 2.566);
+
+            \node[anchor=east] at (0, pi) { $\pi$ };
+            \node[anchor=north] at (pi, 0) { $\pi$ };
+            \node[anchor=north] at (2*pi, 0) { $2\pi$ };
+            \node[anchor=north] at (3*pi, 0) { $3\pi$ };
+
+            \draw[blue!60!black,domain=-1:10,samples=201] plot (\x, {pi*(1/2) 
+                - (1/(2)*(4)*cos(\x*180/pi)
+               - (1/(2))*(4/9)*cos(\x*3*180/pi)
+%               - (1/(2))*(4/25)*cos(\x*5*180/pi)
+%               - (1/(2))*(4/49)*cos(\x*7*180/pi)
+%               - (1/(2))*(4/81)*cos(\x*9*180/pi)
+});
+
+            \draw[->] (0,-1) -- (0, 4.2) node[anchor=east] { $x$ };
+            \draw[->] (-1,0) -- (10.2, 0) node[anchor=north] { $t$ };
+        \end{tikzpicture}
+    \end{figure}
+
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo: Aproximação com $n = 5$}
+
+    \begin{figure}
+        \centering
+
+        \begin{tikzpicture}
+            \draw[very thick] (-1, 1) -- (0, 0) -- (pi, pi) -- (2*pi, 0) -- (3*pi, pi) -- (10, 2.566);
+
+            \node[anchor=east] at (0, pi) { $\pi$ };
+            \node[anchor=north] at (pi, 0) { $\pi$ };
+            \node[anchor=north] at (2*pi, 0) { $2\pi$ };
+            \node[anchor=north] at (3*pi, 0) { $3\pi$ };
+
+            \draw[blue!60!black,domain=-1:10,samples=201] plot (\x, {pi*(1/2) 
+                - (1/(2)*(4)*cos(\x*180/pi)
+               - (1/(2))*(4/9)*cos(\x*3*180/pi)
+               - (1/(2))*(4/25)*cos(\x*5*180/pi)
+%               - (1/(2))*(4/49)*cos(\x*7*180/pi)
+%               - (1/(2))*(4/81)*cos(\x*9*180/pi)
+});
+
+            \draw[->] (0,-1) -- (0, 4.2) node[anchor=east] { $x$ };
+            \draw[->] (-1,0) -- (10.2, 0) node[anchor=north] { $t$ };
+        \end{tikzpicture}
+    \end{figure}
+
+\end{frame}
+
+\begin{frame}[fragile]{Transformada de Fourier}
+
+    \begin{itemize}
+        \item A transformada de Fourier é uma generalização das séries de Fourier com coeficientes
+            complexos quando o período tende ao infinito
+
+        \item Seja $f(x)$ uma função com um número finito de descontinuidades e tal existe a
+        integral
+        \[
+            \int_{-\infty}^\infty |f(x)|dx
+        \]
+
+        \item A Transformada de Fourier $\mathcal{F}$ de $f(x)$ é dada por
+        \[
+            \mathcal{F}[f(x)] = F(k) = \int_{-\infty}^{\infty} f(x)e^{-2\pi ikx} dx
+        \]
+         
+        \item A Transformada Inversa $\mathcal{F}^{-1}$ é dada por
+        \[
+            \mathcal{F}^{-1}[F(k)] = f(x) = \int_{-\infty}^{\infty} F(k)e^{2\pi ikx} dk
+        \]
+
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Propriedades}
+
+    \begin{itemize}
+        \item A Transformada de Fourier é linear:
+        \[
+            \mathcal{F}[af(x) + bg(x)] = a\mathcal{F}[f(x)] + b\mathcal{F}[g(x)],
+        \]
+        onde $a$ e $b$ são constantes
+
+        \item A transformada da derivada da função está diretamente relacionada com a transformada
+            da função
+        \[
+            \mathcal{F}[f^{(n)}(x)](k) = (2\pi ik)^n\mathcal{F}[f(x)](k)
+        \]
+
+        \item \textbf{Teorema da Convolução}:
+        \[
+            \mathcal{F}[f*g] = \mathcal{F}[f]\mathcal{F}[g]
+        \]
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo: Exponencial Descrescente}
+
+    \begin{itemize}
+        \item Seja
+        \[
+            f(x) = \left\{ \begin{array}{cc}
+                                e^{-x},& \mbox{se}\ x \geq 0,\\
+                                0,& \mbox{caso contrário}
+                        \end{array}\right.
+        \]
+
+        \item Temos que
+        \begin{align*}
+            \mathcal{F}[f(x)] = F(k) &= \int_{-\infty}^\infty f(x)e^{-2\pi ikx}dx \\
+            &= \int_0^\infty e^{-x}e^{-2\pi ikx}dx = \int_0^\infty e^{-(1 + 2\pi ik)x}dx \\
+            &= \left. -\frac{e^{-(1 + 2\pi ik)x}}{1 + 2\pi ik}\right|_0^\infty\\
+            &= \frac{1}{1 + 2\pi ik}
+        \end{align*}
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Visualização da função $f(x)$}
+
+    \begin{figure}
+        \centering
+
+        \begin{tikzpicture}
+            \node[anchor=east] at (0, 5) { \tt \small 1 };
+
+            \draw[thick,blue,domain=0:10,samples=201] plot (\x, { 5*exp(-\x) });
+%            \draw[blue!60!black,domain=0:5,samples=201] plot (\x + 6, { 1/(1 + 2*pi*\x) });
+
+            \draw[->] (0,-1) -- (0, 5.7) node[anchor=east] { $f(x)$ };
+            \draw[->] (-1,0) -- (10.2, 0) node[anchor=north] { $x$ };
+
+        \end{tikzpicture}
+    \end{figure}
+
+\end{frame}
+
+\begin{frame}[fragile]{Visualização da parte real (azul) e imaginária (vermelha) da função $F(k)$}
+
+    \begin{figure}
+        \centering
+
+        \begin{tikzpicture}
+            \node[anchor=east] at (0, 3) { \tt \footnotesize 1 };
+            \node[anchor=east] at (0, -3) { \tt \footnotesize -1 };
+            \node[anchor=north] at (3, 0) { \tt \footnotesize 1 };
+            \node[anchor=north] at (-3, 0) { \tt \footnotesize -1 };
+
+            \draw[blue!80!black,domain=-1.1:1.1,samples=201] plot (\x*3, { 3/(1 + 4*pi*pi*\x*\x) });
+            \draw[red!90!black,domain=-1.1:1.1,samples=201] plot (\x*3, { (-3*2*pi*\x)/(1 + 4*pi*pi*\x*\x) });
+
+            \draw[->] (0,-3.2) -- (0, 3.8) node[anchor=east] { $F(k)$ };
+            \draw[->] (-3.8,0) -- (3.8, 0) node[anchor=north] { $k$ };
+
+        \end{tikzpicture}
+    \end{figure}
+
+\end{frame}
+
+\begin{frame}[fragile]{Transformada Discreta de Fourier}
+
+    \begin{itemize}
+        \item Uma série $x_i = \{ x_0, x_1, \ldots, x_{N - 1}$ de $N$ amostras de um sinal,
+            igualmente espaçadas ao longo do tempo,
+            pode ser interpretada como uma função $y_i$ períodica de período $N$
+
+        \item Para isso, defina $y(j) = x_i$, onde $j$ é um inteiro tal que $j = N*q + i$, e
+            $y(t) = 0$, se $t$ não é inteiro
+
+        \item Contudo, ao invés de fazer esta adaptação e utilizar a transformada de Fourier, é
+            melhor utilizar a Transformada Discreta de Fourier (DFT):
+        \[
+            X_k = \sum_{n = 0}^{N - 1} x_ne^{-2\pi ikn/N}
+        \]
+
+        \item A Transformada Discreta Inversa de Fourier (IDFT) é dada por:
+        \[
+            x_n = \frac{1}{N}\sum_{k = 0}^{N - 1} F_ke^{-2\pi ikn/N}
+        \]
+
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Implementação da DFT e da IDFT em C++ em $O(N^2)$}
+    \inputsnippet{cpp}{1}{20}{codes/dft.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Implementação da DFT e da IDFT em C++ em $O(N^2)$}
+    \inputsnippet{cpp}{21}{32}{codes/dft.cpp}
+\end{frame}
