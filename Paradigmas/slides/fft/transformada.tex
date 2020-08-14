@@ -574,3 +574,86 @@
 \begin{frame}[fragile]{Implementação da DFT e da IDFT em C++ em $O(N^2)$}
     \inputsnippet{cpp}{21}{32}{codes/dft.cpp}
 \end{frame}
+
+\begin{frame}[fragile]{Aplicação da DFT: Multiplicação de Polinômios}
+
+    \begin{itemize}
+        \item A convolução entre duas funções $f(x)$ e $g(x)$ é uma função $h(x) = f(x)*g(x)$
+            que representa como a forma de uma função é modificada pela outra
+
+        \item Ela é a integral do produto de ambas funções, sendo que uma delas é invertida e
+            deslocada:
+        \[
+            h(x) = f(x)*g(x) = \int_{-\infty}^\infty f(\tau)(t - \tau)\, d\tau
+        \]
+
+        \item A convolução discreta de $f$ e $g$ é dada por
+        \[
+            (f * g)[n] = \sum_{m=-\infty}^\infty f[m]g[n - m]
+        \]
+
+        \item Se $f(x)$ e $g(x)$ são sequências de coeficientes de dois polinômios, a convolução
+            de ambas será igual ao produto destes polinômios
+    \end{itemize}
+
+\end{frame}
+
+\input{multiplication_view}
+
+\begin{frame}[fragile]{Aplicação da DFT: Multiplicação de Polinômios}
+
+    \begin{itemize}
+        \item Considere as transformadas $F(k)$ e $G(k)$ dos polinômios $f(x)$ e $g(x)$
+
+        \item Pelo Teorema da Convolução, a transformada do produto será $H(k) = F(k)G(k)$, onde
+            a multiplicação, neste caso, é termo a termo
+
+        \item No domínio do tempo, onde estão os polinômios, a multiplicação polinomial é 
+            convolução, com complexidade $O(N^2)$, onde $N$ é o maior dentre os graus
+
+        \item No domínio das frequências, onde estão as transformadas, a convolução se torna
+            uma multiplicação termo a termo, com complexidade $O(N)$
+
+        \item Assim, é possível realizar a multiplicação de polinômios indiretamente, computando
+            as transformadas $F(k)$ e $G(k)$, fazendo a multiplicação termo a termo, e computando
+            a inversa de $H(k)$
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Visualização da multiplicação indireta de polinômios}
+
+    \begin{figure}
+        \centering
+
+        \begin{tikzpicture}
+            \draw (0, 3) rectangle (2, 5);
+            \draw (2, 3) rectangle (4, 5);
+            \draw (0, -1) rectangle (4, 1);
+
+            \draw (6, 3) rectangle (8, 5);
+            \draw (8, 3) rectangle (10, 5);
+            \draw (6, -1) rectangle (10, 1);
+
+            \draw[->,very thick] (2, 2.8) -- node[anchor=east] { $O(N^2)$ } (2, 1.2);
+            \draw[->,very thick] (8, 2.8) -- node[anchor=west] { $O(N)$ } (8, 1.2);
+            \draw[->,very thick] (4.2, 4) -- node[anchor=south] { $O(N^2)$ } (5.8, 4);
+            \draw[<-,very thick] (4.2, 0) -- node[anchor=north] { $O(N^2)$ } (5.8, 0);
+
+            \node at (1, 4) { $f(x)$ };
+            \node at (3, 4) { $g(x)$ };
+            \node at (7, 4) { $F(k)$ };
+            \node at (9, 4) { $G(k)$ };
+            \node at (2, 0) { $f(x)g(x)$ };
+            \node at (8, 0) { $F(k)G(k)$ };
+
+        \end{tikzpicture}
+
+    \end{figure}
+
+\end{frame}
+
+\begin{frame}[fragile]{Implementação da multiplicação indireta de polinômios}
+    \inputsnippet{cpp}{34}{49}{codes/polynomial_dft.cpp}
+\end{frame}
+
