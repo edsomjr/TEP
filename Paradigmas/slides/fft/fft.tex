@@ -1,2 +1,85 @@
 \section{Transformada Rápida de Fourier}
 
+\begin{frame}[fragile]{DFT em $O(N\log N)$}
+
+    \begin{itemize}
+        \item A divisão e conquista pode ser aplicada no cálculo da DFT para reduzir sua
+            complexidade assintótica
+
+        \item Na etapa de divisão o sinal é dividido em duas partes de tamanhos aproximadamente
+            iguais
+
+        \item A conquista acontece quando o sinal tem uma única amostra: neste caso a transformada
+            discreta coincide com a própria amostra
+
+        \item A fusão permite o cálculo da DFT do sinal a partir das DFTs das duas partes
+
+        \item Se a fusão for feita em $O(N)$, a recorrência se torna
+        \[
+            f(N) = 2f(N/2) + (N)
+        \]
+
+        \item O Teorema Mestre nos diz que a complexidade da transformada passa a ser $O(N\log N)$
+
+        \item Esta versão da DFT é denominada \textit{Fast Fourier Transform} (FFT)
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Decomposição do sinal FFT}
+
+    \begin{itemize}
+        \item Considere o sinal $(a_k) = a_0, a_1, \ldots, a_{N-1}$
+
+        \item Assuma, sem perda de generalidade, que $N = 2^t$, para algum $t$ natural
+
+        \item Se $N$ não for uma potência de dois, basta adicionar um número suficiente de amostras
+            $a_i = 0$ ao sinal até que $N$ se torne uma potência de dois
+
+        \item A etapa de divisão, também denominada decomposição do sinal, o sinal é separado
+            em duas partes de tamanho $N/2$: as amostras cujos índices são pares $(e_k)$ e as 
+            amostras cujos índices são ímpares $(o_k)$
+
+        \item Assim,
+        \[
+            (e_k) = a_0, a_2, a_4, \ldots, a_{N - 2}
+        \]
+        e
+        \[
+            (o_k) = a_1, a_3, a_5, \ldots, a_{N - 1}
+        \]
+    \end{itemize}
+
+\end{frame}
+
+\input{divide_view}
+
+\begin{frame}[fragile]{Decomposição $\times$ ordenação}
+
+    \begin{itemize}
+        \item Gerando a decomposição por meio da alocação de novos dois subvetores com as cópias
+            dos elementos de índices pares e ímpares permite uma implementação \textit{top-down}
+            da FFT
+
+        \item Para uma implementação \textit{bottom-up}, é preciso entender
+            o padrão subjacente que surge desta decomposição
+
+        \item De fato, os elementos que ocupam as folhas nas árvores de decomposição tem índices
+            que correspondem à ordenação dos números $\{ 0, 1, 2, \ldots, N - 1\}$ usando como
+            critério a inversão de sua representação binária
+
+        \item Assim, por meio de um comparador customizado o este ordenação pode ser feita 
+            com complexidade $O(N\log N)$, o que não modifica a complexidade da FFT como um todo
+    \end{itemize}
+
+\end{frame}
+
+\input{order_view}
+
+\begin{frame}[fragile]{Implementação da ordenação por padrão binário}
+    \inputsnippet{cpp}{1}{18}{codes/order.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Implementação da ordenação por padrão binário}
+    \inputsnippet{cpp}{19}{39}{codes/order.cpp}
+\end{frame}
