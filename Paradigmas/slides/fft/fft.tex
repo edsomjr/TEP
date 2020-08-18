@@ -83,3 +83,110 @@
 \begin{frame}[fragile]{Implementação da ordenação por padrão binário}
     \inputsnippet{cpp}{19}{39}{codes/order.cpp}
 \end{frame}
+
+\begin{frame}[fragile]{Conquista}
+
+    \begin{itemize}
+        \item A etapa de conquista acontece em sinais como uma única amostra
+
+        \item Aplicando o valor $N = 1$ na transformada discreta obtêm-se
+        \[
+            X_0 = \sum_{n = 0}^{N - 1} x_ne^{-2\pi ikn/N} = 
+                \sum_{n = 0}^0 x_0e^{-2\pi kn} = x_0
+        \]
+
+        \item Assim, a própria amostra corresponde à sua transformada
+
+        \item É preciso atentar, contudo, que embora numericamente iguais, $X_0$ reside no 
+            domínio das frequências, enquanto que $x_0$ está no domínio do tempo
+
+        \item Portanto esta etapa tem complexidade $O(1)$
+
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Fusão (Síntese)}
+
+    \begin{itemize}
+        \item A última etapa consiste em combinar as transformadas das duas partes (pares e
+            ímpares) na transformada do sinal
+
+        \item Lembrando que a Transformada de Fourier é Linear, a transformada de um sinal $x_k$
+            pode ser computada como a soma de dois sinais distintos cuja soma resulte em $x_k$
+
+        \item Considere os sinais $e_k$ e $o_k$ dados por
+        \[
+            e_i = \left\{ \begin{array}{ll}
+                    x_i, &\mbox{se}\ i\ \mbox{é par}\\
+                    0, &\mbox{caso contrário}
+                \end{array}\right.
+        \]
+        e
+        \[
+            o_j = \left\{ \begin{array}{ll}
+                    x_j, &\mbox{se}\ j\ \mbox{é ímpar}\\
+                    0, &\mbox{caso contrário}
+                \end{array}\right.
+        \]
+ 
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Fusão (Síntese)}
+
+    \begin{itemize}
+        \item Deste modo, $x_k = e_k + o_k$
+
+        \item As transformadas de $e_k$ e $o_k$ tem um comportamento peculiar
+
+        \item A transformada de $e_k$ duplica seus resultados
+
+        \item A transformada de $o_k$ tem mesmo comportamento, porém com os valores multiplicados
+            por uma componente sinusoidal
+
+        \item Isto porque, em relação à $x_k$, o sinal $o_k$ está deslocado no tempo em uma
+            unidade
+
+        \item Deslocar no tempo corresponde a convolução do sinal com uma função $\delta(t - a)$,
+            onde $a$ é o deslocamento
+
+        \item A transformada da função $\delta(t - a)$ é uma exponencial complexa:
+        \[
+            \mathcal{F}[\delta(t - a)] = \int_{-\infty}^{\infty} \delta(t - a)e^{-2\pi kit}dt =
+                e^{-2\pi kai}
+        \]
+    
+    \end{itemize}
+
+\end{frame}
+
+\input{synthesis_view}
+
+\begin{frame}[fragile]{Padrão borboleta}
+
+    \begin{itemize}
+        \item Como as transformadas das duas partes foram computadas sem o deslocamento, é preciso
+            compensá-lo na composição da transformada do todo
+
+        \item As componentes oriundas da parte par $E_k$ são somadas sem alteração em cada
+            componente da transformada $X_k$
+
+        \item Já as componentes de $O_k$ devem ser multiplicadas pela componente sinusoidal
+        \[
+            S_k = e^{\frac{2\pi ki}{N}}
+        \]
+        antes de serem somadas
+
+        \item Esta multiplicação afeta o sinal do termo: a primeira metade terá sinal negativo, e
+            a segunda metade sinal positivo
+
+        \item Este ajuste é denominado padrão borboleta, por conta da visualização do diagrama
+            gerado
+    \end{itemize}
+
+\end{frame}
+
+\input{butterfly_view}
+
