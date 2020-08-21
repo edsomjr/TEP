@@ -1,0 +1,88 @@
+\section{Implementação}
+
+\begin{frame}[fragile]{Implementação recursiva {\it top-down}}
+
+    \begin{itemize}
+        \item Uma forma de implementar a FFT é por meio de recursão
+
+        \item A cada etapa, são criados dois subvetores $e_k$ e $o_k$, de tamanho $N/2$, e a 
+            transformada é chamada em cada um destes subvetores
+
+        \item O caso base acontece quando $N = 1$, onde a transformada é igual à própria amostra
+
+        \item Na etapa de síntese ou fusão, os coeficientes da transformada $X_k$ podem ser
+            computado atráves das transformadas $E_k$ e $O_k$ dos subvetores:
+        \[
+            X_j = \left\{ \begin{array}{ll}
+                E_j + S_jO_j,& \mbox{se}\ 0 \leq j < N/2,\\
+                E_{j - N/2} - S_{j - N/2}O_{j - N/2},& \mbox{caso contrário}
+            \end{array}\right.
+        \]
+        onde
+        \[
+            S_j = e^{-2\pi ji}
+        \]
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Implementação recursiva {\it top-down}}
+
+    \begin{itemize}
+        \item É possível implementar tanto a transformada quanto a inversa em uma função
+
+        \item Primeiramente, é preciso uniformizar o tipo dos vetores
+
+        \item Uma opção é que todos sejam vetores de complexos
+
+        \item Em segundo lugar, são duas as diferenças entre a transformada e sua inversa:
+        \begin{enumerate}
+            \item os sinais dos ângulos são opostos
+            \item na inversa os coeficientes são divididos por $N$
+        \end{enumerate}
+
+        \item Uma \textit{flag} booleana pode ser passada como parâmetro para decidir o sentido
+            da transformada
+
+        \item Como $N$ é uma potência de 2, uma forma de realizar esta divisão por $N$ é dividir,
+            a cada etapa, os coeficientes por 2
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Implementação {\it top-down} da FFT}
+    \inputsnippet{cpp}{1}{21}{codes/fft.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Implementação {\it top-down} da FFT}
+    \inputsnippet{cpp}{22}{39}{codes/fft.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Implementação {\it bottom-up}, {\it in-place}}
+
+    \begin{itemize}
+        \item Utilizando a ordenação por \textit{bits} invertidos, é possível implementar a FFT
+            \textit{bottom-up}
+
+        \item Além de dispensar a recursão, o custo de memória é reduzido, pois só é preciso
+            copiar dois coeficientes a cada atualização, sem precisar copiar os subvetores a cada
+            iteração
+
+        \item A ordenação baseada em \textit{bits} pode ser feita em $O(N)$: basta trocar de 
+            posição dos elementos de índices $i$ e $j$ tais que $i < j$ e que $i$ e $j$ são
+            mutuamente reversos 
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Implementação {\it bottom-up, in-place} da FFT}
+    \inputsnippet{cpp}{1}{20}{codes/fft_bu.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Implementação {\it bottom-up, in-place} da FFT}
+    \inputsnippet{cpp}{21}{40}{codes/fft_bu.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Implementação {\it bottom-up, in-place} da FFT}
+    \inputsnippet{cpp}{41}{61}{codes/fft_bu.cpp}
+\end{frame}
