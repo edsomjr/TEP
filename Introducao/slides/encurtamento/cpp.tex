@@ -26,7 +26,7 @@
 
     Alguns tipos de dados tem nomes longos, que podem ser encurtados através do uso
     da diretiva \code{c++}{using} do C++:
-        \inputcode{c++}{using.cpp}
+        \inputcode{c++}{codes/using.cpp}
 
 \end{frame}
 
@@ -40,11 +40,11 @@
             deduzir o tipo de uma variável a partir de sua inicialização
 
         \item Em alguns casos, a redução de código é notável:
-            \inputcode{c++}{map.cpp}
+            \inputcode{c++}{codes/map.cpp}
 
         \item A inicialização pode ser feita com constantes, retornos de funções ou mesmo
             outras variáveis
-            \inputcode{c++}{auto.cpp}
+            \inputcode{c++}{codes/auto.cpp}
     \end{itemize}
 
 \end{frame}
@@ -55,11 +55,11 @@
         \item O padrão C++11 também trouxe o recurso do \textit{range for}
 
         \item Antes deste padrão, a iteração em um conteiner era feito por meio de iteradores:
-            \inputcode{c++}{iter.cpp}
+            \inputcode{c++}{codes/iter.cpp}
 
         \item O \textit{range for} simplifica a sintaxe de iteração sobre contêiners,
             elimando o uso explícito de iteradores:
-            \inputcode{c++}{rangefor.cpp}
+            \inputcode{c++}{codes/rangefor.cpp}
     \end{itemize}
 
 \end{frame}
@@ -69,13 +69,13 @@
     \begin{itemize}
         \item O C++11 também permite o uso de funções \textit{lambda}
 
-        \item \textit{lambdas} são funções anônimas que podem ser declaradas e 
+        \item \textit{Lambdas} são funções anônimas que podem ser declaradas e 
             implementadas localmente
 
-        \item O uso de \textit{lambdas} simplifica o código, permitindo a customização de
+        \item O uso de \textit{lambdas} simplifica o código em
             funções que permitem a customização de seu comportamento através do uso de
             ponteiros para funções
-            \inputcode{c++}{sort.cpp}
+            \inputcode{c++}{codes/sort.cpp}
     \end{itemize}
 
 \end{frame}
@@ -102,7 +102,7 @@
 \end{frame}
 
 \begin{frame}[fragile]{Exemplo de uso da STL}
-    \inputcode{c++}{stl.cpp}
+    \inputcode{c++}{codes/stl.cpp}
 \end{frame}
 
 \begin{frame}[fragile]{Dica \#6: Impressão de vetores}
@@ -113,13 +113,13 @@
 
         \item O código abaixo gera um \textit{Presentation Error}, pois imprime um espaço
             em branco após o último número:
-            \inputcode{c++}{pe.cpp}
+            \inputcode{c++}{codes/pe.cpp}
 
         \item Além disso, é preciso de uma linha extra, após o \code{c++}{for}, para a 
             quebra de linha
 
         \item O código abaixo resolve ambos problemas:
-            \inputcode{c++}{vecprint.cpp}
+            \inputcode{c++}{codes/vecprint.cpp}
     \end{itemize}
 
 \end{frame}
@@ -134,12 +134,12 @@
             $0, 1, \ldots, N - 1$ sequencialmente sem a 
             necessidade de um \code{c++}{if} para determinar o momento de se reiniciar o 
             contador
-                \inputcode{c++}{mod.cpp} 
+                \inputcode{c++}{codes/mod.cpp} 
 
         \item É possível alternar entre dois inteiros $A$ e $B$ sem necessidade de um 
             \code{c++}{if}: se $C = A + B$, então o valor de $i$ alterna entre $A$ e $B$ 
             se for atualizado com o valor $C - i$:
-                \inputcode{c++}{alt.cpp} 
+                \inputcode{c++}{codes/alt.cpp} 
     \end{itemize}
 
 \end{frame}
@@ -159,7 +159,7 @@
         \item Todas as constantes devem receber um valor inicial, uma vez que não é possível
             alterar seus valores em qualquer outro ponto do código
 
-            \inputcode{c++}{const.cpp}
+            \inputcode{c++}{codes/const.cpp}
 
     \end{itemize}
 
