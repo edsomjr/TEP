@@ -1,0 +1,116 @@
+\section{Dividir e Conquistar}
+
+\begin{frame}[fragile]{Definição}
+
+    \begin{itemize}
+        \item Dividir e conquistar (ou divisão e conquista) é um paradigma de solução de problemas
+            que divide o problema em subproblemas menores sucessivas vezes até que o problema
+            possa ser (trivialmente) resolvido
+
+        \item Em seguida, ele combina as soluções dos subproblemas na solução do problema original
+
+        \item Sistematicamente, são três etapas:
+
+        \begin{enumerate}
+            \item dividir o problema em subproblemas menores (divisão);
+
+            \item resolver os subproblemas recursivamente, se ainda forem grande o suficiente,
+                ou diretamente, pequenos o bastante (conquista);
+
+            \item combinar as soluções dos subproblemas para formar a solução do problema
+                que foi dividido (fusão).
+        \end{enumerate}
+
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Complexidade de soluções baseadas em divisão e conquista}
+
+    \begin{itemize}
+        \item Dada a natureza do paradigma, algoritmos baseados em divisão e conquista são
+            implementados por meio de recursão
+
+        \item Esta característica facilita a implementação e deixa evidente as etapas do
+            paradigma
+
+        \item Contudo, a complexidade assintótica do algoritmo pode não ser óbvia
+
+        \item Para computar a complexidade o primeiro passo é escrever a relação de recorrência
+            que associa o número de operações $T(n)$ necessárias para a resolução do problema
+            com o número de operações necessárias para a solução dos subproblemas
+
+        \item Uma vez estabelecida a recorrência, deve-se utilizar, se possível, o Teorema Mestre
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Teorema Mestre}
+
+    \metroset{block=fill}
+    \begin{block}{Teorema Mestre}
+        Sejam $a\geq 1$ e $b > 1$ constantes, $f(n)$ uma função tais que
+        \[
+            T(n) = aT\left(\left\lfloor n/b\right\rfloor\right) + f(n)
+        \]
+
+        Se
+        \begin{enumerate} 
+            \item $f(n) = O(n^{\log_b a - \varepsilon})$ para alguma constante $\varepsilon > 0$,
+                então $T(n) = \Theta(n^{\log_b a})$
+
+            \item $f(n) = \Theta(n^{\log_b a})$ então $T(n) = \Theta(n^{\log_b a}\log n)$
+
+            \item $f(n) = O(n^{\log_b a + \varepsilon})$ para alguma constante $\varepsilon > 0$,
+                e se $af(n/b) \leq cf(n)$ para alguma constante $c > 1$ e $n$ grande o suficiente,
+                então $T(n) = \Theta(f(n))$
+        \end{enumerate} 
+    \end{block}
+
+\end{frame}
+
+\begin{frame}[fragile]{Variáveis do Teorema Mestre}
+
+    \begin{itemize}
+        \item Considere a relação de recorrência citada no Teorema Mestre:
+        \[
+            T(n) = aT\left(\left\lfloor n/b\right\rfloor\right) + f(n),
+        \]
+
+        \item $T(n)$ é o número de operações para resolver um problema cuja entrada tem tamanho $n$
+
+        \item $a$ é o número de subproblemas após a divisão
+
+        \item $\lfloor n/b\rfloor$ é o tamanho de cada subproblema
+
+        \item Observe que cada subproblema deve ter o mesmo tamanho, e este tamanho deve ser
+            um número inteiro
+
+        \item $f(n)$ é o número de operações necessárias para combinar as soluções dos subproblemas
+            para formar a solução do problema
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Interpretação do Teorema Mestre}
+
+    \begin{itemize}
+        \item O Teorema compara a função que representa o custo da etapa de fusão ($f(n)$) com a
+            função $g(n) = n^{\log_a b}$, onde o número de subproblemas é $O(g(n))$
+
+        \item No primeiro caso, o número de subproblemas é maior do que o custo da fusão, e domina
+            a complexidade
+
+        \item No terceiro caso, o custo da fusão é maior do que solução dos subproblemas, e domina
+            a complexidade
+
+        \item No segundo, ambas são equivalentes, de modo que o custo de fusão é multiplicado por
+            um fator logarítmico, pois 
+            \[
+                \Theta(n^{\log_b a}\log n) = \Theta(f(n)\log n)
+            \]
+
+        \item Note que o Teorema Mestre não cobre todos os cenários possíveis
+    \end{itemize}
+
+\end{frame}
