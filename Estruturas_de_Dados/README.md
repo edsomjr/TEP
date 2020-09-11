@@ -26,7 +26,7 @@ Estruturas de Dados
     1. [Árvores-B](slides/BT-1/BT-1.pdf)
     1. [_Union-Find Disjoint Sets_](slides/ufds/ufds.pdf) ([problemas resolvidos](problems/ufds/ufds.pdf))
     1. [Árvores de Fenwick: Definição, _RSQ_ e _update_](slides/fenwick_tree-definicao/fenwick_tree-definicao.pdf) ([problemas resolvidos](problems/fenwick_tree-definicao/fenwick_tree-definicao.pdf))
-    1. [Árvores de Fenwick: Aplicações e Variações](slides/arvore_de_fenwick-aplicacoes/arvore_de_fenwick-aplicacoes.pdf) ([problemas resolvidos](problems/arvore_de_fenwick-aplicacoes/arvore_de_fenwick-aplicacoes.pdf))
+    1. 1. [Árvores de Fenwick: Aplicações e Variações](slides/fenwick_tree-aplicacoes/fenwick_tree-aplicacoes.pdf) ([problemas resolvidos](problems/fenwick_tree-aplicacoes/fenwick_tree-aplicacoes.pdf))
     1. [Árvores de segmentos: Definição e Implementação](slides/segtree/segtree.pdf) ([problemas resolvidos](problems/segtree/segtree.pdf))
 1. Hashes
     1. [Definição, endereçamento aberto e encadeamento](slides/HS-1/HS-1.pdf)
