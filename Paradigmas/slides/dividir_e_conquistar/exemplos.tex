@@ -1,2 +1,166 @@
 \section{Exemplos práticos de divisão e conquista}
 
+\begin{frame}[fragile]{\it Mergesort}
+
+    \begin{itemize}
+        \item O \textit{mergesort} é um algoritmo de ordenação que utiliza a divisão e conquista
+
+        \item Na etapa de divisão, caso o vetor tenha $N > 1$ elementos, e subdivide este vetor
+            em duas partes de, aproximadamente, mesmo tamanho, e aplica o algoritmo em cada
+            uma destas partes
+
+        \item A etapa da conquista acontece quando $N = 1$: neste caso, o vetor estará trivialmente
+            ordenado
+
+        \item A fusão constitui a parte principal do algoritmo: uma vez que as duas partes foram
+            ordenadas, elas devem ser combinadas para formar o vetor ordenado
+
+        \item A ordenação das partes permite que esta fusão seja feita em $O(N)$
+
+        \item Assim a recorrência do \textit{mergesort} é
+        \[
+            T(n) = 2T(n/2) + O(n)
+        \]
+
+        \item Segundo o Teorema Mestre (caso 2), a complexidade será $O(N\log N)$
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Implementação do {\it mergesort} em C++}
+    \inputsnippet{cpp}{5}{25}{codes/mergesort.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Multiplicação matricial}
+
+    \begin{itemize}
+        \item Sejam $A$ e $B$ duas matrizes $N\times N$
+
+        \item Considere, sem perda de generalidade, que $N = 2^k$ para algum $k$ não-negativo
+
+        \item O produto $C = AB$ é tal que
+        \[
+            c_{ij} = \sum_{k = 1}^N a_{ik}b_{kj}
+        \]
+
+        \item Como $C$ possui $N^2$ coeficientes e cada coeficiente é calculado em $O(N)$, a
+            implementação da multiplicação matricial pela definição tem complexidade $O(N^3)$
+    \end{itemize}
+
+
+\end{frame}
+
+\begin{frame}[fragile]{Multiplicação matricial usando divisão e conquista}
+
+    \begin{itemize}
+        \item A divisão e conquista pode ser utilizada para multiplicar matrizes
+
+        \item Se $N > 1$, divida as matrizes $A$ e $B$ em quatro submatrizes de tamanho $N/2 \times
+            N/2$:
+        \[
+            A = \begin{pmatrix}
+                    A_{11} & A_{12} \\
+                    A_{21} & A_{22}
+                \end{pmatrix}, \ \ \ \ 
+            B = \begin{pmatrix}
+                    B_{11} & B_{12} \\
+                    B_{21} & B_{22}
+                \end{pmatrix}
+        \]
+
+        \item Se $N = 1$, então $C = AB$
+
+        \item Caso contrário, as submatrizes de $C$ são dadas por
+        \begin{align*}
+            C_{11} &= A_{11}B_{11} + A_{12}B_{21} \\
+            C_{12} &= A_{11}B_{12} + A_{12}B_{22} \\
+            C_{21} &= A_{21}B_{11} + A_{22}B_{21} \\
+            C_{22} &= A_{21}B_{12} + A_{22}B_{22}
+        \end{align*}
+            
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Multiplicação matricial usando divisão e conquista}
+
+    \begin{itemize}
+        \item Assim, cada multiplicação matricial é feita mediante a combinação de 8 multiplicações
+            de matrizes $N/2 \times N/2$ por meio de somas
+
+        \item Estas somas tem complexidade $O(N^2)$
+
+        \item A recorrência desta abordagem é
+        \[
+            T(n) = 8T(N/2) + O(N^2)
+        \]
+
+        \item Portanto, a complexidade desta abordagem, segundo o caso 1 do Teorema Mestre, é
+            $O(N^3)$, a mesma da implementação direta da definição
+
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Algoritmo de Strassen}
+
+    \begin{itemize}
+        \item O algoritmo de Strassen reduz de 8 para 7 os subproblemas da abordagem anterior,
+            por meio da somas adicionais
+
+        \item Defina as somas 
+        \begin{align*}
+            S_1 &= B_{12} - B_{22} & \ \ \ \ \ S_6 &=  B_{11} + B_{22} \\
+            S_2 &= A_{11} + A_{12} & \ \ \ \ \ S_7 &=  A_{12} - A_{22} \\
+            S_3 &= A_{21} + A_{22} & \ \ \ \ \ S_8 &=  B_{21} + B_{22} \\
+            S_4 &= B_{21} - B_{11} & \ \ \ \ \ S_9 &=  A_{11} - A_{21} \\
+            S_5 &= A_{11} + A_{22} & \ \ \ \ \ S_{10} &=  B_{11} + B_{12} \\
+        \end{align*}
+
+        \item As matrizes $S_i$ podem ser computadas em $O(N^2)$, e são utilizadas para 
+            computar 7 submatrizes $P_j$, que por sua vez serão combinadas por somas para 
+            determinar as submatrizes de $C$
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Algoritmo de Strassen}
+
+    \begin{itemize}
+        \item As matrizes $P_j$ são dadas por
+        \begin{align*}
+            P_1 &= A_{11}S_1 & \ \ \ \ P_5 &= S_5S_6 \\
+            P_2 &= S_2B_{22} & \ \ \ \ P_6 &= S_7S_8 \\
+            P_3 &= S_3B_{11} & \ \ \ \ P_7 &= S_9S_{10} \\
+            P_4 &= A_{22}S_4
+        \end{align*}
+
+        \item Já as submatrizes de $C$ são dadas por
+        \begin{align*}
+            C_{11} &= P_4 + P_5 + P_6 - P_2 \\
+            C_{12} &= P_1 + P_2 \\
+            C_{21} &= P_3 + P_4 \\
+            C_{22} &= P_5 - P_1 - P_3 - P_7 \\
+        \end{align*}
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Algoritmo de Strassen}
+
+    \begin{itemize}
+        \item A recorrência do algoritmo de Strassen é
+        \[
+            T(N) = 7T(N/2) + O(N^2)
+        \]
+
+        \item De acordo com o primeiro caso do Teorema Mestre, a complexidade do algoritmo 
+            é $O(N^{\log_2 7})$
+
+        \item Observe que $\log_2 7 \approx 2,81 < 3$
+
+        \item Assim a complexidade do algoritmo de Strassen é menor do que a obtida pela
+            implementação direta da multiplicação de matrizes
+    \end{itemize}
+
+\end{frame}
