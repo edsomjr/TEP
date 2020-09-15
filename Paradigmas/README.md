@@ -1,6 +1,7 @@
 Paradigmas de Resolução de Problemas
 ====================================
 
+1. [Overview](slides/overview/overview.pdf)
 1. Busca Completa
     1. [Definição](slides/complete_search/complete_search.pdf) ([problemas resolvidos](problems/complete_search/complete_search.pdf))
     1. [_Backtracking_](slides/backtracking/backtracking.pdf) ([problemas resolvidos](problems/backtracking/backtracking.pdf))
@@ -26,8 +27,6 @@ Algoritmos gulosos:
         - Minimização de somas (média e mediana, CPH pg 61)
 
 Divisão e conquista:
-    - Master Theorem
-    - Exemplo: Multiplicação de Matrizes em O(n^2.7)
     - NTT
     - Binary Lifting
     
