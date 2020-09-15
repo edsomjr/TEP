@@ -1,0 +1,100 @@
+\section{\it Overview}
+
+\begin{frame}[fragile]{Paradigmas de Solução de Problemas}
+
+    \begin{itemize}
+        \item Os quatro principais paradigmas para solução de problemas são:
+
+        \begin{enumerate}
+            \item Busca completa
+            \item Divisão e conquista
+            \item Guloso
+            \item Programação Dinâmica
+        \end{enumerate}
+
+        \item Os paradigmas diferem entre si nas formas em que avaliam o espaço de soluções e
+            como procedem quando estão defronte a mais de uma possibilidade
+
+        \item A escolha do paradigma correto para a solução de um problema impactará na dificuldade
+            da escrita do código e na complexidade assintótica do algoritmo
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Busca Completa}
+
+    \begin{itemize}
+        \item A busca completa avalia, um a um, todos os candidatos à solução do problema
+
+        \item Quando um algoritmo de busca completa se encontra em uma situação com duas ou
+            mais alternativas, ele avaliará todas elas
+
+        \item Por conta destas características, estes algoritmos tendem a ter as maiores
+            complexidades, quando comparados com algoritmos baseados nos outros paradigmas
+
+        \item Algoritmos de busca completa tendem a ter implementações simples e que produzem a
+            saída correta para todas as entradas possíveis
+
+        \item Contudo podem ser viáveis apenas para entradas relativamente pequenas
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Divisão e Conquista}
+
+    \begin{itemize}
+        \item No paradigma da divisão e conquista um problema é subdividido em problemas menores
+
+        \item Se estes problemas menores ainda não tem solução óbvia, eles são novamente
+            subdivididos, até que possam ser resolvidos trivialmente
+
+        \item Em seguida, as soluções dos subproblemas devem ser combinadas para formar a solução
+            do problema original
+
+        \item A natureza do paradigma leva a implementações, em geral, recursivas
+
+        \item A complexidade dos algoritmos baseadas em divisão e conquista não são óbvias e 
+            dependem da relação de recorrência entre o número de passos necessários para a solução
+            do problema original e dos subproblemas, para a divisão e para a combinação das soluções
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Algoritmos Gulosos}
+
+    \begin{itemize}
+        \item Um algoritmo guloso, quando confrontado com múltiplas alternativas, escolhe àquela
+            que é localmente ótima, com a expectativa que estas escolhas levem à solução ótima
+            global
+
+        \item Em geral, algoritmos gulosos são os que tem menor complexidade assintótica, quando
+            comparados com algoritmos baseados nos outros paradigmas
+
+        \item Contudo, algoritmos gulosos tendem a não produzirem a saída correta para todas as
+            entradas, se não for tomado o devido cuidado
+
+        \item Para que sejam corretos é preciso provar que a estratégia de escolha efetivamente
+            produz a solução ótima
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Programação Dinâmica}
+
+    \begin{itemize}
+        \item Assim como na busca completa, a programação dinâmica avalia todos os candidatos à
+            solução e todas as alternativas possíveis
+
+        \item A diferença é que a programação dinâmica evita que o algoritmo compute um mesmo
+            problema múltiplas vezes, por meio de uma técnica denominada memorização
+
+        \item Se o problema tem subestrutura ótima (isto é, as soluções ótimas dos subproblemas
+            podem ser combinadas para a solução ótima do problema) e os subproblemas se repetem,
+            este problema é candidato a ter uma solução que utiliza programação dinâmica
+
+        \item As implementações são praticamente idêntica às baseadas em busca completa, exceto
+            pela memorização
+            
+    \end{itemize}
+
+\end{frame}
