@@ -86,8 +86,8 @@
         \item Observe que cada subproblema deve ter o mesmo tamanho, e este tamanho deve ser
             um número inteiro
 
-        \item $f(n)$ é o número de operações necessárias para combinar as soluções dos subproblemas
-            para formar a solução do problema
+        \item $f(n)$ é o número de operações necessárias para dividir o problema e para 
+            combinar as soluções dos subproblemas para formar a solução do problema
     \end{itemize}
 
 \end{frame}
@@ -95,17 +95,17 @@
 \begin{frame}[fragile]{Interpretação do Teorema Mestre}
 
     \begin{itemize}
-        \item O Teorema compara a função que representa o custo da etapa de fusão ($f(n)$) com a
-            função $g(n) = n^{\log_a b}$, onde o número de subproblemas é $O(g(n))$
+        \item O Teorema compara a função que representa o custo $f(n)$ das etapas de divisão e
+            fusão com a função $g(n) = n^{\log_a b}$, onde o número de subproblemas é $O(g(n))$
 
-        \item No primeiro caso, o número de subproblemas é maior do que o custo da fusão, e domina
-            a complexidade
+        \item No primeiro caso, o número de subproblemas é maior do que o custo da divisão e da
+            fusão, e domina a complexidade
 
-        \item No terceiro caso, o custo da fusão é maior do que solução dos subproblemas, e domina
-            a complexidade
+        \item No terceiro caso, o custo da divisão e da fusão é maior do que solução dos
+            subproblemas, e domina a complexidade
 
-        \item No segundo, ambas são equivalentes, de modo que o custo de fusão é multiplicado por
-            um fator logarítmico, pois 
+        \item No segundo, ambas são equivalentes, de modo que o custo de divisão e fusão é
+            multiplicado por um fator logarítmico, pois 
             \[
                 \Theta(n^{\log_b a}\log n) = \Theta(f(n)\log n)
             \]
