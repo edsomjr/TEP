@@ -1,0 +1,131 @@
+\section{Implementação {\it top-down}}
+
+\begin{frame}[fragile]{Implementação {\it top-down}}
+
+    \begin{itemize}
+        \item Uma implementação \textit{top-down} de um algoritmo de programação dinâmica parte
+            da relação de recorrência para produzir uma função recursiva
+
+        \item Após a verificação dos casos-base, a tabela é consultada para se determinar se o 
+            estado já foi computado ou não
+
+        \item Em caso afirmativo, o valor armazenado na tabela é retornado
+
+        \item Caso contrário, o subproblema associado ao estado é solucionado por meio de recursão
+
+        \item Em seguida, a solução obtida é armazenada na tabela e então retornado
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Tabela de memorização}
+
+    \begin{itemize}
+        \item A tabela de memorização deve ter tamanho suficiente para armazenar todos os estados
+            possíveis (dentro dos limites das variáveis que compõem o estado)
+
+        \item Além disso, esta tabela deve ser iniciada com um valor que sinalize que o estado
+            associado não foi computado ainda
+
+        \item Este valor sentinela deve corresponder a um valor que não pode ser uma solução de
+            nenhum estado (-1, $\infty$, etc)
+
+        \item Assim, a complexidade em memória do algoritmo será, no mínimo, $O(S)$, onde $S$
+            é o total de estados possíveis
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Características da implementação {\it top-down}}
+
+    \begin{itemize}
+        \item A principal vantagem da implementação \textit{top-down} é a simplicidade: em geral,
+            é uma tradução literal da relação de recorrência que representa a solução do problema
+
+        \item Outra vantagem é que apenas os estados necessários à solução são computados
+
+        \item Por outro lado, a tabela deve ter dimensões que comportem todos os estados possíveis
+
+        \item Também há um custo de execução associado às chamadas recursivas 
+
+        \item A ordem em que os subproblemas associados aos estados são resolvidos corresponde
+            a uma DFS no grafo cujos vértices são os estados e as arestas as transições
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo: Coeficientes Binomiais}
+
+    \begin{itemize}
+
+        \item O coeficiente binomial $\binom{n}{m}$ é dado
+        \[
+            \binom{n}{m} = \frac{n!}{(n - m)!m!},
+        \]
+        se $n \geq m$, e $\binom{n}{m} = 0$, caso contrário
+
+        \item Os coeficientes $\binom{i}{j}$, com $0\leq j\leq i$, formam a $i$-ésima linha do
+            Triângulo de Pascal:
+
+            \include{pascal_view}
+
+    \end{itemize}
+ 
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo: Coeficientes Binomiais}
+
+    \begin{itemize}
+        \item O Triângulo de Pascal permite a visualização de uma importante relação dos
+            coeficientes binomiais
+
+        \item Se $m > 0$ e $m < n$, então o coeficiente $\binom{n}{m}$ é dado pela soma de
+            dois coeficientes da linha anterior: o imediatamente acima e seu antecessor
+
+        \item Em notação matemática,
+        \[
+            \binom{n}{m} = \binom{n - 1}{m} + \binom{n - 1}{m - 1}
+        \], se $0 < m < n$
+
+        \item Se $m = 0$ ou $m = n$, então $\binom{n}{m} = 1$
+
+        \item Estas relação caracterizam a recorrência e os casos bases que permitem uma
+            implementação de programação dinâmica para os coeficientes binomiais
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Implementação dos coeficientes binomiais com DP}
+    \inputsnippet{cpp}{1}{21}{codes/binom_td.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Melhoria e correção da implementação}
+
+    \begin{itemize}
+        \item A implementação anterior pode ser melhorada em um ponto, e também corrigida,
+            uma vez que não produz a saída correta para todas as entradas
+
+        \item Cada linha do Triângulo de Pascal é simétrica: assim
+        \[
+            \binom{n}{m} = \binom{n}{n - m}
+        \]
+
+        \item Este fato permite computa apenas a metade das colunas, e este espaço extra pode
+            ser repassado para as linhas
+
+        \item Os valores dos coeficientes crescem muito rapidamente, de modo que estouram a
+            capacidade de armazenamento de um \code{cpp}{long long}
+
+        \item Uma forma de tratar isso é computar os restos destes coeficientes para um módulo
+            $M$ dado (em competições, é comum o valor $M = 10^9 + 7$)
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Implementação dos coeficientes binomiais melhorada}
+    \inputsnippet{cpp}{1}{20}{codes/binom_td2.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Implementação dos coeficientes binomiais melhorada}
+    \inputsnippet{cpp}{21}{41}{codes/binom_td2.cpp}
+\end{frame}

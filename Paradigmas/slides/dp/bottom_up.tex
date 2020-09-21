@@ -1,0 +1,76 @@
+\section{Implementação {\it bottom-up}}
+
+\begin{frame}[fragile]{Implementação {\it bottom-up}}
+
+    \begin{itemize}
+        \item Assim como nas implementações \textit{top-down}, uma implementação \textit{bottom-up}
+            também se baseia na relação de recorrência e nos casos-base do problema
+
+        \item A primeira diferença é que na implementação \textit{bottom-up} todos os estados
+            intermediários, necessários ou não, são computados
+
+        \item Inicialmente os casos-base são preenchidos
+
+        \item Em seguida, todos os estados que dependem apenas dos casos-base
+
+        \item Após eles, os estados que podem ser computados a partir dos estados já computados
+
+        \item A ordem de preenchimento dos estados correspondem à uma ordenação topológica do
+            grafo cujos vértices são os estados e as arestas são as transições
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Características da implementação {\it bottom-up}}
+
+    \begin{itemize}
+        \item Em geral, esta ordem corresponde ao preenchimento das linhas, uma por vez
+
+        \item Em outros problemas, porém, a ordem pode não ser óbvia à primeira vista
+
+        \item Esta forma de preenchimento da tabela de memorização dispensa uma inicialização
+            prévia
+
+        \item Nos casos onde os elementos de uma linha dependem apenas da linha anterior, a
+            complexidade de memória pode ser reduzida, armazenando-se apenas duas linhas por
+            vezes ($O(N)$ ao invés de $O(NM)$ da tabela completa da implementação 
+            \textit{top-down})
+
+        \item Por fim, implementações \textit{bottom-up} não utilizam de recursão, em geral
+            sendo baseadas em laços aninhados
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Implementação {\it bottom-up} dos números de Fibonacci}
+    \inputsnippet{cpp}{1}{21}{codes/fib_bu.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Redução de memória}
+
+    \begin{itemize}
+        \item Conforme comentado anteriormente, quando a relação de recorrência para valores da
+            linha seguinte dependem apenas da linha anterior, e não é preciso manter o registro
+            do caminho ótimo, é possível reduzir a complexidade em memória de implementações
+           \textit{bottom-up}
+
+        \item Basta manter duas referências para dois vetores, uma para a linha atual
+            (\texttt{next}) e outra para a linha anterior (\texttt{prev})
+
+        \item Os valores de \texttt{prev} são usados para computar os valores de \texttt{next}
+
+        \item Em seguida, as referências são trocadas, e o processamento continua
+
+        \item Também é comum usar uma matriz bidimensional, e trocar entre as linhas por meio
+            do valor associado à segunda dimensão
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Implementação {\it bottom-up} dos coeficientes binomiais}
+    \inputsnippet{cpp}{1}{19}{codes/binom_bu.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Implementação {\it bottom-up} dos coeficientes binomiais}
+    \inputsnippet{cpp}{20}{40}{codes/binom_bu.cpp}
+\end{frame}
