@@ -1,0 +1,120 @@
+\section{SPOJ SQRBR -- Square Brackets}
+
+\begin{frame}[fragile]{Problema}
+
+You're given a string $s$ consisting of letters `\texttt{a}', `\texttt{b}' and `\texttt{c}'.
+
+The matching function $m_s(i)$ is defined as the number of matching characters of $s$ and its
+$i$-shift. In other words, $m_s(i)$ is the number of characters that are matched when you align the
+0-th character of $s$ with the $i$-th character of its copy.
+
+You are asked to compute the maximum of $m_s(i)$ for all $i$ $(1\leq i\leq |s|)$. To make it a bit
+harder, you should also output all the optimal $i$'s in increasing order.
+
+\end{frame}
+
+\begin{frame}[fragile]{Entrada e saída}
+
+\textbf{Input}
+
+The first and only line of input contains the string $s$ ($2\leq |s| \leq 10^5$).
+
+\vspace{0.2in}
+
+\textbf{Output}
+
+The first line of output contains the maximal $m_s(i)$ over all $i$.
+
+The second line of output contains all the $i$'s for which $m_s(i)$ reaches maximum.
+
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de entradas e saídas}
+
+\begin{minipage}[t]{0.45\textwidth}
+\textbf{Sample Input}
+\begin{verbatim}
+caccacaa
+\end{verbatim}
+\end{minipage}
+\begin{minipage}[t]{0.5\textwidth}
+\textbf{Sample Output}
+\begin{verbatim}
+4
+3
+\end{verbatim}
+\end{minipage}
+\end{frame}
+
+\begin{frame}[fragile]{Solução $O(N^2)$}
+
+    \begin{itemize}
+        \item A função $m_s(i)$ corresponde à distância de Hamming entre a string $s$ e a 
+            substring $b_i = s[i..(N - 1)]$, com $i = 1, 2, \ldots, N$
+
+        \item Esta distância de Hamming entre as strings $s$ e $t$ é dada por
+        \[
+            D(s, t) = \sum_{i = 0}^m (1 - \delta_{s[i]}(t[i])),
+        \]
+        onde $m = \min(|s|, |t|)$ e $\delta_j(j) = 1$ e $\delta_j(k) = 0$, se $j\neq k$
+
+        \item Assim, $D$ tem complexidade $O(N)$
+
+        \item Uma solução que computa $D(s, b_i)$ para todos os valores de $i$ tem complexidade
+            $O(N^2)$, e leva ao veredito TLE
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Solução $O(N\log N)$}
+
+    \begin{itemize}
+        \item Considere as strings $t_k$ tais que $t_k[i] = \delta_k(s[i])$
+
+        \item Na string dada no exemplo, $t_a =$ ``\texttt{01001011}'', $t_b =$ ``00000000'' e
+            $t_c =$ ``10110100''
+
+        \item A ideia é computar $m_s(i)$ como a soma das funções $m^k_i(s)$, com $k =$ 
+            `\texttt{a}', `\texttt{b}' e `\texttt{c}', onde $m^k_i(s)$ é calculada a partir da
+            string $t_k$
+
+        \item Usando esta representação binária das strings, o cálculo da distância de Hamming 
+            corresponde ao produto escalar entre a string $t_k$ e a substring $b_i$
+
+        \item Estes produtos escalares surgem na multiplicação dos polinômios correspondentes a
+            strings $t_k$ e a reversa da string $b_i$
+
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Solução $O(N\log N)$}
+
+    \begin{itemize}
+        \item Assim, os valores de $m^k_i(s)$ para cada $i$ podem ser computados todos de uma
+            só vez, por meio da multiplicação de polinômios, em $O(N\log N)$
+
+        \item Atente que, devido à multiplicação polinomial, o valor de $m^k_i(s)$ será o 
+            coeficiente do monômio de grau $i + N$, onde $N$ é o tamando da string $t_k$
+
+        \item Embora $m^k_i(N) = 0$, é preciso considerá-lo na composição final da resposta,
+            uma vez que $0$ pode ser o valor máximo obtido, e neste caso o índice $N$ também
+            deve ser listado
+
+        \item Repetido o processo para cada valor de $k$, o problema pode ser resolvido em
+            $O(N\log N)$
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Solução $O(N\log N)$}
+    \inputsnippet{cpp}{1}{21}{codes/SQRBR.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Solução $O(N\log N)$}
+    \inputsnippet{cpp}{22}{42}{codes/SQRBR.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Solução $O(N\log N)$}
+    \inputsnippet{cpp}{43}{63}{codes/SQRBR.cpp}
+\end{frame}

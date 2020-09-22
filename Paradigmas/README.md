@@ -43,5 +43,4 @@ Programação dinâmica:
     - TSP
     - Max 1D range sum
     - Tilings (Geometry)?
-    - prefix sum 
 -->
