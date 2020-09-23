@@ -13,7 +13,7 @@ Paradigmas de Resolução de Problemas
     1. [Busca binária e busca ternária](slides/busca_binaria/busca_binaria.pdf) ([problemas resolvidos](problemas/busca_binaria/busca_binaria.pdf))
     1. [Transformada de Fourier](slides/fft/fft.pdf) ([problemas resolvidos](problemas/fft/fft.pdf))
 1. Programação Dinâmica
-    1. [Definição](slides/dp/dp.pdf)
+    1. [Definição](slides/dp/dp.pdf) ([problemas resolvidos](problemas/dp/dp.pdf))
 
 <!---
 Busca completa:
