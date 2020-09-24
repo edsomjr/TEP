@@ -4,24 +4,34 @@ using namespace std;
 
 const int oo { 1000000010 };
 
+int kadane(const vector<int>& as)
+{
+    vector<int> s(as.size());
+    s[0] = as[0];
+
+    for (size_t i = 1; i < as.size(); ++i)
+        s[i] = max(as[i], s[i - 1] + as[i]);
+
+    return *max_element(s.begin(), s.end());
+}
+
 int MSR(int N, int M, const vector<vector<int>>& A)
 {
     vector<vector<int>> p(N + 1, vector<int>(M + 1, 0));
+    int ans = -oo;
 
     for (int i = 1; i <= N; ++i)
-        for (int j = 1; j <= M; ++j)
-            p[i][j] = p[1][j-1] + p[i-1][1] - p[i-1][j-1] + A[i][j];
+    {
+        vector<int> r(N + 1, 0);
 
-    int ans = -oo, sum;
+        for (int j = i; j <= M; ++j)
+        {
+            for (int k = 1; k <= N; ++k)
+                r[k] += A[k][j]; 
 
-    for (int a = 0; a < N; ++a)
-        for (int b = 0; b < M; ++b)
-            for (int c = a; c < N; ++c)
-                for (int d = b; d < M; ++d)
-                {
-                    sum = p[c][d] - p[a-1][d] - p[c][b-1] + p[a-1][b-1];
-                    ans = max(ans, sum);
-                }
+            ans = max(ans, kadane(r));
+        }
+    }
 
     return ans;
 }

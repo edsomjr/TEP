@@ -1,0 +1,61 @@
+\section{\it Max Square Sub-Matrix}
+
+\begin{frame}[fragile]{Definição}
+
+    \metroset{block=fill}
+    \begin{block}{Max Square Sub-Matrix with all 1s}
+        Seja $A$ uma matrix $n\times m$ tal que $a_{ij} \in [0, 1]$, para todo $1\leq i\leq n,
+            1\leq j\leq m$. O problema consiste em identificar a submatriz quadrada $B$ de $A$,
+            de maior área possível, tal que todos os elementos de $B$ são iguais a 1.
+    \end{block}
+
+\end{frame}
+
+\begin{frame}[fragile]{Características do problema}
+
+    \begin{itemize}
+        \item Este é um problema semelhante, mas não idêntico, ao \textit{max 2D range sum}
+
+        \item Aqui, a solução $B$ não é, necessariamente, a submatriz de maior soma
+
+        \item Novamente, uma solução de força bruta checaria $O(m^2n^2)$ submatrizes em $O(mn)$
+            cada, tendo complexidade $O(n^3m^3)$
+
+        \item Porém, é possível resolver tal problema com complexidade $O(mn)$ por meio de um
+            algoritmo de programação dinâmica
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Solução de programação dinâmica}
+
+    \begin{itemize}
+        \item Seja $S(i, j)$ a dimensão $k$ da submatriz $B_{k\times k}$ de maior área, cujos
+            elementos são todos iguais a 1, que tem o elemento $a_{ij}$ esta localizado no canto
+            inferior direito de $B$
+
+        \item Naturalmente, $S(i, j) = 0$ se $a_{ij} = 0$
+
+        \item Se $a_{ij} = 1$, então
+        \[
+            S(i, j) = \min\{\ S[i][j - 1], S[i - 1][j], S[i - 1][j - 1]\ \} + 1
+        \]
+
+        \item Esta transição tenta construir o maior quadrado possível com o canto inferior
+            esquerdo em $a_{ij}$ a partir dos quadrados ótimos para seus vizinhos à oeste, 
+            norte e noroeste
+
+        \item Os casos base ocorrem quando $i = 1$ ou $j = 1$: nestes casos, $S(i, 1) = a_{i1}$ e
+            $S(1, j) = a_{1j}$
+
+        \item A solução do problema corresponde ao valor máximo de $S(i, j)$
+
+        \item A complexidade do algoritmo é $O(mn)$: são $O(mn)$ estados, com transições em
+            $O(1)$
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Implementação {\it bottom-up} do {\it max square sub-matrix}}
+    \inputsnippet{cpp}{9}{29}{codes/max-square-submatrix.cpp}
+\end{frame}

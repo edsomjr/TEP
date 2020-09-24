@@ -111,3 +111,29 @@
 \begin{frame}[fragile]{Max 2D Range Sum PD}
     \inputsnippet{cpp}{7}{27}{codes/max-2D-range-sum_dp.cpp}
 \end{frame}
+
+\begin{frame}[fragile]{Max 2D Range Sum com algoritmo de Kadane}
+
+    \begin{itemize}
+        \item Assim como no caso unidimensional, o algoritmo de Kadane pode ser utilizado para
+            reduzir a complexidade do \textit{max 2D range sum}
+
+        \item A ideia é a seguinte: para cada par de colunas $(i, j)$, com $1\leq i\leq j \leq m$,
+            deve-se aplicar o algoritmo de Kadane na sequência $r = \{ r_1, r_2, \ldots, r_N \} $,
+            onde
+            \[
+                r_k = \sum_{r = i}^j a_{kr}
+            \]
+
+        \item Deste modo, o algoritmo de Kadane identifica, dentre todas as submatrizes $B$ de $A$
+            que iniciam na coluna $i$ e terminam na coluna $j$, a que possui maior soma
+
+        \item Como o algoritmo de Kadane roda em $O(n)$ e há $O(m^2)$ pares de colunas, 
+            esta solução para o \textit{max 2D range sum} tem complexidade $O(nm^2)$
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Implementação do max 2D range sum com kadane em $O(nm^2)$}
+    \inputsnippet{cpp}{18}{37}{codes/max-2D-range-sum_kadane.cpp}
+\end{frame}
