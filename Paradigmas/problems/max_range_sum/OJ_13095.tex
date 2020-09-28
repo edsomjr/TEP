@@ -1,0 +1,97 @@
+\section{OJ 13095 -- Tobby and Query}
+
+\begin{frame}[fragile]{Problema}
+
+Homer Simpson, a very smart guy, likes eating Krusty-burgers. It takes Homer $m$ minutes to eat a
+Krusty-burger. However, there’s a new type of burger in Apu’s Kwik-e-Mart. Homer likes those too.
+It takes him $n$ minutes to eat one of these burgers. Given t minutes, you have to find out the
+maximum number of burgers Homer can eat without wasting any time. If he must waste time, he can
+have beer.
+
+\end{frame}
+
+\begin{frame}[fragile]{Entrada e saída}
+
+\textbf{Input}
+
+Input consists of several test cases. Each test case consists of three integers $m, n, t$ ($0 < m,
+n, t < 10000$). Input is terminated by EOF.
+
+\vspace{0.2in}
+
+\textbf{Output}
+
+For each test case, print in a single line the maximum number of burgers Homer can eat without
+having beer. If homer must have beer, then also print the time he gets for drinking, separated by
+a single space. It is preferable that Homer drinks as little beer as possible.
+
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de entradas e saídas}
+
+\begin{minipage}[t]{0.45\textwidth}
+\textbf{Sample Input}
+\begin{verbatim}
+3 5 54
+3 5 55
+\end{verbatim}
+\end{minipage}
+\begin{minipage}[t]{0.5\textwidth}
+\textbf{Sample Output}
+\begin{verbatim}
+18
+17
+\end{verbatim}
+\end{minipage}
+\end{frame}
+
+\begin{frame}[fragile]{Solução $O(T)$}
+
+    \begin{itemize}
+        \item Observe que o problema consiste em minimizar o consumo de cerveja e, em segundo lugar,
+            maximizar o número de hambúrger
+
+        \item O problema pode ser caracterizado por um único parâmetro: o recurso disponível
+            $t$
+        
+        \item Para cada subproblema $p(t)$ a solução é caracterizada por um par de valores
+            $(b, h)$: o número mínimo de cervejas e o máximo de hambúrgeres a serem consumidos 
+
+        \item Para manter a ordenação das soluções ótimas e usar a função \texttt{max()} do 
+            C++, o valor de $b$ será representado pelo seu simétrico
+   \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Solução $O(T)$}
+
+    \begin{itemize}
+        \item O caso base ocorre quando $t = 0$: neste caso, $p(0) = (0, 0)$
+            
+        \item Há 3 transições possíveis para o estado $p(t)$:
+
+        \begin{enumerate}
+            \item gastar todo o recurso com cervejas
+            \item comprar uma cerveja por $m$
+            \item comprar uma cerveja por $n$
+        \end{enumerate}
+
+        \item Como há $O(T)$ estados distintos, e as transições tem custo $O(1)$, uma solução
+            baseada em programação dinâmica tem complexidade $O(T)$
+
+        \item A complexidade em memória também é $O(T)$
+   \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Solução $O(T)$}
+    \inputsnippet{cpp}{1}{20}{codes/13095.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Solução $O(T)$}
+    \inputsnippet{cpp}{21}{41}{codes/13095.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Solução $O(T)$}
+    \inputsnippet{cpp}{42}{62}{codes/13095.cpp}
+\end{frame}
