@@ -14,7 +14,7 @@ Paradigmas de Resolução de Problemas
     1. [Transformada de Fourier](slides/fft/fft.pdf) ([problemas resolvidos](problemas/fft/fft.pdf))
 1. Programação Dinâmica
     1. [Definição](slides/dp/dp.pdf) ([problemas resolvidos](problemas/dp/dp.pdf))
-    1. [_Max Range Sum_](slides/max_range_sum/max_range_sum.pdf)
+    1. [_Max Range Sum_](slides/max_range_sum/max_range_sum.pdf) ([problemas resolvidos](problemas/max_range_sum/max_range_sum.pdf))
 
 <!---
 Busca completa:
