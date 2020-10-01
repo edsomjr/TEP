@@ -1,0 +1,110 @@
+\section{Cortando o Papel}
+
+\begin{frame}[fragile]{Problema}
+
+Uma folha de papel é composta de uma sequência de retângulos com diferentes alturas mas com
+larguras fixas, tal que as bases dos retângulos estão assentadas em uma linha horizontal. A figura
+ilustra uma folha exemplo com 33 retângulos. Nós gostaríamos de fazer um único corte horizontal,
+com a ajuda de um estilete e uma régua, que maximize o número resultante de pedaços separados pelo
+corte. A figura mostra quatro diferentes cortes que resultariam, respectivamente, em 4, 11, 10 e 3
+pedaços.
+
+\end{frame}
+
+\input{papel_view}
+
+\begin{frame}[fragile]{Entrada e saída}
+
+\textbf{Entrada}
+
+A primeira linha da entrada contém um inteiro $N$, representando o número de retângulos na folha de
+papel. A segunda linha contém $N$ inteiros $A_i$, $1\leq i\leq N$, representando a sequência de
+alturas dos retângulos.
+
+\vspace{0.1in}
+
+\textbf{Saída}
+
+Seu programa deve imprimir uma linha contendo um inteiro representando o número máximo de pedaços
+possível, com um único corte horizontal.
+
+\end{frame}
+
+\begin{frame}[fragile]{Entrada e saída}
+
+\textbf{Restrições}
+
+\begin{itemize}
+    \item $2\leq N\leq 10^5$
+    \item $1\leq A_i\leq 10^9$, para $1\leq i\leq N$
+\end{itemize}
+
+\vspace{0.1in}
+
+\textbf{Informações sobre a pontuação}
+
+\begin{itemize}
+    \item Em um conjunto de casos de teste somando 40 pontos, $N\leq 1000$
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de entradas e saídas}
+
+\begin{minipage}[t]{0.45\textwidth}
+\textbf{Entrada}
+\begin{verbatim}
+5 6
+1 2 4
+1 3 3
+4 3 6
+4 5 2
+2 4 1
+3 5 5
+\end{verbatim}
+\end{minipage}
+\begin{minipage}[t]{0.5\textwidth}
+\textbf{Saída}
+\begin{verbatim}
+7
+\end{verbatim}
+\end{minipage}
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de entradas e saídas}
+
+\begin{minipage}[t]{0.45\textwidth}
+\textbf{Entrada}
+\begin{verbatim}
+7 10
+1 2 5
+3 1 32
+1 4 3
+2 3 4
+2 6 20
+6 3 1
+6 4 9
+6 5 6
+3 7 18
+5 7 2
+\end{verbatim}
+\end{minipage}
+\begin{minipage}[t]{0.5\textwidth}
+\textbf{Saída}
+\begin{verbatim}
+18
+\end{verbatim}
+\end{minipage}
+\end{frame}
+
+
+\begin{frame}[fragile]{Solução}
+
+    \begin{itemize}
+        \item a
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Solução $O(N\log N)$}
+    \inputsnippet{cpp}{1}{21}{codes/papel.cpp}
+\end{frame}
