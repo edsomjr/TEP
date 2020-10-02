@@ -96,3 +96,17 @@
 \renewcommand{\algorithmicensure}{\textbf{Output:}}
 \newcommand{\forto}{\ \mbox{\bf to}\ }
 \newcommand{\algand}{\ \mbox{\bf and}\ }
+
+\setbeamercolor{postit}{fg=black,bg=gray!30}
+
+\newenvironment{atcoderio}[1]
+{
+\begin{beamercolorbox}[sep=0.3em]{postit}
+\begin{small}
+\begin{tabular}{#1}
+}
+{
+\end{tabular}
+\end{small}
+\end{beamercolorbox}
+}
