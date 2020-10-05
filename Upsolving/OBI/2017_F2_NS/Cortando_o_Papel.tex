@@ -100,7 +100,37 @@ possível, com um único corte horizontal.
 \begin{frame}[fragile]{Solução}
 
     \begin{itemize}
-        \item a
+        \item Uma parte importante do problema consiste em identificar o número de pedaços 
+            resultantes de um corte na altura $x$
+
+        \item Conforme pode ser observado na figura, um pedaço consiste em uma série de retângulos
+            contíguos cujas alturas são todas maiores do que $x$
+
+        \item Além disso, há o pedaço formado por todos os retângulos, ou partes de retângulo,
+            que ficaram abaixo de $x$
+
+        \item É possível usar a técnica de dois ponteiros para identificar os pedaços resultantes
+            de um corte em $x$
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Rotina que computa os pedaços para um corte em $x$}
+    \inputsnippet{cpp}{1}{21}{codes/corte.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Solução}
+
+    \begin{itemize}
+        \item A rotina $pieces(x)$, que computa o número de pedaços resultantes de um corte em 
+            $x$, tem complexidade $O(N)$
+
+        \item Uma solução para o problema consiste em computar o valor máximo de $pieces(x)$
+            para $x \in [1, M]$, onde $M = \max\{ h_1, h_2, \ldots,
+            h_N\}$
+
+        \item Tal solução tem complexidade $O(NM)$, e como $N\leq 10^5$ e $M\leq 10^9$, tal 
+            abordagem resulta em um veredito TLE
     \end{itemize}
 
 \end{frame}
@@ -117,6 +147,102 @@ possível, com um único corte horizontal.
     \inputsnippet{cpp}{43}{63}{codes/papel_bf.cpp}
 \end{frame}
 
+\begin{frame}[fragile]{Solução}
+
+    \begin{itemize}
+        \item Por meio de uma observação cuidadosa dos cortes para valores consecutivos de $x$ 
+            leva a conclusão que os valores de $pieces(x)$ só se modificam nos valores que
+            correspondem às alturas dos retângulos
+
+        \item Isto reduz a quantidade máxima de alturas a serem verificadas de $10^9$ para $10^5$
+
+        \item Embora o veredito continue sendo TLE, esta redução permite resolver com sucesso o
+            conjunto de casos de testes que correspondem a 40 pontos
+
+        \item Para somar todos os 100 pontos, é preciso uma abordagem distinta que identifique,
+            de forma eficiente, os valores de $x$ que levam aos cortes com o número máximo de
+            pedaços
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Solução}
+
+    \begin{itemize}
+        \item Considere a figura abaixo
+
+        \input{picos}
+
+        \item Um corte com $x\in [a, b)$ divide o primeiro pico em duas partes
+
+        \item Já um corte com $x \in [c, d)$ divide o segundo pico em duas partes
+
+    \end{itemize}
+
+\end{frame}
+
+
+\begin{frame}[fragile]{Solução}
+
+    \begin{itemize}
+        \item Agora, se $x\in [a, b)\cap [c, d)$, ambos serão divididos
+
+        \item Considerando que o $i$-ésimo pico pode ser caracterizado por um ponto de máximo local
+            $b_i$ e um ponto de mínimo local $a_i$, o problema passa a ser determinar a maior
+            interseção possível entre todos os intervalos $[a_i, b_i)$
+            
+        \item Para identificar de forma mais simples e eficiente os pontos de máximo e mínimo
+            locais, a entrada pode ser comprimida, eliminando-se alturas iguais e consecutivas:
+
+            \vspace{0.1in}
+
+            \inputsyntax{cpp}{codes/compress.cpp}
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Solução}
+
+    \begin{itemize}
+        \item Após a compressão, há um ponto de máximo local em $h_i$ se $h_{i - 1} < h_i$ e
+            $h_{i + 1} < h_i$
+
+        \item De forma análoga, há um ponco de mínimo local em $h_i$ se $h_{i - 1} > h_i$ e
+            $h{i + 1} > h_i$
+
+        \item Por fim, a maior interseção possível entre todos os intervalos $[a_i, b_i)$ pode
+            ser determinada por meio de um algoritmo de \textit{line sweep}
+
+        \item Para cada intervalo $a_i$ deve ser criados dois eventos: um evento de abertura em
+            $a_i$ e um e fechamento em $b_i$
+
+        \item Os eventos devem ser ordenados pelo ponto de ocorrência
+
+        \item Em caso de empate, os eventos de fechamento devem vir antes dos de abertura
+
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Solução}
+
+    \begin{itemize}
+        \item Os eventos devem ser processados em ordem
+
+        \item Inicialmente não há nenhum intervalo aberto
+
+        \item Cada abertura incrementa em uma unidade o número de intervalos abertos
+
+        \item Os eventos de fechamento reduzem o número de intervalos abertos em uma unidade
+
+        \item A solução do problema é o maior número de intervalos abertos registrado durante
+            o processamento dos eventos
+
+        \item Assim, como a compressão tem complexidade $O(N)$ e a ordenação dos eventos
+            $O(N\log N)$, a solução tem complexidade $O(N\log N)$
+    \end{itemize}
+
+\end{frame}
 \begin{frame}[fragile]{Solução $O(N\log N)$}
     \inputsnippet{cpp}{1}{21}{codes/papel.cpp}
 \end{frame}
