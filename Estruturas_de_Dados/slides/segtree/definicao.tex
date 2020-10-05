@@ -17,11 +17,11 @@
     \begin{itemize}
         \item Uma árvore de segmentos é uma árvore binária completa cujos nós intermediários 
             armazenam
-            os resultados da operação subjacente sobre um  subintervalos de índices $[i, j]$, e 
+            os resultados da operação subjacente sobre um  subintervalos de índices $[i, j]$ e 
             cujas folhas são os elementos do vetor $xs$
 
         \item Se um nó intermediário armazena o resultado da operação para $[i, j]$, seu filho
-            à esquerda armazena os resultados para $[i, i + m)$, e seu filho à direita armazena
+            à esquerda armazena os resultados para $[i, i + m)$ e seu filho à direita armazena
             os resultados para $[i + m, j]$, onde $m = \lfloor (j - i + 1)/2 \rfloor$
 
         \item As árvores de segmentos são estruturas mais flexíveis do que as árvores de Fenwick

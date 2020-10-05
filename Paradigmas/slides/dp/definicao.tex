@@ -1,0 +1,146 @@
+\section{Definição}
+
+\begin{frame}[fragile]{Programação Dinâmica}
+
+    \begin{itemize}
+        \item A programação dinâmica é um paradigma de solução de problemas que combina
+            características dos outros paradigmas
+
+        \item Assim como o paradigma guloso, ela é aplicável em problemas que possuem subestrutura
+            ótima
+
+        \item Ela também resolve o problema através da combinação das soluções dos subproblemas,
+            o que se assemelha à etapa de fusão da divisão e conquista
+
+        \item De forma semelhante a busca completa, ela avalia todas as alternativas disponíveis
+            igualmente
+
+        \item Ela, porém, difere dos demais paradigmas porque evita recalcular um subproblema
+            múltiplas vezes por meio da técnica da memorização, e por optar por uma ou mais 
+            alternativas apenas após avaliar todas elas
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Características da programação dinâmica}
+
+    \begin{itemize}
+        \item A programação dinâmica é aplicável em problemas que possuem duas características:
+
+        \begin{enumerate}
+            \item subestrutura ótima (a solução do problema pode ser formada a partir das soluções
+                ótimas dos subproblemas); e
+            \item subproblemas repetidos (subproblemas compartilham subproblemas em comum).
+        \end{enumerate}
+
+        \item Caso a segunda característica não esteja presente, não há necessidade de memorização
+            e o algoritmo será equivalente a uma busca completa
+
+        \item Como a solução do problema será formada a partir da solução dos subproblemas, esta
+            solução pode ser descrita por meio de uma relação de recorrência
+
+        \item Os subproblemas que podem não podem mais serem subdivididos e que são necessários para
+            a solução dos demais constituem os casos-base do problema
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Características da programação dinâmica}
+
+    \begin{itemize}
+        \item Tanto o problema quanto os subproblemas são caracterizados por estados, os quais
+            correspondem ao conjunto de variáveis (e seus respectivos valores) que identificam
+            unicamente uma instância do problema
+        
+        \item Uma transição corresponde a relação entre uma instância do problema e os 
+            subproblemas necessários à sua solução
+
+        \item A complexidade dos algoritmos de programação dinâmica, em geral, é dada pelo
+            produto do número total de estados pelo custo das transições de cada estado
+
+        \item A dificuldade de aplicação da programação dinâmica, em geral, reside em se determinar
+            a relação de recorrência que caracteriza a solução
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de aplicação de programação dinâmica: Números de Fibonacci}
+
+
+    \begin{itemize}
+        \item Considere o problema de se determinar o $n$-ésimo número de Fibonacci
+
+        \item Os números de Fibonacci são definido como
+        \[
+            F(n) = \left\{ \begin{array}{ll}
+                    0,& \mbox{se}\ n = 0 \\
+                    1,& \mbox{se}\ n = 1 \\
+                    F(n - 1) + F(n - 2),& \mbox{caso contrário}
+                \end{array}\right.
+        \]
+
+        \item Esta definição permite uma implementação direta de busca completa, com complexidade
+            $O(2^n)$:
+
+            \inputsyntax{cpp}{codes/fib.cpp}
+
+    \end{itemize}
+
+\end{frame}
+
+\input{fib_view}
+
+\begin{frame}[fragile]{Números de Fibonacci e Programação Dinâmica}
+
+    \begin{itemize}
+        \item A figura anterior ilustra a complexidade exponencial da implementação
+            apresentada
+
+        \item A medida que a recursão avança, alguns estados são computados repetidas vezes
+
+        \item Observe que o problema tem subestrutura ótima: o $n$-ésimo número de Fibonacci pode
+            ser computado a partir de números de Fibonacci anteriores
+
+        \item A repetição de estados com subestrutura ótima o torna um candidato natural para um
+            algoritmo de programação dinâmica
+
+        \item Com a adição da memorização, a complexidade muda para $O(N)$, um ganho significativo
+            de performance
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Implementação dos números de Fibonacci com PD}
+    \inputsnippet{cpp}{1}{21}{codes/fib_td.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Implementação dos números de Fibonacci com PD}
+    \inputsnippet{cpp}{22}{42}{codes/fib_td.cpp}
+\end{frame}
+
+\input{fib_view_td}
+
+\begin{frame}[fragile]{Números de Fibonacci e Programação Dinâmica}
+
+    \begin{itemize}
+        \item A implementação utilizando programação dinâmica visita cada estado, no máximo,
+            duas vezes
+
+        \item Na primeira visita (setas contínuas) o estado é computado recursivamente, utilizando
+            a mesma recorrência da solução de busca completa
+
+        \item Na segunda visita (setas pontilhadas) o estado já foi computado, e o valor armazenado
+            na tabela é retornado imediatamente
+
+        \item Assim, a complexidade é $O(N)$
+
+        \item Observe que, exceto pela memorização e inicialização da tabela, o código é idêntico
+            à implementação de busca completa
+
+        \item Este tipo de implementação é denominada \textit{top-down}
+
+        \item Há uma segunda forma de implementação de algoritmos de programação dinâmica,
+            denominada \textit{bottom-up}
+    \end{itemize}
+
+\end{frame}

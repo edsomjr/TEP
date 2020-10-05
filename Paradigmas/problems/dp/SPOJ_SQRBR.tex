@@ -1,0 +1,185 @@
+\section{SPOJ SQRBR -- Square Brackets}
+
+\begin{frame}[fragile]{Problema}
+
+You are given:
+
+\begin{itemize}
+    \item a positive integer $n$,
+    \item an integer $k$, $1\leq k\leq n$,
+    \item an increasing sequence of $k$ integers $0 < s_1 < s_2 < \ldots < s_k \leq 2n$.
+\end{itemize}
+
+What is the number of proper bracket expressions of length $2n$ with opening brackets appearing in
+positions $s_1, s_2, \ldots,s_k$?
+
+\end{frame}
+
+\begin{frame}[fragile]{Problema}
+
+\textbf{Illustration}
+
+    Several proper bracket expressions:
+        \begin{verbatim}
+    [[]][[[]][]] 
+    [[[][]]][][[]]
+        \end{verbatim}
+An improper bracket expression:
+
+        \begin{verbatim}
+    [[[][]]][]][[]]
+        \end{verbatim}
+There is exactly one proper expression of length 8 with opening brackets in positions 2, 5 and 7.
+
+\end{frame}
+
+\begin{frame}[fragile]{Problema}
+
+\textbf{Task}
+
+    Write a program which for each data set from a sequence of several data sets:
+
+    \begin{itemize}
+        \item reads integers $n, k$ and an increasing sequence of $k$ integers from input,
+        \item computes the number of proper bracket expressions of length $2n$ with opening
+            brackets appearing at positions $s_1, s_2, \ldots, s_k$,
+        \item writes the result to output.
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Entrada e saída}
+
+\textbf{Input}
+
+The first line of the input file contains one integer $d$, $1 \leq d \leq 10$, which is the number
+of data sets. The data sets follow. Each data set occupies two lines of the input file. The first
+line contains two integers $n$ and $k$ separated by single space, $1 \leq n \leq 19, 1 \leq k \leq
+n$. The second line contains an increasing sequence of $k$ integers from the interval $[1;2n]$
+separated by single spaces.
+
+\vspace{0.2in}
+
+\textbf{Output}
+
+The $i$-th line of output should contain one integer -- the number of proper bracket expressions of
+length $2n$ with opening brackets appearing at positions $s_1, s_2, \ldots, s_k$.
+
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de entradas e saídas}
+
+\begin{minipage}[t]{0.45\textwidth}
+\textbf{Sample Input}
+\begin{verbatim}
+5 
+1 1 
+1 
+1 1 
+2 
+2 1 
+1 
+3 1 
+2 
+4 2 
+5 7 
+\end{verbatim}
+\end{minipage}
+\begin{minipage}[t]{0.5\textwidth}
+\textbf{Sample Output}
+\begin{verbatim}
+1 
+0 
+2 
+3 
+2 
+\end{verbatim}
+\end{minipage}
+\end{frame}
+
+\begin{frame}[fragile]{Solução $O(N^2)$}
+
+    \begin{itemize}
+        \item Uma solução de força bruta listaria todas as $2^{2n}$ strings $s_i$ formadas pelos 
+            caracteres `\texttt{[}' e `\texttt{]}' e, para cada $i$, identificaria se $s_i$ é uma
+            sequência válida e, em caso afirmativo, se os caracteres das posições indicadas na
+            entrada são iguais a `\texttt{[}'
+
+        \item A verificação da validade de $s_i$ é feita em $O(N)$, de modo que tal solução teria
+            complexidade $O(N2^{2N})$, o que levaria a um veredito TLE
+
+        \item Uma forma de reduzir esta complexidade é construir as sequências válidas
+            iterativamente e não recalcular a validade de uma mesma subsequência múltiplas vezes
+
+        \item Isto pode ser feito por meio de programação dinâmica
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Solução $O(N^2)$}
+
+    \begin{itemize}
+        \item Seja $s$ uma string de tamanho $2n$ tal que $s_j = $`\texttt{[}' para toda posição
+            $j$ indicada na entrada
+
+        \item Defina $c(i, open)$ como o número de sequências válidas que podem ser formadas 
+            a partir do sufixo $s[i, 2n]$ sem modificar os caracteres $s_j$ pré-definidos,
+            considerando que restaram $open$ caracteres `\texttt{[}' sem o `\texttt{]}' 
+            correspondente no prefixo $s[1, (i-1)]$
+
+        \item Uma vez que os sufixos $s[m, 2n]$ são vazios se $m > 2n$, então $c(m, open) = 0$ se
+            $m > 2n$
+
+        \item Atenção, porém, ao caso $m = 2n + 1$: ele trata o primeiro sufixo vazio, e indica
+            que todos os caracteres anteriores foram definidos
+
+        \item Assim, se $open = 0$, a sequência definida anteriormente é valida, de modo que
+            $c(2n + 1, 0) = 1$
+
+        \item Os demais permanecem iguais a zero, se $m > 2n$
+
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Solução $O(N^2)$}
+
+    \begin{itemize}
+        \item Para $1\leq i\leq 2n$, há duas transições possíveis:
+        \begin{enumerate}
+            \item adicionar mais um símbolo `\texttt{[}' na string
+            \item adicionar um símbolo `\texttt{]}' na string, se $open > 0$ e se a posição não
+                estiver pré-definida
+        \end{enumerate}
+
+        \item A primeira transição corresponde a
+        \[
+            c(i, open) = c(i + 1, open + 1)
+        \]
+
+        \item Esta primeira transição sempre pode ser feita
+
+        \item A segunda transição nem sempre pode ser feita, devido as restrições apresentadas
+
+        \item Caso $open > 0$ e $i$ não seja um dos índices pré-definidos com `\texttt{[}', então
+        \[
+            c(i, open) = c(i + 1, open + 1) + c(i + 1, open - 1)
+        \]
+
+        \item Como há $O(N^2)$ estados e as transições são feitas em $O(1)$, a solução tem
+            complexidade $O(N^2)$
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Solução $O(N\log N)$}
+    \inputsnippet{cpp}{1}{21}{codes/SQRBR.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Solução $O(N\log N)$}
+    \inputsnippet{cpp}{22}{42}{codes/SQRBR.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Solução $O(N\log N)$}
+    \inputsnippet{cpp}{43}{63}{codes/SQRBR.cpp}
+\end{frame}

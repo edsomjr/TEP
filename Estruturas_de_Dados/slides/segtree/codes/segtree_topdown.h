@@ -50,7 +50,7 @@ private:
         if (a > R or b < L)         // [a, b] e [L, R] = vazio
             return 0;
 
-        if (a <= L and R <= b)      // [a, b] c [L, R]
+        if (a <= L and R <= b)      // [L, R] c [a, b]
             return ns[node];
 
         T x = RSQ(2*node, L, (L + R)/2, a, b);

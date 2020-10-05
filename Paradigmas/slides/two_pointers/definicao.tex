@@ -3,7 +3,7 @@
 \begin{frame}[fragile]{Definição}
 
     \begin{itemize}
-        \item \textit{Two pointers} é uma técnica de busca completa aplicada em problemas em
+        \item \textit{Two pointers} é uma técnica de gulosa aplicada em problemas em
             vetores
 
         \item Nela são utilizados dois ponteiros unidirecionais $L$ e $R$
@@ -16,8 +16,9 @@
         \item Para tal, é preciso considerar quais valores ainda podem fazer parte da solução,
             e quais podem, e devem, ser descartados
 
-        \item Desde modo, esta é uma técnica de busca completa com poda, que faz uso inteligente
-            dos valores já processados
+        \item Desde modo, esta é uma técnica gulosa, uma vez que, fixado um dos ponteiros, o
+            segundo se move o máximo possível, e em seguida os ponteiros são reposicionados para
+            as melhores posições possíveis
 
     \end{itemize}
 

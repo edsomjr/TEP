@@ -1,0 +1,30 @@
+\begin{frame}[fragile]{Visualização da chamada $F(5)$ com PD}
+
+    \begin{figure}
+        \centering
+
+        \begin{tikzpicture}[scale=0.7]
+            \node[draw,circle,fill=blue!40] (A) at (4, 6) { \scriptsize $F(5)$ };
+            \node[draw,circle,fill=red!60] (B) at (2, 4) { \scriptsize $F(4)$ };
+            \node[draw,ultra thick,circle,fill=green!60] (C) at (6, 4) { \scriptsize $F(3)$ };
+            \node[draw,circle,fill=green!60] (D) at (0, 2) { \scriptsize $F(3)$ };
+            \node[draw,ultra thick,circle,fill=orange!60] (E) at (4, 2) { \scriptsize $F(2)$ };
+            \node[draw,circle,fill=orange!60] (H) at (-2, 0) { \scriptsize $F(2)$ };
+            \node[draw,circle,fill=gray!90] (I) at (2, 0) { \scriptsize $F(1)$ };
+            \node[draw,circle,fill=gray!90] (N) at (-4, -2) { \scriptsize $F(1)$ };
+            \node[draw,circle,fill=gray!30] (O) at (0, -2) { \scriptsize $F(0)$ };
+
+            \draw[->] (A) edge (B);
+            \draw[->,dashed] (A) edge (C);
+            \draw[->] (B) edge (D);
+            \draw[->,dashed] (B) edge (E);
+            \draw[->] (D) edge (H);
+            \draw[->,dashed] (D) edge (I);
+            \draw[->] (H) edge (N);
+            \draw[->,dashed] (H) edge (O);
+
+        \end{tikzpicture}
+
+    \end{figure}
+
+\end{frame}

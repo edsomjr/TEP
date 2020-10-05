@@ -1,0 +1,97 @@
+\section{Timus 1146 -- Maximum Sum}
+
+\begin{frame}[fragile]{Problema}
+
+Given a 2-dimensional array of positive and negative integers, find the sub-rectangle with the
+largest sum. The sum of a rectangle is the sum of all the elements in that rectangle. In this
+problem the sub-rectangle with the largest sum is referred to as the maximal sub-rectangle. A
+sub-rectangle is any contiguous sub-array of size $1\times 1$ or greater located within the whole
+array.
+
+As an example, the maximal sub-rectangle of the array:
+    \begin{table}[!ht]
+        \begin{tabular}{>{\tt}r>{\tt}r>{\tt}r>{\tt}r}
+            0 & -2 & -7 & 0 \\
+            \textcolor{blue!60}{9} & \textcolor{blue!60}{2} & -6 & 2 \\
+            \textcolor{blue!60}{-4} & \textcolor{blue!60}{1} & -4 & 1 \\
+            \textcolor{blue!60}{-1} & \textcolor{blue!60}{8} & 0 & -2 \\
+        \end{tabular}
+    \end{table}
+
+is in the lower-left-hand corner and has the sum of 15.
+
+\end{frame}
+
+\begin{frame}[fragile]{Entrada e saída}
+
+\textbf{Input}
+
+The input consists of an $N\times N$ array of integers. The input begins with a single positive
+integer $N$ on a line by itself indicating the size of the square two dimensional array. This is
+followed by $N^2$ integers separated by white-space (newlines and spaces). These $N^2$ integers
+make up the array in row-major order (i.e., all numbers on the first row, left-to-right, then all
+numbers on the second row, left-to-right, etc.). $N$ may be as large as 100. The numbers in the
+array will be in the range $[-127, 127]$.
+
+\vspace{0.2in}
+
+\textbf{Output}
+
+The output is the sum of the maximal sub-rectangle.
+
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de entradas e saídas}
+
+\begin{minipage}[t]{0.45\textwidth}
+\textbf{Sample Input}
+\begin{verbatim}
+4
+0 -2 -7 0
+9 2 -6 2
+-4 1 -4 1
+-1 8 0 -2
+\end{verbatim}
+\end{minipage}
+\begin{minipage}[t]{0.5\textwidth}
+\textbf{Sample Output}
+\begin{verbatim}
+15
+\end{verbatim}
+\end{minipage}
+\end{frame}
+
+\begin{frame}[fragile]{Solução $O(N^3)$}
+
+    \begin{itemize}
+        \item Uma solução de força bruta computaria a soma todas as $N^4$ submatrizes, sendo
+            que cada soma é feita em $O(N^2)$, de modo que a solução teria complexidade $O(N^6)$
+
+        \item Contudo, o uso de combinado de somas prefixadas e o algoritmo de Kadane permite
+            identificar a submatriz de soma máxima com complexidade $O(N^3)$
+
+        \item Para cada par de colunas $(i, j)$, deve ser computado, por meio do algoritmo 
+            de Kadane nas somas $p_k(i, j)$, para $1\leq k\leq N$, o intervalo de maior soma,
+            onde
+            \[
+                p_k(i, j) = \sum_{t=i}^j a_{kt}
+            \]
+
+        \item Veja que, dados os limites do problema, mesmo nos casos extremos a soma máxima ainda
+            pode ser armazenada em variáveis inteiras
+
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Solução $O(N^3)$}
+    \inputsnippet{cpp}{1}{21}{codes/1146.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Solução $O(N^3)$}
+    \inputsnippet{cpp}{22}{42}{codes/1146.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Solução $O(N^3)$}
+    \inputsnippet{cpp}{43}{63}{codes/1146.cpp}
+\end{frame}

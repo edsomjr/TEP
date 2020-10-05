@@ -1,0 +1,95 @@
+\section{OJ 13095 -- Tobby and Query}
+
+\begin{frame}[fragile]{Problema}
+
+In his free time Tobby is always searching for interesting things. This time Tobby created the
+following problem: given a sequence of $n$ integer numbers, Tobby would like to know how many
+different numbers are in the range $[l, r]$ $(r\geq l)$.
+
+\end{frame}
+
+\begin{frame}[fragile]{Entrada e saída}
+
+\textbf{Input}
+
+The input has several test cases. The first line of each test case contains an integer $n$
+$(1\leq n\leq 10^5)$, the size of the sequence of numbers. The next line contains $n$ values $a_i$
+$(0\leq a_i\leq 9)$, the numbers in the sequence. The next line contains an integer $q$
+$(1\leq q\leq 10^4)$, the amount of queries. Then there are $q$ lines, each line contains a query:
+two integers $l$ and $r$ $(1\leq l, r\leq n)$.
+
+\vspace{0.2in}
+
+\textbf{Output}
+
+For each test case print $q$ integers, representing the amount of different numbers in the range
+$[l, r]$ for each query in the input.
+
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de entradas e saídas}
+
+\begin{minipage}[t]{0.45\textwidth}
+\textbf{Sample Input}
+\begin{verbatim}
+7
+0 2 3 3 7 5 2
+3
+1 1
+2 4
+2 7
+5
+7 7 7 7 7
+2
+4 5
+1 5
+\end{verbatim}
+\end{minipage}
+\begin{minipage}[t]{0.5\textwidth}
+\textbf{Sample Output}
+\begin{verbatim}
+1
+2
+4
+1
+1
+\end{verbatim}
+\end{minipage}
+\end{frame}
+
+\begin{frame}[fragile]{Solução $O(N + Q)$}
+
+    \begin{itemize}
+        \item Uma forma de responder rapidamente (em $O(1)$) cada uma das consultas é calcular
+            as somas dos prefixos $p_d$, onde $d$ representa os 10 dígitos decimais (pois
+            $0\leq a_i\leq 9$)
+
+        \item Estas somas podem ser computadas em $O(N)$
+        
+        \item Assim, a consulta para o intervalo $[L, R]$ pode ser respondida por meio da
+            $RSQ(L, R)$ para cada um dos 10 vetores de prefixos:
+        \[
+            q(L, R) = \sum_{d = 0}^9 \delta(p_d[R] - p_d[L - 1]),
+        \]
+        onde
+        \[
+            \delta(x) = \left\{\begin{array}{ll}
+                1,& \mbox{se}\ x > 0 \\
+                0,& \mbox{caso contrário}
+            \end{array}\right.
+        \]
+   \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Solução $O(N + Q)$}
+    \inputsnippet{cpp}{1}{20}{codes/13095.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Solução $O(N + Q)$}
+    \inputsnippet{cpp}{21}{41}{codes/13095.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Solução $O(N + Q)$}
+    \inputsnippet{cpp}{42}{62}{codes/13095.cpp}
+\end{frame}
