@@ -60,10 +60,10 @@
                 \item Se $a$ é ímpar, ele é o filho à direita, logo ele deve ser processado
                     separadamente
 
-                \item O mesmo acontece se $b$ é par
+                \item O mesmo acontece se $b$ é par: neste caso, será filho à esquerda
 
                 \item Nos outros casos, os valores de $a$ e $b$ já foram processados por seus
-                    pais, e o processamento deve seguir para estes pais
+                    pais, de modo que o processamento deve seguir para estes pais
             \end{enumerate}
 
         \item Assim, como a altura da árvore é igual a $\log N$, esta rotina tem complexidade
@@ -88,7 +88,7 @@
             elemento $ns[i]$
 
         \item O procedimento padrão é aplicar a operação subjacente ao atual valor de $ns[i]$
-            e um parâmetro \texttt{value}
+            e o parâmetro \texttt{value}
 
         \item Uma variante comum é a substituição do valor
 
@@ -131,8 +131,8 @@
 
         \item O preenchimento de $ns$ é feito por meio de $N$ chamadas de \texttt{update(i, xs[i])}
 
-        \item Este forma não é ótima em termos de complexidade, mas reusa código e diminui o
-            tamanho da implementação
+        \item Este inicialização não é ótima em termos de memória e de tempo de execução, mas reusa
+            código e diminui o tamanho da implementação
 
     \end{itemize}
 
@@ -157,7 +157,7 @@
         \item Caso contrário, o valor armazenado em \texttt{node} deve ser atualizado usando
             \texttt{value}
 
-        \item Em seguida há o segundo caso base: se \texttt{node} aponta para um folha, a função
+        \item Em seguida há o segundo caso base: se \texttt{node} é um folha, a função
             também retorna
 
         \item As chamadas recursivas repassam a atualização para os filhos à esquerda e à direita
@@ -204,11 +204,11 @@
 
         \item Isto porque, na decomposição 
             \[
-                [a, b] = [x_1, y_1]\cap [x_2, y_2]\cap \ldots \cap [x_k, y_k],
+                [a, b] = [x_1, y_1]\cup [x_2, y_2]\cup \ldots \cup [x_k, y_k],
             \] 
             onde $[x_i, y_i]$ é um dos intervalos que aparecem na árvore e $[x_i, y_i]\cap
-                [x_j, y_j] = \emptyset$ se $i\neq j$, pode haver no máximo um intervalo
-                de cada nível da árvore
+                [x_j, y_j] = \emptyset$ se $i\neq j$, pode haver no máximo dois intervalos
+                desta decomposição em cada nível da árvore
     \end{itemize}
 
 \end{frame}
