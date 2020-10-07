@@ -1,0 +1,110 @@
+\section{B -- Unhappy Hacking (ABC Edit)}
+
+\begin{frame}[fragile]{Problema}
+
+Sig has built his own keyboard. Designed for ultimate simplicity, this keyboard only has 3 keys on
+it: the \texttt{\textcolor{red}{'0'}} key, the \texttt{\textcolor{red}{'1'}} key and the backspace
+key.
+
+To begin with, he is using a plain text editor with this keyboard. This editor always displays one
+string (possibly empty). Just after the editor is launched, this string is empty. When each key on
+the keyboard is pressed, the following changes occur to the string:
+
+\end{frame}
+
+\begin{frame}[fragile]{Entrada e saída}
+
+\begin{itemize}
+    \item The \texttt{\textcolor{red}{'0'}} key: a letter \texttt{\textcolor{red}{'0'}} will be
+        inserted to the right of the string.
+    \item The \texttt{\textcolor{red}{'1'}} key: a letter \texttt{\textcolor{red}{'1'}} will be
+        inserted to the right of the string.
+    \item The backspace key: if the string is empty, nothing happens. Otherwise, the rightmost
+        letter of the string is deleted.
+\end{itemize}
+
+Sig has launched the editor, and pressed these keys several times. You are given a string $s$,
+which is a record of his keystrokes in order. In this string, the letter
+\texttt{\textcolor{red}{'0'}} stands for the \texttt{\textcolor{red}{'0'}} key, the letter
+\texttt{\textcolor{red}{'1'}} stands for the \texttt{\textcolor{red}{'1'}} key and the letter
+\texttt{\textcolor{red}{'B'}} stands for the backspace key. What string is displayed in the editor
+now?
+
+\end{frame}
+
+\begin{frame}[fragile]{Entrada e saída}
+
+\textbf{Constraints}
+
+\begin{itemize}
+    \item $1\leq |s|\leq 10$ ($|s|$ denotes the length of $s$)
+    \item $s$ consists of the letters \texttt{\textcolor{red}{'0'}}, \texttt{\textcolor{red}{'1'}}
+        e \texttt{\textcolor{red}{'B'}}.
+    \item The correct answer is not and empty string.
+\end{itemize}
+
+\textbf{Input}
+
+Input is given from Standard Input in the following format:
+\begin{atcoderio}{ll}
+$s$\\
+\end{atcoderio}
+
+\textbf{Output}
+
+Print the string displayed in the editor in the end.
+
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de entradas e saídas}
+
+\begin{minipage}[t]{0.45\textwidth}
+\textbf{Entrada}
+\begin{verbatim}
+01B0
+
+
+0BB1
+\end{verbatim}
+\end{minipage}
+\begin{minipage}[t]{0.5\textwidth}
+\textbf{Saída}
+\begin{verbatim}
+00
+
+
+1
+\end{verbatim}
+\end{minipage}
+\end{frame}
+
+\begin{frame}[fragile]{Solução}
+
+    \begin{itemize}
+        \item A solução do problema consiste em simular o comportamento descrito do editor
+
+        \item Isto pode ser feito, em C++, por meio de uma variável do tipo string
+
+        \item No caso dos caracteres \texttt{\textcolor{red}{'0'}} e \texttt{\textcolor{red}{'1'}},
+            o acréscimo à direita corresponde ao método \code{cpp}{push_back()}, o qual tem
+            complexidade $O(1)$
+
+        \item Os caracteres \texttt{\textcolor{red}{'B'}} correspondem ao método 
+            \code{cpp}{pop_back()}, que também tem complexidade $O(1)$
+
+        \item É preciso atentar ao fato de que o método \code{cpp}{push_back()} não deve ser 
+            invocado caso a string esteja vazia
+
+        \item Assim, cada um dos caracteres é processado em $O(1)$, de modo que a solução tem
+            complexidade $O(N)$
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Solução $O(N)$}
+    \inputsnippet{cpp}{1}{19}{codes/B.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Solução $O(N)$}
+    \inputsnippet{cpp}{20}{40}{codes/B.cpp}
+\end{frame}

@@ -1,0 +1,88 @@
+\section{A -- Children and Candies (ABC Edit)}
+
+\begin{frame}[fragile]{Problema}
+
+There are $N$ children in AtCoder Kindergarten. Mr. Evi will arrange the children in a line, then
+give 1 candy to the first child in the line, 2 candies to the second child, ..., $N$ candies to the 
+$N$-th child. How many candies will be necessary in total?
+
+\end{frame}
+
+\begin{frame}[fragile]{Entrada e saída}
+
+\textbf{Constraints}
+
+\begin{itemize}
+    \item $1\leq N\leq 100$
+\end{itemize}
+
+\vspace{0.1in}
+
+\textbf{Input}
+
+Input is given from Standard Input in the following format:
+\begin{atcoderio}{lll}
+$N$ \\
+\end{atcoderio}
+
+\textbf{Output}
+
+Print the necessary number of candies in total.
+
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de entradas e saídas}
+
+\begin{minipage}[t]{0.45\textwidth}
+\textbf{Entrada}
+\begin{verbatim}
+3
+
+
+10
+
+
+1
+\end{verbatim}
+\end{minipage}
+\begin{minipage}[t]{0.5\textwidth}
+\textbf{Saída}
+\begin{verbatim}
+6
+
+
+55
+
+
+1
+\end{verbatim}
+\end{minipage}
+\end{frame}
+
+\begin{frame}[fragile]{Solução}
+
+    \begin{itemize}
+        \item O problema consiste em determina a soma
+        \[
+            S(N) = \sum_{i = 1}^N = 1 + 2 + \ldots + N
+        \]
+            
+        \item Como o máximo valor de $N$ é relativamente pequeno ($N\leq 100$), é possível 
+            computar esta soma por meio de um laço, o que resulta em uma solução $O(N)$
+
+        \item A soma $S(N)$, porém, pode ser computada por meio da expressão
+        \[
+            S(N) = \frac{N(N + 1)}{2}
+        \]
+
+        \item Esta expressão pode ser obtida por meio da soma dos termos de uma progressão
+            aritmética de $N$ termos, com $a_1 = 1$ e $a_N = N$
+
+        \item Usando esta expressão, a complexidade da solução é reduzida para $O(1)$
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Solução $O(1)$}
+    \inputsnippet{cpp}{1}{21}{codes/A.cpp}
+\end{frame}
