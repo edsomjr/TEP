@@ -1,0 +1,62 @@
+\section{Definição}
+
+\begin{frame}[fragile]{{\it Definição}}
+
+    \metroset{block=fill}
+    \begin{block}{Problema do Troco}
+        Seja $C = \{c_1, c_2, \ldots, c_N\}$ uma sequência ordenada de $N$ inteiros positivos
+        distintos
+        e $M$ um inteiro positivo. O problema do troco consiste em determinar um vetor de inteiros
+        não-negativos $x = \{ x_1, x_2, \ldots, x_N \}$ tal que
+        \[
+            M = \sum_{i = 1}^N x_ic_i
+        \]
+        e que a soma
+        \[
+            \sum_{i = 1}^N x_i
+        \] seja mínima.
+    \end{block}
+
+\end{frame}
+
+\begin{frame}[fragile]{Características do problema do troco}
+
+    \begin{itemize}
+        \item Os elementos do conjunto $C$ são denominados \textit{moedas}
+
+        \item $M$ é o \textit{troco}
+
+        \item O problema pode ser definido informalmente como: \textit{Qual é o menor número de
+            moedas necessárias para dar o troco $M$?}
+
+        \item Se $c_1 = 1$, há solução para qualquer $M$
+
+        \item Se $C$ é o conjunto de moedas utilizadas no sistema financeiro da maioria dos
+            países, o problema do troco pode ser resolvido por meio de um algoritmo guloso
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Algoritmo guloso para o problema do troco}
+
+    \begin{itemize}
+        \item O algoritmo guloso para o problema do troco escolhe, dentre as moedas, a maior delas
+            ($c_k$) que é menor ou igual a $M$
+
+        \item Em seguida, ele atribui a $x_k$ o valor $M/c_k$ e subtrai de $M$ o valor $x_kc_k$
+
+        \item O algoritmo então prossegue até que $M$ se torne igual a zero
+            
+        \item Para todos os valores $x_i$ não atribuídos durante o algoritmo, vale que $x_i = 0$ 
+
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Implementação do algoritmo guloso para o problema do troco}
+    \inputsnippet{cpp}{1}{18}{codes/greedy.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Implementação do algoritmo guloso para o problema do troco}
+    \inputsnippet{cpp}{19}{39}{codes/greedy.cpp}
+\end{frame}
