@@ -11,7 +11,7 @@ class SegmentTree
     std::vector<T> ns;
 
 public:
-    SegmentTree(const std::vector<T>& xs) : N(xs.size()), ns(2*N, -1)
+    SegmentTree(const std::vector<T>& xs) : N(xs.size()), ns(2*N, 0)
     {
         std::copy(xs.begin(), xs.end(), ns.begin() + N);
 
