@@ -1,0 +1,111 @@
+\section{B -- Iroha Loves Strings}
+
+\begin{frame}[fragile]{Problema}
+
+Iroha has a sequence of $N$ strings $S_1, S_2, \ldots, S_N$.  The length of each string is $L$.
+
+She will concatenate all of the strings in some order, to produce a long string.
+
+Among all strings that she can produce in this way, find the lexicographically smallest one.
+
+Here, a string $s = s_1s_2s_3\ldots s_n$ is \textit{lexicographically smaller} than another string 
+$t = t_1t_2t_3\ldots t_m$ if and only if one of the following holds:
+
+\begin{itemize}
+    \item There exists an index ($1\leq i\leq \min(n, m)$), such that $s_j = t_j$ for all indices 
+        $j$ ($1\leq j < i$) , and $s_i < t_i$.
+
+    \item $s_i = t_i$ for all integers $i$ ($1\leq i\leq \min(n, m)$), and $n < m$.
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Entrada e saída}
+
+\textbf{Constraints}
+
+\begin{itemize}
+    \item $1\leq N, L\leq 100$
+    \item For each $i$, the length of $S_i$ equals $L$. 
+    \item For each $i$, $S_i$ consists of lowercase letters. 
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Entrada e saída}
+
+\textbf{Input}
+
+Input is given from Standard Input in the following format:
+\begin{atcoderio}{ll}
+$N$ & $L$\\
+$S_1$\\
+$S_2$\\
+$\vdots$\\
+$S_N$ \\
+\end{atcoderio}
+
+\textbf{Output}
+
+Print the lexicographically smallest string that Iroha can produce.
+
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de entradas e saídas}
+
+\begin{minipage}[t]{0.45\textwidth}
+\textbf{Entrada}
+\begin{verbatim}
+3 3
+dxx
+axx
+cxx
+\end{verbatim}
+\end{minipage}
+\begin{minipage}[t]{0.5\textwidth}
+\textbf{Saída}
+\begin{verbatim}
+axxcxxdxx
+\end{verbatim}
+\end{minipage}
+\end{frame}
+
+\begin{frame}[fragile]{Solução}
+
+    \begin{itemize}
+        \item O operador de comparação padrão de C++ ordena as strings em ordem lexicográfica
+
+        \item Como todas as strings da entrada tem um mesmo tamanho $L$, apenas o primeiro critério
+            da ordenação lexicográfica apresentado no texto é relevante para este problema
+
+        \item Este fato simplifica a solução
+
+        \item Suponha uma ordenação $i_1, i_2, \ldots, i_N$ dos índices das strings e as strings
+            $s_i = S_{i_1}S_{i_2}\ldots S_{i_N}$ resultante
+
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Solução}
+
+    \begin{itemize}
+        \item Se $S_{i_j} < S_{i_k}$ com $j > k$, a troca de posição entre os índices $i_j$ e
+            $i_k$ produz uma string lexicograficamente menor do que $s_i$
+
+        \item Assim, a menor string que pode ser produzida, segundo a ordem lexicográfica, é 
+            aquela cuja ordenação é tal que $S_{i_1} \leq S_{i_2} \leq \ldots \leq S_{i_N}$ 
+
+        \item Esta ordenação pode ser produzida por meio da ordenação do vetor que armazena as 
+            strings dados na entrada
+
+        \item Para este fim, a função \code{cpp}{sort()} da STL do C++ é suficiente
+
+        \item Esta solução tem complexidade $O(LN\log N)$
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Solução $O(LN\log N)$}
+    \inputsnippet{cpp}{1}{21}{codes/B.cpp}
+\end{frame}

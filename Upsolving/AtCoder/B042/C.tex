@@ -1,0 +1,95 @@
+\section{C -- Iroha's Obsession}
+
+\begin{frame}[fragile]{Problema}
+
+Iroha is very particular about numbers. There are $K$ digits that she dislikes: $D_1, D_2, \ldots,
+D_K$.
+
+She is shopping, and now paying at the cashier. Her total is $N$ yen (the currency of Japan), thus
+she has to hand at least $N$ yen to the cashier (and possibly receive the change).
+
+However, as mentioned before, she is very particular about numbers. When she hands money to the
+cashier, the decimal notation of the amount must not contain any digits that she dislikes. Under
+this condition, she will hand the minimum amount of money.
+
+Find the amount of money that she will hand to the cashier.
+
+\end{frame}
+
+\begin{frame}[fragile]{Entrada e saída}
+
+\textbf{Constraints}
+
+\begin{itemize}
+    \item $1\leq N < 10000$
+    \item $1\leq K < 10$
+    \item $0\leq D_1 < D_2 < \ldots < D_K \leq 9$
+    \item $\{D_1, D_2, \ldots, D_K\} \neq \{1, 2, 3, 4, 5, 6, 7, 8, 9\}$
+\end{itemize}
+
+\vspace{0.1in}
+
+\textbf{Input}
+
+Input is given from Standard Input in the following format:
+\begin{atcoderio}{llll}
+$N$ & $K$ \\
+$D_1$ & $D_2$ & \ldots & $D_K$ \\
+\end{atcoderio}
+
+\textbf{Output}
+
+Print the amount of money that Iroha will hand to the cashier.
+
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de entradas e saídas}
+
+\begin{minipage}[t]{0.45\textwidth}
+\textbf{Entrada}
+\begin{verbatim}
+1000 8
+1 3 4 5 6 7 8 9
+
+
+9999 1
+0
+\end{verbatim}
+\end{minipage}
+\begin{minipage}[t]{0.5\textwidth}
+\textbf{Saída}
+\begin{verbatim}
+2000
+
+
+
+9999
+\end{verbatim}
+\end{minipage}
+\end{frame}
+
+\begin{frame}[fragile]{Solução}
+
+    \begin{itemize}
+        \item Seja $D$ o menor dígito que Iroha gosta e $k$ o número de dígitos decimais de $N$
+
+        \item O número $x = DD\ldots D$, formado por $k + 1$ dígitos $D$, é um número válido para
+            Iroha e maior do que $N$
+
+        \item Assim, é possível procurar, um a um, pelo menor número válido, pois ele será maior 
+            ou igual a $N$ inferior a $10N$
+
+        \item Cada número $y \in [N, 10N)$ pode ser verificado em $O(\log y)$
+
+        \item Assim a solução de busca completa teria complexidade $O(N\log N)$
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Solução $O(N\log N)$}
+    \inputsnippet{cpp}{1}{20}{codes/C.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Solução $O(N\log N)$}
+    \inputsnippet{cpp}{21}{41}{codes/C.cpp}
+\end{frame}

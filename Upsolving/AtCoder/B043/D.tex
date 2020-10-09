@@ -1,0 +1,137 @@
+\section{D -- Unbalance}
+
+\begin{frame}[fragile]{Problema}
+
+Given a string $t$, we will call it unbalanced if and only if the length of $t$ is at least 2, and
+more than half of the letters in $t$ are the same. For example, both
+\texttt{\textcolor{red}{'voodoo'}} and \texttt{\textcolor{red}{'melee'}} are unbalanced, while
+neither \texttt{\textcolor{red}{'noon'}} nor \texttt{\textcolor{red}{'a'}} is.
+
+You are given a string $s$ consisting of lowercase letters. Determine if there exists a
+(contiguous) substring of $s$ that is unbalanced. If the answer is positive, show a position where
+such a substring occurs in $s$.
+
+\end{frame}
+
+\begin{frame}[fragile]{Entrada e saída}
+
+\textbf{Constraints}
+
+\begin{itemize}
+    \item $2\leq |s| \leq 10^5$
+    \item $s$ consists of lowercase letters.
+\end{itemize}
+
+\vspace{0.1in}
+
+\textbf{Partial Score}
+
+\begin{itemize}
+    \item 200 points will be awarded for passing the test set satisfying $2 \leq N\leq 100$.
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Entrada e saída}
+
+\textbf{Input}
+
+Input is given from Standard Input in the following format:
+\begin{atcoderio}{llll}
+$s$ \\
+\end{atcoderio}
+
+\textbf{Output}
+
+If there exists no unbalanced substring of $s$, print \texttt{\textcolor{red}{'-1 -1'}}.
+
+If there exists an unbalanced substring of $s$, let one such substring be $s_as_{a+1}\ldots s_b$
+($1\leq a < b \leq |s|$) , and print {\textcolor{red}{\texttt{'}$a$ $b$\texttt{'}}}. If there exists more than one
+such substring, any of them will be accepted.
+
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de entradas e saídas}
+
+\begin{minipage}[t]{0.55\textwidth}
+\textbf{Entrada}
+\begin{verbatim}
+needed
+
+
+atcoder
+\end{verbatim}
+\end{minipage}
+\begin{minipage}[t]{0.4\textwidth}
+\textbf{Saída}
+\begin{verbatim}
+2 5
+
+
+-1 -1
+\end{verbatim}
+\end{minipage}
+\end{frame}
+
+\begin{frame}[fragile]{Solução}
+
+    \begin{itemize}
+        \item Seja $N$ o tamanho da string $s$
+
+        \item Há $O(N^2)$ substrings de $s$, e a verificação de cada substring pode ser feita em
+            $O(N)$, o que levaria a uma solução $O(N^3)$, que receberia veredito TLE, pois
+            $N \leq 10^5$
+
+        \item É preciso, portanto, encontrar uma forma eficiente de se processar as substrings
+            e também de reduzir o número de substrings a serem verificadas
+    \end{itemize}
+
+\end{frame}
+
+
+\begin{frame}[fragile]{Solução}
+
+    \begin{itemize}
+        \item Como qualquer string desbalaceada pode ser dada como resposta do problema, o 
+            princípio da casa dos pombos pode reduzir drasticamente o número de substrings a
+            serem verificadas
+
+        \item Uma string desbalanceada tem mais da metade de seus caracteres repetidos
+
+        \item Se $N$ é par e $s$ é desbalanceada, ela possui ao menos um par de caracteres 
+            consecutivos iguais
+
+        \item Como uma string com $N = 2$ com dois caracteres iguais é desbalanceada, é suficiente
+            indicar estes caracteres ao invés da string inteira
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Solução}
+
+    \begin{itemize}
+        \item Se $N$ é ímpar, é possível que $s$ seja desbalanceada e que não tenha dois caracteres
+            consecutivos iguais
+
+        \item Isto só ocorre se o número de repetições é igual a $(N + 1)/2$ e o caractere repetido
+            aparece em todos os índices ímpares de $s$:
+        \[
+            s = cs_2cs_4\ldots s_{N - 1}c
+        \]
+
+        \item Porém, se $N = 3$ e $s$ é da forma $cs_2c$, ela também será desbalanceada e poderá
+            ser utilizada como resposta ao invés de $s$
+
+        \item Portanto, basta checar apenas estes dois casos, gerando uma solução $O(N)$
+
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Solução $O(|s|)$}
+    \inputsnippet{cpp}{1}{21}{codes/D.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Solução $O(|s|)$}
+    \inputsnippet{cpp}{22}{42}{codes/D.cpp}
+\end{frame}
