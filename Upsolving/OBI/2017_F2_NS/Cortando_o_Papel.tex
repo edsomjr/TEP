@@ -53,49 +53,23 @@ possível, com um único corte horizontal.
 \begin{minipage}[t]{0.45\textwidth}
 \textbf{Entrada}
 \begin{verbatim}
-5 6
-1 2 4
-1 3 3
-4 3 6
-4 5 2
-2 4 1
-3 5 5
+10
+20 5 10 5 15 15 15 5 6 22
+
+5
+10 20 30 40 50
 \end{verbatim}
 \end{minipage}
 \begin{minipage}[t]{0.5\textwidth}
 \textbf{Saída}
 \begin{verbatim}
-7
+5
+
+
+2
 \end{verbatim}
 \end{minipage}
 \end{frame}
-
-\begin{frame}[fragile]{Exemplo de entradas e saídas}
-
-\begin{minipage}[t]{0.45\textwidth}
-\textbf{Entrada}
-\begin{verbatim}
-7 10
-1 2 5
-3 1 32
-1 4 3
-2 3 4
-2 6 20
-6 3 1
-6 4 9
-6 5 6
-3 7 18
-5 7 2
-\end{verbatim}
-\end{minipage}
-\begin{minipage}[t]{0.5\textwidth}
-\textbf{Saída}
-\begin{verbatim}
-18
-\end{verbatim}
-\end{minipage}
-\end{frame}
-
 
 \begin{frame}[fragile]{Solução}
 
@@ -211,7 +185,7 @@ possível, com um único corte horizontal.
             $h{i + 1} > h_i$
 
         \item Por fim, a maior interseção possível entre todos os intervalos $[a_i, b_i)$ pode
-            ser determinada por meio de um algoritmo de \textit{line sweep}
+            ser determinada por meio de um algoritmo de \textit{sweep line}
 
         \item Para cada intervalo $a_i$ deve ser criados dois eventos: um evento de abertura em
             $a_i$ e um e fechamento em $b_i$
