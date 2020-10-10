@@ -40,11 +40,11 @@ private:
             lazy[node] = 0;
         }
 
-        // [a, b] e [L, R] = vazio
+        // [a, b] ∩ [L, R] = {∅}
         if (a > R or b < L)
             return;
 
-        // [L, R] c [a, b]
+        // [L, R] ⊂ [a, b] está contido; é subconjunto de
         if (a <= L and R <= b)
         {
             ns[node] += (R - L + 1) * value;
