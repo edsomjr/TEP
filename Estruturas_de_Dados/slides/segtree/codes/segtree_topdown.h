@@ -47,10 +47,10 @@ public:
 private:
     T RSQ(int node, int L, int R, int a, int b)
     {
-        if (a > R or b < L)         // [a, b] e [L, R] = vazio
+        if (a > R or b < L)         // [a, b] ∩ [L, R] = {∅}
             return 0;
 
-        if (a <= L and R <= b)      // [L, R] c [a, b]
+        if (a <= L and R <= b)      // [L, R] ⊂ [a, b] está contido; é subconjunto de
             return ns[node];
 
         T x = RSQ(2*node, L, (L + R)/2, a, b);
