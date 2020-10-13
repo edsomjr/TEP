@@ -1,0 +1,99 @@
+\section{A -- Tak and Hotels (ABC Edit)}
+
+\begin{frame}[fragile]{Problema}
+
+There is a hotel with the following accommodation fee:
+
+\begin{itemize}
+    \item $X$ yen (the currency of Japan) per night, for the first $K$ nights
+    \item $Y$ yen per night, for the ($K + 1$)-th and subsequent nights
+\end{itemize}
+
+Tak is staying at this hotel for $N$ consecutive nights. Find his total accommodation fee.
+
+\end{frame}
+
+\begin{frame}[fragile]{Entrada e saída}
+
+\textbf{Constraints}
+
+\begin{itemize}
+    \item $1 \leq N, K\leq 10000$
+    \item $1 \leq Y < X \leq 10000$
+    \item $N, K, X, Y$ are integers.
+\end{itemize}
+
+\textbf{Input}
+
+Input is given from Standard Input in the following format:
+\begin{atcoderio}{lll}
+$N$ \\
+$K$ \\
+$X$ \\
+$Y$
+\end{atcoderio}
+
+\textbf{Output}
+
+Print Tak's total accommodation fee.
+
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de entradas e saídas}
+
+\begin{minipage}[t]{0.45\textwidth}
+\textbf{Entrada}
+\begin{verbatim}
+5
+3
+10000
+9000
+
+
+2
+3
+10000
+9000
+\end{verbatim}
+\end{minipage}
+\begin{minipage}[t]{0.5\textwidth}
+\textbf{Saída}
+\begin{verbatim}
+48000
+
+
+
+
+
+20000
+\end{verbatim}
+\end{minipage}
+\end{frame}
+
+\begin{frame}[fragile]{Solução}
+
+    \begin{itemize}
+        \item Há dois casos a serem tratatos
+            
+        \item Se $N\leq K$, Tak pagará $X$ por dia, de modo que sua estadia custará, no total,
+            $NX$ ienes
+
+        \item Se $N > K$, os primeiros $K$ dias custarão $X$ ienes cada, e os $N - K$ dias
+            restantes custarão $Y$ ienes
+
+        \item Assim o total da estadia será igual a $KX + (N - K)Y$
+
+        \item Usando as funções \code{cpp}{min()} e \code{cpp}{max()} do C++ é possível unir 
+            ambos casos em uma única expressão:
+        \[
+            T = X\times \min\{ N, K \} + Y\times \max\{ 0, N - K \}
+        \]
+
+        \item Esta solução tem complexidade $O(1)$
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Solução $O(1)$}
+    \inputsnippet{cpp}{1}{21}{codes/A.cpp}
+\end{frame}
