@@ -1,6 +1,6 @@
 # _Upsolving_
 
-Resoluções comentadas de _contests_ para estudo e treinamento
+Resoluções comentadas de _contests_ para estudo e treinamento.
 
 1. AtCoder
     1. [AtCoder Beginner Contest 042](AtCoder/B042/B042.pdf)
