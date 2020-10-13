@@ -50,7 +50,7 @@ private:
         if (a > R or b < L)         // [a, b] ∩ [L, R] = {∅}
             return 0;
 
-        if (a <= L and R <= b)      // [L, R] ⊂ [a, b] está contido; é subconjunto de
+        if (a <= L and R <= b)      // [L, R] ⊂ [a, b] 
             return ns[node];
 
         T x = RSQ(2*node, L, (L + R)/2, a, b);
