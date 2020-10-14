@@ -2,14 +2,30 @@
 
 \begin{frame}[fragile]{Problema}
 
-Given a string $t$, we will call it unbalanced if and only if the length of $t$ is at least 2, and
-more than half of the letters in $t$ are the same. For example, both
-\texttt{\textcolor{red}{'voodoo'}} and \texttt{\textcolor{red}{'melee'}} are unbalanced, while
-neither \texttt{\textcolor{red}{'noon'}} nor \texttt{\textcolor{red}{'a'}} is.
+For integers $b$ ($b \geq 2$) and $n$ ($n \geq 1$), let the function $f(b, n)$ be defined as
+follows:
+\begin{itemize}
+    \item $f(b, n) = n$, when $n < b$
+    \item $f(b, n) = f(b, \mbox{floor}(n/b)) + (n\ \mbox{mod}\ b)$, when $n\geq b$
+\end{itemize}
 
-You are given a string $s$ consisting of lowercase letters. Determine if there exists a
-(contiguous) substring of $s$ that is unbalanced. If the answer is positive, show a position where
-such a substring occurs in $s$.
+Here, $\mbox{floor}(n/b)$ denotes the largest integer not exceeding $n/b$, and $n\ \mbox{mod}\ b$
+denotes the remainder of $n$ divided by $b$.
+
+\end{frame}
+
+
+\begin{frame}[fragile]{Problema}
+
+Less formally, $f(b, n)$ is equal to the sum of the digits of $n$ written in base $b$. For example,
+the following hold:
+\begin{itemize}
+    \item $f(10, 87654) = 8 + 7 + 6 + 5 + 4 = 30$
+    \item $f(100, 87654) = 8 + 76 + 54 = 138$
+\end{itemize}
+
+You are given integers $n$ and $s$. Determine if there exists an integer $b$ ($b\geq 2$) such that 
+$f(b, n) = s$. If the answer is positive, also find the smallest such $b$.
 
 \end{frame}
 
@@ -18,36 +34,23 @@ such a substring occurs in $s$.
 \textbf{Constraints}
 
 \begin{itemize}
-    \item $2\leq |s| \leq 10^5$
-    \item $s$ consists of lowercase letters.
+    \item $1\leq n \leq 10^{11}$
+    \item $1\leq s \leq 10^{11}$
+    \item $n, s$ are integers.
 \end{itemize}
-
-\vspace{0.1in}
-
-\textbf{Partial Score}
-
-\begin{itemize}
-    \item 200 points will be awarded for passing the test set satisfying $2 \leq N\leq 100$.
-\end{itemize}
-
-\end{frame}
-
-\begin{frame}[fragile]{Entrada e saída}
 
 \textbf{Input}
 
 Input is given from Standard Input in the following format:
 \begin{atcoderio}{llll}
-$s$ \\
+$n$ \\
+$s$
 \end{atcoderio}
 
 \textbf{Output}
 
-If there exists no unbalanced substring of $s$, print \texttt{\textcolor{red}{'-1 -1'}}.
-
-If there exists an unbalanced substring of $s$, let one such substring be $s_as_{a+1}\ldots s_b$
-($1\leq a < b \leq |s|$) , and print {\textcolor{red}{\texttt{'}$a$ $b$\texttt{'}}}. If there exists more than one
-such substring, any of them will be accepted.
+If there exists an integer $b$ ($b\geq 2$) such that $f(b, n) = s$, print the smallest such $b$.
+If such $b$ does not exist, print \texttt{\textcolor{red}{'-1'}} instead.
 
 \end{frame}
 
@@ -56,19 +59,30 @@ such substring, any of them will be accepted.
 \begin{minipage}[t]{0.55\textwidth}
 \textbf{Entrada}
 \begin{verbatim}
-needed
+87654
+30
 
 
-atcoder
+87654
+138
+
+
+87654
+45678
 \end{verbatim}
 \end{minipage}
 \begin{minipage}[t]{0.4\textwidth}
 \textbf{Saída}
 \begin{verbatim}
-2 5
+10
 
 
--1 -1
+
+100
+
+
+
+-1
 \end{verbatim}
 \end{minipage}
 \end{frame}
@@ -76,14 +90,20 @@ atcoder
 \begin{frame}[fragile]{Solução}
 
     \begin{itemize}
-        \item Seja $N$ o tamanho da string $s$
+        \item Primeiramente devem ser observados dois casos excepcionais, os quais serão tratados
+            à parte
 
-        \item Há $O(N^2)$ substrings de $s$, e a verificação de cada substring pode ser feita em
-            $O(N)$, o que levaria a uma solução $O(N^3)$, que receberia veredito TLE, pois
-            $N \leq 10^5$
+        \item Observe que, se $S > N$, não há solução para o problema
 
-        \item É preciso, portanto, encontrar uma forma eficiente de se processar as substrings
-            e também de reduzir o número de substrings a serem verificadas
+        \item Isto porque a maior soma possível ocorre quando $b > N$: neste caso, a soma será o
+            próprio $N$
+
+        \item Assim, se $S = N$, a resposta deve ser $b = N + 1$ 
+
+        \item Estes dois casos delimitam a busca das bases $b$ ao intervalo $[2, N]$
+
+        \item Como $N\leq 10^{11}$, uma solução de busca completa que avalia todo este intervalo
+            leva a um veredito TLE
     \end{itemize}
 
 \end{frame}
@@ -92,46 +112,66 @@ atcoder
 \begin{frame}[fragile]{Solução}
 
     \begin{itemize}
-        \item Como qualquer string desbalaceada pode ser dada como resposta do problema, o 
-            princípio da casa dos pombos pode reduzir drasticamente o número de substrings a
-            serem verificadas
-
-        \item Uma string desbalanceada tem mais da metade de seus caracteres repetidos
-
-        \item Se $N$ é par e $s$ é desbalanceada, ela possui ao menos um par de caracteres 
-            consecutivos iguais
-
-        \item Como uma string com $N = 2$ com dois caracteres iguais é desbalanceada, é suficiente
-            indicar estes caracteres ao invés da string inteira
-    \end{itemize}
-
-\end{frame}
-
-\begin{frame}[fragile]{Solução}
-
-    \begin{itemize}
-        \item Se $N$ é ímpar, é possível que $s$ seja desbalanceada e que não tenha dois caracteres
-            consecutivos iguais
-
-        \item Isto só ocorre se o número de repetições é igual a $(N + 1)/2$ e o caractere repetido
-            aparece em todos os índices ímpares de $s$:
+        \item Seja
         \[
-            s = cs_2cs_4\ldots s_{N - 1}c
+            N = c_0 + c_1b + c_2b^2 + \ldots + c_kb^k
+        \]
+        a representação de $N$ na base $b$
+
+        \item O problema consiste em determinar, se existir, o menor $b$ tal que
+        \[
+            s = c_0 + c_1 + c_2 + \ldots + c_k
         \]
 
-        \item Porém, se $N = 3$ e $s$ é da forma $cs_2c$, ela também será desbalanceada e poderá
-            ser utilizada como resposta ao invés de $s$
+        \item A diferença entre estas duas igualdades é
+        \[
+            N - s = c_1(b - 1) + c_2(b^2 - 1) + \ldots + c_k(b^k - 1)
+        \]
 
-        \item Portanto, basta checar apenas estes dois casos, gerando uma solução $O(N)$
-
+        \item Assim, $(b - 1)$ é um divisor da diferença $N - s$
     \end{itemize}
 
 \end{frame}
 
-\begin{frame}[fragile]{Solução $O(|s|)$}
-    \inputsnippet{cpp}{1}{21}{codes/D.cpp}
+\begin{frame}[fragile]{Solução}
+
+    \begin{itemize}
+        \item Esta importante propriedade reduz a busca das bases aos divisores de $N - s$
+
+        \item Sejam $a, b$ dois inteiros tais que $b$ divide $a$
+
+        \item Logo existe um inteiro $c$ tal que $a = bc$
+
+        \item Esta expressão mostra que $c$ também é um divisor de $a$, pois $a = cb$
+
+        \item É possível demostrar, por contradição, que ou $b\leq \sqrt{a}$ ou $c\leq \sqrt{a}$
+
+   \end{itemize}
+
 \end{frame}
 
-\begin{frame}[fragile]{Solução $O(|s|)$}
-    \inputsnippet{cpp}{22}{42}{codes/D.cpp}
+
+\begin{frame}[fragile]{Solução}
+
+    \begin{itemize}
+         \item Assim, o número de divisores de $a$ é $O(\sqrt{a})$
+
+         \item A rotina $sum\_digits(x, b)$, que computa a soma dos dígitos de $x$ na base $b$, tem
+            complexidade $O(\log x)$
+
+        \item Portanto, uma solução que avalie todas as bases $b = d + 1$, onde $d$ é um divisor de
+            $N - s$, tem complexidade $O(\sqrt{N}\log N)$
+    \end{itemize}
+
+\end{frame}
+\begin{frame}[fragile]{Solução $O(\sqrt{N}\log N)$}
+    \inputsnippet{cpp}{1}{20}{codes/D.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Solução $O(\sqrt{N}\log N)$}
+    \inputsnippet{cpp}{21}{41}{codes/D.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Solução $O(\sqrt{N}\log N)$}
+    \inputsnippet{cpp}{43}{63}{codes/D.cpp}
 \end{frame}

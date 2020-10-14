@@ -1,4 +1,3 @@
-// AtCoder Beginner Contest 044 - Problem D: Digit Sum (https://atcoder.jp/contests/abc044/tasks/arc060_d)
 #include <bits/stdc++.h>
 
 using namespace std;
@@ -54,16 +53,11 @@ ll solve(ll N, ll S)
     return ans == oo ? -1 : ans;
 }
 
-int main()
-{
-    ios::sync_with_stdio(false);
-
+int main() {
     ll N, S;
     cin >> N >> S;
 
-    auto ans = solve(N, S);
-
-    cout << ans << '\n';
+    cout << solve(N, S) << '\n';
 
     return 0;
 }
