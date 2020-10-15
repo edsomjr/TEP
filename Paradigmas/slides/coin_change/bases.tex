@@ -1,0 +1,117 @@
+\section{Bases canônicas}
+
+\begin{frame}[fragile]{Definição}
+
+    \begin{itemize}
+        \item Embora não seja um correto, o algoritmo guloso produz o resultado correto para todos
+            os trocos possíveis para certas bases de moedas $C$
+
+        \item Seja $G(m)$ e $D(m)$ o mínimo de moedas para o troco $m$ computados pelo algoritmo 
+            guloso e pelo algoritmo de programação dinâmica, respectivamente
+            
+        \item Uma base $C$ é dita canônica se $G(m) = D(m)$ para todos os trocos inteiros
+            não-negativos $m$
+
+        \item Qualquer base $C = \{ 1, c_2 \}$ é canônica
+
+        \item Se $C$ é canônica, o ganho de performance obtido em utilizar o algoritmo guloso
+            é notável ($O(N) \times O(NM)$ do algoritmo de programação dinâmica)
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Contraexemplos}
+
+    \begin{itemize}
+        \item Considere uma base $C = \{ 1, c_2, c_3, \ldots, c_N \}$ não-canônica
+
+        \item Um contraexemplo $m$ é um inteiro positivo tal que $G(m) > D(m)$
+
+        \item Xuan Cai apresenta vários resultados relativos à bases não-canônicas e contraexemplos
+            em seu artigo ``\textit{Canonical Coin Systems for Change-Making Problems}'', de 2009
+
+        \item Dentre eles há um teorema que reduz os possíveis contraexemplos ao 
+            intervalo $(c_3 + 1, c_{N - 1} + c_N)$
+
+        \item Outro resultado provado no artigo é que $C = \{ 1, c_2, c_3 \}$ é não-canônica se,
+            somente se, $0 < r < c_2 - q$, onde $c_3 = qc_2 + r$, com $r \in [0, c_2 - 1]$
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Verificação de canonicidade para $N \leq 5$}
+
+    \begin{itemize}
+        \item Um teorema importante associa as bases com $N = 3$ com todas as demais: se 
+            $C = \{ 1, c_2, c_3 \}$ é não-canônico, então a base $C = \{ 1, c_2, c_3, \ldots,
+                c_N \}$, com $N \geq 4$, também será não-canônico
+
+        \item É provado também que as bases $C = \{ 1, c_2, c_3, c_4 \}$ são não-canônicas se elas
+            satisfazem exatamente uma das condições abaixo:
+        \begin{enumerate}
+            \item $C = \{ 1, c_2, c_3 \}$ é não-canônica
+            \item $G((k+1)c_3) > k + 1$, onde $kc_3 < c_4 < (k + 1)c_3$
+        \end{enumerate}
+        
+        \item Bases $C = \{ 1, c_2, c_3, c_4, c_5 \}$ serão não-canônicas se, e somente se, 
+            satisfazem exatamente uma das condições abaixo:
+        \begin{enumerate}
+            \item $C = \{ 1, c_2, c_3 \}$ é não-canônica
+            \item $C \neq \{ 1, 2, c_3, c_3 + 1, 2c_3 \}$
+            \item $G((k + 1)c_4) > k + 1$, com $kc_4 < c_5 < (k + 1)c_4$
+        \end{enumerate}
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Algoritmo $O(N^3)$ para verificação de canonicidade}
+
+    \begin{itemize}
+        \item David Pearson, em seu artigo ``\textit{A Polynomial-time Algorithm for the
+            Change-Making Problem}, de 1994, apresentou um algoritmo $O(N^3)$ para a identificação
+            do menor contraexemplo, se existir
+
+        \item O algoritmo elenca $O(N^2)$ possíveis candidatos à menor contraexemplo, por meio
+            da observação de uma relação não-trivial entre a solução gulosa $G(c_i - 1)$ e o menor
+            contraexemplo possível
+
+        \item Cada candidato pode ser verificado em $O(N)$, de modo que a solução tem complexidade
+            $O(N^3)$
+
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Algoritmo $O(N^3)$ para verificação de canonicidade}
+
+    \begin{itemize}
+        \item Seja $\mu = (m_1, m_2, \ldots, m_N)$ a solução ótima para o menor contraexemplo
+            $\mu$ e $(x_1, x_2, \ldots, x_N)$ a solução gulosa para $(c_i - 1)$
+
+        \item Então existe um $j$ tal que $m_k = x_k$, se $k\in [1, j -1]$, $m_j = x_j + 1$ e
+                $m_r = 0$, se $r > j$
+
+        \item Assim, para cada moeda $c_i$, há $N$ candidatos a $j$
+
+        \item A partir da solução gulosa, se constrói a possível solução ótima do menor
+            representante
+
+        \item Daí se assume que $\mu = \sum_k m_kc_k$
+
+        \item Se $G(c_i - 1) > \sum_k m_k$, então $\mu$ será um contraexemplo para a base
+            não-canônica $C = \{ c_1, c_2, \ldots, c_N \}$, com $c_1 > c_2 > \ldots > c_N = 1$
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Implementação do algoritmo de verificação de canonicidade}
+    \inputsnippet{cpp}{1}{21}{codes/bases.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Implementação do algoritmo de verificação de canonicidade}
+    \inputsnippet{cpp}{22}{42}{codes/bases.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Implementação do algoritmo de verificação de canonicidade}
+    \inputsnippet{cpp}{43}{63}{codes/bases.cpp}
+\end{frame}
