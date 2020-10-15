@@ -53,6 +53,8 @@
 
 \end{frame}
 
+\input{greedy_view}
+
 \begin{frame}[fragile]{Implementação do algoritmo guloso para o problema do troco}
     \inputsnippet{cpp}{1}{18}{codes/greedy.cpp}
 \end{frame}
@@ -60,3 +62,85 @@
 \begin{frame}[fragile]{Implementação do algoritmo guloso para o problema do troco}
     \inputsnippet{cpp}{19}{39}{codes/greedy.cpp}
 \end{frame}
+
+\begin{frame}[fragile]{Incorretude do algoritmo guloso}
+
+    \begin{itemize}
+        \item O algoritmo guloso para o problema do troco, porém, não produz a solução correta para
+            todas as entradas possíveis
+
+        \item Por exemplo, se $C = \{ 1, 4, 5 \}$ e $M = 8$, o algoritmo guloso retornaria 4
+            moedas: uma de 5 e três de 1
+
+        \item Contudo, é possível dar um troco de 8 com apenas duas moedas de 4
+
+        \item Assim, para obter a solução correta para qualquer troco e qualquer conjunto de 
+            moedas, é preciso utilizar um algoritmo baseado em outro paradigma que não o guloso
+            
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Algoritmo de programação dinâmica}
+
+    \begin{itemize}
+        \item A programação dinâmica pode ser utilizada para desenvolver um algoritmo correto para
+            o problema do troco
+
+        \item Seja $c(m)$ o mínimo de moedas necessárias para um troco igual a $m$
+
+        \item O caso base acontece quando $m = 0$: neste caso, $c(0) = 0$
+
+        \item As transições acontecem para cada uma das moedas $c_k \leq m$:
+        \[
+            c(m) = \min\{ c(m - c_{k_1}), c(m - c_{k_2}), \ldots, c(m - c_{k_r}) \} + 1
+        \]
+
+        \item Isto corresponde a escolher uma moeda (o termo +1) que seja menor ou igual ao troco e
+            computar o troco mínimo para o restante
+
+        \item São $O(M)$ estados distintos e as transições são feitas em $O(N)$
+
+        \item Portanto a complexidade do algoritmo é $O(MN)$
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Algoritmo de programação dinâmica para o problema do troco}
+    \inputsnippet{cpp}{1}{21}{codes/cc.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Algoritmo de programação dinâmica para o problema do troco}
+    \inputsnippet{cpp}{22}{42}{codes/cc.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Implementação {\it bottom-up}}
+
+    \begin{itemize}
+        \item O estado e as transições apresentadas anteriormente permite uma implementação
+            \textit{bottom-up} do algoritmo de programação dinâmica para o problema do troco
+
+        \item O natural seria um laço externo, com o troco $m$ variando de $0$ a $M$, e um laço
+            interno, avaliando as $N$ moedas
+
+        \item Embora a complexidade permaneça a mesma da implementação \textit{top-down}, esta
+            ordem não é favorável à \textit{cache}, por conta dos diferentes saltos associados
+            às moedas
+
+        \item É possível melhorar a performance em tempo de execução invertendo os laços: para
+            cada moeda, deve-se avaliar todos os trocos possíveis
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Implementação {\it bottom-up} para o problema do troco}
+    \inputsnippet{cpp}{1}{21}{codes/cc_bu.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Implementação {\it bottom-up} para o problema do troco}
+    \inputsnippet{cpp}{22}{42}{codes/cc_bu.cpp}
+\end{frame}
+
+
+
+
