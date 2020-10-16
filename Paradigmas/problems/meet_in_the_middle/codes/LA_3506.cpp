@@ -3,7 +3,7 @@
 using namespace std;
 using ll = long long;
 
-const int MAX { 2510 };
+const int MAX { 4010 };
 
 ll as[MAX], bs[MAX], cs[MAX], ds[MAX], xs[MAX*MAX], ys[MAX*MAX];
 
