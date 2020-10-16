@@ -1,0 +1,245 @@
+\section{C -- Tak and Cards}
+
+\begin{frame}[fragile]{Problema}
+
+Tak has $N$ cards. On the $i$-th ($1\leq i\leq N$) card is written an integer $x_i$. He is
+selecting one or more cards from these $N$ cards, so that the average of the integers written on
+the selected cards is exactly $A$. In how many ways can he make his selection?
+
+\end{frame}
+
+\begin{frame}[fragile]{Entrada e saída}
+
+\textbf{Constraints}
+
+\begin{itemize}
+    \item $1\leq N \leq 50$
+    \item $1\leq A \leq 50$
+    \item $1\leq x_i \leq 50$
+    \item $N, A, x_i$ are integers.
+\end{itemize}
+
+\vspace{0.1in}
+
+\textbf{Partial Score}
+
+\begin{itemize}
+    \item 200 points will be awarded for passing the test set satisfying ($1\leq N\leq 16$).
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Entrada e saída}
+
+\textbf{Input}
+
+Input is given from Standard Input in the following format:
+\begin{atcoderio}{llll}
+$N$ & $A$ \\
+$x_1$ & $x_2$ & \ldots & $x_N$ \\
+\end{atcoderio}
+
+\textbf{Output}
+
+Print the number of ways to select cards such that the average of the written integers is exactly 
+$A$.
+
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de entradas e saídas}
+
+\begin{minipage}[t]{0.45\textwidth}
+\textbf{Entrada}
+\begin{verbatim}
+4 8
+7 9 8 9
+
+
+3 8
+6 6 9
+
+
+8 5
+3 6 2 8 7 6 5 9
+\end{verbatim}
+\end{minipage}
+\begin{minipage}[t]{0.5\textwidth}
+\textbf{Saída}
+\begin{verbatim}
+5
+
+
+
+0
+
+
+
+19
+\end{verbatim}
+\end{minipage}
+\end{frame}
+
+\begin{frame}[fragile]{Solução}
+
+    \begin{itemize}
+        \item A média aritmética de $k$ elementos $x_1, x_2, \ldots, x_k$ é dada por
+        \[
+            M = \frac{x_1 + x_2 + \ldots + x_k}{k}
+        \]
+
+        \item O problema consiste em identificar, dentre todos os subconjuntos de $X = \{ x_1, x_2,
+            \ldots, x_N \}$, todos cujo média dos elementos é igual a $A$
+
+        \item Um conjunto com $N$ elementos tem um total de $2^N$ subconjuntos distintos
+
+        \item Como $N \leq 50$, a verificação de todos estes subconjuntos resulta em um veredito
+            TLE
+        
+        \item Contudo, há uma pontuação parcial para $N\leq 16$, limite para qual esta abordagem
+            é válida
+
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Solução de força bruta com pontuação parcial}
+    \inputsnippet{cpp}{1}{21}{codes/C_bf.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Solução de força bruta com pontuação parcial}
+    \inputsnippet{cpp}{22}{42}{codes/C_bf.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Solução}
+
+    \begin{itemize}
+        \item O problema pode ser resolvido por meio de um algoritmo de programação dinâmica
+
+        \item Considere que os elementos $x_i$ sejam indexados de 0 a $N - 1$
+
+        \item Seja $dp(i, k, s)$ o número de maneiras distintas de, dentre os elementos
+            $x_i, x_{i + 1}, \ldots, x_{N - 1}$, escolher $k$ deles tal que sua soma
+            seja igual a $s$
+
+        \item A operação de divisão pode ser evitada:
+        \[
+            \frac{x_1 + x_2 + \ldots + x_k}{k} = A
+        \]
+        equivale a
+        \[
+            x_1 + x_2 + \ldots + x_k = kA
+        \]
+
+        \item Assim, a solução do problema será a soma
+        \[
+            S = \sum_{k = 1}^N dp(0, k, kA)
+        \]
+    \end{itemize}
+
+\end{frame}
+
+
+\begin{frame}[fragile]{Solução}
+
+    \begin{itemize}
+        \item O caso base acontece quando $i = N$: como não há mais elementos a serem escolhidos,
+            $dp(N, 0, 0) = 1$ e $dp(N, k, s) = 0$, se $k > 0$ ou $s > 0$
+
+        \item As transições possíveis consistem em escolher, ou não, o elemento $x_i$
+
+        \item Assim, se $m > 0$ e $x_i \leq s$, 
+        \[
+            dp(i, k, s) = dp(i + 1, k - 1, s - x_i) + dp(i + 1, k, s)
+        \]
+
+        \item Se $x_i > s$, então
+        \[
+            dp(i, k, s) = dp(i + 1, k, s)
+        \]
+
+        \item Há $O(N^3X)$ estados distintos, onde $X = \max\{ x_1, x_2, \ldots, x_N \}$, e as
+            transições são feitas em $O(1)$
+
+        \item Portanto esta solução tem complexidade $O(N^3X)$
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Solução $O(N^3X)$}
+    \inputsnippet{cpp}{1}{21}{codes/C.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Solução $O(N^3X)$}
+    \inputsnippet{cpp}{22}{42}{codes/C.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Solução $O(N^3X)$}
+    \inputsnippet{cpp}{43}{63}{codes/C.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Solução}
+
+    \begin{itemize}
+        \item É possível reduzir a complexidade para $O(N^2X)$ se for utilizado um estado diferente
+            para caracterizar o problema
+
+        \item Esta caracterização, contudo, envolve um certo engenho, o qual não é óbvio à primeira
+            vista
+
+        \item Inicialmente, considere uma sequência $y = \{ y_1, y_2, \ldots, y_N \}$ tal que 
+            $y_i = A$, para todo $i = 1, 2, \ldots, N$
+
+        \item A média aritmética de todos os elementos da sequência $y$ é igual a $A$, e a soma
+            de todos os elementos é igual a $S = NA$
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Solução}
+
+    \begin{itemize}
+        \item A ideia central é que, para cada elemento $x_i$ da sequência $\{ x_1, x_2, \ldots,
+            x_N \}$, há duas opções: não escolher $x_i$ ou substituir $y_i$ na soma $S$ por $x_i$
+
+        \item Após considerados todos os elementos $x_i$, o número de maneiras de obter a soma
+            $NA$, consideradas as duas opções, será a resposta do problema, mais uma unidade
+
+        \item Esta unidade extra vem do fato de que, se nenhum $x_i$ for escolhido, a soma
+            resultante será $NA$
+
+        \item Assim, o novo estado dispensa a dimensão que rastreava o número de elementos já
+            somados
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Solução}
+
+    \begin{itemize}
+        \item Seja $st(i, s)$ o número de maneiras distintas de se obter a soma $s$ considerando-se
+            os elementos $x_i, x_{i + 1}, \ldots, x_{N - 1}$
+
+        \item O caso base acontece quando $i = N$: $st(i, s) = 1$, se $s = NA$, e $st(i, s) = 0$,
+            caso contrário
+
+        \item As transições correspondem às duas opções já citadas:
+        \[
+            st(i, s) = st(i + 1, s - A + x_i) + st(i + 1, s)
+        \]
+
+        \item O valor máximo da segunda dimensão será $2NX$, onde $X = \max\{ x_1, x_2, \ldots, 
+            x_N\}$
+
+        \item Há $O(N^2X)$ estados distintos, com transições em $O(1)$, de modo que a solução
+            tem complexidade $O(N^2X)$
+
+    \end{itemize}
+
+\end{frame}
+\begin{frame}[fragile]{Solução $O(N^2X)$}
+    \inputsnippet{cpp}{1}{21}{codes/C_n3.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Solução $O(N^2X)$}
+    \inputsnippet{cpp}{22}{42}{codes/C_n3.cpp}
+\end{frame}

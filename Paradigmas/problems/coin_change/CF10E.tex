@@ -1,0 +1,102 @@
+\section{Codeforces Beta Round \#10 -- Problem E: Greedy Change}
+
+\begin{frame}[fragile]{Problema}
+
+Billy investigates the question of applying greedy algorithm to different spheres of life. At the
+moment he is studying the application of greedy algorithm to the problem about change. There is an
+amount of $n$ coins of different face values, and the coins of each value are not limited in
+number. The task is to collect the sum $x$ with the minimum amount of coins. Greedy algorithm with
+each its step takes the coin of the highest face value, not exceeding $x$. Obviously, if among the
+coins' face values exists the face value 1, any sum $x$ can be collected with the help of greedy
+algorithm.
+
+\end{frame}
+
+
+\begin{frame}[fragile]{Problema}
+
+However, greedy algorithm does not always give the optimal representation of the sum, i.e. the
+representation with the minimum amount of coins. For example, if there are face values
+$\{1, 3, 4\}$ and it is asked to collect the sum $6$, greedy algorithm will represent the sum as 
+$4 + 1 + 1$, while the optimal representation is $3 + 3$, containing one coin less. By the given
+set of face values find out if there exist such a sum $x$ that greedy algorithm will collect in a
+non-optimal way. If such a sum exists, find out the smallest of these sums.
+
+\end{frame}
+
+\begin{frame}[fragile]{Entrada e saída}
+
+\textbf{Input}
+
+The first line contains an integer $n$ ($1\leq n\leq 400$) -- the amount of the coins' face values.
+The second line contains $n$ integers $a_i$ ($1\leq a_i\leq 10^9$), describing the face values. It
+is guaranteed that $a_1 > a_2 > \ldots > a_n$ and $a_n = 1$.
+
+\vspace{0.2in}
+
+\textbf{Output}
+
+If greedy algorithm collects any sum in an optimal way, output \texttt{-1}. Otherwise output the
+smallest sum that greedy algorithm collects in a non-optimal way.
+
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de entradas e saídas}
+
+\begin{minipage}[t]{0.45\textwidth}
+\textbf{Sample Input}
+\begin{verbatim}
+5
+25 10 5 2 1
+
+
+3
+4 3 1
+\end{verbatim}
+\end{minipage}
+\begin{minipage}[t]{0.5\textwidth}
+\textbf{Sample Output}
+\begin{verbatim}
+-1
+
+
+
+6
+\end{verbatim}
+\end{minipage}
+\end{frame}
+
+\begin{frame}[fragile]{Solução $O(N^3)$}
+
+    \begin{itemize}
+        \item O problema consiste em identificar o menor dentre os contraexemplos, caso a base
+            seja não-canônica
+
+        \item O algoritmo de Pearson resolve justamente este problema, com complexidade $O(N^3)$
+
+        \item Em linhas gerais ele avalia $O(N^2)$ candidatos à menor contraexemplo, checando 
+            cada um deles em $O(N)$
+
+        \item Se nenhum deles se confirmar, a base é canônica e a resposta será \texttt{-1}
+
+        \item Dentre os candidatos que se confirmarem como contraexemplos, o menor deles será
+            a solução do problema
+   \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Solução $O(N^3)$}
+    \inputsnippet{cpp}{1}{21}{codes/10E.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Solução $O(N^3)$}
+    \inputsnippet{cpp}{22}{42}{codes/10E.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Solução $O(N^3)$}
+    \inputsnippet{cpp}{43}{62}{codes/10E.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Solução $O(N^3)$}
+    \inputsnippet{cpp}{63}{83}{codes/10E.cpp}
+\end{frame}

@@ -1,0 +1,85 @@
+\section{B -- Beautiful Strings}
+
+\begin{frame}[fragile]{Problema}
+
+Let $w$ be a string consisting of lowercase letters. We will call $w$ beautiful if the following
+condition is satisfied:
+
+\begin{itemize}
+    \item Each lowercase letter of the English alphabet occurs even number of times in $w$.
+\end{itemize}
+
+You are given the string $w$. Determine if $w$ is beautiful.
+
+\end{frame}
+
+\begin{frame}[fragile]{Entrada e saída}
+
+\textbf{Constraints}
+
+\begin{itemize}
+    \item $1\leq |w|\leq 100$
+    \item $w$ consists of lowercase letters
+        (\texttt{\textcolor{red}{'a'}}-\texttt{\textcolor{red}{'z'}}) 
+\end{itemize}
+
+\textbf{Input}
+
+Input is given from Standard Input in the following format:
+\begin{atcoderio}{ll}
+$w$\\
+\end{atcoderio}
+
+\textbf{Output}
+
+Print \texttt{\textcolor{red}{'Yes'}} if $w$ is beautiful. Print \texttt{\textcolor{red}{'No'}}
+otherwise.
+
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de entradas e saídas}
+
+\begin{minipage}[t]{0.45\textwidth}
+\textbf{Entrada}
+\begin{verbatim}
+abaccaba
+
+
+hthth
+\end{verbatim}
+\end{minipage}
+\begin{minipage}[t]{0.5\textwidth}
+\textbf{Saída}
+\begin{verbatim}
+Yes
+
+
+No
+\end{verbatim}
+\end{minipage}
+\end{frame}
+
+\begin{frame}[fragile]{Solução}
+
+    \begin{itemize}
+        \item A solução do problema pode ser obtida por meio da avaliação do histograma $h_w$ de $w$
+
+        \item Para um caractere $c$, $h_w(c)$ retorna o número de ocorrências de $c$ em $w$
+
+        \item Assim, a resposta será \texttt{\textcolor{red}{'Yes'}} se, para qualquer caractere
+            minúsculo $c$, $h_w(c)$ é par
+
+        \item Como apenas a paridade de $h_w(c)$ é relevante para o resultado, este valor pode
+            ser atualizado pela operação binária XOR (ou exclusivo)
+
+        \item A operação $n = n\ \mbox{XOR}\ 1$ troca a paridade de $n$ (de par para ímpar e de
+            ímpar para par)
+
+        \item Esta solução tem complexidade $O(|w|)$
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Solução $O(|w|)$}
+    \inputsnippet{cpp}{1}{21}{codes/B.cpp}
+\end{frame}

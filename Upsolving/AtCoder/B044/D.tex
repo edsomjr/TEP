@@ -1,0 +1,177 @@
+\section{D -- Digit Sum}
+
+\begin{frame}[fragile]{Problema}
+
+For integers $b$ ($b \geq 2$) and $n$ ($n \geq 1$), let the function $f(b, n)$ be defined as
+follows:
+\begin{itemize}
+    \item $f(b, n) = n$, when $n < b$
+    \item $f(b, n) = f(b, \mbox{floor}(n/b)) + (n\ \mbox{mod}\ b)$, when $n\geq b$
+\end{itemize}
+
+Here, $\mbox{floor}(n/b)$ denotes the largest integer not exceeding $n/b$, and $n\ \mbox{mod}\ b$
+denotes the remainder of $n$ divided by $b$.
+
+\end{frame}
+
+
+\begin{frame}[fragile]{Problema}
+
+Less formally, $f(b, n)$ is equal to the sum of the digits of $n$ written in base $b$. For example,
+the following hold:
+\begin{itemize}
+    \item $f(10, 87654) = 8 + 7 + 6 + 5 + 4 = 30$
+    \item $f(100, 87654) = 8 + 76 + 54 = 138$
+\end{itemize}
+
+You are given integers $n$ and $s$. Determine if there exists an integer $b$ ($b\geq 2$) such that 
+$f(b, n) = s$. If the answer is positive, also find the smallest such $b$.
+
+\end{frame}
+
+\begin{frame}[fragile]{Entrada e saída}
+
+\textbf{Constraints}
+
+\begin{itemize}
+    \item $1\leq n \leq 10^{11}$
+    \item $1\leq s \leq 10^{11}$
+    \item $n, s$ are integers.
+\end{itemize}
+
+\textbf{Input}
+
+Input is given from Standard Input in the following format:
+\begin{atcoderio}{llll}
+$n$ \\
+$s$
+\end{atcoderio}
+
+\textbf{Output}
+
+If there exists an integer $b$ ($b\geq 2$) such that $f(b, n) = s$, print the smallest such $b$.
+If such $b$ does not exist, print \texttt{\textcolor{red}{'-1'}} instead.
+
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de entradas e saídas}
+
+\begin{minipage}[t]{0.55\textwidth}
+\textbf{Entrada}
+\begin{verbatim}
+87654
+30
+
+
+87654
+138
+
+
+87654
+45678
+\end{verbatim}
+\end{minipage}
+\begin{minipage}[t]{0.4\textwidth}
+\textbf{Saída}
+\begin{verbatim}
+10
+
+
+
+100
+
+
+
+-1
+\end{verbatim}
+\end{minipage}
+\end{frame}
+
+\begin{frame}[fragile]{Solução}
+
+    \begin{itemize}
+        \item Primeiramente devem ser observados dois casos excepcionais, os quais serão tratados
+            à parte
+
+        \item Observe que, se $S > N$, não há solução para o problema
+
+        \item Isto porque a maior soma possível ocorre quando $b > N$: neste caso, a soma será o
+            próprio $N$
+
+        \item Assim, se $S = N$, a resposta deve ser $b = N + 1$ 
+
+        \item Estes dois casos delimitam a busca das bases $b$ ao intervalo $[2, N]$
+
+        \item Como $N\leq 10^{11}$, uma solução de busca completa que avalia todo este intervalo
+            leva a um veredito TLE
+    \end{itemize}
+
+\end{frame}
+
+
+\begin{frame}[fragile]{Solução}
+
+    \begin{itemize}
+        \item Seja
+        \[
+            N = c_0 + c_1b + c_2b^2 + \ldots + c_kb^k
+        \]
+        a representação de $N$ na base $b$
+
+        \item O problema consiste em determinar, se existir, o menor $b$ tal que
+        \[
+            s = c_0 + c_1 + c_2 + \ldots + c_k
+        \]
+
+        \item A diferença entre estas duas igualdades é
+        \[
+            N - s = c_1(b - 1) + c_2(b^2 - 1) + \ldots + c_k(b^k - 1)
+        \]
+
+        \item Assim, $(b - 1)$ é um divisor da diferença $N - s$
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Solução}
+
+    \begin{itemize}
+        \item Esta importante propriedade reduz a busca das bases aos divisores de $N - s$
+
+        \item Sejam $a, b$ dois inteiros tais que $b$ divide $a$
+
+        \item Logo existe um inteiro $c$ tal que $a = bc$
+
+        \item Esta expressão mostra que $c$ também é um divisor de $a$, pois $a = cb$
+
+        \item É possível demostrar, por contradição, que ou $b\leq \sqrt{a}$ ou $c\leq \sqrt{a}$
+
+   \end{itemize}
+
+\end{frame}
+
+
+\begin{frame}[fragile]{Solução}
+
+    \begin{itemize}
+         \item Assim, o número de divisores de $a$ é $O(\sqrt{a})$
+
+         \item A rotina $sum\_digits(x, b)$, que computa a soma dos dígitos de $x$ na base $b$, tem
+            complexidade $O(\log x)$
+
+        \item Portanto, uma solução que avalie todas as bases $b = d + 1$, onde $d$ é um divisor de
+            $N - s$, tem complexidade $O(\sqrt{N}\log N)$
+    \end{itemize}
+
+\end{frame}
+\begin{frame}[fragile]{Solução $O(\sqrt{N}\log N)$}
+    \inputsnippet{cpp}{1}{20}{codes/D.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Solução $O(\sqrt{N}\log N)$}
+    \inputsnippet{cpp}{21}{41}{codes/D.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Solução $O(\sqrt{N}\log N)$}
+    \inputsnippet{cpp}{43}{63}{codes/D.cpp}
+\end{frame}
