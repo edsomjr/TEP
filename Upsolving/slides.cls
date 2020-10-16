@@ -27,6 +27,7 @@
 \usepackage{mdframed}
 \usepackage{enumerate}
 \usepackage{fontspec}
+\usepackage{caption}
 
 \usepackage{amsmath}
 \usepackage{algorithm}
