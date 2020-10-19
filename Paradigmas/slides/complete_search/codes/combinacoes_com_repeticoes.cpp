@@ -32,7 +32,7 @@ vector<vector<int>> combinations_with_repetition(int N, int M)
     return cs;
 }
 
-void main()
+int main()
 {
     int N = 5, M = 3;
     auto cs = combinations_with_repetition(N, M);
