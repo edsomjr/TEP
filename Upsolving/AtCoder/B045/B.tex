@@ -1,34 +1,36 @@
-\section{B -- Unhappy Hacking (ABC Edit)}
+\section{B -- Card Game for Three (ABC Edit)}
 
 \begin{frame}[fragile]{Problema}
 
-Sig has built his own keyboard. Designed for ultimate simplicity, this keyboard only has 3 keys on
-it: the \texttt{\textcolor{red}{'0'}} key, the \texttt{\textcolor{red}{'1'}} key and the backspace
-key.
+Alice, Bob and Charlie are playing \textit{Card Game for Three}, as below:
 
-To begin with, he is using a plain text editor with this keyboard. This editor always displays one
-string (possibly empty). Just after the editor is launched, this string is empty. When each key on
-the keyboard is pressed, the following changes occur to the string:
+\begin{itemize}
+    \item At first, each of the three players has a deck consisting of some number of cards. Each
+        card has a letter \texttt{\textcolor{red}{'a'}}, \texttt{\textcolor{red}{'b'}} or
+        \texttt{\textcolor{red}{'c'}} written on it. The orders of the cards in the decks cannot be
+        rearranged.
+
+    \item The players take turns. Alice goes first.
+
+    \item If the current player's deck contains at least one card, discard the top card in the
+        deck. Then, the player whose name begins with the letter on the discarded card, takes the
+        next turn. (For example, if the card says \texttt{\textcolor{red}{'a'}}, Alice takes the
+        next turn.)
+
+    \item If the current player's deck is empty, the game ends and the current player wins the
+        game. 
+\end{itemize}
 
 \end{frame}
 
-\begin{frame}[fragile]{Entrada e saída}
+\begin{frame}[fragile]{Problema}
 
-\begin{itemize}
-    \item The \texttt{\textcolor{red}{'0'}} key: a letter \texttt{\textcolor{red}{'0'}} will be
-        inserted to the right of the string.
-    \item The \texttt{\textcolor{red}{'1'}} key: a letter \texttt{\textcolor{red}{'1'}} will be
-        inserted to the right of the string.
-    \item The backspace key: if the string is empty, nothing happens. Otherwise, the rightmost
-        letter of the string is deleted.
-\end{itemize}
+You are given the initial decks of the players. More specifically, you are given three strings 
+$S_A$, $S_B$ and $S_C$. The $i$-th ($1\leq i\leq |S_A|$) letter in $S_A$ is the letter on the 
+$i$-th card in Alice's initial deck. $S_B$ and $S_C$ describes Bob's and Charlie's initial decks in
+the same way.
 
-Sig has launched the editor, and pressed these keys several times. You are given a string $s$,
-which is a record of his keystrokes in order. In this string, the letter
-\texttt{\textcolor{red}{'0'}} stands for the \texttt{\textcolor{red}{'0'}} key, the letter
-\texttt{\textcolor{red}{'1'}} stands for the \texttt{\textcolor{red}{'1'}} key and the letter
-\texttt{\textcolor{red}{'B'}} stands for the backspace key. What string is displayed in the editor
-now?
+Determine the winner of the game.
 
 \end{frame}
 
@@ -37,22 +39,30 @@ now?
 \textbf{Constraints}
 
 \begin{itemize}
-    \item $1\leq |s|\leq 10$ ($|s|$ denotes the length of $s$)
-    \item $s$ consists of the letters \texttt{\textcolor{red}{'0'}}, \texttt{\textcolor{red}{'1'}}
-        e \texttt{\textcolor{red}{'B'}}.
-    \item The correct answer is not and empty string.
+    \item $1\leq |S_A| \leq 100$
+    \item $1\leq |S_B| \leq 100$
+    \item $1\leq |S_C| \leq 100$
+    \item Each letter in $S_A, S_B, S_C$ is \texttt{\textcolor{red}{'a'}},
+        \texttt{\textcolor{red}{'b'}} or \texttt{\textcolor{red}{'c'}}.
 \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Entrada e saída}
 
 \textbf{Input}
 
 Input is given from Standard Input in the following format:
 \begin{atcoderio}{ll}
-$s$\\
+$S_A$\\
+$S_B$\\
+$S_C$\\
 \end{atcoderio}
 
 \textbf{Output}
 
-Print the string displayed in the editor in the end.
+If Alice will win, print \texttt{\textcolor{red}{'A'}}. If Bob will win, print
+\texttt{\textcolor{red}{'B'}}. If Charlie will win, print \texttt{\textcolor{red}{'C'}}.
 
 \end{frame}
 
@@ -61,19 +71,25 @@ Print the string displayed in the editor in the end.
 \begin{minipage}[t]{0.45\textwidth}
 \textbf{Entrada}
 \begin{verbatim}
-01B0
+aca
+accc
+ca
 
 
-0BB1
+abcb
+aacb
+bccc
 \end{verbatim}
 \end{minipage}
 \begin{minipage}[t]{0.5\textwidth}
 \textbf{Saída}
 \begin{verbatim}
-00
+A
 
 
-1
+
+
+C
 \end{verbatim}
 \end{minipage}
 \end{frame}
@@ -83,28 +99,29 @@ Print the string displayed in the editor in the end.
     \begin{itemize}
         \item A solução do problema consiste em simular o comportamento descrito do editor
 
-        \item Isto pode ser feito, em C++, por meio de uma variável do tipo string
+        \item Seja $N$ o tamanho de uma string $S$
 
-        \item No caso dos caracteres \texttt{\textcolor{red}{'0'}} e \texttt{\textcolor{red}{'1'}},
-            o acréscimo à direita corresponde ao método \code{cpp}{push_back()}, o qual tem
-            complexidade $O(1)$
+        \item A remoção de um caractere do início de uma string não faz parte da API do C++, e 
+            mesmo que seja implementada ela terá complexidade $O(N)$, por conta do deslocamento
+            dos caracteres
 
-        \item Os caracteres \texttt{\textcolor{red}{'B'}} correspondem ao método 
-            \code{cpp}{pop_back()}, que também tem complexidade $O(1)$
+        \item Já o método \code{cpp}{pop_back()} permite a exclusão do último caractere em $O(1)$
 
-        \item É preciso atentar ao fato de que o método \code{cpp}{pop_back()} não deve ser 
-            invocado caso a string esteja vazia
+        \item Assim, se as strings forem invertidas (o método \code{cpp}{reverse()} pode ser
+            utilizado para este fim), a simulação fica simplificada e mais eficiente
 
-        \item Assim, cada um dos caracteres é processado em $O(1)$, de modo que a solução tem
-            complexidade $O(N)$
+        \item Portanto a solução tem complexidade $O(M)$, onde
+        \[
+            M = \max\{ S_A, S_B, S_C \}
+        \]
     \end{itemize}
 
 \end{frame}
 
-\begin{frame}[fragile]{Solução $O(N)$}
-    \inputsnippet{cpp}{1}{19}{codes/B.cpp}
+\begin{frame}[fragile]{Solução $O(M)$}
+    \inputsnippet{cpp}{1}{21}{codes/B.cpp}
 \end{frame}
 
-\begin{frame}[fragile]{Solução $O(N)$}
-    \inputsnippet{cpp}{20}{40}{codes/B.cpp}
+\begin{frame}[fragile]{Solução $O(M)$}
+    \inputsnippet{cpp}{22}{42}{codes/B.cpp}
 \end{frame}

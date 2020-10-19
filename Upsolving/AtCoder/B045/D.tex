@@ -1,15 +1,18 @@
-\section{D -- Unbalance}
+\section{D -- Snuke's Coloring}
 
 \begin{frame}[fragile]{Problema}
 
-Given a string $t$, we will call it unbalanced if and only if the length of $t$ is at least 2, and
-more than half of the letters in $t$ are the same. For example, both
-\texttt{\textcolor{red}{'voodoo'}} and \texttt{\textcolor{red}{'melee'}} are unbalanced, while
-neither \texttt{\textcolor{red}{'noon'}} nor \texttt{\textcolor{red}{'a'}} is.
+We have a grid with $H$ rows and $W$ columns. At first, all cells were painted white.
 
-You are given a string $s$ consisting of lowercase letters. Determine if there exists a
-(contiguous) substring of $s$ that is unbalanced. If the answer is positive, show a position where
-such a substring occurs in $s$.
+Snuke painted $N$ of these cells. The $i$-th ($1\leq i\leq N$) cell he painted is the cell at the 
+$a_i$-th row and $b_i$-th column.
+
+Compute the following:
+
+\begin{itemize}
+    \item For each integer $j$ ($0\leq j\leq 9$), how many subrectangles of size $3\times 3$ of the
+        grid contains exactly $j$ black cells, after Snuke painted $N$ cells?
+\end{itemize}
 
 \end{frame}
 

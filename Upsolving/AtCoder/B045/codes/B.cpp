@@ -2,27 +2,32 @@
 
 using namespace std;
 
-string solve(const string& s)
+char solve(string& sa, string& sb, string& sc)
 {
-    string res;
+    vector<string> xs { sa, sb, sc };
+    int next = 0;
 
-    for (auto c : s)
+    for (int i = 0; i < 3; ++i)
+        reverse(xs[i].begin(), xs[i].end());
+
+    while (not xs[next].empty())
     {
-        if (c == '0' or c == '1')
-            res.push_back(c);
-        else if (not res.empty())
-            res.pop_back();
+        auto c = xs[next].back();
+        xs[next].pop_back();
+        next = c - 'a';
     }
 
-    return res;
+    return char(next + 'A');
 }
 
 int main()
 {
-    string s;
-    cin >> s;
+    ios::sync_with_stdio(false);
 
-    auto ans = solve(s);
+    string sa, sb, sc;
+    cin >> sa >> sb >> sc;
+
+    auto ans = solve(sa, sb, sc);
 
     cout << ans << '\n';
 

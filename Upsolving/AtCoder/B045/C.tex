@@ -1,15 +1,15 @@
-\section{C -- Be Together}
+\section{C -- Many Formulas}
 
 \begin{frame}[fragile]{Problema}
 
-Evi has $N$ integers $a_1, a_2, \ldots, a_N$. His objective is to have $N$ equal integers by
-transforming some of them.
+You are given a string $S$ consisting of digits between \texttt{\textcolor{red}{'1'}} and
+\texttt{\textcolor{red}{'9'}}, inclusive. You can insert the letter \texttt{\textcolor{red}{'+'}}
+into some of the positions (possibly none) between two letters in this string. Here,
+\texttt{\textcolor{red}{'+'}} must not occur consecutively after insertion.
 
-He may transform each integer at most once. Transforming an integer $x$ into another integer $y$
-costs him $(x - y)^2$ dollars. Even if $a_i = a_j$ ($i\neq j$), he has to pay the cost separately
-for transforming each of them (See Sample 2).
+All strings that can be obtained in this way can be evaluated as formulas.
 
-Find the minimum total cost to achieve his objective.
+Evaluate all possible formulas, and print the sum of the results.
 
 \end{frame}
 
@@ -18,23 +18,21 @@ Find the minimum total cost to achieve his objective.
 \textbf{Constraints}
 
 \begin{itemize}
-    \item $1\leq N \leq 100$
-    \item $-100\leq a_i \leq 100$
+    \item $1\leq |S| \leq 10$
+    \item All letters in $S$ are digits between \texttt{\textcolor{red}{'1'}} and
+        \texttt{\textcolor{red}{'9'}}, inclusive. 
 \end{itemize}
-
-\vspace{0.1in}
 
 \textbf{Input}
 
 Input is given from Standard Input in the following format:
 \begin{atcoderio}{llll}
-$N$ \\
-$a_1$ & $a_2$ & \ldots & $a_N$ \\
+$S$ \\
 \end{atcoderio}
 
 \textbf{Output}
 
-Print the minimum total cost to achieve Evi's objective.
+Print the sum of the evaluated value over all possible formulas.
 
 \end{frame}
 
@@ -43,30 +41,19 @@ Print the minimum total cost to achieve Evi's objective.
 \begin{minipage}[t]{0.45\textwidth}
 \textbf{Entrada}
 \begin{verbatim}
-2
-4 8
+125
 
 
-3
-1 1 3
-
-
-3
-4 2 5
+9999999999
 \end{verbatim}
 \end{minipage}
 \begin{minipage}[t]{0.5\textwidth}
 \textbf{Saída}
 \begin{verbatim}
-8
+176
 
 
-
-3
-
-
-
-5
+12656242944
 \end{verbatim}
 \end{minipage}
 \end{frame}
@@ -74,74 +61,31 @@ Print the minimum total cost to achieve Evi's objective.
 \begin{frame}[fragile]{Solução}
 
     \begin{itemize}
-        \item Considere, sem perda de generalidade, que $a_1$ seja o menor dentre todos os números,
-            e que $a_N$ seja o maior dentre eles
+        \item Como a string tem, no máximo, 10 caracteres, é possível gerar e avaliar todas as
+            expressões possíveis
 
-        \item Seja $C(x)$ o custo para transformar todos os elementos $a_1, a_2, \ldots, a_N$
+        \item Seja $N = |S|$
 
-        \item Observe que $C(x) > C(a_1)$, se $x < a_1$
+        \item Há $N - 1$ posições onde podem ser inseridos símbolos \texttt{\textcolor{red}{'+}}:
+            antes de qualquer caractere $s_i$, com $i\in [2, N]$:
 
-        \item Isto porque, estando $x$ à esquerda de todos os números, se aproximar de $a_1$ 
-            reduz todos os custos individuais e, portanto, o custo total da transformação
-        
-        \item De forma análoga, $C(x) > C(a_N)$, se $x > a_N$
+            \input{S_view}
 
+        \item Assim, são $2^{N - 1}$ expressões distintas, que podem ser representadas por meio de
+            todos os inteiros de $N - 1$ \textit{bits}, onde um \textit{bit} ligado indica
+            a presença de um \texttt{\textcolor{red}{'+}} na posição indicada
+
+        \item Cada expressão pode ser avaliada em $O(N)$, logo a solução tem complexidade
+            $O(N2^N)$
+    
     \end{itemize}
 
 \end{frame}
 
-
-\begin{frame}[fragile]{Solução}
-
-    \begin{itemize}
-        \item Logo, o valor de $x$ que minimiza o custo $C(x)$ deve pertencer ao intervalo
-            $[a_1, a_N]$
-
-        \item Como os limites do problema são relativamente pequenos, computar $C(x)$ para todos
-            os $x$ neste intervalo e registrar o menor valor de $C(x)$ teria complexidade $O(M)$ e
-            veredito AC, onde 
-            \[
-                M = \max\{ |a_1|, |a_2|, \ldots, |a_N| \}
-            \]
-
-        \item Contudo, este problema pode ser resolvido em $O(1)$
-
-        \item Temos que
-        \[
-            C(x) = (x - a_1)^2 + (x - a_2)^2 + \ldots + (x - a_N)^2
-        \]
-    \end{itemize}
-
+\begin{frame}[fragile]{Solução $O(N2^N)$}
+    \inputsnippet{cpp}{1}{21}{codes/C.cpp}
 \end{frame}
 
-
-\begin{frame}[fragile]{Solução}
-
-    \begin{itemize}
-        \item Derivando em relação a $x$ obtemos
-        \[
-            C'(x) = 2(x - a_1) + 2(x - a_2) + \ldots + 2(x - a_N)
-        \]
-
-        \item A função $C(x)$ terá um ponto crítico em $y$ se $C'(y) = 0$
-
-        \item Esta igualdade nos dá
-        \[
-            y = \frac{a_1 + a_2 + \ldots + a_N}{N}
-        \]
-
-        \item Assim, $C(x)$ será minimizada quando $x$ for a média aritmética dos números
-            $a_1, a_2, \ldots, a_N$
-
-        \item Como os números devem ser todos inteiros após a transformação, o valor da média
-            deve ser arredondado para o cálculo de $C(y)$, que será a resposta do problema
-    \end{itemize}
-
-\end{frame}
-\begin{frame}[fragile]{Solução $O(N)$}
-    \inputsnippet{cpp}{1}{15}{codes/C.cpp}
-\end{frame}
-
-\begin{frame}[fragile]{Solução $O(N)$}
-    \inputsnippet{cpp}{16}{36}{codes/C.cpp}
+\begin{frame}[fragile]{Solução $O(N2^N)$}
+    \inputsnippet{cpp}{22}{42}{codes/C.cpp}
 \end{frame}

@@ -1,29 +1,40 @@
 #include <bits/stdc++.h>
 
 using namespace std;
+using ll = long long;
 
-int solve(int N, const vector<int>& xs)
+ll solve(const string& s)
 {
-    int m = (int) round(accumulate(xs.begin(), xs.end(), 0.0) / N);
-    int res = 0;
+    ll ans = 0;
 
-    for (int i = 0; i < N; ++i)
-        res += (xs[i] - m)*(xs[i] - m);
+    for (int p = 0; p < (1 << (s.size() - 1)); ++p)
+    {
+        ll res = 0, x = 0;
 
-    return res;
+        for (size_t i = 0; i < s.size(); ++i)
+        {
+            x *= 10;
+            x += (s[i] - '0');
+
+            if (p & (1 << i) or i == s.size() - 1)
+            {
+                res += x;
+                x = 0;
+            }
+        }
+
+        ans += res;
+    }
+
+    return ans;
 }
 
 int main()
 {
-    int N;
-    cin >> N;
+    string s;
+    cin >> s;
 
-    vector<int> xs(N);
-
-    for (int i = 0; i < N; ++i)
-        cin >> xs[i];
-
-    auto ans = solve(N, xs);
+    auto ans = solve(s);
 
     cout << ans << '\n';
 
