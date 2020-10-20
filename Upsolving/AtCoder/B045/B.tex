@@ -1,0 +1,127 @@
+\section{B -- Card Game for Three (ABC Edit)}
+
+\begin{frame}[fragile]{Problema}
+
+Alice, Bob and Charlie are playing \textit{Card Game for Three}, as below:
+
+\begin{itemize}
+    \item At first, each of the three players has a deck consisting of some number of cards. Each
+        card has a letter \texttt{\textcolor{red}{'a'}}, \texttt{\textcolor{red}{'b'}} or
+        \texttt{\textcolor{red}{'c'}} written on it. The orders of the cards in the decks cannot be
+        rearranged.
+
+    \item The players take turns. Alice goes first.
+
+    \item If the current player's deck contains at least one card, discard the top card in the
+        deck. Then, the player whose name begins with the letter on the discarded card, takes the
+        next turn. (For example, if the card says \texttt{\textcolor{red}{'a'}}, Alice takes the
+        next turn.)
+
+    \item If the current player's deck is empty, the game ends and the current player wins the
+        game. 
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Problema}
+
+You are given the initial decks of the players. More specifically, you are given three strings 
+$S_A$, $S_B$ and $S_C$. The $i$-th ($1\leq i\leq |S_A|$) letter in $S_A$ is the letter on the 
+$i$-th card in Alice's initial deck. $S_B$ and $S_C$ describes Bob's and Charlie's initial decks in
+the same way.
+
+Determine the winner of the game.
+
+\end{frame}
+
+\begin{frame}[fragile]{Entrada e saída}
+
+\textbf{Constraints}
+
+\begin{itemize}
+    \item $1\leq |S_A| \leq 100$
+    \item $1\leq |S_B| \leq 100$
+    \item $1\leq |S_C| \leq 100$
+    \item Each letter in $S_A, S_B, S_C$ is \texttt{\textcolor{red}{'a'}},
+        \texttt{\textcolor{red}{'b'}} or \texttt{\textcolor{red}{'c'}}.
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Entrada e saída}
+
+\textbf{Input}
+
+Input is given from Standard Input in the following format:
+\begin{atcoderio}{ll}
+$S_A$\\
+$S_B$\\
+$S_C$\\
+\end{atcoderio}
+
+\textbf{Output}
+
+If Alice will win, print \texttt{\textcolor{red}{'A'}}. If Bob will win, print
+\texttt{\textcolor{red}{'B'}}. If Charlie will win, print \texttt{\textcolor{red}{'C'}}.
+
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de entradas e saídas}
+
+\begin{minipage}[t]{0.45\textwidth}
+\textbf{Entrada}
+\begin{verbatim}
+aca
+accc
+ca
+
+
+abcb
+aacb
+bccc
+\end{verbatim}
+\end{minipage}
+\begin{minipage}[t]{0.5\textwidth}
+\textbf{Saída}
+\begin{verbatim}
+A
+
+
+
+
+C
+\end{verbatim}
+\end{minipage}
+\end{frame}
+
+\begin{frame}[fragile]{Solução}
+
+    \begin{itemize}
+        \item A solução do problema consiste em simular o comportamento descrito do editor
+
+        \item Seja $N$ o tamanho de uma string $S$
+
+        \item A remoção de um caractere do início de uma string não faz parte da API do C++, e 
+            mesmo que seja implementada ela terá complexidade $O(N)$, por conta do deslocamento
+            dos caracteres
+
+        \item Já o método \code{cpp}{pop_back()} permite a exclusão do último caractere em $O(1)$
+
+        \item Assim, se as strings forem invertidas (o método \code{cpp}{reverse()} pode ser
+            utilizado para este fim), a simulação fica simplificada e mais eficiente
+
+        \item Portanto a solução tem complexidade $O(M)$, onde
+        \[
+            M = \max\{ S_A, S_B, S_C \}
+        \]
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Solução $O(M)$}
+    \inputsnippet{cpp}{1}{21}{codes/B.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Solução $O(M)$}
+    \inputsnippet{cpp}{22}{42}{codes/B.cpp}
+\end{frame}
