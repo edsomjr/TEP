@@ -1,0 +1,89 @@
+\section{C -- Many Formulas}
+
+\begin{frame}[fragile]{Problema}
+
+You are given a string $S$ consisting of digits between \texttt{\textcolor{red}{'1'}} and
+\texttt{\textcolor{red}{'9'}}, inclusive. You can insert the letter \texttt{\textcolor{red}{'+'}}
+into some of the positions (possibly none) between two letters in this string. Here,
+\texttt{\textcolor{red}{'+'}} must not occur consecutively after insertion.
+
+All strings that can be obtained in this way can be evaluated as formulas.
+
+Evaluate all possible formulas, and print the sum of the results.
+
+\end{frame}
+
+\begin{frame}[fragile]{Entrada e saída}
+
+\textbf{Constraints}
+
+\begin{itemize}
+    \item $1\leq |S| \leq 10$
+    \item All letters in $S$ are digits between \texttt{\textcolor{red}{'1'}} and
+        \texttt{\textcolor{red}{'9'}}, inclusive. 
+\end{itemize}
+
+\textbf{Input}
+
+Input is given from Standard Input in the following format:
+\begin{atcoderio}{llll}
+$S$ \\
+\end{atcoderio}
+
+\textbf{Output}
+
+Print the sum of the evaluated value over all possible formulas.
+
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de entradas e saídas}
+
+\begin{minipage}[t]{0.45\textwidth}
+\textbf{Entrada}
+\begin{verbatim}
+125
+
+
+9999999999
+\end{verbatim}
+\end{minipage}
+\begin{minipage}[t]{0.5\textwidth}
+\textbf{Saída}
+\begin{verbatim}
+176
+
+
+12656242944
+\end{verbatim}
+\end{minipage}
+\end{frame}
+
+\begin{frame}[fragile]{Solução}
+
+    \begin{itemize}
+        \item Como a string tem, no máximo, 10 caracteres, é possível gerar e avaliar todas as
+            expressões possíveis
+
+        \item Seja $N = |S|$
+
+        \item Há $N - 1$ posições onde podem ser inseridos símbolos \texttt{\textcolor{red}{'+}}:
+            antes de qualquer caractere $s_i$, com $i\in [2, N]$:
+
+        \item Assim, são $2^{N - 1}$ expressões distintas, que podem ser representadas por meio de
+            todos os inteiros de $N - 1$ \textit{bits}, onde um \textit{bit} ligado indica
+            a presença de um \texttt{\textcolor{red}{'+}} na posição indicada
+
+        \item Cada expressão pode ser avaliada em $O(N)$, logo a solução tem complexidade
+            $O(N2^N)$
+    
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Solução $O(N2^N)$}
+    \inputsnippet{cpp}{1}{21}{codes/C.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Solução $O(N2^N)$}
+    \inputsnippet{cpp}{22}{42}{codes/C.cpp}
+\end{frame}
