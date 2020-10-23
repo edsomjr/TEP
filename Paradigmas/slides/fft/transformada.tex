@@ -89,7 +89,7 @@
         \item Os coeficientes $b_n$ são iguais a zero, para $n$ par, e
         \[
             b_n = \frac{1}{\pi}\int_{-\pi}^{\pi} f(t)\sin(nt) dt 
-                = -\frac{a}{\pi}\left[\left.\frac{\cos(nt)}{n}\right\rvert_0^\pi\right] = \frac{2a}{m\pi},
+                = -\frac{a}{\pi}\left[\left.\frac{\cos(nt)}{n}\right\rvert_0^\pi\right] = \frac{2a}{n\pi},
         \]
         se $n$ é ímpar
     \end{itemize}
@@ -545,11 +545,11 @@
 \begin{frame}[fragile]{Transformada Discreta de Fourier}
 
     \begin{itemize}
-        \item Uma série $x_i = \{ x_0, x_1, \ldots, x_{N - 1}$ de $N$ amostras de um sinal,
+        \item Uma série $x_i = \{ x_0, x_1, \ldots, x_{N - 1}\}$ de $N$ amostras de um sinal,
             igualmente espaçadas ao longo do tempo,
             pode ser interpretada como uma função $y_i$ períodica de período $N$
 
-        \item Para isso, defina $y(j) = x_i$, onde $j$ é um inteiro tal que $j = N*q + i$, e
+        \item Para isso, defina $y(j) = x_i$, onde $j$ é um inteiro tal que $j = qN + i$, e
             $y(t) = 0$, se $t$ não é inteiro
 
         \item Contudo, ao invés de fazer esta adaptação e utilizar a transformada de Fourier, é
@@ -560,7 +560,7 @@
 
         \item A Transformada Discreta Inversa de Fourier (IDFT) é dada por:
         \[
-            x_n = \frac{1}{N}\sum_{k = 0}^{N - 1} F_ke^{2\pi ikn/N}
+            x_n = \frac{1}{N}\sum_{k = 0}^{N - 1} X_ke^{2\pi ikn/N}
         \]
 
     \end{itemize}
@@ -581,10 +581,10 @@
         \item A convolução entre duas funções $f(x)$ e $g(x)$ é uma função $h(x) = f(x)*g(x)$
             que representa como a forma de uma função é modificada pela outra
 
-        \item Ela é a integral do produto de ambas funções, sendo que uma delas é invertida e
+        \item Ela é a integral do produto de ambas funções, sendo que uma delas é espelhada e
             deslocada:
         \[
-            h(x) = f(x)*g(x) = \int_{-\infty}^\infty f(\tau)(t - \tau)\, d\tau
+            h(x) = f(x)*g(x) = \int_{-\infty}^\infty f(\tau)g(x - \tau)\, d\tau
         \]
 
         \item A convolução discreta de $f$ e $g$ é dada por
