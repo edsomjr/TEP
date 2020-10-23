@@ -117,22 +117,22 @@ $A$.
 
         \item Considere que os elementos $x_i$ sejam indexados de 0 a $N - 1$
 
-        \item Seja $dp(i, k, s)$ o número de maneiras distintas de, dentre os elementos
-            $x_i, x_{i + 1}, \ldots, x_{N - 1}$, escolher $k$ deles tal que sua soma
+        \item Seja $dp(i, m, s)$ o número de maneiras distintas de, dentre os elementos
+            $x_i, x_{i + 1}, \ldots, x_{N - 1}$, escolher $m$ deles tal que sua soma
             seja igual a $s$
 
         \item A operação de divisão pode ser evitada:
         \[
-            \frac{x_1 + x_2 + \ldots + x_k}{k} = A
+            \frac{x_1 + x_2 + \ldots + x_m}{m} = A
         \]
         equivale a
         \[
-            x_1 + x_2 + \ldots + x_k = kA
+            x_1 + x_2 + \ldots + x_m = mA
         \]
 
         \item Assim, a solução do problema será a soma
         \[
-            S = \sum_{k = 1}^N dp(0, k, kA)
+            S = \sum_{m = 1}^N dp(0, m, mA)
         \]
     \end{itemize}
 
@@ -143,18 +143,18 @@ $A$.
 
     \begin{itemize}
         \item O caso base acontece quando $i = N$: como não há mais elementos a serem escolhidos,
-            $dp(N, 0, 0) = 1$ e $dp(N, k, s) = 0$, se $k > 0$ ou $s > 0$
+            $dp(N, 0, 0) = 1$ e $dp(N, m, s) = 0$, se $m > 0$ ou $s > 0$
 
         \item As transições possíveis consistem em escolher, ou não, o elemento $x_i$
 
         \item Assim, se $m > 0$ e $x_i \leq s$, 
         \[
-            dp(i, k, s) = dp(i + 1, k - 1, s - x_i) + dp(i + 1, k, s)
+            dp(i, m, s) = dp(i + 1, m - 1, s - x_i) + dp(i + 1, m, s)
         \]
 
         \item Se $x_i > s$, então
         \[
-            dp(i, k, s) = dp(i + 1, k, s)
+            dp(i, m, s) = dp(i + 1, m, s)
         \]
 
         \item Há $O(N^3X)$ estados distintos, onde $X = \max\{ x_1, x_2, \ldots, x_N \}$, e as
