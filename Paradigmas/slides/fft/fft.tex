@@ -16,7 +16,7 @@
 
         \item Se a fusão for feita em $O(N)$, a recorrência se torna
         \[
-            f(N) = 2f(N/2) + (N)
+            f(N) = 2f(N/2) + O(N)
         \]
 
         \item O Teorema Mestre nos diz que a complexidade da transformada passa a ser $O(N\log N)$
@@ -68,7 +68,7 @@
             que correspondem à ordenação dos números $\{ 0, 1, 2, \ldots, N - 1\}$ usando como
             critério a inversão de sua representação binária
 
-        \item Assim, por meio de um comparador customizado o este ordenação pode ser feita 
+        \item Assim, por meio de um comparador customizado este ordenação pode ser feita 
             com complexidade $O(N\log N)$, o que não modifica a complexidade da FFT como um todo
     \end{itemize}
 
@@ -112,7 +112,7 @@
         \item A última etapa consiste em combinar as transformadas das duas partes (pares e
             ímpares) na transformada do sinal
 
-        \item Lembrando que a Transformada de Fourier é Linear, a transformada de um sinal $x_k$
+        \item Lembrando que a Transformada de Fourier é linear, a transformada de um sinal $x_k$
             pode ser computada como a soma de dois sinais distintos cuja soma resulte em $x_k$
 
         \item Considere os sinais $e_k$ e $o_k$ dados por
