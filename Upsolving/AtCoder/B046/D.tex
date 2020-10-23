@@ -22,7 +22,18 @@ Rock-paper-scissors.
 
 \begin{frame}[fragile]{Problema}
 
+(\textit{For those who are not familiar with Rock-paper-scissors: If one player plays Rock and the
+other plays Paper, the latter player will win and the former player will lose. If both players play
+the same gesture, the round is a tie and neither player will win nor lose.})
 
+With his supernatural power, AtCoDeer was able to foresee the gesture that TopCoDeer will play in
+each of the $N$ turns, before the game starts. Plan AtCoDeer's gesture in each turn to maximize
+AtCoDeer's score.
+
+The gesture that TopCoDeer will play in each turn is given by a string $s$. If the $i$-th 
+($1\leq i \leq N$) character in $s$ is \texttt{\textcolor{red}{'g'}}, TopCoDeer will play Rock in
+the $i$-th turn. Similarly, if the $i$-th ($1\leq i\leq N$) character of $s$ in
+\texttt{\textcolor{red}{'p'}}, TopCoDeer will play Paper in the $i$-th turn.
 
 \end{frame}
 
@@ -31,12 +42,10 @@ Rock-paper-scissors.
 \textbf{Constraints}
 
 \begin{itemize}
-    \item $3\leq H\leq 10^9$
-    \item $3\leq W\leq 10^9$
-    \item $0\leq N\leq \min(10^5, H\times W)$
-    \item $1\leq a_i\leq H\ (1\leq i\leq N)$
-    \item $1\leq b_i\leq W\ (1\leq i\leq N)$
-    \item $(a_i, b_i) \neq (a_j, b_j)\ (i\neq j)$
+    \item $1\leq N\leq 10^5$
+    \item $N = |s|$
+    \item Each character in $s$ is \texttt{\textcolor{red}{'g'}} or \texttt{\textcolor{red}{'p'}}. 
+    \item The gestures represented by $s$ satisfy the condition (*). 
 \end{itemize}
 
 \end{frame}
@@ -47,18 +56,12 @@ Rock-paper-scissors.
 
 Input is given from Standard Input in the following format:
 \begin{atcoderio}{llll}
-$H$ & $W$ & $N$ \\
-$a_1$ & $b_1$ \\
-$\vdots$ \\
-$a_N$ & $b_N$ \\
+$s$ \\
 \end{atcoderio}
-
-\vspace{0.1in}
 
 \textbf{Output}
 
-Print 10 lines. The ($j + 1$)-th ($0\leq j\leq 9$) line should contain the number of the
-subrectangles of size $3\times 3$ of the grid that contains exactly $j$ black cells.
+Print the AtCoDeer's maximum possible score.
 
 \end{frame}
 
@@ -67,101 +70,47 @@ subrectangles of size $3\times 3$ of the grid that contains exactly $j$ black ce
 \begin{minipage}[t]{0.55\textwidth}
 \textbf{Entrada}
 \begin{verbatim}
-4 5 8
-1 1
-1 4
-1 5
-2 3
-3 1
-3 2
-3 4
-4 4
+gpg
+
+
+ggppgggpgg
 \end{verbatim}
 \end{minipage}
 \begin{minipage}[t]{0.4\textwidth}
 \textbf{Saída}
 \begin{verbatim}
 0
-0
-0
+
+
 2
-4
-0
-0
-0
-0
-0
 \end{verbatim}
 \end{minipage}
 \end{frame}
 
-\begin{frame}[fragile]{Exemplo de entradas e saídas}
-
-    \begin{figure}
-        \centering
-
-        \begin{tikzpicture}
-            \draw (0, 0) grid (5, 4);
-
-            \fill[black] (0, 1) rectangle (2, 2);
-            \fill[black] (0, 3) rectangle (1, 4);
-            \fill[black] (2, 2) rectangle (3, 3);
-            \fill[black] (3, 0) rectangle (4, 2);
-            \fill[black] (3, 3) rectangle (5, 4);
-        \end{tikzpicture}
-
-    \end{figure}
-
-\end{frame}
-
-
 \begin{frame}[fragile]{Solução}
 
     \begin{itemize}
-        \item Há um total de $(H - 2)(W - 2)$ quadrados $3\times 3$ a serem avaliados
+        \item Na situação apresentada pelo problema, AtCoDeer deve escolher papel o maior número
+            vezes possível, isto é, $N/2$ vezes
 
-        \item Como $H, W\leq 10^9$, a verificação individual de cada um destes quadrados leva a
-            um veredito TLE
+        \item Uma estratégia para obter o melhor resultado possível seria empatar todos os papéis
+            de seu amigo
 
-        \item Contudo, o número total de pontos pintados $N$ é menor ou igual a $10^5$
+        \item Assim, os $P - p$ papéis restantes seriam vitórias de AtCoDeer
 
-        \item Cada ponto pertence a um total de 9 destes quadrados
+        \item O mais interessante, porém, é que, uma vez que AtCoDeer tenha $N/2$ papéis, qualquer
+            sequência de jogadas leva ao resultado ótima
 
-        \item Assim, é possível resolver o problema verificando, no máximo, $9\times 10^5$
-            quadrados, pois todos os demais certamente não terão nenhum ponto pintado
+        \item Assim, a solução tem complexidade $O(N)$
 
     \end{itemize}
 
 \end{frame}
 
-
-\begin{frame}[fragile]{Solução}
-
-    \begin{itemize}
-        \item Considere que cada quadrado seja caracterizado pelo seu canto superior esquerdo
-
-        \item Cada ponto pintado $(x, y)$ pertence a um dos 9 quadrados cujo canto superior
-            esquerdo tem coordenadas $(x - d_x, y - d_y)$, com $0\leq d_x, d_y\leq 2$
-
-        \item Um dicionário deve registrar, para cada possível canto superior esquerdo, quantos
-            pontos pintados fazem parte de seu quadrado associado
-
-        \item Deve-se atentar que o número de quadrados sem nenhum ponto pintado é a diferença
-            entre o total e os que tem ao menos um ponto pintado
-
-        \item Esta soluçã tem complexidade $O(N\log N)$
-    \end{itemize}
-
+\begin{frame}[fragile]{Solução $O(N)$}
+    \inputsnippet{cpp}{1}{16}{codes/D.cpp}
 \end{frame}
 
-\begin{frame}[fragile]{Solução $O(N\log N)$}
-    \inputsnippet{cpp}{1}{20}{codes/D.cpp}
-\end{frame}
-
-\begin{frame}[fragile]{Solução $O(N\log N)$}
-    \inputsnippet{cpp}{21}{40}{codes/D.cpp}
-\end{frame}
-
-\begin{frame}[fragile]{Solução $O(N\log N)$}
-    \inputsnippet{cpp}{41}{60}{codes/D.cpp}
+\begin{frame}[fragile]{Solução $O(N)$}
+    \inputsnippet{cpp}{17}{37}{codes/D.cpp}
 \end{frame}

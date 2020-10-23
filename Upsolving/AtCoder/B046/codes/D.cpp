@@ -1,55 +1,29 @@
 #include <bits/stdc++.h>
 
 using namespace std;
-using ll = long long;
-using ii = pair<ll, ll>;
 
-vector<ll> solve(ll H, ll W, const vector<ii>& ps)
+int solve(int N, const string& s)
 {
-    map<ii, int> hs;
+    int p = 0;
 
-    for (auto p : ps)
-    {
-        auto x = p.first, y = p.second;
+    for (auto c : s)
+        p += (c == 'p' ? 1 : 0);
 
-        for (int i = -2; i <= 0; ++i)
-        {
-            for (int j = -2; j <= 0; ++j)
-            {
-                auto u = x + i, v = y + j;
+    int P = N/2;
 
-                if (1 <= u and u <= H - 2 and 1 <= v and v <= W - 2)
-                    ++hs[ii(u, v)]; 
-            }
-        }
-    }
-
-    vector<ll> ans(10, 0);
-
-    for (auto p : hs)
-        ans[p.second]++;
-
-    ans[0] += (H - 2)*(W - 2) - hs.size();
-
-    return ans;
+    return P - p;
 }
 
 int main()
 {
     ios::sync_with_stdio(false);
 
-    int H, W, N;
-    cin >> H >> W >> N;
+    string s;
+    cin >> s;
 
-    vector<ii> xs(N);
+    auto ans = solve((int) s.size(), s);
 
-    for (int i = 0; i < N; ++i)
-        cin >> xs[i].first >> xs[i].second;
-
-    auto ans = solve(H, W, xs);
-
-    for (auto x : ans)
-        cout << x << '\n';
+    cout << ans << '\n';
 
     return 0;
 }
