@@ -10,8 +10,8 @@ Paradigmas de Resolução de Problemas
     1. [Definição](slides/gulosos/gulosos.pdf) ([problemas resolvidos](problems/gulosos/gulosos.pdf))
     1. [_Two Pointers_](slides/two_pointers/two_pointers.pdf) ([problemas resolvidos](problems/two_pointers/two_pointers.pdf))
 1. Divisão e Conquista
-    1. [Busca binária e busca ternária](slides/busca_binaria/busca_binaria.pdf) ([problemas resolvidos](problemas/busca_binaria/busca_binaria.pdf))
-    1. [Transformada de Fourier](slides/fft/fft.pdf) ([problemas resolvidos](problemas/fft/fft.pdf))
+    1. [Busca binária e busca ternária](slides/busca_binaria/busca_binaria.pdf) ([problemas resolvidos](problems/busca_binaria/busca_binaria.pdf))
+    1. [Transformada de Fourier](slides/fft/fft.pdf) ([problemas resolvidos](problems/fft/fft.pdf))
 1. Programação Dinâmica
     1. [Definição](slides/dp/dp.pdf) ([problemas resolvidos](problemas/dp/dp.pdf))
     1. [_Max Range Sum_](slides/max_range_sum/max_range_sum.pdf) ([problemas resolvidos](problemas/max_range_sum/max_range_sum.pdf))
