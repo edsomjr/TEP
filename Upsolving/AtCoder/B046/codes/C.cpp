@@ -2,39 +2,37 @@
 
 using namespace std;
 using ll = long long;
+using ii = pair<ll, ll>;
 
-ll solve(const string& s)
+ll solve(int N, const vector<ii>& xs)
 {
-    ll ans = 0;
+    ll T1 = xs.front().first, A1 = xs.front().second;
 
-    for (int p = 0; p < (1 << (s.size() - 1)); ++p)
+    for (int i = 1; i < N; ++i)
     {
-        ll res = 0, x = 0;
+        auto T2 = xs[i].first, A2 = xs[i].second;
+        auto k = max((T1 + T2 - 1)/T2, (A1 + A2 - 1)/A2);
 
-        for (size_t i = 0; i < s.size(); ++i)
-        {
-            x *= 10;
-            x += (s[i] - '0');
-
-            if (p & (1 << i) or i == s.size() - 1)
-            {
-                res += x;
-                x = 0;
-            }
-        }
-
-        ans += res;
+        T1 = k*T2;
+        A1 = k*A2;
     }
 
-    return ans;
+    return T1 + A1;
 }
 
 int main()
 {
-    string s;
-    cin >> s;
+    ios::sync_with_stdio(false);
 
-    auto ans = solve(s);
+    int N;
+    cin >> N;
+
+    vector<ii> xs(N);
+
+    for (int i = 0; i < N; ++i)
+        cin >> xs[i].first >> xs[i].second;
+
+    auto ans = solve(N, xs);
 
     cout << ans << '\n';
 

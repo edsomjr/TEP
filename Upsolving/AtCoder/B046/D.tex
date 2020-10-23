@@ -1,18 +1,28 @@
-\section{D -- Snuke's Coloring}
+\section{D -- AtCoDeer and Rock-Paper}
 
 \begin{frame}[fragile]{Problema}
 
-We have a grid with $H$ rows and $W$ columns. At first, all cells were painted white.
+AtCoDeer the deer and his friend TopCoDeer is playing a game. The game consists of $N$ turns. In
+each turn, each player plays one of the two gestures, Rock and Paper, as in Rock-paper-scissors,
+under the following condition:
 
-Snuke painted $N$ of these cells. The $i$-th ($1\leq i\leq N$) cell he painted is the cell at the 
-$a_i$-th row and $b_i$-th column.
+\vspace{0.1in}
 
-Compute the following:
+(*) After each turn, (the number of times the player has played Paper) $\leq$ (the number of times
+the player has played Rock).
 
-\begin{itemize}
-    \item For each integer $j$ ($0\leq j\leq 9$), how many subrectangles of size $3\times 3$ of the
-        grid contains exactly $j$ black cells, after Snuke painted $N$ cells?
-\end{itemize}
+\vspace{0.1in}
+
+Each player's score is calculated by (the number of turns where the player wins) - (the number of
+turns where the player loses), where the outcome of each turn is determined by the rules of
+Rock-paper-scissors.
+
+\end{frame}
+
+
+\begin{frame}[fragile]{Problema}
+
+
 
 \end{frame}
 
