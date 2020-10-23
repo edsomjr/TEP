@@ -1,0 +1,116 @@
+\section{D -- AtCoDeer and Rock-Paper}
+
+\begin{frame}[fragile]{Problema}
+
+AtCoDeer the deer and his friend TopCoDeer is playing a game. The game consists of $N$ turns. In
+each turn, each player plays one of the two gestures, Rock and Paper, as in Rock-paper-scissors,
+under the following condition:
+
+\vspace{0.1in}
+
+(*) After each turn, (the number of times the player has played Paper) $\leq$ (the number of times
+the player has played Rock).
+
+\vspace{0.1in}
+
+Each player's score is calculated by (the number of turns where the player wins) - (the number of
+turns where the player loses), where the outcome of each turn is determined by the rules of
+Rock-paper-scissors.
+
+\end{frame}
+
+
+\begin{frame}[fragile]{Problema}
+
+(\textit{For those who are not familiar with Rock-paper-scissors: If one player plays Rock and the
+other plays Paper, the latter player will win and the former player will lose. If both players play
+the same gesture, the round is a tie and neither player will win nor lose.})
+
+With his supernatural power, AtCoDeer was able to foresee the gesture that TopCoDeer will play in
+each of the $N$ turns, before the game starts. Plan AtCoDeer's gesture in each turn to maximize
+AtCoDeer's score.
+
+The gesture that TopCoDeer will play in each turn is given by a string $s$. If the $i$-th 
+($1\leq i \leq N$) character in $s$ is \texttt{\textcolor{red}{'g'}}, TopCoDeer will play Rock in
+the $i$-th turn. Similarly, if the $i$-th ($1\leq i\leq N$) character of $s$ in
+\texttt{\textcolor{red}{'p'}}, TopCoDeer will play Paper in the $i$-th turn.
+
+\end{frame}
+
+\begin{frame}[fragile]{Entrada e saída}
+
+\textbf{Constraints}
+
+\begin{itemize}
+    \item $1\leq N\leq 10^5$
+    \item $N = |s|$
+    \item Each character in $s$ is \texttt{\textcolor{red}{'g'}} or \texttt{\textcolor{red}{'p'}}. 
+    \item The gestures represented by $s$ satisfy the condition (*). 
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Entrada e saída}
+
+\textbf{Input}
+
+Input is given from Standard Input in the following format:
+\begin{atcoderio}{llll}
+$s$ \\
+\end{atcoderio}
+
+\textbf{Output}
+
+Print the AtCoDeer's maximum possible score.
+
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de entradas e saídas}
+
+\begin{minipage}[t]{0.55\textwidth}
+\textbf{Entrada}
+\begin{verbatim}
+gpg
+
+
+ggppgggpgg
+\end{verbatim}
+\end{minipage}
+\begin{minipage}[t]{0.4\textwidth}
+\textbf{Saída}
+\begin{verbatim}
+0
+
+
+2
+\end{verbatim}
+\end{minipage}
+\end{frame}
+
+\begin{frame}[fragile]{Solução}
+
+    \begin{itemize}
+        \item Na situação apresentada pelo problema, AtCoDeer deve escolher papel o maior número
+            vezes possível, isto é, $N/2$ vezes
+
+        \item Uma estratégia para obter o melhor resultado possível seria empatar todos os papéis
+            de seu amigo
+
+        \item Assim, os $P - p$ papéis restantes seriam vitórias de AtCoDeer
+
+        \item O mais interessante, porém, é que, uma vez que AtCoDeer tenha $N/2$ papéis, qualquer
+            sequência de jogadas leva ao resultado ótima
+
+        \item Assim, a solução tem complexidade $O(N)$
+
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Solução $O(N)$}
+    \inputsnippet{cpp}{1}{16}{codes/D.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Solução $O(N)$}
+    \inputsnippet{cpp}{17}{37}{codes/D.cpp}
+\end{frame}

@@ -1,0 +1,84 @@
+\section{B -- Paiting Balls with AtCoDeer}
+
+\begin{frame}[fragile]{Problema}
+
+There are $N$ balls placed in a row. AtCoDeer the deer is painting each of these in one of the 
+$K$ colors of his paint cans. For aesthetic reasons, any two adjacent balls must be painted in
+different colors.
+
+Find the number of the possible ways to paint the balls.
+
+\end{frame}
+
+\begin{frame}[fragile]{Entrada e saída}
+
+\textbf{Constraints}
+
+\begin{itemize}
+    \item $1\leq N\leq 1000$
+    \item $1\leq K\leq 1000$
+    \item The correct answer is at most $2^{31} - 1$.
+\end{itemize}
+
+\textbf{Input}
+
+Input is given from Standard Input in the following format:
+\begin{atcoderio}{ll}
+$N$ & $K$ \\
+\end{atcoderio}
+
+\textbf{Output}
+
+Print the number of the possible ways to paint the balls.
+
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de entradas e saídas}
+
+\begin{minipage}[t]{0.45\textwidth}
+\textbf{Entrada}
+\begin{verbatim}
+2 2
+
+
+1 10
+\end{verbatim}
+\end{minipage}
+\begin{minipage}[t]{0.5\textwidth}
+\textbf{Saída}
+\begin{verbatim}
+2
+
+
+10
+\end{verbatim}
+\end{minipage}
+\end{frame}
+
+\begin{frame}[fragile]{Solução}
+
+    \begin{itemize}
+        \item AtCoDeer pode pintar a primeira bola com qualquer uma das $K$ cores
+
+        \item Já para a segunda bola restam apenas $K - 1$ opções de escolha, uma vez que não ser
+            escolhida a mesma cor que foi escolhida para a primeira bola
+
+        \item Para a terceira permanecem $K - 1$ escolhas, pois embora não possa ser selecionada
+            a cor escolhida para a segunda bola, já não há mais impedimento para a cor escolhida
+            para a primeira
+
+        \item Logo, há $K$ escolhas para a primeira bola e $K - 1$ para as demais, de modo que
+            a resposta $S$ será dada por
+        \[
+            S = K(K - 1)^{N - 1}
+        \]
+
+        \item Portanto a solução tem complexidade $O(N)$ (ou $O(\log N)$, se for utilizado o
+            algoritmo de exponenciação rápida)
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Solução $O(N)$}
+    \inputsnippet{cpp}{1}{21}{codes/B.cpp}
+\end{frame}

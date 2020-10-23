@@ -1,0 +1,135 @@
+\section{C -- AtCoDeer and Election Report}
+
+\begin{frame}[fragile]{Problema}
+
+AtCoDeer the deer is seeing a quick report of election results on TV. Two candidates are standing
+for the election: Takahashi and Aoki. The report shows the ratio of the current numbers of votes
+the two candidates have obtained, but not the actual numbers of votes. AtCoDeer has checked the
+report $N$ times, and when he checked it for the $i$-th ($1\leq i\leq N$) time, the ratio was 
+$T_i : A_i$. It is known that each candidate had at least one vote when he checked the report for
+the first time.
+
+Find the minimum possible total number of votes obtained by the two candidates when he checked the
+report for the $N$-th time. It can be assumed that the number of votes obtained by each candidate
+never decreases.
+
+\end{frame}
+
+\begin{frame}[fragile]{Entrada e saída}
+
+\textbf{Constraints}
+
+\begin{itemize}
+    \item $1\leq N\leq 1000$
+    \item $1\leq T_i, A_i\leq 1000$ ($1\leq i\leq N$)
+    \item $T_i$ and $A_i$ ($1\leq i\leq N$) are coprime.
+    \item It is guaranteed that the correct answer is at most $10^{18}$.
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Entrada e saída}
+
+\textbf{Input}
+
+Input is given from Standard Input in the following format:
+\begin{atcoderio}{llll}
+$N$ \\
+$T_1$ & $A_1$ \\
+$T_2$ & $A_2$ \\
+$\vdots$ \\
+$T_N$ & $A_N$ \\
+\end{atcoderio}
+
+\vspace{0.1in}
+
+\textbf{Output}
+
+Print the minimum possible total number of votes obtained by Takahashi and Aoki when AtCoDeer
+checked the report for the $N$-th time.
+
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de entradas e saídas}
+
+\begin{minipage}[t]{0.45\textwidth}
+\textbf{Entrada}
+\begin{verbatim}
+3
+2 3
+1 1
+3 2
+
+
+4
+1 1
+1 1
+1 5
+1 100
+\end{verbatim}
+\end{minipage}
+\begin{minipage}[t]{0.5\textwidth}
+\textbf{Saída}
+\begin{verbatim}
+10
+
+
+
+
+
+101
+\end{verbatim}
+\end{minipage}
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de entradas e saídas}
+
+\begin{minipage}[t]{0.45\textwidth}
+\textbf{Entrada}
+\begin{verbatim}
+5
+3 10
+48 17
+31 199
+231 23
+3 2
+\end{verbatim}
+\end{minipage}
+\begin{minipage}[t]{0.5\textwidth}
+\textbf{Saída}
+\begin{verbatim}
+6930
+\end{verbatim}
+\end{minipage}
+\end{frame}
+
+
+\begin{frame}[fragile]{Solução}
+
+    \begin{itemize}
+        \item Seja $X$ e $Y$ a quantidade de votos para os candidatos 1 e 2, respectivamente
+
+        \item Como $T_i$ e $A_i$ são coprimos, para que $X$ e $Y$ estejam em proporção $T_i : A_i$
+            é preciso que $X = kT_i$ e que $Y = kA_i$ para algum $k$ inteiro
+
+        \item Na primeira apuração, $X = T_1$ e $Y = A_1$ são os menores valores possíveis
+            ($k = 1$)
+
+        \item Para a $i$-ésima apuração, determine os menores valores para $k_1$ e $k_2$ tais que
+            $X \leq k_1T_i$ e $Y \leq k_2A_i$
+
+        \item Faça $k = \max\{ k_1, k_2 \}$ e atualize $X$ e $Y$ 
+
+        \item Assim a solução tem complexidade $O(N)$
+    
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Solução $O(N)$}
+    \inputsnippet{cpp}{1}{21}{codes/C.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Solução $O(N)$}
+    \inputsnippet{cpp}{22}{42}{codes/C.cpp}
+\end{frame}

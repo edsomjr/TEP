@@ -1,0 +1,85 @@
+\section{A -- AtCoDeer and Paint Cans}
+
+\begin{frame}[fragile]{Problema}
+
+AtCoDeer the deer recently bought three paint cans. The color of the one he bought two days ago is 
+$a$, the color of the one he bought yesterday is $b$, and the color of the one he bought today is 
+$c$. Here, the color of each paint can is represented by an integer between 1 and 100, inclusive.
+
+Since he is forgetful, he might have bought more than one paint can in the same color. Count the
+number of different kinds of colors of these paint cans and tell him.
+
+\end{frame}
+
+\begin{frame}[fragile]{Entrada e saída}
+
+\textbf{Constraints}
+
+\begin{itemize}
+    \item $1\leq a, b, c\leq 100$
+\end{itemize}
+
+\vspace{0.1in}
+
+\textbf{Input}
+
+Input is given from Standard Input in the following format:
+\begin{atcoderio}{lll}
+$a$ & $b$ & $c$ \\
+\end{atcoderio}
+
+\textbf{Output}
+
+Print the number of different kinds of colors of the paint cans.
+
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de entradas e saídas}
+
+\begin{minipage}[t]{0.45\textwidth}
+\textbf{Entrada}
+\begin{verbatim}
+3 1 4
+
+
+3 3 33
+\end{verbatim}
+\end{minipage}
+\begin{minipage}[t]{0.5\textwidth}
+\textbf{Saída}
+\begin{verbatim}
+3
+
+
+2
+\end{verbatim}
+\end{minipage}
+\end{frame}
+
+\begin{frame}[fragile]{Solução}
+
+    \begin{itemize}
+        \item O problema consiste em determinar quantos são os números distintos dados na
+            entrada
+
+        \item Deste modo, a resposta do problema deve ser 1, 2 ou 3
+
+        \item A resposta será 1 apenas se $a = b = c$
+
+        \item Se a igualdade acima não é verdadeira, a resposta será igual a 2 se $a = b$ ou
+            $a = c$ ou $b = c$
+
+        \item Em todos os demais casos a resposta é igual a 3
+
+        \item É possível, entretanto, utilizar um conjunto (\code{cpp}{set} no C++), estrutura
+            de dados que armazena apenas elementos únicos
+
+        \item Nesta abordagem, a resposta será o tamanho do conjunto após a inserção dos elementos
+            $a, b$ e $c$
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Solução $O(1)$}
+    \inputsnippet{cpp}{1}{21}{codes/A.cpp}
+\end{frame}
