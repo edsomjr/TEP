@@ -17,7 +17,7 @@ int compare(const void *a, const void *b)
 
 int main()
 {
-    int ns[] { 0, 1, 1, 2, 3, 5, 8, 13, 21, 34 }, N = 10;
+    int ns[] = { 0, 1, 1, 2, 3, 5, 8, 13, 21, 34 }, N = 10;
 
     qsort(ns, N, sizeof(int), compare);
 
