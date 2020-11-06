@@ -7,8 +7,8 @@
             \node[anchor=east] at (-0.2, 5.5) { $x_k$ };
             \draw (0, 5) grid (8, 6);
 
-            \foreach \k in {1,...,8}
-                \node at (\k - 0.5, 5.5) { $x_{\k}$ };
+            \foreach \k in {0,...,7}
+                \node at (\k + 0.5, 5.5) { $x_{\k}$ };
 
             \node[anchor=east] at (-0.2, 3.5) { $e_k$ };
             \draw (0, 3) grid (8, 4);
@@ -46,15 +46,15 @@
             \node[anchor=east] at (-0.2, 5.5) { $X_k$ };
             \draw (0, 5) grid (8, 6);
 
-            \foreach \k in {1,...,8}
-                \node at (\k - 0.5, 5.5) { $X_{\k}$ };
+            \foreach \k in {0,...,7}
+                \node at (\k + 0.5, 5.5) { $X_{\k}$ };
 
             \node[anchor=east] at (-0.2, 3.5) { $E_k$ };
             \draw (0, 3) grid (8, 4);
 
             \foreach \k in {0,...,3}
             {
-                \pgfmathtruncatemacro{\label}{\k + 1};
+                \pgfmathtruncatemacro{\label}{\k + 1 - 1};
                 \node at (\k + 0.5, 3.5) { $E_\label$ };
                 \node at (\k + 4.5, 3.5) { $E_\label$ };
             }
@@ -64,7 +64,7 @@
 
             \foreach \k in {0,...,3}
             {
-                \pgfmathtruncatemacro{\label}{\k + 1};
+                \pgfmathtruncatemacro{\label}{\k + 1 - 1};
                 \node at (\k + 0.5, 1.5) { $s_\label O_\label$ };
                 \node at (\k + 4.5, 1.5) { $s_\label O_\label$ };
             }
