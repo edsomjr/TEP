@@ -27,11 +27,11 @@
 \begin{frame}[fragile]{Implementação}
 
     \begin{itemize}
-        \item Em geral, o ponteiro $L$ (\textit{left}) aponta para o início do vetor, e é incrementado
-            a cada passo do algoritmo
+        \item Em geral, o ponteiro $L$ (\textit{left}) aponta para o início do vetor e é
+            incrementado a cada passo do algoritmo
 
-        \item O ponteiro $R$ (\textit{right}) geralmente parte de $L$ (ou $L + 1$), e avança enquanto
-            o intervalo $[L, R)$ constituir uma subsolução válida do problema
+        \item O ponteiro $R$ (\textit{right}) geralmente parte de $L$ (ou $L + 1$) e avança
+            enquanto o intervalo $[L, R)$ constituir uma subsolução válida do problema
 
         \item Em alguns problemas, o ponteiro $L$ pode saltar diretamente para $R$, caso $R$ não
             possa mais avançar

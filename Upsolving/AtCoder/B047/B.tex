@@ -1,0 +1,130 @@
+\section{B -- Snuke's Coloring 2 (ABC Edit)}
+
+\begin{frame}[fragile]{Problema}
+
+There is a rectangle in the $xy$-plane, with its lower left corner at $(0, 0)$ and its upper 
+right corner at $(W, H)$. Each of its sides is parallel to the $x$-axis or $y$-axis. Initially, 
+the whole region within the rectangle is painted white.
+
+Snuke plotted $N$ points into the rectangle. The coordinate of the $i$-th $(1\leq i\leq N)$ 
+point was $(x_i, y_i)$.
+
+Then, he created an integer sequence $a$ of length $N$, and for each $1\leq i\leq N$, he
+painted some region within the rectangle black, as follows:
+
+\begin{itemize}
+
+    \item If $a_i = 1$, he painted the region satisfying $x < x_i$ within the rectangle.
+    \item If $a_i = 2$, he painted the region satisfying $x > x_i$ within the rectangle.
+    \item If $a_i = 3$, he painted the region satisfying $y < y_i$ within the rectangle.
+    \item If $a_i = 4$, he painted the region satisfying $y > y_i$ within the rectangle.
+
+\end{itemize}
+
+Find the area of the white region within the rectangle after he finished painting.
+
+\end{frame}
+
+\begin{frame}[fragile]{Entrada e saída}
+
+\textbf{Constraints}
+
+\begin{itemize}
+    \item $1\leq W, H\leq 100$
+    \item $1\leq N\leq 100$
+    \item $0\leq x_i\leq W (1\leq i\leq N)$
+    \item $0\leq y_i\leq H (1\leq i\leq N)$
+    \item $W, H, x_i$ and $y_i$ are integers.
+    \item $a_i$ $(1\leq i\leq N)$ is $1, 2, 3$ or $4$.
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Entrada e saída}
+
+\textbf{Input}
+
+Input is given from Standard Input in the following format:
+\begin{atcoderio}{lll}
+$W$ & $H$ & $N$ \\
+$x_1$ & $y_1$ & $a_1$ \\
+$x_2$ & $y_2$ & $a_2$ \\
+$\ldots$ \\
+$x_N$ & $y_N$ & $a_N$ \\
+\end{atcoderio}
+
+\textbf{Output}
+
+Print the area of the white region within the rectangle after Snuke finished painting.
+
+\end{frame}
+
+
+\begin{frame}[fragile]{Exemplo de entradas e saídas}
+
+\begin{minipage}[t]{0.45\textwidth}
+\textbf{Entrada}
+\begin{verbatim}
+5 4 2
+2 1 1
+3 3 4
+
+5 4 3
+2 1 1
+3 3 4
+1 4 2
+
+10 10 5
+1 6 1
+4 1 3
+6 9 4
+9 4 2
+3 1 3
+\end{verbatim}
+\end{minipage}
+\begin{minipage}[t]{0.5\textwidth}
+\textbf{Saída}
+\begin{verbatim}
+9
+
+
+
+0
+
+
+
+
+64
+\end{verbatim}
+\end{minipage}
+\end{frame}
+
+\begin{frame}[fragile]{Solução}
+
+    \begin{itemize}
+        \item Observe que, a cada ação, a região branca ou se mantém, ou se reduz em uma
+            de suas dimensões
+
+        \item Assuma que a região branca seja delimita no eixo-$x$ pelo intervalo $[x_L, x_R]$
+            e no eixo-$y$ pelo intervalo $[y_L, y_R]$
+
+        \item Para $a_i = 1$, o valor de $x_L$ será dado por $x_L = \max(x_L, x_i)$
+
+        \item De forma semelhante, para $a_i = 2$ vale que $x_R = \min(x_R, x_i)$
+
+        \item O mesmo vale para $a_i = 3$ e $a_i = 4$, que afetam as coordenadas $y$ de maneira
+            similar
+
+        \item A solução tem complexidade $O(N)$, uma vez que cada pintura pode ser feita em
+            $O(1)$
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Solução $O(N)$}
+    \inputsnippet{cpp}{1}{21}{codes/B.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Solução $O(N)$}
+    \inputsnippet{cpp}{22}{42}{codes/B.cpp}
+\end{frame}

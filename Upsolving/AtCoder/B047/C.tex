@@ -1,0 +1,104 @@
+\section{C -- 1D Reversi}
+
+\begin{frame}[fragile]{Problema}
+
+Two foxes Jiro and Saburo are playing a game called 1D Reversi. This game is played on a board, 
+using black and white stones. On the board, stones are placed in a row, and each player places 
+a new stone to either end of the row. Similarly to the original game of Reversi, when a white 
+stone is placed, all black stones between the new white stone and another white stone, turn 
+into white stones, and vice versa.
+
+In the middle of a game, something came up and Saburo has to leave the game. The state of the 
+board at this point is described by a string $S$. There are $|S|$ (the length of $S$) stones on 
+the board, and each character in $S$ represents the color of the $i$-th $(1\leq i\leq |S|)$
+stone from the left. If the $i$-th character in $S$ is `\texttt{\textcolor{red}{B}}', it means
+that the color of the corresponding stone on the board is black. Similarly, if the $i$-th 
+character in $S$ is `\texttt{\textcolor{red}{W}}', it means that the color of the corresponding 
+stone is white.
+
+Jiro wants all stones on the board to be of the same color. For this purpose, he will place new 
+stones on the board according to the rules. Find the minimum number of new stones that he needs 
+to place.
+
+\end{frame}
+
+\begin{frame}[fragile]{Entrada e saída}
+
+\textbf{Constraints}
+
+\begin{itemize}
+    \item $1\leq |S|\leq 10^5$
+    \item Each character in $S$ is `\texttt{\textcolor{red}{B}}' or `\texttt{\textcolor{red}{W}}'.
+\end{itemize}
+
+\textbf{Input}
+
+Input is given from Standard Input in the following format:
+\begin{atcoderio}{llll}
+$S$ \\
+\end{atcoderio}
+
+\vspace{0.1in}
+
+\textbf{Output}
+
+Print the minimum number of new stones that Jiro needs to place for his purpose.
+
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de entradas e saídas}
+
+\begin{minipage}[t]{0.45\textwidth}
+\textbf{Entrada}
+\begin{verbatim}
+BBBWW
+
+
+WWWWWW
+
+
+WBWBWBWBWB
+\end{verbatim}
+\end{minipage}
+\begin{minipage}[t]{0.5\textwidth}
+\textbf{Saída}
+\begin{verbatim}
+1
+
+
+0
+
+
+9
+\end{verbatim}
+\end{minipage}
+\end{frame}
+
+\begin{frame}[fragile]{Solução}
+
+    \begin{itemize}
+        \item Embora não seja óbvio à primeira vista, transformar todas as peças em pretas
+            ou em brancas exige o mesmo número de operações
+
+        \item A estratégia de solução é gulosa: enquanto houver duas cores entre as peças,
+            coloque no início da fila uma peça de cor oposta à da primeira peça
+
+        \item Isto vai acontecer $K - 1$ vezes, onde $K$ é o número de blocos contíguos de
+            peças da mesma cor
+
+        \item Assim, a solução consiste em determinar $K$, o que pode ser feito por meio da
+            técnica dos dois ponteiros
+
+        \item Assim a solução tem complexidade $O(N)$
+    
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Solução $O(N)$}
+    \inputsnippet{cpp}{1}{21}{codes/C.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Solução $O(N)$}
+    \inputsnippet{cpp}{22}{42}{codes/C.cpp}
+\end{frame}
