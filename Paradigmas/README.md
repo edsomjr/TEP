@@ -16,6 +16,7 @@ Paradigmas de Resolução de Problemas
     1. [Definição](slides/dp/dp.pdf) ([problemas resolvidos](problemas/dp/dp.pdf))
     1. [_Max Range Sum_](slides/max_range_sum/max_range_sum.pdf) ([problemas resolvidos](problemas/max_range_sum/max_range_sum.pdf))
     1. [Problema do Troco](slides/coin_change/coin_change.pdf) ([problemas resolvidos](problemas/coin_change/coin_change.pdf))
+    1. [Problema da Mochila Binária](slides/knapsack/knapsack.pdf) ([problemas resolvidos](problemas/knapsack/knapsack.pdf))
 
 <!---
 Busca completa:
@@ -38,9 +39,7 @@ Programação dinâmica:
     - DP by digits
     - Forward DP
     - LIS
-    - Knapsack
     - Paths in a grid
-    - Edit Distance? (Strings?)
     - TSP
     - Tilings (Geometry)?
 -->

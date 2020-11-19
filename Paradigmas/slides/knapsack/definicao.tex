@@ -1,0 +1,41 @@
+\section{Definição}
+
+\begin{frame}[fragile]{{\it Definição}}
+
+    \metroset{block=fill}
+    \begin{block}{Problema da Mochila Binária}
+        Considere uma conjunto $C = \{ c_1, c_2, \ldots, c_N \}$, onde $c_i = (w_i, v_i)$,
+        e seja $M$ um inteiro positivo.
+
+        O problema da mochila binária consiste em determinar um subjconjunto $S\subset 
+        \{ 1, 2, \ldots, N \}$ de índices de $C$ tal que
+        \[
+            W = \sum_{j\in S} w_j \leq M
+        \]
+        e que a soma
+        \[
+            V = \sum_{j \in S} v_j
+        \] seja máxima.
+    \end{block}
+
+\end{frame}
+
+\begin{frame}[fragile]{Características do problema da mochila binária}
+
+    \begin{itemize}
+        \item Os elementos do conjunto $C$ são denominados objetos ou items
+
+        \item $M$ é o capacidade da mochila
+
+        \item $w_i$ é o peso/tamanho do objeto, o qual determina se o objeto pode ou não ser
+            transportado na mochila, de acordo com a capacidade ainda disponível na mesma
+
+        \item $v_i$ é o valor/ganho do objeto, e a soma dos valores dos objetos selecionados
+            deve ser maximizada
+
+        \item O termo ``mochila binária'' remete ao fato de que, para cada um dos objetos,
+            há duas opções: escolhê-lo ou não
+    \end{itemize}
+
+\end{frame}
+

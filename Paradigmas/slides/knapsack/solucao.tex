@@ -1,0 +1,114 @@
+\section{Solução do problema da mochila binária}
+
+\begin{frame}[fragile]{Solução do problema da mochila binária}
+
+    \begin{itemize}
+        \item Como $|C| = N$, há $2^N$ subconjuntos de índices a serem avaliados
+
+        \item Como cada subconjunto pode ser avaliado em $O(N)$, uma solução de busca
+            completa tem complexidade $O(N2^N)$
+
+        \item É possível, entretando, reduzir esta complexidade por meio de um algoritmo
+            de programação dinâmica
+
+        \item Seja $v(i, m)$ a soma máxima dos valores que pode ser obtida a partir dos
+            primeiros $i$ elementos de $C$ e uma mochila com capacidade $m$
+
+        \item São dois casos-base: o primeiro deles acontece quando não resta mais nenhum
+            elemento a ser considerado
+
+        \item Neste casos, temos $v(0, m) = 0$
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Solução do problema da mochila binária}
+
+    \begin{itemize}
+        \item O segundo caso-base acontece quando não há mais espaço disponível na mochila:
+            $v(i, 0) = 0$
+
+        \item Também são duas as transições possíveis:
+        \begin{enumerate}
+            \item ignorar o $i$-ésimo elemento e considerar apenas os $i - 1$ primeiros; ou
+            \item caso possar ser transportado, pegar o $i$-ésimo elemento e colocá-lo na
+                mochila
+        \end{enumerate}
+
+        \item A primeira transição não modifica o estado da mochila e nem o total dos valores
+            transportados
+
+        \item Caso a mochila não consiga transportar o $i$-ésimo elemento, esta será a única
+        transição possível
+
+        \item Assim,
+        \[
+            v(i, m) = v(i - 1, m), \ \ \mbox{se}\ w_i > m
+        \]
+
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Solução do problema da mochila binária}
+
+    \begin{itemize}
+        \item A segunda transição só é possível se $w_i \leq m$
+
+        \item Caso esta condição seja atendida, a capacidade da mochila é reduzida em $w_i$
+            unidades, e o total dos valores transportados é acrescido em $v_i$
+
+        \item Assim, deve-se optar pela transição que produz o maior valor:
+        \[
+            v(i, m) = \max\{\ v(i -1, m), v(i - 1, m - w_i) + v_i\ \}, \ \ \mbox{se}\ w_i \leq m
+        \]
+
+        \item A solução do problema será dada por $v(N, M)$
+
+        \item O número de estados distintos é $O(NM)$ e cada transição é feita em $O(1)$
+
+        \item Portanto a solução de programação dinâmica para o problema do troco tem
+            complexidade $O(NM)$
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Implementação {\it top-down} da mochila binária}
+    \inputsnippet{cpp}{1}{21}{codes/knapsack.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Implementação {\it top-down} da mochila binária}
+    \inputsnippet{cpp}{22}{35}{codes/knapsack.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Recuperação dos elementos selecionados}
+
+    \begin{itemize}
+        \item Uma variante comum do problema é exibir a lista dos elementos selecionados
+            que maximizaram a soma dos valores, respeitando a capacidade da mochila
+
+        \item Para recuperar os elementos escolhidos é precisa uma tabela adicional $p$, com
+            as mesmas dimensões da tabela de memorização
+
+        \item Se $p(i, m) = 1$, a transição escolhida por $v(i, m)$ foi a segunda, isto é,
+            o elemento $c_i$ foi escolhido
+
+        \item Caso contrário, $p(i, m) = 0$
+
+        \item Com esta informação basta recuperar os itens, usando os valores de $p(i, m)$
+            para rastrear os estados que levaram à solução ótima
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Implementação {\it bottom-up} da mochila binária}
+    \inputsnippet{cpp}{1}{21}{codes/knapsack_bu.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Implementação {\it bottom-up} da mochila binária}
+    \inputsnippet{cpp}{22}{40}{codes/knapsack_bu.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Implementação {\it bottom-up} da mochila binária}
+    \inputsnippet{cpp}{41}{57}{codes/knapsack_bu.cpp}
+\end{frame}
