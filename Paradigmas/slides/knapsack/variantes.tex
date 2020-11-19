@@ -1,0 +1,36 @@
+\section{Aplicações}
+
+\begin{frame}[fragile]{\it Subset sum}
+
+    \begin{itemize}
+        \item Um problema comum que pode ser resolvido pela mochila binária é o 
+            \textit{subset sum}
+
+        \item Dados $N$ inteiros positivos $\{ x_1, x_2, \ldots, x_N \}$ e um inteiro $S$, o 
+            problema consiste em determinar se é possível escolher $k$ destes inteiros, com 
+            $1\leq k\leq N$, de modo que a soma dos elementos escolhidos seja igual a $S$
+
+        \item Veja que este problema pode ser reduzido a uma mochila binária
+
+        \item A soma $S$ é a capacidade da mochila
+
+        \item Os pesos dos elementos $c_i$ são dados pelos inteiros $x_i$
+
+        \item Os valores podem ser desprezados
+
+        \item Ao invés de escolher a transição de maior soma, deve-se considerar o ``ou''
+            lógico entre ambas
+
+        \item O caso base $v(0, 0)$ será verdadeiro, e todos os demais casos-base serão
+            falsos
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Implementação do {\it subset sum}}
+    \inputsnippet{cpp}{1}{21}{codes/subset_sum.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Implementação do {\it subset sum}}
+    \inputsnippet{cpp}{22}{32}{codes/subset_sum.cpp}
+\end{frame}
