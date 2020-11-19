@@ -1,0 +1,134 @@
+\section{OJ 990 -- Diving for Gold}
+
+\begin{frame}[fragile]{Problema}
+
+John is a diver and a treasure hunter. He has just found the location of a pirate ship full of 
+treasures.  The sofisticated sonar system on board his ship allows him to identify the 
+location, depth and quantity of gold in each suken treasure. Unfortunatelly, John forgot to 
+bring a GPS device and the chances of ever finding this location again are very slim so he has 
+to grab the gold now. To make the situation worse, John has only one compressed air bottle.
+
+John wants to dive with the compressed air bottle to recover as much gold as possible from the
+wreck. Write a program John can use to select which treasures he should pick to maximize the 
+quantity of gold recovered.
+
+\end{frame}
+
+\begin{frame}[fragile]{Problema}
+
+    The problem has the following restrictions: 
+
+    \begin{itemize}
+        \item There are $n$ treasures $\{(d_1, v_1),(d_2, v_2), \ldots, (d_n, v_n)\}$
+            represented by the pair (depth, quantity of gold). There are at most 30 treasures.
+
+        \item The air bottle only allows for $t$ seconds under water. $t$ is at most 1000 
+            seconds.
+
+        \item In each dive, John can bring the maximum of one treasure at a time.
+
+        \item The descent time is $td_i = w \times d_i$, where $w$ is an integer constant.
+
+        \item The ascent time is $ta_i = 2w \times d_i$, where $w$ is an integer constant.
+
+        \item Due to instrument limitations, all parameters are integer.
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Entrada e saída}
+
+\textbf{Input}
+
+The input to this program consists of a sequence of integer values. Input contains several test 
+cases. The first line of each dataset should contain the values $t$ and $w$. The second line 
+contains the number of treasures. Each of the following lines contains the depth $d_i$ and 
+quantity of gold $v_i$ of a different treasure.
+
+A blank line separates each test case.
+
+\textbf{Note}:
+
+In this sample input, the bottle of compressed air has a capacity of 200 seconds, the constant 
+$w$ has the value 4 and there are 3 treasures, the first one at a depth of 10 meters and worth 
+5 coins of gold, the second one at a depth of 10 meters and worth 1 coin of gold, and the third 
+one at 7 meters and worth 2 coins of gold.
+
+\end{frame}
+
+
+\begin{frame}[fragile]{Entrada e saída}
+\textbf{Output}
+
+The first line of the output for each dataset should contain the maximum amount of gold that 
+John can recover from the wreck. The second line should contain the number of recovered 
+treasures. Each of the following lines should contain the depth and amount of gold of each 
+recovered treasure. Treasures should be presented in the same order as the input file.
+
+Print a blank line between outputs for different datasets.
+
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de entradas e saídas}
+
+\begin{minipage}[t]{0.55\textwidth}
+\textbf{Sample Input}
+\begin{verbatim}
+210 4
+3
+10 5
+10 1
+7 2
+\end{verbatim}
+\end{minipage}
+\begin{minipage}[t]{0.4\textwidth}
+\textbf{Sample Output}
+\begin{verbatim}
+7
+2
+10 5
+7 2
+\end{verbatim}
+\end{minipage}
+\end{frame}
+
+\begin{frame}[fragile]{Solução $O(TN)$}
+
+   \begin{itemize}
+        \item Este é um problema de mochila binária cuja solução demanda não apenas o valor
+            ótima, mas também a lista dos elementos selecionados
+
+        \item O tempo máximo de mergulho $T$ é a capacidade da mochila
+
+        \item O valor de cada elemento é $v_i$
+
+        \item Como cada mergulho só permite reaver um único elemento, o ``peso'' do elemento
+            é a soma do tempo de mergulho com o tempo de retorno à superfície
+
+        \item Assim,
+        \[
+            w_i = w\times d_i + 2w\times d_i = 3wd_i
+        \]
+
+        \item Para evitar o veredito WA, não se esqueça de incluir uma linha em branco entre
+            as saídas de dois casos de teste consecutivos
+   \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Solução $O(TN)$}
+    \inputsnippet{cpp}{1}{21}{codes/990.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Solução $O(TN)$}
+    \inputsnippet{cpp}{22}{42}{codes/990.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Solução $O(TN)$}
+    \inputsnippet{cpp}{43}{63}{codes/990.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Solução $O(TN)$}
+    \inputsnippet{cpp}{64}{84}{codes/990.cpp}
+\end{frame}
+
