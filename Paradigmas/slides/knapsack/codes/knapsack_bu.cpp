@@ -42,7 +42,7 @@ pair<ll, vector<int>> knapsack(int M, const vector<ii>& cs)
     int m = M;
     vector<int> is;
 
-    for (int i = N; i >= 0; --i)
+    for (int i = N; i >= 1; --i)
     {
         if (ps[i][m])
         {
