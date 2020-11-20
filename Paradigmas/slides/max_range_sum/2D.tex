@@ -61,7 +61,7 @@
         \item Quando $i > 1$ e $j > 1$, o valor de $p(i, j)$ pode ser obtido utilizando-se o
             princípio da inclusão/exclusão:
         \[
-            p(i, j) = p(1, j - 1) + p(1, i - 1) - p(i - 1, j - 1) + a_{ij}
+            p(i, j) = p(i, j - 1) + p(i - 1, j) - p(i - 1, j - 1) + a_{ij}
         \]
         
         \item A matriz abaixo ilustra esta situação:
@@ -122,7 +122,7 @@
             deve-se aplicar o algoritmo de Kadane na sequência $r = \{ r_1, r_2, \ldots, r_N \} $,
             onde
             \[
-                r_k = \sum_{r = i}^j a_{kr}
+                r_k = \sum_{t = i}^j a_{kt}
             \]
 
         \item Deste modo, o algoritmo de Kadane identifica, dentre todas as submatrizes $B$ de $A$
