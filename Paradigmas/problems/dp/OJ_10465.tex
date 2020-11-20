@@ -4,7 +4,7 @@
 
 Homer Simpson, a very smart guy, likes eating Krusty-burgers. It takes Homer $m$ minutes to eat a
 Krusty-burger. However, there’s a new type of burger in Apu’s Kwik-e-Mart. Homer likes those too.
-It takes him $n$ minutes to eat one of these burgers. Given t minutes, you have to find out the
+It takes him $n$ minutes to eat one of these burgers. Given $t$ minutes, you have to find out the
 maximum number of burgers Homer can eat without wasting any time. If he must waste time, he can
 have beer.
 
@@ -71,9 +71,9 @@ a single space. It is preferable that Homer drinks as little beer as possible.
         \item Há 3 transições possíveis para o estado $p(t)$:
 
         \begin{enumerate}
-            \item gastar todo o recurso com cervejas
-            \item comprar uma hambúrguer por $m$
-            \item comprar uma hambúrguer por $n$
+            \item gastar todo o tempo restante com cervejas
+            \item comer um hambúrguer durante $m$ minutos
+            \item comer um hambúrguer durante $n$ minutos
         \end{enumerate}
 
         \item Como há $O(T)$ estados distintos, e as transições tem custo $O(1)$, uma solução
