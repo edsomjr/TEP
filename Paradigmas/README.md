@@ -14,10 +14,10 @@ Paradigmas de Resolução de Problemas
     1. [Busca binária e busca ternária](slides/busca_binaria/busca_binaria.pdf) ([problemas resolvidos](problems/busca_binaria/busca_binaria.pdf))
     1. [Transformada de Fourier](slides/fft/fft.pdf) ([problemas resolvidos](problems/fft/fft.pdf))
 1. Programação Dinâmica
-    1. [Definição](slides/dp/dp.pdf) ([problemas resolvidos](problemas/dp/dp.pdf))
-    1. [_Max Range Sum_](slides/max_range_sum/max_range_sum.pdf) ([problemas resolvidos](problemas/max_range_sum/max_range_sum.pdf))
-    1. [Problema do Troco](slides/coin_change/coin_change.pdf) ([problemas resolvidos](problemas/coin_change/coin_change.pdf))
-    1. [Problema da Mochila Binária](slides/knapsack/knapsack.pdf) ([problemas resolvidos](problemas/knapsack/knapsack.pdf))
+    1. [Definição](slides/dp/dp.pdf) ([problemas resolvidos](problems/dp/dp.pdf))
+    1. [_Max Range Sum_](slides/max_range_sum/max_range_sum.pdf) ([problemas resolvidos](problems/max_range_sum/max_range_sum.pdf))
+    1. [Problema do Troco](slides/coin_change/coin_change.pdf) ([problemas resolvidos](problems/coin_change/coin_change.pdf))
+    1. [Problema da Mochila Binária](slides/knapsack/knapsack.pdf) ([problemas resolvidos](problems/knapsack/knapsack.pdf))
 
 <!---
 Busca completa:
