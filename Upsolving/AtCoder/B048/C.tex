@@ -1,0 +1,121 @@
+\section{C -- Boxes and Candies}
+
+\begin{frame}[fragile]{Problema}
+
+There are $N$ boxes arranged in a row. Initially, the $i$-th box from the left contains $a_i$
+candies.
+
+Snuke can perform the following operation any number of times:
+
+\begin{itemize}
+    \item Choose a box containing at least one candy, and eat one of the candies in the chosen 
+        box.
+\end{itemize}
+
+His objective is as follows:
+
+\begin{itemize}
+    \item Any two neighboring boxes contain at most $x$ candies in total.
+\end{itemize}
+
+Find the minimum number of operations required to achieve the objective.
+
+\end{frame}
+
+\begin{frame}[fragile]{Entrada e saída}
+
+\textbf{Constraints}
+
+\begin{itemize}
+    \item $2\leq N\leq 10^5$
+    \item $0\leq a_i\leq 10^9$
+    \item $0\leq x\leq 10^9$
+\end{itemize}
+
+\textbf{Input}
+
+Input is given from Standard Input in the following format:
+\begin{atcoderio}{llll}
+$N$ & $x$ \\
+$a_1$ & $a_2$ & \ldots & $a_N$ \\
+\end{atcoderio}
+
+\textbf{Output}
+
+Print the minimum number of operations required to achieve the objective.
+
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de entradas e saídas}
+
+\begin{minipage}[t]{0.45\textwidth}
+\textbf{Entrada}
+\begin{verbatim}
+3 3
+2 2 2
+
+
+6 1
+1 6 1 2 0 4
+
+
+5 9
+3 1 4 1 5
+
+
+2 0
+5 5
+\end{verbatim}
+\end{minipage}
+\begin{minipage}[t]{0.5\textwidth}
+\textbf{Saída}
+\begin{verbatim}
+1
+
+
+
+11
+
+
+
+0
+
+
+
+10
+\end{verbatim}
+\end{minipage}
+\end{frame}
+
+\begin{frame}[fragile]{Solução}
+
+    \begin{itemize}
+        \item Como o problema determina que a soma dos doces entre duas caixas adjancentes
+            deve ser, no máximo, igual a $x$, é sempre ótimo diminur o máximo possível
+            da caixa que é adjacente a outras duas
+
+        \item Assim, considere que $s = a_{i - 1} + a_i$, com $1 < i\leq N$
+
+        \item Se $s \leq x$, não é preciso remover nenhum doce
+
+        \item Se $s > x$, faça  $d = s - x$
+
+        \item Dos $d$ doces a serem removidos, é ótimo remover $k = \min\{d, a_i\}$ doces de
+            $a_i$
+
+        \item Isto porque, além de realizar a devida correção, subtrair $k$ doces de $a_i$ pode 
+            auxiliar a correção do par de elementos vizinhos $a_i$ e $a_{i + 1}$
+
+        \item Como todos os pares de elementos devem ser avaliados, esta solução tem 
+            complexidade $O(N)$
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Solução $O(N)$}
+    \inputsnippet{cpp}{1}{21}{codes/C.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Solução $O(N)$}
+    \inputsnippet{cpp}{22}{40}{codes/C.cpp}
+\end{frame}
