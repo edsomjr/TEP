@@ -2,41 +2,20 @@
 
 using namespace std;
 
-int solve(int N, int T, const vector<int>& xs)
+string solve(const string& s)
 {
-    priority_queue<int> pq;
-    int best = xs[N - 1];
+    int x = s.front() == s.back() ? 1 : 0;
+    int y = s.size() % 2;
 
-    for (int i = N - 2; i >= 0; --i)
-    {
-        pq.push(best - xs[i]);
-        best = max(best, xs[i]);
-    }
-
-    auto m = pq.top(), ans = 0;
-    
-    while (not pq.empty() and pq.top() == m)
-    {
-        ++ans;
-        pq.pop();
-    }
-
-    return ans;
+    return x == y ? "Second" : "First";
 }
 
 int main()
 {
-    ios::sync_with_stdio(false);
+    string s;
+    cin >> s;
 
-    int N, T;
-    cin >> N >> T;
-
-    vector<int> xs(N);
-
-    for (int i = 0; i < N; ++i)
-        cin >> xs[i];
-
-    cout << solve(N, T, xs) << '\n';
+    cout << solve(s) << '\n';
 
     return 0;
 }

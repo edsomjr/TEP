@@ -1,45 +1,20 @@
-\section{D -- An Invisible Hand}
+\section{D -- An Ordinary Game}
 
 \begin{frame}[fragile]{Problema}
 
-There are $N$ towns located in a line, conveniently numbered 1 through $N$. Takahashi the 
-merchant is going on a travel from town 1 to town $N$, buying and selling apples.
+There is a string $s$ of length 3 or greater. No two neighboring characters in $s$ are equal.
 
-Takahashi will begin the travel at town 1, with no apple in his possession. The actions that 
-can be performed during the travel are as follows:
+Takahashi and Aoki will play a game against each other. The two players alternately performs 
+the following operation, Takahashi going first:
 
 \begin{itemize}
-    \item \textit{Move}: When at town $i$ $(i < N)$, move to town $i + 1$.
-
-    \item \textit{Merchandise}: Buy or sell an arbitrary number of apples at the current town. 
-        Here, it is assumed that one apple can always be bought and sold for $A_i$ yen (the 
-        currency of Japan) at town $i$ $(1\leq i\leq N)$), where $A_i$ are distinct integers. 
-        Also, you can assume that he has an infinite supply of money.
+    \item Remove one of the characters in $s$, excluding both ends. However, a character 
+        cannot be removed if removal of the character would result in two neighboring equal 
+        characters in $s$.
 \end{itemize}
 
-For some reason, there is a constraint on merchandising apple during the travel: the sum of the 
-number of apples bought and the number of apples sold during the whole travel, must be at most 
-$T$. (Note that a single apple can be counted in both.)
-
-\end{frame}
-
-
-\begin{frame}[fragile]{Problema}
-
-During the travel, Takahashi will perform actions so that the profit of the travel is maximized.
-Here, the profit of the travel is the amount of money that is gained by selling apples, minus 
-the amount of money that is spent on buying apples. Note that we are not interested in apples 
-in his possession at the end of the travel.
-
-Aoki, a business rival of Takahashi, wants to trouble Takahashi by manipulating the market 
-price of apples. Prior to the beginning of Takahashi's travel, Aoki can change $A_i$ into 
-another arbitrary non-negative integer $A'_i$ for any town $i$, any number of times. The cost 
-of performing this operation is $|A_i - A'_i|$. After performing this operation, different 
-towns may have equal values of $A_i$.
-
-Aoki's objective is to decrease Takahashi's expected profit by at least 1 yen. Find the minimum 
-total cost to achieve it. You may assume that Takahashi's expected profit is initially at least 
-1 yen.
+The player who becomes unable to perform the operation, loses the game. Determine which player 
+will win when the two play optimally.
 
 \end{frame}
 
@@ -48,28 +23,22 @@ total cost to achieve it. You may assume that Takahashi's expected profit is ini
 \textbf{Constraints}
 
 \begin{itemize}
-    \item $1\leq N\leq 10^5$
-    \item $1\leq A_i \leq 10^9$ $(1\leq i\leq N)$
-    \item $A_i$ are distinct.
-    \item $2\leq T\leq 10^9$
-    \item In the initial state, Takahashi's expected profit is at least 1 yen.
+    \item $3\leq |s|\leq 10^5$
+    \item $s$ consists of lowercase English letters.
+    \item No two neighboring characters in $s$ are equal. 
 \end{itemize}
-
-\end{frame}
-
-\begin{frame}[fragile]{Entrada e saída}
 
 \textbf{Input}
 
 Input is given from Standard Input in the following format:
 \begin{atcoderio}{llll}
-$N$ & $T$ \\
-$A_1$ & $A_2$ & \ldots & $A_N$ \\
+$s$ \\
 \end{atcoderio}
 
 \textbf{Output}
 
-Print the minimum total cost to decrease Takahashi's expected profit by at least 1 yen.
+If Takahashi will win, print \texttt{\textcolor{red}{First}}. If Aoki will win, print 
+\texttt{\textcolor{red}{Second}}.
 
 \end{frame}
 
@@ -78,30 +47,25 @@ Print the minimum total cost to decrease Takahashi's expected profit by at least
 \begin{minipage}[t]{0.55\textwidth}
 \textbf{Entrada}
 \begin{verbatim}
-3 2
-100 50 200
+aba
 
 
-5 8
-50 30 40 10 20
+abc
 
 
-10 100
-7 10 4 5 9 3 6 8 2 1
+abcab
 \end{verbatim}
 \end{minipage}
 \begin{minipage}[t]{0.4\textwidth}
 \textbf{Saída}
 \begin{verbatim}
-1
+Second
 
 
-
-2
-
+First
 
 
-2
+First
 \end{verbatim}
 \end{minipage}
 \end{frame}
@@ -109,51 +73,68 @@ Print the minimum total cost to decrease Takahashi's expected profit by at least
 \begin{frame}[fragile]{Solução}
 
     \begin{itemize}
-        \item Dados os limites do problema, não é possível propôr soluções que avaliem todas
-            as possíveis interações, mesmo que seja por meio de programação dinâmica
+        \item A solução do problema depende do entendimento do desenvolvimento do jogo e 
+            dos possíveis cenários que levam à derrota de um jogador
 
-        \item Assim, para se chegar a solução é preciso simplificar ao máximo as opções a 
-            serem consideradas
+        \item Primeiramente, observe que não é possível remover os caracteres que ocupam a
+            primeira e a última posição da string
 
-        \item Primeiramente, observe que se maças forem compradas na $i$-ésima cidade, elas
-            devem ser vendidas na cidade $j$ ($i < j \leq N$) com maior $A_j$
+        \item Assim, há dois cenários possíveis:
+        \begin{enumerate}
+            \item os extremos da string são iguais; ou
+            \item os extremos da string são distintos
+        \end{enumerate}
 
-        \item Assim, para cada cidade é possível computar o lucro máximo $L_i$ de se adquirir
-            $T/2$ maças em $i$ e vendê-las pelo maior lucro possível
-
-        \item Outra importante observação é que é ótimo comprar $T/2$ maças em uma mesma cidade
-            e vendê-las todas em ou única outra cidade
+        \item Um jogador ficará impedido de realizar uma jogada e, consequentemente, perderá
+            o jogo, caso ambos vizinhos de qualquer caractere sejam iguais
 
     \end{itemize}
 
 \end{frame}
-
 
 \begin{frame}[fragile]{Solução}
 
     \begin{itemize}
-        \item Seja $L = \max\{ L_1, L_2, \ldots, L_N \}$
+        \item Estes cenários tem duas formas possíveis:
+        \[
+            abab\ldots ababa
+        \] 
+        ou
+        \[
+            abab\ldots abab,
+        \] 
+        onde $a$ e $b$ são dois caracteres distintos
 
-        \item Para reduzir o lucro em um mais ienes basta reduzir o valor do $A_j$ associado
-            ao maior lucro
-
-        \item Porém, caso exista mais do que um valor $L_i$ que seja igual a $L$, a redução de
-            um $A_j$ apenas não é suficiente
-
-        \item Logo para cada $L_i = L$ devemos reduzir 1 iene no valor $A_j$ associado
-
-        \item Portanto a solução é a quantidade de tais $L_i$
-
-        \item Usando uma fila com prioridades e computando cada $L_i$ em $O(1)$, a solução
-            tem complexidade $O(N\log N)$
+        \item Isto porque, caso a string tenha 3 ou mais caracteres distintos, ainda existirá
+            ao menos um movimento válido 
+            
+        \item A quantidade de caracteres destes cenários pode variar, mas não sua paridade
+            (ímpar na primeira forma, par na segunda)
     \end{itemize}
 
 \end{frame}
 
-\begin{frame}[fragile]{Solução $O(N\log N)$}
-    \inputsnippet{cpp}{1}{21}{codes/D.cpp}
-\end{frame}
 
-\begin{frame}[fragile]{Solução $O(N\log N)$}
-    \inputsnippet{cpp}{22}{42}{codes/D.cpp}
+\begin{frame}[fragile]{title}
+
+    \begin{itemize}
+        \item Se for realizado um número par de movimentos do estado inicial até o estado que
+            leva à derrota, o jogador 2 será o vencedor
+
+        \item Isto acontece se 
+        \begin{enumerate}[(i)]
+            \item ambos extremos são iguais e $N$ é ímpar
+            \item ambos extremos são diferentes e $N$ é par
+        \end{enumerate}
+
+        \item Nos demais cenários, o vencedor será o jogador 1
+
+        \item Assim, a solução depende apenas do valor de $N$ e dos extremos da string $s$
+
+        \item Portanto, a complexidade será $O(1)$
+    \end{itemize}
+
+\end{frame}
+\begin{frame}[fragile]{Solução $O(1)$}
+    \inputsnippet{cpp}{1}{21}{codes/D.cpp}
 \end{frame}
