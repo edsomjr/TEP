@@ -1,0 +1,94 @@
+\section{B -- Between a and b...}
+
+\begin{frame}[fragile]{Problema}
+
+You are given nonnegative integers $a$ and $b$ ($a\leq b$), and a positive integer $x$. Among 
+the integers between $a$ and $b$, inclusive, how many are divisible by $x$?
+
+\end{frame}
+
+\begin{frame}[fragile]{Entrada e saída}
+
+\textbf{Constraints}
+
+\begin{itemize}
+    \item $0\leq a\leq b\leq 10^{18}$
+    \item $1\leq x\leq 10^{18}$
+\end{itemize}
+
+\textbf{Input}
+
+Input is given from Standard Input in the following format:
+\begin{atcoderio}{lll}
+$a$ & $b$ & $x$ \\
+\end{atcoderio}
+
+\textbf{Output}
+
+Print the number of the integers between $a$ and $b$, inclusive, that are divisible by $x$.
+
+\end{frame}
+
+
+\begin{frame}[fragile]{Exemplo de entradas e saídas}
+
+\begin{minipage}[t]{0.45\textwidth}
+\textbf{Entrada}
+\begin{verbatim}
+4 8 2
+
+
+0 5 1
+
+
+9 9 2
+
+
+1 1000000000000000000 3
+\end{verbatim}
+\end{minipage}
+\begin{minipage}[t]{0.5\textwidth}
+\textbf{Saída}
+\begin{verbatim}
+3
+
+
+6
+
+
+0
+
+
+333333333333333333
+\end{verbatim}
+\end{minipage}
+\end{frame}
+
+\begin{frame}[fragile]{Solução}
+
+    \begin{itemize}
+        \item O problema consiste em determinar o número de múltiplos de $x$ no intervalo
+            $[a, b]$
+
+        \item Seja $m(x, b)$ o número de múltiplos de $x$ em $[1, b]$
+
+        \item É possível mostrar que
+        \[
+            m(x, b) = \left\lfloor \frac{b}{x}\right\rfloor
+        \]
+
+        \item Assim, a solução do problema é $m(x, b) - m(x, a - 1)$
+
+        \item Cuidado, entretanto, com o caso especial $a = 0$
+
+        \item Neste caso, a solução é $m(x, b) + 1$, uma vez que zero é múltiplo de qualquer
+            inteiro
+    
+        \item Esta solução tem complexidade $O(1)$
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Solução $O(N)$}
+    \inputsnippet{cpp}{1}{21}{codes/B.cpp}
+\end{frame}

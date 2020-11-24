@@ -1,0 +1,140 @@
+\section{D -- An Ordinary Game}
+
+\begin{frame}[fragile]{Problema}
+
+There is a string $s$ of length 3 or greater. No two neighboring characters in $s$ are equal.
+
+Takahashi and Aoki will play a game against each other. The two players alternately performs 
+the following operation, Takahashi going first:
+
+\begin{itemize}
+    \item Remove one of the characters in $s$, excluding both ends. However, a character 
+        cannot be removed if removal of the character would result in two neighboring equal 
+        characters in $s$.
+\end{itemize}
+
+The player who becomes unable to perform the operation, loses the game. Determine which player 
+will win when the two play optimally.
+
+\end{frame}
+
+\begin{frame}[fragile]{Entrada e saída}
+
+\textbf{Constraints}
+
+\begin{itemize}
+    \item $3\leq |s|\leq 10^5$
+    \item $s$ consists of lowercase English letters.
+    \item No two neighboring characters in $s$ are equal. 
+\end{itemize}
+
+\textbf{Input}
+
+Input is given from Standard Input in the following format:
+\begin{atcoderio}{llll}
+$s$ \\
+\end{atcoderio}
+
+\textbf{Output}
+
+If Takahashi will win, print \texttt{\textcolor{red}{First}}. If Aoki will win, print 
+\texttt{\textcolor{red}{Second}}.
+
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de entradas e saídas}
+
+\begin{minipage}[t]{0.55\textwidth}
+\textbf{Entrada}
+\begin{verbatim}
+aba
+
+
+abc
+
+
+abcab
+\end{verbatim}
+\end{minipage}
+\begin{minipage}[t]{0.4\textwidth}
+\textbf{Saída}
+\begin{verbatim}
+Second
+
+
+First
+
+
+First
+\end{verbatim}
+\end{minipage}
+\end{frame}
+
+\begin{frame}[fragile]{Solução}
+
+    \begin{itemize}
+        \item A solução do problema depende do entendimento do desenvolvimento do jogo e 
+            dos possíveis cenários que levam à derrota de um jogador
+
+        \item Primeiramente, observe que não é possível remover os caracteres que ocupam a
+            primeira e a última posição da string
+
+        \item Assim, há dois cenários possíveis:
+        \begin{enumerate}
+            \item os extremos da string são iguais; ou
+            \item os extremos da string são distintos
+        \end{enumerate}
+
+        \item Um jogador ficará impedido de realizar uma jogada e, consequentemente, perderá
+            o jogo, caso ambos vizinhos de qualquer caractere sejam iguais
+
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Solução}
+
+    \begin{itemize}
+        \item Estes cenários tem duas formas possíveis:
+        \[
+            abab\ldots ababa
+        \] 
+        ou
+        \[
+            abab\ldots abab,
+        \] 
+        onde $a$ e $b$ são dois caracteres distintos
+
+        \item Isto porque, caso a string tenha 3 ou mais caracteres distintos, ainda existirá
+            ao menos um movimento válido 
+            
+        \item A quantidade de caracteres destes cenários pode variar, mas não sua paridade
+            (ímpar na primeira forma, par na segunda)
+    \end{itemize}
+
+\end{frame}
+
+
+\begin{frame}[fragile]{title}
+
+    \begin{itemize}
+        \item Se for realizado um número par de movimentos do estado inicial até o estado que
+            leva à derrota, o jogador 2 será o vencedor
+
+        \item Isto acontece se 
+        \begin{enumerate}[(i)]
+            \item ambos extremos são iguais e $N$ é ímpar
+            \item ambos extremos são diferentes e $N$ é par
+        \end{enumerate}
+
+        \item Nos demais cenários, o vencedor será o jogador 1
+
+        \item Assim, a solução depende apenas do valor de $N$ e dos extremos da string $s$
+
+        \item Portanto, a complexidade será $O(1)$
+    \end{itemize}
+
+\end{frame}
+\begin{frame}[fragile]{Solução $O(1)$}
+    \inputsnippet{cpp}{1}{21}{codes/D.cpp}
+\end{frame}

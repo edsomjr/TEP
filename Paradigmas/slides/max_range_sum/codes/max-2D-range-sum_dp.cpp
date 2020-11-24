@@ -10,7 +10,7 @@ int MSR(int N, int M, const vector<vector<int>>& A)
 
     for (int i = 1; i <= N; ++i)
         for (int j = 1; j <= M; ++j)
-            p[i][j] = p[1][j-1] + p[i-1][1] - p[i-1][j-1] + A[i][j];
+            p[i][j] = p[i][j-1] + p[i-1][j] - p[i-1][j-1] + A[i][j];
 
     int ans = -oo, sum;
 
