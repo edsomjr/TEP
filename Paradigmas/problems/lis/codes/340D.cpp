@@ -2,37 +2,25 @@
 
 using namespace std;
 
-using ll = long long;
-using ii = pair<ll, ll>;
-
-#define REP(i, a, b) for (int (i) = (a); (i) <= (b); (i)++)
-#define REPN(i, N) for (int (i) = 0; (i) < N; (i)++)
-
-const int MAX { 2000010 };
 const int oo { 2000000010 };
 
-int as[MAX], lis[MAX];
-
-// Não há arestas se os valores estão em ordem crescente
-// Logo o conjunto procurado equivale a LIS
-void solve(int N)
+int solve(int N, const vector<int>& as)
 {
+    vector<int> lis(N + 1, oo);
     lis[0] = 0;
 
-    REP(i, 1, N)
-        lis[i] = oo;
+    auto ans = 0;
 
-    int ans = 0;
-
-    REPN(i, N)
+    for (int i = 0; i < N; ++i)
     {
-        int pos = lower_bound(lis, lis + ans + 1, as[i]) - lis;
+        auto it = lower_bound(lis.begin(), lis.end(), as[i]);
+        auto pos = (int) (it - lis.begin());
 
         ans = max(ans, pos);
         lis[pos] = min(as[i], lis[pos]);
     }
 
-    cout << ans << endl;
+    return ans;
 }
 
 int main()
@@ -42,10 +30,14 @@ int main()
     int N;
     cin >> N;
 
-    REPN(i, N)
+    vector<int> as(N);
+
+    for (int i = 0; i < N; ++i)
         cin >> as[i];
 
-    solve(N);
+    auto ans = solve(N, as);
+
+    cout << ans << '\n';
 
     return 0;
 }

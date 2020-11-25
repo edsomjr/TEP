@@ -56,37 +56,47 @@ Output a single integer -- the answer to the problem.
 \end{minipage}
 \end{frame}
 
-\begin{frame}[fragile]{Solução com complexidade $O(1)$}
+\begin{frame}[fragile]{Solução com complexidade $O(N\log N)$}
 
     \begin{itemize}
-        \item Observe que a tentativa de se computar o valor exato de $1378^n$ leva a dois
-            problemas:
-            \begin{enumerate}
-                \item a complexidade da solução seria $O(n)$, e $n = 10^{9}$ no pior caso
+        \item Gerar o grafo $G$ por meio da execução do código do \textit{bubblesort}
+            apresentado leva a um veredito TLE, uma vez que, no pior caso, há $O(N^2)$
+            arestas (sequência em ordem decrescente)
 
-                \item porém esta complexidade assume que o cálculo de cada produto pode ser
-                    feito em $O(1)$, que não é o caso pois tais número crescem exponencialmente,
-                    o que leva também a problemas de memória 
-            \end{enumerate}
+        \item Mesmo que fosse possível construir o grafo $G$ em tempo hábil, o maior
+            conjunto independente é um problema \textit{NP-Hard}, e como $N\leq 10^5$, novamente
+            o veredito seria TLE
 
-        \item Ainda assim, computar tais valores para os primeiros valores de $n$ (por exemplo,
-            $n = 20$), pode revelar padrões na solução que não são óbvios à primeira vista
+        \item O que deve ser observado é que não existirá uma aresta entre $a_i$ e $a_j$ se
+            $a_i < a_j$, com $i < j$
 
-        \item O primeiro padrão que surge é que os últimos dígitos dos resultados, a partir de
-            $n = 1$, formam uma sequência periódica: 
-            \[
-                8, 2, 4, 6, 8, 2, 4, 6, \ldots
-            \] 
-
-        \item Cuidado com o \textit{corner case} $n = 0$: neste caso, a resposta deve ser igual
-            a um 
-
-        \item Exceto no caso especial, uma operação de resto da divisão determina o 
-            resultado correto, de modo que a solução tem complexidade $O(1)$
+        \item Observe que, pela transitividade, se não existe uma aresta entre $a_i$ e $a_j$,
+            e também não há aresta entre $a_j$ e $a_k$, não haverá uma aresta entre $a_i$ e 
+            $a_k$
    \end{itemize}
 
 \end{frame}
 
-\begin{frame}[fragile]{Solução com complexidade $O(1)$}
-    \inputsnippet{cpp}{1}{19}{codes/340D.cpp}
+
+\begin{frame}[fragile]{Solução com complexidade $O(N\log N)$}
+
+    \begin{itemize}
+        \item Deste modo, um conjunto independente em $G$ será uma sequência crescente de
+            $a = \{ a_1, a_2, \ldots, a_N \}$
+
+        \item A resposta do problema, portanto, será a maior subsequência crescente de $a$
+
+        \item Dados os limites do problema, a implementação quadrática levaria ao TLE
+
+        \item Portanto, o problema deve ser resolvido pela implementação linearítmica da
+            LIS
+    \end{itemize}
+
+\end{frame}
+\begin{frame}[fragile]{Solução com complexidade $O(N\log N)$}
+    \inputsnippet{cpp}{1}{21}{codes/340D.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Solução com complexidade $O(N\log N)$}
+    \inputsnippet{cpp}{23}{43}{codes/340D.cpp}
 \end{frame}
