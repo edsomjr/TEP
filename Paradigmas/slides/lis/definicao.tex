@@ -1,0 +1,34 @@
+\section{Definição}
+
+\begin{frame}[fragile]{{\it Definição}}
+
+    \metroset{block=fill}
+    \begin{block}{Problema da Maior Subsequência Crescente}
+        Considere uma sequência $a = \{ a_1, a_2, \ldots, a_N \}$.
+
+        Uma subsequência 
+        \[
+            b = \{ b_1, b_2, \ldots, b_k \} = \{ a_{i_1}, a_{i_2}, \ldots, a_{i_k} \}
+        \]
+        de $a$ é a maior subsequência crescente (\textit{longest increasing subsequence} --
+        LIS) se $i_1 < i_2 < \ldots < i_k$, $b_i < b_j$ se $i < j$ e $k$ é máximo.
+    \end{block}
+
+\end{frame}
+
+\begin{frame}[fragile]{Características da maior subsequência crescente}
+
+    \begin{itemize}
+        \item O problema da maior subsequência crescente tem solução para qualquer 
+            sequência $a$, uma vez que qualquer subsequência composta por um único elemento
+            é uma subsequência crescente (não necessariamente a maior)
+
+        \item A maior subsequência não é única: por exemplo, a sequência $a = \{ 4, 1, 5, 2,
+            6, 3 \}$ tem várias subsequências com três elementos ($b_1 = \{ 4, 5 ,6 \}$ e 
+            $b_2 = \{ 1, 2, 3 \}$ são duas delas)
+
+        \item Os elementos de $a$ pode ser de qualquer tipo, desde que o operador 
+            \texttt{<} esteja definido
+    \end{itemize}
+
+\end{frame}

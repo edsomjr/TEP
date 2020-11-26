@@ -1,0 +1,72 @@
+\section{Solução do problema da maior subsequência crescente}
+
+\begin{frame}[fragile]{Solução quadrática para a LIS}
+
+    \begin{itemize}
+        \item Uma sequência $a = \{ a_1, a_2, \ldots, a_N \}$ tem $2^N$ subsequências
+            distintas, de modo que um algoritmo de busca completa só seria efetivo para
+            valores de $N$ pequenos
+
+        \item A LIS de uma sequência $a$ pode ser determinada por meio de um algoritmo de
+            programação dinâmica
+
+        \item Seja $lis(i)$ o tamanho da maior subsequência de $a$ cujo último elemento é
+            $a_i$
+
+        \item O caso base acontece quando $i = 1$: $lis(1) = 1$
+
+        \item A transição deve avaliar todas as subsequências anteriores que podem 
+            eventualmente serem estendidas por $a_i$
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Solução quadrática para a LIS}
+
+    \begin{itemize}
+        \item Deste modo,
+        \[
+            lis(i) = \max \{ 1, lis(a_k) + 1 \},
+        \]
+        para todo $k\in [1, i)$ tal que $a_k < a_i$
+
+        \item Assim, cada transição é feita em $O(N)$ e há $O(N)$ estados distintos
+
+        \item Portanto esta solução tem complexidade $O(N^2)$
+
+        \item A complexidade de memória é $O(N)$
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Implementação da solução quadrática da LIS}
+    \inputsnippet{cpp}{5}{19}{codes/lis.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Recuperação dos elementos da LIS}
+
+    \begin{itemize}
+        \item É possível explicitar os elementos da LIS por meio de $O(N)$ de memória
+            adicional
+
+        \item Seja $ps(i)$ o índice do penúltimo elemento da sequência terminada em
+            $a_i$
+
+        \item Se a sequência terminada em $a_i$ contém um único elemento, faça
+            $ps(i) = -1$ (ou qualquer outro valor sentinela)
+
+        \item Assim, caso $a_i$ possa estender uma sequência, o valor de $ps(i)$ deve
+            ser devidamente atualizado
+
+        \item O vetor $ps$ poderá ser utilizado para recuperar os elementos de uma LIS
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Recuperação dos elementos da LIS}
+    \inputsnippet{cpp}{1}{21}{codes/lis2.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Recuperação dos elementos da LIS}
+    \inputsnippet{cpp}{22}{42}{codes/lis2.cpp}
+\end{frame}
