@@ -18,6 +18,7 @@ Paradigmas de Resolução de Problemas
     1. [_Max Range Sum_](slides/max_range_sum/max_range_sum.pdf) ([problemas resolvidos](problems/max_range_sum/max_range_sum.pdf))
     1. [Problema do Troco](slides/coin_change/coin_change.pdf) ([problemas resolvidos](problems/coin_change/coin_change.pdf))
     1. [Problema da Mochila Binária](slides/knapsack/knapsack.pdf) ([problemas resolvidos](problems/knapsack/knapsack.pdf))
+    1. [Maior Subsequência Crescente](slides/lis/lis.pdf) ([problemas resolvidos](problems/lis/lis.pdf))
 
 <!---
 Busca completa:
@@ -39,7 +40,6 @@ Divisão e conquista:
 Programação dinâmica:
     - DP by digits
     - Forward DP
-    - LIS
     - Paths in a grid
     - TSP
     - Tilings (Geometry)?
