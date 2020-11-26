@@ -1,0 +1,51 @@
+\section{Variantes}
+
+\begin{frame}[fragile]{Solução linearítmica}
+
+    \begin{itemize}
+        \item A LIS pode ser encontrada por um algoritmo de programação dinâmica linearítmico
+
+        \item Este algoritmo se baseia em um estado diferente do utilizado no algoritmo
+            quadrático e em uma transição mais eficiente
+
+        \item Seja $lis(k, i)$ o menor elemento que finaliza uma subsequência crescente de
+            $\{ a_1, a_2, \ldots, a_i \}$ de tamanho $k$
+
+        \item A segunda dimensão deste estado será implícita, sem necessidade de alocação de
+            memória (caso contrário, a alocação da tabela de memória já tornaria este 
+            algoritmo quadrático)
+
+        \item Os casos bases acontecem com $i = 0$, isto é, antes de se considerar qualquer
+            elemento da sequência
+
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Solução linearítmica}
+
+    \begin{itemize}
+        \item Para simplificar a implementação, pode-se fazer $lis(k, 0) = \infty$, para 
+            todo $k\in [1, N]$ e $lis(0, 0) = 0$ (ou qualquer outro valor sentinela, desde
+            que seja estritamente menor do que qualquer $a_i$)
+
+        \item Para cada $i$, apenas um dos $lis(k, i)$ será atualizado
+
+        \item Importante notar que os elementos da sequência $lis(1, i), lis(2, i), \ldots$
+            estarão em ordem crescente
+
+        \item Por meio de uma busca binária, deve-se identificar o primeiro índice $j$ tal que
+            $lis(j, i - 1)$ seja estritamente maior do que $a_i$
+
+        \item Daí, $lis(j, i) = a_i$
+
+        \item O tamanho da lis será igual ao maior índice $j$ tal que $lis(j, N) < \infty$
+    \end{itemize}
+
+\end{frame}
+
+\input{lis_view}
+
+\begin{frame}[fragile]{Implementação linearítmica da LIS}
+    \inputsnippet{cpp}{5}{24}{codes/lis_linearitmico.cpp}
+\end{frame}
