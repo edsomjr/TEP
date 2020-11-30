@@ -1,0 +1,141 @@
+\section{B -- Thin}
+
+\begin{frame}[fragile]{Problema}
+
+There is an image with a height of $H$ pixels and a width of $W$ pixels. Each of the pixels is 
+represented by either \texttt{\textcolor{red}{.}} or \texttt{\textcolor{red}{*.}} The character 
+representing the pixel at the $i$-th row from the top and the $j$-th column from the left, is 
+denoted by $C_{i,j}$.
+
+Extend this image vertically so that its height is doubled. That is, print a image with a 
+height of $2H$ pixels and a width of $W$ pixels where the pixel at the $i$-th row and $j$-th
+column is equal to $C_{(i+1)/2,j}$ (the result of division is rounded down).
+
+\end{frame}
+
+\begin{frame}[fragile]{Entrada e saída}
+
+\textbf{Constraints}
+
+\begin{itemize}
+    \item $1\leq H, W\leq 100$
+    \item $C_{i,j}$ is either \texttt{\textcolor{red}{.}} or \texttt{\textcolor{red}{*.}}
+\end{itemize}
+
+\textbf{Input}
+
+Input is given from Standard Input in the following format:
+\begin{atcoderio}{lll}
+$H$ & $W$ \\
+$C_{1,1}$ & $\ldots$ & $C_{1,W}$ \\
+$\vdots$ \\
+$C_{H,1}$ & $\ldots$ & $C_{H,W}$ \\
+\end{atcoderio}
+
+\textbf{Output}
+
+Print the extended image.
+
+\end{frame}
+
+
+\begin{frame}[fragile]{Exemplo de entradas e saídas}
+
+\begin{minipage}[t]{0.45\textwidth}
+\textbf{Entrada}
+\begin{verbatim}
+2 2
+*.
+.*
+
+
+
+1 4
+***.
+\end{verbatim}
+\end{minipage}
+\begin{minipage}[t]{0.5\textwidth}
+\textbf{Saída}
+\begin{verbatim}
+*.
+*.
+.*
+.*
+
+
+***.
+***.
+\end{verbatim}
+\end{minipage}
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de entradas e saídas}
+
+\begin{footnotesize}
+\begin{minipage}[t]{0.45\textwidth}
+\textbf{Entrada}
+\begin{verbatim}
+9 20
+.....***....***.....
+....*...*..*...*....
+...*.....**.....*...
+...*.....*......*...
+....*.....*....*....
+.....**..*...**.....
+.......*..*.*.......
+........**.*........
+.........**.........
+\end{verbatim}
+\end{minipage}
+\begin{minipage}[t]{0.5\textwidth}
+\textbf{Saída}
+\begin{verbatim}
+.....***....***.....
+.....***....***.....
+....*...*..*...*....
+....*...*..*...*....
+...*.....**.....*...
+...*.....**.....*...
+...*.....*......*...
+...*.....*......*...
+....*.....*....*....
+....*.....*....*....
+.....**..*...**.....
+.....**..*...**.....
+.......*..*.*.......
+.......*..*.*.......
+........**.*........
+........**.*........
+.........**.........
+.........**.........
+\end{verbatim}
+\end{minipage}
+\end{footnotesize}
+\end{frame}
+
+
+\begin{frame}[fragile]{Solução}
+
+    \begin{itemize}
+        \item Há duas formas de se resolver estes problema
+            
+        \item A primeira delas é computar cada uma das $2H$ linhas utilizando a expressão
+            fornecida no texto do problema
+
+        \item Neste caso, é preciso atentar ao fato de que a expressão dada numera as
+            linhasa de 1 a $H$, e não de zero a $H - 1$, o que pode levar a uma diferença
+            na saída ou a um erro de invasão de de memória
+
+        \item A segunda é observar que a expressão dada significa que cada linha da imagem
+            original será dobrada
+
+        \item Assim, basta ler cada linha da entrada e escrevê-la duas vezes na saída
+
+        \item Ambas soluções tem complexidade $O(HW)$
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Solução $O(HW)$}
+    \inputsnippet{cpp}{1}{21}{codes/B.cpp}
+\end{frame}

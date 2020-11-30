@@ -59,3 +59,18 @@ int min_counterexample(int N, const vector<int>& xs)
    
     return ans == oo ? -1 : ans;
 }
+
+int main()
+{
+    int N;
+    cin >> N;
+
+    vector<int> cs(N);
+
+    for (int i = 0; i < N; ++i)
+        cin >> cs[i];
+
+    cout << min_counterexample(N, cs) << '\n';
+
+    return 0;
+}

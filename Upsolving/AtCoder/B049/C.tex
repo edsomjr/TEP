@@ -1,0 +1,101 @@
+\section{C -- Daydream}
+
+\begin{frame}[fragile]{Problema}
+
+You are given a string $S$ consisting of lowercase English letters. Another string $T$ is
+initially empty. Determine whether it is possible to obtain $S = T$ by performing the following 
+operation an arbitrary number of times:
+
+\begin{itemize}
+    \item Append one of the following at the end of $T$: \texttt{\textcolor{red}{dream}},
+        \texttt{\textcolor{red}{dreamer}}, \texttt{\textcolor{red}{erase}} and
+        \texttt{\textcolor{red}{eraser}}.
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Entrada e saída}
+
+\textbf{Constraints}
+
+\begin{itemize}
+    \item $1\leq |S|\leq 10^5$
+    \item $S$ consists of lowercase English letters.
+\end{itemize}
+
+\textbf{Input}
+
+Input is given from Standard Input in the following format:
+\begin{atcoderio}{llll}
+$S$ \\
+\end{atcoderio}
+
+\textbf{Output}
+
+If it is possible to obtain $S = T$, print \texttt{\textcolor{red}{YES}}. Otherwise, print
+\texttt{\textcolor{red}{NO}}.
+
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de entradas e saídas}
+
+\begin{minipage}[t]{0.45\textwidth}
+\textbf{Entrada}
+\begin{verbatim}
+erasedream
+
+
+dreameraser
+
+
+dreamerer
+\end{verbatim}
+\end{minipage}
+\begin{minipage}[t]{0.5\textwidth}
+\textbf{Saída}
+\begin{verbatim}
+YES
+
+
+YES
+
+
+NO
+\end{verbatim}
+\end{minipage}
+\end{frame}
+
+\begin{frame}[fragile]{Solução}
+
+    \begin{itemize}
+        \item A principal dificuldade deste problema surge do fato de que há interseção
+            entre o sufixo de algumas palavras serem o prefixo de outras (por exemplo,
+            \texttt{\textcolor{red}{dreamer}} e \texttt{\textcolor{red}{erase}}
+
+        \item Caso isto não ocorresse, um algoritmo guloso, que testasse cada palavra
+            contra o prefixo de $s$ seria correto
+
+        \item Porém, é possível solucionar este problema com este mesmo algoritmo guloso,
+            desde que o processamento se dê em sentido oposto, comparando-se o sufixo de
+            $S$ com as quatro palavras listadas
+
+        \item Neste caso, não há mais ambiguidades, e se uma palavra corresponder ao sufixo,
+            ele deve ser descartado e o processo reiniciado
+
+        \item Se nenhuma palavra corresponder ao sufixo atual, o processo deve ser interrompido
+
+        \item A resposta será \texttt{\textcolor{red}{YES}} apenas se o processo terminar
+            com $S$ vazia
+
+        \item A complexidade desta solução é $O(N)$
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Solução $O(N)$}
+    \inputsnippet{cpp}{1}{21}{codes/C.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Solução $O(N)$}
+    \inputsnippet{cpp}{22}{42}{codes/C.cpp}
+\end{frame}
