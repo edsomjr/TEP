@@ -2,7 +2,7 @@
 
 using namespace std;
 
-const int MAX { 1010 }, oo { 1000000010 };
+const int MAX { 1010000 }, oo { 1000000010 };
 int st[MAX];
 
 int coin_change(int m, const vector<int>& cs)
