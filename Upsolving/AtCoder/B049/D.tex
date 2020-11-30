@@ -1,0 +1,178 @@
+\section{D -- Connectivity}
+
+\begin{frame}[fragile]{Problema}
+
+There are $N$ cities. There are also $K$ roads and $L$ railways, extending between the cities. 
+The $i$-th road bidirectionally connects the $p_i$-th and $q_i$-th cities, and the $i$-th 
+railway bidirectionally connects the $r_i$-th and $s_i$-th cities. No two roads connect the 
+same pair of cities. Similarly, no two railways connect the same pair of cities.
+
+We will say city $A$ and $B$ are connected by roads if city $B$ is reachable from city $A$ by
+traversing some number of roads. Here, any city is considered to be connected to itself by 
+roads. We will also define connectivity by railways similarly.
+
+For each city, find the number of the cities connected to that city by both roads and railways.
+
+\end{frame}
+
+\begin{frame}[fragile]{Entrada e saída}
+
+\textbf{Constraints}
+
+\begin{itemize}
+    \item $2\leq N \leq 2\times 10^5$
+    \item $1\leq K, L\leq 10^5$
+    \item $1\leq p_i, q_i, r_i, s_i\leq N$
+    \item $p_i < q_i$
+    \item $r_i < s_i$
+    \item When $i\neq j$, $(p_i, q_i)\neq (p_j, q_j)$
+    \item When $i\neq j$, $(r_i, s_i)\neq (r_j, s_j)$
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Entrada e saída}
+
+\textbf{Input}
+
+Input is given from Standard Input in the following format:
+\begin{atcoderio}{llll}
+$N$ & $K$ & $L$ \\
+$p_1$ & $q_1$ \\
+$\vdots$ \\
+$p_K$ & $q_K$ \\
+$r_1$ & $s_1$ \\
+$\vdots$ \\
+$r_L$ & $s_L$ \\
+\end{atcoderio}
+
+\textbf{Output}
+
+Print $N$ integers. The $i$-th of them should represent the number of the cities connected to 
+the $i$-th city by both roads and railways.
+
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de entradas e saídas}
+
+\begin{minipage}[t]{0.55\textwidth}
+\textbf{Entrada}
+\begin{verbatim}
+4 3 1
+1 2
+2 3
+3 4
+2 3
+
+
+4 2 2
+1 2
+2 3
+1 4
+2 3
+\end{verbatim}
+\end{minipage}
+\begin{minipage}[t]{0.4\textwidth}
+\textbf{Saída}
+\begin{verbatim}
+1 2 2 1
+
+
+
+
+
+
+1 2 2 1
+\end{verbatim}
+\end{minipage}
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de entradas e saídas}
+
+\begin{minipage}[t]{0.55\textwidth}
+\textbf{Entrada}
+\begin{verbatim}
+7 4 4
+1 2
+2 3
+2 5
+6 7
+3 5
+4 5
+3 4
+6 7
+\end{verbatim}
+\end{minipage}
+\begin{minipage}[t]{0.4\textwidth}
+\textbf{Saída}
+\begin{verbatim}
+1 1 2 1 2 2 2
+\end{verbatim}
+\end{minipage}
+\end{frame}
+
+\begin{frame}[fragile]{Solução}
+
+    \begin{itemize}
+        \item Este é um problema interessante por combinar dois problemas que, isoladamente,
+            seriam de fácil solução, mas que combinados formam um problema mais sofisticado
+
+        \item As conexões via estradas podem ser determinadas em $O(N + K)$ por meio de uma
+            travessia em profundidade (BFS) ou em largura (BFS)
+
+        \item De forma análoga, as conexões por linhas de trem podem ser determinadas em
+            $O(N + L)$
+
+       \item Um conjunto $T_ide $ cidades que estão conectadas por estradas corresponde a um
+            componente conectado do grafo
+
+        \item Da mesma forma, um conjuto $R_j$ de cidades conectadas por linhas de trem 
+            também é um outro componente conectado, segundo este outro critério
+
+        \item O problema consiste em determinar as interseções entre os conjuntos $T_i$ e
+            $R_j$
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Solução}
+
+    \begin{itemize}
+        \item Comparar diretamente cada $T_i$ com todos $R_j$ leva a uma solução quadrática
+            em $N$ e a um veredito $TLE$
+
+        \item Uma maneira de se determinar a solução de forma mais eficiente é, na primeira
+            travessia, identificar todos os vértices em um mesmo componente $T_i$ por meio
+            de um identificador único (um inteiro, por exemplo)
+
+        \item Na segunda travessia deve se manter um dicionário que associe todos os elementos
+            de um componente $R_j$ que tenham o mesmo identificador único
+
+        \item Ao final da deteceção de um componente $R_j$, a resposta para cada vértice $u$
+            guardado no dicionário será o número de vértices que tem identificador igual a
+            $u$
+
+        \item Esta solução tem complexidade $O((N + K + L)\log N)$
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Solução $O((N + K + L)\log N)$}
+    \inputsnippet{cpp}{1}{21}{codes/D.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Solução $O((N + K + L)\log N)$}
+    \inputsnippet{cpp}{22}{42}{codes/D.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Solução $O((N + K + L)\log N)$}
+    \inputsnippet{cpp}{43}{61}{codes/D.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Solução $O((N + K + L)\log N)$}
+    \inputsnippet{cpp}{62}{82}{codes/D.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Solução $O((N + K + L)\log N)$}
+    \inputsnippet{cpp}{83}{103}{codes/D.cpp}
+\end{frame}
