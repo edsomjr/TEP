@@ -23,10 +23,14 @@
 \begin{frame}[fragile]{Características do problema do caixeiro viajante}
 
     \begin{itemize}
-        \item Embora a definição apresentada exija que o grafo $G$ seja completo, basta que
-            seja conectado
+        \item A interpretação mais comum é que os vértices representem cidades e o custo das
+            arestas as distância entre elas
 
-        \item Caso não exista uma aresta entre $v_i$ e $v_j$, basta fazer $w(v_i, v_j) = \infty$
+        \item Embora a definição apresentada exija que o grafo $G$ seja completo, existem
+            grafos que não são completos e que possuem solução
+
+        \item Nestes grafos, caso não exista uma aresta entre $v_i$ e $v_j$, basta fazer 
+            $w(v_i, v_j) = \infty$
 
         \item A travessia corresponde a uma permutação dos $N$ vértices de $G$, sendo a única
             diferença a duplicação do primeiro vértice ao final da travessia
