@@ -19,6 +19,7 @@ Paradigmas de Resolução de Problemas
     1. [Problema do Troco](slides/coin_change/coin_change.pdf) ([problemas resolvidos](problems/coin_change/coin_change.pdf))
     1. [Problema da Mochila Binária](slides/knapsack/knapsack.pdf) ([problemas resolvidos](problems/knapsack/knapsack.pdf))
     1. [Maior Subsequência Crescente](slides/lis/lis.pdf) ([problemas resolvidos](problems/lis/lis.pdf))
+    1. [Problema do Caixeiro Viajante](slides/tsp/tsp.pdf) ([problemas resolvidos](problems/tsp/tsp.pdf))
 
 <!---
 Busca completa:

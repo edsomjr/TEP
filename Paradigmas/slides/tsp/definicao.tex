@@ -1,0 +1,43 @@
+\section{Definição}
+
+\begin{frame}[fragile]{{\it Definição}}
+
+    \metroset{block=fill}
+    \begin{block}{Problema do Caixeiro Viajante}
+        Dados $N$ vértices $v_1, v_2, \ldots, v_N$ e os custos $w(v_i, v_j)$ das arestas, para 
+        todos $i\neq j$, o problema do caixeiro viajante (\textit{travelling salesman problem} --
+        TSP) é determinar uma travessia
+        \[
+            s = v_{i_1}, v_{i_2}, \ldots, v_{i_N}, s
+        \]
+        que tenha início no vértice $s$ qualquer, passe por todos os demais uma única vez e retorne
+        a $s$ com custo 
+        \[
+            C = \sum_{k = 1}^N w(v_{i_k}, v_{i_{k + 1}})
+        \]
+        mínimo.
+    \end{block}
+
+\end{frame}
+
+\begin{frame}[fragile]{Características do problema do caixeiro viajante}
+
+    \begin{itemize}
+        \item A interpretação mais comum é que os vértices representem cidades e o custo das
+            arestas as distância entre elas
+
+        \item Embora a definição apresentada exija que o grafo $G$ seja completo, existem
+            grafos que não são completos e que possuem solução
+
+        \item Nestes grafos, caso não exista uma aresta entre $v_i$ e $v_j$, basta fazer 
+            $w(v_i, v_j) = \infty$
+
+        \item A travessia corresponde a uma permutação dos $N$ vértices de $G$, sendo a única
+            diferença a duplicação do primeiro vértice ao final da travessia
+
+        \item Na teoria dos grafos, tal travessia é denonimada um ciclo hamiltoniano, ou seja,
+            um caminho cíclico que passa por todos os vértices uma única vez
+
+    \end{itemize}
+
+\end{frame}

@@ -1,0 +1,119 @@
+\section{SPOJ COURIER -- The Courier}
+
+\begin{frame}[fragile]{Problema}
+
+
+Byteland is a scarcely populated country, and residents of different cities seldom communicate with
+each other. There is no regular postal service and throughout most of the year a one-man courier
+establishment suffices to transport all freight. However, on Christmas Day there is somewhat more
+work for the courier than usual, and since he can only transport one parcel at a time on his
+bicycle, he finds himself riding back and forth among the cities of Byteland.
+
+The courier needs to schedule a route which would allow him to leave his home city, perform the 
+individual orders in arbitrary order (i.e. travel to the city of the sender and transport the 
+parcel to the city of the recipient, carrying no more than one parcel at a time), and finally 
+return home. All roads are bi-directional, but not all cities are connected by roads directly; some 
+pairs of cities may be connected by more than one road. Knowing the lengths of all the roads and 
+the errands to be performed, determine the length of the shortest possible cycling route for the 
+courier.
+
+\end{frame}
+
+\begin{frame}[fragile]{Entrada e saída}
+
+\textbf{Input}
+
+The input begins with the integer $t$, the number of test cases. Then $t$ test cases follow.
+
+Each test case begins with a line containing three integers: $n\ m\ b$, denoting the number of 
+cities in Byteland, the number of roads, and the number of the courier's home city, respectively
+($1\leq n\leq 100$, $1\leq b\leq n$, $1\leq m\leq 10000$). The next $m$ lines contain three integers 
+each, the $i$-th being $u_i\ v_i\ d_i$, which means that cities $u_i$ and $v_i$ are connected by a 
+road of length $d_i$ ($1\leq u_i, v_i\leq 100$, $1\leq d_i\leq 10000$). The following line contains 
+integer $z$ -- the number of transport requests the courier has received ($1\leq z\leq 5$). After 
+that, $z$ lines with the description of the orders follow. Each consists of three integers, the 
+$j$-th being $u_j\ v_j\ b_j$, which signifies that $b_j$ parcels should be transported 
+(individually) from city $u_j$ to city $v_j$. The sum of all $b_j$ does not exceed 12.
+
+\end{frame}
+
+\begin{frame}[fragile]{Entrada e saída}
+
+\textbf{Output}
+
+For each test case output a line with a single integer -- the length of the shortest possible 
+bicycle route for the courier.
+
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de entradas e saídas}
+
+\begin{minipage}[t]{0.45\textwidth}
+\textbf{Sample Input}
+\begin{verbatim}
+1
+5 7 2
+1 2 7
+1 3 5
+1 5 2
+2 4 10
+2 5 1
+3 4 3
+3 5 4
+3
+1 4 2
+5 3 1
+5 1 1
+\end{verbatim}
+\end{minipage}
+\begin{minipage}[t]{0.5\textwidth}
+\textbf{Sample Output}
+\begin{verbatim}
+43
+\end{verbatim}
+\end{minipage}
+\end{frame}
+
+\begin{frame}[fragile]{Solução}
+
+    \begin{itemize}
+        \item Este é um problema bastante interessante, que pode ser modelado como um TSP, porém
+            de forma não óbvia
+
+        \item A travessia será composta pelas $B$ entregas, sendo que cada pacote consiste em
+            uma entrega individual
+
+        \item Seja $dp(i, mask)$ a distância mínima para fazer as entregas partindo do vértice
+            $i$ e já tendo entregue os pacotes sinalizados pela máscara binária $mask$
+
+        \item O custo das ``arestas'' entre as entregas é dado pela soma da distância entre $i$
+            e o vértice $u$ onde está o pacote mais a distância entre $u$ e o destino do pacote
+            $v$
+
+        \item As distâncias mínimas entre quaisquer dois vértices pode ser computada por meio
+            do algoritmo de Floyd-Warshall
+
+        \item Serão $O(N\times 2^K)$ estados distintos, onde $K = \sum_i b_i$
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Solução $O(N^3 + K^22^K)$}
+    \inputsnippet{cpp}{1}{20}{codes/COURIER.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Solução $O(N^3 + K^22^K)$}
+    \inputsnippet{cpp}{21}{41}{codes/COURIER.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Solução $O(N^3 + K^22^K)$}
+    \inputsnippet{cpp}{42}{62}{codes/COURIER.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Solução $O(N^3 + K^22^K)$}
+    \inputsnippet{cpp}{64}{84}{codes/COURIER.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Solução $O(N^3 + K^22^K)$}
+    \inputsnippet{cpp}{85}{105}{codes/COURIER.cpp}
+\end{frame}
