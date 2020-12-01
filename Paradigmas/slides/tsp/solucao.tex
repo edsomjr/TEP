@@ -1,0 +1,67 @@
+\section{Solução}
+
+\begin{frame}[fragile]{Solução de programação dinâmica para o TSP}
+
+    \begin{itemize}
+        \item Como cada ciclo hamiltoniano do grafo $G$ corresponde a uma permutação de seus
+            vértices, uma solução de busca completa para o TSP tem complexidade $O(N!)$, sendo
+            aplicável para $N\approx 11$
+
+        \item Pode-se observar que o TSP tem subproblemas repetidos: as permutações 
+            $v_1v_2v_3\ldots v_N$ e $v_2v_1v_3\ldots v_N$, por exemplo, compartilham um caminho
+            composto por $N - 2$ vértices (a saber, $v_3v_4\ldots v_N$
+
+        \item Ele também tem subestrutura ótima, de modo que é um candidato natural a uma solução
+            de programação dinâmica
+
+        \item Uma importante observação: embora a definição não determine o vértice $s$, 
+            este vértice pode ser fixado arbitrariamente, uma vez que o caminho final é um
+            ciclo
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Solução de programação dinâmica para o TSP}
+
+    \begin{itemize}
+        \item Assim, assuma que os vértices sejam numerados de $0$ a $N - 1$ e que $s = 0$
+
+        \item Seja $tsp(i, mask)$ o custo mínimo para passar por todos os vértices que não
+            estão marcados em $mask$, partindo de $i$, e retonar ao vértice $s = 0$
+
+        \item O parâmetro $mask$ é um inteiro tal que o $i$-ésimo $bit$ indica que o vértice $i$
+            foi ou não visitado ($mask[i] = 1$ e $mask[i] = 0$, respectivamente)
+
+        \item O caso base ocorre quando todos os vértices já foram visitados: resta, portanto,
+            retornar ao vértice $s = 0$
+
+        \item Assim, $tsp(i, 2^N - 1) = w(i, 0)$
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Solução de programação dinâmica para o TSP}
+
+    \begin{itemize}
+        \item As transições consideram todos os vértices ainda não visitados
+
+        \item Logo, 
+        \[
+            tsp(i, mask) = \min_j \{ tsp(j, mask\ |\ mask[j] = 1) + w(i, j) \}
+        \]
+        para todo $j$ tal que $mask[j] = 0$
+
+        \item Aqui, $mask\ |\ mask[j] = 1$ significa que o $j$-ésimo $bit$ de $mask$ será ligado, 
+            mantendo-se os $bits$ que estavam ligados anteriormente
+
+        \item A solução do problema será dada por $tsp(0, 1)$
+
+        \item Há $O(N2^N)$ estados e as transições são feitas em $O(N)$, de modo que esta 
+            solução tem complexidade $O(N^2 2^N)$
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Implementação {\it top-down} do TSP}
+    \inputsnippet{cpp}{10}{30}{codes/tsp.cpp}
+\end{frame}
