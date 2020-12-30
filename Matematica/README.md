@@ -1,9 +1,9 @@
 Matemática
 ==========
 
-1. [Introdução](text/Introducao.md)
-1. [Fundamentos](text/Fundamentos.md)
-    1. [Lógica Proposicional Booleana](text/Logica.md)
+1. [Introdução](slides/intro/intro.pdf)
+1. Fundamentos
+    1. [Lógica Proposicional Booleana](slides/logica_booleana/logica_booleana.pdf)
     1. [Teoria dos Conjuntos](text/Conjuntos.md)
     1. [Funções](text/Funcoes.md)
     1. [Simulações](text/Simulacoes.md)
@@ -11,7 +11,10 @@ Matemática
     1. Grids
     1. [Logaritmos e Exponenciais](text/Logaritmos.md)
     1. Polinômios
-    1. Bases Numéricas
+1. Bases Numéricas
+    1. [Representação Binária](slides/BIT-1/BIT-1.pdf)
+    1. [Operações Binárias](slides/BIT-2/BIT-2.pdf)
+    1. Conversões entre bases
 1. Aritmética Estendida
 1. Avaliação de Expressões
 1. [Análise Combinatória](text/Combinatoria.md)
@@ -27,10 +30,3 @@ Matemática
 1. Detecção de ciclos
 1. Probabilidade
 1. Teoria dos Jogos
-
-Slides
-======
-
-1. Manipulação de _bits_
-    1. [Representação Binária](slides/BIT-1/BIT-1.pdf)
-    1. [Operações Binárias](slides/BIT-2/BIT-2.pdf)
