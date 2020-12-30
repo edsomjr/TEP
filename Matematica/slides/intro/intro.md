@@ -18,7 +18,7 @@ headingDivider: 2
 <!-- _class: lead -->
 # Matemática
 
-__Introdução__
+*__Introdução__*
 
 Prof. Edson Alves
 Faculdade UnB Gama
