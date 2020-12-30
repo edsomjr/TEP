@@ -56,6 +56,17 @@ A Lógica Proposicional Booleana é construída a partir de dois axiomas fundame
 | **Bicondicional** (se, e somente se) | $p \leftrightarrow q$ | verdadeira apenas quando $p$ e $q$ tem mesmo valor lógico |
 | **Negação** (não) | $\lnot p$ | inverte o valor lógico de $p$ |
 
+## Leis de Morgan
+
+Sejam $p$ e $q$ duas proposições. Vale que
+$$
+    \lnot (p \land q) = \lnot p\ \lor \lnot q
+$$
+e que
+$$
+    \lnot (p \lor q) = \lnot p\ \land \lnot q
+$$
+
 ## C e C++
 
 - As linguagens C e C++ tem, em sua sintaxe, operadores lógicos relacionais, que representam os conectivos lógicos
