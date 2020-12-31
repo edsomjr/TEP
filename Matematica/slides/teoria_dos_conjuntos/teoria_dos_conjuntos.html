@@ -122,145 +122,233 @@ Faculdade UnB Gama</p>
 </ul>
 <p>Esta relação permite a verificação das propriedades destes operadores e a relação entre eles (como o equivalente das Leis de Morgan para união e interseção).</p>
 </section>
-</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="10" data-marpit-fragments="3" data-background-color="black" data-color="lightGray" data-theme="gaia" data-heading-divider="2" style="--background-color:black;--color:lightGray;--theme:gaia;--heading-divider:2;color:lightGray;background-color:black;background-image:none;">
-<h2>C e C++</h2>
-<p>Há três maneiras de se representar conjuntos em C++: as classes <code>set</code> e <code>bitset</code>, e o tipo primitivo<br />
-<code>int</code>, sendo que a última também é válida em C.</p>
-<p>A biblioteca padrão do C++ traz a implementação da classe <code>set</code> (<code>#include &lt;set&gt;</code>), que abstrai<br />
-a ideia de conjuntos, e provê operações elementares (como inserção e remoção de elementos,<br />
-através dos métodos <code>insert()</code> e <code>erase()</code>, ou relações de pertinência, com o método<br />
-<code>count()</code>). Nesta classe os elementos são únicos, e armazenados ordenadamente (uma travessia<br />
-padrão é feita do menor para o maior elemento). Contudo, as operações de união, interseção e<br />
-diferença de conjuntos são feitas em qualquer contêiner ordenado, através das funções<br />
-<code>set_union(), set_intersection()</code> e <code>set_difference()</code>, disponíveis na biblioteca de<br />
-algoritmos (<code>#include &lt;algorithm&gt;</code>) e exemplificadas abaixo.</p>
-<pre><code class="language-C++"><svg data-marp-fitting="svg" data-marp-fitting-code><foreignObject><span data-marp-fitting-svg-content><span data-marp-fitting-svg-content-wrap><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;iostream&gt;</span></span>
-<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;vector&gt;</span></span>
-<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;algorithm&gt;</span></span>
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="10" data-background-color="black" data-color="lightGray" data-theme="gaia" data-heading-divider="2" style="--background-color:black;--color:lightGray;--theme:gaia;--heading-divider:2;color:lightGray;background-color:black;background-image:none;">
+<h2>Conjuntos em C e C++</h2>
+<ul>
+<li>
+<p>Há três maneiras de se representar conjuntos em C e C++: as classes <code>set</code>, <code>multiset</code> e <code>bitset</code>, e o tipo primitivo <code>int</code>, sendo que a última representação também é válida em C</p>
+</li>
+<li>
+<p>A biblioteca padrão do C++ traz a implementação da classe <code>set</code> (<code>#include &lt;set&gt;</code>), que abstrai a ideia de conjuntos</p>
+</li>
+<li>
+<p>Esta classe provê operações elementares (como inserção e remoção de elementos, através dos métodos <code>insert()</code> e <code>erase()</code>, ou relações de pertinência, com o método <code>count()</code>)</p>
+</li>
+</ul>
+</section>
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="11" data-background-color="black" data-color="lightGray" data-theme="gaia" data-heading-divider="2" style="--background-color:black;--color:lightGray;--theme:gaia;--heading-divider:2;color:lightGray;background-color:black;background-image:none;">
+<h2>Conjuntos em C e C++</h2>
+<ul>
+<li>
+<p>Na classe <code>set</code> os elementos são únicos e armazenados ordenadamente (uma travessia padrão é feita do menor para o maior elemento)</p>
+</li>
+<li>
+<p>A classe <code>multiset</code> permite a repetição de um mesmo elemento, porém o processo de remoção deve ser feito de forma mais cuidadosa</p>
+</li>
+<li>
+<p>As operações de união, interseção e diferença de conjuntos podem ser feitas em qualquer contêiner ordenado, através das funções <code>set_union()</code>, <code>set_intersection()</code> e <code>set_difference()</code>, disponíveis na biblioteca de algoritmos (<code>#include &lt;algorithm&gt;</code>)</p>
+</li>
+</ul>
+</section>
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="12" data-background-color="black" data-color="lightGray" data-theme="gaia" data-heading-divider="2" style="--background-color:black;--color:lightGray;--theme:gaia;--heading-divider:2;color:lightGray;background-color:black;background-image:none;">
+<pre><code class="language-C++"><svg data-marp-fitting="svg" data-marp-fitting-code><foreignObject><span data-marp-fitting-svg-content><span data-marp-fitting-svg-content-wrap><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;bits/stdc++.h&gt;</span></span>
 
 <span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> <span class="hljs-built_in">std</span>;
 
 <span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span>
 </span>{
-    <span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt; A { <span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>, <span class="hljs-number">6</span>, <span class="hljs-number">7</span>, <span class="hljs-number">8</span>, <span class="hljs-number">9</span>, <span class="hljs-number">10</span> };    <span class="hljs-comment">// Conjunto A</span>
-    <span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt; B { <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">5</span>, <span class="hljs-number">7</span>, <span class="hljs-number">11</span>, <span class="hljs-number">13</span> };               <span class="hljs-comment">// Conjunto A</span>
-
+    <span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt; A { <span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>, <span class="hljs-number">6</span>, <span class="hljs-number">7</span>, <span class="hljs-number">8</span>, <span class="hljs-number">9</span>, <span class="hljs-number">10</span> };        <span class="hljs-comment">// Conjunto A</span>
+    <span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt; B { <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">5</span>, <span class="hljs-number">7</span>, <span class="hljs-number">11</span>, <span class="hljs-number">13</span> };                   <span class="hljs-comment">// Conjunto B</span>
     <span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt; C;
     
     set_union(A.begin(), A.end(), B.begin(), B.end(), back_inserter(C));
 
     <span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;union = &quot;</span>;
-    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">auto</span> x : C)
-        <span class="hljs-built_in">cout</span> &lt;&lt; x &lt;&lt; <span class="hljs-string">&quot; &quot;</span>;
-    <span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-built_in">endl</span>;                 <span class="hljs-comment">// C = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 13 }</span>
+    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">size_t</span> i = <span class="hljs-number">0</span>; i &lt; C.size(); ++i)
+        <span class="hljs-built_in">cout</span> &lt;&lt; C[i] &lt;&lt; (i + <span class="hljs-number">1</span> == C.size() ? <span class="hljs-string">&#x27;\n&#x27;</span> : <span class="hljs-string">&#x27; &#x27;</span>);   <span class="hljs-comment">// C = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 13 }</span>
 
     C.clear();
     set_intersection(A.begin(), A.end(), B.begin(), B.end(), back_inserter(C));
 
     <span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;intersection = &quot;</span>;
-    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">auto</span> x : C)
-        <span class="hljs-built_in">cout</span> &lt;&lt; x &lt;&lt; <span class="hljs-string">&quot; &quot;</span>;
-    <span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-built_in">endl</span>;                 <span class="hljs-comment">// C = { 2, 3, 5, 7 }</span>
+    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">size_t</span> i = <span class="hljs-number">0</span>; i &lt; C.size(); ++i)
+        <span class="hljs-built_in">cout</span> &lt;&lt; C[i] &lt;&lt; (i + <span class="hljs-number">1</span> == C.size() ? <span class="hljs-string">&#x27;\n&#x27;</span> : <span class="hljs-string">&#x27; &#x27;</span>);   <span class="hljs-comment">// C = { 2, 3, 5, 7 }</span>
 
     C.clear();
     set_difference(A.begin(), A.end(), B.begin(), B.end(), back_inserter(C));
 
     <span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;difference = &quot;</span>;
-    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">auto</span> x : C)
-        <span class="hljs-built_in">cout</span> &lt;&lt; x &lt;&lt; <span class="hljs-string">&quot; &quot;</span>;
-    <span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-built_in">endl</span>;                 <span class="hljs-comment">// C = { 1, 4, 6, 8, 9, 10 }</span>
+    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">size_t</span> i = <span class="hljs-number">0</span>; i &lt; C.size(); ++i)
+        <span class="hljs-built_in">cout</span> &lt;&lt; C[i] &lt;&lt; (i + <span class="hljs-number">1</span> == C.size() ? <span class="hljs-string">&#x27;\n&#x27;</span> : <span class="hljs-string">&#x27; &#x27;</span>);   <span class="hljs-comment">// C = { 1, 4, 6, 8, 9, 10 }</span>
 
     <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
 }
 </span></span></foreignObject></svg></code></pre>
-<p>O tipo de dados primitivo <code>int</code> (ou sua variante <code>long long</code>, com maior capacidade de<br />
-armazenamento) também pode ser usado para uma interpretação mais compacta e eficiente de<br />
-conjuntos. Em geral o tipo <code>int</code> tem 32 <em>bits</em> de tamanho, e podemos cada elemento do conjunto<br />
-universo (que contém todos os elementos possíveis, numa quantidade menor ou igual a 32)<br />
-com cada <em>bit</em>, de modo que, se o bit está<br />
-ligado, o elemento pertence ao conjunto; e se desligado, não pertence.</p>
-<p>Fora a restrição em relação ao número de elementos do conjunto universo, esta representação tem<br />
-várias vantagens:</p>
+</section>
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="13" data-background-color="black" data-color="lightGray" data-theme="gaia" data-heading-divider="2" style="--background-color:black;--color:lightGray;--theme:gaia;--heading-divider:2;color:lightGray;background-color:black;background-image:none;">
+<h2>Conjuntos e inteiros</h2>
 <ul>
-<li data-marpit-fragment="1">ocupa pouco espaço em memória (4 <em>bytes</em> a cada 32 elementos);</li>
-<li data-marpit-fragment="2">permite responder relações de pertinência em complexidade O(1);</li>
-<li data-marpit-fragment="3">permite operações de união, interseção e diferença também em O(1).</li>
+<li>
+<p>O tipo de dados primitivo <code>int</code> (ou sua variante <code>long long</code>, com maior capacidade de armazenamento) também pode ser usado para uma interpretação mais compacta e eficiente de conjuntos</p>
+</li>
+<li>
+<p>Em geral o tipo <code>int</code> tem 32 <em>bits</em> de tamanho</p>
+</li>
+<li>
+<p>É possível associar cada elemento do conjunto universo (que contém todos os elementos possíveis, numa quantidade menor ou igual a 32) a cada <em>bit</em>, de modo que, se o <em>bit</em> está ligado, o elemento pertence ao conjunto; e se desligado, não pertence</p>
+</li>
 </ul>
-<p>A última característica se dá por conta da definição de tais operações em termos dos conectivos<br />
-lógicos, e pelo fato das linguagens C e C++ disponibilizarem tais operações <em>bit</em> a <em>bit</em>.<br />
-Veja o exemplo anterior reescrito em termos desta nova representação. Considere que o<br />
-conjunto universo U = {1, 2, 3, ..., 32}.</p>
+</section>
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="14" data-background-color="black" data-color="lightGray" data-theme="gaia" data-heading-divider="2" style="--background-color:black;--color:lightGray;--theme:gaia;--heading-divider:2;color:lightGray;background-color:black;background-image:none;">
+<h2>Conjuntos e inteiros</h2>
+<ul>
+<li>
+<p>A principal restrição desta representação é o número de elementos do conjunto universo (limitado pelo número de <em>bits</em> do tipo escolhido)</p>
+</li>
+<li>
+<p>Contudo esta representação tem várias vantagens, dentre elas:</p>
+<ol>
+<li>ocupa pouco espaço em memória (4 <em>bytes</em> a cada 32 elementos);</li>
+<li>permite responder relações de pertinência em complexidade <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>O</mi><mo stretchy="false">(</mo><mn>1</mn><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">O(1)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord">1</span><span class="mclose">)</span></span></span></span>;</li>
+<li>permite operações de união, interseção e diferença também em <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>O</mi><mo stretchy="false">(</mo><mn>1</mn><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">O(1)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord">1</span><span class="mclose">)</span></span></span></span>.</li>
+</ol>
+</li>
+</ul>
+</section>
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="15" data-background-color="black" data-color="lightGray" data-theme="gaia" data-heading-divider="2" style="--background-color:black;--color:lightGray;--theme:gaia;--heading-divider:2;color:lightGray;background-color:black;background-image:none;">
+<h2>Conjuntos e inteiros</h2>
+<ul>
+<li>
+<p>A última vantagem listada se dá por conta da definição de tais operações em termos dos conectivos lógicos</p>
+</li>
+<li>
+<p>Lembre que as linguagens C e C++ disponibilizarem tais conectivos tanto em relação à variáveis booelanas quanto em versões <em>bit</em> a <em>bit</em></p>
+</li>
+<li>
+<p>A seguir o exemplo anterior é reescrito em termos desta nova representação</p>
+</li>
+<li>
+<p>No código, considere o conjunto universo <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>U</mi><mo>=</mo><mo stretchy="false">{</mo><mn>1</mn><mo separator="true">,</mo><mn>2</mn><mo separator="true">,</mo><mn>3</mn><mo separator="true">,</mo><mo>…</mo><mo separator="true">,</mo><mn>32</mn><mo stretchy="false">}</mo></mrow><annotation encoding="application/x-tex">U = \{1, 2, 3, \ldots, 32\}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.10903em;">U</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">{</span><span class="mord">1</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord">2</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord">3</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="minner">…</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord">3</span><span class="mord">2</span><span class="mclose">}</span></span></span></span></p>
+</li>
+</ul>
+</section>
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="16" data-background-color="black" data-color="lightGray" data-theme="gaia" data-heading-divider="2" style="--background-color:black;--color:lightGray;--theme:gaia;--heading-divider:2;color:lightGray;background-color:black;background-image:none;">
 <pre><code class="language-C++"><svg data-marp-fitting="svg" data-marp-fitting-code><foreignObject><span data-marp-fitting-svg-content><span data-marp-fitting-svg-content-wrap><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;iostream&gt;</span></span>
 
 <span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> <span class="hljs-built_in">std</span>;
 
 <span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span>
 </span>{
-    <span class="hljs-keyword">int</span> A = <span class="hljs-number">2046</span>;       <span class="hljs-comment">// A = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 }, bits correspondentes ligados</span>
-    <span class="hljs-keyword">int</span> B = <span class="hljs-number">10412</span>;      <span class="hljs-comment">// B = { 2, 3, 5, 7, 11, 13 }, mesmo motivo</span>
-
-    <span class="hljs-keyword">int</span> C = A | B;      <span class="hljs-comment">// C = 12286</span>
+    <span class="hljs-keyword">int</span> A = <span class="hljs-number">2046</span>;                   <span class="hljs-comment">// A = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 }</span>
+    <span class="hljs-keyword">int</span> B = <span class="hljs-number">10412</span>;                  <span class="hljs-comment">// B = { 2, 3, 5, 7, 11, 13 }</span>
+    <span class="hljs-keyword">int</span> C = A | B;                  <span class="hljs-comment">// C = 12286</span>
 
     <span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;union = &quot;</span>;
-    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> x = <span class="hljs-number">1</span>; x &lt;= <span class="hljs-number">16</span>; ++x)
+    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> x = <span class="hljs-number">0</span>; x &lt; <span class="hljs-number">32</span>; ++x)
         <span class="hljs-keyword">if</span> (C &amp; (<span class="hljs-number">1</span> &lt;&lt; x))
             <span class="hljs-built_in">cout</span> &lt;&lt; x &lt;&lt; <span class="hljs-string">&quot; &quot;</span>;
-    <span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-built_in">endl</span>;                 <span class="hljs-comment">// C = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 13 }</span>
+    <span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-built_in">endl</span>;                   <span class="hljs-comment">// C = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 13 }</span>
 
-    C = A &amp; B;          <span class="hljs-comment">// C = 172</span>
+    C = A &amp; B;                      <span class="hljs-comment">// C = 172</span>
 
     <span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;intersection = &quot;</span>;
-    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> x = <span class="hljs-number">1</span>; x &lt;= <span class="hljs-number">16</span>; ++x)
+    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> x = <span class="hljs-number">0</span>; x &lt; <span class="hljs-number">32</span>; ++x)
         <span class="hljs-keyword">if</span> (C &amp; (<span class="hljs-number">1</span> &lt;&lt; x))
             <span class="hljs-built_in">cout</span> &lt;&lt; x &lt;&lt; <span class="hljs-string">&quot; &quot;</span>;
-    <span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-built_in">endl</span>;                 <span class="hljs-comment">// C = { 2, 3, 5, 7 }</span>
+    <span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-built_in">endl</span>;                   <span class="hljs-comment">// C = { 2, 3, 5, 7 }</span>
 
-    C = A &amp; ~B;       <span class="hljs-comment">// C = 1874</span>
+    C = A &amp; ~B;                     <span class="hljs-comment">// C = 1874</span>
 
     <span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;difference = &quot;</span>;
-    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> x = <span class="hljs-number">1</span>; x &lt;= <span class="hljs-number">16</span>; ++x)
+    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> x = <span class="hljs-number">0</span>; x &lt; <span class="hljs-number">32</span>; ++x)
         <span class="hljs-keyword">if</span> (C &amp; (<span class="hljs-number">1</span> &lt;&lt; x))
             <span class="hljs-built_in">cout</span> &lt;&lt; x &lt;&lt; <span class="hljs-string">&quot; &quot;</span>;
-    <span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-built_in">endl</span>;                 <span class="hljs-comment">// C = { 1, 4, 6, 8, 9, 10 }</span>
+    <span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-built_in">endl</span>;                   <span class="hljs-comment">// C = { 1, 4, 6, 8, 9, 10 }</span>
 
     <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
 }
 </span></span></foreignObject></svg></code></pre>
-<p>Para conjuntos universos com mais de 32 elementos (ou 64, no caso de variáveis <code>long long</code>), ou<br />
-se usa um vetor de inteiros, ou a classe <code>bitset</code> (<code>#include &lt;bitset&gt;</code>), que pode armazenar<br />
-uma quantidade arbitrária de <em>bits</em> (que deve ser conhecida em tempo de compilação) e que<br />
-traz em sua interface as operações básicas dos conjuntos e suporte para os operadores lógicos<br />
-<em>bit</em> a <em>bit</em>.</p>
-<p>A linguagem C++ também oferece, em sua biblioteca padrão, a classe <code>multiset</code><br />
-(<code>#include &lt;multiset&gt;</code>), que permite o armazenamento de elementos repetidos (embora seja uma<br />
-extrapolação da ideia básica de um conjunto, tal representação pode ser útil em alguns<br />
-contextos).</p>
 </section>
-</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="11" data-background-color="black" data-color="lightGray" data-theme="gaia" data-heading-divider="2" style="--background-color:black;--color:lightGray;--theme:gaia;--heading-divider:2;color:lightGray;background-color:black;background-image:none;">
-<h2>Exercícios</h2>
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="17" data-background-color="black" data-color="lightGray" data-theme="gaia" data-heading-divider="2" style="--background-color:black;--color:lightGray;--theme:gaia;--heading-divider:2;color:lightGray;background-color:black;background-image:none;">
+<h2>Classe <code>bitset</code></h2>
+<ul>
+<li>
+<p>Para conjuntos universos com mais de 32 elementos (ou 64, no caso de variáveis <code>long long</code>), as alternativas são o uso de um vetor de inteiros, ou da classe <code>bitset</code> (<code>#include &lt;bitset&gt;</code>)</p>
+</li>
+<li>
+<p>Esta classe pode armazenar uma quantidade arbitrária de <em>bits</em> (que deve ser conhecida em tempo de compilação)</p>
+</li>
+<li>
+<p>Ela traz em sua interface as operações básicas dos conjuntos e suporte para os operadores lógicos <em>bit</em> a <em>bit</em></p>
+</li>
+</ul>
+</section>
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="18" data-background-color="black" data-color="lightGray" data-theme="gaia" data-heading-divider="2" style="--background-color:black;--color:lightGray;--theme:gaia;--heading-divider:2;color:lightGray;background-color:black;background-image:none;">
+<pre><code class="language-C++"><svg data-marp-fitting="svg" data-marp-fitting-code><foreignObject><span data-marp-fitting-svg-content><span data-marp-fitting-svg-content-wrap><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;bits/stdc++.h&gt;</span></span>
 
+<span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> <span class="hljs-built_in">std</span>;
+
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span>
+</span>{
+    <span class="hljs-function"><span class="hljs-built_in">bitset</span>&lt;35&gt; <span class="hljs-title">A</span><span class="hljs-params">(<span class="hljs-number">2046</span>)</span>, <span class="hljs-title">B</span><span class="hljs-params">(<span class="hljs-number">10412</span>)</span></span>;
+
+    <span class="hljs-built_in">cout</span> &lt;&lt; A.to_string() &lt;&lt; <span class="hljs-string">&#x27;\n&#x27;</span>;
+    <span class="hljs-built_in">cout</span> &lt;&lt; B.to_string() &lt;&lt; <span class="hljs-string">&#x27;\n&#x27;</span>;
+
+    <span class="hljs-keyword">auto</span> C = A | B;
+    <span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;union = &quot;</span> &lt;&lt; C.to_string() &lt;&lt; <span class="hljs-string">&#x27;\n&#x27;</span>;
+
+    C = A ^ B;
+    <span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;interseção = &quot;</span> &lt;&lt; C.to_string() &lt;&lt; <span class="hljs-string">&#x27;\n&#x27;</span>;
+
+    C = A &amp; ~B;
+    <span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;diferença = &quot;</span> &lt;&lt; C.to_string() &lt;&lt; <span class="hljs-string">&#x27;\n&#x27;</span>;
+
+    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+}
+</span></span></foreignObject></svg></code></pre>
+</section>
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="19" data-background-color="black" data-color="lightGray" data-theme="gaia" data-heading-divider="2" style="--background-color:black;--color:lightGray;--theme:gaia;--heading-divider:2;color:lightGray;background-color:black;background-image:none;">
+<h2>Problemas</h2>
 <ol>
+<li>AtCoder
+<ol>
+<li><a href="https://atcoder.jp/contests/abc128/tasks/abc128_e">ABC 128E - Roadwork</a></li>
+</ol>
+</li>
 <li>Codeforces
 <ol>
 <li><a href="http://codeforces.com/problemset/problem/228/A">228A - Is your horseshoe on the other hoof?</a></li>
 <li><a href="http://codeforces.com/problemset/problem/236/A">236A - Boy or Girl</a></li>
 </ol>
 </li>
-<li>UVA
+<li>OJ
 <ol>
-<li><a href="https://uva.onlinejudge.org/index.php?option=com_onlinejudge&amp;Itemid=8&amp;category=24&amp;page=show_problem&amp;problem=442">501 - Black Box</a></li>
-<li><a href="https://uva.onlinejudge.org/index.php?option=com_onlinejudge&amp;Itemid=8&amp;category=24&amp;page=show_problem&amp;problem=2949">11849 - CD</a></li>
+<li><a href="https://onlinejudge.org/index.php?option=com_onlinejudge&amp;Itemid=8&amp;category=24&amp;page=show_problem&amp;problem=442">501 - Black Box</a></li>
+<li><a href="https://onlinejudge.org/index.php?option=com_onlinejudge&amp;Itemid=8&amp;category=24&amp;page=show_problem&amp;problem=2949">11849 - CD</a></li>
 </ol>
 </li>
 </ol>
 </section>
-</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="12" data-background-color="black" data-color="lightGray" data-theme="gaia" data-heading-divider="2" style="--background-color:black;--color:lightGray;--theme:gaia;--heading-divider:2;color:lightGray;background-color:black;background-image:none;">
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="20" data-background-color="black" data-color="lightGray" data-theme="gaia" data-heading-divider="2" style="--background-color:black;--color:lightGray;--theme:gaia;--heading-divider:2;color:lightGray;background-color:black;background-image:none;">
 <h2>Referências</h2>
-<p><strong>HALE</strong>, Margie. <em>Essentials of Mathematics: Introduction to Theory, Proof, and the Professional<br />
-Culture</em>. Mathematical Association of America, 2003.</p>
+<ol>
+<li>
+<p>CppReference. <a href="https://en.cppreference.com/w/cpp/utility/bitset">std::bitset</a>, acesso em 31/12/2020.</p>
+</li>
+<li>
+<p>CppReference. <a href="https://en.cppreference.com/w/cpp/utility/multiset">std::multiset</a>, acesso em 31/12/2020.</p>
+</li>
+<li>
+<p>CppReference. <a href="https://en.cppreference.com/w/cpp/utility/set">std::set</a>, acesso em 31/12/2020.</p>
+</li>
+<li>
+<p><strong>HALE</strong>, Margie. <em>Essentials of Mathematics: Introduction to Theory, Proof, and the Professional Culture</em>. Mathematical Association of America, 2003.</p>
+</li>
+</ol>
 </section>
 <script>!function(){"use strict";const t="marpitSVGPolyfill:setZoomFactor,",e=Symbol();let r,o;function n(n){const i="object"==typeof n&&n.target||document,a="object"==typeof n?n.zoom:n;window[e]||(Object.defineProperty(window,e,{configurable:!0,value:!0}),window.addEventListener("message",(({data:e,origin:r})=>{if(r===window.origin)try{if(e&&"string"==typeof e&&e.startsWith(t)){const[,t]=e.split(","),r=Number.parseFloat(t);Number.isNaN(r)||(o=r)}}catch(t){console.error(t)}})));let l=!1;Array.from(i.querySelectorAll("svg[data-marpit-svg]"),(t=>{var e,n,i,s;t.style.transform||(t.style.transform="translateZ(0)");const c=a||o||t.currentScale||1;r!==c&&(r=c,l=c);const d=t.getBoundingClientRect(),{length:u}=t.children;for(let r=0;r<u;r+=1){const o=t.children[r],a=o.getScreenCTM();if(a){const t=null!==(n=null===(e=o.x)||void 0===e?void 0:e.baseVal.value)&&void 0!==n?n:0,r=null!==(s=null===(i=o.y)||void 0===i?void 0:i.baseVal.value)&&void 0!==s?s:0,l=o.firstChild,{style:u}=l;u.transformOrigin||(u.transformOrigin=`${-t}px ${-r}px`),u.transform=`scale(${c}) matrix(${a.a}, ${a.b}, ${a.c}, ${a.d}, ${a.e-d.left}, ${a.f-d.top}) translateZ(0.0001px)`}}})),!1!==l&&Array.from(i.querySelectorAll("iframe"),(({contentWindow:e})=>{null==e||e.postMessage(`${t}${l}`,"null"===window.origin?"*":window.origin)}))}r=1,o=void 0;const i=(t,e,r)=>{if(t.getAttribute(e)!==r)return t.setAttribute(e,r),!0};function a({once:t=!1,target:e=document}={}){const r="Apple Computer, Inc."===navigator.vendor?[n]:[];let o=!t;const a=()=>{for(const t of r)t({target:e});!function(t=document){Array.from(t.querySelectorAll('svg[data-marp-fitting="svg"]'),(t=>{var e;const r=t.firstChild,o=r.firstChild,{scrollWidth:n,scrollHeight:a}=o;let l,s=1;if(t.hasAttribute("data-marp-fitting-code")&&(l=null===(e=t.parentElement)||void 0===e?void 0:e.parentElement),t.hasAttribute("data-marp-fitting-math")&&(l=t.parentElement),l){const t=getComputedStyle(l),e=Math.ceil(l.clientWidth-parseFloat(t.paddingLeft||"0")-parseFloat(t.paddingRight||"0"));e&&(s=e)}const c=Math.max(n,s),d=Math.max(a,1),u=`0 0 ${c} ${d}`;i(r,"width",`${c}`),i(r,"height",`${d}`),i(t,"preserveAspectRatio",getComputedStyle(t).getPropertyValue("--preserve-aspect-ratio")||"xMinYMin meet"),i(t,"viewBox",u)&&t.classList.toggle("__reflow__")}))}(e),o&&window.requestAnimationFrame(a)};return a(),()=>{o=!1}}const l=Symbol(),s=document.currentScript;((t=document)=>{if("undefined"==typeof window)throw new Error("Marp Core's browser script is valid only in browser context.");if(t[l])return t[l];const e=a({target:t}),r=()=>{e(),delete t[l]};Object.defineProperty(t,l,{configurable:!0,value:r})})(s?s.getRootNode():document)}();
-</script></foreignObject></svg></div><div class="bespoke-marp-note" data-index="10" tabindex="0"><p>228A - elementar, elementos únicos</p><p>236A - int, set, elementos únicos</p><p>501 - multiset</p><p>11849 - classe set ou bitset</p></div><script>!function(){"use strict";var e=function(e,t){var n,r=1===(e.parent||e).nodeType?e.parent||e:document.querySelector(e.parent||e),s=[].filter.call("string"==typeof e.slides?r.querySelectorAll(e.slides):e.slides||r.children,(function(e){return"SCRIPT"!==e.nodeName})),a={},i=function(e,t){return(t=t||{}).index=s.indexOf(e),t.slide=e,t},o=function(e,t){a[e]=(a[e]||[]).filter((function(e){return e!==t}))},l=function(e,t){return(a[e]||[]).reduce((function(e,n){return e&&!1!==n(t)}),!0)},c=function(e,t){s[e]&&(n&&l("deactivate",i(n,t)),n=s[e],l("activate",i(n,t)))},d=function(e,t){var r=s.indexOf(n)+e;l(e>0?"next":"prev",i(n,t))&&c(r,t)},u={off:o,on:function(e,t){return(a[e]||(a[e]=[])).push(t),o.bind(null,e,t)},fire:l,slide:function(e,t){if(!arguments.length)return s.indexOf(n);l("slide",i(s[e],t))&&c(e,t)},next:d.bind(null,1),prev:d.bind(null,-1),parent:r,slides:s,destroy:function(e){l("destroy",i(n,e)),a={}}};return(t||[]).forEach((function(e){e(u)})),n||c(0),u};function t(e){e.parent.classList.add("bespoke-marp-parent"),e.slides.forEach((e=>e.classList.add("bespoke-marp-slide"))),e.on("activate",(t=>{const n=t.slide,r=!n.classList.contains("bespoke-marp-active");e.slides.forEach((e=>{e.classList.remove("bespoke-marp-active"),e.setAttribute("aria-hidden","true")})),n.classList.add("bespoke-marp-active"),n.removeAttribute("aria-hidden"),r&&(n.classList.add("bespoke-marp-active-ready"),document.body.clientHeight,n.classList.remove("bespoke-marp-active-ready"))}))}function n(e){let t=0,n=0;Object.defineProperty(e,"fragments",{enumerable:!0,value:e.slides.map((e=>[null,...e.querySelectorAll("[data-marpit-fragment]")]))});const r=r=>void 0!==e.fragments[t][n+r],s=(r,s)=>{t=r,n=s,e.fragments.forEach(((e,t)=>{e.forEach(((e,n)=>{if(null==e)return;const a=t<r||t===r&&n<=s;e.setAttribute("data-bespoke-marp-fragment",a?"active":"inactive"),t===r&&n===s?e.setAttribute("data-bespoke-marp-current-fragment","current"):e.removeAttribute("data-bespoke-marp-current-fragment")}))})),e.fragmentIndex=s;const a={slide:e.slides[r],index:r,fragments:e.fragments[r],fragmentIndex:s};e.fire("fragment",a)};e.on("next",(({fragment:a=!0})=>{if(a){if(r(1))return s(t,n+1),!1;const a=t+1;e.fragments[a]&&s(a,0)}else{const r=e.fragments[t].length;if(n+1<r)return s(t,r-1),!1;const a=e.fragments[t+1];a&&s(t+1,a.length-1)}})),e.on("prev",(({fragment:a=!0})=>{if(r(-1)&&a)return s(t,n-1),!1;const i=t-1;e.fragments[i]&&s(i,e.fragments[i].length-1)})),e.on("slide",(({index:t,fragment:n})=>{let r=0;if(void 0!==n){const s=e.fragments[t];if(s){const{length:e}=s;r=-1===n?e-1:Math.min(Math.max(n,0),e-1)}}s(t,r)})),s(0,0)}
+</script></foreignObject></svg></div><script>!function(){"use strict";var e=function(e,t){var n,r=1===(e.parent||e).nodeType?e.parent||e:document.querySelector(e.parent||e),s=[].filter.call("string"==typeof e.slides?r.querySelectorAll(e.slides):e.slides||r.children,(function(e){return"SCRIPT"!==e.nodeName})),a={},i=function(e,t){return(t=t||{}).index=s.indexOf(e),t.slide=e,t},o=function(e,t){a[e]=(a[e]||[]).filter((function(e){return e!==t}))},l=function(e,t){return(a[e]||[]).reduce((function(e,n){return e&&!1!==n(t)}),!0)},c=function(e,t){s[e]&&(n&&l("deactivate",i(n,t)),n=s[e],l("activate",i(n,t)))},d=function(e,t){var r=s.indexOf(n)+e;l(e>0?"next":"prev",i(n,t))&&c(r,t)},u={off:o,on:function(e,t){return(a[e]||(a[e]=[])).push(t),o.bind(null,e,t)},fire:l,slide:function(e,t){if(!arguments.length)return s.indexOf(n);l("slide",i(s[e],t))&&c(e,t)},next:d.bind(null,1),prev:d.bind(null,-1),parent:r,slides:s,destroy:function(e){l("destroy",i(n,e)),a={}}};return(t||[]).forEach((function(e){e(u)})),n||c(0),u};function t(e){e.parent.classList.add("bespoke-marp-parent"),e.slides.forEach((e=>e.classList.add("bespoke-marp-slide"))),e.on("activate",(t=>{const n=t.slide,r=!n.classList.contains("bespoke-marp-active");e.slides.forEach((e=>{e.classList.remove("bespoke-marp-active"),e.setAttribute("aria-hidden","true")})),n.classList.add("bespoke-marp-active"),n.removeAttribute("aria-hidden"),r&&(n.classList.add("bespoke-marp-active-ready"),document.body.clientHeight,n.classList.remove("bespoke-marp-active-ready"))}))}function n(e){let t=0,n=0;Object.defineProperty(e,"fragments",{enumerable:!0,value:e.slides.map((e=>[null,...e.querySelectorAll("[data-marpit-fragment]")]))});const r=r=>void 0!==e.fragments[t][n+r],s=(r,s)=>{t=r,n=s,e.fragments.forEach(((e,t)=>{e.forEach(((e,n)=>{if(null==e)return;const a=t<r||t===r&&n<=s;e.setAttribute("data-bespoke-marp-fragment",a?"active":"inactive"),t===r&&n===s?e.setAttribute("data-bespoke-marp-current-fragment","current"):e.removeAttribute("data-bespoke-marp-current-fragment")}))})),e.fragmentIndex=s;const a={slide:e.slides[r],index:r,fragments:e.fragments[r],fragmentIndex:s};e.fire("fragment",a)};e.on("next",(({fragment:a=!0})=>{if(a){if(r(1))return s(t,n+1),!1;const a=t+1;e.fragments[a]&&s(a,0)}else{const r=e.fragments[t].length;if(n+1<r)return s(t,r-1),!1;const a=e.fragments[t+1];a&&s(t+1,a.length-1)}})),e.on("prev",(({fragment:a=!0})=>{if(r(-1)&&a)return s(t,n-1),!1;const i=t-1;e.fragments[i]&&s(i,e.fragments[i].length-1)})),e.on("slide",(({index:t,fragment:n})=>{let r=0;if(void 0!==n){const s=e.fragments[t];if(s){const{length:e}=s;r=-1===n?e-1:Math.min(Math.max(n,0),e-1)}}s(t,r)})),s(0,0)}
 /*!
 * screenfull
 * v5.0.2 - 2020-02-13
