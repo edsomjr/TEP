@@ -5,7 +5,7 @@ Matemática
 1. Fundamentos
     1. [Lógica Proposicional Booleana](slides/logica_booleana/logica_booleana.pdf)
     1. [Teoria dos Conjuntos](slides/teoria_dos_conjutos/teoria_dos_conjuntos.pdf)
-    1. [Funções](text/Funcoes.md)
+    1. [Funções](slides/funcoes/funcoes.pdf)
     1. [Simulações](text/Simulacoes.md)
     1. Sequências
     1. Grids
