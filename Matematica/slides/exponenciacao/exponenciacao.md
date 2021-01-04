@@ -115,8 +115,41 @@ $$
 
 - Tais exemplos justificam a restrição comum de bases positivas
 
+## Exponenciação rápida
+
+- A implementação direta da definição de exponenciação nos naturais leva a uma rotina com complexidade $O(n)$
+
+- Contudo, é possível implementar um algoritmo $O(n\log n)$ para computar $a^n$, por meio da divisão e conquista, denominado **exponenciação rápida**
+
+- Para tal, basta observar que, se $n$ é par, então
+$$
+    a^n = a^{n/2}\times a^{n/2}
+$$
+
+## Exponenciação rápida
+
+- Se $n$ é impar, vale que
+$$
+    a^n = a\times a^{\lfloor n/2\rfloor}\times a^{\lfloor n/2\rfloor}
+$$
+
+```C++
+long long fast_exp(long long a, int n)
+{
+    if (n == 1)
+        return a;
+
+    auto x = fast_exp(a, n / 2);
+
+    return x * x * (n % 2 ? a : 1);
+}
+```
+
+## Problemas
+
+- OJ
+
 <!-- 
-1. Definição de potenciação: natural, inteiro, racional, real
 1. Exponenciação rápida
 1. Definição do e
 1. Serie de potência da exponencial
@@ -126,9 +159,12 @@ $$
 1. Definição por integral ou derivada de a^x
 1. Mudança de base
 1. Relação logaritmos/exponencial
+1. Exponenciais e logaritmos em C/C++
 -->
 
 Referências
 -----------
 
 Wikipédia. [Exponentiation](https://en.wikipedia.org/wiki/Exponentiation). Acesso em 22 de agosto de 2017.
+
+Wikipédia. [Exponentiation by squaring](https://en.wikipedia.org/wiki/Exponentiation_by_squaring). Acesso em 04/01/2021.
