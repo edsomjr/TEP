@@ -9,8 +9,11 @@ Matemática
     1. [Simulações](slides/simulacoes/simulacoes.pdf)
     1. Sequências
     1. Grids
-    1. [Logaritmos e Exponenciais](text/Logaritmos.md)
     1. Polinômios
+1. Exponenciais e Logaritmos
+    1. [Exponenciais](slides/exponenciais/exponenciais.pdf)
+    1. [Logaritmos](slides/logaritmos/logaritmos.pdf)
+    1. [Relação entre exponenciais e logaritmos](slides/relacao_exp_log/relacao_exp_log.pdf)
 1. Bases Numéricas
     1. [Representação Binária](slides/BIT-1/BIT-1.pdf)
     1. [Operações Binárias](slides/BIT-2/BIT-2.pdf)
