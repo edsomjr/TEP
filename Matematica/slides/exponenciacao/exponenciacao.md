@@ -18,7 +18,7 @@ headingDivider: 2
 <!-- _class: lead -->
 # Matemática
 
-*__Exponenciacação__*
+*__Exponenciação__*
 
 Prof. Edson Alves
 Faculdade UnB Gama
@@ -86,7 +86,7 @@ $$
 a^{-1} \times a = \left(\frac{1}{a}\right) \times a = 1
 $$
 
-## Raizes $n$-ésimas
+## Raízes $n$-ésimas
 
 - Sejam $a, n$ dois números inteiros, com $a > 0$. Qual seria o significado de $a^{1/n}$? 
 
@@ -147,20 +147,13 @@ long long fast_exp(long long a, int n)
 
 ## Problemas
 
+- AtCoder
+    - [ABC 097B - Exponential](https://atcoder.jp/contests/abc097/tasks/abc097_b)
+- Codeforces
+    - [284A - Cows and Primitive Roots](https://codeforces.com/problemset/problem/284/A)
 - OJ
-
-<!-- 
-1. Exponenciação rápida
-1. Definição do e
-1. Serie de potência da exponencial
-1. Exponenciais complexas
-1. Definição de logaritmo
-1. Propriedades
-1. Definição por integral ou derivada de a^x
-1. Mudança de base
-1. Relação logaritmos/exponencial
-1. Exponenciais e logaritmos em C/C++
--->
+    - [107 - The Cat in The Hat](http://onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&category=24&page=show_problem&problem=43)
+    - [11556 - Best Compression Ever](http://onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&category=24&page=show_problem&problem=2592)
 
 Referências
 -----------
