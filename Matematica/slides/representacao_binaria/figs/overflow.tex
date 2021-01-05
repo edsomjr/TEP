@@ -1,0 +1,22 @@
+% Gere o PDF com o comando pdflatex, e o SVG com o comando
+%
+%  $ inkscape -l fig.svg source.tex
+\documentclass{standalone}
+\usepackage{tikz}
+
+\begin{document}
+
+    \begin{tikzpicture}
+        \node[anchor=east] at (6, 3) { \Large \texttt{11001000} };
+        \node[anchor=east] at (8.5, 3) { \Large \texttt{(200)} };
+        \node[anchor=east] at (6, 2.2) { \Large \texttt{01100100} };
+        \node[anchor=east] at (8.5, 2.2) { \Large \texttt{(100)} };
+        \node[anchor=east] at (3.5, 2.6) { \Large \texttt{+} };
+
+        \draw[thick] (3.7, 1.8) -- (6, 1.8);
+
+        \node[anchor=east] at (6, 1.4) { \Large \texttt{00101100} };
+        \node[anchor=east] at (8.5, 1.4) { \Large \texttt{(44)} };
+    \end{tikzpicture}
+
+\end{document}
