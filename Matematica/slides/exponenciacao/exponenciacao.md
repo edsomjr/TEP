@@ -145,6 +145,20 @@ long long fast_exp(long long a, int n)
 }
 ```
 
+## Exponenciação em C/C++
+
+- A biblioteca `math.h` de C ou a biblioteca `cmath` de C++ implementam funções relacionadas a exponenciacação
+
+- A função `pow(a, n)` computa o valor de $a^n$
+
+- A função `exp(x)` computa o valor de $e^x$
+
+- A função `sqrt(x)` computa a raiz quadrada de $x$
+
+- A função `cbrt(x)` computa a raiz cúbida de $x$
+
+- Todas essas funções recebem e retornam variáveis do tipo `double`
+
 ## Problemas
 
 - AtCoder
@@ -155,8 +169,9 @@ long long fast_exp(long long a, int n)
     - [107 - The Cat in The Hat](http://onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&category=24&page=show_problem&problem=43)
     - [11556 - Best Compression Ever](http://onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&category=24&page=show_problem&problem=2592)
 
-Referências
------------
+## Referências
+
+CppReference. [Common mathematical functions](https://en.cppreference.com/w/cpp/numeric/math). Acesso em 05/01/2021.
 
 Wikipédia. [Exponentiation](https://en.wikipedia.org/wiki/Exponentiation). Acesso em 22 de agosto de 2017.
 
