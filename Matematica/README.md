@@ -13,7 +13,7 @@ Matemática
 <!-- Algoritmo de Horner -->
 1. Bases Numéricas
     1. [Representação Binária](slides/representacao_binaria/representacao_binaria.pdf)
-    1. [Operações Binárias](slides/BIT-2/BIT-2.pdf)
+    1. [Operações Binárias](slides/operacoes_binarias/operacoes_binarias.pdf)
 1. Exponenciais e Logaritmos
     1. [Exponenciais](slides/exponenciais/exponenciais.pdf)
     1. [Logaritmos](slides/logaritmos/logaritmos.pdf)
