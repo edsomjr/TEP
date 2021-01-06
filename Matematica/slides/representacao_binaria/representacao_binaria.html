@@ -40,6 +40,7 @@ Faculdade UnB Gama</p>
 </ul>
 </section>
 </foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="4" data-background-color="black" data-color="lightGray" data-theme="gaia" data-heading-divider="2" style="--background-color:black;--color:lightGray;--theme:gaia;--heading-divider:2;color:lightGray;background-color:black;background-image:none;">
+<h2>Representação em base arbitrária</h2>
 <pre><code class="language-C++"><svg data-marp-fitting="svg" data-marp-fitting-code><foreignObject><span data-marp-fitting-svg-content><span data-marp-fitting-svg-content-wrap><span class="hljs-keyword">const</span> <span class="hljs-built_in">string</span> digits { <span class="hljs-string">&quot;0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ&quot;</span> };
 
 <span class="hljs-function"><span class="hljs-built_in">string</span> <span class="hljs-title">representation</span><span class="hljs-params">(<span class="hljs-keyword">int</span> n, <span class="hljs-keyword">int</span> b)</span>
@@ -58,6 +59,43 @@ Faculdade UnB Gama</p>
 </span></span></foreignObject></svg></code></pre>
 </section>
 </foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="5" data-background-color="black" data-color="lightGray" data-theme="gaia" data-heading-divider="2" style="--background-color:black;--color:lightGray;--theme:gaia;--heading-divider:2;color:lightGray;background-color:black;background-image:none;">
+<h2>Conversão entre bases</h2>
+<ul>
+<li>
+<p>A conversão de uma representação em base <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>a</mi></mrow><annotation encoding="application/x-tex">a</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathnormal">a</span></span></span></span> para uma base <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>b</mi></mrow><annotation encoding="application/x-tex">b</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathnormal">b</span></span></span></span> é, em geral, feita em duas etapas:</p>
+<ol>
+<li>conversão da base <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>a</mi></mrow><annotation encoding="application/x-tex">a</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathnormal">a</span></span></span></span> para uma base pré-determinada (base 10 ou 2, por exemplo);</li>
+<li>conversão desta base pré-determinada para a base <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>b</mi></mrow><annotation encoding="application/x-tex">b</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathnormal">b</span></span></span></span>.</li>
+</ol>
+</li>
+<li>
+<p>A primeira etapa é realizada por meio da expansão da representação do número em base <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>a</mi></mrow><annotation encoding="application/x-tex">a</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathnormal">a</span></span></span></span></p>
+</li>
+<li>
+<p>Esta expansão pode ser realizada em <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>O</mi><mo stretchy="false">(</mo><mi>k</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">O(k)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.03148em;">k</span><span class="mclose">)</span></span></span></span> por meio do algoritmo de Horner</p>
+</li>
+<li>
+<p>A segunda é feita por meio da rotina de geração de representação já mencionada</p>
+</li>
+</ul>
+</section>
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="6" data-background-color="black" data-color="lightGray" data-theme="gaia" data-heading-divider="2" style="--background-color:black;--color:lightGray;--theme:gaia;--heading-divider:2;color:lightGray;background-color:black;background-image:none;">
+<h2>Conversão para base decimal</h2>
+<pre><code class="language-C++"><svg data-marp-fitting="svg" data-marp-fitting-code><foreignObject><span data-marp-fitting-svg-content><span data-marp-fitting-svg-content-wrap><span class="hljs-function"><span class="hljs-keyword">long</span> <span class="hljs-keyword">long</span> <span class="hljs-title">to_decimal</span><span class="hljs-params">(<span class="hljs-keyword">const</span> <span class="hljs-built_in">string</span>&amp; rep, <span class="hljs-keyword">long</span> <span class="hljs-keyword">long</span> base)</span>
+</span>{
+    <span class="hljs-keyword">long</span> <span class="hljs-keyword">long</span> n = <span class="hljs-number">0</span>;
+
+    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">auto</span> c : rep)
+    {
+        n *= base;
+        n += digits.find(c);
+    }
+
+    <span class="hljs-keyword">return</span> n;
+}   
+</span></span></foreignObject></svg></code></pre>
+</section>
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="7" data-background-color="black" data-color="lightGray" data-theme="gaia" data-heading-divider="2" style="--background-color:black;--color:lightGray;--theme:gaia;--heading-divider:2;color:lightGray;background-color:black;background-image:none;">
 <h2>Representação em base binária</h2>
 <ul>
 <li>
@@ -74,7 +112,7 @@ Faculdade UnB Gama</p>
 </li>
 </ul>
 </section>
-</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="6" data-background-color="black" data-color="lightGray" data-theme="gaia" data-heading-divider="2" style="--background-color:black;--color:lightGray;--theme:gaia;--heading-divider:2;color:lightGray;background-color:black;background-image:none;">
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="8" data-background-color="black" data-color="lightGray" data-theme="gaia" data-heading-divider="2" style="--background-color:black;--color:lightGray;--theme:gaia;--heading-divider:2;color:lightGray;background-color:black;background-image:none;">
 <h2>Representação em base binária</h2>
 <ul>
 <li>
@@ -88,14 +126,14 @@ Faculdade UnB Gama</p>
 </li>
 </ul>
 </section>
-</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section data-background-color="black" data-color="lightGray" data-theme="gaia" data-heading-divider="2" style="--background-color:black;--color:lightGray;--theme:gaia;--heading-divider:2;color:lightGray;background-color:black;background-image:none;" data-marpit-advanced-background="background"><div data-marpit-advanced-background-container="true" data-marpit-advanced-background-direction="horizontal"><figure style="background-image:url(&quot;figs/sum.svg&quot;);background-size:75%;filter:invert(1);"></figure></div></section></foreignObject><foreignObject width="1280" height="720"><section id="7" data-background-color="black" data-color="lightGray" data-theme="gaia" data-heading-divider="2" style="--background-color:black;--color:lightGray;--theme:gaia;--heading-divider:2;color:lightGray;background-color:black;background-image:none;" data-marpit-advanced-background="content">
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section data-background-color="black" data-color="lightGray" data-theme="gaia" data-heading-divider="2" style="--background-color:black;--color:lightGray;--theme:gaia;--heading-divider:2;color:lightGray;background-color:black;background-image:none;" data-marpit-advanced-background="background"><div data-marpit-advanced-background-container="true" data-marpit-advanced-background-direction="horizontal"><figure style="background-image:url(&quot;figs/sum.svg&quot;);background-size:75%;filter:invert(1);"></figure></div></section></foreignObject><foreignObject width="1280" height="720"><section id="9" data-background-color="black" data-color="lightGray" data-theme="gaia" data-heading-divider="2" style="--background-color:black;--color:lightGray;--theme:gaia;--heading-divider:2;color:lightGray;background-color:black;background-image:none;" data-marpit-advanced-background="content">
 <h2>Visualização da soma em base binária</h2>
 </section>
-</foreignObject><foreignObject width="1280" height="720" data-marpit-advanced-background="pseudo"><section style="color:lightGray;" data-marpit-advanced-background="pseudo"></section></foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="8" data-background-color="black" data-color="lightGray" data-theme="gaia" data-heading-divider="2" style="--background-color:black;--color:lightGray;--theme:gaia;--heading-divider:2;color:lightGray;background-color:black;background-image:none;">
+</foreignObject><foreignObject width="1280" height="720" data-marpit-advanced-background="pseudo"><section style="color:lightGray;" data-marpit-advanced-background="pseudo"></section></foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="10" data-background-color="black" data-color="lightGray" data-theme="gaia" data-heading-divider="2" style="--background-color:black;--color:lightGray;--theme:gaia;--heading-divider:2;color:lightGray;background-color:black;background-image:none;">
 <h2><em>Overflow</em></h2>
 <ul>
 <li>
-<p>Nas linguagems de programação, o número de <em>bits</em> usados na representação de inteiros é limitado</p>
+<p>Nas linguagens de programação, o número de <em>bits</em> usados na representação de inteiros é limitado</p>
 </li>
 <li>
 <p>Por exemplo, em C/C++, variáveis do tipo <code>int</code>  ocupam, em geral, 32 <em>bits</em> (o mesmo espaço em memória que uma palavra do processador)</p>
@@ -111,10 +149,10 @@ Faculdade UnB Gama</p>
 </li>
 </ul>
 </section>
-</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section data-background-color="black" data-color="lightGray" data-theme="gaia" data-heading-divider="2" style="--background-color:black;--color:lightGray;--theme:gaia;--heading-divider:2;color:lightGray;background-color:black;background-image:none;" data-marpit-advanced-background="background"><div data-marpit-advanced-background-container="true" data-marpit-advanced-background-direction="horizontal"><figure style="background-image:url(&quot;figs/overflow.svg&quot;);background-size:75%;filter:invert(1);"></figure></div></section></foreignObject><foreignObject width="1280" height="720"><section id="9" data-background-color="black" data-color="lightGray" data-theme="gaia" data-heading-divider="2" style="--background-color:black;--color:lightGray;--theme:gaia;--heading-divider:2;color:lightGray;background-color:black;background-image:none;" data-marpit-advanced-background="content">
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section data-background-color="black" data-color="lightGray" data-theme="gaia" data-heading-divider="2" style="--background-color:black;--color:lightGray;--theme:gaia;--heading-divider:2;color:lightGray;background-color:black;background-image:none;" data-marpit-advanced-background="background"><div data-marpit-advanced-background-container="true" data-marpit-advanced-background-direction="horizontal"><figure style="background-image:url(&quot;figs/overflow.svg&quot;);background-size:75%;filter:invert(1);"></figure></div></section></foreignObject><foreignObject width="1280" height="720"><section id="11" data-background-color="black" data-color="lightGray" data-theme="gaia" data-heading-divider="2" style="--background-color:black;--color:lightGray;--theme:gaia;--heading-divider:2;color:lightGray;background-color:black;background-image:none;" data-marpit-advanced-background="content">
 <h2>Visualização do <em>overflow</em> em variáveis de 8 <em>bits</em></h2>
 </section>
-</foreignObject><foreignObject width="1280" height="720" data-marpit-advanced-background="pseudo"><section style="color:lightGray;" data-marpit-advanced-background="pseudo"></section></foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="10" data-background-color="black" data-color="lightGray" data-theme="gaia" data-heading-divider="2" style="--background-color:black;--color:lightGray;--theme:gaia;--heading-divider:2;color:lightGray;background-color:black;background-image:none;">
+</foreignObject><foreignObject width="1280" height="720" data-marpit-advanced-background="pseudo"><section style="color:lightGray;" data-marpit-advanced-background="pseudo"></section></foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="12" data-background-color="black" data-color="lightGray" data-theme="gaia" data-heading-divider="2" style="--background-color:black;--color:lightGray;--theme:gaia;--heading-divider:2;color:lightGray;background-color:black;background-image:none;">
 <h2>Representação binária de números negativos</h2>
 <ul>
 <li>
@@ -131,7 +169,7 @@ Faculdade UnB Gama</p>
 </li>
 </ul>
 </section>
-</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="11" data-background-color="black" data-color="lightGray" data-theme="gaia" data-heading-divider="2" style="--background-color:black;--color:lightGray;--theme:gaia;--heading-divider:2;color:lightGray;background-color:black;background-image:none;">
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="13" data-background-color="black" data-color="lightGray" data-theme="gaia" data-heading-divider="2" style="--background-color:black;--color:lightGray;--theme:gaia;--heading-divider:2;color:lightGray;background-color:black;background-image:none;">
 <h2>Representação binária de números negativos</h2>
 <ul>
 <li>
@@ -145,10 +183,28 @@ Faculdade UnB Gama</p>
 </li>
 </ul>
 </section>
-</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section data-background-color="black" data-color="lightGray" data-theme="gaia" data-heading-divider="2" style="--background-color:black;--color:lightGray;--theme:gaia;--heading-divider:2;color:lightGray;background-color:black;background-image:none;" data-marpit-advanced-background="background"><div data-marpit-advanced-background-container="true" data-marpit-advanced-background-direction="horizontal"><figure style="background-image:url(&quot;figs/negatives.svg&quot;);background-size:55%;filter:invert(1);"></figure></div></section></foreignObject><foreignObject width="1280" height="720"><section id="12" data-background-color="black" data-color="lightGray" data-theme="gaia" data-heading-divider="2" style="--background-color:black;--color:lightGray;--theme:gaia;--heading-divider:2;color:lightGray;background-color:black;background-image:none;" data-marpit-advanced-background="content">
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section data-background-color="black" data-color="lightGray" data-theme="gaia" data-heading-divider="2" style="--background-color:black;--color:lightGray;--theme:gaia;--heading-divider:2;color:lightGray;background-color:black;background-image:none;" data-marpit-advanced-background="background"><div data-marpit-advanced-background-container="true" data-marpit-advanced-background-direction="horizontal"><figure style="background-image:url(&quot;figs/negatives.svg&quot;);background-size:55%;filter:invert(1);"></figure></div></section></foreignObject><foreignObject width="1280" height="720"><section id="14" data-background-color="black" data-color="lightGray" data-theme="gaia" data-heading-divider="2" style="--background-color:black;--color:lightGray;--theme:gaia;--heading-divider:2;color:lightGray;background-color:black;background-image:none;" data-marpit-advanced-background="content">
 <h2>Visualização do complemento de dois de <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>77</mn></mrow><annotation encoding="application/x-tex">77</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">7</span><span class="mord">7</span></span></span></span></h2>
 </section>
-</foreignObject><foreignObject width="1280" height="720" data-marpit-advanced-background="pseudo"><section style="color:lightGray;" data-marpit-advanced-background="pseudo"></section></foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="13" data-background-color="black" data-color="lightGray" data-theme="gaia" data-heading-divider="2" style="--background-color:black;--color:lightGray;--theme:gaia;--heading-divider:2;color:lightGray;background-color:black;background-image:none;">
+</foreignObject><foreignObject width="1280" height="720" data-marpit-advanced-background="pseudo"><section style="color:lightGray;" data-marpit-advanced-background="pseudo"></section></foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="15" data-background-color="black" data-color="lightGray" data-theme="gaia" data-heading-divider="2" style="--background-color:black;--color:lightGray;--theme:gaia;--heading-divider:2;color:lightGray;background-color:black;background-image:none;">
+<h2>Problemas</h2>
+<ul>
+<li>Codeforces
+<ol>
+<li><a href="https://codeforces.com/problemset/problem/258/A">258A - Little Elephant and Bits</a></li>
+<li><a href="https://codeforces.com/problemset/problem/1388/B">1338B - Captain Flint and a Long Voyage</a></li>
+</ol>
+</li>
+<li>OJ
+<ol>
+<li><a href="http://onlinejudge.org/index.php?option=com_onlinejudge&amp;Itemid=8&amp;category=24&amp;page=show_problem&amp;problem=279">343 - What Base is This?</a></li>
+<li><a href="http://onlinejudge.org/index.php?option=com_onlinejudge&amp;Itemid=8&amp;category=24&amp;page=show_problem&amp;problem=291">355 - The Bases are Loaded</a></li>
+<li><a href="http://onlinejudge.org/index.php?option=com_onlinejudge&amp;Itemid=8&amp;category=24&amp;page=show_problem&amp;problem=2126">11185 - Ternary</a></li>
+</ol>
+</li>
+</ul>
+</section>
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="16" data-background-color="black" data-color="lightGray" data-theme="gaia" data-heading-divider="2" style="--background-color:black;--color:lightGray;--theme:gaia;--heading-divider:2;color:lightGray;background-color:black;background-image:none;">
 <h2>Referências</h2>
 <ol>
 <li><strong>HALIM</strong>, Felix; <strong>HALIM</strong>, Steve. <em>Competitive Programming 3</em>, 2010.</li>

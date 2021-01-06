@@ -46,7 +46,8 @@ $$
 
 - Esta representação $R$ de $n$ em base $b$ pode ser obtida usando-se recursão e o algoritmo de Euclides: $R(n) = R(q)b + r$, onde $n = bq + r, 0 \leq r < b$
 
----
+## Representação em base arbitrária
+
 ```C++
 const string digits { "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ" };
 
@@ -63,6 +64,35 @@ string representation(int n, int b)
 
     return rep;
 }
+```
+
+## Conversão entre bases
+
+- A conversão de uma representação em base $a$ para uma base $b$ é, em geral, feita em duas etapas:
+    1. conversão da base $a$ para uma base pré-determinada (base 10 ou 2, por exemplo);
+    1. conversão desta base pré-determinada para a base $b$.
+
+- A primeira etapa é realizada por meio da expansão da representação do número em base $a$
+
+- Esta expansão pode ser realizada em $O(k)$ por meio do algoritmo de Horner
+
+- A segunda é feita por meio da rotina de geração de representação já mencionada
+
+## Conversão para base decimal
+
+```C++
+long long to_decimal(const string& rep, long long base)
+{
+    long long n = 0;
+
+    for (auto c : rep)
+    {
+        n *= base;
+        n += digits.find(c);
+    }
+
+    return n;
+}   
 ```
 
 ## Representação em base binária
@@ -89,7 +119,7 @@ string representation(int n, int b)
 
 ## _Overflow_
 
-- Nas linguagems de programação, o número de _bits_ usados na representação de inteiros é limitado
+- Nas linguagens de programação, o número de _bits_ usados na representação de inteiros é limitado
 
 - Por exemplo, em C/C++, variáveis do tipo `int`  ocupam, em geral, 32 _bits_ (o mesmo espaço em memória que uma palavra do processador)
 
@@ -125,6 +155,16 @@ string representation(int n, int b)
 ## Visualização do complemento de dois de $77$
 
 ![bg invert 55%](figs/negatives.svg)
+
+## Problemas
+
+- Codeforces
+    1. [258A - Little Elephant and Bits](https://codeforces.com/problemset/problem/258/A)
+    1. [1338B - Captain Flint and a Long Voyage](https://codeforces.com/problemset/problem/1388/B)
+- OJ
+    1. [343 - What Base is This?](http://onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&category=24&page=show_problem&problem=279)
+    1. [355 - The Bases are Loaded](http://onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&category=24&page=show_problem&problem=291)
+    1. [11185 - Ternary](http://onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&category=24&page=show_problem&problem=2126)
 
 ## Referências
 
