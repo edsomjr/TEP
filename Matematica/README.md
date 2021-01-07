@@ -20,7 +20,7 @@ Matemática
     1. Função logaritmo e função exponecial
 1. Aritmética Estendida
 1. Avaliação de Expressões
-1. [Teoria dos Números](text/Teoria_dos_Numeros.md)
+1. Teoria dos Números
     1. [Divisibilidade](text/Divisibilidade.md)
     1. [Números Primos](text/Primalidade.md)
     1. [Aritmética Modular](text/Aritmetica_Modular.md)
