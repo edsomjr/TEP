@@ -21,9 +21,9 @@ Matemática
 1. Aritmética Estendida
 1. Avaliação de Expressões
 1. Teoria dos Números
-    1. [Divisibilidade](text/Divisibilidade.md)
+    1. [Divisibilidade](slides/divisibilidade/divisibilidade.pdf)
 <!-- Separar a parte das equações diofantinas e inserir a parte soluções naturais (conjunto das lacunas) -->
-    1. [Números Primos](text/Primalidade.md)
+    1. [Números Primos](slides/numeros_primos/numeros_primos.pdf)
     1. [Aritmética Modular](text/Aritmetica_Modular.md)
 <!-- Adicionar o teste de Miller-Rabin para primalidade -->
 1. [Análise Combinatória](text/Combinatoria.md)
