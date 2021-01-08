@@ -22,8 +22,10 @@ Matemática
 1. Avaliação de Expressões
 1. Teoria dos Números
     1. [Divisibilidade](text/Divisibilidade.md)
+<!-- Separar a parte das equações diofantinas e inserir a parte soluções naturais (conjunto das lacunas) -->
     1. [Números Primos](text/Primalidade.md)
     1. [Aritmética Modular](text/Aritmetica_Modular.md)
+<!-- Adicionar o teste de Miller-Rabin para primalidade -->
 1. [Análise Combinatória](text/Combinatoria.md)
     1. [Permutações, Arranjos e Combinações](text/Permutacoes.md)
     1. [Sequências Notáveis](text/Sequencias_Notaveis.md)
