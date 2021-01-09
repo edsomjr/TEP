@@ -410,7 +410,7 @@ Uma maneira de verificar rapidamente se o crivo está produzindo os primos corre
 | 1000000 | 78498 |
 | 10000000 | 664579 |
 
-## Possível _benchmark_ para as rotinas de primalidade
+## Possível _benchmark_ para as rotinas de teste de primalidade
 ```
 ==== Testes de primalidade:
 
@@ -430,10 +430,19 @@ primes5(10000000) = 664579 (0.059135050000000 ms)
 
 ## Problemas
 
+1. AtCoder
+    1. [ABC 096D - Five, Five Everywhere](https://atcoder.jp/contests/abc096/tasks/abc096_d)
+    1. [ABC 149C - Next Prime](https://atcoder.jp/contests/abc149/tasks/abc149_c)
+1. Codeforces
+    1. [327B - Hungry Sequence](https://codeforces.com/problemset/problem/327/B)
+1. OJ
+    1. [543 - Goldbach](http://onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&category=24&page=show_problem&problem=484) 
+    1. [11001 - Necklace](http://uva.onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&category=24&page=show_problem&problem=1942)
+
 ## Referências
 
-1. The PrimesPage. [How Many Primes Are There?](https://primes.utm.edu/howmany.html). Acesso eme 08/11/2017.
+1. The PrimesPage. [How Many Primes Are There?](https://primes.utm.edu/howmany.html). Acesso em 08/11/2017.
 
 1. Wikipédia. [Harmonic Number](https://en.wikipedia.org/wiki/Harmonic_number). Acesso em 08/11/2017.
 
-1. Wikipédia. [Mertens' theorems](https://en.wikipedia.org/wiki/Mertens%27_theorems). Acesso eme 08/11/2017.
+1. Wikipédia. [Mertens' theorems](https://en.wikipedia.org/wiki/Mertens%27_theorems). Acesso em 08/11/2017.
