@@ -202,163 +202,19 @@ int lcm(int a, int b, const vector<int>& primes)
 }
 ```
 
-Número de Divisores
--------------------
+## Problemas
 
-A fatoração de um número _n_ também permite computar o número de divisores deste número: basta
-fazer o produto de todos os expoentes da fatoração, somados cada um de uma unidade. Veja 
-o código abaixo.
-```C++
-long long number_of_divisors(int n, const vector<int>& primes)
-{
-    auto fs = factorization(n, primes);
-    long long res = 1;
+1. AtCoder
+    1. [ABC 109C - Skip](https://atcoder.jp/contests/abc109/tasks/abc109_c)
+    1. [ABC 118C - Monsters Battle Royale](https://atcoder.jp/contests/abc118/tasks/abc118_c)
+    1. [ABC 120B - K-th Common Divisor](https://atcoder.jp/contests/abc120/tasks/abc120_b)
+    1. [ABC 148E - Double Factorial](https://atcoder.jp/contests/abc148/tasks/abc148_e)
+1. Codeforces
+    1. [515C - Drazil and Factorial](https://codeforces.com/problemset/problem/515/C)
 
-    for (const auto& f : fs)
-    {
-        int k = f.second;
+## Referências
 
-        res *= (k + 1);
-    }
-
-    return res;
-}
-```
-Intuitivamente, imagine que temos uma fatoração prima de um número por exemplo fat(30) = 2^2*5. Qualquer múltiplo desse número teria os mesmos fatores com expoentes diferentes, assim os múltiplos de 30 seriam [2^0, 2^1, 2^2, 2^0x5, 2^1x5, 2^2x5] usando essa intuição podemos resolver o problema por combinatória, cada expoente pode aparece n vezes além de não aparecer na fatoração, ou seja, n+1 vezes. Utilizando o [principio multiplicativo](https://github.com/edsomjr/TEP/blob/master/Matematica/text/Permutacoes.md#princípio-multiplicativo) chegamos ao resultado: (exp1+1)x(exp2+1)x(exp3+1)x...x(exp_n+1).
-
-Uma variante deste código, semelhante ao código da fatoração, é dado abaixo:
-```C++
-long long number_of_divisors(int n)
-{
-    long long res = 0;
-
-    for (long long i = 1; i * i <= n; ++i)
-    {
-        if (n % i == 0)
-            res += (i == n/i ? 1 : 2);
-    }
-
-    return res;
-}
-```
-A primeira versão tem complexidade _O(sqrt(pi(n)))_, se a lista de primos já tiver sido 
-pré-computada. A segunda versão tem complexidade _O(sqrt(n))_, mas leva vantagem pela simplicidade
-e pelo fato de não exigir uma lista de primos.
-
-Soma dos Divisores
-------------------
-
-Um problema semelhantes ao anterior é determinar a soma de todos os divisores de _n_. Há dois
-algoritmos possíveis, variantes dos dois anteriores. O primeiro deles é baseado na fatoração,
-e é apresentado a seguir.
-```C++
-long long sum_of_divisors(int n, const vector<int>& primes)
-{
-    auto fs = factorization(n, primes);
-    long long res = 1;
-
-    for (const auto& f : fs)
-    {
-        int p = f.first;
-        int k = f.second + 1;
-
-        long long temp = 1;
-
-        while (k--)
-            temp *= p;
-
-        res *= (temp - 1)/(p - 1);
-    }
-
-    return res;
-}
-```
-
-Veja que, para cada fator _p^k_ da fatoração de _n_, o número de divisores é multiplicado
-por um fator _(p^{k + 1} - )/(p - 1)_. A segunda versão dispensa o número de primos:
-```C++
-long long number_of_divisors(int n)
-{
-    long long res = 0;
-
-    for (long long i = 1; i * i <= n; ++i)
-    {
-        if (n % i == 0)
-        {
-            int j = n / i;
-
-            res += (i == j ? i : i + j);
-    }
-
-    return res;
-}
-```
-
-Função Phi de Euler
--------------------
-
-A função Phi de Euler (`phi(n)`) retorna o número de inteiros positivos menores ou iguais a _n_ 
-que são coprimos com _n_. É fácil ver que `phi(1) = 1` e que `phi(p) = p - 1`, se `p` é primo.
-Menos óbvio são os fatos de que `phi(mn) = phi(m)phi(n)`, se (_m, n_) = 1 e que `phi(p^k) = 
-p^{k - 1}(p - 1)`. Este dois últimos fatos nos permitem computar o valor de `phi(n)` a partir
- da fatoração de _n_.
-```C++
-int phi(int n, const vector<int>& primes)
-{
-    if (n == 1)
-        return 1;
-
-    auto fs = factorization(n, primes);
-
-    int res = n;
-
-    for (const auto& f : fs)
-    {
-        int p = f.first;
-
-        res /= p;
-        res *= (p - 1);
-    }
-
-    return res;
-}
-```
-Se for preciso computar `phi(n)` para um intervalo de valores, o melhor a se fazer é usar 
-uma variante do crivo de Erastótenes, e a manipulação feita no código acima.
-```C++
-bitset<MAX> sieve;
-int phi[MAX];
-
-void precomp()
-{
-    for (int i = 1; i < MAX; ++i)
-        phi[i] = i;
-
-    sieve.set();
-
-    for (int p = 2; p < MAX; p += 2)
-        phi[p] /= 2;
-
-    for (long long p = 3; p < MAX; p += 2)
-    {
-        if (sieve[p])
-        {
-            for (long long j = p; j < MAX; j += p)
-            {
-                sieve[j] = false;
-                phi[j] /= p;
-                phi[j] *= (p - 1);
-            }
-        }
-    }
-}
-```
-
-Referências
------------
-
-PRIMES.UTM.EDU. [How Many Primes Are There?](https://primes.utm.edu/howmany.html). Acesso eme 08/11/2017.
-
-WIKIPEDIA. [Harmonic Number](https://en.wikipedia.org/wiki/Harmonic_number). Acesso em 08/11/2017.
-
-WIKIPEDIA. [Mertens' theorems](https://en.wikipedia.org/wiki/Mertens%27_theorems). Acesso eme 08/11/2017.
+1. **HALIM**, Felix; **HALIM**, Steve. _Competitive Programming 3_, 2010.
+1. **HEFEZ**, Abramo. [Aritmética](https://loja.sbm.org.br/index.php/aritmetica.html), Coleção PROFMAT, SBM, 2016.
+1. **LAAKSONEN**, Antti. _Competitive Programmer's Handbook_, 2018.
+1. **SKIENA**, Steven S.; **REVILLA**, Miguel A. _Programming Challenges_, 2003.

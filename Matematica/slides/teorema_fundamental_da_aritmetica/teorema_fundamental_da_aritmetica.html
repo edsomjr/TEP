@@ -204,150 +204,31 @@ M834 80h400000v40h-400000z'/></svg></span></span></span><span class="vlist-s">�
 </span></span></foreignObject></svg></code></pre>
 </section>
 </foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="14" data-background-color="black" data-color="lightGray" data-theme="gaia" data-heading-divider="2" style="--background-color:black;--color:lightGray;--theme:gaia;--heading-divider:2;color:lightGray;background-color:black;background-image:none;">
-<h2>Número de Divisores</h2>
-<p>A fatoração de um número <em>n</em> também permite computar o número de divisores deste número: basta<br />
-fazer o produto de todos os expoentes da fatoração, somados cada um de uma unidade. Veja<br />
-o código abaixo.</p>
-<pre><code class="language-C++"><svg data-marp-fitting="svg" data-marp-fitting-code><foreignObject><span data-marp-fitting-svg-content><span data-marp-fitting-svg-content-wrap><span class="hljs-function"><span class="hljs-keyword">long</span> <span class="hljs-keyword">long</span> <span class="hljs-title">number_of_divisors</span><span class="hljs-params">(<span class="hljs-keyword">int</span> n, <span class="hljs-keyword">const</span> <span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt;&amp; primes)</span>
-</span>{
-    <span class="hljs-keyword">auto</span> fs = factorization(n, primes);
-    <span class="hljs-keyword">long</span> <span class="hljs-keyword">long</span> res = <span class="hljs-number">1</span>;
-
-    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">const</span> <span class="hljs-keyword">auto</span>&amp; f : fs)
-    {
-        <span class="hljs-keyword">int</span> k = f.second;
-
-        res *= (k + <span class="hljs-number">1</span>);
-    }
-
-    <span class="hljs-keyword">return</span> res;
-}
-</span></span></foreignObject></svg></code></pre>
-<p>Intuitivamente, imagine que temos uma fatoração prima de um número por exemplo fat(30) = 2^2*5. Qualquer múltiplo desse número teria os mesmos fatores com expoentes diferentes, assim os múltiplos de 30 seriam [2^0, 2^1, 2^2, 2^0x5, 2^1x5, 2^2x5] usando essa intuição podemos resolver o problema por combinatória, cada expoente pode aparece n vezes além de não aparecer na fatoração, ou seja, n+1 vezes. Utilizando o <a href="https://github.com/edsomjr/TEP/blob/master/Matematica/text/Permutacoes.md#princ%C3%ADpio-multiplicativo">principio multiplicativo</a> chegamos ao resultado: (exp1+1)x(exp2+1)x(exp3+1)x...x(exp_n+1).</p>
-<p>Uma variante deste código, semelhante ao código da fatoração, é dado abaixo:</p>
-<pre><code class="language-C++"><svg data-marp-fitting="svg" data-marp-fitting-code><foreignObject><span data-marp-fitting-svg-content><span data-marp-fitting-svg-content-wrap><span class="hljs-function"><span class="hljs-keyword">long</span> <span class="hljs-keyword">long</span> <span class="hljs-title">number_of_divisors</span><span class="hljs-params">(<span class="hljs-keyword">int</span> n)</span>
-</span>{
-    <span class="hljs-keyword">long</span> <span class="hljs-keyword">long</span> res = <span class="hljs-number">0</span>;
-
-    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">long</span> <span class="hljs-keyword">long</span> i = <span class="hljs-number">1</span>; i * i &lt;= n; ++i)
-    {
-        <span class="hljs-keyword">if</span> (n % i == <span class="hljs-number">0</span>)
-            res += (i == n/i ? <span class="hljs-number">1</span> : <span class="hljs-number">2</span>);
-    }
-
-    <span class="hljs-keyword">return</span> res;
-}
-</span></span></foreignObject></svg></code></pre>
-<p>A primeira versão tem complexidade <em>O(sqrt(pi(n)))</em>, se a lista de primos já tiver sido<br />
-pré-computada. A segunda versão tem complexidade <em>O(sqrt(n))</em>, mas leva vantagem pela simplicidade<br />
-e pelo fato de não exigir uma lista de primos.</p>
+<h2>Problemas</h2>
+<ol>
+<li>AtCoder
+<ol>
+<li><a href="https://atcoder.jp/contests/abc109/tasks/abc109_c">ABC 109C - Skip</a></li>
+<li><a href="https://atcoder.jp/contests/abc118/tasks/abc118_c">ABC 118C - Monsters Battle Royale</a></li>
+<li><a href="https://atcoder.jp/contests/abc120/tasks/abc120_b">ABC 120B - K-th Common Divisor</a></li>
+<li><a href="https://atcoder.jp/contests/abc148/tasks/abc148_e">ABC 148E - Double Factorial</a></li>
+</ol>
+</li>
+<li>Codeforces
+<ol>
+<li><a href="https://codeforces.com/problemset/problem/515/C">515C - Drazil and Factorial</a></li>
+</ol>
+</li>
+</ol>
 </section>
 </foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="15" data-background-color="black" data-color="lightGray" data-theme="gaia" data-heading-divider="2" style="--background-color:black;--color:lightGray;--theme:gaia;--heading-divider:2;color:lightGray;background-color:black;background-image:none;">
-<h2>Soma dos Divisores</h2>
-<p>Um problema semelhantes ao anterior é determinar a soma de todos os divisores de <em>n</em>. Há dois<br />
-algoritmos possíveis, variantes dos dois anteriores. O primeiro deles é baseado na fatoração,<br />
-e é apresentado a seguir.</p>
-<pre><code class="language-C++"><svg data-marp-fitting="svg" data-marp-fitting-code><foreignObject><span data-marp-fitting-svg-content><span data-marp-fitting-svg-content-wrap><span class="hljs-function"><span class="hljs-keyword">long</span> <span class="hljs-keyword">long</span> <span class="hljs-title">sum_of_divisors</span><span class="hljs-params">(<span class="hljs-keyword">int</span> n, <span class="hljs-keyword">const</span> <span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt;&amp; primes)</span>
-</span>{
-    <span class="hljs-keyword">auto</span> fs = factorization(n, primes);
-    <span class="hljs-keyword">long</span> <span class="hljs-keyword">long</span> res = <span class="hljs-number">1</span>;
-
-    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">const</span> <span class="hljs-keyword">auto</span>&amp; f : fs)
-    {
-        <span class="hljs-keyword">int</span> p = f.first;
-        <span class="hljs-keyword">int</span> k = f.second + <span class="hljs-number">1</span>;
-
-        <span class="hljs-keyword">long</span> <span class="hljs-keyword">long</span> temp = <span class="hljs-number">1</span>;
-
-        <span class="hljs-keyword">while</span> (k--)
-            temp *= p;
-
-        res *= (temp - <span class="hljs-number">1</span>)/(p - <span class="hljs-number">1</span>);
-    }
-
-    <span class="hljs-keyword">return</span> res;
-}
-</span></span></foreignObject></svg></code></pre>
-<p>Veja que, para cada fator <em>p^k</em> da fatoração de <em>n</em>, o número de divisores é multiplicado<br />
-por um fator <em>(p^{k + 1} - )/(p - 1)</em>. A segunda versão dispensa o número de primos:</p>
-<pre><code class="language-C++"><svg data-marp-fitting="svg" data-marp-fitting-code><foreignObject><span data-marp-fitting-svg-content><span data-marp-fitting-svg-content-wrap><span class="hljs-function"><span class="hljs-keyword">long</span> <span class="hljs-keyword">long</span> <span class="hljs-title">number_of_divisors</span><span class="hljs-params">(<span class="hljs-keyword">int</span> n)</span>
-</span>{
-    <span class="hljs-keyword">long</span> <span class="hljs-keyword">long</span> res = <span class="hljs-number">0</span>;
-
-    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">long</span> <span class="hljs-keyword">long</span> i = <span class="hljs-number">1</span>; i * i &lt;= n; ++i)
-    {
-        <span class="hljs-keyword">if</span> (n % i == <span class="hljs-number">0</span>)
-        {
-            <span class="hljs-keyword">int</span> j = n / i;
-
-            res += (i == j ? i : i + j);
-    }
-
-    <span class="hljs-keyword">return</span> res;
-}
-</span></span></foreignObject></svg></code></pre>
-</section>
-</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="16" data-background-color="black" data-color="lightGray" data-theme="gaia" data-heading-divider="2" style="--background-color:black;--color:lightGray;--theme:gaia;--heading-divider:2;color:lightGray;background-color:black;background-image:none;">
-<h2>Função Phi de Euler</h2>
-<p>A função Phi de Euler (<code>phi(n)</code>) retorna o número de inteiros positivos menores ou iguais a <em>n</em><br />
-que são coprimos com <em>n</em>. É fácil ver que <code>phi(1) = 1</code> e que <code>phi(p) = p - 1</code>, se <code>p</code> é primo.<br />
-Menos óbvio são os fatos de que <code>phi(mn) = phi(m)phi(n)</code>, se (<em>m, n</em>) = 1 e que <code>phi(p^k) =  p^{k - 1}(p - 1)</code>. Este dois últimos fatos nos permitem computar o valor de <code>phi(n)</code> a partir<br />
-da fatoração de <em>n</em>.</p>
-<pre><code class="language-C++"><svg data-marp-fitting="svg" data-marp-fitting-code><foreignObject><span data-marp-fitting-svg-content><span data-marp-fitting-svg-content-wrap><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">phi</span><span class="hljs-params">(<span class="hljs-keyword">int</span> n, <span class="hljs-keyword">const</span> <span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt;&amp; primes)</span>
-</span>{
-    <span class="hljs-keyword">if</span> (n == <span class="hljs-number">1</span>)
-        <span class="hljs-keyword">return</span> <span class="hljs-number">1</span>;
-
-    <span class="hljs-keyword">auto</span> fs = factorization(n, primes);
-
-    <span class="hljs-keyword">int</span> res = n;
-
-    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">const</span> <span class="hljs-keyword">auto</span>&amp; f : fs)
-    {
-        <span class="hljs-keyword">int</span> p = f.first;
-
-        res /= p;
-        res *= (p - <span class="hljs-number">1</span>);
-    }
-
-    <span class="hljs-keyword">return</span> res;
-}
-</span></span></foreignObject></svg></code></pre>
-<p>Se for preciso computar <code>phi(n)</code> para um intervalo de valores, o melhor a se fazer é usar<br />
-uma variante do crivo de Erastótenes, e a manipulação feita no código acima.</p>
-<pre><code class="language-C++"><svg data-marp-fitting="svg" data-marp-fitting-code><foreignObject><span data-marp-fitting-svg-content><span data-marp-fitting-svg-content-wrap><span class="hljs-built_in">bitset</span>&lt;MAX&gt; sieve;
-<span class="hljs-keyword">int</span> phi[MAX];
-
-<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">precomp</span><span class="hljs-params">()</span>
-</span>{
-    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">1</span>; i &lt; MAX; ++i)
-        phi[i] = i;
-
-    sieve.<span class="hljs-built_in">set</span>();
-
-    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> p = <span class="hljs-number">2</span>; p &lt; MAX; p += <span class="hljs-number">2</span>)
-        phi[p] /= <span class="hljs-number">2</span>;
-
-    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">long</span> <span class="hljs-keyword">long</span> p = <span class="hljs-number">3</span>; p &lt; MAX; p += <span class="hljs-number">2</span>)
-    {
-        <span class="hljs-keyword">if</span> (sieve[p])
-        {
-            <span class="hljs-keyword">for</span> (<span class="hljs-keyword">long</span> <span class="hljs-keyword">long</span> j = p; j &lt; MAX; j += p)
-            {
-                sieve[j] = <span class="hljs-literal">false</span>;
-                phi[j] /= p;
-                phi[j] *= (p - <span class="hljs-number">1</span>);
-            }
-        }
-    }
-}
-</span></span></foreignObject></svg></code></pre>
-</section>
-</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="17" data-background-color="black" data-color="lightGray" data-theme="gaia" data-heading-divider="2" style="--background-color:black;--color:lightGray;--theme:gaia;--heading-divider:2;color:lightGray;background-color:black;background-image:none;">
 <h2>Referências</h2>
-<p><a href="http://PRIMES.UTM.EDU">PRIMES.UTM.EDU</a>. <a href="https://primes.utm.edu/howmany.html">How Many Primes Are There?</a>. Acesso eme 08/11/2017.</p>
-<p>WIKIPEDIA. <a href="https://en.wikipedia.org/wiki/Harmonic_number">Harmonic Number</a>. Acesso em 08/11/2017.</p>
-<p>WIKIPEDIA. <a href="https://en.wikipedia.org/wiki/Mertens%27_theorems">Mertens' theorems</a>. Acesso eme 08/11/2017.</p>
+<ol>
+<li><strong>HALIM</strong>, Felix; <strong>HALIM</strong>, Steve. <em>Competitive Programming 3</em>, 2010.</li>
+<li><strong>HEFEZ</strong>, Abramo. <a href="https://loja.sbm.org.br/index.php/aritmetica.html">Aritmética</a>, Coleção PROFMAT, SBM, 2016.</li>
+<li><strong>LAAKSONEN</strong>, Antti. <em>Competitive Programmer's Handbook</em>, 2018.</li>
+<li><strong>SKIENA</strong>, Steven S.; <strong>REVILLA</strong>, Miguel A. <em>Programming Challenges</em>, 2003.</li>
+</ol>
 </section>
 <script>!function(){"use strict";const t="marpitSVGPolyfill:setZoomFactor,",e=Symbol();let r,o;function n(n){const i="object"==typeof n&&n.target||document,a="object"==typeof n?n.zoom:n;window[e]||(Object.defineProperty(window,e,{configurable:!0,value:!0}),window.addEventListener("message",(({data:e,origin:r})=>{if(r===window.origin)try{if(e&&"string"==typeof e&&e.startsWith(t)){const[,t]=e.split(","),r=Number.parseFloat(t);Number.isNaN(r)||(o=r)}}catch(t){console.error(t)}})));let l=!1;Array.from(i.querySelectorAll("svg[data-marpit-svg]"),(t=>{var e,n,i,s;t.style.transform||(t.style.transform="translateZ(0)");const c=a||o||t.currentScale||1;r!==c&&(r=c,l=c);const d=t.getBoundingClientRect(),{length:u}=t.children;for(let r=0;r<u;r+=1){const o=t.children[r],a=o.getScreenCTM();if(a){const t=null!==(n=null===(e=o.x)||void 0===e?void 0:e.baseVal.value)&&void 0!==n?n:0,r=null!==(s=null===(i=o.y)||void 0===i?void 0:i.baseVal.value)&&void 0!==s?s:0,l=o.firstChild,{style:u}=l;u.transformOrigin||(u.transformOrigin=`${-t}px ${-r}px`),u.transform=`scale(${c}) matrix(${a.a}, ${a.b}, ${a.c}, ${a.d}, ${a.e-d.left}, ${a.f-d.top}) translateZ(0.0001px)`}}})),!1!==l&&Array.from(i.querySelectorAll("iframe"),(({contentWindow:e})=>{null==e||e.postMessage(`${t}${l}`,"null"===window.origin?"*":window.origin)}))}r=1,o=void 0;const i=(t,e,r)=>{if(t.getAttribute(e)!==r)return t.setAttribute(e,r),!0};function a({once:t=!1,target:e=document}={}){const r="Apple Computer, Inc."===navigator.vendor?[n]:[];let o=!t;const a=()=>{for(const t of r)t({target:e});!function(t=document){Array.from(t.querySelectorAll('svg[data-marp-fitting="svg"]'),(t=>{var e;const r=t.firstChild,o=r.firstChild,{scrollWidth:n,scrollHeight:a}=o;let l,s=1;if(t.hasAttribute("data-marp-fitting-code")&&(l=null===(e=t.parentElement)||void 0===e?void 0:e.parentElement),t.hasAttribute("data-marp-fitting-math")&&(l=t.parentElement),l){const t=getComputedStyle(l),e=Math.ceil(l.clientWidth-parseFloat(t.paddingLeft||"0")-parseFloat(t.paddingRight||"0"));e&&(s=e)}const c=Math.max(n,s),d=Math.max(a,1),u=`0 0 ${c} ${d}`;i(r,"width",`${c}`),i(r,"height",`${d}`),i(t,"preserveAspectRatio",getComputedStyle(t).getPropertyValue("--preserve-aspect-ratio")||"xMinYMin meet"),i(t,"viewBox",u)&&t.classList.toggle("__reflow__")}))}(e),o&&window.requestAnimationFrame(a)};return a(),()=>{o=!1}}const l=Symbol(),s=document.currentScript;((t=document)=>{if("undefined"==typeof window)throw new Error("Marp Core's browser script is valid only in browser context.");if(t[l])return t[l];const e=a({target:t}),r=()=>{e(),delete t[l]};Object.defineProperty(t,l,{configurable:!0,value:r})})(s?s.getRootNode():document)}();
 </script></foreignObject></svg></div><script>!function(){"use strict";var e=function(e,t){var n,r=1===(e.parent||e).nodeType?e.parent||e:document.querySelector(e.parent||e),s=[].filter.call("string"==typeof e.slides?r.querySelectorAll(e.slides):e.slides||r.children,(function(e){return"SCRIPT"!==e.nodeName})),a={},i=function(e,t){return(t=t||{}).index=s.indexOf(e),t.slide=e,t},o=function(e,t){a[e]=(a[e]||[]).filter((function(e){return e!==t}))},l=function(e,t){return(a[e]||[]).reduce((function(e,n){return e&&!1!==n(t)}),!0)},c=function(e,t){s[e]&&(n&&l("deactivate",i(n,t)),n=s[e],l("activate",i(n,t)))},d=function(e,t){var r=s.indexOf(n)+e;l(e>0?"next":"prev",i(n,t))&&c(r,t)},u={off:o,on:function(e,t){return(a[e]||(a[e]=[])).push(t),o.bind(null,e,t)},fire:l,slide:function(e,t){if(!arguments.length)return s.indexOf(n);l("slide",i(s[e],t))&&c(e,t)},next:d.bind(null,1),prev:d.bind(null,-1),parent:r,slides:s,destroy:function(e){l("destroy",i(n,e)),a={}}};return(t||[]).forEach((function(e){e(u)})),n||c(0),u};function t(e){e.parent.classList.add("bespoke-marp-parent"),e.slides.forEach((e=>e.classList.add("bespoke-marp-slide"))),e.on("activate",(t=>{const n=t.slide,r=!n.classList.contains("bespoke-marp-active");e.slides.forEach((e=>{e.classList.remove("bespoke-marp-active"),e.setAttribute("aria-hidden","true")})),n.classList.add("bespoke-marp-active"),n.removeAttribute("aria-hidden"),r&&(n.classList.add("bespoke-marp-active-ready"),document.body.clientHeight,n.classList.remove("bespoke-marp-active-ready"))}))}function n(e){let t=0,n=0;Object.defineProperty(e,"fragments",{enumerable:!0,value:e.slides.map((e=>[null,...e.querySelectorAll("[data-marpit-fragment]")]))});const r=r=>void 0!==e.fragments[t][n+r],s=(r,s)=>{t=r,n=s,e.fragments.forEach(((e,t)=>{e.forEach(((e,n)=>{if(null==e)return;const a=t<r||t===r&&n<=s;e.setAttribute("data-bespoke-marp-fragment",a?"active":"inactive"),t===r&&n===s?e.setAttribute("data-bespoke-marp-current-fragment","current"):e.removeAttribute("data-bespoke-marp-current-fragment")}))})),e.fragmentIndex=s;const a={slide:e.slides[r],index:r,fragments:e.fragments[r],fragmentIndex:s};e.fire("fragment",a)};e.on("next",(({fragment:a=!0})=>{if(a){if(r(1))return s(t,n+1),!1;const a=t+1;e.fragments[a]&&s(a,0)}else{const r=e.fragments[t].length;if(n+1<r)return s(t,r-1),!1;const a=e.fragments[t+1];a&&s(t+1,a.length-1)}})),e.on("prev",(({fragment:a=!0})=>{if(r(-1)&&a)return s(t,n-1),!1;const i=t-1;e.fragments[i]&&s(i,e.fragments[i].length-1)})),e.on("slide",(({index:t,fragment:n})=>{let r=0;if(void 0!==n){const s=e.fragments[t];if(s){const{length:e}=s;r=-1===n?e-1:Math.min(Math.max(n,0),e-1)}}s(t,r)})),s(0,0)}
