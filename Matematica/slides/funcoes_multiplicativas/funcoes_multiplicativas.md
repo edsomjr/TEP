@@ -105,21 +105,74 @@ long long number_of_divisors(long long n)
 ```
 ## Soma dos Divisores
 
-Um problema semelhantes ao anterior é determinar a soma de todos os divisores de _n_. Há dois
-algoritmos possíveis, variantes dos dois anteriores. O primeiro deles é baseado na fatoração,
-e é apresentado a seguir.
+Seja $n$ um inteiro positivo. A função $\sigma(n)$ retorna a soma dos divisores positivos de $n$.
+
+## Caracterização dos divisores de $n = ab$
+
+- Sejam $a$ e $b$ dois inteiros positivos tais que $(a, b) = 1$ e $n = ab$
+
+- Se $c$ e $d$ são divisores positivos de $a$ e $b$, respectivamente, então $cd$ divide $n$
+
+- Por outro lado, se $k$ divide $n$ e $d = (k, a)$, então
+$$
+    k = d\left(\frac{k}{d}\right)
+$$
+
+
+## Caracterização dos divisores de $n = ab$
+
+- Como $d = (k, a)$, em particular $d$ divide $a$
+
+- Uma vez que $(k/d, a) = 1$ e $k$ divide $n = ab$, então $k/d$ divide $b$
+
+- Isso mostra que qualquer divisor $c = d_ie_j$ de $n$ será o produto de um divisor $d_i$ de $a$ por um divisor $e_j$ de $b$
+
+## Cálculo de $\sigma(n)$
+
+- Da caracterização anterior segue que
+$$
+    \sigma(n) = \sum_{i = 1}^r \sum_{j = 1}^s d_ie_j
+$$
+- Daí,
+$$
+    \sigma(n) = d_1e_1 + \ldots + d_1e_s + d_2e_1 + \ldots + d_2e_s + \ldots + d_re_1 + \ldots + d_re_s
+$$
+
+## Cálculo de $\sigma(n)$
+
+- Esta expressão pode ser reescrita como
+$$
+    \sigma(n) = (d_1 + d_2 + \ldots + d_r)(e_1 + e_2 + \ldots + e_s)
+$$
+
+- Portanto
+$$
+    \sigma(n) = \sigma(ab) = \sigma(a)\sigma(b)
+$$
+
+- Como $\sigma(1) = 1$, a função $\sigma(n)$ é multiplicativa
+
+## Cálculo de $\sigma(n)$
+
+- Deste modo, para se computar $\sigma(n)$ basta saber o valor de $\sigma(p^k)$ para um primo $k$ e um inteiro positivo $k$
+
+- O divisores de $p^k$ são as potências $p^i$, para $i\in [0, k]$
+
+- Logo
+$$
+    \sigma(p^k) = 1 + p + p^2 + \ldots + p^k = \left(\frac{p^{k + 1} - 1}{p - 1}\right)
+$$
+
+## Implementação de $\sigma(n)$ em C++
 ```C++
 long long sum_of_divisors(int n, const vector<int>& primes)
 {
     auto fs = factorization(n, primes);
     long long res = 1;
 
-    for (const auto& f : fs)
+    for (auto [p, k] : fs)
     {
-        int p = f.first;
-        int k = f.second + 1;
-
-        long long temp = 1;
+        long long temp = p;
 
         while (k--)
             temp *= p;
@@ -131,10 +184,18 @@ long long sum_of_divisors(int n, const vector<int>& primes)
 }
 ```
 
-Veja que, para cada fator _p^k_ da fatoração de _n_, o número de divisores é multiplicado
-por um fator _(p^{k + 1} - )/(p - 1)_. A segunda versão dispensa o número de primos:
+## Cálculo de $\sigma(n)$ em competições
+
+- De forma semelhante à função $\tau(n)$, é possível computar $\sigma(n)$ sem necessariamente fatorar $n$
+
+- A estratégia é a mesma: listar os divisores de $n$, por meio de uma busca completa até $\sqrt{n}$, e totalizar os divisores encontrados
+
+- Esta rotina tem complexidade $O(\sqrt{n})$
+
+## Cálculo de $\sigma(n)$ sem fatorar $n$
+
 ```C++
-long long number_of_divisors(int n)
+long long number_of_divisors(long long n)
 {
     long long res = 0;
 
@@ -145,20 +206,54 @@ long long number_of_divisors(int n)
             int j = n / i;
 
             res += (i == j ? i : i + j);
+        }
     }
 
     return res;
 }
 ```
 
-Função Phi de Euler
--------------------
+## Função $\varphi$ de Euler
 
-A função Phi de Euler (`phi(n)`) retorna o número de inteiros positivos menores ou iguais a _n_ 
-que são coprimos com _n_. É fácil ver que `phi(1) = 1` e que `phi(p) = p - 1`, se `p` é primo.
-Menos óbvio são os fatos de que `phi(mn) = phi(m)phi(n)`, se (_m, n_) = 1 e que `phi(p^k) = 
-p^{k - 1}(p - 1)`. Este dois últimos fatos nos permitem computar o valor de `phi(n)` a partir
- da fatoração de _n_.
+A função $\varphi(n)$ de Euler retorna o número de inteiros positivos menores ou iguais a $n$ que são coprimos com $n$.
+
+## Cálculo de $\varphi(n)$
+
+- É fácil ver que $\varphi(1) = 1$ e que $\varphi(p) = p - 1$, se $p$ é primo
+
+- A prova que $\varphi(mn) = \varphi(m)\varphi(n)$ se $(a, b) = 1$ não é trivial (uma prova possível utiliza os conceitos de sistemas reduzidos de resíduos)
+
+- Assim, $\varphi(n)$ é uma função multiplicativa
+
+- Para $p$ primo e $k$ inteiro positivo, no intervalo $[1, p^k]$ apenas os múltiplos de $p$ não são coprimos como $p$
+
+## Cálculo de $\varphi(n)$
+
+- Os múltiplos de $p$ são
+$$
+    p, 2p, 3p, \ldots, p^k
+$$
+
+- Observe que $p^k = p\times p^{k - 1}$
+
+- Assim são $p^{k - 1}$ múltiplos de $p$ em $[1, p^k]$ e portanto
+$$
+    \varphi(p^k) = p^k - p^{k - 1} = p^{k - 1}(p - 1)
+$$
+
+## Cálculo de $\varphi(n)$
+
+- Seja $n$ um inteiro positivo tal que
+$$
+    n = p_1^{\alpha_1}p_2^{\alpha_2}\ldots p_k^{\alpha_k}
+$$
+
+- O valor de $\varphi(n)$ será dado por
+$$
+    \varphi(n) = \prod_{i = 1}^k p_i^{\alpha_i - 1}\left(p_i - 1\right) = n \prod_{i = 1}^k \left(1 - \frac{1}{p_i}\right)
+$$
+
+## Implementação de $\varphi(n)$ em C++
 ```C++
 int phi(int n, const vector<int>& primes)
 {
@@ -166,13 +261,10 @@ int phi(int n, const vector<int>& primes)
         return 1;
 
     auto fs = factorization(n, primes);
+    auto res = n;
 
-    int res = n;
-
-    for (const auto& f : fs)
+    for (auto [p, k] : fs)
     {
-        int p = f.first;
-
         res /= p;
         res *= (p - 1);
     }
@@ -180,39 +272,50 @@ int phi(int n, const vector<int>& primes)
     return res;
 }
 ```
-Se for preciso computar `phi(n)` para um intervalo de valores, o melhor a se fazer é usar 
-uma variante do crivo de Erastótenes, e a manipulação feita no código acima.
+
+## Cálculo de $\varphi$ em $[1, n]$
+
+- É possível computar $\varphi(k)$ para todos inteiros $k$ no intervalo $[1, n]$ em $O(n\log n)$
+
+- Para tal, basta utilizar uma versão modificada do crivo de Erastótenes
+
+- Inicialmente, `phi[k] = k`
+
+- Para todos os primos $p$, os múltiplos $i$ de $p$ devem ser atualizados de duas formas:
+    1. `phi[i] /= p`
+    1. `phi[i] *= (p - 1)`
+
+---
 ```C++
-bitset<MAX> sieve;
-int phi[MAX];
-
-void precomp()
+vector<int> range_phi(long long n)
 {
-    for (int i = 1; i < MAX; ++i)
-        phi[i] = i;
+    bitset<MAX> sieve;                      // MAX deve ser maior do que n
+    vector<int> phi(n + 1);
 
+    iota(phi.begin(), phi.end(), 0);
     sieve.set();
 
-    for (int p = 2; p < MAX; p += 2)
+    for (long long p = 2; p <= n; p += 2)
         phi[p] /= 2;
 
-    for (long long p = 3; p < MAX; p += 2)
-    {
-        if (sieve[p])
-        {
-            for (long long j = p; j < MAX; j += p)
-            {
+    for (long long p = 3; p <= n; p += 2) {
+        if (sieve[p]) {
+            for (long long j = p; j <= n; j += p) {
                 sieve[j] = false;
                 phi[j] /= p;
                 phi[j] *= (p - 1);
             }
         }
     }
+
+    return phi;
 }
 ```
 
-Referências
------------
+## Problemas
+
+
+## Referências
 
 1. Mathematics LibreTexts. [4.2 Multiplicativa Number Theoretic Functions](https://math.libretexts.org/Bookshelves/Combinatorics_and_Discrete_Mathematics/Book%3A_Elementary_Number_Theory_(Raji)/04%3A_Multiplicative_Number_Theoretic_Functions/4.02%3A_Multiplicative_Number_Theoretic_Functions#:~:text=The%20number%20of%20divisors%20function%20%CF%84(n)%20is%20multiplicative.,pa22...). Acesso em 10/01/2021.
 
