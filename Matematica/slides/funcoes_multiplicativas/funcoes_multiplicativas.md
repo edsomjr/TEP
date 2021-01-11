@@ -314,6 +314,15 @@ vector<int> range_phi(long long n)
 
 ## Problemas
 
+- AtCoder
+    1. [ABC 114D - 756](https://atcoder.jp/contests/abc114/tasks/abc114_d)
+    1. [ABC 170D - Not Divisible](https://atcoder.jp/contests/abc170/tasks/abc170_d)
+- Codeforces
+    1. [837D - Round Subset](https://codeforces.com/problemset/problem/837/D)
+- OJ
+    1. [10299 - Relatives](http://onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&category=24&page=show_problem&problem=1240)
+    1. [12043 - Divisors](http://onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&category=24&page=show_problem&problem=3194)
+
 
 ## Referências
 

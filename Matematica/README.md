@@ -25,6 +25,7 @@ Matemática
 <!-- Separar a parte das equações diofantinas e inserir a parte soluções naturais (conjunto das lacunas) -->
     1. [Números Primos](slides/numeros_primos/numeros_primos.pdf)
     1. [Funções Multiplicativas](slides/funcoes_multiplicativas/funcoes_multiplicativas.pdf)
+<!-- Adicionar a função de Möbius -->
     1. [Aritmética Modular](text/Aritmetica_Modular.md)
 <!-- Adicionar o teste de Miller-Rabin para primalidade -->
 1. [Análise Combinatória](text/Combinatoria.md)
