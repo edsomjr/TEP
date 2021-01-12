@@ -28,8 +28,9 @@ Matemática
 <!-- Adicionar a função de Möbius -->
     1. [Aritmética Modular](text/Aritmetica_Modular.md)
 <!-- Adicionar o teste de Miller-Rabin para primalidade -->
-1. [Análise Combinatória](text/Combinatoria.md)
-    1. [Permutações, Arranjos e Combinações](text/Permutacoes.md)
+1. Análise Combinatória
+<!-- Adicionar texto sobre decomposição de permutações, ciclos, paridade de permutação, composição de permutações -->
+    1. [Permutações](slides/permutacoes/permutacoes.pdf)
     1. [Sequências Notáveis](text/Sequencias_Notaveis.md)
     1. [Princípio da Inclusão/Exclusão](text/Inclusao_Exclusao.md)
     1. [Funções Geradoras](text/Funcoes_Geradoras.md)
