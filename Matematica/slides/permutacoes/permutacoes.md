@@ -35,8 +35,7 @@ Faculdade UnB Gama
 
 ## Permutações
 
-Seja $A$ um conjunto com $n$ elementos distintos. Uma **permutação** consiste em um ordenação destes elementos tal que duas permutações são distintas se dois ou mais elementos 
-ocuparem posições distintas.
+Seja $A$ um conjunto com $n$ elementos distintos. Uma **permutação** consiste em um ordenação destes elementos tal que duas permutações são distintas se dois ou mais elementos ocuparem posições distintas.
 
 **Notação**: $P(n)$
 
@@ -59,6 +58,14 @@ $$
 $$
         P(n) = n \times (n - 1) \times (n - 2) \times ... \times 2 \times 1 = n!
 $$
+
+## Caracterização das permutações
+
+- Em combinatória é útil associar os conceitos de contagem à situações práticas e tentar encontrar soluções por analogia
+
+- As permutações, por exemplo, podem ser visualizadas como a retirada de $n$ bolas distintas de uma caixa, sem reposição
+
+- Veja que tanto as bolas quanto a ordem de retirada importam, no sentido que duas permutações são distintas se a ordem de alguma das bolas é diferente
 
 ## Permutações com repetição
 
