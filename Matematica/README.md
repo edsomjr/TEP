@@ -32,6 +32,7 @@ Matemática
 <!-- Adicionar texto sobre decomposição de permutações, ciclos, paridade de permutação, composição de permutações -->
     1. [Permutações](slides/permutacoes/permutacoes.pdf)
     1. [Arranjos](slides/arranjos/arranjos.pdf)
+    1. [Combinações](slides/combinacoes/combinacoes.pdf)
     1. [Sequências Notáveis](text/Sequencias_Notaveis.md)
     1. [Princípio da Inclusão/Exclusão](text/Inclusao_Exclusao.md)
     1. [Funções Geradoras](text/Funcoes_Geradoras.md)
