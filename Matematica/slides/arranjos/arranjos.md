@@ -145,6 +145,12 @@ long long dp(int k, int a, int b)
 ```
 
 ## Problemas
+
+1. AtCoder
+    1. [ABC 046B - Painting Balls with AtCoDeer](https://atcoder.jp/contests/abc046/tasks/abc046_b)
+    1. [ABC 159A - The Number of Even Pairs](https://atcoder.jp/contests/abc159/tasks/abc159_a)
+1. Codeforces
+    1. [630C - Lucky Numbers](https://codeforces.com/problemset/problem/630/C)
 1. OJ
     1. [11115 - Uncle Jack](https://onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&category=24&page=show_problem&problem=2056)
 
