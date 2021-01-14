@@ -42,6 +42,13 @@ $$
         C(n, p) = \frac{A(n, p)}{p!} = \frac{n!}{(n - p)!p!} = \binom{n}{p}
 $$
 
+## Caracterização das combinações
+
+- Assim como feito com as permutações e com os arranjos, as combinações também podem ser caracterizadas por meio de uma analogia com um sorteio de bolas
+
+- Neste sentido, uma combinação $C(n, p)$ corresponderia a retira de $p$ bolas dentre as $n$ bolas distintas contidas em uma caixa, sem reposição, onde a ordem das bolas não é relevante
+
+- Assim, as retiradas $123, 321$ e $213$, por exemplo, seriam todas consideradas uma mesma combinações, uma vez que a qualidade das bolas é a mesma, embora tenha sido retiradas em ordens distintas
 ## Coeficientes binomiais
 
 Sejam  $n$ e $p$ dois inteiros não-negativos tais que $n\geq p$. O coeficiente binomial é dado por
@@ -59,7 +66,7 @@ $$
 
 - Assim, é possível realizar os cancelamentos devidos antes de multiplicar os fatores restantes
 
-## Implementação dos binomais por cancelamento
+## Implementação dos binomiais por cancelamento
 
 ```C++
 long long binom(int n, int m, const vector<int>& primes)
@@ -98,7 +105,7 @@ long long binom(int n, int m, const vector<int>& primes)
 1  5 10 10  5  1
 ...
 ```
-- A observação cuidadosa deste triângulo permite definir os coeficientes binomais recursivamente
+- A observação cuidadosa deste triângulo permite definir os coeficientes binomiais recursivamente
 
 ## Definição recursiva dos coeficientes binomiais
 
@@ -157,141 +164,166 @@ long long binom(int n, int m)
 
 ## Propriedades dos coeficientes binomiais
 
-Uma propriedade dos binomiais, que pode ser utilizada para cortar o tamanho da tabela de
-binomiais pela metade, é a sua simetria:
+- Combinações complementares (permite a redução do espaço de memória em 50%):
+$$
+    \binom{n}{p} = \binom{n}{n - p}
+$$
 
-        binom[n][p] = binom[n][n - p]
+- Soma de uma linha (consequência da expansão do binômio $(1 + 1)^n$):
+$$
+    \binom{n}{0} + \binom{n}{1} + \ldots + \binom{n}{n} = 2^n
+$$
 
-Assim, basta computar a tabela até o valor _n_/2 e usar a simetria para os demais casos.
+## Propriedades dos coeficientes binomiais
 
+- Soma alternada de uma linha (consequência da expansão do binômio $(1 - 1)^n$):
+$$
+    \binom{n}{0} - \binom{n}{1} + \ldots + (-1)^n\binom{n}{n} = 0
+$$
 
+- Soma de uma coluna, com $n\geq p$ (_Hockey-Stick Identity_):
+$$
+    \binom{p}{p} + \binom{p + 1}{p} + \binom{p + 2}{p} + \ldots + \binom{n}{p} = \binom{n + 1}{p + 1}
+$$
 
-Os coeficientes binomiais possuem uma série de propriedades interessantes, que podem ser 
-úteis na solução de problemas de contagem. Abaixo listamos algumas delas.
+## Identidades úteis
 
-1. _C(n, 0) + C(n, 1) + C(n, 2) + ... + C(n, n) = 2^n_ (consequência da expansão do binômio (1 + 1)^_n_))
-1. _C(n, 0) - C(n, 1) + C(n, 2) - ... + (-1)^n C(n, n) = 0_ (consequência da expansão do binômio (1 - 1)^_n_))
-1. _C(p, p) + C(p, p + 1) + ... + C(p, p + n) = C(p + 1, p + n + 1)_ (consequência da propriedade _C(n + 1, p + 1) = C(n, p + 1) + C(n, p)_)
+- Soma de uma linha com coeficientes lineares:
+$$
+    \sum_{k = 0}^n k\binom{n}{k} = n2^{n - 1}
+$$
 
+- Soma de uma linha com coeficientes quadráticos:
+$$
+    \sum_{k = 0}^n k^2\binom{n}{k} = (n^2 + n)2^{n - 2}
+$$
 
+## Identidades úteis
 
-Aplicações
-----------
+- Soma dos quadrados dos coeficientes de uma linha:
+$$
+    \sum_{k = 0}^n \binom{n}{k}^2 = \binom{2n}{n}
+$$
 
-### Equações Lineares com Coeficientes Unitários
+- Se $F(n)$ é o $n$-ésimo número de Fibonacci, vale que
+$$
+    \sum_{k = 0}^{\lfloor \frac{n}{2}\rfloor} \binom{n - k}{k} = F(n + 1)
+$$
 
-Considere a equação linear dada por
+## Equações lineares com coeficientes unitários
 
-        x1 + x2 + ... + xr = n
+- Considere, para $r$ natural e $n$ inteiro, a equação linear dada por
+$$
+        x_1 + x_2 + \ldots + x_r = n
+$$
 
-com _r_ natural e _n_ inteiro. Quando as variáveis _xi_ pertencem aos reais, racionais ou 
-inteiros, a equação tem infinitas soluções. O número de soluções, porém, fica restrito, ou mesmo
-pode não haver solução, caso as variáveis estejam restritas aos inteiros positivos.
+- Quando as variáveis $x_i$ pertencem aos reais, racionais ou inteiros, a equação tem infinitas soluções
 
-De fato, se _n < r_, a equação não tem solução nos inteiros positivos. Para _n >= r_, escrevamos
-o valor _r_ como uma soma de uns:
+- O número de soluções, porém, fica restrito, ou mesmo pode não existir solução, caso as variáveis estejam restritas aos inteiros positivos
 
-        r = 1 + 1 + 1 + ... + 1
+## Barras e estrelas
 
-Podemos montar cada solução usando _r - 1_ barras verticais, posicionadas antes dos _n - 1_ 
-símbolos '+': a soma resultante à esquerda de cada uma das barras, e à direita da última, 
-corresponde aos valores das _n_ variáveis _xi_. Cada uma das soluções nos inteiros positivos
-corresponde a um posicionamento distinto das barras. Assim, o total de soluções é dado por
-_C(n - 1, r - 1)_, isto é, uma combinação das _r - 1_ barras nas _n - 1_ posições disponíveis.
+- De fato, se $n < r$, a equação não tem solução nos inteiros positivos
 
-Se permitirmos que as variáveis assumam também o valor zero, podemos encontrar o novo total de
-soluções através de uma mudança de variáveis. Faça _yi = xi - 1_. Assim, _xi = yi + 1_ e teremos
+- Para $n \geq r$, o valor $n$ pode ser escrito como
+$$
+        n = 1 + 1 + 1 + \ldots + 1
+$$
 
-        x1 + x2 + ... + xr = n,                             xi >= 0
-        (x1 + 1) + (x2 + 1) + ... + (xr + 1) = n + r
-        y1 + y2 + ... + yr = n + r,                         yi >= 1
+- Cada solução pode ser construída substituindo-se $r - 1$ dentre os símbolos `+` da soma anterior por barras verticais
 
-Assim, o número de soluções da equação original, restrito aos inteiros não-negativos, é dado por
-_C(n + r - 1, r - 1)_, ou sua combinação complementar, = _C(n + r - 1, n)_.
+- A soma resultante à esquerda de cada uma das barras, e à direita da última, corresponde aos valores das $r$ variáveis $x_i$
+
+- Esta estratégia é conhecida como barras e estrelas (_Stars and bars_)
+
+## Solução das equações lineares com coeficientes unitários restritas aos positivos
+
+- Cada uma das soluções nos inteiros positivos corresponde a um posicionamento distinto das barras
+
+- Assim, o total de soluções é dado por 
+$$
+    S = C(n - 1, r - 1) = \binom{n - 1}{r - 1}
+$$
+
+- Ou seja, basta tomar $r - 1$ dentre os $n - 1$ símbolos `+`
+
+## Equações lineares com coeficientes unitários restritas aos não-negativos
+
+- Caso as variáveis $x_i$ possam assumir também o valor zero, o novo total de soluções pode ser determinado por meio de uma mudança de variáveis
+
+- Considere a equação abaixo, com $r$ e $n$ positivos e $x_i\geq 0$:
+$$
+        x_1 + x_2 + \ldots + x_r = n
+$$
+- Fazendo $y_i = x_i + 1$, isto é, $x_i = y_i - 1$, obtém-se a equação equivalente
+$$
+        y_1 + y_2 + \ldots + y_r = n + r, \ \ \ \ y_i\geq 1
+$$
+
+## Solução das equações lineares com coeficientes unitários restritas aos não-negativos
+
+Assim, o número de soluções da equação original, restrito aos inteiros não-negativos, é dado por $C(n + r - 1, r - 1)$, ou sua combinação complementar, = $C(n + r - 1, n)$.
 
 Por exemplo,
+$$
+        x_1 + x_2 + x_3 = 10
+$$
+tem $C(10 - 1, 3 - 1) = C(9, 2) = 36$ soluções nos inteiros positivos, e $C(10 + 3 - 1, 3 - 1) = C(12, 2) = 66$ soluções nos inteiros não-negativos.
 
-        x1 + x2 + x3 = 10
+## Combinações com repetição
 
-tem _C(10 - 1, 3 - 1)_ = _C(9, 2)_ = 36 soluções nos inteiros positivos, e _C(10 + 3 - 1, 3 - 1)_
-= _C(12, 2)_ = 66 soluções nos inteiros não-negativos.
+Uma combinação com repetição de $n$ elementos distintos, tomados $p$ a $p$, é um escolha de $p$ objetos, dentre os $n$ possíveis, onde cada objeto pode ser escolhido até $p$ vezes.  
 
-### Combinações com repetição
+**Notação**: $CR(n, p)$
 
-Uma combinação com repetição de _n_ elementos distintos, tomados _p_ a _p_, é uma escolha de _p_ 
-dentre os _n_, é um escolha de p objetos, dentre os _n_ possíveis, onde cada objeto pode ser
-escolhido até _p_ vezes.
+## Cálculo de $CR(n, p)$
 
-O total _CR(n, p)_ de combinações com repetições pode ser determinado a partir do seguinte
-raciocínio: seja _xi_ a quantidade de vezes que o objeto _i_ foi escolhido, com 0 &8804; _xi_
-&8804; _p_). Então o número de combinações com repetição de _n_ elementos tomados _p_ a _p_ será
-igual ao número de soluções da equação
+- Seja $x_i$ a quantidade de vezes que o objeto $i$ foi escolhido em uma combinação, com $0 \leq x_i\leq p$
 
-        x1 + x2 + ... + xn = p,
+- Então o número de combinações com repetição de $n$ elementos tomados $p$ a $p$ será igual ao número de soluções da equação
+$$
+    x_1 + x_2 + \ldots + x_n = p
+$$
 
-isto é,
+- Conforme visto anteriormente,
+$$
+    CR(n, p) = C(p + n - 1, n - 1) = C(p + n - 1, p)
+$$
 
-        CR(n, p) = C(p + n - 1, n - 1) = C(p + n - 1, p)
+## Caracterização das combinações com repetições
 
+- A combinação com repetição é o primeiro de quatro problemas fundamentais de contagem
 
-### Permutações com repetição
+- Estes problemas tratam da questão de se distribuir $n$ bolas em $p$ caixas
 
-Um permutação com repetição consiste em uma ordenação de _n_ elementos, não necessariamente
-distintos. Se há _k_ elementos distintos, e cada um deles ocorre _ni_ vezes (com i = 1, 2, ...,
-_k_), de forma que _n1 + n2 + ... + nk_ = _n_, temos que o número de permutações com repetição
-será igual a 
+- Na combinação com repetições, as $n$ bolas são idênticas e as $p$ caixas são distintas
 
-        PR(n; n1, n2, ..., nk) = n!/(n1!n2!...nk!)
+- Observe que, nesta analogia, uma ou mais caixas podem ficar vazias ($x_i\geq 0$)
 
-Os fatores no denominador compensam as possíves duplicatas nas permutações devido a repetição de
-um ou mais elementos. Veja que se _ni = 1_, para todo valor de _i_, então
-
-        PR(n; 1, 1, ..., 1) = n!/(1!1!....1!) = n! = P(n)
-
-### Arranjos com repetição
-
-
-Um arranjo com repetição de _n_ elementos, tomados _p_ a _p_, tomado até _p_ vezes, é uma 
-ordenação destes elementos onde cada elemento pode aparecer até _p_ vezes.
-
-Se _AR(n,p)_ é o total de arranjos com repetição de _n_ elementos, tomados _p_ a _p_, o 
-princípio multiplicativo nos diz que há, para cada posição, _n_ escolhas. Como há _p_ posições a
-serem preenchidas, temos que
-
-        AR(n, p) = n x n x ... x n = n^r
-
-Observe que a técnica da exponenciação rápida pode ser utilizada para determinar o valor de
-_AR(n, p)_.
-
-### Permutações circulares
-
-Se, em uma permutação, os objetos devem ser dispostos em uma formação circular, sem uma marcação
-clara de início de fim, algumas permutações se tornam idênticas, a menos de uma rotação. Para
-discernir apenas as permutações que não podem ser geradas a partir de rotações das demais,
-é preciso fixar um elemento em uma dada posição, e permutar os demais nas posições restantes.
-
-Deste modo, o total de permutações circulares de _n_ elementos distintos é dado por
-
-        PC(n) = P(n - 1) = (n - 1)!
-
-
-Exercícios
-----------
+## Problemas
 
 <!-- 10219 - Combinações -->
 <!-- 11115 - Arranjo com repetição -->
 <!-- 11401 - Combinações com restrições, DP -->
 <!-- 11955 - Binômios -->
 
-1. UVA
-    1. [10219 - Find the ways!](https://uva.onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&category=24&page=show_problem&problem=1160)
-    1. [11115 - Uncle Jack](https://uva.onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&category=24&page=show_problem&problem=2056)
-    1. [11401 - Triangle Counting](https://uva.onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&category=24&page=show_problem&problem=2396)
-    1. [11955 - Binomial Theorem](https://uva.onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&category=24&page=show_problem&problem=3106)
+- AtCoder
+    1. [ABC 094D - Binomial Coefficients](https://atcoder.jp/contests/abc094/tasks/arc095_b)
+    1. [ABC 132D - Blue and Red Balls](https://atcoder.jp/contests/abc132/tasks/abc132_d)
+- Codeforces
+    1. [478B - Random Teams](https://codeforces.com/problemset/problem/478/B)
+- OJ
+    1. [10219 - Find the ways!](https://onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&category=24&page=show_problem&problem=1160)
+    1. [11955 - Binomial Theorem](https://onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&category=24&page=show_problem&problem=3106)
 
-Referências
------------
+## Referências
 
-SANTOS, José Plínio O., MELLO, Margarida P., MURARI, Idani T. [Introdução à Análise Combinatória](http://www.vestseller.com.br/matematica/introduc-o-a-analise-combinatoria-jose-plinio-margarida-mello-idani-murari), Editora Ciência Moderna, 2007.
+1. GeeksForGeeks. [Dinamic Programming Binomial Coeficient](http://www.geeksforgeeks.org/dynamic-programming-set-9-binomial-coefficient/). Acesso em 14/01/2021.
 
-Dinamic Programming Binomial Coeficient:[Geeks for Geeks](http://www.geeksforgeeks.org/dynamic-programming-set-9-binomial-coefficient/)
+1. **SANTOS**, José Plínio O., **MELLO**, Margarida P., **MURARI**, Idani T. _Introdução à Análise Combinatória_, Editora Ciência Moderna, 2007.
+
+1. Wikipédia. [Binomial coefficient](https://en.wikipedia.org/wiki/Binomial_coefficient). Acesso em 14/01/2021.
+
+1. Wikipédia. [Hockey-stick identity](https://en.wikipedia.org/wiki/Hockey-stick_identity). Acesso em 14/01/2021.
+
+1. Wikipédia. [Stars and bars](https://en.wikipedia.org/wiki/Stars_and_bars_(combinatorics)). Acesso em 14/01/2021.
