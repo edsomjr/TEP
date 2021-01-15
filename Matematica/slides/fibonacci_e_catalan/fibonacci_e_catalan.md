@@ -18,7 +18,7 @@ headingDivider: 2
 <!-- _class: lead -->
 # Matemática
 
-*__Números Notáveis__*
+*__Números de Fibonacci e Catalan__*
 
 Prof. Edson Alves
 Faculdade UnB Gama
