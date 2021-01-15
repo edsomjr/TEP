@@ -33,7 +33,7 @@ Matemática
     1. [Permutações](slides/permutacoes/permutacoes.pdf)
     1. [Arranjos](slides/arranjos/arranjos.pdf)
     1. [Combinações](slides/combinacoes/combinacoes.pdf)
-    1. [Sequências Notáveis](text/Sequencias_Notaveis.md)
+    1. [Números de Fibonacci e Catala](slides/fibonacci_e_catalan/fibonacci_e_catalan.pdf)
     1. [Princípio da Inclusão/Exclusão](text/Inclusao_Exclusao.md)
     1. [Funções Geradoras](text/Funcoes_Geradoras.md)
     1. [Partições](text/Particoes.md)
