@@ -235,43 +235,46 @@ long long catalan(int n)
 Com variáveis do tipo `long long` é possível computar até o 33º número de Catalan sem _overflow_.
 
 
-## Aplicações
+## Aplicação: sequências válidas de pares de parêntesis
 
-A primeira aplicação notável dos números de Catalan $C(n)$ é a contagem do número de sequências
-corretas formadas por $2n$ pares de parêntesis. Para $n = 0$ temos uma única sequência (vazio), e
-o mesmo ocorre para $n = 1$. Para $n = 2$ temos $C(2) = 2$ duas sequências possíveis
+- A primeira aplicação notável dos números de Catalan $C(n)$ é a contagem do número de sequências corretas formadas por $2n$ pares de parêntesis
 
-        ()(), (())
+- Para $n = 0$ há uma única sequência: a sequência vazia
 
-Para $n = 3$ temos $C(3) = 5$ sequências:
+- Para $n = 1$ também existe uma única sequência: `()`
 
-        ()()(), (())(), ()(()), ((())), (()())
+- Para $n = 2$ há duas sequências possíveis: `()(), (())`
 
-A segunda aplicação notável é a contagem de árvores binárias completas (isto é, cada nó tem
-ou dois filhos ou nenhum): há $C(n)$ árvores binárias completas com $n + 1$ folhas. Para 
-$n = 3$ temos $C(2) = 2$ árvores:
-            
-            o
-           / \
-          o   x
-         / \
-        x   x
+- Para $n = 3$ há $C(3) = 5$ sequências:
+```
+            ()()(), (())(), ()(()), ((())), (()())
+```
 
-e
+## Aplicação: contagem de árvores binárias completas
 
-            o
-           / \
-          x   o
-             / \ 
-            x   x
+- A segunda aplicação notável é a contagem de árvores binárias completas, isto é, cada nó tem
+ou dois filhos ou nenhum
 
+- Há $C(n)$ árvores binárias completas com $n + 1$ folhas
 
-Uma terceira aplicação seria a contagem de triangularizações de um polígono convexo de 
-_n+2_ lados: há _C(n)_ triangularizações possíveis.
+- Para $n = 3$ são $C(2) = 2$ árvores:
+```            
+                    o                        o
+                   / \                      / \
+                  o   x                    x   o
+                 / \                          / \
+                x   x                        x   x
+```
 
-Além dessas, há mais de 60 outras aplicações possíveis para tais números.
+## Aplicação: triangularização de um polígono convexo
 
-<!-- Criar um arquivo com as sequências especiais: Stirling, etc -->
+- Uma terceira aplicação seria a contagem de triangularizações de um polígono convexo de $n+2$ lados
+
+- Exsitem $C(n)$ triangularizações possíveis
+
+- Por exemplo, para um quadrado ($n = 2$) são duas triangularizações distintas:
+
+![center invert 45%](figs/squares.svg)
 
 ## Problemas
 
