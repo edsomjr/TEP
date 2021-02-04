@@ -12,7 +12,7 @@ int main()
     auto C = A | B;
     cout << "union = " << C.to_string() << '\n';
 
-    C = A ^ B;
+    C = A & B;
     cout << "interseção = " << C.to_string() << '\n';
 
     C = A & ~B;
