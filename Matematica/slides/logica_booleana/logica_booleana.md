@@ -16,7 +16,7 @@ headingDivider: 2
 </style>
 
 <!-- _class: lead -->
-# Fundamentos
+# Matemática
 
 *__Lógica Proposicional Booleana__*
 

@@ -61,7 +61,7 @@ Uma relação $f\in A\times B$ é uma **função** de $A$ em $B$ (e escrevemos $
 
 - Uma função $f: A\to B$ é dita **injetora** se $f(a) = f(b)$ implica em $a = b$, isto é, cada elemento do conjunto $B$ está relacionado com um único elemento do conjunto $A$
 
-- $f$ é dita **sobrejetora** se, para qualquer elemento $b \in B$, existe um elemento $a \in A$ tal que $f(a) = b$, ou seja, todos os elementos de $B$ estão relacionado a ao menos um elemento de $A$
+- $f$ é dita **sobrejetora** se, para qualquer elemento $b \in B$, existe um elemento $a \in A$ tal que $f(a) = b$, ou seja, cada elemento de $B$ está relacionado a ao menos um elemento de $A$
 
 - Uma função que é, ao mesmo tempo, injetora e sobrejetora é dita **bijetora**
 
@@ -153,7 +153,7 @@ double root(double a, double b, double eps)
 
 - Há outros métodos com melhor convergência, como o método de Newton
 
-- Ainda o método da bisseção é notável por sua simplicidade e aplicabilidade
+- Porém o método da bisseção é notável por sua simplicidade e aplicabilidade
 
 ---
 
