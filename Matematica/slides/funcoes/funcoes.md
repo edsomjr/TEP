@@ -52,7 +52,7 @@ $$
 
 ## Funções
 
-Uma relação $f\in A\times B$ é uma **função** de $A$ em $B$ (e escrevemos $f: A \to B$) se os dois critérios abaixo forem atendidos:
+Uma relação $f\subset A\times B$ é uma **função** de $A$ em $B$ (e escrevemos $f: A \to B$) se os dois critérios abaixo forem atendidos:
 
 1. todo elemento $a$ de $A$ se relaciona com algum elemento $b$ de $B$;
 1. cada elemento $a$ de $A$ está relacionado com um único elemento $b$ de $B$.
@@ -82,7 +82,7 @@ $$
 
 - Uma função $f$ é invertível se for bijetora
 
-- A função inversa de $f: A\times B$, se existir, é grafada como $f^{-1}: B\times A$
+- A função inversa de $f: A\to B$, se existir, é grafada como $f^{-1}: B\to A$
 
 - Se for invertível, $f$ estabelece uma relação um-a-um entre os elementos de $A$ e $B$
 
