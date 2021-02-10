@@ -101,7 +101,7 @@ Embora seja nítido o ganho de performance e de complexidade, ainda é possível
 
 - Caso contrário, a resposta deve ser atualizada para $c$ e a busca deve prosseguir no intervalo $[c + 1, N]$ 
 
-- Assim, a solução terá complexidade $O(N\log N)$
+- Assim, a solução terá complexidade $O(\log N)$
 
 --- 
 ```C++
@@ -127,8 +127,7 @@ long long solve3(long long N)
 
 ## Busca binária
 
-- Esta abordagem, embora não seja a mais eficiente em termos de complexidade, tem uma grande
-vantagem
+- Esta abordagem, embora não seja a mais eficiente em termos de complexidade, tem uma grande vantagem
 
 - Como a solução utiliza apenas aritmética inteira (a divisão $c(c + 1)/2$ resulta sempre em um inteiro), não há possíveis erros devido a precisão
 
