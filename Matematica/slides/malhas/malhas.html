@@ -120,6 +120,20 @@ c-16-25.333-24-45-24-59z'/></svg></span></span></span></span></span></span></spa
 <p><svg data-marp-fitting="svg" data-marp-fitting-math><foreignObject><span data-marp-fitting-svg-content><span data-marp-fitting-svg-content-wrap><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mi>y</mi><mo>=</mo><mi>W</mi><mo>−</mo><mo stretchy="false">[</mo><mo stretchy="false">(</mo><mi>n</mi><mo>−</mo><mn>1</mn><mo stretchy="false">)</mo><mtext> </mtext><mrow><mi mathvariant="normal">m</mi><mi mathvariant="normal">o</mi><mi mathvariant="normal">d</mi></mrow><mtext> </mtext><mi>W</mi><mo stretchy="false">]</mo></mrow><annotation encoding="application/x-tex">    y = W - [(n - 1)\ \mathrm{mod}\ W]
 </annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">y</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.76666em;vertical-align:-0.08333em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">W</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">[</span><span class="mopen">(</span><span class="mord mathnormal">n</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">1</span><span class="mclose">)</span><span class="mspace"> </span><span class="mord"><span class="mord mathrm">m</span><span class="mord mathrm">o</span><span class="mord mathrm">d</span></span><span class="mspace"> </span><span class="mord mathnormal" style="margin-right:0.13889em;">W</span><span class="mclose">]</span></span></span></span></span></span></span></foreignObject></svg></p></section>
 </foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="11" data-background-color="black" data-color="lightGray" data-theme="gaia" data-heading-divider="2" style="--background-color:black;--color:lightGray;--theme:gaia;--heading-divider:2;color:lightGray;background-color:black;background-image:none;">
+<h2>Implementação do zigue-zague em malhas quadradas</h2>
+<pre><code class="language-C++"><svg data-marp-fitting="svg" data-marp-fitting-code><foreignObject><span data-marp-fitting-svg-content><span data-marp-fitting-svg-content-wrap><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">position</span><span class="hljs-params">(<span class="hljs-keyword">int</span> x, <span class="hljs-keyword">int</span> y, <span class="hljs-keyword">int</span> W)</span>
+</span>{
+    <span class="hljs-keyword">return</span> (x - <span class="hljs-number">1</span>)*W + (x % <span class="hljs-number">2</span> ? y : W - y + <span class="hljs-number">1</span>);
+}
+
+<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">coordinates</span><span class="hljs-params">(<span class="hljs-keyword">int</span> n, <span class="hljs-keyword">int</span>&amp; x, <span class="hljs-keyword">int</span>&amp; y, <span class="hljs-keyword">int</span> W, <span class="hljs-keyword">int</span>)</span>
+</span>{
+    x = ((n - <span class="hljs-number">1</span>) / W) + <span class="hljs-number">1</span>;
+    y = x % <span class="hljs-number">2</span> ? ((n - <span class="hljs-number">1</span>) % W) + <span class="hljs-number">1</span> : W - ((n - <span class="hljs-number">1</span>) % W);
+}
+</span></span></foreignObject></svg></code></pre>
+</section>
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="12" data-background-color="black" data-color="lightGray" data-theme="gaia" data-heading-divider="2" style="--background-color:black;--color:lightGray;--theme:gaia;--heading-divider:2;color:lightGray;background-color:black;background-image:none;">
 <h2>Problemas</h2>
 <ul>
 <li>OJ
@@ -133,7 +147,7 @@ c-16-25.333-24-45-24-59z'/></svg></span></span></span></span></span></span></spa
 </li>
 </ul>
 </section>
-</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="12" data-background-color="black" data-color="lightGray" data-theme="gaia" data-heading-divider="2" style="--background-color:black;--color:lightGray;--theme:gaia;--heading-divider:2;color:lightGray;background-color:black;background-image:none;">
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="13" data-background-color="black" data-color="lightGray" data-theme="gaia" data-heading-divider="2" style="--background-color:black;--color:lightGray;--theme:gaia;--heading-divider:2;color:lightGray;background-color:black;background-image:none;">
 <h2>Referências</h2>
 <ol>
 <li>

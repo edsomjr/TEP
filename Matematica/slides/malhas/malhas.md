@@ -104,6 +104,21 @@ $$
     y = W - [(n - 1)\ \mathrm{mod}\ W]
 $$
 
+## Implementação do zigue-zague em malhas quadradas
+
+```C++
+int position(int x, int y, int W)
+{
+    return (x - 1)*W + (x % 2 ? y : W - y + 1);
+}
+
+void coordinates(int n, int& x, int& y, int W, int)
+{
+    x = ((n - 1) / W) + 1;
+    y = x % 2 ? ((n - 1) % W) + 1 : W - ((n - 1) % W);
+}
+```
+
 ## Problemas
 
 - OJ
