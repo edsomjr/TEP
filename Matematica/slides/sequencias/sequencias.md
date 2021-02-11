@@ -104,7 +104,7 @@ $$
 
 ## Soma da progressão geométrica infinita
 
-Se $a_n$ é uma progressão geométrica de razão $|q| = 1$, então a série $S_n$ converge para o limite $S$ quando $n$ tende ao infinito, onde
+Se $a_n$ é uma progressão geométrica de razão $|q| < 1$, então a série $S_n$ converge para o limite $S$ quando $n$ tende ao infinito:
 $$
     S = \sum_{i = 1}^\infty a_i = \lim_{n\to \infty} S_n = \lim_{n\to \infty} \frac{a_1(1 - q^n)}{1 - q} = \frac{a_1}{1 - q}
 $$
@@ -141,7 +141,7 @@ $$
 $$
 onde
 $$
-    \Delta^k[f](a) = \Delta(\Delta^{k - 1}[f](a)), \ \ \ \ \Delta^1[f](a) = \Delta[f](a) = f(x + 1) - f(x)
+    \Delta^k[f](a) = \Delta(\Delta^{k - 1}[f](a)), \ \ \ \ \Delta^1[f](a) = \Delta[f](a) = f(a + 1) - f(a)
 $$
 e
 $$
