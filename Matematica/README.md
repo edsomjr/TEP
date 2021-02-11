@@ -8,8 +8,7 @@
     1. [Simulações](slides/simulacoes/simulacoes.pdf)
     1. [Sequências e Séries](slides/sequencias/sequencias.pdf)
     1. [Malhas](slides/malhas/malhas.pdf)
-    1. Polinômios
-<!-- Algoritmo de Horner -->
+    1. [Polinômios](slides/polinomios/polinomios.pdf)
 1. Bases Numéricas
     1. [Representação Binária](slides/representacao_binaria/representacao_binaria.pdf)
     1. [Operações Binárias](slides/operacoes_binarias/operacoes_binarias.pdf)
@@ -20,7 +19,6 @@
 1. Aritmética Estendida
 1. Avaliação de Expressões
 1. Análise Combinatória
-<!-- Adicionar texto sobre decomposição de permutações, ciclos, paridade de permutação, composição de permutações -->
     1. [Permutações](slides/permutacoes/permutacoes.pdf)
     1. [Arranjos](slides/arranjos/arranjos.pdf)
     1. [Combinações](slides/combinacoes/combinacoes.pdf)
@@ -34,6 +32,7 @@
     1. [Funções Multiplicativas](slides/funcoes_multiplicativas/funcoes_multiplicativas.pdf)
 <!-- Adicionar a função de Möbius -->
     1. [Aritmética Modular](text/Aritmetica_Modular.md)
+<!-- Adicionar texto sobre decomposição de permutações, ciclos, paridade de permutação, composição de permutações -->
 <!-- Adicionar o teste de Miller-Rabin para primalidade -->
 <!-- Separar a parte das equações diofantinas e inserir a parte soluções naturais (conjunto das lacunas) -->
 1. Detecção de ciclos
