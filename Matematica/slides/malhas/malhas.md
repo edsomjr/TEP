@@ -84,7 +84,7 @@ se $x$ é ímpar, e
 $$
     n = (x - 1)W + (W - y + 1),
 $$
-se $y$ é par, onde $W$ é o número de pontos por linha
+se $x$ é par, onde $W$ é o número de pontos por linha
 
 ## Exemplo: Zigue-zague em malhas quadradas
 
@@ -112,7 +112,7 @@ int position(int x, int y, int W)
     return (x - 1)*W + (x % 2 ? y : W - y + 1);
 }
 
-void coordinates(int n, int& x, int& y, int W, int)
+void coordinates(int n, int& x, int& y, int W)
 {
     x = ((n - 1) / W) + 1;
     y = x % 2 ? ((n - 1) % W) + 1 : W - ((n - 1) % W);
