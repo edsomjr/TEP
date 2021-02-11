@@ -24,7 +24,7 @@ Faculdade UnB Gama
 
 ## Definição de polinômios
 
-Seja $A$ o conjuntos dos coeficientes e $V$ o conjuntos das variáveis. Um polinômio é definido por meio de elementos de $A$ e de um subconjunto de variáveis de $V$ através de operações ariméticas de adição, subtração, multiplicação e divisão.
+Seja $A$ o conjuntos dos coeficientes e $V$ o conjuntos das variáveis. Um polinômio é definido por meio de elementos de $A$ e de um subconjunto de variáveis de $V$ através de adições e multiplicações.
 
 ## Polinômios univariados
 
@@ -131,7 +131,7 @@ $$
 
 ## Adição de polinômios
 
-A adição de dois polinômios $p(x) = a_0 + a_1x + \ldots, a_Nx^N$ e $q(x) = b_0 + b_1x + \ldots + b_Mx^M$ resulta em um polinômio
+A adição de dois polinômios $p(x) = a_0 + a_1x + \ldots + a_Nx^N$ e $q(x) = b_0 + b_1x + \ldots + b_Mx^M$ resulta em um polinômio
 $$
 r(x) = p(x) + q(x) = (a_0 + b_0) + (a_1 + b_1)x + \ldots + (a_R + b_R)x^R,
 $$
@@ -165,7 +165,7 @@ polynomial operator+(const polynomial& p, const polynomial& q)
 
 - A multiplicação de polinômios é feita por meio da aplicação da distributividade
 
-- Se $\mathrm{grau}(p(x)) = N$, $\mathrm{grau}(q(x)) = N$ e $r(x) = p(x)q(x)$, então $\mathrm{grau}(r(x)) = NM$ 
+- Se $\mathrm{grau}(p(x)) = N$, $\mathrm{grau}(q(x)) = M$ e $r(x) = p(x)q(x)$, então $\mathrm{grau}(r(x)) = NM$ 
 
 - Se $p(x)$ em coeficientes $a_0, a_1, \ldots, a_N$ e $q(x)$ tem coeficientes $b_1, b_2, \ldots, b_M$, então os coeficientes $c_i$ de $r(x)$ são dados por
 $$
