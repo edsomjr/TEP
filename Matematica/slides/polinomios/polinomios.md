@@ -181,7 +181,7 @@ polynomial operator*(const polynomial& p, const polynomial& q)
 
     for (int i = 0; i <= N; ++i)
         for (int j = 0; j <= M; ++j)
-            r[i + j] = p[i]*q[j];
+            r[i + j] += p[i]*q[j];
 
     while (not r.empty() and r.back() == 0)
         r.pop_back();
@@ -258,11 +258,11 @@ $$
 
 ## Polinômios nos inteiros
 
-- Se $p(x)$ é um polinômio definido no conjunto dos números inteiros, suas raízes tem relações de divisibilidade com o produto de seus coeficientes, de acordo com as relações de Girard
+- Se $p(x)$ é um polinômio definido no conjunto dos números inteiros, suas raízes tem relações de divisibilidade com o coeficiente constante, de acordo com as relações de Girard
 
 - Se $x_0$ é uma raiz inteira de $p(x)$, então $x_0$ é um divisor de $c_0/a$
 
-- Assim, o conjunto de candidatos a raiz inteira de $p(x)$ tem tamanho $O(\sqrt{c_0})$
+- Assim, o conjunto de candidatos a raiz inteira de $p(x)$ tem tamanho $O(\sqrt{c_0/a})$
 
 - Uma vez encontrada uma raiz inteira $x_0$ de $p(x)$, ele pode ser dividido por $(x - x_0)$ para obter um novo polinômio $q(x)$ de grau $N - 1$
 
