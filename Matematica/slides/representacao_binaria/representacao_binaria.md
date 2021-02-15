@@ -32,7 +32,7 @@ $$
 
 - Por exemplo,
 $$
-            2507 = 7 + 0\cdot 10 + 5\cdot 10^2 + 7\cdot 10^3
+            2507 = 7 + 0\cdot 10 + 5\cdot 10^2 + 2\cdot 10^3
 $$
 
 ## Representação em uma base arbitrária
