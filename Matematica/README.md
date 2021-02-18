@@ -17,7 +17,6 @@
     1. [Logaritmos](slides/logaritmos/logaritmos.pdf)
     1. Função logaritmo e função exponecial
 1. Aritmética Estendida
-1. Avaliação de Expressões
 1. Análise Combinatória
     1. [Permutações](slides/permutacoes/permutacoes.pdf)
     1. [Arranjos](slides/arranjos/arranjos.pdf)
@@ -35,6 +34,7 @@
 <!-- Adicionar texto sobre decomposição de permutações, ciclos, paridade de permutação, composição de permutações -->
 <!-- Adicionar o teste de Miller-Rabin para primalidade -->
 <!-- Separar a parte das equações diofantinas e inserir a parte soluções naturais (conjunto das lacunas) -->
+1. Avaliação de Expressões
 1. Detecção de ciclos
 1. Probabilidade
 1. Teoria dos Jogos
