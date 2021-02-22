@@ -54,7 +54,7 @@ $$
 
 - Na exponenciação nos naturais é definido que, para qualquer $a$ natural, $a^0 = 1$ 
 
-- De fato, esta definição é consistem com a exponenciação nos inteiros e nos demais conjuntos numéricos, como se verá a seguir
+- De fato, esta definição é consistente com a exponenciação nos inteiros e nos demais conjuntos numéricos, como se verá a seguir
 
 - $0^0$ é uma indeterminação (para qualquer natural $n$, $0^n = 0$)
 
@@ -105,7 +105,7 @@ $$
 
 - A definição de exponenciação nos racionais pode ser estendida para bases negativas, desde que o **radical** (o fator $1/m$ do expoente) seja ímpar
 
-- Isto porque não há soluções para $x^n = 1$ quando $n$ e par
+- Isto porque não há soluções para $x^n = -1$ quando $n$ e par
 
 - Por exemplo, $x^3 = -1$ tem solução nos racionais, mas $x^2 = -1$ não
 
@@ -119,7 +119,7 @@ $$
 
 - A implementação direta da definição de exponenciação nos naturais leva a uma rotina com complexidade $O(n)$
 
-- Contudo, é possível implementar um algoritmo $O(n\log n)$ para computar $a^n$, por meio da divisão e conquista, denominado **exponenciação rápida**
+- Contudo, é possível implementar um algoritmo $O(\log n)$ para computar $a^n$, por meio da divisão e conquista, denominado **exponenciação rápida**
 
 - Para tal, basta observar que, se $n$ é par, então
 $$
@@ -147,7 +147,7 @@ long long fast_exp(long long a, int n)
 
 ## Exponenciação em C/C++
 
-- A biblioteca `math.h` de C ou a biblioteca `cmath` de C++ implementam funções relacionadas a exponenciacação
+- A biblioteca `math.h` de C ou a biblioteca `cmath` de C++ implementam funções relacionadas a exponenciação
 
 - A função `pow(a, n)` computa o valor de $a^n$
 
@@ -155,7 +155,7 @@ long long fast_exp(long long a, int n)
 
 - A função `sqrt(x)` computa a raiz quadrada de $x$
 
-- A função `cbrt(x)` computa a raiz cúbida de $x$
+- A função `cbrt(x)` computa a raiz cúbica de $x$
 
 - Todas essas funções recebem e retornam variáveis do tipo `double`
 
