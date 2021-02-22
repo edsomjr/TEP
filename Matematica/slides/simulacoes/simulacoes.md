@@ -71,7 +71,7 @@ int solve(int N)
 
 - Se $1 \leq N \leq 10^9$, por exemplo, acontecerá um _overflow_ na condição do `if`, comprometendo a corretude do resultado
 
-- Além disso, o algoritmo testa vários valores desnecessariamente: se $i$ for maior do que a raiz quadrada de $N$, a condição do laço sempre será falsa
+- Além disso, o algoritmo testa vários valores desnecessariamente: se $i$ for maior do que a raiz quadrada de $2N$, a condição do laço sempre será falsa
 
 - Fazendo este ajuste e corrigindo o tipo base para `long long`, a nova solução terá complexidade $O(\sqrt{N})$
 
@@ -81,7 +81,7 @@ long long solve2(long long N)
 {
     long long m = 1;
 
-    for (long long i = 2; i * i <= N; ++i)
+    for (long long i = 2; i * i <= 2*N; ++i)
         if (i*(i + 1)/2 <= N)
             i = m;
 
