@@ -1,0 +1,23 @@
+% Gere o PDF com o comando pdflatex, e o SVG com o comando
+%
+%  $ inkscape -l fig.svg source.tex
+\documentclass{standalone}
+\usepackage{tikz}
+
+\usetikzlibrary{calc}
+
+\begin{document}
+
+    \newcommand*\rows{4}
+
+    \begin{tikzpicture}
+
+        \foreach \row in {0, 1, ...,\rows} {
+            \draw ($\row*(0.5, {0.5*sqrt(3)})$) -- ($(\rows,0)+\row*(-0.5, {0.5*sqrt(3)})$);
+            \draw ($\row*(1, 0)$) -- ($(\rows/2,{\rows/2*sqrt(3)})+\row*(0.5,{-0.5*sqrt(3)})$);
+            \draw ($\row*(1, 0)$) -- ($(0,0)+\row*(0.5,{0.5*sqrt(3)})$);
+        }           
+
+    \end{tikzpicture}
+
+\end{document}

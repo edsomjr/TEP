@@ -16,7 +16,7 @@ headingDivider: 2
 </style>
 
 <!-- _class: lead -->
-# Fundamentos
+# Matemática
 
 *__Lógica Proposicional Booleana__*
 
@@ -55,6 +55,17 @@ A Lógica Proposicional Booleana é construída a partir de dois axiomas fundame
 | **Condicional** (se, então) | $p \to q$ | falsa apenas quando $p$ é verdadeira e $q$ é falsa |
 | **Bicondicional** (se, e somente se) | $p \leftrightarrow q$ | verdadeira apenas quando $p$ e $q$ tem mesmo valor lógico |
 | **Negação** (não) | $\lnot p$ | inverte o valor lógico de $p$ |
+
+## Leis de Morgan
+
+Sejam $p$ e $q$ duas proposições. Vale que
+$$
+    \lnot (p \land q) = \lnot p\ \lor \lnot q
+$$
+e que
+$$
+    \lnot (p \lor q) = \lnot p\ \land \lnot q
+$$
 
 ## C e C++
 

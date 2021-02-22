@@ -1,0 +1,15 @@
+% Gere o PDF com o comando pdflatex, e o SVG com o comando
+%
+%  $ inkscape -l fig.svg source.tex
+\documentclass{standalone}
+\usepackage{tikz}
+
+\begin{document}
+
+    \begin{tikzpicture}
+
+        \draw (0, 0) grid (10, 5);
+
+    \end{tikzpicture}
+
+\end{document}
