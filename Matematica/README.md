@@ -15,7 +15,7 @@
 1. Exponenciais e Logaritmos
     1. [Exponenciais](slides/exponenciais/exponenciais.pdf)
     1. [Logaritmos](slides/logaritmos/logaritmos.pdf)
-    1. Função logaritmo e função exponecial
+    1. [Função logaritmo e função exponecial](slides/exp_e_log/exp_e_log.pdf)
 1. Aritmética Estendida
 1. Análise Combinatória
     1. [Permutações](slides/permutacoes/permutacoes.pdf)
