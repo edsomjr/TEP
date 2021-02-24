@@ -1,0 +1,23 @@
+% Gere o PDF com o comando pdflatex, e o SVG com o comando
+%
+%  $ inkscape -l fig.svg source.pdf
+\documentclass{standalone}
+\usepackage{tikz}
+\usetikzlibrary{calc}
+
+\begin{document}
+
+    \begin{tikzpicture}
+
+        \draw[->] (-0.5, 0) -- (5,0) node[right] {$x$};
+        \draw[->] (0, -3.5) -- (0,3) node[left] {$y$};
+
+        \draw[smooth, domain = 0.1:5, thick] plot (\x,{log2(\x)});
+
+        \fill (1, 0) circle (1.5pt) node at (1.4, 0)[below] {\scriptsize $(1,0)$};
+
+        \node at (4.6,2.4)[above] {\footnotesize$y=\ln(x)$};
+
+    \end{tikzpicture}
+
+\end{document}

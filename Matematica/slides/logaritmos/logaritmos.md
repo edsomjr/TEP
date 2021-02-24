@@ -93,18 +93,6 @@ onde $\lfloor x \rfloor$ é o maior inteiro menor ou igual a $x$.
     1. [11384 - Help is needed for Dexter](http://onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&category=24&page=show_problem&problem=2379)
     1. [11847 - Cut the Silver Bar](http://onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&category=24&page=show_problem&problem=2947)
 
-<!-- 
-1. Relação logaritmos/exponencial
-1. Definição do e
-1. Definição por integral ou derivada de a^x
-1. Serie de potência da exponencial
-1. Exponenciais complexas
-1. Exponenciais e logaritmos em C/C++
-1. Base binária: [579A - Raising Bacteria](https://codeforces.com/problemset/problem/579/A)
-P. Log/Exp: OJ 11666 - Logarithms (http://onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&category=24&page=show_problem&problem=2713)
-P. Log/Exp: OJ 545 - Heads (http://onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&category=24&page=show_problem&problem=486)
--->
-
 ## Referências
 
 CppReference. [Common mathematical functions](https://en.cppreference.com/w/cpp/numeric/math). Acesso em 05/01/2021.
