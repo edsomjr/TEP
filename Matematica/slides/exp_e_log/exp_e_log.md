@@ -144,7 +144,7 @@ $$
 
 - Aplicando o logaritmo em ambas expressões obtém-se
 $$
-    \ln M_0 - \ln_2 = \ln M_0 + kt_{1/2}
+    \ln M_0 - \ln 2 = \ln M_0 + kt_{1/2}
 $$
 
 - Assim,
@@ -167,7 +167,7 @@ Esta série converge para qualquer $x$ real.
 
 A função logaritmo deslocada pode ser expandida na série de potências
 $$
-    \ln (x + 1) = \sum_{i = 1}^\infty (-1)^{i - 1}\frac{x^i}{i} = x - \frac{x}{2} + \frac{x}{3} - \frac{x}{4} + \ldots
+    \ln (x + 1) = \sum_{i = 1}^\infty (-1)^{i - 1}\frac{x^i}{i} = x - \frac{x^2}{2} + \frac{x^3}{3} - \frac{x^4}{4} + \ldots
 $$
 
 Esta série converge apenas no intervalo $-1 < x < 1$.
