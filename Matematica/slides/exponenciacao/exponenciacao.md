@@ -136,8 +136,8 @@ $$
 ```C++
 long long fast_exp(long long a, int n)
 {
-    if (n == 1)
-        return a;
+    if (n == 0)
+        return 1;
 
     auto x = fast_exp(a, n / 2);
 
