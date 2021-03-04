@@ -43,7 +43,7 @@ Sejam $a$ e $b$ dois números inteiros. Dizemos que $a$ **divide** $b$ (ou que $
 
 - Se $a$ é diferente de zero e $a$ divide $b$, então o inteiro $k$ tal que $b = ak$ é único
 
-- Suponha que exista um $t$ tal que $b = ak = at$, Como $a$ é diferente de zero, vale o cancelamento da multiplicação, de modo que $k = t$
+- Suponha que exista um $t$ tal que $b = ak = at$. Como $a$ é diferente de zero, vale o cancelamento da multiplicação, de modo que $k = t$
 
 - Observe que se $s \neq r$, ainda vale que $0 = 0 \times r = 0 \times s$
 
@@ -67,9 +67,9 @@ Sejam $a,b$ inteiros, com $b \neq 0$. Segundo a **divisão de Euclides**, existe
 
 Observe que, se $r = 0$, então $b$ divide $a$.
 
-## Divisão de menor resto
+## Resto da divisão em C++
 
-A divisão euclidiana não é uma divisão de menor resto, a qual é utilizada na implementação do operador `%` de C/C++:
+O operador `%` (resto da divisão) em C/C++ não corresponde ao resto da divisão Euclidiana em todos os casos:
 ```C++
 int main()
 {
@@ -85,14 +85,14 @@ int main()
 }
 ```
 
-## Divisão de menor resto
+## Resto da divisão em C++
 
 - Segundo a divisão euclidiana, os quocientes e restos seriam
 ```C++
         11 = 7 x 1 + 4                // q = 1, r = 4
         11 = (-7) x (-1) + 4          // q = 1, r = 4
-       -11 = 7 x (-2) + 3             // q = 1, r = 3
-       -11 = (-7) x 2 + 3             // q = 1, r = 3
+       -11 = 7 x (-2) + 3             // q = -2, r = 3
+       -11 = (-7) x 2 + 3             // q = 2, r = 3
 ```
 
 - Nos casos em que $a < 0$, o operador `%` retorna um resto negativo, o que viola a condição $0 \leq r < |b|$ da divisão de Euclides
@@ -169,7 +169,7 @@ long long ext_gcd(long long a, long long b, long long& x, long long& y)
 
 - Para $a, b, c, x, y$ inteiros, as equações diofantinas lineares são da forma
 $$
-ax + by = c,
+ax + by = c
 $$
 
 - Tais equações tem solução se, e somente se, $(a, b)$ divide $c$
