@@ -264,10 +264,6 @@ $$
 
 - Assim, o conjunto de candidatos a raiz inteira de $p(x)$ tem tamanho $O(\sqrt{c_0/a})$
 
-- Uma vez encontrada uma raiz inteira $x_0$ de $p(x)$, ele pode ser dividido por $(x - x_0)$ para obter um novo polinômio $q(x)$ de grau $N - 1$
-
-- Como cada raiz de $q(x)$ será também raiz de $p(x)$, o processo pode ser repetido para determinar todas as raízes inteiras de $p(x)$
-
 ## Problemas
 
 - Codeforces
