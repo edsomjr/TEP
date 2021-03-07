@@ -69,7 +69,7 @@ Observe que, se $r = 0$, então $b$ divide $a$.
 
 ## Resto da divisão em C++
 
-O operador `%` (resto da divisão) em C/C++ não corresponde ao resto da divisão Euclidiana em todos os casos:
+O operador `%` (resto da divisão) em C/C++ não corresponde ao resto da divisão euclidiana em todos os casos:
 ```C++
 int main()
 {
@@ -90,7 +90,7 @@ int main()
 - Segundo a divisão euclidiana, os quocientes e restos seriam
 ```C++
         11 = 7 x 1 + 4                // q = 1, r = 4
-        11 = (-7) x (-1) + 4          // q = 1, r = 4
+        11 = (-7) x (-1) + 4          // q = -1, r = 4
        -11 = 7 x (-2) + 3             // q = -2, r = 3
        -11 = (-7) x 2 + 3             // q = 2, r = 3
 ```
