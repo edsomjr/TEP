@@ -1,0 +1,61 @@
+\begin{frame}[fragile]{OJ 11752 -- The Super Powers}
+
+    \textbf{Versão resumida do problema}: liste todos os inteiros $n < 2^{64}$ tais que $n = a^r
+        = b^s$, com $a\neq b$ e $r, s > 1$.
+
+\end{frame}
+
+\begin{frame}[fragile]{Solução}
+
+    \begin{itemize}
+        \item O principal ponto a ser observado é que $n$ tem que ser um número da forma
+            $m^c$, onde $c$ é um número composto
+
+        \item Isto porque se $c$ é composto, ele pode ser escrito como $c = rs$, com $r, s > 1$
+
+        \item Daí
+        $$
+            n = m^c = m^{rs} = (m^r)^s = (m^s)^r
+        $$
+
+        \item Como 4 é o menor número composto e $n^4 > 2^{64}$ para todos $n \geq 2^{16}$,
+            a listagem dos números desejados pode ser obtida elevando-se todos os inteiros
+            positivos no intervalo $[1, 2^{16})$ a todos os números compostos $c$ no intervalo
+            $[1, 64)$
+
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Solução}
+
+    \begin{itemize}
+        \item Os compostos menores ou iguais a $n$ podem ser obtidos por meio de uma variante da
+        função que determina se o número é ou não primo
+
+        \item As possíveis repetições podem ser eliminadas se os resultados forem armazenados em
+            um conjunto
+
+        \item Para evitar o \textit{overflow} no cálculo de $n^c$, é preciso saber se o resultado
+            é ou não menor do que $2^{64}$
+
+        \item Isto pode ser verificado por meio de logaritmos, pois $n^c < 2^{64}$ se
+        $$
+            c\log_2 n < 64\log_2 2 = 64
+        $$
+
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Solução}
+    \inputsnippet{cpp}{5}{18}{codes/11752.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Solução}
+    \inputsnippet{cpp}{20}{28}{codes/11752.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Solução}
+    \inputsnippet{cpp}{30}{44}{codes/11752.cpp}
+\end{frame}
