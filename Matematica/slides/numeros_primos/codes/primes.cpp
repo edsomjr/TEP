@@ -63,16 +63,14 @@ vector<int> primes(int N)
     return ps;
 }
 
-vector<int> primes2(int N)
-{
-    bitset<MAX> sieve;      // MAX deve ser maior ou igual a N
+vector<int> primes2(int N) {
     vector<int> ps;
-
-    sieve.set();            // Todos são "potencialmente" primos
-    sieve[1] = false;       // 1 não é primo
+    bitset<MAX> sieve;              // MAX deve ser maior do que N
+    sieve.set();                    // Todos são "potencialmente" primos
+    sieve[1] = false;               // 1 não é primo
 
     for (int i = 2; i <= N; ++i) {
-        if (sieve[i]) {     // i é primo
+        if (sieve[i]) {             // i é primo
             ps.push_back(i);
 
             for (int j = 2 * i; j <= N; j += i)
@@ -85,9 +83,8 @@ vector<int> primes2(int N)
 
 vector<int> primes3(int N)
 {
-    bitset<MAX> sieve;                  // MAX deve ser maior ou igual a N
+    bitset<MAX> sieve;                  // MAX deve ser maior do que N
     vector<int> ps { 2 };               // Os pares são tratados à parte
-
     sieve.set();                        // Todos são "potencialmente" primos
 
     for (int i = 3; i <= N; i += 2) {   // Apenas ímpares são verificados agora
@@ -104,13 +101,12 @@ vector<int> primes3(int N)
 
 vector<long long> primes4(long long N)
 {
-    bitset<MAX> sieve;                                    // MAX deve ser maior ou igual a N
-    vector<long long> ps { 2 };                           // Os pares são tratados à parte
+    bitset<MAX> sieve;                  // MAX deve ser maior do que N
+    vector<long long> ps { 2 };         // Os pares são tratados à parte
+    sieve.set();                        // Todos são "potencialmente" primos
 
-    sieve.set();                                          // Todos são "potencialmente" primos
-
-    for (long long i = 3; i <= N; i += 2) {               // Apenas ímpares são verificados agora
-        if (sieve[i]) {                                   // i é primo
+    for (long long i = 3; i <= N; i += 2) {   // Apenas ímpares são verificados agora
+        if (sieve[i]) {                       // i é primo
             ps.push_back(i);
 
             for (long long j = i * i; j <= N; j += 2*i)   // Múltiplos ímpares >= i*i
@@ -123,9 +119,8 @@ vector<long long> primes4(long long N)
 
 vector<long long> primes5(long long N)
 {
-    bitset<MAX> sieve;              // MAX deve ser maior ou igual a N
+    bitset<MAX> sieve;              // MAX deve ser maior do que N
     vector<long long> ps { 2, 3 };  // Pares e múltiplos de 3 são tratados à parte
-
     sieve.set();                    // Todos são "potencialmente" primos
 
     // O incremento alterna entre saltos de 2 ou 4, evitando os múltiplos de 3
@@ -137,7 +132,6 @@ vector<long long> primes5(long long N)
                 sieve[j] = false;
         }
     }
-
     return ps;
 }
 
