@@ -35,9 +35,8 @@ set<unsigned long long> solve()
     for (int n = 1; n < (1 << 16); ++n)
     {
         for (auto c : cs)
-
-        if (c*log2(n) < 64)
-            ans.insert(power(n, c));
+            if (c*log2(n) < 64)
+                ans.insert(power(n, c));
     }
 
     return ans;

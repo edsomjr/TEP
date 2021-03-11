@@ -10,11 +10,11 @@
     \end{itemize}
 
     \vspace{0.1in}
-    \textbf{Restrição}: $5 \leq n \leq 55$
+    \textbf{Restrição}: $5 \leq N \leq 55$
 
 \end{frame}
 
-\begin{frame}[fragile]{Solução com complexidade $O(N\log \log N)$}
+\begin{frame}[fragile]{Solução com complexidade $O(M\log \log M)$}
 
     \begin{itemize}
         \item A solução consiste em identificar um subconjuntos de primos que atendam a primeira
@@ -33,12 +33,15 @@
             (5m_1 + k) + (5m_2 + k) + \ldots + (5m_5 + k) = 5(m_1 + m_2 + \ldots + m_5 + k)
         $$
 
-        \item Ou seja, a soma de quaisquer elementos dentre os $N$ escolhidos da lista é 
+        \item Ou seja, a soma de quaisquer $N$ elementos dentre os filtrados é 
             divisível por 5, e portanto é um número composto
+
+        \item A complexidade será igual a complexidade do crivo usado para gerar os primos até
+            $M$, onde $M = 555555$
     \end{itemize}
 
 \end{frame}
 
-\begin{frame}[fragile]{Solução com complexidade $O(N\log \log N)$}
+\begin{frame}[fragile]{Solução com complexidade $O(M\log \log M)$}
     \inputsnippet{cpp}{1}{21}{codes/abc096D.cpp}
 \end{frame}
