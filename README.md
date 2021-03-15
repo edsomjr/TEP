@@ -13,7 +13,7 @@ Material da disciplina Tópicos Especiais em Programação da Faculdade UnB Gama
 
 # Roteiros de Estudo
 
-Roteiros de estudo para o curso "Introdução à Programação Competitiva" e para a displicina 
+Roteiros de estudo para o curso "Introdução à Programação Competitiva" e para a disciplina 
 "Programação para Competições".
 
 1. [Introdução à Programação Competitiva](IPC.md)
