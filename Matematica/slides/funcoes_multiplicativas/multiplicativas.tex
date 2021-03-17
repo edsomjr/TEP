@@ -1,0 +1,274 @@
+\section{Funções Multiplicativas}
+
+\begin{frame}[fragile]{Funções aritméticas}
+
+    \metroset{block=fill}
+    \begin{block}{Definição de função arimética}
+        Uma função é denominada função \textbf{aritmética} (ou \textbf{número-teórica}) se ela tem 
+        como domínio o conjunto dos inteiros positivos e, como contradomínio, qualquer subconjunto 
+        dos números complexos.
+    \end{block}
+\end{frame}
+
+\begin{frame}[fragile]{Funções multiplicativas}
+    \metroset{block=fill}
+    \begin{block}{Definição de função multiplicativa}
+        Uma função $f$ aritmética é denominada função \textbf{multiplicativa} se
+
+        \begin{enumerate}
+            \item $f(1) = 1$
+            \item $f(mn) = f(m)f(n)$ se $(m, n) = 1$
+        \end{enumerate}
+    \end{block}
+\end{frame}
+
+\begin{frame}[fragile]{Número de divisores}
+    \metroset{block=fill}
+    \begin{block}{Definição de função $\tau(n)$}
+        Seja $n$ um inteiro positivo. A função $\tau(n)$ computa o número de divisores positivos 
+            de $n$.
+    \end{block}
+\end{frame}
+
+\begin{frame}[fragile]{Cálculo do valor de $\tau(n)$}
+
+    \begin{itemize}
+        \item Segue diretamente da definição que $\tau(1) = 1$
+
+        \item Suponha que $(a, b) = 1$
+        \item Se $d$ divide $ab$  então ele pode ser escrito como $d = mn$, 
+            com $(m, n) = 1$, onde $m$ divide $a$ e $n$ divide $b$
+
+        \item Desde modo, qualquer divisor do produto $ab$ será o produto de um divisor de $a$
+            por um divisor de $b$
+
+        \item Logo, $\tau(ab) = \tau(a)\tau(b)$, ou seja, $\tau(n)$ é uma função multiplicativa
+
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Cálculo do valor de $\tau(n)$}
+
+    \begin{itemize}
+        \item  Considere a fatoração
+$$
+    n = p_1^{\alpha_1}p_2^{\alpha_2}\ldots p_k^{\alpha_k}
+$$
+
+        \item Se $n = p^k$, para algum primo $p$ e um inteiro positivo $k$, $d$ será um divisor de $n$ se, e somente se, $d = p^i$, com $i\in [0, k]$
+
+        \item Assim, $\tau(p^k) = k + 1$
+
+        \item  Portanto,
+$$
+    \tau(n) = \prod_{i = 1}^k \tau(p_i^{\alpha_i}) = (\alpha_1 + 1)(\alpha_2 + 1)\ldots (\alpha_k + 1)
+$$
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Implementação da função $\tau(n)$ em C++}
+    \inputsnippet{cpp}{1}{21}{codes/tau.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Cálculo de $\tau(n)$ em competições}
+
+    \begin{itemize}
+        \item Em competições, é possível computar $\tau(n)$ em $O(\sqrt{n})$ diretamente, sem recorrer à fatoração de $n$
+
+        \item Isto porque, se $d$ divide $n$, então $n = dk$ e ou $d\leq \sqrt{n}$ ou $k \leq \sqrt{k}$
+
+        \item Assim só é necessário procurar por divisores de $n$ até $\sqrt{n}$
+
+        \item Caso um divisor $d$ seja encontrado, é preciso considerar também o divisor $k = n/d$
+
+        \item Esta abordagem tem implementação mais simples e direta, sendo mais adequada em um contexto de competição
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Implementação $O(\sqrt{n})$ de $\tau(n)$}
+    \inputsnippet{cpp}{1}{21}{codes/tau2.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Soma dos divisores}
+    \metroset{block=fill}
+    \begin{block}{Definição de função $\sigma(n)$}
+        Seja $n$ um inteiro positivo. A função $\sigma(n)$ retorna a soma dos divisores positivos 
+        de $n$.
+    \end{block}
+\end{frame}
+
+\begin{frame}[fragile]{Caracterização dos divisores de $n = ab$}
+    \begin{itemize}
+        \item Sejam $a$ e $b$ dois inteiros positivos tais que $(a, b) = 1$ e $n = ab$
+
+        \item Se $c$ e $d$ são divisores positivos de $a$ e $b$, respectivamente, então $cd$ divide $n$
+
+        \item  Por outro lado, se $k$ divide $n$ e $d = (k, a)$, então
+$$
+    k = d\left(\frac{k}{d}\right)
+$$
+
+        \item Como $d = (k, a)$, em particular $d$ divide $a$
+
+        \item Uma vez que $(k/d, a) = 1$ e $k$ divide $n = ab$, então $k/d$ divide $b$
+
+        \item Isso mostra que qualquer divisor $c = d_ie_j$ de $n$ será o produto de um divisor $d_i$ de $a$ por um divisor $e_j$ de $b$
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Cálculo de $\sigma(n)$}
+
+    \begin{itemize}
+        \item Da caracterização anterior segue que
+$$
+    \sigma(n) = \sum_{i = 1}^r \sum_{j = 1}^s d_ie_j
+$$
+        \item Daí,
+$$
+    \sigma(n) = d_1e_1 + \ldots + d_1e_s + d_2e_1 + \ldots + d_2e_s + \ldots + d_re_1 + \ldots + d_re_s
+$$
+
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Cálculo de $\sigma(n)$}
+
+    \begin{itemize}
+        \item Esta expressão pode ser reescrita como
+$$
+    \sigma(n) = (d_1 + d_2 + \ldots + d_r)(e_1 + e_2 + \ldots + e_s)
+$$
+
+        \item Portanto
+$$
+    \sigma(n) = \sigma(ab) = \sigma(a)\sigma(b)
+$$
+
+        \item Como $\sigma(1) = 1$, a função $\sigma(n)$ é multiplicativa
+
+
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Cálculo de $\sigma(n)$}
+
+    \begin{itemize}
+        \item Deste modo, para se computar $\sigma(n)$ basta saber o valor de $\sigma(p^k)$ para um primo $k$ e um inteiro positivo $k$
+
+        \item O divisores de $p^k$ são as potências $p^i$, para $i\in [0, k]$
+
+        \item Logo
+$$
+    \sigma(p^k) = 1 + p + p^2 + \ldots + p^k = \left(\frac{p^{k + 1} - 1}{p - 1}\right)
+$$
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Implementação da função $\sigma(n)$ em C++}
+    \inputsnippet{cpp}{1}{21}{codes/sigma.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Cálculo de $\sigma(n)$ em competições}
+
+    \begin{itemize}
+        \item De forma semelhante à função $\tau(n)$, é possível computar $\sigma(n)$ sem necessariamente fatorar $n$
+
+        \item A estratégia é a mesma: listar os divisores de $n$, por meio de uma busca completa até $\sqrt{n}$, e totalizar os divisores encontrados
+
+        \item Esta rotina tem complexidade $O(\sqrt{n})$
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Implementação da função $\sigma(n)$ em $O(\sqrt{n})$}
+    \inputsnippet{cpp}{1}{21}{codes/sigma2.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Função $\varphi$ de Euler}
+    \metroset{block=fill}
+    \begin{block}{Definição de função $\varphi(n)$}
+        A função $\varphi(n)$ de Euler retorna o número de inteiros positivos menores ou iguais a $n$ que são coprimos com $n$.
+    \end{block}
+\end{frame}
+
+\begin{frame}[fragile]{Cálculo de $\varphi(n)$}
+
+    \begin{itemize}
+        \item É fácil ver que $\varphi(1) = 1$ e que $\varphi(p) = p - 1$, se $p$ é primo
+
+        \item A prova que $\varphi(ab) = \varphi(a)\varphi(b)$ se $(a, b) = 1$ não é trivial (uma demonstração possível utiliza os conceitos de sistemas reduzidos de resíduos)
+
+        \item Assim, $\varphi(n)$ é uma função multiplicativa
+
+        \item Para $p$ primo e $k$ inteiro positivo, no intervalo $[1, p^k]$ apenas os múltiplos de $p$ não são coprimos com $p$
+
+        \item Os múltiplos de $p$ são
+$$
+    p, 2p, 3p, \ldots, p^k
+$$
+
+        \item Observe que $p^k = p\times p^{k - 1}$
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Cálculo de $\varphi(n)$}
+
+    \begin{itemize}
+
+        \item Assim são $p^{k - 1}$ múltiplos de $p$ em $[1, p^k]$ e portanto
+$$
+    \varphi(p^k) = p^k - p^{k - 1} = p^{k - 1}(p - 1)
+$$
+
+        \item Seja $n$ um inteiro positivo tal que
+$$
+    n = p_1^{\alpha_1}p_2^{\alpha_2}\ldots p_k^{\alpha_k}
+$$
+
+
+        \item O valor de $\varphi(n)$ será dado por
+$$
+    \varphi(n) = \prod_{i = 1}^k \varphi(p_i^{\alpha_i}) = \prod_{i = 1}^k p_i^{\alpha_i - 1}\left(p_i - 1\right) = n \prod_{i = 1}^k \left(1 - \frac{1}{p_i}\right)
+$$
+
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Implementação de $\varphi(n)$ em C++}
+    \inputsnippet{cpp}{1}{21}{codes/phi.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Cálculo de $\varphi$ em $[1, n]$}
+
+    \begin{itemize}
+        \item É possível computar $\varphi(k)$ para todos inteiros $k$ no intervalo $[1, n]$ em $O(n\log n)$
+
+        \item Para tal, basta utilizar uma versão modificada do crivo de Erastótenes
+
+        \item Inicialmente, \code{cpp}{phi[k] = k} para todos $k\in [1, n]$
+
+        \item Para todos os primos $p$, os múltiplos $i$ de $p$ devem ser atualizados de duas formas:
+        \begin{enumerate}
+            \item \code{cpp}{phi[i] /= p}
+            \item \code{cpp}{phi[i] *= (p - 1)}
+        \end{enumerate}
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Cálculo de $\varphi$ em $[1, n]$ com complexidade $O(n\log n)$}
+    \inputsnippet{cpp}{1}{11}{codes/phi2.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Cálculo de $\varphi$ em $[1, n]$ com complexidade $O(n\log n)$}
+    \inputsnippet{cpp}{11}{23}{codes/phi2.cpp}
+\end{frame}
