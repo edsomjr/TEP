@@ -2,13 +2,13 @@ long long number_of_divisors(long long n)
 {
     long long res = 0;
 
-    for (long long i = 1; i * i <= n; ++i)
+    for (long long d = 1; d * d <= n; ++d)
     {
-        if (n % i == 0)
+        if (n % d == 0)
         {
-            long long j = n / i;
+            long long k = n / d;
 
-            res += (i == j ? i : i + j);
+            res += (d == k ? d : d + k);
         }
     }
 

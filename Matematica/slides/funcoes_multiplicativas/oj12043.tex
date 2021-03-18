@@ -25,6 +25,8 @@
 
         \item Isto pode ser feito por meio de uma variante do crivo de Erastótenes
 
+        \item Lembre que 1 é o único positivo que tem apenas um divisor
+
         \item Para os demais inteiros positivos tem, no mínimo, dois divisores: 1 e o próprio
             número
 
@@ -39,7 +41,7 @@
 \begin{frame}[fragile]{Solução em $O(B\log B)$}
 
     \begin{itemize}
-        \item Para cada um destes inteiros os valores de $\tau(m)$ e $\phi(m)$ devem ser 
+        \item Para cada um destes inteiros os valores de $\tau(m)$ e $\sigma(m)$ devem ser 
             atualizados, de acordo com o valor de $k = m/d$
 
         \item Se $d\neq k$, então $\tau(m)$ deve ser acrescido em duas unidades, pois são

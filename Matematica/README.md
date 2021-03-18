@@ -29,6 +29,7 @@
     1. [Divisibilidade](slides/divisibilidade/divisibilidade.pdf)
     1. [Números Primos](slides/numeros_primos/numeros_primos.pdf)
     1. [Funções Multiplicativas](slides/funcoes_multiplicativas/funcoes_multiplicativas.pdf)
+<!-- Adicionar o Teorema Fundamental da Arimética, com fatoração de inteiros e também de fatoriais, e mostrar a relação do gcd e mdc com a fatoração -->
 <!-- Adicionar a função de Möbius -->
     1. [Aritmética Modular](text/Aritmetica_Modular.md)
 <!-- Adicionar texto sobre decomposição de permutações, ciclos, paridade de permutação, composição de permutações -->
