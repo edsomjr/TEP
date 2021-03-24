@@ -1,0 +1,61 @@
+\begin{frame}[fragile]{OJ 10527 -- Persistent Numbers}
+
+    \textbf{Versão resumida do problema}: compute o menor número $x$ tal que $n$ é igual ao 
+        produto de seus dígitos
+    \vspace{0.1in}
+
+    \textbf{Restrições}: o número $n$ tem até 1000 dígitos decimais.
+\end{frame}
+
+\begin{frame}[fragile]{Solução $O(\log n)$}
+
+    \begin{itemize}
+        \item Se $n$ é o produto dos dígitos de $x$, então a fatoração prima de $n$ só pode
+            conter primos cuja representação decimal só tem um dígito, a saber: 2, 3, 5 e 7
+
+        \item Assim, se a fatoração de $n$ tem qualquer outro primo o problema não
+            terá solução
+
+        \item Nos demais casos, a fatoração prima de $n$ seria uma solução, embora nem sempre
+            seja a mínima
+
+        \item Para minimizar a solução, é preciso agrupar os fatores primos em dígitos compostos
+
+        \item Antes de fazer esta redução, tratemos primeiro de um caso especial
+    \end{itemize}
+
+\end{frame}
+
+
+\begin{frame}[fragile]{Solução $O(\log n)$}
+
+    \begin{itemize}
+        \item Mesmo não estando explícito no texto do problema, espera-se que $x$ tenha, no 
+            mínimo, dois dígitos, conforme se observa nos exemplos de entrada e saída
+
+        \item Assim, se $n$ tiver um único digo, a solução mínima seria o número $10 + n$
+
+        \item Nos demais casos, para minimizar $x$ agruparemos os fatores primos nos compostos
+            9, 8, 6 e 4, nesta ordem, de forma gulosa
+
+        \item Feito este agrupamento, $x$ é formado por estes agrupamentos, ordenados do
+            menor para o maior
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Solução $O(\log n)$}
+    \inputsnippet{py3}{5}{17}{codes/10527.py}
+\end{frame}
+
+\begin{frame}[fragile]{Solução $O(\log n)$}
+    \inputsnippet{py3}{20}{35}{codes/10527.py}
+\end{frame}
+
+\begin{frame}[fragile]{Solução $O(\log n)$}
+    \inputsnippet{py3}{36}{51}{codes/10527.py}
+\end{frame}
+
+\begin{frame}[fragile]{Solução $O(\log n)$}
+    \inputsnippet{py3}{54}{60}{codes/10527.py}
+\end{frame}
