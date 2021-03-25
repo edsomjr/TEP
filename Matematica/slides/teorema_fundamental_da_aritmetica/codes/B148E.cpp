@@ -10,7 +10,7 @@ ll solve(ll N)
 
     N /= 2;
 
-    ll ans = 0, base = 5;;
+    ll ans = 0, base = 5;
 
     while (N >= base)
     {
