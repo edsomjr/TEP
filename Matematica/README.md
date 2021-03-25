@@ -29,8 +29,9 @@
     1. [Divisibilidade](slides/divisibilidade/divisibilidade.pdf)
     1. [Números Primos](slides/numeros_primos/numeros_primos.pdf)
     1. [Funções Multiplicativas](slides/funcoes_multiplicativas/funcoes_multiplicativas.pdf)
-<!-- Adicionar a função de Möbius -->
+    1. [Teorema Fundamental da Aritmética](slides/teorema_fundamental_da_aritmetica/teorema_fundamental_da_aritmetica.pdf)
     1. [Aritmética Modular](text/Aritmetica_Modular.md)
+<!-- Adicionar a função de Möbius -->
 <!-- Adicionar texto sobre decomposição de permutações, ciclos, paridade de permutação, composição de permutações -->
 <!-- Adicionar o teste de Miller-Rabin para primalidade -->
 <!-- Separar a parte das equações diofantinas e inserir a parte soluções naturais (conjunto das lacunas) -->
@@ -38,3 +39,7 @@
 1. Detecção de ciclos
 1. Probabilidade
 1. Teoria dos Jogos
+<!-- DP em Matemática:
+    ABC114D
+    CF837D
+-->

@@ -1,0 +1,61 @@
+\begin{frame}[fragile]{AtCoder Beginner Contest 172D -- Sum of Divisors}
+
+    \textbf{Versão resumida do problema}: calcule o valor $S$ dado pela soma
+    $$
+        S = \sum_{K = 1}^N  K\times \tau(K)
+    $$
+
+    \vspace{0.1in}
+    \textbf{Restrição}: $1 \leq N \leq 10^7$
+
+\end{frame}
+
+\begin{frame}[fragile]{Solução com complexidade $O(N\log N)$}
+
+    \begin{itemize}
+        \item Assim como fizemos no caso da função $\varphi$ de Euler, é preciso computar o valor
+            de $\tau$ para todos inteiros no intervalo $[1, N]$ de forma eficiente
+
+        \item Uma vez que $\tau$ é uma função multiplicativa, isto pode ser feito por meio de
+            uma variante do crivo de Erastótenes
+
+        \item O crivo permite a identificação de um dos fatores primos de $n$, para $n\in [2, N]$
+
+        \item No código da solução será mantido, para cada $n$, o maior primo $p$ que o divide
+
+        \item Uma vez identificados estes fatores primos, o valor de $\tau(n)$ é computado em
+            ordem crescente
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Solução com complexidade $O(N\log N)$}
+
+    \begin{itemize}
+        \item Lembre que $\tau(1) = 1$, de modo que esta computação inicia em $n = 2$
+
+        \item Para cada $n$, utilizamos o fator $p$ para escrever $n = p^k \times m$, com
+            $(p^k, m) = 1$
+
+        \item Daí $$\tau(n) = \tau(p^k)\tau(m) = (k + 1)\tau(m)$$
+
+        \item Como $m < n$, pois $p$ é primo, quando $\tau(n)$ estiver sendo computado o valor de
+            $\tau(m)$ já estará disponível
+
+        \item Como a fatoração parcial de $n$ tem complexidade $O(\log n)$, a solução terá 
+            complexidade $O(N\log N)$, a mesma do crivo modificado
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Solução com complexidade $O(N\log N)$}
+    \inputsnippet{cpp}{8}{24}{codes/abc172D.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Solução com complexidade $O(N\log N)$}
+    \inputsnippet{cpp}{26}{40}{codes/abc172D.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Solução com complexidade $O(N\log N)$}
+    \inputsnippet{cpp}{42}{52}{codes/abc172D.cpp}
+\end{frame}

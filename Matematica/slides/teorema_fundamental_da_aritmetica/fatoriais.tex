@@ -1,0 +1,64 @@
+\section{Fatoriais}
+
+\begin{frame}[fragile]{Fatoração de Fatoriais}
+
+    \begin{itemize}
+        \item Uma aplicação importante do Teorema Fundamental da Aritmética é a fatoração de
+            fatoriais
+
+        \item Os fatoriais crescem rapidamente, e mesmo para valores relativamente pequenos de $n$, 
+            o número $n!$ pode ser computacionalmente intratável
+
+        \item A fatoração de $n!$ permite trabalhar com tais números e realizar algumas operações 
+            com os mesmos (multiplicação, divisão, MMC, MDC, etc)
+
+        \item A função $E(n,p)$ retorna um inteiro $k$ tal que $p^k$ é a maior potência do primo 
+            $p$ que divide $n!$
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de cálculo de $E(n, p)$ para $n = 12$ e $p = 2$}
+
+Para ilustrar o cálculo de $E(n,p)$ considere $n = 12$ e $p = 2$. A expansão de $12!$ é 
+$$
+        1 \times 2 \times 3 \times 4 \times 5 \times 6 \times 7 \times 8 \times 9 \times 10 \times 11 \times 12
+$$
+
+É fácil observar que todos os múltiplos de $2$ contribuem com um fator $2$. Cancelando estes fatores obtém-se
+$$
+        1 \times \textcolor{red}{1} \times 3 \times \textcolor{red}{2} \times 5 \times \textcolor{red}{3} \times 7 \times \textcolor{red}{4} \times 9 \times \textcolor{red}{5} \times 11 \times \textcolor{red}{6}
+$$
+
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de cálculo de $E(n, p)$ para $n = 12$ e $p = 2$}
+
+Ainda restam ainda fatores $2$ no produto, onde haviam originalmente os números $4, 8$ e $12$. Isto acontece por, além de serem múltiplos de $2$, os números $4, 8$ e $12$ também são múltiplos de $2^2$. 
+
+Eliminando os fatores $2$ associados a $2^2$ resulta em
+$$
+        1 \times 1 \times 3 \times \textcolor{red}{1} \times 5 \times 3 \times 7 \times \textcolor{red}{2} \times 9 \times 5 \times 11 \times \textcolor{red}{3}
+$$
+
+Mais $3$ fatores foram eliminados, e sobrou ainda um fator, onde estava o $8$. Isto acontece também porque 8 é múltiplo de $2^3$. Eliminando este último fator, foi removido um total de $6 + 3 + 1 = 10$ fatores do produto.  Portanto $E(12,2) = 10$.
+
+\end{frame}
+
+\begin{frame}[fragile]{Cálculo de $E(n, p)$}
+
+O exemplo anterior permite a deducação da expressão para o cálculo de $E(n,p)$:
+$$
+E(n, p) = \left\lfloor \frac{n}{p}\right\rfloor + \left\lfloor \frac{n}{p^2}\right\rfloor + \ldots + \left\lfloor \frac{n}{p^r}\right\rfloor,
+$$
+onde $\left\lfloor \frac{a}{b}\right\rfloor$ é a divisão inteira de $a$ por $b$ e $p^r$ é a maior potência de $p$ que é menor ou igual a $n$.
+
+\end{frame}
+
+\begin{frame}[fragile]{Implementação de $E(n, p)$ em C++ em $O(\log n)$}
+    \inputsnippet{cpp}{1}{21}{codes/ep.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Implementação da fatoração de $n!$ em $O(\pi(n)\log n)$}
+    \inputsnippet{cpp}{1}{21}{codes/factorial.cpp}
+\end{frame}

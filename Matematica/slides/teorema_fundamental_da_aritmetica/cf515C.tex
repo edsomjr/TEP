@@ -1,0 +1,61 @@
+\begin{frame}[fragile]{Codeforces 515C -- Drazil and Factorial}
+
+    \textbf{Versão resumida do problema}: determinar o maior positivo $x$ tal que $x$ não
+        contenha nem zeros nem uns em sua representação, e que $F(x) = F(a)$, onde
+        $F(n)$ é o produto dos fatoriais dos dígitos de $n$.
+
+    \vspace{0.1in}
+    \textbf{Restrição}: o número $a$ tem entre 1 e 15 dígitos decimais.
+
+\end{frame}
+
+\begin{frame}[fragile]{Solução $O(n\log n)$}
+
+    \begin{itemize}
+        \item Para determinar o valor de $x$ é preciso, inicialmente, determinar a fatoração
+            prima de $F(a)$
+
+        \item Como $F(a)$ é o produto do fatorial de cada dígito de $a$, esta fatoração conterá,
+            no máximo, 4 primos distintos: 2, 3, 5 e 7
+
+        \item Esta fatoração será composta pelo produto das fatorações de cada dígito de $a$
+
+        \item Uma vez que há apenas 10 dígitos decimais e alguns deles podem se repetir em
+            $a$, podemos usar um histograma para evitar o cálculo de uma mesma fatoração
+            repetidas vezes
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Solução $O(n\log n)$}
+
+    \begin{itemize}
+        \item Observe que o menor fatorial que contém o primo $p$ em sua fatoração é $p!$
+
+        \item Como desejamos o maior $x$ possível, podemos escolher, gulosamente, o maior
+            dentre os fatoriais $2!, 3!, 5!$ e $7!$ que ainda pode ser formado com os fatores
+            disponíveis
+
+        \item A cada fatorial escolhido é preciso atualizar a lista dos fatores disponíveis
+
+        \item Eventualmente o resultado pode exceder os limites de um \code{cpp}{long long},
+            então utilize uma string para armazenar o resultado, evitando assim o \textit{overflow}
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Solução $O(n\log n)$}
+    \inputsnippet{cpp}{18}{26}{codes/515C.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Solução $O(n\log n)$}
+    \inputsnippet{cpp}{28}{39}{codes/515C.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Solução $O(n\log n)$}
+    \inputsnippet{cpp}{41}{56}{codes/515C.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Solução $O(n\log n)$}
+    \inputsnippet{cpp}{57}{69}{codes/515C.cpp}
+\end{frame}

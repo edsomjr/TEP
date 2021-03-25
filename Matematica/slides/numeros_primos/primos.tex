@@ -1,0 +1,130 @@
+\section{Números primos}
+
+\begin{frame}[fragile]{Números primos}
+
+    \metroset{block=fill}
+    \begin{block}{Definição de número primo}
+    Seja $p$ um número inteiro positivo. Dizemos que $p$ é \textbf{primo} se ele possui exatamente 
+    dois divisores positivos: o próprio $p$ e o número $1$.
+
+    Um número natural $n > 1$ que não é primo é denominado número \textbf{composto}. 
+    \end{block}
+
+\end{frame}
+
+
+\begin{frame}[fragile]{Consequências da definição de primos}
+
+    \begin{itemize}
+        \item O número 1 não é primo, pois possui um único divisor positivo
+
+        \item O menor número primo, e o único que é par, é o número 2
+
+        \item Os próximos números primos são, a saber, 3, 5, 7, 11, 13, 17, 19, 23, $\ldots$
+
+        \item Se $p$ e $q$ são primos e $p$ divide $q$, então $p = q$
+
+        \item Se $p$ é primo e $p$ divide o produto $ab$, então $p$ divide $a$ ou $p$ divide $b$ 
+
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Identificação de números primos}
+
+    \begin{itemize}
+        \item Para se determinar se um inteiro positivo $n$ é ou não primo pode-se recorrer 
+            diretamente à definição de primos 
+
+        \item A verificação consiste em uma busca completa nos possíveis divisores de $n$
+
+        \item Caso seja encontrado um divisor de $n$ que seja diferente de $1$ ou do próprio $n$, 
+            então $n$ será composto
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Identificação de primos com complexidade $O(n)$}
+    \inputsnippet{cpp}{7}{17}{codes/primes.cpp}
+\end{frame}
+
+
+\begin{frame}[fragile]{Complexidade da identificação de números primos}
+
+    \begin{itemize}
+        \item A rotina \code{cpp}{is_prime()}, embora seja de fácil entendimento e codificação, tem
+            complexidade $O(n)$
+
+        \item Há ainda o agravante que a principal operação realizada no laço é a divisão inteira,
+            a qual é computacionalmente exigente
+
+        \item A divisão contrasta com a adição e a multiplicação as quais podem, em geral, ser
+            realizadas em um ou dois ciclos do processador
+
+        \item Também são realizadas muitas operações desnecessárias
+
+        \item Por exemplo, se $n$ for ímpar, qualquer tentativa de se encontrar um divisor par
+            de $n$ é infrutífera
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Eliminação de operações desnecessárias}
+    \inputsnippet{cpp}{19}{35}{codes/primes.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Redução na complexidade da identificação de primos}
+
+    \begin{itemize}
+        \item Embora a rotina \code{cpp}{is_prime2()} reduza a quantidade de operações em relação à
+            rotina \code{cpp}{is_prime()}, a complexidade não foi reduzida, permanecendo em $O(n)$
+
+        \item Para reduzir a complexidade, é preciso observar que deve-se procurar por possíveis
+            divisores $d$ tais que $d \leq \sqrt{n}$
+
+        \item Isto se deve ao fato de que se $d$ divide $n$, então $n = dk$, e ou $d$ ou $k$ deve
+            ser menor ou igual à raiz quadrada de $n$
+
+        \item Se ambos fossem maiores o produto $dk$ seria maior do que $n$, uma contradição
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Verificação de primalidade em $O(\sqrt{n})$}
+    \inputsnippet{cpp}{37}{53}{codes/primes.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Nova redução na complexidade da verificação de primalidade}
+
+    \begin{itemize}
+        \item A rotina \code{cpp}{is_prime3()} tem complexidade $O(\sqrt{n})$
+
+        \item Observe que o teste do laço não utiliza a rotina \code{cpp}{sqrt()}, para evitar 
+            erros de precisão e melhorar o tempo de execução
+
+        \item É possível reduzir a complexidade uma vez mais, uma vez que os candidatos à 
+            divisores de \code{cpp}{is_prime3()} são os ímpares entre 3 e $\sqrt{n}$
+
+        \item Suponha que a listagem $P$ de todos os números primos seja conhecida
+
+        \item Um algoritmo que utiliza apenas os elementos de $P$
+            como candidatos a divisores tem complexidade $O(\pi(\sqrt{n}))$
+    \end{itemize}
+
+\end{frame}
+
+
+\begin{frame}[fragile]{Função $\pi(n)$}
+
+    \metroset{block=fill}
+    \begin{block}{Definição da função $\pi(n)$}
+        Seja $n$ um inteiro positivo. A função $\pi(n)$ retorna o número de primos menores
+        ou iguais a $n$.
+    \end{block}
+
+O cálculo de $\pi(n)$ não é trivial, mas este valor pode ser aproximado:
+$$
+    \pi(n) \approx \frac{n}{\ln n}
+$$
+
+\end{frame}

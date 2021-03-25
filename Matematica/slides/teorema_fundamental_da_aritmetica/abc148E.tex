@@ -1,0 +1,52 @@
+\begin{frame}[fragile]{AtCoder Beginner Contest 148E -- Double Factorial}
+
+    \textbf{Versão resumida do problema}: Determine o número de zeros à direita na representação
+    decimal de $f(N)$, onde $f(1) = 1$ e
+    $$
+        f(n) = nf(n - 2), \ \ \mbox{se}\ n\geq 2
+    $$
+
+    \vspace{0.1in}
+    \textbf{Restrição}: $0 \leq N \leq 10^{18}$
+
+\end{frame}
+
+\begin{frame}[fragile]{Solução com complexidade $O(\log N)$}
+
+    \begin{itemize}
+        \item Observe que a função $f(n)$ é uma variante do fatorial, que computa o produto dos
+            pares ou dos ímpares menores ou iguais a $n$, dependendo da paridade de $n$
+
+        \item Se $n$ for ímpar, então $f(n)$ será também ímpar, e portanto não terá nenhum zero
+            à direita
+
+        \item Se for um positivo $n$ par, então $f(n)$ pode ser reescrita como
+        $$
+            f(n) = 2^{n/2}\times \left(\frac{n}{2}\right)!
+        $$
+
+        \item Neste caso, $f(n) = 2^r5^sm$, onde $(2, m) = 1 = (5, m)$, $s = E(n/2, 5)$ e $r = n/2 + E(n/2, 2)$
+
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Solução com complexidade $O(\log N)$}
+
+    \begin{itemize}
+        \item A representação decimal de $f(n)$ terá um zero à direita para cada par de fatores 2 e 
+            5
+
+        \item Assim, a solução $S$ do problema será dada por $S = \min(r, s)$
+
+        \item Como $s\leq r$, pois $E(n/2, 2)\geq E(n/2, 5)$, então $S$ de fato corresponde a
+            $E(n/2, 5)$
+
+        \item Esta solução tem complexidade $O(\log n)$
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Solução com complexidade $O(\log N)$}
+    \inputsnippet{cpp}{6}{22}{codes/B148E.cpp}
+\end{frame}

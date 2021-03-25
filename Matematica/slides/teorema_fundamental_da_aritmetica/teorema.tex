@@ -1,0 +1,127 @@
+\section{Teorema Fundamental da Aritmética}
+
+\begin{frame}[fragile]{Funções multiplicativas e números primos}
+
+    \begin{itemize}
+        \item Uma função $f$ é multiplicativa se $f(1) = 1$ e $f(ab) = f(a)f(b)$ se $(a, b) = 1$
+
+        \item Uma consequência destas propriedades é que $f$ pode ser determinada se conhecidos
+            os valores que ela assume nas potências $p^k$ de qualquer primo $p$
+
+        \item Isto porque, se o inteiro positivo $n$ é um produto de potências de primos, isto é
+        $$
+            n = p_1^{\alpha_1}p_2^{\alpha_2}\ldots p_k^{\alpha_k},
+        $$
+        então
+        $$
+            f(n) = f(p_1^{\alpha_1})f(p_2^{\alpha_2})\ldots f(p_k^{\alpha_k})
+        $$
+
+        \item O Teorema Fundamental da Aritmética nos garante que, se $n > 1$, então $n$ poderá
+            ser escrito como este produto de primos
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Teorema Fundamental da Arimética}
+
+    \metroset{block=fill}
+    \begin{block}{Teorema Fundamental da Aritmética}
+        Seja $n$ um inteiro positivo maior do que 1. Então $n$ pode ser escrito de forma única,  
+        exceto pela ordem dos fatores, como o produto de números primos.
+
+        Uma notação canônica para esta fatoração de $n$ é a seguinte: se $p_i$ é o $i$-ésimo número 
+        primo e $\alpha_i \geq 0$, para todo $i\in [1, k]$, então
+        $$
+            n = p_1^{\alpha_1}p_2^{\alpha_2}\ldots p_k^{\alpha_k}
+        $$
+    \end{block}
+
+\end{frame}
+
+\begin{frame}[fragile]{Fatoração de inteiros}
+
+    \begin{itemize}
+        \item O Teorema Fundamental da Aritmética apresenta a relação fundamental dos números
+            primos com todos os números naturais
+
+        \item O conhecimento da fatoração (ou decomposição) de um natural $n$ como produto de
+            primos permite o cálculo de várias funções importantes, como MDC, MMC ou qualquer 
+            função multiplicativa
+
+        \item A fatoração serve como alternativa para a representação do número, principalmente
+            quando o número é muito grande (maior do que a capacidade de um \code{cpp}{long long},
+            por exemplo)
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Implementação da fatoração de inteiros}
+
+    \begin{itemize}
+        \item Uma maneira de se representar a fatoração de um inteiro positivo $n > 1$ é por meio
+            de um dicionário, onde chave é um primo $p$ divisor de $n$, e o valor $k$ é o maior
+            expoente tal que $p^k$ divide $n$
+
+        \item É possível implementar a fatoração de duas formas
+
+        \item Sem o conhecimento prévio da lista dos primos, a implementação terá complexidade
+            $O(\sqrt{n})$
+
+        \item O algoritmo será semelhante ao que lista todos os divisores de $n$, com duas
+            diferenças
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Implementação da fatoração de inteiros}
+
+    \begin{itemize}
+        \item A primeira delas é que, ao encontrar um divisor $p$ de $n$, o valor de $n$ será 
+            atualizado para $n/p^k$
+
+        \item A segunda é que, se após a verificação de todos os candidatos a divisores de $n$
+            o valor de $n$ permanecer maior do que 1, este valor remanescente será primo
+
+
+        \item A fatoração pode ser implementada em $O(\pi(\sqrt{n}))$, se forem conhecida a
+            lista dos primeiros primos 
+
+        \item O algoritmo será o mesmo, com a diferença de que os candidatos à divisores serão
+            todos primos
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Implementação da fatoração em $O(\sqrt{n})$}
+    \inputsnippet{cpp}{5}{20}{codes/fatoracao.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Implementação da fatoração em $O(\pi(\sqrt{n}))$}
+    \inputsnippet{cpp}{22}{37}{codes/fatoracao.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Implementação da fatoração em $O(\pi(\sqrt{n}))$}
+    \inputsnippet{cpp}{38}{46}{codes/fatoracao.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{MDC, MMC e fatoração}
+
+Sejam $a$ e $b$ dois inteiros positivos tais que $a = p_1^{\alpha_1}p_2^{\alpha_2}\ldots p_k^{\alpha_k}$ e $b = p_1^{\beta_1}p_2^{\beta_2}\ldots p_k^{\beta_k}$, com $\alpha_i, \beta_j \geq 0$ para todos $i, j\in [1,k]$. Então
+$$
+    (a, b) = p_1^{\min\{\alpha_1, \beta_1\}}p_2^{\min\{\alpha_2, \beta_2\}}\ldots p_k^{\min\{\alpha_k, \beta_k\}}
+$$
+e
+$$
+    [a, b] = p_1^{\max\{\alpha_1, \beta_1\}}p_2^{\max\{\alpha_2, \beta_2\}}\ldots p_k^{\max\{\alpha_k, \beta_k\}}
+$$
+
+\end{frame}
+
+\begin{frame}[fragile]{Implemetação do MDC usando a fatoração de $n$}
+    \inputsnippet{cpp}{1}{16}{codes/gcd.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Implemetação do MMC usando a fatoração de $n$}
+    \inputsnippet{cpp}{1}{16}{codes/lcm.cpp}
+\end{frame}

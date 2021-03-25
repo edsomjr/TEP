@@ -1,0 +1,36 @@
+\begin{frame}[fragile]{Codeforces 327B -- Hungry Sequence}
+
+    \textbf{Versão resumida do problema}: dado um inteiro $N$, determine uma sequência de inteiros
+        $a_1, a_2, \ldots, a_N$ tais que
+
+    \begin{itemize}
+        \item $a_i < a_j$ se $i < j$
+        \item $a_i$ não divide $a_j$, para qualquer $i < j$
+    \end{itemize}
+
+    \vspace{0.1in}
+    \textbf{Restrição}: $N \leq 10^5$
+
+\end{frame}
+
+\begin{frame}[fragile]{Solução com complexidade $O(M\log \log M)$}
+
+    \begin{itemize}
+        \item Suponha que você deseje iniciar uma sequência com estas características em $a_1 = k$
+
+        \item Devido ao segundo critério, nenhum dos elementos subjacentes da sequência pode ser 
+            múltiplo de $k$
+
+        \item Ou seja, incluir $k$ na sequência ``criva'' todos seus múltiplos
+
+        \item Desta maneira, iniciando com $a_1 = 2$ (pois 1 divide qualquer número) e aplicando
+            o crivo de Erastótenes, os candidatos a demais elementos são todos primos
+
+        \item Como $\pi(10^7) = 664579 > 10^5$, basta imprimir na saída os $N$ primeiros primos
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Solução com complexidade $O(M\log \log M)$}
+    \inputsnippet{cpp}{1}{21}{codes/327B.cpp}
+\end{frame}
