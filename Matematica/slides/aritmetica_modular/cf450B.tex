@@ -1,0 +1,43 @@
+\begin{frame}[fragile]{Codeforces 450B -- Jzzhu and Sequences}
+
+    \textbf{Versão resumida do problema}: compute $\Mod{f_n}{10^9 + 7}$, onde $f_1 = x, f_2 = y$
+    e
+    $$
+        f_i = f_{i - 1} + f_{i + 1}
+    $$
+
+    \vspace{0.1in}
+    \textbf{Restrições}:
+
+    \begin{itemize}
+        \item $|x|, |y| \leq 10^9$
+        \item $1\leq n\leq 2\times 10^9$
+    \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{Solução com complexidade $O(1)$}
+
+    \begin{itemize}
+        \item Reescrevendo o termo geral da sequência, obtemos
+        $$
+            f_{i + 1} = f_i - f_{i - 1}
+        $$
+
+        \item Usando os termos iniciais e computando os primeiros termos da sequência, obtemos
+        $$
+            f_3 = y - x, f_4 = -x, f_5 = -y, f_6 = -y + x, f_7 = x, f_8 = y, \ldots
+        $$
+
+        \item Ou seja, a sequência é cíclica, com apenas 6 termos distintos
+
+        \item Assim, basta extrair o resto da divisão de $n$ por 6 e identificar qual seria o 
+            termo correspondente
+
+        \item Por fim, é preciso computar o resto da divisão deste termo por $10^9 + 7$
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Solução com complexidade $O(1)$}
+    \inputsnippet{cpp}{5}{14}{codes/450B.cpp}
+\end{frame}

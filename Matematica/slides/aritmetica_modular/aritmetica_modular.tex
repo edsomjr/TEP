@@ -1,0 +1,310 @@
+\section{Aritmética Modular}
+
+\begin{frame}[fragile]{Relação de congruência}
+
+    \metroset{block=fill}
+    \begin{block}{Definição}
+        Sejam $a, b$ e $m$ números inteiros tais que $m > 1$. Dizemos que $a$ é congruente a $b$
+        módulo $m$ se $m$ divide $a - b$.
+
+        \textbf{Notação}: $a\equiv \Mod{b}{m}$
+    \end{block}
+
+\end{frame}
+
+\begin{frame}[fragile]{Definição equivalente de congruência}
+
+    \begin{itemize}
+        \item Sejam $a, b$ e $m$ números inteiros tais que $m > 1$
+
+        \item Pela Divisão de Euclides, $a = mq_1 + r_1$, com $0\leq r_1 < m$, e $b = mq_2 + r_2$,
+            com $0\leq r_2 < m$
+
+        \item Assim, $a - b = m(q_1 - q_2) + (r_1 - r_2)$
+
+        \item Se $a$ e $b$ são congruentes módulo $m$, então a diferença $a - b$ é um múltiplo
+            de $m$
+
+        \item Da expressão anterior, então $r_1 - r_2$ é múltiplo de $m$
+
+        \item Como ambos restos são menores do que $m$, então $r_1 - r_2 = 0$ 
+    
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Definição equivalente de congruência}
+
+    \begin{itemize}
+        \item Por outro lado, suponha que $r_1 = r_2$
+
+        \item Neste caso, $a - b = m(q_1 - q_2)$, o significa que $m$ divide $a - b$
+
+        \item Logo, $a$ é congruente a $b$ módulo $m$
+
+        \item Dados estes dois fatos, a congruência pode ser definida também por meio dos
+            restos da divisão por $m$
+
+        \vspace{0.1in}
+
+        \metroset{block=fill}
+        \begin{block}{Definição alternativa de congruência}
+            Sejam $a, b$ e $m$ inteiros tais que $m > 1$. Dizemos que $a$ e $b$ são congruentes 
+            módulo $m$ se ambos deixam mesmo resto quando divididos por $m$.
+        \end{block}
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Propriedades da relação de congruência}
+
+    Sejam $a, b, c, m$ inteiros tais que $m > 1$. Valem as seguintes propriedades da congruência:
+
+    \begin{enumerate}
+        \item \textbf{propriedade reflexiva}: $a\equiv \Mod{a}{m}$
+        \item \textbf{propriedade simétrica}: se $a\equiv \Mod{b}{m}$ então $b\equiv \Mod{a}{m}$
+        \item \textbf{propriedade transitiva}: se $a\equiv \Mod{b}{m}$ e $b\equiv \Mod{c}{m}$ então
+            $a\equiv \Mod{c}{m}$
+    \end{enumerate}
+
+\end{frame}
+
+\begin{frame}[fragile]{Relação de equivalência}
+
+    \begin{itemize}
+        \item Para verificar a propriedade reflexiva, observe que, para qualquer $a$ inteiros, vale
+            que $a - a = 0 = 0\times m$
+
+        \item Se $a\equiv \Mod{b}{m}$, então $a - b = mk$, para algum $k$ inteiros
+
+        \item Assim $b - a = -(a - b) = -mk$, isto é, $b\equiv \Mod{a}{m}$, de modo que vale a 
+            propriedade simétrica
+
+        \item Por fim, se $a\equiv \Mod{b}{m}$ e $b\equiv \Mod{c}{m}$, então $a - b = mk_1$ e 
+            $b - c = mk_2$
+
+        \item Logo
+        $$
+            a - c = (a - b) + (b - c) = mk_1 + mk_2 = m(k_1 - k_2)
+        $$
+
+        \item Estas propriedades mostram que a relação de congurência é, de fato, uma relação de 
+            equivalência 
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Classes de equivalência}
+
+    \metroset{block=fill}
+    \begin{block}{Definição}
+        Seja $m$ um inteiro tal que $m > 1$. O conjunto
+        $$
+            [a] = \{ b\in\mathbb{Z}\ |\ a\equiv \Mod{b}{m}\}
+        $$
+        é denominado \textbf{classe de equivalência de $a$ módulo $b$}.
+
+        O inteiro $a$ é denominado \textbf{representante} da classe $[a]$.
+    \end{block}
+
+\end{frame}
+
+\begin{frame}[fragile]{Partição dos inteiros}
+
+    \begin{itemize}
+        \item Sendo uma relação de equivalência, as classes de equivalência induzidas pela
+            relação de congruência particionam o conjunto dos números inteiros em $m$
+            conjuntos disjuntos
+
+        \item Observem que, se $a\equiv \Mod{b}{m}$, então $[a] = [b]$
+
+        \item Assim, convencionaremos que o representante de cada classe de equivalência
+            $x$ será o inteiro positivo $r$ tal que $r\equiv \Mod{x}{m}$ e $0\leq r< m$
+
+        \item Ou seja, $r$ corresponde aos restos euclidianos da divisão por $m$
+
+        \item Com esta convenção, temos que
+        $$
+            [0] \cup [1] \cup [2] \cup \ldots \cup [m - 1] = \mathbb{Z},
+        $$
+        com $[i]\cap [j] = \emptyset$ se $i\neq j$, $0\leq i, j < m$
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Conjunto das classes de equivalência}
+
+    \metroset{block=fill}
+    \begin{block}{Definição}
+        Seja $m$ um inteiro positivo $m > 1$. Então
+        $$
+            \mathbb{Z}_m = \{ [0], [1], [2], \ldots, [m - 1]\}
+        $$
+        é o conjunto das classes de equivalência de $m$.
+    \end{block}
+
+\end{frame}
+
+\begin{frame}[fragile]{Adição em $Z_m$}
+
+    \begin{itemize}
+        \item É possível definir uma operação de adição em $\mathbb{Z}_m$
+
+        \item Seja $+: \mathbb{Z}_m\times \mathbb{Z}_m \to \mathbb{Z}_m$ tal que
+        $[a] + [b] = [c]$ se, e somente se, $c\equiv \Mod{a + b}{m}$
+
+        \item Na prática, quando não houver ambiguidade, os colchetes que caracterizam as classes
+            de equivalência podem ser omitidos
+
+        \item Observe que esta adição lembra, mas não é idêntica, a adição nos inteiros
+
+        \item Por exemplo, em $\mathbb{Z}_7$, $[5] + [4] = [2]$ 
+
+        \item A leitura desta expressão é ``somar um número que deixa resto 5 quando dividido por
+            7 a um número que deixa resto 4 quando dividido por 7 resulta em um número que deixa
+            resto 2 quando dividida por 7''
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Grupo das classes de equivalência}
+
+    \metroset{block=fill}
+    \begin{block}{Proposição}
+        Seja $m$ um inteiro positivo tal que $m > 1$. Então $(\mathbb{Z}, +)$ é um grupo
+            abeliano.
+    \end{block}
+
+\end{frame}
+
+\begin{frame}[fragile]{Demonstração}
+
+    \begin{itemize}
+        \item Para verificar que $(\mathbb{Z}_m, +)$ é um grupo, observe inicialmente que a adição
+            é fechada em $\mathbb{Z}_m$
+
+        \item Isto é, a soma de dois inteiros $a$ e $b$ é um inteiro $c$ que pertence a uma das
+            classes de $\mathbb{Z}_m$, pois estas particionam os inteiros
+
+        \item Além disso, $[0]$ é o elemento neutro da adição
+
+        \item A associatividade e a comutatividade são consequências diretas destas propriedades
+            para os inteiros
+
+        \item Por fim, para qualquer classe $[a]$, a classe $[m - a]$ será seu inverso aditivo,
+            pois
+        $$
+            [a] + [m - a] = [0]
+        $$
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Multiplicação em $\mathbb{Z}_m$}
+
+    \begin{itemize}
+        \item Também é possível definir uma multiplicação em $\mathbb{Z}_m$
+
+        \item Seja $\times: \mathbb{Z}_m\times \mathbb{Z}_m\to \mathbb{Z}_m$ tal que $[a]\times [b]
+            = [c]$ se, e somente se, $c\equiv \Mod{ab}{m}$
+
+        \item Por exemplo, em $\mathbb{Z}_9$, $[4]\times [8] = [5]$
+
+        \item A depender do valor de $m$, é possível que $\mathbb{Z}_m$ tenha \textbf{divisores de
+            zero}, isto é, dois elementos diferentes de $[0]$ tais que seu produto resulte em
+            $[0]$
+
+        \item Em $\mathbb{Z}_{12}$, temos $[2]\times [6] = [0]$ e $[4]\times [3] = [0]$
+
+        \item Dada uma classe $[a]\subset \mathbb{Z}_m$, a existência de um inverso multiplicativo
+            também dependerá do valor de $m$
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Grupo multiplicativo $\mathbb{Z}_p$}
+
+    \metroset{block=fill}
+    \begin{block}{Proposição}
+        Seja $m$ um inteiro tal que $m > 1$. Então $(\mathbb{Z}_m, \times)$ será um grupo 
+            abeliano se, e somente se, $m$ é um número primo.
+    \end{block}
+
+\end{frame}
+
+\begin{frame}[fragile]{Demonstração}
+
+    \begin{itemize}
+        \item O fechamento, a associatividade e a transitividade decorrem diretamente da 
+            multiplicação nos inteiros e da partição dos inteiros pelas classes de equivalência,
+            e independem do valor de $m$
+
+        \item Também, para qualquer $m$, a classe $[1]$ será o elemento identidade da 
+            multiplicação, isto é, para qualquer $[a]\subset \mathbb{Z}_m$,
+        $$
+            [1]\times [a] = [a]\times [1] = [a]
+        $$
+
+        \item O ponto decisivo é a existência, para qualquer $[a]\subset \mathbb{Z}_m$, 
+            $[a]\neq [0]$,  do elemento inverso multiplicativo $[a]^{-1}$ tal que
+        $$
+            [a]\times [a]^{-1} = [a]^{-1}\times [a] = [1]
+        $$
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Demonstração}
+
+    \begin{itemize}
+        \item Suponha que exista a classe $[b] = [a]^{-1}$
+
+        \item Isto implicaria em $[a]\times [b] = 1$, ou seja, $m$ dividiria a diferença $ab - 1$ 
+
+        \item Assim, existiria um $k$ inteiro tal que $ab - 1 = km$
+
+        \item Reescrevendo esta expressão, obtemos a equação diofantina
+        $$
+            ab - km = 1,
+        $$
+        a qual só tem solução se $(a, m) = 1$
+
+        \item Para que todos elementos $a = 1, 2, \ldots, m - 1$ sejam coprimos com $m$, $m$ tem que
+            ser um número primo 
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Inverso mutliplicativo módulo $m$}
+
+    \begin{itemize}
+        \item Conforme vimos na demonstração anterior, o inverso multiplicativo de $a$ módulo $m$ 
+            só existe de $a$ e $m$ são coprimos
+
+        \item A demonstração também nos diz como obter este inverso $x$: por meio da solução da
+            equação diofantina
+        \[
+            ax - km = 1
+        \]
+
+        \item Vimos anteriormente que uma solução particular $x_0$ esta equação pode ser obtida por
+            meio do algorimo estendido de Euclides
+
+        \item Daí, $x = [x_0]$
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Anéis e corpos}
+
+    \metroset{block=fill}
+    \begin{block}{Proposição}
+        Seja $m$ um inteiro positivo tal que $m > 1$. Então $(Z_m, +, \times)$
+        \begin{enumerate}[(i)]
+            \item é um corpo finito, se $m$ é primo
+            \item é um anel comutativo com unidade, se $m$ é composto
+        \end{enumerate}
+    \end{block}
+
+\end{frame}
+

@@ -1,0 +1,65 @@
+\section{Congruências em programação competitiva}
+
+\begin{frame}[fragile]{Congruências em programação competitiva}
+
+    \begin{itemize}
+        \item  No contexto de programação competitiva deve-se atentar à duas propriedades
+            fundamentais
+        \begin{enumerate}[(i)]
+            \item $(\Mod{a}{m}) + (\Mod{b}{m})\equiv \Mod{a + b}{m}$
+            \item $(\Mod{a}{m}) \times (\Mod{b}{m})\equiv \Mod{ab}{m}$
+        \end{enumerate}
+
+        \item Na prática, em expressões que se deseja apenas o resto do resultado por um módulo
+            $m$, o módulo pode ser aplicado em todas as etapas intermediárias do
+            cálculo
+
+        \item Isto evitará o \textit{overflow} pois, se os restos euclidianos forem utilizados
+            como representantes das classes de equivalência, antes da extração do módulo
+        \begin{enumerate}[(i)]
+            \item $a + b < 2m$, e
+            \item $ab < m^2$
+        \end{enumerate}
+
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Congruências em C++}
+
+    \begin{itemize}
+        \item Embora o operador \texttt{\%} em C++ receba o nome de módulo, ele nem sempre 
+            resulta em um resto euclidiano
+
+        \item As divergências surgem quando o inteiro $a$ ou o módulo $m$ eventualmente sejam
+            negativos
+
+        \item Para implementar o módulo compatível com o apresentado, uma alternativa
+            é utilizar a implementação abaixo
+
+            \inputsyntax{cpp}{codes/mod.cpp}
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Adição e multiplicação modular em C++}
+
+    \begin{itemize}
+        \item Este tratamento de possíveis restos negativos pode ser estendido para as operações
+            de adição de multiplicação
+
+        \item Ao se implementar métodos para a adição e para a multiplicação modulares, a leitura
+            do código fica mais clara
+
+        \item Além disso, estes métodos garantem que seus retornos serão sempre restos 
+            euclidianos
+
+        \item Ao invés de utilizar o operador \texttt{\%} duas vezes, uma condicional e uma
+            soma são uma alternativa mais barata em termos de tempo de execução
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Adição e multiplicação modular em C++}
+    \inputsnippet{cpp}{1}{13}{codes/addmul.cpp}
+\end{frame}
