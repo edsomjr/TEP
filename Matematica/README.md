@@ -17,6 +17,12 @@
     1. [Logaritmos](slides/logaritmos/logaritmos.pdf)
     1. [Função logaritmo e função exponecial](slides/exp_e_log/exp_e_log.pdf)
 1. Aritmética Estendida
+1. Teoria dos Números
+    1. [Divisibilidade](slides/divisibilidade/divisibilidade.pdf)
+    1. [Números Primos](slides/numeros_primos/numeros_primos.pdf)
+    1. [Funções Multiplicativas](slides/funcoes_multiplicativas/funcoes_multiplicativas.pdf)
+    1. [Teorema Fundamental da Aritmética](slides/teorema_fundamental_da_aritmetica/teorema_fundamental_da_aritmetica.pdf)
+    1. [Aritmética Modular](slides/aritmetica_modular/aritmetica_modular.pdf)
 1. Análise Combinatória
     1. [Permutações](slides/permutacoes/permutacoes.pdf)
     1. [Arranjos](slides/arranjos/arranjos.pdf)
@@ -25,17 +31,12 @@
     1. [Princípio da Inclusão/Exclusão](text/Inclusao_Exclusao.md)
     1. [Funções Geradoras](text/Funcoes_Geradoras.md)
     1. [Partições](text/Particoes.md)
-1. Teoria dos Números
-    1. [Divisibilidade](slides/divisibilidade/divisibilidade.pdf)
-    1. [Números Primos](slides/numeros_primos/numeros_primos.pdf)
-    1. [Funções Multiplicativas](slides/funcoes_multiplicativas/funcoes_multiplicativas.pdf)
-    1. [Teorema Fundamental da Aritmética](slides/teorema_fundamental_da_aritmetica/teorema_fundamental_da_aritmetica.pdf)
-    1. [Aritmética Modular](slides/aritmetica_modular/aritmetica_modular.pdf)
 <!-- Adicionar a função de Möbius -->
 <!-- Adicionar texto sobre decomposição de permutações, ciclos, paridade de permutação, composição de permutações -->
 <!-- Adicionar o teste de Miller-Rabin para primalidade -->
 <!-- Separar a parte das equações diofantinas e inserir a parte soluções naturais (conjunto das lacunas) -->
 <!-- Adicionar o texto sobre o as equiações de congurência lineares e o Teorema Chinês dos restos -->
+<!-- Adicionar o texto sobre o as equiações de congurência quadráticas, reciprocidade quadrática e o extração de raizes quadradas módulo m-->
 1. Avaliação de Expressões
 1. Detecção de ciclos
 1. Probabilidade
