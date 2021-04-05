@@ -30,11 +30,12 @@
     1. [Números Primos](slides/numeros_primos/numeros_primos.pdf)
     1. [Funções Multiplicativas](slides/funcoes_multiplicativas/funcoes_multiplicativas.pdf)
     1. [Teorema Fundamental da Aritmética](slides/teorema_fundamental_da_aritmetica/teorema_fundamental_da_aritmetica.pdf)
-    1. [Aritmética Modular](text/Aritmetica_Modular.md)
+    1. [Aritmética Modular](slides/aritmetica_modular/aritmetica_modular.pdf)
 <!-- Adicionar a função de Möbius -->
 <!-- Adicionar texto sobre decomposição de permutações, ciclos, paridade de permutação, composição de permutações -->
 <!-- Adicionar o teste de Miller-Rabin para primalidade -->
 <!-- Separar a parte das equações diofantinas e inserir a parte soluções naturais (conjunto das lacunas) -->
+<!-- Adicionar o texto sobre o as equiações de congurência lineares e o Teorema Chinês dos restos -->
 1. Avaliação de Expressões
 1. Detecção de ciclos
 1. Probabilidade
