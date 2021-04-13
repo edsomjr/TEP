@@ -33,7 +33,7 @@
 
 \end{frame}
 
-\begin{frame}[fragile]{Inversos multiplicativos módulo $p$ em C++ com complexidade $O(\log n)$}
+\begin{frame}[fragile]{Inversos multiplicativos módulo $p$ em C++ com complexidade $O(\log p)$}
     \inputsnippet{cpp}{15}{31}{codes/addmul.cpp}
 \end{frame}
 
@@ -41,9 +41,9 @@
 
     \metroset{block=fill}
     \begin{block}{Teorema de Euler}
-        Seja $a$ e $m$ inteiros positivos tais que $m > 1$. Então
+        Seja $a$ e $m$ inteiros positivos tais que $m > 1$ e $(a, m) = 1$. Então
         $$
-            a^{\varphi(n)}\equiv\ \Mod{1}{m}
+            a^{\varphi(m)}\equiv\ \Mod{1}{m}
         $$
     \end{block}
 
@@ -52,14 +52,14 @@
 \begin{frame}[fragile]{Euler e inversos multiplicativos módulo $m$}
 
     \begin{itemize}
-        \item Nos casos em que $(a, m) = 1$, o Pequeno Teorema de Fermat é um caso especial
-            do Teorema de Euler
+        \item Nos casos em que $m$ é primo e $(a, m) = 1$, o Pequeno Teorema de Fermat é um caso 
+            especial do Teorema de Euler
 
         \item Nos casos de módulos que não são primos, o Teorema de Euler fornece uma alternativa
             para o cálculo do inverso multiplicativo módulo $m$
 
         \item Em termos de código, ambos teoremas fornecem maneiras efetivas de computar os 
-            inversos modulares, com complexidade $O(\log n)$
+            inversos modulares, com complexidades $O(\log m)$ e $(\log \varphi(m))$, respectivamente
 
         \item Além disso, a implementação é fácil de lembrar e de codificação, enquanto que 
             o algoritmo de Euclides estendido não é tão simples de lembrar e ainda pode gerar
@@ -68,7 +68,7 @@
 
 \end{frame}
 
-\begin{frame}[fragile]{Implementação do inverso multiplicativo em $O(\log n)$}
+\begin{frame}[fragile]{Implementação do inverso multiplicativo em $O(\log \varphi(m))$}
     \inputsnippet{cpp}{33}{37}{codes/addmul.cpp}
 \end{frame}
 

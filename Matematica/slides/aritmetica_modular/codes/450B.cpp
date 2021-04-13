@@ -8,7 +8,7 @@ int solve(int x, int y, int n)
 {
     vector<int> seq { -y + x, x, y, y - x, -x, -y };
 
-    auto res = seq[n % seq.size()] % MOD;
+    auto res = seq[n % 6] % MOD;
 
     return res < 0 ? res + MOD : res;
 }

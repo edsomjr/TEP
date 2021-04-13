@@ -94,7 +94,7 @@
 
 \end{frame}
 
-\begin{frame}[fragile]{Classes de equivalência}
+\begin{frame}[fragile]{Classes de equivalência módulo $m$}
 
     \metroset{block=fill}
     \begin{block}{Definição}
@@ -102,7 +102,7 @@
         $$
             [a] = \{ b\in\mathbb{Z}\ |\ a\equiv \Mod{b}{m}\}
         $$
-        é denominado \textbf{classe de equivalência de $a$ módulo $b$}.
+        é denominado \textbf{classe de equivalência de $a$ módulo $m$}.
 
         O inteiro $a$ é denominado \textbf{representante} da classe $[a]$.
     \end{block}
@@ -171,7 +171,7 @@
 
     \metroset{block=fill}
     \begin{block}{Proposição}
-        Seja $m$ um inteiro positivo tal que $m > 1$. Então $(\mathbb{Z}, +)$ é um grupo
+        Seja $m$ um inteiro positivo tal que $m > 1$. Então $(\mathbb{Z}_m, +)$ é um grupo
             abeliano.
     \end{block}
 
@@ -259,7 +259,7 @@
     \begin{itemize}
         \item Suponha que exista a classe $[b] = [a]^{-1}$
 
-        \item Isto implicaria em $[a]\times [b] = 1$, ou seja, $m$ dividiria a diferença $ab - 1$ 
+        \item Isto implicaria em $[a]\times [b] = [1]$, ou seja, $m$ dividiria a diferença $ab - 1$ 
 
         \item Assim, existiria um $k$ inteiro tal que $ab - 1 = km$
 

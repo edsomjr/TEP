@@ -33,5 +33,5 @@ long long inv(long long a, long long p) {
 // É assumido que (a, m) = 1
 long long inverse(long long a, long long m)
 {
-    return fast_exp_mod(a, phi(m), m);
+    return fast_exp_mod(a, phi(m) - 1, m);
 }
