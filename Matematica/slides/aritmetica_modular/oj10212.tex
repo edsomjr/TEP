@@ -1,0 +1,47 @@
+\begin{frame}[fragile]{OJ 10212 -- The Last Non-zero Digit}
+
+    \textbf{Versão resumida do problema}: determine o último dígito diferente de zero na
+            representação decimal de 
+        $$
+            P_M^N = \frac{N!}{(N - M)!}
+        $$
+
+    \vspace{0.1in}
+
+    \textbf{Restrição}: $0\leq N\leq 2\times 10^7, 0 \leq M\leq N$
+\end{frame}
+
+\begin{frame}[fragile]{Solução com complexidade $O(N\log N)$}
+
+    \begin{itemize}
+        \item Simplificando a expressão da permutação, temos que
+        $$
+            P_M^N = N \times (N - 1)\times (N - 2)\times \ldots \times (N - M + 1)
+        $$
+
+        \item A fatoração de $P_M^N$ pode ser obtida por meio da fatoração de cada um dos
+            fatores do produto acima
+
+        \item A cada par de 2 e 5 na fatoração temos um zero à direita na representação decimal
+            de $P_M^N$
+
+        \item A solução, portanto, consiste na eliminação de todos estes pares, e da extração
+            do resto da divisão dos fatores primos restantes
+
+        \item A complexidade da solução é $O(N\log N)$
+
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Solução com complexidade $O(N\log N)$}
+    \inputsnippet{cpp}{5}{18}{codes/10212.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Solução com complexidade $O(N\log N)$}
+    \inputsnippet{cpp}{19}{32}{codes/10212.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Solução com complexidade $O(N\log N)$}
+    \inputsnippet{cpp}{33}{40}{codes/10212.cpp}
+\end{frame}

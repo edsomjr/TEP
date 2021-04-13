@@ -1,0 +1,34 @@
+\begin{frame}[fragile]{OJ 10127 -- Ones}
+
+    \textbf{Versão resumida do problema}: determine o menor positivo $x$ tal que $x$ é múltiplo de
+        $n$ e $x$ contém apenas o dígito 1 em sua representação decimal.
+
+    \vspace{0.1in}
+
+    \textbf{Restrição}: $0\leq n\leq 10000$
+\end{frame}
+
+\begin{frame}[fragile]{Solução com complexidade $O(\log n)$}
+
+    \begin{itemize}
+        \item A solução do problema consiste na construção iterativa do valor de $x$
+
+        \item Inicialmente $x = 1$
+
+        \item Enquanto $\Mod{x}{n} > 0$, $x$ deve ir para o próximo número $x'$ cujos dígitos são
+            todos iguais a 1
+
+        \item Temos que $x' = 10x + 1$
+
+        \item A cada atualização a resposta, que deve ser iniciada em 1, deve ser incrementada
+
+        \item A complexidade da solução depende do número de dígitos de $x$, o qual será sempre
+            menor ou igual a $n$
+
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Solução com complexidade $O(\log n)$}
+    \inputsnippet{cpp}{5}{16}{codes/10127.cpp}
+\end{frame}
