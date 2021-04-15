@@ -1,0 +1,38 @@
+\begin{frame}[fragile]{AtCoder Beginner Contest 123B -- Five Dishes}
+
+    \textbf{Versão resumida do problema}: determinar a sequência em que os pratos devem ser
+        pedidos para que o tempo total para servir todos eles seja o menor possível.
+
+    \vspace{0.1in}
+    \textbf{Restrições}:
+    \begin{itemize}
+        \item somente um prato pode ser servido por vez,
+        \item um prato só pode ser pedido em quando o tempo for um múltiplo de 10, e
+        \item um novo pedido só pode ser feito quando o prato anterior for servido.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{Solução com complexidade $O(1)$}
+
+    \begin{itemize}
+        \item A solução consiste em determinar uma permutação dos pratos A, B, C, D e E que 
+            minimize o tempo para serví-los
+
+        \item Se não houvesse a restrição de que os pratos só podem ser pedidos em instantes de
+            tempo que são múltiplos de 10, qualquer permutação levaria ao mesmo resultado
+
+        \item Há $5! = 120$ permutações possíveis, as quais podem ser geradas por meio da 
+            função \code{cpp}{next_permutation()}
+
+        \item O $i$-ésimo prato requer $t_i$ minutos para ser servido após ser pedido e, exceto
+            pelo último, é preciso esperar o próximo múltiplo de 10 para ser pedido
+
+        \item Uma forma de tratar esta espera é substituir $t_i$ pelo menor múltiplo de 10 maior
+            ou igual a $t_i$ para todos os pratos, exceto o último
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Solução com complexidade $O(1)$}
+    \inputsnippet{cpp}{7}{22}{codes/B123B.cpp}
+\end{frame}
