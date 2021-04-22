@@ -1,0 +1,53 @@
+\section{Combinações}
+
+\begin{frame}[fragile]{Definição}
+
+    \metroset{block=fill}
+    \begin{block}{Definição de combinação}
+        Seja $A$ um conjunto com $n$ elementos distintos e $p$ um inteiro não negativo tal que 
+        $p \leq n$.  Uma \textbf{combinação} deste $n$ elementos, tomados $p$ a $p$, consiste em uma 
+        escolha de $p$ elementos distintos dentre os $n$ possíveis, onde cada combinação difere das
+        demais pela qualidade dos elementos, mas não pela ordem.
+
+        \textbf{Notação}: $C(n, p)$
+    \end{block}
+
+    \vspace{0.1in}
+
+    Por exemplo, se $A = \{1, 2, 3, 4\}$ e $p = 2$, há $6$ combinações distintas, a saber: 
+    $$
+        12, 13, 14, 23, 24, 34
+    $$
+\end{frame}
+
+\begin{frame}[fragile]{Cálculo de $C(n, p)$}
+
+    \begin{itemize}
+        \item Se $p < 0$, então $C(n, p)$ = 0
+
+        \item Nos demais casos, $C(n,p)$ pode ser computado a partir de $A(n,p)$: basta contar,
+            como apenas um, todos os arranjos que diferem apenas pela ordem de seus elementos
+
+        \item Como $p$ elementos distintos geram $p!$ arranjos distintos, segue que
+        $$
+            C(n, p) = \frac{A(n, p)}{p!} = \frac{n!}{(n - p)!p!} = \binom{n}{p}
+        $$
+    \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{Caracterização das combinações}
+
+    \begin{itemize}
+        \item Assim como feito com as permutações e com os arranjos, as combinações também podem
+            ser caracterizadas por meio de uma analogia com um sorteio de bolas
+
+        \item Neste sentido, uma combinação $C(n, p)$ corresponderia a retira de $p$ bolas dentre
+            as $n$ bolas distintas contidas em uma caixa, sem reposição, onde a ordem das bolas
+            não é relevante
+
+        \item Assim, as retiradas $123, 321$ e $213$, por exemplo, seriam todas consideradas uma
+            mesma combinação, uma vez que a qualidade das bolas é a mesma, embora tenha sido
+            retiradas em ordens distintas
+    \end{itemize}
+
+\end{frame}
