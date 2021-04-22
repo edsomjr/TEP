@@ -1,0 +1,150 @@
+\section{Arranjos}
+
+\begin{frame}[fragile]{Definição}
+
+    \metroset{block=fill}
+    \begin{block}{Definição de arranjo}
+        Seja $A$ um conjunto com $n$ elementos distintos e $p$ um inteiro não negativo tal que 
+        $p \leq n$.  Um \textbf{arranjo} destes $n$ elementos, tomados $p$ a $p$, consiste em uma 
+        escolha de $p$ elementos distintos dentre os $n$ possíveis, onde cada arranjo difere dos 
+        demais tanto pela qualidade quanto pela posição dos elementos.
+
+
+        \textbf{Notação}: $A(n, p)$
+    \end{block}
+
+    \vspace{0.1in}
+
+    Por exemplo, se $A = \{1, 2, 3, 4\}$ e $p = 2$, há $12$ arranjos distintos, a saber:
+    $$
+    12, 13, 14, 21, 23, 24, 31, 32, 34, 41, 42, 43
+    $$
+\end{frame}
+
+\begin{frame}[fragile]{Cálculo de $A(n, p)$}
+
+    \begin{itemize}
+        \item Utilizando a mesma abordagem usada para computar $P(n)$, segue que
+$$
+        A(n, p) = n \times (n - 1) \times (n - 2) \times \ldots \times (n - (p - 1))
+$$
+
+        \item A lista acima contém $p$ fatores multiplicativos e se assemelha a um fatorial
+
+        \item Se o termos remanescentes do fatorial forem multiplicados e a expressão dividida por
+            estes mesmos elementos, obtém-se
+$$
+        A(n, p) = \frac{n \times (n - 1) \times \ldots \times (n - (p - 1)) \times (n - p) \times \ldots \times 2 \times 1}{(n - p) \times \ldots \times 2 \times 1} = \frac{n!}{(n - p)!}
+$$
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Implementação de $A(n, p)$ em C++}
+    \inputsnippet{cpp}{1}{21}{codes/A.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Caracterização dos arranjos}
+
+    \begin{itemize}
+        \item Assim como no caso das permutações, os arranjos podem ser interpretados como a
+            retirada de bolas distintas de uma caixa, sem reposição, onde a ordem da retira é
+            importante
+
+        \item A diferença em relação às permutações é que número $p$ de bolas a serem removidas não
+            é, necessariamente, igual a $n$
+
+        \item Observe que $A(n, n) = P(n)$
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Arranjos com repetições}
+
+    \begin{itemize}
+        \item Nos arranjos com repetições, as bolas são repostas na caixa após cada retirada 
+
+        \item Deste modo, a cada retirada há $n$ possíveis escolhas
+
+        \item Assim,
+    $$
+        AR(n, p) = n \times n \times \ldots \times n = n^p
+    $$
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Programação Dinâmica em problemas de contagem}
+
+    \begin{itemize}
+        \item Uma variante mais complicada do arranjo com repetições seria: \textit{Quanto são os
+            arranjos de $n$ elementos, sendo que estes elementos não necessariamente distintos?}
+
+        \item Considere que existam apenas $k$ elementos distintos, que o $i$-ésimo elemento 
+            distinto ocorre $n_i$ vezes e que $n_1 + n_2 + \ldots + n_k = n$
+
+        \item Este problema, como muitos outros em combinatória, pode ser resolvido por uma relação
+           de recorrência
+
+        \item Estas relações podem ser implementadas, de forma eficiente, por meio de algoritmos de
+            programação dinâmica
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo: Número de resultados distintos}
+
+    \begin{itemize}
+        \item Considere o seguinte cenário: $a$ equipes da Escola A e $b$ equipes da escola $B$
+            participaram de uma gincana escolar. Quantos são os possíveis resultados da gincana,
+            sendo que serão divulgadas as $k$ melhores equipes? Considere que, dentro de uma mesma
+            escola, as equipes sejam indistinguíveis
+
+        \item Assuma que $k \leq a + b$
+
+        \item Por exemplo, se $a = 2, b = 3$ e $k = 3$, então os resultados possíveis seriam
+\begin{verbatim}
+    AAB     ABA     ABB     BAA     BAB     BBA     BBB
+\end{verbatim}
+
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Solução por recorrência}
+
+    \begin{itemize}
+        \item Seja $\sigma(k, a, b)$ o número de arranjos distintos para as $k$ primeiras posições
+            levando-se em consideração $a$ equipes da escola A e $b$ equipes da escola B
+
+        \item Observe que, a cada etapa da geração de um determinado arranjo, há duas opções:
+            escolher uma equipe da escola A ou uma equipe de escola B
+
+        \item  Assim,
+$$
+    \sigma(k, a, b) = \sigma(k - 1, a - 1, b) + \sigma(k - 1, a, b - 1)
+$$
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Solução por recorrência}
+
+    \begin{itemize}
+        \item São três os casos-base:
+        \begin{enumerate}
+            \item $\sigma(k, a, b) = 0$ se $a < 0$
+            \item $\sigma(k, a, b) = 0$ se $b < 0$
+            \item $\sigma(0, a, b) = 1$
+        \end{enumerate}
+
+        \item Considerando que há $O(KAB)$ estados distintos, onde $K, A$ e $B$ são os valores
+            máximos para $k, a$ e $b$, respectivamente, e que a transição é feita em $O(1)$, esta
+            solução tem complexidade $O(KAB)$
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Solução com complexidade $O(KAB)$}
+    \inputsnippet{cpp}{9}{24}{codes/dp.cpp}
+\end{frame}
