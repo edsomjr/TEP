@@ -1,0 +1,45 @@
+\begin{frame}[fragile]{OJ 216 -- Getting in Line}
+
+    \textbf{Versão resumida do problema}: determine uma permutação de $N$ computadores tal que
+        o comprimento total do cabo necessário para interligar estes computadores, por meio
+        conexões diretas entre os computadores adjacentes na permutação, seja mínimo.
+            
+    \vspace{0.1in}
+
+    \textbf{Restrições}:
+    \begin{itemize}
+        \item $2\leq N\leq 8$, e
+        \item o comprimento do cabo necessário para conectar dois computadores adjacentes na
+            permutação é igual a distância euclidiana entre eles mais 16 metros.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{Solução em $O(N\times N!)$ }
+
+    \begin{itemize}
+        \item Como o número total de computadores é relativamente pequeno, é possível
+            resolver este problemas por meio da enumeração e avaliação de todas as $N!$
+            permutações distintas
+
+        \item Cada permutação pode ser avaliada em $O(N)$, de modo que esta solução terá 
+            complexidade $O(N\times N!)$
+
+        \item A distância euclidiana entre os pontos $P = (x_P, y_P)$ e $Q = (x_Q, y_Q)$ é dada
+            por
+        $$
+            d(P, Q) = \sqrt{(x_P - x_Q)^2 + (y_P - y_Q)^2}
+        $$
+
+        \item É preciso acrescentar, a cada distância entre pares de computadores, 16 metros,
+            conforme instrui o texto do problema
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Solução}
+    \inputsnippet{cpp}{5}{21}{codes/216.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Solução}
+    \inputsnippet{cpp}{23}{39}{codes/216.cpp}
+\end{frame}

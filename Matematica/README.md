@@ -32,7 +32,9 @@
     1. [Funções Geradoras](text/Funcoes_Geradoras.md)
     1. [Partições](text/Particoes.md)
 <!-- Adicionar a função de Möbius -->
-<!-- Adicionar texto sobre decomposição de permutações, ciclos, paridade de permutação, composição de permutações -->
+<!-- Adicionar texto sobre decomposição de permutações, ciclos, paridade de permutação, composição de permutações 
+    1. CF 612E - Square Root of Permutation
+-->
 <!-- Adicionar o teste de Miller-Rabin para primalidade -->
 <!-- Separar a parte das equações diofantinas e inserir a parte soluções naturais (conjunto das lacunas) -->
 <!-- Adicionar o texto sobre o as equiações de congurência lineares e o Teorema Chinês dos restos -->

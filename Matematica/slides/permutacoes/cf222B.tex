@@ -1,0 +1,68 @@
+\begin{frame}[fragile]{Codeforces 222B -- Cosmic Tables}
+
+    \textbf{Versão resumida do problema}: dada uma matriz $A_{n\times m}$, responda $k$ consultas 
+        de um dos 3 tipos abaixo:
+
+    \begin{itemize}
+        \item troque duas linhas de lugar,
+        \item troque duas colunas de lugar, e
+        \item imprima um elemento da matriz.
+    \end{itemize}
+
+    \vspace{0.1in}
+    \textbf{Restrições}: 
+
+    \begin{itemize}
+        \item $1\leq n, m\leq 1000$
+        \item $1\leq k\leq 500000$
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Solução com complexidade $O(k)$}
+
+    \begin{itemize}
+        \item Trocar efetivamente os elementos de duas linhas de lugar tem complexidade $O(m)$
+
+        \item De forma equivalente, a troca de duas colunas tem complexidade $O(n)$
+
+        \item Assim, no pior caso o algoritmo teria complexidade $O(k\times \max(n, m))$, o que 
+            extrapolaria o limite de tempo, dadas as restrições do problema
+
+        \item A solução do problema depende, portanto, de um processamento mais eficiente das
+            consultas que envolvem trocas de linhas e de colunas
+
+        \item De fato, estas consultas podem ser respondidas em $O(1)$
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Solução com complexidade $O(k)$}
+
+    \begin{itemize}
+        \item A cada troca de linhas ou de colunas, a nova matriz obtida tem as mesmas linhas e
+            colunas da matriz $A$, porém em ordem distinta
+
+        \item A ideia, portanto, é utilizar duas permutações, denominadas \code{cpp}{rs} e 
+            \code{cpp}{cs}, que registrem a ordem em que as linhas e as colunas da matriz $A$
+            foram rearranjadas até uma consulta de elemento
+
+        \item Inicialmente, ambas permutações são identidades, isto é, \code{cpp}{rs[i] = i} e
+            \code{cpp}{cs[j] = j} para $i\in [1, n]$ e $j\in [1, m]$
+
+        \item Com estas permutações, a troca de linhas ou de colunas é feita apenas pela troca
+            dos elementos nas respectivas permutações, mantendo a matriz $A$ inalterada
+
+        \item Nas consultas de elementos, basta utilizar os índices registrados nas permutações
+            para localizar o elemento correto na matriz $A$
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Solução com complexidade $O(k)$}
+    \inputsnippet{cpp}{7}{20}{codes/222B.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Solução com complexidade $O(k)$}
+    \inputsnippet{cpp}{21}{31}{codes/222B.cpp}
+\end{frame}

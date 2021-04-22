@@ -1,0 +1,42 @@
+\begin{frame}[fragile]{AtCoder Beginner Contest 159A -- The Number of Even Pairs}
+
+    \textbf{Versão resumida do problema}: dadas $N + M$ bolas, determine o número de maneiras de
+        se escolhar duas destas bolas de forma que a soma dos números escritos em ambas bolas seja
+        par. A ordem da retirada das bolas deve ser desconsiderada, em $N$ bolas os números
+        escritos são pares e nas outras $M$ estão escritos números ímpares.
+
+    \vspace{0.1in}
+    \textbf{Restrições}:
+    \begin{itemize}
+        \item $0\leq N, M\leq 100$
+        \item $2\leq N + M$
+    \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{Solução com complexidade $O(1)$}
+
+    \begin{itemize}
+        \item Para que a soma dos números escritos nas bolas seja par há apenas duas
+            possibilidades:
+        \begin{itemize}
+            \item escolher duas bolas com números pares, ou
+            \item escolher duas bolas com números ímpares
+        \end{itemize}
+
+        \item No primeiro caso, há $A(N, 2)$ formas de se escolhar duas bolas com números
+            pares, mas como a ordem de retirada não importa no problema e o arranjo contabiliza
+            ordens distintas, é preciso dividir este resultado por 2
+
+        \item O mesmo vale para as $M$ bolas ímpares
+
+        \item Assim, a solução $S$ será dada por
+        $$
+            S = \frac{A(N, 2) + A(M, 2)}{2} = \frac{N(N - 1) + M(M - 1)}{2}
+        $$
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Solução com complexidade $O(1)$}
+    \inputsnippet{cpp}{1}{22}{codes/B159A.cpp}
+\end{frame}

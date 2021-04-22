@@ -1,0 +1,159 @@
+\section{Permutações}
+
+\begin{frame}[fragile]{Princípio Multiplicativo}
+
+    \begin{itemize}
+        \item O princípio multiplicativo está relacionado ao número de elementos do produto cartesiano de dois 
+            conjuntos
+
+        \item Se $A$ e $B$ são dois conjuntos finitos não vazios, com $|A| = n$ e $|B| = m$, então  o produto
+            cartesiano $A\times B$ terá $nm$ elementos
+
+        \item Este princípio é útil em contagem de $n$-uplas de elementos, onde o $i$-ésimo elemento da $n$-upla vem 
+            do $i$-ésimo conjunto $C_i$
+
+        \item Deste princípio derivam os conceitos de permutação, arranjo e combinação
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Permutações}
+
+    \metroset{block=fill}
+    \begin{block}{Definição de permutação}
+        Seja $A$ um conjunto com $n$ elementos distintos. Uma \textbf{permutação} dos elementos de A 
+        consiste em um ordenação destes elementos tal que duas permutações são distintas se dois ou 
+        mais elementos ocuparem posições distintas.
+    \end{block}
+
+    Por exemplo, se $A = \{1, 2, 3\}$, há 6 permutações distintas, a saber:
+$$
+123, 132, 213, 231, 312, 321
+$$
+
+\end{frame}
+
+\begin{frame}[fragile]{Cálculo do número de permutações}
+
+    \begin{itemize}
+        \item Considere um conjunto com $n$ elementos distintos
+
+        \item Para a primeira posição há $n$ escolhas possíveis
+
+        \item Para a segunda, $(n - 1)$ escolhas, uma vez que o primeiro elemento já foi escolhido
+
+        \item Pelo mesmo motivo, há $(n - 2)$ escolhas para o terceiro elemento, e assim sucessivamente, até restar 
+            uma única escolha para o último elemento
+
+        \item Portanto,
+$$
+        P(n) = n \times (n - 1) \times (n - 2) \times ... \times 2 \times 1 = n!
+$$
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Caracterização das permutações}
+
+    \begin{itemize}
+        \item Em combinatória é útil associar os conceitos de contagem à situações práticas e tentar encontrar
+            soluções por analogia
+
+        \item As permutações, por exemplo, podem ser visualizadas como a retirada de $n$ bolas distintas de uma
+            caixa, sem reposição
+
+        \item Veja que tanto as bolas quanto a ordem de retirada importam, no sentido que duas permutações são
+            distintas se a ordem de alguma das bolas é diferente
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Permutações com repetição}
+
+    \begin{itemize}
+        \item Um permutação com repetição consiste em uma ordenação de $n$ elementos, não necessariamente distintos
+
+        \item Considere um conjunto de $k$ elementos distintos, onde cada um deles ocorre $n_i$ vezes, com 
+            $i = 1, 2, \ldots, k$, de forma que $n_1 + n_2 + \ldots + n_k = n$
+
+        \item Dentre as $n!$ permutações dos $n$ elementos, várias delas serão repetidas
+
+        \item De fato, como o elemento $i$ se repete $n_i$ vezes, uma permutação $p$ em particular se repetirá 
+            $n_i!$ vezes
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Permutações com repetição}
+
+    \begin{itemize}
+        \item Isto porque todas as permutações de posições dentre as cópias de $i$ levam a uma mesma permutação
+
+        \item Por exemplo, para o conjunto $A = \{1, 2, 1\}$, apenas $3$ das $6$ permutações são distintas: 
+            $112, 121$ e $211$
+
+        \item Assim, o número de permutações distintas, com repetições, é dado por
+$$
+        PR(n; n_1, n_2, \ldots, n_k) = \frac{n!}{n_1! \times n_2! \times \ldots \times  n_k!}
+$$
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Implementação da permutação com repetições em C++}
+    \inputsnippet{cpp}{1}{21}{codes/permutations.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Permutações circulares}
+
+    \begin{itemize}
+        \item Se, em uma permutação, os objetos devem ser dispostos em uma formação circular, sem uma marcação clara 
+            de início de fim, algumas permutações se tornam idênticas, a menos de uma rotação
+
+        \item Para contabilizar apenas as permutações que não podem ser geradas a partir de rotações das demais, 
+            é preciso fixar um elemento em uma dada posição e permutar os demais nas posições restantes
+
+        \item Deste modo, o número de permutações circulares de $n$ elementos distintos é dado por
+$$
+    PC(n) = P(n - 1) = (n - 1)!
+$$
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Enumeração das permutações}
+
+    \begin{itemize}
+        \item É possível enumerar todas as possíveis permutações de $n$ elementos por meio de \textit{backtracking}
+
+        \item A função \code{cpp}{next_permutation()} da biblioteca \code{cpp}{algorithm} do C++ também enumera as 
+            permutações distintas
+
+        \item Ela retorna verdadeiro se é possível gerar a próxima permutação, na ordem lexicográfica, a partir da 
+            permutação atual, e falso, caso contrário
+
+        \item Assim, para enumerar todas as permutações distintas, é preciso começar com a primeira permutação na 
+            ordem lexicográfica, que consiste em todos os elementos ordenados
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{\tt prev\_permutation()}
+
+    \begin{itemize}
+        \item A biblioteca \code{cpp}{algorithm} também contém a função \code{cpp}{prev_permutation()}, que também 
+            enumera permutações
+
+        \item Contudo, ela o faz em sentido oposto em relação à \code{cpp}{next_permutation()}
+
+        \item Assim, para listar todas as permutações distintas usando \code{cpp}{prev_permutation()}, é preciso 
+            iniciar na última permutação, segundo a ordem lexicográfica
+
+        \item Ambas funções tem complexidade $O(N)$
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de enumeração das permutações em C++}
+    \inputsnippet{cpp}{1}{21}{codes/enum.cpp}
+\end{frame}
