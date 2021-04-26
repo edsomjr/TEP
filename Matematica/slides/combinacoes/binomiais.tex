@@ -1,0 +1,160 @@
+\section{Coeficientes binomiais}
+
+\begin{frame}[fragile]{Coeficientes binomiais}
+
+    \metroset{block=fill}
+    \begin{block}{Definição de coeficiente binomial}
+        Sejam  $n$ e $p$ dois inteiros não-negativos tais que $n\geq p$. O coeficiente binomial é
+        dado por
+        $$
+            \binom{n}{p} = \frac{n!}{(n - p)!p!}
+        $$
+    \end{block}
+
+\end{frame}
+
+\begin{frame}[fragile]{Implementação dos coeficientes binomiais}
+
+    \begin{itemize}
+        \item Na prática, pode ser que o valor de $\binom{n}{p}$ possa ser armazenado em uma
+        variável inteira, mas o cálculo dos fatoriais envolvidos no numerador e no denominador pode
+        resultar em um \textit{overflow}
+
+        \item Há duas maneiras de contornar este problema: por cancelamento ou por recorrência
+
+        \item A ideia do cancelamento é que, embora seja representado na forma de fração,
+            $\binom{n}{p}$ é sempre um número inteiro
+
+        \item Assim, é possível realizar os cancelamentos devidos antes de multiplicar os fatores
+            restantes
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Implementação dos binomiais por cancelamento}
+    \inputsnippet{cpp}{41}{57}{codes/cancelamento.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Triângulo de Pascal}
+
+    \begin{itemize}
+        \item Os números binomiais surgem nas expansões do monômio $(a + b)^n$, para $n$ não-negativo
+
+        \item Estas expansões formam o Triângulo de Pascal:
+
+\begin{verbatim}
+        1
+        1  1
+        1  2  1
+        1  3  3  1
+        1  4  6  4  1
+        1  5 10 10  5  1
+        ...
+\end{verbatim}
+        \item A observação cuidadosa deste triângulo permite definir os coeficientes binomiais recursivamente
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Definição recursiva dos coeficientes binomiais}
+
+    \begin{itemize}
+        \item Sejam $n$ e $m$ inteiros não-negativos. Então os casos-base da recursão são
+$$
+        \binom{n}{0} = \binom{n}{n} = 1
+$$
+        \item A transição é dada por
+$$
+        \binom{n}{m} = \binom{n - 1}{m} + \binom{n - 1}{m - 1}
+$$
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Implementação dos coeficientes binomiais por DP}
+    \inputsnippet{cpp}{1}{21}{codes/dp.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Redução da complexidade de memória}
+
+    \begin{itemize}
+        \item A implementação acima tem complexidade $O(n^2)$ para execução e para memória
+
+        \item É possível reduzir o uso de memória para $O(m)$ através de uma implementação
+            cuidadosa, que se vale das propriedades da recorrência
+
+        \item A ideia central é computar os coeficientes de cada linha da direita para a esquerda,
+            uma vez que o coeficiente da próxima linha é computado a partir do coeficiente que
+            ocupa a mesma posição na linha anterior e o coeficiente da linha anterior na posição
+            anterior
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Implementação dos coeficientes binomiais em $O(nm)$ memória $O(m)$}
+    \inputsnippet{cpp}{1}{21}{codes/dp2.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Propriedades dos coeficientes binomiais}
+
+    \begin{itemize}
+        \item Combinações complementares (permite a redução do espaço de memória em 50\%):
+$$
+    \binom{n}{p} = \binom{n}{n - p}
+$$
+
+        \item  Soma de uma linha (consequência da expansão do binômio $(1 + 1)^n$):
+$$
+    \binom{n}{0} + \binom{n}{1} + \ldots + \binom{n}{n} = 2^n
+$$
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Propriedades dos coeficientes binomiais}
+
+    \begin{itemize}
+        \item Soma alternada de uma linha (consequência da expansão do binômio $(1 - 1)^n$):
+$$
+    \binom{n}{0} - \binom{n}{1} + \ldots + (-1)^n\binom{n}{n} = 0
+$$
+
+        \item Soma de uma coluna, com $n\geq p$ (\textit{Hockey-Stick Identity}):
+$$
+    \binom{p}{p} + \binom{p + 1}{p} + \binom{p + 2}{p} + \ldots + \binom{n}{p} = \binom{n + 1}{p + 1}
+$$
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Identidades úteis}
+
+    \begin{itemize}
+        \item Soma de uma linha com coeficientes lineares:
+$$
+    \sum_{k = 0}^n k\binom{n}{k} = n2^{n - 1}
+$$
+
+        \item Soma de uma linha com coeficientes quadráticos:
+$$
+    \sum_{k = 0}^n k^2\binom{n}{k} = (n^2 + n)2^{n - 2}
+$$
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Identidades úteis}
+
+    \begin{itemize}
+        \item Soma dos quadrados dos coeficientes de uma linha:
+$$
+    \sum_{k = 0}^n \binom{n}{k}^2 = \binom{2n}{n}
+$$
+
+        \item Se $F(n)$ é o $n$-ésimo número de Fibonacci, vale que
+$$
+    \sum_{k = 0}^{\lfloor \frac{n}{2}\rfloor} \binom{n - k}{k} = F(n + 1)
+$$
+    \end{itemize}
+
+\end{frame}

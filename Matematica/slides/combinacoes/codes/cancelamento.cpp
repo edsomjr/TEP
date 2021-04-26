@@ -49,9 +49,7 @@ long long binom(int n, int m, const vector<long long>& primes)
         if (p > n)
             break; 
 
-        auto k = E(n, p) - E(m, p) - E(n - m, p);
-
-        while (k--)
+        for (int k = E(n, p) - E(m, p) - E(n - m, p); k > 0; --k)
             res *= p;
     }
 

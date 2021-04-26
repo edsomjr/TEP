@@ -1,0 +1,136 @@
+\section{Equações lineares com coeficientes unitários}
+
+\begin{frame}[fragile]{Equações lineares com coeficientes unitários}
+
+    \begin{itemize}
+        \item Considere, para $r$ natural e $n$ inteiro, a equação linear dada por
+$$
+        x_1 + x_2 + \ldots + x_r = n
+$$
+
+        \item Quando as variáveis $x_i$ pertencem aos reais, racionais ou inteiros, a equação tem infinitas soluções
+
+        \item O número de soluções, porém, é finito, ou mesmo pode não existir solução, caso as
+            variáveis estejam restritas aos inteiros positivos
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Barras e estrela}
+
+    \begin{itemize}
+        \item De fato, se $n < r$, a equação não tem solução nos inteiros positivos
+
+        \item Para $n \geq r$, o valor $n$ pode ser escrito como
+$$
+        n = 1 + 1 + 1 + \ldots + 1
+$$
+
+        \item Cada solução pode ser construída substituindo-se $r - 1$ dentre os símbolos
+            `\texttt{+}' da soma anterior por barras verticais'
+
+        \item A soma resultante à esquerda de cada uma das barras, e à direita da última,
+            corresponde aos valores das $r$ variáveis $x_i$
+
+        \item Esta estratégia é conhecida como barras e estrelas (\textit{stars and bars})
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Soluções, restritas aos positivos, das equações lineares com coeficientes unitários}
+
+    \begin{itemize}
+        \item Cada uma das soluções nos inteiros positivos corresponde a um posicionamento distinto
+        das barras
+
+        \item Assim, o total de soluções é dado por 
+$$
+    S = C(n - 1, r - 1) = \binom{n - 1}{r - 1}
+$$
+
+        \item Ou seja, basta tomar $r - 1$ dentre os $n - 1$ símbolos `\texttt{+}'
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Equações lineares com coeficientes unitários restritas aos não-negativos}
+
+    \begin{itemize}
+        \item Caso as variáveis $x_i$ possam assumir também o valor zero, o novo total de soluções
+            pode ser determinado por meio de uma mudança de variáveis
+
+        \item Considere a equação abaixo, com $r$ e $n$ positivos e $x_i\geq 0$:
+$$
+        x_1 + x_2 + \ldots + x_r = n
+$$
+        \item Fazendo $y_i = x_i + 1$, isto é, $x_i = y_i - 1$, obtém-se a equação equivalente
+$$
+        y_1 + y_2 + \ldots + y_r = n + r, \ \ \ \ y_i\geq 1
+$$
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Soluções das equações lineares com coeficientes unitários restritas aos não-negativos}
+
+Assim, o número de soluções da equação original, restrito aos inteiros não-negativos, é dado por $C(n + r - 1, r - 1)$, ou sua combinação complementar, $C(n + r - 1, n)$.
+
+\vspace{0.1in}
+
+Por exemplo,
+$$
+        x_1 + x_2 + x_3 = 10
+$$
+tem
+$$C(10 - 1, 3 - 1) = C(9, 2) = 36$$
+soluções nos inteiros positivos, e
+$$C(10 + 3 - 1, 3 - 1) = C(12, 2) = 66$$
+soluções nos inteiros não-negativos.
+
+\end{frame}
+
+\begin{frame}[fragile]{Combinações com repetição}
+
+    \metroset{block=fill}
+    \begin{block}{Definição de combinação com repetição}
+        Uma combinação com repetição de $n$ elementos distintos, tomados $p$ a $p$, é um escolha de
+        $p$ objetos, dentre os $n$ possíveis, onde cada objeto pode ser escolhido até $p$ vezes.  
+
+        \textbf{Notação}: $CR(n, p)$
+    \end{block}
+
+\end{frame}
+
+\begin{frame}[fragile]{Cálculo de $CR(n, p)$}
+
+    \begin{itemize}
+        \item Seja $x_i$ a quantidade de vezes que o objeto $i$ foi escolhido em uma combinação,
+            com $0 \leq x_i\leq p$
+
+        \item Então o número de combinações com repetição de $n$ elementos tomados $p$ a $p$ será
+            igual ao número de soluções da equação
+$$
+    x_1 + x_2 + \ldots + x_n = p
+$$
+
+        \item Conforme visto anteriormente,
+$$
+    CR(n, p) = C(p + n - 1, n - 1) = C(p + n - 1, p)
+$$
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Caracterização das combinações com repetições}
+
+    \begin{itemize}
+        \item A combinação com repetição é o primeiro de quatro problemas fundamentais de contagem
+
+        \item Estes problemas tratam da questão de se distribuir $n$ bolas em $p$ caixas
+
+        \item Na combinação com repetições, as $n$ bolas são idênticas e as $p$ caixas são distintas
+
+        \item  Observe que, nesta analogia, uma ou mais caixas podem ficar vazias ($x_i\geq 0$)
+    \end{itemize}
+
+\end{frame}
