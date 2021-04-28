@@ -78,7 +78,7 @@ $$
 
     \begin{itemize}
         \item Uma variante mais complicada do arranjo com repetições seria: \textit{Quanto são os
-            arranjos de $n$ elementos, sendo que estes elementos não necessariamente distintos?}
+            arranjos de $n$ elementos, sendo que estes elementos não são, necessariamente, distintos?}
 
         \item Considere que existam apenas $k$ elementos distintos, que o $i$-ésimo elemento 
             distinto ocorre $n_i$ vezes e que $n_1 + n_2 + \ldots + n_k = n$
@@ -97,8 +97,10 @@ $$
     \begin{itemize}
         \item Considere o seguinte cenário: $a$ equipes da Escola A e $b$ equipes da escola $B$
             participaram de uma gincana escolar. Quantos são os possíveis resultados da gincana,
-            sendo que serão divulgadas as $k$ melhores equipes? Considere que, dentro de uma mesma
-            escola, as equipes sejam indistinguíveis
+            sendo que serão divulgadas as $k$ melhores equipes?
+
+        \item Considere que dois resultados
+            são diferentes se em ao menos uma das posições a escola vencedora seja diferente.
 
         \item Assuma que $k \leq a + b$
 
@@ -133,9 +135,9 @@ $$
     \begin{itemize}
         \item São três os casos-base:
         \begin{enumerate}
-            \item $\sigma(k, a, b) = 0$ se $a < 0$
-            \item $\sigma(k, a, b) = 0$ se $b < 0$
             \item $\sigma(0, a, b) = 1$
+            \item $\sigma(k, a, 0) = 1$, se $b \geq k$, ou $\sigma(k, 0, b) = 0$, caso contrário
+            \item $\sigma(k, 0, b) = 1$, se $a \geq k$, ou $\sigma(k, a, 0) = 0$, caso contrário
         \end{enumerate}
 
         \item Considerando que há $O(KAB)$ estados distintos, onde $K, A$ e $B$ são os valores
