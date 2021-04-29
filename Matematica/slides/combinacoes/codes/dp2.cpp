@@ -10,5 +10,5 @@ long long binom(int n, int m)
         for(int j = m; j > 0; --j)
             dp[j] = dp[j] + dp[j - 1];
 
-	return dp[m];
+    return dp[m];
 }
