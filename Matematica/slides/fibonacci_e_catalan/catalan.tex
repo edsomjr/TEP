@@ -1,0 +1,92 @@
+\section{Números de Catalan}
+
+\begin{frame}[fragile]{Definição}
+
+    \metroset{block=fill}
+    \begin{block}{Definição dos números de Catalan}
+    Os números de Catalan são definidos pela da recorrência
+    $$
+        C(n + 1) = \sum_{i = 0}^n C(i)C(n - i),\ \ \ \ n \geq 0,
+    $$
+    e pelo caso base $C(0) = 1$.
+
+    \end{block}
+
+    Os primeiros números de Catalan são 
+    $$
+    1, 1, 2, 5, 14, 42, 132, 429, 1430, 4862, 16796, 58786, 208012, \ldots
+    $$
+
+\end{frame}
+
+\begin{frame}[fragile]{Cálculo}
+
+    \begin{itemize}
+        \item A soma que define a recorrência tem uma fórmula fechada, de modo que
+$$
+    C(n) = \frac{1}{n + 1}\binom{2n}{n}
+$$
+
+        \item Outra recorrência, com o mesmo caso base da recorrência original, decorre desta forma fechada:
+$$
+    C(n + 1) = \frac{2(2n +1)}{n + 2}C(n)
+$$
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Implementação dos números de Catalan em $O(n)$}
+    \inputsnippet{cpp}{1}{21}{codes/catalan.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Aplicação: sequências válidas de pares de parêntesis}
+
+    \begin{itemize}
+        \item A primeira aplicação notável dos números de Catalan $C(n)$ é a contagem do número de
+            sequências corretas formadas por $2n$ pares de parêntesis
+
+        \item Para $n = 0$ há uma única sequência: a sequência vazia
+
+        \item Para $n = 1$ também existe uma única sequência: \texttt{()}
+
+        \item Para $n = 2$ há duas sequências possíveis: \texttt{()(), (())}
+
+        \item Para $n = 3$ há $C(3) = 5$ sequências:
+
+\begin{center}
+\texttt{()()(), (())(), ()(()), ((())), (()())}
+\end{center}
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Aplicação: contagem de árvores binárias completas}
+
+    \begin{itemize}
+        \item A segunda aplicação notável é a contagem de árvores binárias completas, isto é, cada
+            nó tem ou dois filhos ou nenhum
+
+        \item Há $C(n)$ árvores binárias completas com $n + 1$ folhas
+
+        \item Para $n = 3$ são $C(2) = 2$ árvores:
+
+        \input{figs/trees}
+
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Aplicação: triangularização de um polígono convexo}
+
+    \begin{itemize}
+        \item Uma terceira aplicação seria a contagem de triangularizações de um polígono convexo
+            de $n+2$ lados
+
+        \item Exsitem $C(n)$ triangularizações possíveis
+
+        \item Por exemplo, para um quadrado ($n = 2$) são duas triangularizações distintas:
+
+        \input{figs/squares}
+    \end{itemize}
+
+\end{frame}

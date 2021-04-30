@@ -1,0 +1,28 @@
+\begin{tikzpicture}
+
+    \node[opacity=0] at (-2, 4) {};
+
+    \node[draw, circle] (A) at (0, 3) { };
+    \node[fill, circle] (B) at (-1, 2) { };
+    \node[draw, circle] (C) at (1, 2) { };
+    \node[fill, circle] (D) at (0, 1) { };
+    \node[fill, circle] (E) at (2, 1) { };
+
+    \draw (A) -- (B);
+    \draw (A) -- (C);
+    \draw (C) -- (D);
+    \draw (C) -- (E);
+
+    \node[draw, circle] (X) at (7, 3) { };
+    \node[draw, circle] (Z) at (6, 2) { };
+    \node[fill, circle] (Y) at (8, 2) { };
+    \node[fill, circle] (W) at (7, 1) { };
+    \node[fill, circle] (V) at (5, 1) { };
+
+    \draw (X) -- (Y);
+    \draw (X) -- (Z);
+    \draw (Z) -- (W);
+    \draw (Z) -- (V);
+
+
+\end{tikzpicture}

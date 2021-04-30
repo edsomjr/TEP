@@ -1,0 +1,174 @@
+\section{Números de Fibonacci}
+
+\begin{frame}[fragile]{Definição}
+
+    \metroset{block=fill}
+    \begin{block}{Definição dos números de Fibonacci}
+        O $n$-ésimo número de Fibonacci $F(n)$ é definido pela recorrência
+$$
+\begin{array}{l}
+        F(0) = 0\\
+        F(1) = 1\\
+        F(n) = F(n - 1) + F(n - 2),\ \ \ \ n \geq 2
+\end{array}
+$$
+    \end{block}
+
+    \vspace{0.1in}
+
+    Os primeiros termos da sequência de Fibonacci são:
+$$
+    0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233, 377, 610, 987, 1597, 2584, 4181, \ldots
+$$
+\end{frame}
+
+\begin{frame}[fragile]{Limites práticos dos números de Fibonacci}
+
+    \begin{itemize}
+        \item Os números de Fibonacci crescem rapidamente, de modo que o número de termos que podem 
+            ser computados em tipos inteiros de C/C++ é bastante restrito
+
+        \item Para variáveis de $32$-\textit{bits} é possível calcular o valor exato de $F(n)$ para 
+            $n\leq 46$ (a saber, $F(46) = 1836311903$)
+
+        \item Para variáveis de $64$-\textit{bits}, os valores serão exatos para $n\leq 92$ 
+            (observe que $F(92) = 7540113804746346429$)
+
+        \item Para valores de $n$ superiores a $92$, é necessário ou trabalhar com aritmética 
+            estendida ou com aritmética modular
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Implementação recursiva dos números de Fibonacci}
+
+    \begin{itemize}
+        \inputsyntax{cpp}{codes/fib.cpp}
+
+        \item A implementação acima tem como vantagem a simplicidade, uma vez que corresponde à
+            definição apresentada
+
+        \item Contudo a complexidade assintótica é $O(2^n)$
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Implementação iterativa em Python}
+
+    \begin{itemize}
+        \inputsyntax{py3}{codes/iter_fib.py}
+
+        \item Esta versão tem complexidade $O(n)$ 
+
+        \item A linguagem Python implementa nativamente com aritmética estendida, de modo que esta
+            função pode computar $F(n)$ para $n > 92$
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Implementação usando programação dinâmica}
+    \inputsnippet{py}{1}{21}{codes/fib_dp.py}
+\end{frame}
+
+\begin{frame}[fragile]{Equações de diferenças lineares}
+
+    \begin{itemize}
+        \item Os números de Fibonacci podem ser definidos por meio de um sistema de equações de
+            diferenças lineares
+
+        \item Seja $u(n)$ um vetor cujas duas componentes são os números de Fibonacci $F(n + 1)$ e 
+            $F(n)$
+
+        \item Assim, vale que
+$$
+        u(n + 1) = Au(n),
+$$
+onde
+$$
+A = \begin{bmatrix}
+    1 & 1 \\
+    1 & 0 \\
+\end{bmatrix}
+$$
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Equações de diferenças lineares}
+
+    \begin{itemize}
+        \item Observe que $u(1) = Au(0), u(2) = Au(1) = A^2u(0)$, etc, e assim por diante
+
+        \item De fato,
+$$
+        u(n) = A^nu(0)
+$$
+
+        \item Usando exponenciação rápida para computar $A^n$, é possível determinar $F(n)$ em
+            $O(\log n)$ 
+
+        \item Veja que $F(n)$ ocupará as posições da diagonal secundária de $A^n$
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Cálculo de $F(n)$ em $O(\log n)$}
+    \inputsnippet{cpp}{5}{21}{codes/fast_fib.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Cálculo de $F(n)$ em $O(\log n)$}
+    \inputsnippet{cpp}{23}{37}{codes/fast_fib.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Propriedades da sequência de Fibonacci}
+
+    \begin{itemize}
+        \item A sequência de Fibonacci tem várias propriedades interessantes
+
+        \item A razão entre dois termos consecutivos da série tende à razão áurea, isto é,
+$$
+    \lim_{n\to \infty} \frac{F(n + 1)}{F(n)} = \frac{1 + \sqrt{5}}{2}
+$$ 
+
+        \item A soma dos $n$ primeiros termos da sequência pode ser computada por meio de uma soma
+            telescópica e é igual a 
+$$
+    \sum_{i = 1}^n F(i) = F(n + 2) - 1
+$$
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Propriedades da sequência de Fibonacci}
+
+    \begin{itemize}
+        \item A soma dos quadrados dos $n$ primeiros termos da sequência é igual a 
+$$
+    \sum_{i = 1}^n F(i)^2 = F(n)F(n+1)
+$$
+
+        \item Para qualquer $m > 1$ fixo, a sequência dos restos $r(n, m)$ é cíclica, onde
+$$
+r(n, m) = F(n)\!\!\!\! \mod m
+$$
+
+        \item O período de $r(n, m)$ é denominado Período de Pisano $\pi(m)$
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Período de Pisano}
+
+    \begin{itemize}
+        \item Alguns valores comuns:
+        \begin{itemize}
+            \item $\pi(2) = 3$
+            \item $\pi(10) = 60$
+            \item $\pi(100) = 300$
+            \item $\pi(10^k) = 15 \times 10^{k - 1}, k \geq 3$
+        \end{itemize}
+
+        \item Exceto para o caso $m = 2$, o período de Pisano é sempre par
+    \end{itemize}
+
+\end{frame}

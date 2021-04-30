@@ -1,21 +1,10 @@
-% Gere o PDF com o comando pdflatex, e o SVG com o comando
-%
-%  $ inkscape -l fig.svg source.pdf
-\documentclass{standalone}
-\usepackage{tikz}
+\begin{tikzpicture}
+    \draw[opacity = 0] (-2, 3);
 
-\begin{document}
+    \draw[thick] (0, 0) rectangle (2, 2);
 
-    \begin{tikzpicture}
-        \draw[opacity = 0] (-10, 0);
+    \draw[thick] (6, 0) rectangle (8, 2);
 
-        \draw[thick] (0, 0) rectangle (4, 4);
-
-        \draw[thick] (6, 0) rectangle (10, 4);
-
-        \draw[thick] (0, 0) -- (4, 4);
-        \draw[thick] (6, 4) -- (10, 0);
-
-    \end{tikzpicture}
-
-\end{document}
+    \draw[thick] (0, 0) -- (2, 2);
+    \draw[thick] (6, 2) -- (8, 0);
+\end{tikzpicture}
