@@ -1,7 +1,8 @@
 Teoria dos Grafos
 =================
 
-1. [Fundamentos](slides/FT-1/FT-1.pdf) ([problemas resolvidos](problems/FT-1/FT-1.pdf))
+1. Conceitos elementares
+    1. [Fundamentos](slides/fundamentos/fundamentos.pdf)
 1. Travessia
     1. [Travessia por profundidade](slides/STV-1/STV-1.pdf) ([problemas resolvidos](problems/STV-1/STV-1.pdf))
     1. [Travessia por largura](slides/STV-2/STV-2.pdf) ([problemas resolvidos](problems/STV-2/STV-2.pdf))
