@@ -293,7 +293,6 @@
 + \draw[->,color=BBViolet] (8, 1.2) to (8, 1.5);
 
 ## Scene
-
 + \node[anchor=west] at (0, 6) { \Large \bbbold{Referências} };
 + \node[anchor=west] at (1, 5) { $1.$ \bbbold{HALIM}, \bbtext{Felix}; \bbbold{HALIM}, \bbtext{Steve}. \bbenglish{Competitive Programming 3,} \bbtext{2010.} };
 + \node[anchor=west] at (1, 4) { $2.$ \bbbold{LAAKSONEN}, \bbtext{Antti}. \bbenglish{Competitive Programmer's Handbook,} \bbtext{2018.} };
