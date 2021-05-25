@@ -250,6 +250,13 @@
 + \draw[->,very thick] (J) to (E);
 
 ## Scene
++ \node[anchor=west] at (0, 6) { \Large \bbbold{Problemas sugeridos} };
++ \node[anchor=west] at (0.5, 5) { $1.$ \bbtext{AtCoder Beginner Contest 166 -- Problem C: Peaks} };
++ \node[anchor=west] at (0.5, 4) { $2.$ \bbtext{Codeforces Round \#464 (Div. 2) -- Problem A: Love Triangle} };
++ \node[anchor=west] at (0.5, 3) { $3.$ \bbtext{Codeforces Beta Round \#94 (Div. 2 Only) -- Problem B: Students and Shoelaces} };
++ \node[anchor=west] at (0.5, 2) { $4.$ \bbtext{OJ 11991 -- Easy Problem from Rujia Liu?} };
+
+## Scene
 + \node[anchor=west] at (0, 6) { \Large \bbbold{Referências} };
 + \node[anchor=west] at (1, 5) { $1.$ \bbbold{HALIM}, \bbtext{Felix}; \bbbold{HALIM}, \bbtext{Steve}. \bbenglish{Competitive Programming 3,} \bbtext{2010.} };
 + \node[anchor=west] at (1, 4) { $2.$ \bbbold{LAAKSONEN}, \bbtext{Antti}. \bbenglish{Competitive Programmer's Handbook,} \bbtext{2018.} };
