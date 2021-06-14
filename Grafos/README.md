@@ -3,6 +3,9 @@ Teoria dos Grafos
 
 1. Conceitos elementares
     1. [Fundamentos](slides/fundamentos/fundamentos.pdf)
+    1. [Representação de grafos](slides/representacao/representacao.pdf)
+        1. [Codeforces Round #464 (Div. 2)](https://codeforces.com/problemset/problem/939/A) ([_upsolving_](problemas/CF_939A/CF_939A.pdf))
+        1. [OJ 11991 - Easy Problem from Rujia Liu?](https://onlinejudge.org/index.php?option=onlinejudge&Itemid=8&page=show_problem&problem=3142) ([_upsolving_](problems/OJ_11991/OJ_11991.pdf))
 1. Travessia
     1. [Travessia por profundidade](slides/STV-1/STV-1.pdf) ([problemas resolvidos](problems/STV-1/STV-1.pdf))
     1. [Travessia por largura](slides/STV-2/STV-2.pdf) ([problemas resolvidos](problems/STV-2/STV-2.pdf))
