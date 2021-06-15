@@ -8,7 +8,7 @@ Teoria dos Grafos
         1. [OJ 11991 - Easy Problem from Rujia Liu?](https://onlinejudge.org/index.php?option=onlinejudge&Itemid=8&page=show_problem&problem=3142) ([_upsolving_](problems/OJ_11991/OJ_11991.pdf))
 1. Travessia
     1. [Travessia por profundidade](slides/dfs/dfs.pdf) ([problemas resolvidos](problems/dfs/dfs.pdf))
-    1. [Travessia por largura](slides/STV-2/STV-2.pdf) ([problemas resolvidos](problems/STV-2/STV-2.pdf))
+    1. [Travessia por largura](slides/bfs/bfs.pdf) ([problemas resolvidos](problems/bfs/bfs.pdf))
     1. [Aplicações](slides/STV-3/STV-3.pdf) ([problemas resolvidos](problems/STV-3/STV-3.pdf))
 1. Caminhos Mínimos
     1. [Algoritmo de Bellman-Ford](slides/SSP-1/SSP-1.pdf) ([problemas resolvidos](problems/SSP-1/SSP-1.pdf))
