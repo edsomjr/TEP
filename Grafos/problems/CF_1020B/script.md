@@ -17,7 +17,7 @@
 +
 + \vspace{0.2in}
 + 
-+ \bbtext{Assuma que os estudantes estão numerados de $1$ a $n$. O professor foi ao estudante $a$ e furou sua insígnia. O estudante, porém, afirmou que o principal culpado é algum outro estudante $p_a$.}
++ \bbtext{Assuma que os estudantes estão numerados de $1$ a $n$. O professor foi ao estudante $a$ e furou sua insígnia. O estudante, porém, afirmou que o principal culpado é o estudante $p_a$.}
 +
 + \vspace{0.2in}
 + 
@@ -50,11 +50,11 @@
 +
 + \vspace{0.1in}
 +
-+ \bbenglish{The first line contains a single integer $n$ $(2\leq n\leq 5000)$ -- the number of planes.}
++ \bbenglish{The first line of the input contains the only integer $n$ $(1\leq n\leq 1000)$ -- the number of the naughty students.}
 +
 + \vspace{0.1in}
 +
-+ \bbenglish{The second line contains $n$ integers $f_1, f_2, \ldots, f_n$ $(1\leq f_i\leq n, f_i\neq i)$, meaning that the $i$-th plane likes the $f_i$-th.}
++ \bbenglish{The second line contains $n$ integers $p_1, \ldots, p_n$ $(1\leq p_i\leq n)$, where $p_i$ indicates the student who was reported to the teacher by student $i$.}
 +
 + \vspace{0.2in}
 +
@@ -62,18 +62,18 @@
 +
 + \vspace{0.1in}
 +
-+ \bbenglish{Output «\texttt{YES}» if there is a love triangle consisting of planes on Earth. Otherwise, output «\texttt{NO}».}
++ \bbenglish{For every student $a$ from $1$ to $n$ print which student would receive two holes in the badge, if $a$ was the first student caught by the teacher.}
 
 ## Text
 + \bbbold{Entrada}
 +
 + \vspace{0.1in}
 +
-+ \bbtext{A primeira linha contém um único inteiro $n$ $(2\leq n\leq 5000)$ -- o número de aviões.}
++ \bbtext{A primeira linha da entrada contém um único inteiro $n$ $(1\leq n\leq 1000)$ -- o número de estudantes malcriados.}
 +
 + \vspace{0.1in}
 +
-+ \bbtext{A segunda linha contém $n$ inteiros $f_1, f_2, \ldots, f_n$ $(1\leq f_i\leq n, f_i\neq i)$, os quais indicam que o $i$-ésimo avião gosta do $f_i$-ésimo avião.}
++ \bbtext{A segunda linha contém $n$ inteiros $p_1, \ldots, p_n$ $(1\leq p_i\leq n)$, onde $p_i$ indica o estudante que foi acusado ao professor pelo estudante $i$.}
 +
 + \vspace{0.2in}
 +
@@ -81,115 +81,107 @@
 +
 + \vspace{0.1in}
 +
-+ \bbtext{Imprima «\texttt{YES}» se há um triângulo amoroso entre os aviões na Terra. Caso contrário, imprima «\texttt{NO}».}
++ \bbtext{Para cada estudante $a$ de $1$ a $n$ imprima qual estudante irá receber dois furos em sua insígnia, se $a$ foid o primeiro estudante capturado pelo professor.}
 
 ## Scene
 + \node[anchor=west] at (0, 7) { \bbbold{Exemplo de entrada e saída} };
 
-+ \node at (1, 6) { \bbtext{5} };
++ \node at (1, 6) { \bbtext{3} };
 
-+ \node at (1, 5) { \footnotesize \bbcomment{\# de aviões} };
++ \node at (1, 5) { \footnotesize \bbcomment{\# de estudantes} };
 + \draw[->,color=BBViolet] (1, 5.2) -- (1, 5.8);
 
-- \node at (1, 5) { \footnotesize \bbcomment{\# de aviões} };
+- \node at (1, 5) { \footnotesize \bbcomment{\# de estudantes} };
 - \draw[->,color=BBViolet] (1, 5.2) -- (1, 5.8);
 + \node at (1, 5) { \bbtext{2} };
-+ \node at (1.5, 5) { \bbtext{4} };
-+ \node at (2, 5) { \bbtext{5} };
-+ \node at (2.5, 5) { \bbtext{1} };
-+ \node at (3, 5) { \bbtext{3} };
++ \node at (1.5, 5) { \bbtext{3} };
++ \node at (2, 5) { \bbtext{2} };
 
-+ \node at (1, 4) { $f_1$ };
-+ \node at (1.5, 4) { $f_2$ };
-+ \node at (2, 4) { $f_3$ };
-+ \node at (2.5, 4) { $f_4$ };
-+ \node at (3, 4) { $f_5$ };
++ \node at (1, 4) { $p_1$ };
++ \node at (1.5, 4) { $p_2$ };
++ \node at (2, 4) { $p_3$ };
 + \draw[->,color=BBViolet] (1, 4.3) to (1, 4.7);
 + \draw[->,color=BBViolet] (1.5, 4.3) to (1.5, 4.7);
 + \draw[->,color=BBViolet] (2, 4.3) to (2, 4.7);
-+ \draw[->,color=BBViolet] (2.5, 4.3) to (2.5, 4.7);
-+ \draw[->,color=BBViolet] (3, 4.3) to (3, 4.7);
 
-- \node at (1, 4) { $f_1$ };
-- \node at (1.5, 4) { $f_2$ };
-- \node at (2, 4) { $f_3$ };
-- \node at (2.5, 4) { $f_4$ };
-- \node at (3, 4) { $f_5$ };
+- \node at (1, 4) { $p_1$ };
+- \node at (1.5, 4) { $p_2$ };
+- \node at (2, 4) { $p_3$ };
 - \draw[->,color=BBViolet] (1, 4.3) to (1, 4.7);
 - \draw[->,color=BBViolet] (1.5, 4.3) to (1.5, 4.7);
 - \draw[->,color=BBViolet] (2, 4.3) to (2, 4.7);
-- \draw[->,color=BBViolet] (2.5, 4.3) to (2.5, 4.7);
-- \draw[->,color=BBViolet] (3, 4.3) to (3, 4.7);
 + \node[draw,circle,very thick] (A1) at (6, 4) { \bbtext{1} };
 + \node[draw,circle,very thick] (A2) at (9, 7) { \bbtext{2} };
 + \node[draw,circle,very thick] (A3) at (12, 4) { \bbtext{3} };
-+ \node[draw,circle,very thick] (A4) at (11, 1) { \bbtext{4} };
-+ \node[draw,circle,very thick] (A5) at (7, 1) { \bbtext{5} };
 
 + \draw[-latex,very thick] (A1) to (A2);
 
-+ \draw[-latex,very thick] (A2) to (A4);
++ \draw[-latex,very thick] (A2) to [bend left] (A3);
 
-+ \draw[-latex,very thick] (A3) [bend left] to (A5);
++ \draw[-latex,very thick] (A3) to [bend left] (A2);
+
++ \draw[-latex] (1, 4.7) to (1, 4.3);
++ \node at (1, 4) { \bbinfo{2} };
 
 - \draw[-latex,very thick] (A1) to (A2);
-- \draw[-latex,very thick] (A2) to (A4);
-+ \draw[-latex,very thick,color=BBOrange] (A1) to (A2);
-+ \draw[-latex,very thick,color=BBOrange] (A2) to (A4);
-+ \draw[-latex,very thick,color=BBOrange] (A4) to (A1);
-+ \draw[-latex,very thick] (3.5, 5) to (4, 5);
-+ \node[anchor=west] at (4, 5) { \bbinfo{\tt YES} };
+- \draw[-latex,very thick] (A2) to [bend left] (A3);
+- \draw[-latex,very thick] (A3) to [bend left] (A2);
 
-+ \draw[-latex,very thick] (A5) [bend left] to (A3);
++ \draw[-latex,very thick] (A2) to [bend left] (A3);
+
++ \draw[-latex,very thick] (A3) to [bend left] (A2);
+
++ \draw[-latex] (1.5, 4.7) to (1.5, 4.3);
++ \node at (1.5, 4) { \bbinfo{2} };
+
+- \draw[-latex,very thick] (A2) to [bend left] (A3);
+- \draw[-latex,very thick] (A3) to [bend left] (A2);
+
++ \draw[-latex,very thick] (A3) to [bend left] (A2);
+
++ \draw[-latex,very thick] (A2) to [bend left] (A3);
+
++ \draw[-latex] (2, 4.7) to (2, 4.3);
++ \node at (2, 4) { \bbinfo{3} };
 
 ## Scene
 + \node[anchor=west] at (0, 7) { \bbbold{Exemplo de entrada e saída} };
-+ \node at (1, 6) { \bbtext{5} };
-+ \node at (1, 5) { \bbtext{5} };
-+ \node at (1.5, 5) { \bbtext{5} };
-+ \node at (2, 5) { \bbtext{5} };
-+ \node at (2.5, 5) { \bbtext{5} };
-+ \node at (3, 5) { \bbtext{1} };
+
++ \node at (1, 6) { \bbtext{3} };
++ \node at (1, 5) { \bbtext{1} };
++ \node at (1.5, 5) { \bbtext{2} };
++ \node at (2, 5) { \bbtext{3} };
 
 + \node[draw,circle,very thick] (A1) at (6, 4) { \bbtext{1} };
 + \node[draw,circle,very thick] (A2) at (9, 7) { \bbtext{2} };
 + \node[draw,circle,very thick] (A3) at (12, 4) { \bbtext{3} };
-+ \node[draw,circle,very thick] (A4) at (11, 1) { \bbtext{4} };
-+ \node[draw,circle,very thick] (A5) at (7, 1) { \bbtext{5} };
 
-+ \draw[-latex,very thick] (A1) [bend left] to (A5);
-+ \draw[-latex,very thick] (A2) to (A5);
-+ \draw[-latex,very thick] (A3) to (A5);
-+ \draw[-latex,very thick] (A4) to (A5);
-+ \draw[-latex,very thick] (A5) [bend left] to (A1);
++ \draw[-latex,very thick] (A1) [loop left] to (A1);
++ \draw[-latex,very thick] (A2) [loop left] to (A2);
++ \draw[-latex,very thick] (A3) [loop left] to (A3);
 
-+ \draw[-latex,very thick] (3.5, 5) to (4, 5);
-+ \node[anchor=west] at (4, 5) { \bbinfo{\tt NO} };
++ \draw[-latex] (1, 4.7) to (1, 4.3);
++ \node at (1, 4) { \bbinfo{1} };
++ \draw[-latex] (1.5, 4.7) to (1.5, 4.3);
++ \node at (1.5, 4) { \bbinfo{2} };
++ \draw[-latex] (2, 4.7) to (2, 4.3);
++ \node at (2, 4) { \bbinfo{3} };
 
 ## Scene
-+ \node[anchor=west] at (0, 7) { \Large \bbbold{Solução} };
++ \node[anchor=west] at (0, 6) { \Large \bbbold{Solução} };
 
-+ \node[draw,circle,very thick] (A) at (2, 5) { \bbtext{A} };
++ \node[anchor=west] at (1, 5) { $\star$ \bbtext{Para cada estudante $a$ são necessárias, no máximo, $n + 1$ verificações} };
 
-+ \node[draw,circle,very thick] (B) at (5, 5) { \bbtext{B} };
-+ \draw[-latex,very thick] (A) to node[anchor=south] { $f(A)$ } (B);
++ \node[anchor=west] at (1, 4) { $\star$ \bbtext{Estas verificações podem ser feitas por meio de uma DFS} };
 
-+ \node[draw,circle,very thick] (C) at (8, 5) { \bbtext{C} };
-+ \draw[-latex,very thick] (B) to node[anchor=south] { $f(B)$ } (C);
++ \node[anchor=west] at (1, 3) { $\star$ \bbtext{Há $n$ estudantes distintos} };
 
-+ \node[draw,circle,very thick] (X) at (11, 5) { \bbtext{X} };
-+ \draw[-latex,very thick] (C) to node[anchor=south] { $f(C)$ } (X);
-
-+ \draw[-latex,very thick] (B) to [bend right] node[anchor=north] { $f(f(A))$ } (C);
-
-+ \draw[-latex,very thick] (C) to [bend right] node[anchor=north] { $f(f(f(A)))$ } (X);
-
-+ \node at (6.5, 2) { \Large { $A = f(f(f(A)))$ \bbtext{?} } };
++ \node[anchor=west] at (1, 2) { $\star$ \bbtext{A complexidade da solução é $O(n^2)$} };
 
 ## Frame
-+ \inputsnippet{cpp}{1}{18}{codes/939A.cpp}
++ \inputsnippet{cpp}{1}{18}{codes/1020B.cpp}
 
 ## Frame
-+ \inputsnippet{cpp}{19}{36}{codes/939A.cpp}
++ \inputsnippet{cpp}{19}{31}{codes/1020B.cpp}
 
 ## End
