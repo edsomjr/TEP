@@ -7,10 +7,10 @@ Teoria dos Grafos
         1. [Codeforces Round #464 (Div. 2) - Problem A: Love Triangle](https://codeforces.com/problemset/problem/939/A) ([_upsolving_](problemas/CF_939A/CF_939A.pdf))
         1. [OJ 11991 - Easy Problem from Rujia Liu?](https://onlinejudge.org/index.php?option=onlinejudge&Itemid=8&page=show_problem&problem=3142) ([_upsolving_](problems/OJ_11991/OJ_11991.pdf))
 1. Travessia
-    1. [Travessia por profundidade](slides/dfs/dfs.pdf) ([problemas resolvidos](problems/dfs/dfs.pdf))
+    1. [Travessia por profundidade](slides/dfs/dfs.pdf)
         1. [Codeforces Round #503 (by SIS, Div. 2) - Problem B: Badge](https://codeforces.com/problemset/problem/1020/B) ([_upsolving_](problemas/CF_1020B/CF_1020B.pdf))
         1. [OJ 10113 - Exchange](https://onlinejudge.org/index.php?option=onlinejudge&Itemid=8&page=show_problem&problem=1054) ([_upsolving_](problemas/OJ_10113/OJ_10113.pdf))
-    1. [Travessia por largura](slides/bfs/bfs.pdf) ([problemas resolvidos](problems/bfs/bfs.pdf))
+    1. [Travessia por largura](slides/bfs/bfs.pdf)
         1. [Codeforces Round #470 (Div. 2) - Problem A: Protect Sheep](https://codeforces.com/problemset/problem/948/A) ([_upsolving_](problemas/CF_948A/CF_948A.pdf))
     1. [Aplicações](slides/STV-3/STV-3.pdf) ([problemas resolvidos](problems/STV-3/STV-3.pdf))
 1. Caminhos Mínimos
