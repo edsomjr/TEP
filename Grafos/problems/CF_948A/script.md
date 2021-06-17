@@ -1,0 +1,210 @@
+## Frame
++ \bbcover{Codeforces Round \#470 (Div. 2)}{Problem A -- Protect Sheep}{Prof. Edson Alves}{Faculdade UnB Gama}
+
+## Text
++ \bbenglish{Bob is a farmer. He has a large pasture with many sheep. Recently, he has lost some of them due to wolf attacks. He thus decided to place some shepherd dogs in such a way that all his sheep are protected.}
++
++ \vspace{0.2in}
++ 
++ \bbenglish{The pasture is a rectangle consisting of $R\times C$ cells. Each cell is either empty, contains a sheep, a wolf or a dog. Sheep and dogs always stay in place, but wolves can roam freely around the pasture, by repeatedly moving to the left, right, up or down to a neighboring cell. When a wolf enters a cell with a sheep, it consumes it. However, no wolf can enter a cell with a dog.}
++
++ \vspace{0.2in}
++ 
++ \bbenglish{Initially there are no dogs. Place dogs onto the pasture in such a way that no wolf can reach any sheep, or determine that it is impossible. Note that since you have many dogs, you do \bbbold{not} need to minimize their number.}
+
+## Text
++ \bbtext{Bob é um fazendeiro. Ele tem um pasto largo com muitas ovelhas. Recentemente, ele perdeu algumas delas devido a ataques de lobos. Assim ele decidiu colocar alguns cães pastores e modo que todas suas ovelhas estejam protegidas.}
++
++ \vspace{0.2in}
++ 
++ \bbtext{O pasto é um retângulo composto por $R\times C$ células. Cada célula ou está vazia, ou contém uma ovelha, ou um lobo ou um cão. Ovelhas e cães sempre ficam no lugar, mas lobos podem andar livremente pelo pasto, movendo-se para as células vizinhas à esquerda, à direita, acima ou abaixo. Quando um lobo entra em um célula contendod uma ovelha, ele a devora. Contudo, nenhum lobo podem entrar em uma célula contendo um cão.}
++
++ \vspace{0.2in}
++ 
++ \bbtext{Inicialmente não há cães. Posicione cães no pasto de tal modo que nenhum lobo possa alcançar nenhuma ovelha, ou determine que esta tarefa é impossível. Note que, uma vez que você tem muitos cães, você \bbbold{não} precisa minimizar o seu número.}
+
+## Text
++ \bbbold{Input}
++
++ \vspace{0.1in}
++
++ \bbenglish{First line contains two integers $R$ $(1\leq R\leq 500)$ and $C$ $(1\leq C\leq 500)$, denoting the number of rows and the numbers of columns respectively.}
++
++ \vspace{0.1in}
++
++ \bbenglish{Each of the following $R$ lines is a string consisting of exactly $C$ characters, representing one row of the pasture. Here, '\texttt{S}' means a sheep, '\texttt{W}' a wolf and '\texttt{.}' an empty cell.}
+
+## Text
++ \bbbold{Entrada}
++
++ \vspace{0.1in}
++
++ \bbtext{A primeira linha contém dois inteiros $R$ $(1\leq R\leq 500)$ e $C$ $(1\leq C\leq 500)$, denotando o número de linhas e o número de colunas, respectivamente.}
++
++ \vspace{0.1in}
++
++ \bbtext{Cada uma das $R$ linhas seguintes contém um string formada por exatamente $C$ caracteres, representando uma linha do pasto. Aqui, '\texttt{S}' significa ovelha, '\texttt{W}' um lobo e '\texttt{.}' uma célula vazia.}
+
+## Text
++ \bbbold{Output}
++
++ \vspace{0.1in}
++
++ \bbenglish{If it is impossible to protect all sheep, output a single line with the word ``\texttt{No}''.}
++
++ \vspace{0.1in}
++
++ \bbenglish{Otherwise, output a line with the word ``\texttt{Yes}''. Then print $R$ lines, representing the pasture after placing dogs. Again, '\texttt{S}' means a sheep, '\texttt{W}' a wolf, '\texttt{D}' is a dog and '\texttt{.}' an empty space. You are not allowed to move, remove or add a sheep or a wolf.}
++
++ \vspace{0.1in}
++
++ \bbenglish{If there are multiple solutions, you may print any of them. You don't have to minimize the number of dogs.}
+
+## Text
++ \bbbold{Saída}
++
++ \vspace{0.1in}
++
++ \bbtext{Se é impossível proteger todas as ovelhas, imprima uma única linha com a palavra ``\texttt{No}''.}
++
++ \vspace{0.1in}
++
++ \bbtext{Caso contrário, imprima uma linha com a palavra ``\texttt{Yes}''. Então imprima $R$ linhas, representando o pasto após o posicionamento dos cães. Novamente, '\texttt{S}' significa uma ovelha, '\texttt{W}' um lobo, '\texttt{D}' é um cão e '\texttt{.}' um espaço vazio. Não é permitido mover, remover ou adicionar uma ovelha ou um lobo.}
++
++ \vspace{0.1in}
++
++ \bbtext{Se há múltiplas soluções, imprima qualquer uma delas. Você não precisa minimizar o número de cães.}
+
+## Scene
++ \node[anchor=west] at (0, 7) { \bbbold{Exemplo de entrada e saída} };
+
++ \node[anchor=west] at (1, 6) { \bbtext{\texttt{6 6}} };
+
++ \node at (1.25, 5) { \footnotesize \bbcomment{\# de linhas} };
++ \draw[->,color=BBViolet] (1.25, 5.2) -- (1.25, 5.8);
++ \node[anchor=west] at (2.5, 6) { \footnotesize \bbcomment{\# de colunas} };
++ \draw[->,color=BBViolet] (2.4, 6) -- (1.9, 6);
+
+- \node at (1.25, 5) { \footnotesize \bbcomment{\# de linhas} };
+- \draw[->,color=BBViolet] (1.25, 5.2) -- (1.25, 5.8);
+- \node[anchor=west] at (2.5, 6) { \footnotesize \bbcomment{\# de colunas} };
+- \draw[->,color=BBViolet] (2.4, 6) -- (1.9, 6);
++ \node[anchor=west] at (1, 5.5) { \bbtext{\texttt{..S...}} };
++ \node[anchor=west] at (1, 5.0) { \bbtext{\texttt{..S.W.}} };
++ \node[anchor=west] at (1, 4.5) { \bbtext{\texttt{.S....}} };
++ \node[anchor=west] at (1, 4.0) { \bbtext{\texttt{..W...}} };
++ \node[anchor=west] at (1, 3.5) { \bbtext{\texttt{...W..}} };
++ \node[anchor=west] at (1, 3.0) { \bbtext{\texttt{......}} };
+
++ \node[anchor=west] at (5, 4.5) { \bbbold{Possibilidade:} \bbtext{Construir um ``muro'' de cães} };
+
+- \node[anchor=west] at (1, 5.5) { \bbtext{\texttt{..S...}} };
+- \node[anchor=west] at (1, 5.0) { \bbtext{\texttt{..S.W.}} };
+- \node[anchor=west] at (1, 4.5) { \bbtext{\texttt{.S....}} };
+- \node[anchor=west] at (1, 4.0) { \bbtext{\texttt{..W...}} };
+- \node[anchor=west] at (1, 3.5) { \bbtext{\texttt{...W..}} };
+- \node[anchor=west] at (1, 3.0) { \bbtext{\texttt{......}} };
++ \node[anchor=west] at (1, 5.5) { \bbtext{\texttt{..S\bbinfo{D}..}} };
++ \node[anchor=west] at (1, 5.0) { \bbtext{\texttt{..S\bbinfo{D}W.}} };
++ \node[anchor=west] at (1, 4.5) { \bbtext{\texttt{.S\bbinfo{D}...}} };
++ \node[anchor=west] at (1, 4.0) { \bbtext{\texttt{\bbinfo{D}\bbinfo{D}W...}} };
++ \node[anchor=west] at (1, 3.5) { \bbtext{\texttt{...W..}} };
++ \node[anchor=west] at (1, 3.0) { \bbtext{\texttt{......}} };
+
+## Scene
++ \node[anchor=west] at (0, 7) { \bbbold{Exemplo de entrada e saída} };
++ \node[anchor=west] at (1, 6) { \bbtext{\texttt{1 2}} };
++ \node[anchor=west] at (1, 5.5) { \bbtext{\texttt{SW}} };
+
++ \node[anchor=west] at (5, 4.5) { \bbbold{Impossível:} \bbtext{Um lobo é vizinho de uma ovelha!} };
+
+## Scene
++ \node[anchor=west] at (0, 7) { \Large \bbbold{Solução} };
++ \node[anchor=west] at (1, 6) { \bbtext{\texttt{6 6}} };
++ \node[anchor=west] at (1, 5.5) { \bbtext{\texttt{..S...}} };
++ \node[anchor=west] at (1, 5.0) { \bbtext{\texttt{..S.W.}} };
++ \node[anchor=west] at (1, 4.5) { \bbtext{\texttt{.S....}} };
++ \node[anchor=west] at (1, 4.0) { \bbtext{\texttt{..W...}} };
++ \node[anchor=west] at (1, 3.5) { \bbtext{\texttt{...W..}} };
++ \node[anchor=west] at (1, 3.0) { \bbtext{\texttt{......}} };
+
++ \node[anchor=west] at (4, 4.5) { \bbtext{O alcance de um lobo pode ser determinado por uma BFS} };
+
+- \node[anchor=west] at (1, 3.5) { \bbtext{\texttt{...W..}} };
++ \node[anchor=west] at (1, 3.5) { \bbtext{\texttt{...\bbinfo{W}..}} };
+
+- \node[anchor=west] at (1, 4.0) { \bbtext{\texttt{..W...}} };
+- \node[anchor=west] at (1, 3.5) { \bbtext{\texttt{...\bbinfo{W}..}} };
+- \node[anchor=west] at (1, 3.0) { \bbtext{\texttt{......}} };
++ \node[anchor=west] at (1, 4.0) { \bbtext{\texttt{..W\bbinfo{.}..}} };
++ \node[anchor=west] at (1, 3.5) { \bbtext{\texttt{..\bbinfo{.}\bbinfo{W}\bbinfo{.}.}} };
++ \node[anchor=west] at (1, 3.0) { \bbtext{\texttt{...\bbinfo{.}..}} };
+
+- \node[anchor=west] at (1, 4.5) { \bbtext{\texttt{.S....}} };
+- \node[anchor=west] at (1, 4.0) { \bbtext{\texttt{..W\bbinfo{.}..}} };
+- \node[anchor=west] at (1, 3.5) { \bbtext{\texttt{..\bbinfo{.}\bbinfo{W}\bbinfo{.}.}} };
+- \node[anchor=west] at (1, 3.0) { \bbtext{\texttt{...\bbinfo{.}..}} };
++ \node[anchor=west] at (1, 4.5) { \bbtext{\texttt{.S.\bbinfo{.}..}} };
++ \node[anchor=west] at (1, 4.0) { \bbtext{\texttt{..\bbinfo{W}\bbinfo{.}\bbinfo{.}.}} };
++ \node[anchor=west] at (1, 3.5) { \bbtext{\texttt{.\bbinfo{.}\bbinfo{.}\bbinfo{W}\bbinfo{.}\bbinfo{.}}} };
++ \node[anchor=west] at (1, 3.0) { \bbtext{\texttt{..\bbinfo{.}\bbinfo{.}\bbinfo{.}.}} };
+
+- \node[anchor=west] at (1, 5.0) { \bbtext{\texttt{..S.W.}} };
+- \node[anchor=west] at (1, 4.5) { \bbtext{\texttt{.S.\bbinfo{.}..}} };
+- \node[anchor=west] at (1, 4.0) { \bbtext{\texttt{..\bbinfo{W}\bbinfo{.}\bbinfo{.}.}} };
+- \node[anchor=west] at (1, 3.5) { \bbtext{\texttt{.\bbinfo{.}\bbinfo{.}\bbinfo{W}\bbinfo{.}\bbinfo{.}}} };
+- \node[anchor=west] at (1, 3.0) { \bbtext{\texttt{..\bbinfo{.}\bbinfo{.}\bbinfo{.}.}} };
++ \node[anchor=west] at (1, 5.0) { \bbtext{\texttt{..S\bbinfo{.}W.}} };
++ \node[anchor=west] at (1, 4.5) { \bbtext{\texttt{.S\bbinfo{.}\bbinfo{.}\bbinfo{.}.}} };
++ \node[anchor=west] at (1, 4.0) { \bbtext{\texttt{.\bbinfo{.}\bbinfo{W}\bbinfo{.}\bbinfo{.}\bbinfo{.}}} };
++ \node[anchor=west] at (1, 3.5) { \bbtext{\texttt{\bbinfo{.}\bbinfo{.}\bbinfo{.}\bbinfo{W}\bbinfo{.}\bbinfo{.}}} };
++ \node[anchor=west] at (1, 3.0) { \bbtext{\texttt{.\bbinfo{.}\bbinfo{.}\bbinfo{.}\bbinfo{.}\bbinfo{.}}} };
+
+- \node[anchor=west] at (1, 5.5) { \bbtext{\texttt{..S...}} };
+- \node[anchor=west] at (1, 5.0) { \bbtext{\texttt{..S\bbinfo{.}W.}} };
+- \node[anchor=west] at (1, 4.5) { \bbtext{\texttt{.S\bbinfo{.}\bbinfo{.}\bbinfo{.}.}} };
+- \node[anchor=west] at (1, 4.0) { \bbtext{\texttt{.\bbinfo{.}\bbinfo{W}\bbinfo{.}\bbinfo{.}\bbinfo{.}}} };
+- \node[anchor=west] at (1, 3.5) { \bbtext{\texttt{\bbinfo{.}\bbinfo{.}\bbinfo{.}\bbinfo{W}\bbinfo{.}\bbinfo{.}}} };
+- \node[anchor=west] at (1, 3.0) { \bbtext{\texttt{.\bbinfo{.}\bbinfo{.}\bbinfo{.}\bbinfo{.}\bbinfo{.}}} };
++ \node[anchor=west] at (1, 5.5) { \bbtext{\texttt{..S\bbinfo{.}..}} };
++ \node[anchor=west] at (1, 5.0) { \bbtext{\texttt{..\bbinfo{S}\bbinfo{.}\bbinfo{W}.}} };
++ \node[anchor=west] at (1, 4.5) { \bbtext{\texttt{.\bbinfo{S}\bbinfo{.}\bbinfo{.}\bbinfo{.}\bbinfo{.}}} };
++ \node[anchor=west] at (1, 4.0) { \bbtext{\texttt{\bbinfo{.}\bbinfo{.}\bbinfo{W}\bbinfo{.}\bbinfo{.}\bbinfo{.}}} };
++ \node[anchor=west] at (1, 3.5) { \bbtext{\texttt{\bbinfo{.}\bbinfo{.}\bbinfo{.}\bbinfo{W}\bbinfo{.}\bbinfo{.}}} };
++ \node[anchor=west] at (1, 3.0) { \bbtext{\texttt{\bbinfo{.}\bbinfo{.}\bbinfo{.}\bbinfo{.}\bbinfo{.}\bbinfo{.}}} };
+
+- \node[anchor=west] at (1, 5.5) { \bbtext{\texttt{..S\bbinfo{.}..}} };
+- \node[anchor=west] at (1, 5.0) { \bbtext{\texttt{..\bbinfo{S}\bbinfo{.}\bbinfo{W}.}} };
+- \node[anchor=west] at (1, 4.5) { \bbtext{\texttt{.\bbinfo{S}\bbinfo{.}\bbinfo{.}\bbinfo{.}\bbinfo{.}}} };
+- \node[anchor=west] at (1, 4.0) { \bbtext{\texttt{\bbinfo{.}\bbinfo{.}\bbinfo{W}\bbinfo{.}\bbinfo{.}\bbinfo{.}}} };
+- \node[anchor=west] at (1, 3.5) { \bbtext{\texttt{\bbinfo{.}\bbinfo{.}\bbinfo{.}\bbinfo{W}\bbinfo{.}\bbinfo{.}}} };
+- \node[anchor=west] at (1, 3.0) { \bbtext{\texttt{\bbinfo{.}\bbinfo{.}\bbinfo{.}\bbinfo{.}\bbinfo{.}\bbinfo{.}}} };
++ \node[anchor=west] at (1, 5.5) { \bbtext{\texttt{..S...}} };
++ \node[anchor=west] at (1, 5.0) { \bbtext{\texttt{..S.W.}} };
++ \node[anchor=west] at (1, 4.5) { \bbtext{\texttt{.S....}} };
++ \node[anchor=west] at (1, 4.0) { \bbtext{\texttt{..W...}} };
++ \node[anchor=west] at (1, 3.5) { \bbtext{\texttt{...W..}} };
++ \node[anchor=west] at (1, 3.0) { \bbtext{\texttt{......}} };
+- \node[anchor=west] at (4, 4.5) { \bbtext{O alcance de um lobo pode ser determinado por uma BFS} };
+
++ \node[anchor=west] at (4, 5.0) { \bbtext{Contudo, cães são \bbbold{ilimitados!}} };
+
++ \node[anchor=west] at (4, 4.0) { \bbtext{Se nenhum lobo é vizinho de ovelha, coloque cães à vontade!} };
+
+- \node[anchor=west] at (1, 5.5) { \bbtext{\texttt{..S...}} };
+- \node[anchor=west] at (1, 5.0) { \bbtext{\texttt{..S.W.}} };
+- \node[anchor=west] at (1, 4.5) { \bbtext{\texttt{.S....}} };
+- \node[anchor=west] at (1, 4.0) { \bbtext{\texttt{..W...}} };
+- \node[anchor=west] at (1, 3.5) { \bbtext{\texttt{...W..}} };
+- \node[anchor=west] at (1, 3.0) { \bbtext{\texttt{......}} };
++ \node[anchor=west] at (1, 5.5) { \bbtext{\texttt{\bbinfo{D}\bbinfo{D}S\bbinfo{D}\bbinfo{D}\bbinfo{D}}} };
++ \node[anchor=west] at (1, 5.0) { \bbtext{\texttt{\bbinfo{D}\bbinfo{D}S\bbinfo{D}W\bbinfo{D}}} };
++ \node[anchor=west] at (1, 4.5) { \bbtext{\texttt{\bbinfo{D}S\bbinfo{D}\bbinfo{D}\bbinfo{D}\bbinfo{D}}} };
++ \node[anchor=west] at (1, 4.0) { \bbtext{\texttt{\bbinfo{D}\bbinfo{D}W\bbinfo{D}\bbinfo{D}\bbinfo{D}}} };
++ \node[anchor=west] at (1, 3.5) { \bbtext{\texttt{\bbinfo{D}\bbinfo{D}\bbinfo{D}W\bbinfo{D}\bbinfo{D}}} };
++ \node[anchor=west] at (1, 3.0) { \bbtext{\texttt{\bbinfo{D}\bbinfo{D}\bbinfo{D}\bbinfo{D}\bbinfo{D}\bbinfo{D}}} };
+
+## Frame
++ \inputsnippet{cpp}{10}{29}{codes/948A.cpp}
+
+## End
