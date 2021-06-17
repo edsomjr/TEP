@@ -130,80 +130,64 @@
 + \draw[very thick,color=BBOrange] (B) to node[right,pos=0.1] { \footnotesize \bbinfo{45} } node[right,pos=0.9] { \footnotesize \bbinfo{188} } (C);
 
 ## Scene
-+ \node at (0, 7) { \bbbold{Solução} };
++ \node[anchor=west] at (0, 7) { \bbbold{Solução} };
 
-+ \node[draw,circle,very thick] (A1) at (1, 5) { \bbtext{1} };
-+ \node[draw,circle,very thick] (A2) at (2, 5) { \bbtext{2} };
-+ \node[draw,circle,very thick] (A3) at (3, 5) { \bbtext{3} };
-+ \node[draw,circle,very thick] (A4) at (4, 5) { \bbtext{4} };
-+ \node[draw,circle,very thick] (A5) at (5, 5) { \bbtext{5} };
-+ \node[draw,circle,very thick] (A6) at (6, 5) { \bbtext{6} };
-+ \node[draw,circle,very thick] (A7) at (7, 5) { \bbtext{7} };
-+ \node[draw,circle,very thick] (A8) at (8, 5) { \bbtext{8} };
-+ \node[draw,circle,very thick] (B1) at (1, 2) { $x_1$ };
-+ \node[draw,circle,very thick] (B2) at (2, 2) { $x_2$ };
-+ \node[draw,circle,very thick] (B3) at (3, 2) { $x_3$ };
-+ \node[draw,circle,very thick] (B4) at (4, 2) { $x_4$ };
-+ \node[draw,circle,very thick] (B5) at (5, 2) { $x_5$ };
-+ \node[draw,circle,very thick] (B6) at (6, 2) { $x_6$ };
-+ \node[draw,circle,very thick] (B7) at (7, 2) { $x_7$ };
-+ \node[draw,circle,very thick] (B8) at (8, 2) { $x_8$ };
++ \node[draw,circle,very thick] (A) at (3, 3) { \bbtext{1} };
++ \node[draw,circle,very thick] (B) at (6, 1) { \bbtext{2} };
++ \node[draw,circle,very thick] (C) at (6, 5) { \bbtext{3} };
++ \node[draw,circle,very thick] (D) at (9, 2) { \bbtext{4} };
++ \node[draw,circle,very thick] (E) at (9, 4) { \bbtext{5} };
++ \node[draw,circle,very thick] (F) at (12, 3) { \bbtext{6} };
++ \draw[very thick] (A) to (B);
++ \draw[very thick] (A) to (C);
++ \draw[very thick] (B) to (E);
++ \draw[very thick] (C) to (E);
++ \draw[very thick] (E) to (F);
 
-- \node[draw,circle,very thick] (B1) at (1, 2) { $x_1$ };
-- \node[draw,circle,very thick] (B2) at (2, 2) { $x_2$ };
-- \node[draw,circle,very thick] (B3) at (3, 2) { $x_3$ };
-- \node[draw,circle,very thick] (B4) at (4, 2) { $x_4$ };
-- \node[draw,circle,very thick] (B5) at (5, 2) { $x_5$ };
-- \node[draw,circle,very thick] (B6) at (6, 2) { $x_6$ };
-- \node[draw,circle,very thick] (B7) at (7, 2) { $x_7$ };
-- \node[draw,circle,very thick] (B8) at (8, 2) { $x_8$ };
-+ \node[draw,circle,very thick] (B1) at (1.5, 2) { $1$ };
-+ \node[draw,circle,very thick] (B2) at (3.5, 2) { $2$ };
-+ \node[draw,circle,very thick] (B3) at (5.5, 2) { $3$ };
-+ \node[draw,circle,very thick] (B4) at (7.5, 2) { $4$ };
++ \node[anchor=west] at (1, 6) { \bbtext{Só há conversão entre objetos se há ao menos um caminho entre eles} };
 
-+ \draw[-latex,very thick] (B1) to (A1);
-+ \draw[-latex,very thick] (B1) to (A8);
++ \draw[-latex,very thick,color=BBOrange] (A) to node[above] { \bbinfo{Ok} } (F);
 
-+ \draw[-latex,very thick] (B2) to (A3);
-+ \draw[-latex,very thick] (B2) to (A4);
-+ \draw[-latex,very thick] (B2) to (A7);
+- \draw[-latex,very thick,color=BBOrange] (A) to node[above] { \bbinfo{Ok} } (F);
++ \draw[-latex,very thick,color=BBRed] (A) to node { \bbalert{x} } (D);
 
-+ \draw[-latex,very thick] (B3) to (A2);
-+ \draw[-latex,very thick] (B3) to (A6);
+- \draw[-latex,very thick,color=BBRed] (A) to node { \bbalert{x} } (D);
+- \node[anchor=west] at (1, 6) { \bbtext{Só há conversão entre objetos se há ao menos um caminho entre eles} };
++ \node[anchor=west] at (1, 6) { \bbtext{Pela consistência da entrada este caminho não precisa ser único} };
 
-+ \draw[-latex,very thick] (B4) to (A5);
++ \draw[-latex,color=BBViolet] (A) to [bend left] (C);
++ \draw[-latex,color=BBViolet] (C) to [bend left] (E);
++ \draw[-latex,color=BBViolet] (E) to [bend left] (F);
 
-+ \draw[very thick] (11, 5.5) to (11, 1.5);
-+ \node at (10.5, 5) { $1$ };
-+ \node at (10.5, 4) { $2$ };
-+ \node at (10.5, 3) { $3$ };
-+ \node at (10.5, 2) { $4$ };
-+ \node[anchor=west] at (8, 6) { \footnotesize \bbcomment{Lista de adjacências} };
-+ \draw[->,color=BBViolet] (10, 5.8) to (10.8, 5.6);
+- \draw[-latex,color=BBViolet] (A) to [bend left] (C);
+- \draw[-latex,color=BBViolet] (C) to [bend left] (E);
+- \draw[-latex,color=BBViolet] (E) to [bend left] (F);
++ \draw[-latex,color=BBViolet] (A) to [bend right] (B);
++ \draw[-latex,color=BBViolet] (B) to [bend right] (E);
++ \draw[-latex,color=BBViolet] (E) to [bend left] (F);
 
-+ \node at (11.5, 5) { \bbinfo{1} };
-+ \node at (12, 5) { \bbinfo{8} };
+- \draw[-latex,color=BBViolet] (A) to [bend right] (B);
+- \draw[-latex,color=BBViolet] (B) to [bend right] (E);
+- \draw[-latex,color=BBViolet] (E) to [bend left] (F);
+- \node[anchor=west] at (1, 6) { \bbtext{Pela consistência da entrada este caminho não precisa ser único} };
++ \node[anchor=west] at (1, 6) { \bbtext{As taxas de conversão compõem por multiplicação} };
 
-+ \node at (11.5, 4) { \bbinfo{3} };
-+ \node at (12.0, 4) { \bbinfo{4} };
-+ \node at (12.5, 4) { \bbinfo{7} };
+- \draw[very thick] (A) to (C);
+- \draw[very thick] (C) to (E);
++ \draw[very thick] (A) to node[above,pos=0.1] { \footnotesize \bbcomment{x} } node[below,pos=0.9] { \footnotesize \bbcomment{y} } (C);
++ \draw[very thick] (C) to node[below,pos=0.1] { \footnotesize \bbcomment{z} } node[above,pos=0.9] { \footnotesize \bbcomment{w} } (E);
 
-+ \node at (11.5, 3) { \bbinfo{2} };
-+ \node at (12.0, 3) { \bbinfo{6} };
-
-+ \node at (11.5, 2) { \bbinfo{5} };
-
-+ \node[anchor=west] at (9, 1) { \footnotesize \bbcomment{Consultas em $O(1)$} };
-+ \draw[->,color=BBViolet] (10.3, 1.2) to (10.8, 1.4);
++ \draw[-latex,very thick,color=BBOrange] (A) to node[below,pos=0.1] { \footnotesize \bbinfo{xz/d} } node[below,pos=0.85] { \footnotesize \bbinfo{yw/d} } (E);
+- \node[anchor=west] at (1, 6) { \bbtext{As taxas de conversão compõem por multiplicação} };
++ \node[anchor=west] at (1, 6) { \bbtext{As taxas de conversão compõem por multiplicação ($d = gcd(xz, yw)$)} };
 
 ## Frame
-+ \inputsnippet{cpp}{1}{18}{codes/11991.cpp}
++ \inputsnippet{cpp}{14}{34}{codes/10113.cpp}
 
 ## Frame
-+ \inputsnippet{cpp}{19}{36}{codes/11991.cpp}
++ \inputsnippet{cpp}{44}{60}{codes/10113.cpp}
 
 ## Frame
-+ \inputsnippet{cpp}{37}{54}{codes/11991.cpp}
++ \inputsnippet{cpp}{62}{75}{codes/10113.cpp}
 
 # End
