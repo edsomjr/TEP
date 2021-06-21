@@ -13,7 +13,8 @@ Teoria dos Grafos
     1. [Travessia por largura](slides/bfs/bfs.pdf)
         1. [Codeforces Round #470 (Div. 2) - Problem A: Protect Sheep](https://codeforces.com/problemset/problem/948/A) ([_upsolving_](problemas/CF_948A/CF_948A.pdf))
         1. [OJ 10687  Monitoring the Amazon](https://onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&page=show_problem&category=0&problem=1628&mosmsg=Submission+received+with+ID+26496145) ([_upsolving_](problemas/OJ_10687/OJ_10687.pdf))
-    1. [Aplicações](slides/STV-3/STV-3.pdf) ([problemas resolvidos](problems/STV-3/STV-3.pdf))
+1. Aplicações de travessias
+    1. [Componentes conectados](slides/componenents_conectados/componenents_conectados.pdf)
 1. Caminhos Mínimos
     1. [Algoritmo de Bellman-Ford](slides/SSP-1/SSP-1.pdf) ([problemas resolvidos](problems/SSP-1/SSP-1.pdf))
     1. [Algoritmo de Dijkstra](slides/SSP-2/SSP-2.pdf) ([problemas resolvidos](problems/SSP-2/SSP-2.pdf))
