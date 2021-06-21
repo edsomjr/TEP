@@ -1,5 +1,5 @@
 vector<int> bfs(int s, int N) {
-    vector<int> dist(N + 1, -1);
+    vector<int> dist(N + 1, oo);
     queue<int> q;
 
     dist[s] = 0; q.push(s);
@@ -11,7 +11,7 @@ vector<int> bfs(int s, int N) {
         // visita/processa u
 
         for (auto v : adj[u]) {
-            if (dist[v] == -1) {
+            if (dist[v] == oo) {
                 dist[v] = dist[u] + 1; q.push(v);
             }
         }
