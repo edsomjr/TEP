@@ -158,10 +158,3 @@
 + \node[anchor=west] at (1, 3) { $3.$ \bbbold{SKIENA}, \bbtext{Steven}; \bbbold{REVILLA}, \bbtext{Miguel}. \bbenglish{Programming Challenges,} \bbtext{2003.} };
 
 ## End
-Educational Codeforces Round 33 (Rated for Div. 2) -- Problem C: Rumor
-https://codeforces.com/problemset/problem/893/C
-
-OJ 11094 - Continents
-https://onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&category=24&page=show_problem&problem=2035
-
-
