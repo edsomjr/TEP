@@ -115,6 +115,17 @@
 ## Scene
 + \node[anchor=west] at (0, 7) { \bbbold{Solução} };
 
++ \node[anchor=west] at (1, 6) { $\star$ \bbtext{O mapa induz um grafo $G$ onde: } };
+
++ \node[anchor=west] at (2, 5) { $(a)$ \bbtext{os vértices são os territórios, e } };
+
++ \node[anchor=west] at (2, 4) { $(b)$ \bbtext{as arestas são dadas pelas arestas comuns entre territórios} };
+
++ \node[anchor=west] at (1, 3) { $\star$ \bbtext{O caractere que identifica um território é dado pelas coordenadas do rei} };
+
++ \node[anchor=west] at (1, 2) { $\star$ \bbtext{As arestas entre os extremos laterais podem ser determinadas por} };
++ \node[anchor=west] at (0.5, 1.5) { \bbtext{aritmética modular } };
+
 ## Frame
 + \inputsnippet{cpp}{10}{29}{codes/11094.cpp}
 
