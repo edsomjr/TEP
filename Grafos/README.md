@@ -15,7 +15,7 @@ Teoria dos Grafos
         1. [OJ 10687  Monitoring the Amazon](https://onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&page=show_problem&category=0&problem=1628&mosmsg=Submission+received+with+ID+26496145) ([_upsolving_](problemas/OJ_10687/OJ_10687.pdf))
 1. Aplicações de travessias
     1. [Componentes conectados](slides/componenents_conectados/componenents_conectados.pdf)
-        1. [Educational Codeforces Round 33 (Rated for Div. 2)](https://codeforces.com/contest/893/problem/C) ([_upsolving_](problemas/CF_893C/CF_893C.pdf))
+        1. [Educational Codeforces Round 33 (Rated for Div. 2) - Problem C: Rumor](https://codeforces.com/contest/893/problem/C) ([_upsolving_](problemas/CF_893C/CF_893C.pdf))
         1. [OJ 11094 - Continents](http://uva.onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&category=24&page=show_problem&problem=2035) ([_upsolving_](problemas/OJ_11094/OJ_11094.pdf))
     1. [Detecção de ciclos](slides/deteccao_de_ciclos/deteccao_de_ciclos.pdf)
         1. [AtCoder Beginner Contest 174 - Problem C: Repsept](https://atcoder.jp/contests/abc174/tasks/abc174_c) ([_upsolving_](problemas/ABC_174C/ABC_174C.pdf))
