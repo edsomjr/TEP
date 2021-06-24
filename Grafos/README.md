@@ -19,6 +19,7 @@ Teoria dos Grafos
         1. [OJ 11094 - Continents](http://uva.onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&category=24&page=show_problem&problem=2035) ([_upsolving_](problemas/OJ_11094/OJ_11094.pdf))
     1. [Detecção de ciclos](slides/deteccao_de_ciclos/deteccao_de_ciclos.pdf)
         1. [AtCoder Beginner Contest 174 - Problem C: Repsept](https://atcoder.jp/contests/abc174/tasks/abc174_c) ([_upsolving_](problemas/ABC_174C/ABC_174C.pdf))
+        1. [OJ 10116 - Robot Motion](https://onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&page=show_problem&category=0&problem=1057&mosmsg=Submission+received+with+ID+26514001) ([_upsolving_](problemas/OJ_10116/OJ_10116.pdf))
 1. Caminhos Mínimos
     1. [Algoritmo de Bellman-Ford](slides/SSP-1/SSP-1.pdf) ([problemas resolvidos](problems/SSP-1/SSP-1.pdf))
     1. [Algoritmo de Dijkstra](slides/SSP-2/SSP-2.pdf) ([problemas resolvidos](problems/SSP-2/SSP-2.pdf))
