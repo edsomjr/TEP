@@ -176,15 +176,66 @@
 + \node at (0.9, 2.7) { \bbinfo{2} };
 
 ## Scene
-+ \node[anchor=west] at (0, 6) { \Large \bbbold{Solução} };
++ \node[anchor=west] at (0, 7) { \Large \bbbold{Solução} };
 
-+ \node[anchor=west] at (1, 5) { $\star$ \bbtext{Para cada estudante $a$ são necessárias, no máximo, $n + 1$ verificações} };
++ \node[draw,very thick,circle] (A) at (8, 6) { \bbtext{1} };
++ \node[draw,very thick,circle] (B) at (6, 4) { \bbtext{2} };
++ \node[draw,very thick,circle] (C) at (10, 4) { \bbtext{3} };
++ \node[draw,very thick,circle] (D) at (5, 2) { \bbtext{4} };
++ \node[draw,very thick,circle] (E) at (7, 2) { \bbtext{5} };
++ \node[draw,very thick,circle] (F) at (9, 2) { \bbtext{6} };
++ \node[draw,very thick,circle] (G) at (11, 2) { \bbtext{7} };
++ \draw[thick] (A) to (B);
++ \draw[thick] (A) to (C);
++ \draw[thick] (B) to (D);
++ \draw[thick] (B) to (E);
++ \draw[thick] (C) to (F);
++ \draw[thick] (C) to (G);
 
-+ \node[anchor=west] at (1, 4) { $\star$ \bbtext{Estas verificações podem ser feitas por meio de uma DFS} };
++ \node[anchor=west] at (0.5, 6) { \bbcomment{Toda árvore é bipartida} };
 
-+ \node[anchor=west] at (1, 3) { $\star$ \bbtext{Há $n$ estudantes distintos} };
+- \node[draw,very thick,circle] (A) at (8, 6) { \bbtext{1} };
+- \node[draw,very thick,circle] (B) at (6, 4) { \bbtext{2} };
+- \node[draw,very thick,circle] (C) at (10, 4) { \bbtext{3} };
+- \node[draw,very thick,circle] (D) at (5, 2) { \bbtext{4} };
+- \node[draw,very thick,circle] (E) at (7, 2) { \bbtext{5} };
+- \node[draw,very thick,circle] (F) at (9, 2) { \bbtext{6} };
+- \node[draw,very thick,circle] (G) at (11, 2) { \bbtext{7} };
++ \node[fill,color=BBCyan,circle] (A) at (8, 6) { \bbtext{1} };
++ \node[fill,color=BBGreen,circle] (B) at (6, 4) { \bbtext{2} };
++ \node[fill,color=BBGreen,circle] (C) at (10, 4) { \bbtext{3} };
++ \node[fill,color=BBCyan,circle] (D) at (5, 2) { \bbtext{4} };
++ \node[fill,color=BBCyan,circle] (E) at (7, 2) { \bbtext{5} };
++ \node[fill,color=BBCyan,circle] (F) at (9, 2) { \bbtext{6} };
++ \node[fill,color=BBCyan,circle] (G) at (11, 2) { \bbtext{7} };
++ \node[draw,very thick,circle] (A) at (8, 6) { \bbtext{1} };
++ \node[draw,very thick,circle] (B) at (6, 4) { \bbtext{2} };
++ \node[draw,very thick,circle] (C) at (10, 4) { \bbtext{3} };
++ \node[draw,very thick,circle] (D) at (5, 2) { \bbtext{4} };
++ \node[draw,very thick,circle] (E) at (7, 2) { \bbtext{5} };
++ \node[draw,very thick,circle] (F) at (9, 2) { \bbtext{6} };
++ \node[draw,very thick,circle] (G) at (11, 2) { \bbtext{7} };
 
-+ \node[anchor=west] at (1, 2) { $\star$ \bbtext{A complexidade da solução é $O(n^2)$} };
+- \node[anchor=west] at (0.5, 6) { \bbcomment{Toda árvore é bipartida} };
++ \node[anchor=west] at (0.5, 6) { \bbcomment{De cada nó verde deve partir uma} };
++ \node[anchor=west] at (0, 5.5) { \bbcomment{aresta para um nó azul} };
+
++ \draw[thick,color=BBOrange] (B) to (F);
++ \draw[thick,color=BBOrange] (B) to (G);
++ \draw[thick,color=BBOrange] (C) to (D);
++ \draw[thick,color=BBOrange] (C) to (E);
+
+- \node[anchor=west] at (0.5, 6) { \bbcomment{De cada nó verde deve partir uma} };
+- \node[anchor=west] at (0, 5.5) { \bbcomment{aresta para um nó azul} };
++ \node[anchor=west] at (0, 6) { \bbcomment{Portanto o total de arestas será: } };
++ \node[anchor=west] at (1, 5) { \bbcomment{(\# verde) $\times$ (\# azul) } };
+
+- \node[anchor=west] at (0, 6) { \bbcomment{Portanto o total de arestas será: } };
+- \node[anchor=west] at (1, 5) { \bbcomment{(\# verde) $\times$ (\# azul) } };
++ \node[anchor=west] at (0.5, 6) { \bbcomment{A resposta será a diferença entre} };
++ \node[anchor=west] at (0, 5.5) { \bbcomment{o total e as arestas já definidas} };
+
++ \node[anchor=west] at (1.5, 4.5) { \textcolor{BBGreen}{2} $\times$ \textcolor{BBCyan}{5} $-$ \textcolor{black}{6} $=$ \bbinfo{4} };
 
 ## Frame
 + \inputsnippet{cpp}{11}{30}{codes/862B.cpp}

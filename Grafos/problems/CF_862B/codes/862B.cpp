@@ -23,8 +23,8 @@ ll solve(int N)
             }
     }
 
-    auto odd = accumulate(color.begin() + 1, color.begin() + N + 1, 0LL);
-    auto even = N - odd, ans = (odd * even) - (N - 1);
+    auto blue = accumulate(color.begin() + 1, color.begin() + N + 1, 0LL);
+    auto green = N - blue, ans = (blue * green) - (N - 1);
 
     return ans;
 }
