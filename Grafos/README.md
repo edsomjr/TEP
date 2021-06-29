@@ -21,6 +21,8 @@ Teoria dos Grafos
         1. [AtCoder Beginner Contest 174 - Problem C: Repsept](https://atcoder.jp/contests/abc174/tasks/abc174_c) ([_upsolving_](problemas/ABC_174C/ABC_174C.pdf))
         1. [OJ 10116 - Robot Motion](https://onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&page=show_problem&category=0&problem=1057&mosmsg=Submission+received+with+ID+26514001) ([_upsolving_](problemas/OJ_10116/OJ_10116.pdf))
     1. [Grafos bipartidos](slides/grafos_bipartidos/grafos_bipartidos.pdf)
+        1. [Codeforces Round #435 (Div. 2) - Problem B: Mahmoud and Ehab and the bipartiteness](https://codeforces.com/problemset/problem/862/B) ([_upsolving_](problemas/CF_862B/CF_862B.pdf))
+        1. [OJ 10505 - Montesco vs Capuleto](https://onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&category=24&page=show_problem&problem=1446) ([_upsolving_](problemas/OJ_10505/OJ_10505.pdf))
 1. Caminhos Mínimos
     1. [Algoritmo de Bellman-Ford](slides/SSP-1/SSP-1.pdf) ([problemas resolvidos](problems/SSP-1/SSP-1.pdf))
     1. [Algoritmo de Dijkstra](slides/SSP-2/SSP-2.pdf) ([problemas resolvidos](problems/SSP-2/SSP-2.pdf))
