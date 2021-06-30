@@ -212,16 +212,23 @@
 + \draw[-latex,color=BBOrange,very thick] (D) to [bend left] (E);
 + \draw[-latex,color=BBOrange,very thick] (E) to [bend left] (D);
 
+- \draw[thick] (E) to (F);
++ \draw[-latex,color=BBOrange,very thick] (E) to (F);
+
+- \draw[thick] (F) to (G);
++ \draw[-latex,color=BBOrange,very thick] (F) to (G);
+
+- \draw[thick] (E) to [bend left] (G);
++ \draw[-latex,color=BBOrange,very thick] (G) to [bend right] (E);
+
 ## Scene
 + \node[anchor=west] at (0, 6) { \Large \bbbold{Solução} };
 
-+ \node[anchor=west] at (1, 5) { $\star$ \bbtext{Para cada estudante $a$ são necessárias, no máximo, $n + 1$ verificações} };
++ \node[anchor=west] at (0.5, 5) { $\star$ \bbtext{Se a exclusão de uma via não desconecta do grafo, ela pode ser de mão única} };
 
-+ \node[anchor=west] at (1, 4) { $\star$ \bbtext{Estas verificações podem ser feitas por meio de uma DFS} };
++ \node[anchor=west] at (0.5, 4) { $\star$ \bbtext{O sentido da mão única pode ser obtido por meio de uma DFS } };
 
-+ \node[anchor=west] at (1, 3) { $\star$ \bbtext{Há $n$ estudantes distintos} };
-
-+ \node[anchor=west] at (1, 2) { $\star$ \bbtext{A complexidade da solução é $O(n^2)$} };
++ \node[anchor=west] at (0.5, 3) { $\star$ \bbtext{As pontes devem preservar a mão dupla} };
 
 ## Frame
 + \inputsnippet{cpp}{11}{30}{codes/610.cpp}

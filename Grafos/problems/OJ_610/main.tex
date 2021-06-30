@@ -1720,6 +1720,111 @@
 \begin{tikzpicture}
 \node[draw,opacity=0] at (0, 0) {x};
 \node[draw,opacity=0] at (14, 8) {x};
+ \node[anchor=west] at (0, 7) { \bbbold{Exemplo de entrada e saída} };
+ \node[anchor=west] at (1, 6) { \bbtext{7 9} };
+ \node[circle,draw,very thick] (A) at (6, 4) { \bbtext{1} };
+ \node[circle,draw,very thick] (B) at (8, 6) { \bbtext{2} };
+ \node[circle,draw,very thick] (C) at (10, 6) { \bbtext{3} };
+ \node[circle,draw,very thick] (D) at (12, 6) { \bbtext{4} };
+ \node[circle,draw,very thick] (E) at (12, 2) { \bbtext{5} };
+ \node[circle,draw,very thick] (F) at (10, 2) { \bbtext{6} };
+ \node[circle,draw,very thick] (G) at (8, 2) { \bbtext{7} };
+ \node[anchor=west] at (1, 5.5) { \bbtext{1 2} };
+ \node[anchor=west] at (1, 5.0) { \bbtext{1 3} };
+ \node[anchor=west] at (1, 4.5) { \bbtext{1 4} };
+ \node[anchor=west] at (1, 4.0) { \bbtext{2 4} };
+ \node[anchor=west] at (1, 3.5) { \bbtext{3 4} };
+ \node[anchor=west] at (1, 3.0) { \bbtext{4 5} };
+ \node[anchor=west] at (1, 2.5) { \bbtext{5 6} };
+ \node[anchor=west] at (1, 2.0) { \bbtext{5 7} };
+ \draw[thick] (E) to [bend left] (G);
+ \node[anchor=west] at (1, 1.5) { \bbtext{7 6} };
+ \draw[thick] (F) to (G);
+ \draw[-latex,color=BBOrange,very thick] (A) to (B);
+ \draw[-latex,color=BBOrange,very thick] (B) to [bend left] (D);
+ \draw[-latex,color=BBOrange,very thick] (D) to (C);
+ \draw[-latex,color=BBOrange,very thick] (C) to (A);
+ \draw[-latex,color=BBOrange,very thick] (D) to (A);
+ \draw[-latex,color=BBOrange,very thick] (D) to [bend left] (E);
+ \draw[-latex,color=BBOrange,very thick] (E) to [bend left] (D);
+ \draw[-latex,color=BBOrange,very thick] (E) to (F);
+\end{tikzpicture}
+\end{frame}
+
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+ \node[anchor=west] at (0, 7) { \bbbold{Exemplo de entrada e saída} };
+ \node[anchor=west] at (1, 6) { \bbtext{7 9} };
+ \node[circle,draw,very thick] (A) at (6, 4) { \bbtext{1} };
+ \node[circle,draw,very thick] (B) at (8, 6) { \bbtext{2} };
+ \node[circle,draw,very thick] (C) at (10, 6) { \bbtext{3} };
+ \node[circle,draw,very thick] (D) at (12, 6) { \bbtext{4} };
+ \node[circle,draw,very thick] (E) at (12, 2) { \bbtext{5} };
+ \node[circle,draw,very thick] (F) at (10, 2) { \bbtext{6} };
+ \node[circle,draw,very thick] (G) at (8, 2) { \bbtext{7} };
+ \node[anchor=west] at (1, 5.5) { \bbtext{1 2} };
+ \node[anchor=west] at (1, 5.0) { \bbtext{1 3} };
+ \node[anchor=west] at (1, 4.5) { \bbtext{1 4} };
+ \node[anchor=west] at (1, 4.0) { \bbtext{2 4} };
+ \node[anchor=west] at (1, 3.5) { \bbtext{3 4} };
+ \node[anchor=west] at (1, 3.0) { \bbtext{4 5} };
+ \node[anchor=west] at (1, 2.5) { \bbtext{5 6} };
+ \node[anchor=west] at (1, 2.0) { \bbtext{5 7} };
+ \draw[thick] (E) to [bend left] (G);
+ \node[anchor=west] at (1, 1.5) { \bbtext{7 6} };
+ \draw[-latex,color=BBOrange,very thick] (A) to (B);
+ \draw[-latex,color=BBOrange,very thick] (B) to [bend left] (D);
+ \draw[-latex,color=BBOrange,very thick] (D) to (C);
+ \draw[-latex,color=BBOrange,very thick] (C) to (A);
+ \draw[-latex,color=BBOrange,very thick] (D) to (A);
+ \draw[-latex,color=BBOrange,very thick] (D) to [bend left] (E);
+ \draw[-latex,color=BBOrange,very thick] (E) to [bend left] (D);
+ \draw[-latex,color=BBOrange,very thick] (E) to (F);
+ \draw[-latex,color=BBOrange,very thick] (F) to (G);
+\end{tikzpicture}
+\end{frame}
+
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+ \node[anchor=west] at (0, 7) { \bbbold{Exemplo de entrada e saída} };
+ \node[anchor=west] at (1, 6) { \bbtext{7 9} };
+ \node[circle,draw,very thick] (A) at (6, 4) { \bbtext{1} };
+ \node[circle,draw,very thick] (B) at (8, 6) { \bbtext{2} };
+ \node[circle,draw,very thick] (C) at (10, 6) { \bbtext{3} };
+ \node[circle,draw,very thick] (D) at (12, 6) { \bbtext{4} };
+ \node[circle,draw,very thick] (E) at (12, 2) { \bbtext{5} };
+ \node[circle,draw,very thick] (F) at (10, 2) { \bbtext{6} };
+ \node[circle,draw,very thick] (G) at (8, 2) { \bbtext{7} };
+ \node[anchor=west] at (1, 5.5) { \bbtext{1 2} };
+ \node[anchor=west] at (1, 5.0) { \bbtext{1 3} };
+ \node[anchor=west] at (1, 4.5) { \bbtext{1 4} };
+ \node[anchor=west] at (1, 4.0) { \bbtext{2 4} };
+ \node[anchor=west] at (1, 3.5) { \bbtext{3 4} };
+ \node[anchor=west] at (1, 3.0) { \bbtext{4 5} };
+ \node[anchor=west] at (1, 2.5) { \bbtext{5 6} };
+ \node[anchor=west] at (1, 2.0) { \bbtext{5 7} };
+ \node[anchor=west] at (1, 1.5) { \bbtext{7 6} };
+ \draw[-latex,color=BBOrange,very thick] (A) to (B);
+ \draw[-latex,color=BBOrange,very thick] (B) to [bend left] (D);
+ \draw[-latex,color=BBOrange,very thick] (D) to (C);
+ \draw[-latex,color=BBOrange,very thick] (C) to (A);
+ \draw[-latex,color=BBOrange,very thick] (D) to (A);
+ \draw[-latex,color=BBOrange,very thick] (D) to [bend left] (E);
+ \draw[-latex,color=BBOrange,very thick] (E) to [bend left] (D);
+ \draw[-latex,color=BBOrange,very thick] (E) to (F);
+ \draw[-latex,color=BBOrange,very thick] (F) to (G);
+ \draw[-latex,color=BBOrange,very thick] (G) to [bend right] (E);
+\end{tikzpicture}
+\end{frame}
+
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
  \node[anchor=west] at (0, 6) { \Large \bbbold{Solução} };
 \end{tikzpicture}
 \end{frame}
@@ -1729,7 +1834,7 @@
 \node[draw,opacity=0] at (0, 0) {x};
 \node[draw,opacity=0] at (14, 8) {x};
  \node[anchor=west] at (0, 6) { \Large \bbbold{Solução} };
- \node[anchor=west] at (1, 5) { $\star$ \bbtext{Para cada estudante $a$ são necessárias, no máximo, $n + 1$ verificações} };
+ \node[anchor=west] at (0.5, 5) { $\star$ \bbtext{Se a exclusão de uma via não desconecta do grafo, ela pode ser de mão única} };
 \end{tikzpicture}
 \end{frame}
 
@@ -1738,8 +1843,8 @@
 \node[draw,opacity=0] at (0, 0) {x};
 \node[draw,opacity=0] at (14, 8) {x};
  \node[anchor=west] at (0, 6) { \Large \bbbold{Solução} };
- \node[anchor=west] at (1, 5) { $\star$ \bbtext{Para cada estudante $a$ são necessárias, no máximo, $n + 1$ verificações} };
- \node[anchor=west] at (1, 4) { $\star$ \bbtext{Estas verificações podem ser feitas por meio de uma DFS} };
+ \node[anchor=west] at (0.5, 5) { $\star$ \bbtext{Se a exclusão de uma via não desconecta do grafo, ela pode ser de mão única} };
+ \node[anchor=west] at (0.5, 4) { $\star$ \bbtext{O sentido da mão única pode ser obtido por meio de uma DFS } };
 \end{tikzpicture}
 \end{frame}
 
@@ -1748,21 +1853,9 @@
 \node[draw,opacity=0] at (0, 0) {x};
 \node[draw,opacity=0] at (14, 8) {x};
  \node[anchor=west] at (0, 6) { \Large \bbbold{Solução} };
- \node[anchor=west] at (1, 5) { $\star$ \bbtext{Para cada estudante $a$ são necessárias, no máximo, $n + 1$ verificações} };
- \node[anchor=west] at (1, 4) { $\star$ \bbtext{Estas verificações podem ser feitas por meio de uma DFS} };
- \node[anchor=west] at (1, 3) { $\star$ \bbtext{Há $n$ estudantes distintos} };
-\end{tikzpicture}
-\end{frame}
-
-\begin{frame}[plain,t]
-\begin{tikzpicture}
-\node[draw,opacity=0] at (0, 0) {x};
-\node[draw,opacity=0] at (14, 8) {x};
- \node[anchor=west] at (0, 6) { \Large \bbbold{Solução} };
- \node[anchor=west] at (1, 5) { $\star$ \bbtext{Para cada estudante $a$ são necessárias, no máximo, $n + 1$ verificações} };
- \node[anchor=west] at (1, 4) { $\star$ \bbtext{Estas verificações podem ser feitas por meio de uma DFS} };
- \node[anchor=west] at (1, 3) { $\star$ \bbtext{Há $n$ estudantes distintos} };
- \node[anchor=west] at (1, 2) { $\star$ \bbtext{A complexidade da solução é $O(n^2)$} };
+ \node[anchor=west] at (0.5, 5) { $\star$ \bbtext{Se a exclusão de uma via não desconecta do grafo, ela pode ser de mão única} };
+ \node[anchor=west] at (0.5, 4) { $\star$ \bbtext{O sentido da mão única pode ser obtido por meio de uma DFS } };
+ \node[anchor=west] at (0.5, 3) { $\star$ \bbtext{As pontes devem preservar a mão dupla} };
 \end{tikzpicture}
 \end{frame}
 
