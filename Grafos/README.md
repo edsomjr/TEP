@@ -23,6 +23,9 @@ Teoria dos Grafos
     1. [Grafos bipartidos](slides/grafos_bipartidos/grafos_bipartidos.pdf)
         1. [Codeforces Round #435 (Div. 2) - Problem B: Mahmoud and Ehab and the bipartiteness](https://codeforces.com/problemset/problem/862/B) ([_upsolving_](problemas/CF_862B/CF_862B.pdf))
         1. [OJ 10505 - Montesco vs Capuleto](https://onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&category=24&page=show_problem&problem=1446) ([_upsolving_](problemas/OJ_10505/OJ_10505.pdf))
+    1. [Pontes e pontos de articulação](slides/pontes_e_pontos_de_articulacao/pontes_e_pontos_de_articulacao.pdf)
+        1. [SPOJ SUBMERGE - Submerging Islands](https://www.spoj.com/problems/SUBMERGE/) ([_upsolving_](problemas/SPOJ_SUBMERGE/SPOJ_SUBMERGE.pdf))
+        1. [OJ 610 - Street Directions](https://onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&page=show_problem&category=0&problem=551&mosmsg=Submission+received+with+ID+26529110) (_upsolving_](problemas/OJ_610/OJ_610.pdf))
 1. Caminhos Mínimos
     1. [Algoritmo de Bellman-Ford](slides/SSP-1/SSP-1.pdf) ([problemas resolvidos](problems/SSP-1/SSP-1.pdf))
     1. [Algoritmo de Dijkstra](slides/SSP-2/SSP-2.pdf) ([problemas resolvidos](problems/SSP-2/SSP-2.pdf))
