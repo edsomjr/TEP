@@ -1,5 +1,5 @@
 ## Frame
-+ \bbcover{Grafos}{Grafos Bipartidos}{Prof. Edson Alves}{Faculdade UnB Gama}
++ \bbcover{Grafos}{Pontes e Pontos de Articulação}{Prof. Edson Alves}{Faculdade UnB Gama}
 
 ## Scene
 + \node[anchor=west] at (0, 6) { \Large \bbbold{Grafos bipartidos} };
@@ -121,10 +121,10 @@
 
 ## Scene
 + \node[anchor=west] at (0, 6) { \Large \bbbold{Problemas sugeridos} };
-+ \node[anchor=west] at (0.5, 5) { $1.$ \bbtext{AtCoder Beginner Contest 131 -- Problem F: Must Be Rectangular! } };
-+ \node[anchor=west] at (0.5, 4) { $2.$ \bbtext{Codeforces Round \#435 -- Problem B: Mahmoud and Ehab and the bipartiteness} };
-+ \node[anchor=west] at (0.5, 3) { $3.$ \bbtext{OJ 10505 -- Montesco vs Capuleto} };
-+ \node[anchor=west] at (0.5, 2) { $4.$ \bbtext{OJ 11080 -- Place the Guards} };
++ \node[anchor=west] at (0.5, 5) { $1.$ \bbtext{AtCoder Beginner Contest 075 -- Problem C: Bridge } };
++ \node[anchor=west] at (0.5, 4) { $2.$ \bbtext{OJ 315 -- Network } };
++ \node[anchor=west] at (0.5, 3) { $3.$ \bbtext{OJ 610 -- Street Directions } };
++ \node[anchor=west] at (0.5, 2) { $4.$ \bbtext{SPOJ SUBMERGE -- Submerging Islands } };
 
 ## Scene
 + \node[anchor=west] at (0, 6) { \Large \bbbold{Referências} };

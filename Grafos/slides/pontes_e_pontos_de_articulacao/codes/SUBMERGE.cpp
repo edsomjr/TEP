@@ -1,4 +1,4 @@
-// OJ 610 - Street Directions (https://onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&page=show_problem&category=0&problem=551&mosmsg=Submission+received+with+ID+26529110)
+// SPOJ SUBMERGE - Submerging Islands (https://www.spoj.com/problems/SUBMERGE/)
 #include <bits/stdc++.h>
 
 using namespace std;
@@ -8,47 +8,51 @@ const int MAX { 100010 };
 int dfs_num[MAX], dfs_low[MAX];
 vector<int> adj[MAX];
 
-void dfs(int u, int p, int& next, set<edge>& roads)
+int dfs(int u, int p, int& next, set<int>& points)
 {
+    int children = 0;
     dfs_low[u] = dfs_num[u] = next++;
 
     for (auto v : adj[u])
-    {
-        if (not roads.count(edge(u, v)) and not roads.count(edge(v, u)))
-            roads.insert(edge(u, v));
-
         if (not dfs_num[v]) {
+            ++children; 
 
-            dfs(v, u, next, roads);
+            dfs(v, u, next, points);
 
-            if (dfs_low[v] > dfs_num[u])
-                roads.insert(edge(v, u));
+            if (dfs_low[v] >= dfs_num[u])
+                points.insert(u);
 
             dfs_low[u] = min(dfs_low[u], dfs_low[v]);
         } else if (v != p)
             dfs_low[u] = min(dfs_low[u], dfs_num[v]);
-    }
+
+    return children;
 }
 
-set<edge> solve(int N)
+size_t solve(int N)
 {
     memset(dfs_num, 0, (N + 1)*sizeof(int));
     memset(dfs_low, 0, (N + 1)*sizeof(int));
 
-    set<edge> roads;
+    set<int> points;
 
     for (int u = 1, next = 1; u <= N; ++u)
         if (not dfs_num[u])
-            dfs(u, u, next, roads);
+        {
+            auto children = dfs(u, u, next, points);
+
+            if (children == 1)
+                points.erase(u);
+        }
     
-    return roads;
+    return points.size();
 }
 
 int main()
 {
     ios::sync_with_stdio(false);
 
-    int N, M, test = 0;
+    int N, M;
 
     while (cin >> N >> M, N | M)
     {
@@ -64,13 +68,9 @@ int main()
             adj[v].push_back(u);
         }
 
-        auto bs = solve(N);
+        auto ans = solve(N);
 
-        cout << ++test << "\n\n";
-
-        for (auto [u, v] : bs)
-            cout << u << ' ' << v << '\n';
-        cout << "#\n";
+        cout << ans << '\n';
     }
 
     return 0;
