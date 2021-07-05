@@ -26,7 +26,7 @@ Teoria dos Grafos
     1. [Pontes e pontos de articulação](slides/pontes_e_pontos_de_articulacao/pontes_e_pontos_de_articulacao.pdf)
         1. [SPOJ SUBMERGE - Submerging Islands](https://www.spoj.com/problems/SUBMERGE/) ([_upsolving_](problemas/SPOJ_SUBMERGE/SPOJ_SUBMERGE.pdf))
         1. [OJ 610 - Street Directions](https://onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&page=show_problem&category=0&problem=551&mosmsg=Submission+received+with+ID+26529110) ([_upsolving_](problemas/OJ_610/OJ_610.pdf))
-1. Caminhos Mínimos
+1. [Caminhos Mínimos](slides/caminhos_minimos/caminhos_minimos.pdf)
     1. [Algoritmo de Bellman-Ford](slides/SSP-1/SSP-1.pdf) ([problemas resolvidos](problems/SSP-1/SSP-1.pdf))
     1. [Algoritmo de Dijkstra](slides/SSP-2/SSP-2.pdf) ([problemas resolvidos](problems/SSP-2/SSP-2.pdf))
     1. [Algoritmo de Floyd-Warshall](slides/SSP-3/SSP-3.pdf) ([problemas resolvidos](problems/SSP-3/SSP-3.pdf))
