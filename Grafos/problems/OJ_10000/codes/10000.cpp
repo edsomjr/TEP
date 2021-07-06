@@ -12,17 +12,14 @@ vector<int> max_dist(int s, int N, int c = 1) {
 
     dist[s] = 0; q.push(s);
 
-//cout << "--- dist size = " << dist.size() << endl;
     while (not q.empty())
     {
         auto u = q.front(); q.pop();
 
-//cout << "=== u = " << u << endl;
         for (auto v : adj[u]) {
             if (dist[v] < dist[u] + c) {
                 dist[v] = dist[u] + c;
                 q.push(v);
-//cout << "dist(" << u << ", " << v << ") = " << dist[v] << endl;
             }
         }
     }
@@ -32,7 +29,6 @@ vector<int> max_dist(int s, int N, int c = 1) {
 
 pair<int, int> solve(int s, int N)
 {
-//cout << "--- s = " << s << ", N = " << N << endl;
     auto dist = max_dist(s, N);
 
     auto d = 0, v = s;
@@ -66,7 +62,6 @@ int main()
         while (cin >> p >> q, p | q)
             adj[p].push_back(q);
 
-//cout << "Aqui" << endl;
         auto [dist, u] = solve(s, n);
 
         cout << "Case " << ++test << ": The longest path from " << s << " has length " 
