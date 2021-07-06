@@ -10,9 +10,6 @@ int dist[MAX][MAX];
 
 int solve(const vector<string>& S, int H, int W)
 {
-    if (S[0][0] == '#' or S[H - 1][W - 1] == '#')
-        return -1;
-
     memset(dist, -1, sizeof dist);
     int whites = 0;
 
@@ -22,12 +19,14 @@ int solve(const vector<string>& S, int H, int W)
 
     queue<ii> q;
     q.push(ii(0, 0));
+
     dist[0][0] = 1;
 
     while (not q.empty())
     {
         const vector<ii> dirs { ii(1, 0), ii(0, 1), ii(-1, 0), ii(0, -1) };
-        auto [x, y] = q.front(); q.pop();
+        auto [x, y] = q.front();
+        q.pop();
 
         if (x == H - 1 and y == W - 1)
             break;

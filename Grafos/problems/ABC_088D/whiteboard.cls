@@ -12,6 +12,7 @@
 \usepackage{enumerate}
 \usepackage{amsmath}
 \usepackage{fontspec}
+\usepackage{fontawesome}
 
 % Setup
 \usetikzlibrary{calc}
