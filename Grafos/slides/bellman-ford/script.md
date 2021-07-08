@@ -83,32 +83,190 @@
 - \node at (6.5, 1.5) { $\infty$ };
 + \node at (6.5, 1.5) { $\mathbf{7}$ };
 
-+ \draw[thick] (A) to node[above] { \bbinfo{4} } (D);
-+ \draw[thick] (A) to node[below] { \bbinfo{2} } (E);
-+ \draw[thick] (B) to node[below] { \bbinfo{1} } (C);
-+ \draw[thick] (B) to node[below,pos=0.8] { \bbinfo{3} } (F);
-+ \draw[thick] (C) to node[right] { \bbinfo{2} } (D);
-+ \draw[thick] (D) to node[above] { \bbinfo{1} } (E);
-+ \draw[thick] (E) to node[below] { \bbinfo{11} } (F);
+- \draw[-latex,very thick,color=BBCyan] (A) to node[right] { \bbinfo{7} } (C);
++ \draw[thick] (A) to node[right] { \bbinfo{7} } (C);
+- \draw[thick] (A) to node[above] { \bbinfo{4} } (D);
++ \draw[-latex,very thick,color=BBCyan] (A) to node[above] { \bbinfo{4} } (D);
+- \node at (6.5, 1.5) { $\mathbf{7}$ };
++ \node at (6.5, 1.5) { ${7}$ };
+- \node at (7.5, 1.5) { $\infty$ };
++ \node at (7.5, 1.5) { $\mathbf{4}$ };
 
+- \draw[-latex,very thick,color=BBCyan] (A) to node[above] { \bbinfo{4} } (D);
++ \draw[thick] (A) to node[above] { \bbinfo{4} } (D);
+- \node at (7.5, 1.5) { $\mathbf{4}$ };
++ \node at (7.5, 1.5) { ${4}$ };
+- \draw[thick] (A) to node[below] { \bbinfo{2} } (E);
++ \draw[-latex,very thick,color=BBCyan] (A) to node[below] { \bbinfo{2} } (E);
+- \node at (8.5, 1.5) { $\infty$ };
++ \node at (8.5, 1.5) { $\mathbf{2}$ };
+
+- \draw[-latex,very thick,color=BBCyan] (A) to node[below] { \bbinfo{2} } (E);
++ \draw[thick] (A) to node[below] { \bbinfo{2} } (E);
+- \draw[thick] (A) to node[above] { \bbinfo{9} } (B);
++ \draw[latex-,very thick,color=BBRed] (A) to node[above] { \bbinfo{9} } (B);
+- \node at (8.5, 1.5) { $\mathbf{2}$ };
++ \node at (8.5, 1.5) { ${2}$ };
+
+- \draw[thick] (B) to node[below] { \bbinfo{1} } (C);
++ \draw[-latex,very thick,color=BBRed] (B) to node[below] { \bbinfo{1} } (C);
+- \draw[latex-,very thick,color=BBRed] (A) to node[above] { \bbinfo{9} } (B);
++ \draw[thick] (A) to node[above] { \bbinfo{9} } (B);
+
+- \draw[-latex,very thick,color=BBRed] (B) to node[below] { \bbinfo{1} } (C);
++ \draw[thick] (B) to node[below] { \bbinfo{1} } (C);
+- \draw[thick] (B) to node[below,pos=0.8] { \bbinfo{3} } (F);
++ \draw[-latex,very thick,color=BBCyan] (B) to node[below,pos=0.8] { \bbinfo{3} } (F);
+- \node at (9.5, 1.5) { $\infty$ };
++ \node at (9.5, 1.5) { $\mathbf{12}$ };
+
+- \draw[-latex,very thick,color=BBCyan] (B) to node[below,pos=0.8] { \bbinfo{3} } (F);
++ \draw[thick] (B) to node[below,pos=0.8] { \bbinfo{3} } (F);
+- \node at (9.5, 1.5) { $\mathbf{12}$ };
++ \node at (9.5, 1.5) { ${12}$ };
+- \draw[thick] (A) to node[right] { \bbinfo{7} } (C);
++ \draw[latex-,very thick,color=BBRed] (A) to node[right] { \bbinfo{7} } (C);
+
+- \draw[latex-,very thick,color=BBRed] (A) to node[right] { \bbinfo{7} } (C);
++ \draw[thick] (A) to node[right] { \bbinfo{7} } (C);
+- \draw[thick] (B) to node[below] { \bbinfo{1} } (C);
++ \draw[latex-,very thick,color=BBCyan] (B) to node[below] { \bbinfo{1} } (C);
+- \node at (5.5, 1.5) { $9$ };
++ \node at (5.5, 1.5) { $\mathbf{8}$ };
+
+- \node at (5.5, 1.5) { $\mathbf{8}$ };
++ \node at (5.5, 1.5) { ${8}$ };
+- \draw[latex-,very thick,color=BBCyan] (B) to node[below] { \bbinfo{1} } (C);
++ \draw[thick] (B) to node[below] { \bbinfo{1} } (C);
+- \draw[thick] (C) to node[right] { \bbinfo{2} } (D);
++ \draw[-latex,very thick,color=BBRed] (C) to node[right] { \bbinfo{2} } (D);
+
+- \draw[-latex,very thick,color=BBRed] (C) to node[right] { \bbinfo{2} } (D);
++ \draw[thick] (C) to node[right] { \bbinfo{2} } (D);
+- \draw[thick] (A) to node[above] { \bbinfo{4} } (D);
++ \draw[latex-,very thick,color=BBRed] (A) to node[above] { \bbinfo{4} } (D);
+
+- \draw[latex-,very thick,color=BBRed] (A) to node[above] { \bbinfo{4} } (D);
++ \draw[thick] (A) to node[above] { \bbinfo{4} } (D);
+- \draw[thick] (C) to node[right] { \bbinfo{2} } (D);
++ \draw[latex-,very thick,BBCyan] (C) to node[right] { \bbinfo{2} } (D);
+- \node at (6.5, 1.5) { ${7}$ };
++ \node at (6.5, 1.5) { $\mathbf{6}$ };
+
+- \node at (6.5, 1.5) { $\mathbf{6}$ };
++ \node at (6.5, 1.5) { ${6}$ };
+- \draw[latex-,very thick,BBCyan] (C) to node[right] { \bbinfo{2} } (D);
++ \draw[thick] (C) to node[right] { \bbinfo{2} } (D);
+- \draw[thick] (D) to node[above] { \bbinfo{1} } (E);
++ \draw[-latex,very thick,color=BBRed] (D) to node[above] { \bbinfo{1} } (E);
+
+- \draw[thick] (A) to node[below] { \bbinfo{2} } (E);
++ \draw[latex-,very thick,color=BBRed] (A) to node[below] { \bbinfo{2} } (E);
+- \draw[-latex,very thick,color=BBRed] (D) to node[above] { \bbinfo{1} } (E);
++ \draw[thick] (D) to node[above] { \bbinfo{1} } (E);
+
+- \draw[latex-,very thick,color=BBRed] (A) to node[below] { \bbinfo{2} } (E);
++ \draw[thick] (A) to node[below] { \bbinfo{2} } (E);
+- \draw[thick] (D) to node[above] { \bbinfo{1} } (E);
++ \draw[latex-,very thick,color=BBCyan] (D) to node[above] { \bbinfo{1} } (E);
+- \node at (7.5, 1.5) { ${4}$ };
++ \node at (7.5, 1.5) { $\mathbf{3}$ };
+
+- \draw[latex-,very thick,color=BBCyan] (D) to node[above] { \bbinfo{1} } (E);
++ \draw[thick] (D) to node[above] { \bbinfo{1} } (E);
+- \node at (7.5, 1.5) { $\mathbf{3}$ };
++ \node at (7.5, 1.5) { ${3}$ };
+- \draw[thick] (E) to node[below] { \bbinfo{11} } (F);
++ \draw[-latex,very thick,color=BBRed] (E) to node[below] { \bbinfo{11} } (F);
+
+- \draw[-latex,very thick,color=BBRed] (E) to node[below] { \bbinfo{11} } (F);
++ \draw[thick] (E) to node[below] { \bbinfo{11} } (F);
+- \draw[thick] (B) to node[below,pos=0.8] { \bbinfo{3} } (F);
++ \draw[latex-,very thick,color=BBRed] (B) to node[below,pos=0.8] { \bbinfo{3} } (F);
+
+- \draw[latex-,very thick,color=BBRed] (B) to node[below,pos=0.8] { \bbinfo{3} } (F);
++ \draw[thick] (B) to node[below,pos=0.8] { \bbinfo{3} } (F);
+- \draw[thick] (E) to node[below] { \bbinfo{11} } (F);
++ \draw[latex-,very thick,color=BBRed] (E) to node[below] { \bbinfo{11} } (F);
+
++ \node[anchor=west] at (11, 3) { \bbbold{Round \#2} };
++ \draw[thick] (E) to node[below] { \bbinfo{11} } (F);
+- \draw[latex-,very thick,color=BBRed] (E) to node[below] { \bbinfo{11} } (F);
+- \draw[thick] (B) to node[below,pos=0.8] { \bbinfo{3} } (F);
++ \draw[-latex,very thick,color=BBCyan] (B) to node[below,pos=0.8] { \bbinfo{3} } (F);
+- \node at (9.5, 1.5) { ${12}$ };
++ \node at (9.5, 1.5) { $\mathbf{11}$ };
+ 
+- \node at (9.5, 1.5) { $\mathbf{11}$ };
++ \node at (9.5, 1.5) { ${11}$ };
+- \draw[-latex,very thick,color=BBCyan] (B) to node[below,pos=0.8] { \bbinfo{3} } (F);
++ \draw[thick] (B) to node[below,pos=0.8] { \bbinfo{3} } (F);
+- \draw[thick] (B) to node[below] { \bbinfo{1} } (C);
++ \draw[latex-,very thick,color=BBCyan] (B) to node[below] { \bbinfo{1} } (C);
+- \node at (5.5, 1.5) { ${8}$ };
++ \node at (5.5, 1.5) { $\mathbf{7}$ };
+
+- \node at (5.5, 1.5) { $\mathbf{7}$ };
++ \node at (5.5, 1.5) { ${7}$ };
+- \draw[latex-,very thick,color=BBCyan] (B) to node[below] { \bbinfo{1} } (C);
++ \draw[thick] (B) to node[below] { \bbinfo{1} } (C);
+- \draw[thick] (C) to node[right] { \bbinfo{2} } (D);
++ \draw[latex-,very thick,color=BBCyan] (C) to node[right] { \bbinfo{2} } (D);
+- \node at (6.5, 1.5) { ${6}$ };
++ \node at (6.5, 1.5) { $\mathbf{5}$ };
+
+- \node[anchor=west] at (11, 3) { \bbbold{Round \#2} };
++ \node[anchor=west] at (11, 3) { \bbbold{Round \#3} };
+- \draw[latex-,very thick,color=BBCyan] (C) to node[right] { \bbinfo{2} } (D);
++ \draw[thick] (C) to node[right] { \bbinfo{2} } (D);
+- \node at (6.5, 1.5) { $\mathbf{5}$ };
++ \node at (6.5, 1.5) { ${5}$ };
+- \draw[thick] (B) to node[below,pos=0.8] { \bbinfo{3} } (F);
++ \draw[-latex,very thick,color=BBCyan] (B) to node[below,pos=0.8] { \bbinfo{3} } (F);
+- \node at (9.5, 1.5) { ${11}$ };
++ \node at (9.5, 1.5) { $\mathbf{10}$ };
+
+- \node at (9.5, 1.5) { $\mathbf{10}$ };
++ \node at (9.5, 1.5) { ${10}$ };
+- \draw[-latex,very thick,color=BBCyan] (B) to node[below,pos=0.8] { \bbinfo{3} } (F);
++ \draw[thick] (B) to node[below,pos=0.8] { \bbinfo{3} } (F);
+- \draw[thick] (B) to node[below] { \bbinfo{1} } (C);
++ \draw[latex-,very thick,color=BBCyan] (B) to node[below] { \bbinfo{1} } (C);
+- \node at (5.5, 1.5) { ${7}$ };
++ \node at (5.5, 1.5) { $\mathbf{6}$ };
+
+- \node[anchor=west] at (11, 3) { \bbbold{Round \#3} };
++ \node[anchor=west] at (11, 3) { \bbbold{Round \#4} };
+- \node at (5.5, 1.5) { $\mathbf{6}$ };
++ \node at (5.5, 1.5) { ${6}$ };
+- \draw[latex-,very thick,color=BBCyan] (B) to node[below] { \bbinfo{1} } (C);
++ \draw[thick] (B) to node[below] { \bbinfo{1} } (C);
+- \draw[thick] (B) to node[below,pos=0.8] { \bbinfo{3} } (F);
++ \draw[-latex,very thick,color=BBCyan] (B) to node[below,pos=0.8] { \bbinfo{3} } (F);
+- \node at (9.5, 1.5) { ${10}$ };
++ \node at (9.5, 1.5) { $\mathbf{9}$ };
 
 ## Frame
 + \begin{center}\inputsnippet{cpp}{6}{18}{codes/bellman-ford.cpp}\end{center}
 
 ## Scene
-+ \node[anchor=west] at (0, 6) { \Large \bbbold{Problemas sugeridos} };
-+ \node[anchor=west] at (1, 5) { $1.$ \bbtext{AtCoder Beginner Contest 088 -- Problem D: Repainting } };
-+ \node[anchor=west] at (1, 4) { $2.$ \bbtext{Codeforces Beta Round \#3 -- Problem A: Shortest path of the king } };
-+ \node[anchor=west] at (1, 3) { $3.$ \bbtext{OJ 10000 -- Longest Paths } };
-+ \node[anchor=west] at (1, 2) { $4.$ \bbtext{OJ 10959 -- The Party, Part I } };
++ \node[anchor=west] at (0, 6) { \Large \bbbold{Identificação do caminho mínimo} };
+
++ \node[anchor=west] at (1, 5) { $\star$ \bbtext{O algoritmo de Bellman-Forde computa as distâncias mínimas, mas não} };
++ \node[anchor=west] at (0.5, 4.5) { \bbtext{os caminhos mínimos} };
+
++ \node[anchor=west] at (1, 3.5) { $\star$ \bbtext{Para determinar um caminho mínimo, é preciso definir o vetor auxiliar } };
++ \node[anchor=west] at (0.5, 3.0) { \bbtext{$\mathrm{pred}$, onde $\mathrm{pred}[u] = $ antecessor de $u$ no caminho mínimo de $s$ a $u$ } };
+
++ \node[anchor=west] at (1, 2.0) { $\star$ \bbtext{No início do algoritmo, $\mathrm{pred}[s] = s$ e $\mathrm{pred}[u] = \mathrm{undef}$, se $u\neq s$ } };
 
 ## Scene
-+ \node[anchor=west] at (0, 7) { \Large \bbbold{Referências} };
-+ \node[anchor=west] at (1, 6) { $1.$ \bbbold{HALIM}, \bbtext{Felix}; \bbbold{HALIM}, \bbtext{Steve}. \bbenglish{Competitive Programming 3,} \bbtext{2010.} };
-+ \node[anchor=west] at (1, 5) { $2.$ \bbbold{LAAKSONEN}, \bbtext{Antti}. \bbenglish{Competitive Programmer's Handbook,} \bbtext{2018.} };
-+ \node[anchor=west] at (1, 4) { $3.$ \bbbold{SKIENA}, \bbtext{Steven}; \bbbold{REVILLA}, \bbtext{Miguel}. \bbenglish{Programming Challenges,} \bbtext{2003.} };
-+ \node[anchor=west] at (1, 3) { $4.$ \bbbold{Wikipédia}, \bbenglish{Bellman-Ford algorithm.} \bbtext{Acesso em 07/07/2021.} };
-+ \node[anchor=west] at (1, 2) { $5.$ \bbbold{Wikipédia}, \bbenglish{L. R. Ford Jr.} \bbtext{Acesso em 07/07/2021.} };
-+ \node[anchor=west] at (1, 1) { $6.$ \bbbold{Wikipédia}, \bbenglish{Richard E. Bellman.} \bbtext{Acesso em 07/07/2021.} };
++ \node[anchor=west] at (0, 6) { \Large \bbbold{Identificação do caminho mínimo} };
++ \node[anchor=west] at (1, 5.0) { $\star$ \bbtext{Se $(u, v)$ atualizar $d[v]$, faça $\mathrm{pred}[v] = u$} };
 
++ \node[anchor=west] at (1, 4.0) { $\star$ \bbtext{A sequência } };
++ \node[anchor=west] at (2, 3.0) { \bbtext{$ p = \{ (s, \mathrm{pred}^{k - 1}[u]), \ldots, (\mathrm{pred}[\mathrm{pred}[u]], \mathrm{pred}[u]), (\mathrm{pred}[u], u)\}$ } };
+
++ \node[anchor=west] at (0.5, 2.0) { \bbtext{é um caminho mínimo de $s$ a $u$ composto de $k$ arestas e tamanho $d[u]$} };
+ 
 ## End
