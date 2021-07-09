@@ -116,7 +116,154 @@
 + \node[anchor=west] at (2, 2) { $ \omega(p) = \displaystyle{\sum_{e_i\in p} w(e_i) = \sum_{e_j\in q} w(e_j) + \sum_{e_k\in c} w(e_k) = \omega(q) + \omega(c) > \omega(q)} $ };
 
 ## Scene
++ \node[circle, draw, very thick] (A) at (0.5, 7) { \bbtext{A} };
++ \node[circle, draw, very thick] (B) at (6.5, 7) { \bbtext{B} };
++ \node[circle, draw, very thick] (C) at (12.5, 7) { \bbtext{C} };
++ \node[circle, draw, very thick] (D) at (9.5, 5) { \bbtext{D} };
++ \node[circle, draw, very thick] (E) at (6.5, 3) { \bbtext{E} };
++ \node[circle, draw, very thick] (F) at (3.5, 5) { \bbtext{F} };
++ \draw[thick] (A) to node[below] { \bbinfo{1} } (B);
++ \draw[thick] (B) to node[below] { \bbinfo{2} } (C);
++ \draw[thick] (B) to node[below] { \bbinfo{3} } (D);
++ \draw[thick] (D) to node[below] { \bbinfo{4} } (E);
++ \draw[thick] (E) to node[below] { \bbinfo{5} } (F);
++ \draw[thick] (F) to node[below] { \bbinfo{-6} } (B);
+
++ \draw[-latex,color=BBCyan] (1, 2) to (2, 2);
++ \node[anchor=west] at (2, 2) { $p$ };
+
+- \draw[thick] (A) to node[below] { \bbinfo{1} } (B);
++ \draw[-latex,very thick,color=BBCyan] (A) to node[below] { \bbinfo{1} } (B);
+
+- \draw[thick] (B) to node[below] { \bbinfo{3} } (D);
++ \draw[-latex,very thick,color=BBCyan] (B) to node[below] { \bbinfo{3} } (D);
+
+- \draw[thick] (D) to node[below] { \bbinfo{4} } (E);
++ \draw[-latex,very thick,color=BBCyan] (D) to node[below] { \bbinfo{4} } (E);
+
+- \draw[thick] (E) to node[below] { \bbinfo{5} } (F);
++ \draw[-latex,very thick,color=BBCyan] (E) to node[below] { \bbinfo{5} } (F);
+
+- \draw[thick] (F) to node[below] { \bbinfo{-6} } (B);
++ \draw[-latex,very thick,color=BBCyan] (F) to node[below] { \bbinfo{-6} } (B);
+
+- \draw[thick] (B) to node[below] { \bbinfo{2} } (C);
++ \draw[-latex,very thick,color=BBCyan] (B) to node[below] { \bbinfo{2} } (C);
+
++ \node[anchor=west] at (3, 2) { $\omega(p) = 9$ };
+
++ \draw[dashed,-latex,color=BBGreen] (1, 1) to (2, 1);
++ \node[anchor=west] at (2, 1) { $q$ };
+
++ \draw[-latex,very thick,dashed,color=BBGreen] (A) to [bend left] (B);
++ \draw[-latex,very thick,dashed,color=BBGreen] (B) to [bend left] (C);
+
++ \node[anchor=west] at (3, 1) { $\omega(q) = 3$ };
+
+## Scene
 + \node[anchor=west] at (0, 6.5) { \Large \bbbold{Caminhos mínimos e ciclos negativos} };
+
++ \node[anchor=west] at (1, 5.5) { \bbtext{Seja $\omega(c) < 0$ e } };
++ \node[anchor=west] at (0.75, 4.5) { $q = \{ (a, u_1), (u_1, u_2), \ldots, (v, u_r), \dots, (u_s, v), (v, u_r), \ldots, (u_s, v), \ldots, (u_t, b) \}$ };
++ \node[anchor=west] at (0.5, 3.5) { \bbtext{o caminho resultante da duplicação do ciclo $c$ de $p$. Então $\omega(q) < \omega(p)$, pois} };
++ \node[anchor=west] at (2, 2) { $ \omega(q) = \displaystyle{\sum_{e_i\in q} w(e_i) = \sum_{e_j\in p} w(e_j) + \sum_{e_k\in c} w(e_k) = \omega(p) + \omega(c) < \omega(p)} $ };
+
+## Scene
++ \node[circle, draw, very thick] (A) at (0.5, 7) { \bbtext{A} };
++ \node[circle, draw, very thick] (B) at (6.5, 7) { \bbtext{B} };
++ \node[circle, draw, very thick] (C) at (12.5, 7) { \bbtext{C} };
++ \node[circle, draw, very thick] (D) at (9.5, 5) { \bbtext{D} };
++ \node[circle, draw, very thick] (E) at (6.5, 3) { \bbtext{E} };
++ \node[circle, draw, very thick] (F) at (3.5, 5) { \bbtext{F} };
++ \draw[thick] (A) to node[below] { \bbinfo{1} } (B);
++ \draw[thick] (B) to node[below] { \bbinfo{2} } (C);
++ \draw[thick] (B) to node[below] { \bbinfo{3} } (D);
++ \draw[thick] (D) to node[below] { \bbinfo{-4} } (E);
++ \draw[thick] (E) to node[below] { \bbinfo{5} } (F);
++ \draw[thick] (F) to node[below] { \bbinfo{-6} } (B);
+
++ \draw[-latex,color=BBCyan] (1, 2) to (2, 2);
++ \node[anchor=west] at (2, 2) { $p$ };
+
+- \draw[thick] (A) to node[below] { \bbinfo{1} } (B);
++ \draw[-latex,very thick,color=BBCyan] (A) to node[below] { \bbinfo{1} } (B);
+
+- \draw[thick] (B) to node[below] { \bbinfo{3} } (D);
++ \draw[-latex,very thick,color=BBCyan] (B) to node[below] { \bbinfo{3} } (D);
+
+- \draw[thick] (D) to node[below] { \bbinfo{-4} } (E);
++ \draw[-latex,very thick,color=BBCyan] (D) to node[below] { \bbinfo{-4} } (E);
+
+- \draw[thick] (E) to node[below] { \bbinfo{5} } (F);
++ \draw[-latex,very thick,color=BBCyan] (E) to node[below] { \bbinfo{5} } (F);
+
+- \draw[thick] (F) to node[below] { \bbinfo{-6} } (B);
++ \draw[-latex,very thick,color=BBCyan] (F) to node[below] { \bbinfo{-6} } (B);
+
+- \draw[thick] (B) to node[below] { \bbinfo{2} } (C);
++ \draw[-latex,very thick,color=BBCyan] (B) to node[below] { \bbinfo{2} } (C);
+
++ \node[anchor=west] at (3, 2) { $\omega(p) = 3$ };
+
+- \draw[-latex,very thick,color=BBCyan] (A) to node[below] { \bbinfo{1} } (B);
+- \draw[-latex,very thick,color=BBCyan] (B) to node[below] { \bbinfo{3} } (D);
+- \draw[-latex,very thick,color=BBCyan] (D) to node[below] { \bbinfo{-4} } (E);
+- \draw[-latex,very thick,color=BBCyan] (E) to node[below] { \bbinfo{5} } (F);
+- \draw[-latex,very thick,color=BBCyan] (F) to node[below] { \bbinfo{-6} } (B);
+- \draw[-latex,very thick,color=BBCyan] (B) to node[below] { \bbinfo{2} } (C);
++ \draw[thick] (A) to node[below] { \bbinfo{1} } (B);
++ \draw[thick] (B) to node[below] { \bbinfo{2} } (C);
++ \draw[thick] (B) to node[below] { \bbinfo{3} } (D);
++ \draw[thick] (D) to node[below] { \bbinfo{-4} } (E);
++ \draw[thick] (E) to node[below] { \bbinfo{5} } (F);
++ \draw[thick] (F) to node[below] { \bbinfo{-6} } (B);
++ \draw[dashed,-latex,color=BBGreen] (1, 1) to (2, 1);
++ \node[anchor=west] at (2, 1) { $q$ };
+
+- \draw[thick] (A) to node[below] { \bbinfo{1} } (B);
++ \draw[dashed,-latex,very thick,color=BBGreen] (A) to node[below] { \bbinfo{1} } (B);
+
+- \draw[thick] (B) to node[below] { \bbinfo{3} } (D);
++ \draw[dashed,-latex,very thick,color=BBGreen] (B) to node[below] { \bbinfo{3} } (D);
+
+- \draw[thick] (D) to node[below] { \bbinfo{-4} } (E);
++ \draw[dashed,-latex,very thick,color=BBGreen] (D) to node[below] { \bbinfo{-4} } (E);
+
+- \draw[thick] (E) to node[below] { \bbinfo{5} } (F);
++ \draw[dashed,-latex,very thick,color=BBGreen] (E) to node[below] { \bbinfo{5} } (F);
+
+- \draw[thick] (F) to node[below] { \bbinfo{-6} } (B);
++ \draw[dashed,-latex,very thick,color=BBGreen] (F) to node[below] { \bbinfo{-6} } (B);
+
++ \draw[very thick,-latex,color=BBGreen,dashed] (B) to [bend left] (D);
+
++ \draw[very thick,-latex,color=BBGreen,dashed] (D) to [bend left] (E);
+
++ \draw[very thick,-latex,color=BBGreen,dashed] (E) to [bend left] (F);
+
++ \draw[very thick,-latex,color=BBGreen,dashed] (F) to [bend left] (B);
+
+- \draw[thick] (B) to node[below] { \bbinfo{2} } (C);
++ \draw[dashed,-latex,very thick,color=BBGreen] (B) to node[below] { \bbinfo{2} } (C);
+
++ \node[anchor=west] at (3, 1) { $\omega(q) = 1$ };
+
+## Scene
++ \node[anchor=west] at (0, 6.5) { \Large \bbbold{Número de rodadas do algoritmo de Bellman-Ford} };
+
++ \node[anchor=west] at (1, 5) { \bbtext{\bbbold{Teorema.} Seja $G(V, E)$ um grafo cujos pesos de suas arestas sejam todos } }; 
++ \node[anchor=west] at (0.5, 4) { \bbtext{não-negativos. Então para qualquer $v\in V$, o caminho mínimo de $s$ a $u$ iden-} };
++ \node[anchor=west] at (0.5, 3) { \bbtext{tificado pelo algoritmo de Bellman-Ford tem, no máximo, $|V| - 1$ arestas. } };
+
+## Scene
++ \node[anchor=west] at (0, 6.5) { \Large \bbbold{Detecção de ciclos negativos} };
+
++ \node[anchor=west] at (1, 5) { \bbtext{\bbbold{Teorema.} Seja $G(V, E)$ um grafo. Se a $|V|$-ésima rodada do algoritmo de } }; 
++ \node[anchor=west] at (0.5, 4) { \bbtext{Bellman-Ford atualizar o vetor $d$ ao menos uma vez, então $G$ possui pelo menos } };
++ \node[anchor=west] at (0.5, 3) { \bbtext{um ciclo negativo. } };
+
+## Frame
++ \begin{center}\inputsnippet{cpp}{6}{22}{codes/negative-cycle.cpp}\end{center}
 
 ## Scene
 + \node[anchor=west] at (0, 6) { \Large \bbbold{Problemas sugeridos} };
