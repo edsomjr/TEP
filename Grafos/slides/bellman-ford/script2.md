@@ -272,6 +272,11 @@
 + \node[anchor=west] at (1, 3) { $3.$ \bbtext{OJ 10000 -- Longest Paths } };
 + \node[anchor=west] at (1, 2) { $4.$ \bbtext{OJ 10959 -- The Party, Part I } };
 
+B137E,Coin Respawn,graph,SSSP,cycles,bellman-ford
+OJ 423, MPI Maelstrom
+OJ 534, Frogger
+https://cses.fi/problemset/task/1673 High Score
+
 ## Scene
 + \node[anchor=west] at (0, 7) { \Large \bbbold{Referências} };
 + \node[anchor=west] at (1, 6) { $1.$ \bbbold{HALIM}, \bbtext{Felix}; \bbbold{HALIM}, \bbtext{Steve}. \bbenglish{Competitive Programming 3,} \bbtext{2010.} };
