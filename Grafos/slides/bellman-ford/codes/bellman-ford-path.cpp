@@ -16,7 +16,7 @@ bellman_ford(int s, int N, const vector<edge>& edges)
 
     for (int i = 1; i <= N - 1; i++)
         for (auto [u, v, w] : edges)
-            if (dist[v] > dist[u] + w) {
+            if (dist[u] < oo and dist[v] > dist[u] + w) {
                 dist[v] = dist[u] + w;
                 pred[v] = u;
             }

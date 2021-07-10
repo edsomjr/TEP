@@ -31,11 +31,12 @@
 
 + \node[anchor=west] at (1, 4.5) { $1.$ \bbtext{Faça $d[s] = 0$ e $d[u] = \infty$ para todos vértices $u\in V$ tais que $u\neq s$ }};
 
-+ \node[anchor=west] at (1, 3.5) { $2.$ \bbtext{Para cada aresta $(u, v, w)\in E$, se $d[u] + w < d[v]$, faça $d[v] = d[u] + w$} };
++ \node[anchor=west] at (1, 3.5) { $2.$ \bbtext{Para cada aresta $(u, v, w)\in E$, se existe um caminho de $s$ a $u$ (isto é, } };
++ \node[anchor=west] at (0.5, 3.0) { \bbtext{$d[u] < \infty$) e $d[u] + w < d[v]$, faça $d[v] = d[u] + w$} };
 
-+ \node[anchor=west] at (1, 2.5) { $3.$ \bbtext{Se o vetor $d$ foi atualizado ao menos uma vez, volte ao passo $2.$ } };
++ \node[anchor=west] at (1, 2.0) { $3.$ \bbtext{Se o vetor $d$ foi atualizado ao menos uma vez, volte ao passo $2.$ } };
 
-+ \node[anchor=west] at (1, 1.5) { $4.$ \bbtext{Retorne $d$ } };
++ \node[anchor=west] at (1, 1.0) { $4.$ \bbtext{Retorne $d$ } };
 
 ## Scene
 + \node[circle, draw, very thick] (A) at (5, 7.5) { \bbtext{A} };
@@ -534,7 +535,7 @@
 + \node[anchor=west] at (0.5, 3) { \bbtext{um ciclo negativo. } };
 
 ## Frame
-+ \begin{center}\inputsnippet{cpp}{6}{22}{codes/negative-cycle.cpp}\end{center}
++ \begin{center}\inputsnippet{cpp}{6}{23}{codes/negative-cycle.cpp}\end{center}
 
 ## Scene
 + \node[anchor=west] at (0, 6) { \Large \bbbold{Problemas sugeridos} };
