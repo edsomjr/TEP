@@ -47,6 +47,8 @@
 \newcommand{\bbalert}[1]{\textbf{\textcolor{BBRed}{#1}}}
 \newcommand{\bbenglish}[1]{\textbf{\textit{\textcolor{BBGreen}{#1}}}}
 \newcommand{\bbcomment}[1]{\textit{\textcolor{BBViolet}{#1}}}
+\newcommand{\bbemph}[1]{\textbf{\textcolor{BBEmerald}{#1}}}
+\newcommand{\bbupdate}[1]{\textbf{\textcolor{BBCyan}{#1}}}
 
 \newcommand{\bbcover}[4]{
     \vspace{1in}

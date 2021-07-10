@@ -153,6 +153,34 @@
 ## Scene
 + \node[anchor=west] at (0, 7) { \Large \bbbold{Solução} };
 
++ \node[anchor=west] at (1, 6) { \bbtext{Como computar o caminho máximo usando Bellman-Ford?} };
+
++ \node[anchor=west] at (1.5, 5) { \bbcomment{Inverta o sinal das arestas e compute o caminho mínimo!} };
+
++ \node[draw,very thick,circle] (A) at (1, 3) { \bbtext{A} };
++ \node[draw,very thick,circle] (B) at (3, 1) { \bbtext{B} };
++ \node[draw,very thick,circle] (C) at (5, 3) { \bbtext{C} };
++ \draw[-latex,very thick,dashed,color=BBCyan] (A) to node[above] { \textcolor{BBOrange}{4} } (C); 
++ \draw[-latex,thick] (A) to node[below left] { \textcolor{BBOrange}{2} } (B); 
++ \draw[-latex,thick] (B) to node[below right] { \textcolor{BBOrange}{3} } (C); 
+
++ \draw[-latex,very thick] (6, 2) to (8, 2);
+
++ \node[draw,very thick,circle] (A) at (9, 3) { \bbtext{A} };
++ \node[draw,very thick,circle] (B) at (11, 1) { \bbtext{B} };
++ \node[draw,very thick,circle] (C) at (13, 3) { \bbtext{C} };
++ \draw[-latex,thick] (A) to node[above] { \bbinfo{-4} } (C); 
++ \draw[-latex,very thick,dashed,color=BBCyan] (A) to node[below left] { \bbinfo{-2} } (B); 
++ \draw[-latex,very thick,dashed,color=BBCyan] (B) to node[below right] { \bbinfo{-3} } (C); 
+
+## Scene
++ \node[anchor=west] at (0, 7) { \Large \bbbold{Solução} };
+
++ \node[anchor=west] at (1, 6) { \bbtext{Como identificar ao menos um elemento de um ciclo negativo? } };
+
++ \node[anchor=west] at (1.5, 5) { \bbcomment{Se $\dist[u]$ é atualizado no Round \#$|V|$, então $u$ pertence a } };
++ \node[anchor=west] at (3.5, 4.5) { \bbcomment{ao menos um ciclo negativo! } };
+
 ## Frame
 + \inputsnippet{cpp}{31}{50}{codes/1673.cpp}
 
