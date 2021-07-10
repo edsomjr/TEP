@@ -30,7 +30,8 @@ Teoria dos Grafos
     1. [Definição de caminho mínimo](slides/caminhos_minimos/caminhos_minimos.pdf)
         1. [AtCoder Beginner Contest 088 - Problem D: Grid Repainting](https://atcoder.jp/contests/abc088/tasks/abc088_d) ([_upsolving_](problems/ABC_088D/ABC_088D.pdf))
         1. [OJ 10000 - Longest Paths](http://uva.onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&category=24&page=show_problem&problem=941) ([_upsolving_](problems/OJ_10000/OJ_10000.pdf))
-    1. [Algoritmo de Bellman-Ford](slides/SSP-1/SSP-1.pdf) ([problems resolvidos](problems/SSP-1/SSP-1.pdf))
+    1. [Algoritmo de Bellman-Ford](slides/bellman-ford/bellman-ford.pdf)
+        1. [CSES 1637 - High Score](https://cses.fi/problemset/task/1673) ([_upsolving_](problems/CSES_1637/CSES_1637.pdf))
     1. [Algoritmo de Dijkstra](slides/SSP-2/SSP-2.pdf) ([problems resolvidos](problems/SSP-2/SSP-2.pdf))
     1. [Algoritmo de Floyd-Warshall](slides/SSP-3/SSP-3.pdf) ([problems resolvidos](problems/SSP-3/SSP-3.pdf))
 1. Árvores
