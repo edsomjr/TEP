@@ -601,6 +601,254 @@
 \end{frame}
 
 \begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+ \node[anchor=west] at (0, 7) { \Large \bbbold{Solução} };
+ \node[anchor=west] at (1, 6) { \bbtext{Como identificar ao menos um elemento de um ciclo negativo? } };
+ \node[anchor=west] at (1.5, 5) { \bbcomment{Se $\dist[u]$ é atualizado no Round \#$|V|$, então $u$ pertence a } };
+ \node[anchor=west] at (3.5, 4.5) { \bbcomment{ao menos um ciclo negativo! } };
+ \node[draw,very thick,circle] (A) at (1, 2.5) { \bbtext{A} };
+ \node[draw,very thick,circle] (B) at (3, 2.5) { \bbtext{B} };
+ \node[draw,very thick,circle] (C) at (5, 2.5) { \bbtext{C} };
+ \node[draw,very thick,circle] (D) at (7, 2.5) { \bbtext{C} };
+ \draw[-latex,thick] (A) to node[below] { \bbinfo{1} } (B);
+ \draw[-latex,thick] (B) to node[below] { \bbinfo{2} } (C);
+ \draw[-latex,thick] (C) to [bend right] node[above] { \bbinfo{-3} } (B);
+ \draw[-latex,thick] (A) to [bend right] node[below] { \bbinfo{-4} } (D);
+ \draw[thick] (9, 1) grid (13, 2);
+ \node at (9.5, 2.5) { \bbtext{A} };
+ \node at (10.5, 2.5) { \bbtext{B} };
+ \node at (11.5, 2.5) { \bbtext{C} };
+ \node at (12.5, 2.5) { \bbtext{D} };
+ \node at (11, 3.5) { \bbbold{Round \#1} };
+ \node at (9.5, 1.5) { $0$ };
+ \node at (10.5, 1.5) { $0$ };
+ \node at (11.5, 1.5) { $3$ };
+ \node at (12.5, 1.5) { $-4$ };
+\end{tikzpicture}
+\end{frame}
+
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+ \node[anchor=west] at (0, 7) { \Large \bbbold{Solução} };
+ \node[anchor=west] at (1, 6) { \bbtext{Como identificar ao menos um elemento de um ciclo negativo? } };
+ \node[anchor=west] at (1.5, 5) { \bbcomment{Se $\dist[u]$ é atualizado no Round \#$|V|$, então $u$ pertence a } };
+ \node[anchor=west] at (3.5, 4.5) { \bbcomment{ao menos um ciclo negativo! } };
+ \node[draw,very thick,circle] (A) at (1, 2.5) { \bbtext{A} };
+ \node[draw,very thick,circle] (B) at (3, 2.5) { \bbtext{B} };
+ \node[draw,very thick,circle] (C) at (5, 2.5) { \bbtext{C} };
+ \node[draw,very thick,circle] (D) at (7, 2.5) { \bbtext{C} };
+ \draw[-latex,thick] (A) to node[below] { \bbinfo{1} } (B);
+ \draw[-latex,thick] (B) to node[below] { \bbinfo{2} } (C);
+ \draw[-latex,thick] (C) to [bend right] node[above] { \bbinfo{-3} } (B);
+ \draw[-latex,thick] (A) to [bend right] node[below] { \bbinfo{-4} } (D);
+ \draw[thick] (9, 1) grid (13, 2);
+ \node at (9.5, 2.5) { \bbtext{A} };
+ \node at (10.5, 2.5) { \bbtext{B} };
+ \node at (11.5, 2.5) { \bbtext{C} };
+ \node at (12.5, 2.5) { \bbtext{D} };
+ \node at (9.5, 1.5) { $0$ };
+ \node at (12.5, 1.5) { $-4$ };
+ \node at (11, 3.5) { \bbbold{Round \#2} };
+ \node at (10.5, 1.5) { $-1$ };
+ \node at (11.5, 1.5) { $2$ };
+\end{tikzpicture}
+\end{frame}
+
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+ \node[anchor=west] at (0, 7) { \Large \bbbold{Solução} };
+ \node[anchor=west] at (1, 6) { \bbtext{Como identificar ao menos um elemento de um ciclo negativo? } };
+ \node[anchor=west] at (1.5, 5) { \bbcomment{Se $\dist[u]$ é atualizado no Round \#$|V|$, então $u$ pertence a } };
+ \node[anchor=west] at (3.5, 4.5) { \bbcomment{ao menos um ciclo negativo! } };
+ \node[draw,very thick,circle] (A) at (1, 2.5) { \bbtext{A} };
+ \node[draw,very thick,circle] (B) at (3, 2.5) { \bbtext{B} };
+ \node[draw,very thick,circle] (C) at (5, 2.5) { \bbtext{C} };
+ \node[draw,very thick,circle] (D) at (7, 2.5) { \bbtext{C} };
+ \draw[-latex,thick] (A) to node[below] { \bbinfo{1} } (B);
+ \draw[-latex,thick] (B) to node[below] { \bbinfo{2} } (C);
+ \draw[-latex,thick] (C) to [bend right] node[above] { \bbinfo{-3} } (B);
+ \draw[-latex,thick] (A) to [bend right] node[below] { \bbinfo{-4} } (D);
+ \draw[thick] (9, 1) grid (13, 2);
+ \node at (9.5, 2.5) { \bbtext{A} };
+ \node at (10.5, 2.5) { \bbtext{B} };
+ \node at (11.5, 2.5) { \bbtext{C} };
+ \node at (12.5, 2.5) { \bbtext{D} };
+ \node at (9.5, 1.5) { $0$ };
+ \node at (12.5, 1.5) { $-4$ };
+ \node at (11, 3.5) { \bbbold{Round \#3} };
+ \node at (10.5, 1.5) { $-2$ };
+ \node at (11.5, 1.5) { $1$ };
+\end{tikzpicture}
+\end{frame}
+
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+ \node[anchor=west] at (0, 7) { \Large \bbbold{Solução} };
+ \node[anchor=west] at (1, 6) { \bbtext{Como identificar ao menos um elemento de um ciclo negativo? } };
+ \node[anchor=west] at (1.5, 5) { \bbcomment{Se $\dist[u]$ é atualizado no Round \#$|V|$, então $u$ pertence a } };
+ \node[anchor=west] at (3.5, 4.5) { \bbcomment{ao menos um ciclo negativo! } };
+ \node[draw,very thick,circle] (A) at (1, 2.5) { \bbtext{A} };
+ \node[draw,very thick,circle] (D) at (7, 2.5) { \bbtext{C} };
+ \draw[-latex,thick] (A) to node[below] { \bbinfo{1} } (B);
+ \draw[-latex,thick] (B) to node[below] { \bbinfo{2} } (C);
+ \draw[-latex,thick] (C) to [bend right] node[above] { \bbinfo{-3} } (B);
+ \draw[-latex,thick] (A) to [bend right] node[below] { \bbinfo{-4} } (D);
+ \draw[thick] (9, 1) grid (13, 2);
+ \node at (9.5, 2.5) { \bbtext{A} };
+ \node at (10.5, 2.5) { \bbtext{B} };
+ \node at (11.5, 2.5) { \bbtext{C} };
+ \node at (12.5, 2.5) { \bbtext{D} };
+ \node at (9.5, 1.5) { $0$ };
+ \node at (12.5, 1.5) { $-4$ };
+ \node at (11, 3.5) { \bbbold{Round \#4} };
+ \node at (10.5, 1.5) { $\mathbf{-3}$ };
+ \node at (11.5, 1.5) { $\mathbf{0}$ };
+ \node[draw,very thick,circle,fill=BBCyan] (B) at (3, 2.5) { \bbtext{B} };
+ \node[draw,very thick,circle,fill=BBCyan] (C) at (5, 2.5) { \bbtext{C} };
+\end{tikzpicture}
+\end{frame}
+
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+ \node[anchor=west] at (0, 7) { \Large \bbbold{Solução} };
+\end{tikzpicture}
+\end{frame}
+
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+ \node[anchor=west] at (0, 7) { \Large \bbbold{Solução} };
+ \node[anchor=west] at (1, 6) { \bbtext{Em que casos a pontuação pode ser arbitrariamente grande?} };
+\end{tikzpicture}
+\end{frame}
+
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+ \node[anchor=west] at (0, 7) { \Large \bbbold{Solução} };
+ \node[anchor=west] at (1, 6) { \bbtext{Em que casos a pontuação pode ser arbitrariamente grande?} };
+ \node[anchor=west] at (1.5, 5) { \bbcomment{Quando há um caminho de um nó de um ciclo negativo até $N$! } };
+\end{tikzpicture}
+\end{frame}
+
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+ \node[anchor=west] at (0, 7) { \Large \bbbold{Solução} };
+ \node[anchor=west] at (1, 6) { \bbtext{Em que casos a pontuação pode ser arbitrariamente grande?} };
+ \node[anchor=west] at (1.5, 5) { \bbcomment{Quando há um caminho de um nó de um ciclo negativo até $N$! } };
+ \node[anchor=west] at (1, 3) { \bbtext{E como posso identificar a existência ou não de tais caminhos? } };
+\end{tikzpicture}
+\end{frame}
+
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+ \node[anchor=west] at (0, 7) { \Large \bbbold{Solução} };
+ \node[anchor=west] at (1, 6) { \bbtext{Em que casos a pontuação pode ser arbitrariamente grande?} };
+ \node[anchor=west] at (1.5, 5) { \bbcomment{Quando há um caminho de um nó de um ciclo negativo até $N$! } };
+ \node[anchor=west] at (1, 3) { \bbtext{E como posso identificar a existência ou não de tais caminhos? } };
+ \node[anchor=west] at (3.5, 2) { \bbcomment{Inverta as arestas e use uma DFS! } };
+\end{tikzpicture}
+\end{frame}
+
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+ \node[draw,very thick,circle] (A) at (3, 7) { \bbtext{A} };
+ \node[draw,very thick,circle,fill=BBCyan] (B) at (5, 5) { \bbtext{B} };
+ \node[draw,very thick,circle,fill=BBCyan] (C) at (5, 3) { \bbtext{C} };
+ \node[draw,very thick,circle] (D) at (1, 5) { \bbtext{D} };
+ \draw[-latex,thick] (A) to node[above right] { \bbinfo{3} } (B);
+ \draw[-latex,thick] (A) to node[above left] { \bbinfo{2} } (D);
+ \draw[-latex,thick] (B) to [bend left] node[right] { \bbinfo{3} } (C);
+ \draw[latex-,thick] (B) to [bend right] node[left] { \bbinfo{-5} } (C);
+\end{tikzpicture}
+\end{frame}
+
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+ \node[draw,very thick,circle] (A) at (3, 7) { \bbtext{A} };
+ \node[draw,very thick,circle,fill=BBCyan] (B) at (5, 5) { \bbtext{B} };
+ \node[draw,very thick,circle,fill=BBCyan] (C) at (5, 3) { \bbtext{C} };
+ \node[draw,very thick,circle] (D) at (1, 5) { \bbtext{D} };
+ \draw[-latex,thick] (A) to node[above right] { \bbinfo{3} } (B);
+ \draw[-latex,thick] (A) to node[above left] { \bbinfo{2} } (D);
+ \draw[-latex,thick] (B) to [bend left] node[right] { \bbinfo{3} } (C);
+ \draw[latex-,thick] (B) to [bend right] node[left] { \bbinfo{-5} } (C);
+ \node at (3, 1.5) { \bbbold{Solução:} \bbtext{2} };
+\end{tikzpicture}
+\end{frame}
+
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+ \node[draw,very thick,circle] (A) at (3, 7) { \bbtext{A} };
+ \node[draw,very thick,circle,fill=BBCyan] (B) at (5, 5) { \bbtext{B} };
+ \node[draw,very thick,circle,fill=BBCyan] (C) at (5, 3) { \bbtext{C} };
+ \node[draw,very thick,circle] (D) at (1, 5) { \bbtext{D} };
+ \draw[-latex,thick] (A) to node[above right] { \bbinfo{3} } (B);
+ \draw[-latex,thick] (A) to node[above left] { \bbinfo{2} } (D);
+ \draw[-latex,thick] (B) to [bend left] node[right] { \bbinfo{3} } (C);
+ \draw[latex-,thick] (B) to [bend right] node[left] { \bbinfo{-5} } (C);
+ \node at (3, 1.5) { \bbbold{Solução:} \bbtext{2} };
+ \node[draw,very thick,circle] (A1) at (10, 7) { \bbtext{A} };
+ \node[draw,very thick,circle,fill=BBCyan] (B1) at (12, 5) { \bbtext{B} };
+ \node[draw,very thick,circle,fill=BBCyan] (C1) at (12, 3) { \bbtext{C} };
+ \node[draw,very thick,circle] (D1) at (8, 5) { \bbtext{D} };
+ \draw[-latex,thick] (A1) to [bend left] node[above right] { \bbinfo{3} } (B1);
+ \draw[latex-,thick] (A1) to [bend right] node[below left] { \bbinfo{1} } (B1);
+ \draw[-latex,thick] (A1) to node[above left] { \bbinfo{2} } (D1);
+ \draw[-latex,thick] (B1) to [bend left] node[right] { \bbinfo{3} } (C1);
+ \draw[latex-,thick] (B1) to [bend right] node[left] { \bbinfo{-5} } (C1);
+\end{tikzpicture}
+\end{frame}
+
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+ \node[draw,very thick,circle] (A) at (3, 7) { \bbtext{A} };
+ \node[draw,very thick,circle,fill=BBCyan] (B) at (5, 5) { \bbtext{B} };
+ \node[draw,very thick,circle,fill=BBCyan] (C) at (5, 3) { \bbtext{C} };
+ \node[draw,very thick,circle] (D) at (1, 5) { \bbtext{D} };
+ \draw[-latex,thick] (A) to node[above right] { \bbinfo{3} } (B);
+ \draw[-latex,thick] (A) to node[above left] { \bbinfo{2} } (D);
+ \draw[-latex,thick] (B) to [bend left] node[right] { \bbinfo{3} } (C);
+ \draw[latex-,thick] (B) to [bend right] node[left] { \bbinfo{-5} } (C);
+ \node at (3, 1.5) { \bbbold{Solução:} \bbtext{2} };
+ \node[draw,very thick,circle] (A1) at (10, 7) { \bbtext{A} };
+ \node[draw,very thick,circle,fill=BBCyan] (B1) at (12, 5) { \bbtext{B} };
+ \node[draw,very thick,circle,fill=BBCyan] (C1) at (12, 3) { \bbtext{C} };
+ \node[draw,very thick,circle] (D1) at (8, 5) { \bbtext{D} };
+ \draw[-latex,thick] (A1) to [bend left] node[above right] { \bbinfo{3} } (B1);
+ \draw[latex-,thick] (A1) to [bend right] node[below left] { \bbinfo{1} } (B1);
+ \draw[-latex,thick] (A1) to node[above left] { \bbinfo{2} } (D1);
+ \draw[-latex,thick] (B1) to [bend left] node[right] { \bbinfo{3} } (C1);
+ \draw[latex-,thick] (B1) to [bend right] node[left] { \bbinfo{-5} } (C1);
+ \node at (10, 1.5) { \bbbold{Solução:} \bbalert{-1} };
+\end{tikzpicture}
+\end{frame}
+
+\begin{frame}[plain,t]
  \inputsnippet{cpp}{31}{50}{codes/1673.cpp}
 \end{frame}
 
