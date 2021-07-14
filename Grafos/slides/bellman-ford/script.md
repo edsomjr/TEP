@@ -253,7 +253,7 @@
 ## Scene
 + \node[anchor=west] at (0, 6) { \Large \bbbold{Identificação do caminho mínimo} };
 
-+ \node[anchor=west] at (1, 5) { $\star$ \bbtext{O algoritmo de Bellman-Forde computa as distâncias mínimas, mas não} };
++ \node[anchor=west] at (1, 5) { $\star$ \bbtext{O algoritmo de Bellman-Ford computa as distâncias mínimas, mas não} };
 + \node[anchor=west] at (0.5, 4.5) { \bbtext{os caminhos mínimos} };
 
 + \node[anchor=west] at (1, 3.5) { $\star$ \bbtext{Para determinar um caminho mínimo, é preciso definir o vetor auxiliar } };
