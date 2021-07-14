@@ -33,7 +33,7 @@ Teoria dos Grafos
     1. [Algoritmo de Bellman-Ford](slides/bellman-ford/bellman-ford.pdf)
         1. [CSES 1637 - High Score](https://cses.fi/problemset/task/1673) ([_upsolving_](problems/CSES_1637/CSES_1637.pdf))
         1. [OJ 534 - Frogger](https://onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&category=24&page=show_problem&problem=475) ([_upsolving_](problems/OJ_534/OJ_534.pdf))
-    1. [Algoritmo de Dijkstra](slides/SSP-2/SSP-2.pdf) ([problems resolvidos](problems/SSP-2/SSP-2.pdf))
+    1. [Algoritmo de Dijkstra](slides/dijkstra/dijkstra.pdf) 
     1. [Algoritmo de Floyd-Warshall](slides/SSP-3/SSP-3.pdf) ([problems resolvidos](problems/SSP-3/SSP-3.pdf))
 1. Árvores
     1. [Travessias e Diâmetro](slides/TR-1/TR-1.pdf)
