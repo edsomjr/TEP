@@ -4,40 +4,38 @@ using namespace std;
 using ii = pair<int, int>;
 using edge = tuple<int, int, int>;
 
-const int MAX { 100010 }, oo { 1000000010 };
-int dist[MAX];
+const int MAX { 100010 };
 vector<ii> adj[MAX];
-bitset<MAX> processed;
 
-void dijkstra(int s, int N)
+vector<int> dijkstra(int s, int N)
 {
-    for (int i = 1; i <= N; ++i)
-        dist[i] = oo;
+    const int oo { 1000000010 };
 
+    vector<int> dist(N + 1, oo);
     dist[s] = 0;
-    processed.reset();
 
-    priority_queue<ii, vector<ii>, greater<ii>> pq;
-    pq.push(ii(0, s));
+    set<ii> U;
+    U.emplace(0, s);
 
-    while (not pq.empty())
+    while (not U.empty())
     {
-        auto [d, u] = pq.top();
-        pq.pop();
+        auto [d, u] = *U.begin();
+        U.erase(U.begin());
 
-        if (processed[u])
-            continue;
-
-        processed[u] = true;
-
-        for (const auto& [v, w] : adj[u])
+        for (auto [v, w] : adj[u])
         {
-            if (dist[v] > d + w) {
+            if (dist[v] > d + w)
+            {
+                if (U.count(ii(dist[v], v)))
+                    U.erase(ii(dist[v], v));
+
                 dist[v] = d + w;
-                pq.push(ii(dist[v], v));
+                U.emplace(dist[v], v);
             }
         }
     }
+
+    return dist;
 }
 
 int main()
@@ -52,7 +50,7 @@ int main()
         adj[v].push_back(ii(u, w));
     }
 
-    dijkstra(1, 6);
+    auto dist = dijkstra(1, 6);
 
     for (int u = 1; u <= 6; ++u)
         cout << "Distância minima de 1 a " << u << ": " << dist[u] << '\n';

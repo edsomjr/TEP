@@ -15,7 +15,7 @@
 
 + \node[anchor=west] at (0.5, 4) { $\star$ \bbtext{Processa corretamente apenas grafos com arestas não-negativas} };
 
-+ \node[anchor=west] at (0.5, 3) { $\star$ \bbtext{É eficiente: cada aresta é processada uma única vez} };
++ \node[anchor=west] at (0.5, 3) { $\star$ \bbtext{Eficiência: cada aresta é processada uma única vez} };
 
 + \node[anchor=west] at (0.5, 2) { $\star$ \bbtext{\bbbold{Complexidade}: $O((V + E)\log V)$ } };
 
@@ -59,7 +59,7 @@
 - \node[anchor=west] at (7, 1.5) { $\displaystyle{\dist(s, v) = \sum_{j = 1}^3 s_i}$ };
 + \draw[-latex,very thick,color=BBRed] (u) to node[above right] { $w$ } (v);
 
-+ \node[anchor=west] at (2, 1.5) { \bbtext{Se $\dist(s, u) + w < \dist(s, v)$, faça $\dist(s, v) = \dist(s, u) + w$} };
++  \node[anchor=west] at (2, 1.5) { \bbtext{Se $\dist(s, u) + w < \dist(s, v)$, faça $\dist(s, v) = \dist(s, u) + w$} };
 
 ## Scene
 + \node[circle, draw, very thick] (A) at (5, 7.5) { \bbtext{A} };
@@ -220,15 +220,189 @@
 - \node[anchor=west] at (9, 1.5) { \bbtext{$U = \{$ F $\}$ } };
 + \node[anchor=west] at (9, 1.5) { \bbtext{$U = \emptyset$ } };
 
+## Scene
++ \node[anchor=west] at (0, 7) { \Large \bbbold{Identificação eficiente do vértice $u$ mais próximo de $s$} };
+
++ \node[circle, draw, very thick] (A) at (3.8, 5.5) { \bbtext{2} };
++ \node[circle, draw, very thick] (B) at (2.4, 3.75) { \bbtext{4} };
++ \node[circle, draw, very thick] (C) at (5.2, 3.75) { \bbtext{3} };
++ \node[circle, draw, very thick] (D) at (1.7, 2) { \bbtext{9} };
++ \node[circle, draw, very thick] (E) at (3.1, 2) { \bbtext{6} };
++ \node[circle, draw, very thick] (F) at (4.5, 2) { \bbtext{7} };
++ \node[circle, draw, very thick] (G) at (5.9, 2) { \bbtext{5} };
++ \draw[thick] (A) to (B);
++ \draw[thick] (A) to (C);
++ \draw[thick] (B) to (D);
++ \draw[thick] (B) to (E);
++ \draw[thick] (C) to (F);
++ \draw[thick] (C) to (G);
++ \node at (3.8, 1) { \bbenglish{min heap} };
+
++ \node at (3.8, 0.5) { \bbtext{(\texttt{priority\_queue})} };
+
++ \node[circle, draw, very thick,fill=BBBlack] (A1) at (10.1, 5.5) { \bbchalk{5} };
++ \node[circle, draw, very thick,fill=BBRed] (B1) at (8.7, 3.75) { \bbchalk{3} };
++ \node[circle, draw, very thick,fill=BBRed] (C1) at (11.5, 3.75) { \bbchalk{7} };
++ \node[circle, draw, very thick,fill=BBBlack] (D1) at (8, 2) { \bbchalk{2} };
++ \node[circle, draw, very thick,fill=BBBlack] (E1) at (9.4, 2) { \bbchalk{4} };
++ \node[circle, draw, very thick,fill=BBBlack] (F1) at (10.8, 2) { \bbchalk{6} };
++ \node[circle, draw, very thick,fill=BBBlack] (G1) at (12.2, 2) { \bbchalk{9} };
++ \draw[thick] (A1) to (B1);
++ \draw[thick] (A1) to (C1);
++ \draw[thick] (B1) to (D1);
++ \draw[thick] (B1) to (E1);
++ \draw[thick] (C1) to (F1);
++ \draw[thick] (C1) to (G1);
++ \node at (10.1, 1) { \bbenglish{red-black tree} };
+
++ \node at (10.1, 0.5) { \bbtext{(\texttt{set})} };
+
 ## Frame
-\begin{center}\inputsnippet{cpp}{6}{23}{codes/negative-cycle.cpp}\end{center}
++ \begin{center} \inputsnippet{cpp}{10}{24}{codes/dijkstra.cpp} \end{center}
+
+## Frame
++ \begin{center} \inputsnippet{cpp}{25}{39}{codes/dijkstra.cpp} \end{center}
+
+## Scene
++ \node[anchor=west] at (0, 6) { \Large \bbbold{Identificação do caminho mínimo} };
+
++ \node[anchor=west] at (1, 5) { $\star$ \bbtext{O algoritmo de Dijkstra computa as distâncias mínimas, mas não os} };
++ \node[anchor=west] at (0.5, 4.5) { \bbtext{caminhos mínimos} };
+
++ \node[anchor=west] at (1, 3.5) { $\star$ \bbtext{Para determinar um caminho mínimo, é preciso definir o vetor auxiliar } };
++ \node[anchor=west] at (0.5, 3.0) { \bbtext{$\mathrm{pred}$, onde $\mathrm{pred}[u] = $ antecessor de $u$ no caminho mínimo de $s$ a $u$ } };
+
++ \node[anchor=west] at (1, 2.0) { $\star$ \bbtext{No início do algoritmo, $\mathrm{pred}[s] = s$ e $\mathrm{pred}[u] = \mathrm{undef}$, se $u\neq s$ } };
+
+## Scene
++ \node[anchor=west] at (0, 6) { \Large \bbbold{Identificação do caminho mínimo} };
++ \node[anchor=west] at (1, 5.0) { $\star$ \bbtext{Se $(u, v)$ atualizar $d[v]$, faça $\mathrm{pred}[v] = u$} };
+
++ \node[anchor=west] at (1, 4.0) { $\star$ \bbtext{A sequência } };
++ \node[anchor=west] at (2, 3.0) { \bbtext{$ p = \{ (s, \mathrm{pred}^{k - 1}[u]), \ldots, (\mathrm{pred}[\mathrm{pred}[u]], \mathrm{pred}[u]), (\mathrm{pred}[u], u)\}$ } };
+
++ \node[anchor=west] at (0.5, 2.0) { \bbtext{é um caminho mínimo de $s$ a $u$ composto de $k$ arestas e tamanho $d[u]$} };
+
+## Scene
++ \node[circle, draw, very thick] (A) at (0, 4) { \bbtext{A} };
++ \node[circle, draw, very thick] (B) at (3, 7) { \bbtext{B} };
++ \node[circle, draw, very thick] (C) at (6, 4) { \bbtext{C} };
++ \node[circle, draw, very thick] (D) at (3, 1) { \bbtext{D} };
++ \draw[-latex,thick] (A) to node[above left] { \bbinfo{1} } (B);
++ \draw[-latex,thick] (A) to node[above] { \bbinfo{4} } (C);
++ \draw[-latex,thick] (A) to node[below left] { \bbinfo{9} } (D);
++ \draw[-latex,thick] (B) to node[above right] { \bbinfo{2} } (C);
++ \draw[-latex,thick] (C) to node[below right] { \bbinfo{5} } (D);
+
++ \draw[thick] (9, 5) grid (13, 6);
++ \node[anchor=east] at (8.8, 5.5) { $\mathrm{dist}(u, \mbox{\bbtext{A}})$ };
++ \node at (9.5, 6.3) { \bbtext{A} };
++ \node at (10.5, 6.3) { \bbtext{B} };
++ \node at (11.5, 6.3) { \bbtext{C} };
++ \node at (12.5, 6.3) { \bbtext{D} };
++ \node at (9.5, 5.5) { $0$ };
++ \node at (10.5, 5.5) { $\infty$ };
++ \node at (11.5, 5.5) { $\infty$ };
++ \node at (12.5, 5.5) { $\infty$ };
+
++ \draw[thick] (9, 2) grid (13, 3);
++ \node[anchor=east] at (8.8, 2.5) { $\mathrm{pred}(u)$ };
++ \node at (9.5, 3.3) { \bbtext{A} };
++ \node at (10.5, 3.3) { \bbtext{B} };
++ \node at (11.5, 3.3) { \bbtext{C} };
++ \node at (12.5, 3.3) { \bbtext{D} };
++ \node at (9.5, 2.5) { $\bbtext{A}$ };
++ \node at (10.5, 2.5) { $\bbtext{-}$ };
++ \node at (11.5, 2.5) { $\bbtext{-}$ };
++ \node at (12.5, 2.5) { $\bbtext{-}$ };
+
+- \draw[-latex,thick] (A) to node[above left] { \bbinfo{1} } (B);
++ \draw[-latex,color=BBCyan,very thick] (A) to node[above left] { \bbinfo{1} } (B);
+- \node at (10.5, 5.5) { $\infty$ };
++ \node at (10.5, 5.5) { $\mathbf{1}$ };
+- \node at (10.5, 2.5) { $\bbtext{-}$ };
++ \node at (10.5, 2.5) { $\bbupdate{A}$ };
+
+- \draw[-latex,color=BBCyan,very thick] (A) to node[above left] { \bbinfo{1} } (B);
++ \draw[-latex,thick] (A) to node[above left] { \bbinfo{1} } (B);
+- \node at (10.5, 2.5) { $\bbupdate{A}$ };
++ \node at (10.5, 2.5) { $\bbtext{A}$ };
+- \node at (10.5, 5.5) { $\mathbf{1}$ };
++ \node at (10.5, 5.5) { ${1}$ };
+- \draw[-latex,thick] (A) to node[above] { \bbinfo{4} } (C);
++ \draw[-latex,color=BBCyan,very thick] (A) to node[above] { \bbinfo{4} } (C);
+- \node at (11.5, 5.5) { $\infty$ };
++ \node at (11.5, 5.5) { $\mathbf{4}$ };
+- \node at (11.5, 2.5) { $\bbtext{-}$ };
++ \node at (11.5, 2.5) { $\bbupdate{A}$ };
+
+- \draw[-latex,color=BBCyan,very thick] (A) to node[above] { \bbinfo{4} } (C);
++ \draw[-latex,thick] (A) to node[above] { \bbinfo{4} } (C);
+- \node at (11.5, 5.5) { $\mathbf{4}$ };
++ \node at (11.5, 5.5) { ${4}$ };
+- \node at (11.5, 2.5) { $\bbupdate{A}$ };
++ \node at (11.5, 2.5) { $\bbtext{A}$ };
+- \draw[-latex,thick] (A) to node[below left] { \bbinfo{9} } (D);
++ \draw[-latex,color=BBCyan,very thick] (A) to node[below left] { \bbinfo{9} } (D);
+- \node at (12.5, 5.5) { $\infty$ };
++ \node at (12.5, 5.5) { $\mathbf{9}$ };
+- \node at (12.5, 2.5) { $\bbtext{-}$ };
++ \node at (12.5, 2.5) { $\bbupdate{A}$ };
+
+- \draw[-latex,color=BBCyan,very thick] (A) to node[below left] { \bbinfo{9} } (D);
++ \draw[-latex,thick] (A) to node[below left] { \bbinfo{9} } (D);
+- \node at (12.5, 5.5) { $\mathbf{9}$ };
++ \node at (12.5, 5.5) { ${9}$ };
+- \node at (12.5, 2.5) { $\bbupdate{A}$ };
++ \node at (12.5, 2.5) { $\bbtext{A}$ };
+- \draw[-latex,thick] (B) to node[above right] { \bbinfo{2} } (C);
++ \draw[-latex,color=BBCyan,very thick] (B) to node[above right] { \bbinfo{2} } (C);
+- \node at (11.5, 5.5) { ${4}$ };
++ \node at (11.5, 5.5) { $\mathbf{3}$ };
+- \node at (11.5, 2.5) { $\bbtext{A}$ };
++ \node at (11.5, 2.5) { $\bbupdate{B}$ };
+
+- \draw[-latex,color=BBCyan,very thick] (B) to node[above right] { \bbinfo{2} } (C);
++ \draw[-latex,thick] (B) to node[above right] { \bbinfo{2} } (C);
+- \node at (11.5, 5.5) { $\mathbf{3}$ };
++ \node at (11.5, 5.5) { ${3}$ };
+- \node at (11.5, 2.5) { $\bbupdate{B}$ };
++ \node at (11.5, 2.5) { $\bbtext{B}$ };
+- \draw[-latex,thick] (C) to node[below right] { \bbinfo{5} } (D);
++ \draw[-latex,color=BBCyan,very thick] (C) to node[below right] { \bbinfo{5} } (D);
+- \node at (12.5, 5.5) { ${9}$ };
++ \node at (12.5, 5.5) { $\mathbf{8}$ };
+- \node at (12.5, 2.5) { $\bbtext{A}$ };
++ \node at (12.5, 2.5) { $\bbupdate{C}$ };
+
+- \node at (12.5, 2.5) { $\bbupdate{C}$ };
++ \node at (12.5, 2.5) { $\bbtext{C}$ };
+- \node at (12.5, 5.5) { $\mathbf{8}$ };
++ \node at (12.5, 5.5) { ${8}$ };
+- \draw[-latex,color=BBCyan,very thick] (C) to node[below right] { \bbinfo{5} } (D);
++ \draw[-latex,thick] (C) to node[below right] { \bbinfo{5} } (D);
+
++ \draw[-latex,thick,color=BBViolet,dashed] (C) to [bend left] node[below right, pos=0.3] { \tiny $(\mathrm{prev}(\mbox{\bbtext{D}}), \mbox{\bbtext{D}})$ } (D);
+
++ \draw[-latex,thick,color=BBViolet,dashed] (B) to [bend left] node[above right, pos=0.3] { \tiny $(\mathrm{prev}(\mbox{\bbtext{C}}), \mbox{\bbtext{C}})$ } (C);
+
++ \draw[-latex,thick,color=BBViolet,dashed] (A) to [bend left] node[above left, pos=0.7] { \tiny $(\mathrm{prev}(\mbox{\bbtext{B}}), \mbox{\bbtext{B}})$ } (B);
+
+## Frame
++ \begin{center} \inputsnippet{cpp}{11}{26}{codes/dijkstra-path.cpp} \end{center}
+
+## Frame
++ \begin{center} \inputsnippet{cpp}{27}{43}{codes/dijkstra-path.cpp} \end{center}
+
+## Frame
++ \begin{center} \inputsnippet{cpp}{45}{58}{codes/dijkstra-path.cpp} \end{center}
 
 ## Scene
 + \node[anchor=west] at (0, 6) { \Large \bbbold{Problemas sugeridos} };
-+ \node[anchor=west] at (1, 5) { $1.$ \bbtext{AtCoder Beginner Contest 137 -- Problem E: Coin Respawn } };
-+ \node[anchor=west] at (1, 4) { $2.$ \bbtext{CSES 1673 -- High Score } };
-+ \node[anchor=west] at (1, 3) { $3.$ \bbtext{OJ 423 -- MPI Maelstrom } };
-+ \node[anchor=west] at (1, 2) { $4.$ \bbtext{OJ 534 -- Frogger } };
++ \node[anchor=west] at (1, 5) { $1.$ \bbtext{AtCoder Beginner Contest 143 -- Problem E: Travel by Car} };
++ \node[anchor=west] at (1, 4) { $2.$ \bbtext{Codeforces Alpha Round \#20 - Problem C: Dijkstra?} };
++ \node[anchor=west] at (1, 3) { $3.$ \bbtext{OJ 1112 -- Mice and Maze } };
++ \node[anchor=west] at (1, 2) { $4.$ \bbtext{OJ 10986 -- Sending email } };
 
 ## Scene
 + \node[anchor=west] at (0, 7) { \Large \bbbold{Referências} };
