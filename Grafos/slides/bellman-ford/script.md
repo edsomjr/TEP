@@ -354,11 +354,12 @@
 + \draw[-latex,thick] (D) to node[above] { \bbinfo{3} } (B);
 - \node at (10.5, 5.5) { $\mathbf{6}$ };
 + \node at (10.5, 5.5) { ${6}$ };
+
 + \draw[latex-,thick,color=BBViolet] (B) to [bend right] node[above right] { \tiny $(\mathrm{prev}(\mbox{\bbtext{B}}), \mbox{\bbtext{B}})$ } (D);
 
 + \draw[-latex,thick,color=BBViolet] (C) to [bend right] node[right, pos=0.3] { \tiny $(\mathrm{prev}(\mbox{\bbtext{D}}), \mbox{\bbtext{D}})$ } (D);
 
-+ \draw[-latex,thick,color=BBViolet] (A) to [bend right] node[below left, pos=0.3] { \tiny $(\mathrm{prev}(\mbox{\bbtext{C}}), \mbox{\bbtext{C}})$ } (C);
++ \draw[-latex,thick,color=BBViolet] (A) to [bend right] node[below left, pos=0.8] { \tiny $(\mathrm{prev}(\mbox{\bbtext{C}}), \mbox{\bbtext{C}})$ } (C);
 
 ## Frame
 + \begin{center}\inputsnippet{cpp}{9}{25}{codes/bellman-ford-path.cpp}\end{center}

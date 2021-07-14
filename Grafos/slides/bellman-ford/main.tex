@@ -1412,6 +1412,41 @@
  \node at (10.5, 2.5) { $\bbtext{D}$ };
  \draw[-latex,thick] (D) to node[above] { \bbinfo{3} } (B);
  \node at (10.5, 5.5) { ${6}$ };
+\end{tikzpicture}
+\end{frame}
+
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+ \node[circle, draw, very thick] (A) at (0, 4) { \bbtext{A} };
+ \node[circle, draw, very thick] (B) at (6, 4) { \bbtext{B} };
+ \node[circle, draw, very thick] (C) at (3, 1) { \bbtext{C} };
+ \node[circle, draw, very thick] (D) at (3, 7) { \bbtext{D} };
+ \draw[thick] (9, 5) grid (13, 6);
+ \node[anchor=east] at (8.8, 5.5) { $\mathrm{dist}(u, \mbox{\bbtext{A}})$ };
+ \node at (9.5, 6.3) { \bbtext{A} };
+ \node at (10.5, 6.3) { \bbtext{B} };
+ \node at (11.5, 6.3) { \bbtext{C} };
+ \node at (12.5, 6.3) { \bbtext{D} };
+ \node at (9.5, 5.5) { $0$ };
+ \draw[thick] (9, 2) grid (13, 3);
+ \node[anchor=east] at (8.8, 2.5) { $\mathrm{pred}(u)$ };
+ \node at (9.5, 3.3) { \bbtext{A} };
+ \node at (10.5, 3.3) { \bbtext{B} };
+ \node at (11.5, 3.3) { \bbtext{C} };
+ \node at (12.5, 3.3) { \bbtext{D} };
+ \node at (9.5, 2.5) { $\bbtext{A}$ };
+ \draw[-latex,thick] (A) to node[above,pos=0.8] { \bbinfo{7} } (B);
+ \node at (11.5, 5.5) { ${1}$ };
+ \node at (11.5, 2.5) { $\bbtext{A}$ };
+ \draw[-latex,thick] (A) to node[right] { \bbinfo{1} } (C);
+ \node at (12.5, 2.5) { $\bbtext{C}$ };
+ \node at (12.5, 5.5) { ${3}$ };
+ \draw[-latex,thick] (C) to node[left,pos=0.7] { \bbinfo{2} } (D);
+ \node at (10.5, 2.5) { $\bbtext{D}$ };
+ \draw[-latex,thick] (D) to node[above] { \bbinfo{3} } (B);
+ \node at (10.5, 5.5) { ${6}$ };
  \draw[latex-,thick,color=BBViolet] (B) to [bend right] node[above right] { \tiny $(\mathrm{prev}(\mbox{\bbtext{B}}), \mbox{\bbtext{B}})$ } (D);
 \end{tikzpicture}
 \end{frame}
@@ -1487,7 +1522,7 @@
  \node at (10.5, 5.5) { ${6}$ };
  \draw[latex-,thick,color=BBViolet] (B) to [bend right] node[above right] { \tiny $(\mathrm{prev}(\mbox{\bbtext{B}}), \mbox{\bbtext{B}})$ } (D);
  \draw[-latex,thick,color=BBViolet] (C) to [bend right] node[right, pos=0.3] { \tiny $(\mathrm{prev}(\mbox{\bbtext{D}}), \mbox{\bbtext{D}})$ } (D);
- \draw[-latex,thick,color=BBViolet] (A) to [bend right] node[below left, pos=0.3] { \tiny $(\mathrm{prev}(\mbox{\bbtext{C}}), \mbox{\bbtext{C}})$ } (C);
+ \draw[-latex,thick,color=BBViolet] (A) to [bend right] node[below left, pos=0.8] { \tiny $(\mathrm{prev}(\mbox{\bbtext{C}}), \mbox{\bbtext{C}})$ } (C);
 \end{tikzpicture}
 \end{frame}
 
