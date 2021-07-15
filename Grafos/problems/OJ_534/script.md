@@ -143,4 +143,9 @@
 ## Frame
 + \inputsnippet{cpp}{9}{28}{codes/534.cpp}
 
+## Scene
++ \node[anchor=west] at (0, 6) { \Large \bbbold{Créditos} };
++ \node[anchor=west] at (1, 5) { $\star$ \bbtext{Frog icon made by Freepik from \bbenglish{www.flaticon.com} } };
++ \node[anchor=west] at (1, 4) { $\star$ \bbtext{Frog prince icon made by Freepik from \bbenglish{www.flaticon.com} } };
+
 ## End
