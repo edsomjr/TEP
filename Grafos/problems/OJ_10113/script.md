@@ -190,4 +190,10 @@
 ## Frame
 + \inputsnippet{cpp}{62}{75}{codes/10113.cpp}
 
+## Scene
++ \node[anchor=west] at (0, 6) { \Large \bbbold{Créditos} };
++ \node[anchor=west] at (1, 5) { $\star$ \bbtext{Male clothes and accessories thin line icon set 2 by Amonrat } };
++ \node[anchor=west] at (0.5, 4.5) { \bbtext{rungreangfangsai from \bbenglish{www.vecteezy.com} } };
+
+kk
 # End

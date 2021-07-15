@@ -241,6 +241,6 @@
 
 ## Scene
 + \node[anchor=west] at (0, 6) { \Large \bbbold{Créditos} };
-+ \node[anchor=west] at (1, 5) { $\star$ \bbtext{Gas station icon made by Kiranshastry from \bbenglish{www.flaticon.com} } };
++ \node[anchor=west] at (1, 5) { \bbtext{Gas station icon made by Kiranshastry from \bbenglish{www.flaticon.com} } };
 
 ## End
