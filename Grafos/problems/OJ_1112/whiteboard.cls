@@ -25,11 +25,15 @@
 % Colors
 
 \definecolor{BBGreen}{HTML}{00AE8A}
+\definecolor{BBEmerald}{HTML}{028A0F}
 \definecolor{BBBlue}{HTML}{3300A1}
 \definecolor{BBCyan}{HTML}{0892E0}
 \definecolor{BBOrange}{HTML}{FC5E00}
 \definecolor{BBViolet}{HTML}{8E43A9}
 \definecolor{BBRed}{HTML}{EC0035}
+\definecolor{BBGray}{HTML}{AAAAAA}
+\definecolor{BBWhite}{HTML}{FFFFFF}
+\definecolor{BBBlack}{HTML}{000000}
 
 \setbeamercolor{math text}{fg=BBCyan}
 
@@ -50,6 +54,7 @@
 \newcommand{\bbcomment}[1]{\textit{\textcolor{BBViolet}{#1}}}
 \newcommand{\bbemph}[1]{\textbf{\textcolor{BBEmerald}{#1}}}
 \newcommand{\bbupdate}[1]{\textbf{\textcolor{BBCyan}{#1}}}
+\newcommand{\bbchalk}[1]{\textbf{\textcolor{BBWhite}{#1}}}
 
 \newcommand{\bbcover}[4]{
     \vspace{1in}
