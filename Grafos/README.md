@@ -16,7 +16,7 @@ Teoria dos Grafos
 1. Aplicações de travessias
     1. [Componentes conectados](slides/componenents_conectados/componenents_conectados.pdf)
         1. [Educational Codeforces Round 33 (Rated for Div. 2) - Problem C: Rumor](https://codeforces.com/contest/893/problem/C) ([_upsolving_](problems/CF_893C/CF_893C.pdf))
-        1. [OJ 11094 - Continents](http://uva.onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&category=24&page=show_problem&problem=2035) ([_upsolving_](problems/OJ_11094/OJ_11094.pdf))
+        1. [OJ 11094 - Continents](http://onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&category=24&page=show_problem&problem=2035) ([_upsolving_](problems/OJ_11094/OJ_11094.pdf))
     1. [Detecção de ciclos](slides/deteccao_de_ciclos/deteccao_de_ciclos.pdf)
         1. [AtCoder Beginner Contest 174 - Problem C: Repsept](https://atcoder.jp/contests/abc174/tasks/abc174_c) ([_upsolving_](problems/ABC_174C/ABC_174C.pdf))
         1. [OJ 10116 - Robot Motion](https://onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&page=show_problem&category=0&problem=1057&mosmsg=Submission+received+with+ID+26514001) ([_upsolving_](problems/OJ_10116/OJ_10116.pdf))
@@ -29,11 +29,12 @@ Teoria dos Grafos
 1. Caminhos mínimos
     1. [Definição de caminho mínimo](slides/caminhos_minimos/caminhos_minimos.pdf)
         1. [AtCoder Beginner Contest 088 - Problem D: Grid Repainting](https://atcoder.jp/contests/abc088/tasks/abc088_d) ([_upsolving_](problems/ABC_088D/ABC_088D.pdf))
-        1. [OJ 10000 - Longest Paths](http://uva.onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&category=24&page=show_problem&problem=941) ([_upsolving_](problems/OJ_10000/OJ_10000.pdf))
+        1. [OJ 10000 - Longest Paths](http://onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&category=24&page=show_problem&problem=941) ([_upsolving_](problems/OJ_10000/OJ_10000.pdf))
     1. [Algoritmo de Bellman-Ford](slides/bellman-ford/bellman-ford.pdf)
         1. [CSES 1637 - High Score](https://cses.fi/problemset/task/1673) ([_upsolving_](problems/CSES_1637/CSES_1637.pdf))
         1. [OJ 534 - Frogger](https://onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&category=24&page=show_problem&problem=475) ([_upsolving_](problems/OJ_534/OJ_534.pdf))
     1. [Algoritmo de Dijkstra](slides/dijkstra/dijkstra.pdf) 
+        1. [OJ 1112 - Mice and Maze](http://onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&category=24&page=show_problem&problem=3553) ([_upsolving_](problems/OJ_1112/OJ_1112.pdf))
     1. [Algoritmo de Floyd-Warshall](slides/SSP-3/SSP-3.pdf) ([problems resolvidos](problems/SSP-3/SSP-3.pdf))
 1. Árvores
     1. [Travessias e Diâmetro](slides/TR-1/TR-1.pdf)
