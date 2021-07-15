@@ -265,4 +265,8 @@
 ## Frame
 + \inputsnippet{cpp}{29}{48}{codes/1112.cpp}
 
+## Scene
++ \node[anchor=west] at (0, 6) { \Large \bbbold{Créditos} };
++ \node[anchor=west] at (1, 5) { $\star$ \bbtext{Mouse icon made by Freepik from \bbenglish{www.flaticon.com} } };
+
 ## End
