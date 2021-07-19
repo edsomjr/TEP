@@ -17,7 +17,7 @@
 
 + \node[anchor=west] at (0.5, 3) { $\star$ \bbtext{Eficiência: cada aresta é processada uma única vez} };
 
-+ \node[anchor=west] at (0.5, 2) { $\star$ \bbtext{\bbbold{Complexidade}: $O((V + E)\log V)$ } };
++ \node[anchor=west] at (0.5, 2) { $\star$ \bbtext{\bbbold{Complexidade}: $O(E + V\log V)$ } };
 
 ## Scene
 + \node[anchor=west] at (0, 7) { \Large \bbbold{Pseudocódigo } };
