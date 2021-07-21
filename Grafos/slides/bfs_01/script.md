@@ -215,8 +215,13 @@
 - \draw[-latex,thick] (E) to node[above right] { \bbinfo{1} } (D);
 + \draw[-latex,color=BBRed,very thick] (E) to node[above right] { \bbinfo{1} } (D);
 
-# Frame
-\begin{center} \inputsnippet{cpp}{11}{26}{codes/dijkstra-path.cpp} \end{center}
+- \draw[-latex,color=BBRed,very thick] (E) to node[above right] { \bbinfo{1} } (D);
++ \draw[-latex,thick] (E) to node[above right] { \bbinfo{1} } (D);
+- \draw[-latex,thick] (E) to node[above,pos=0.8] { \bbinfo{1} } (G);
++ \draw[-latex,color=BBRed,very thick] (E) to node[above,pos=0.8] { \bbinfo{1} } (G);
+
+## Frame
++ \begin{center} \inputsnippet{cpp}{12}{31}{codes/bfs_01.cpp} \end{center}
 
 ## Scene
 + \node[anchor=west] at (0, 6) { \Large \bbbold{Problemas sugeridos} };

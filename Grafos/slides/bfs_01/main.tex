@@ -960,7 +960,6 @@
 \begin{tikzpicture}
 \node[draw,opacity=0] at (0, 0) {x};
 \node[draw,opacity=0] at (14, 8) {x};
- \draw[-latex,thick] (E) to node[above,pos=0.8] { \bbinfo{1} } (G);
  \draw[thick] (2, 0) grid (9, 1);
  \node[anchor=east] at (1.8, 0.5) { $\mathrm{dist}(u, \mbox{\bbtext{A}})$ };
  \node at (2.5, 1.3) { \bbtext{A} };
@@ -994,8 +993,13 @@
  \node[circle, draw, very thick,fill=BBGray] (F) at (8, 3) { \bbtext{F} };
  \node[circle, draw, very thick,fill=BBGreen] (E) at (10, 5) { \bbtext{E} };
  \node[anchor=west] at ((10, 0.5) { $Q = \{$ \bbtext{} $\}$ };
- \draw[-latex,color=BBRed,very thick] (E) to node[above right] { \bbinfo{1} } (D);
+ \draw[-latex,thick] (E) to node[above right] { \bbinfo{1} } (D);
+ \draw[-latex,color=BBRed,very thick] (E) to node[above,pos=0.8] { \bbinfo{1} } (G);
 \end{tikzpicture}
+\end{frame}
+
+\begin{frame}[plain,t]
+ \begin{center} \inputsnippet{cpp}{12}{31}{codes/bfs_01.cpp} \end{center}
 \end{frame}
 
 \begin{frame}[plain,t]
