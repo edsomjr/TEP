@@ -32,10 +32,10 @@
 
 \end{frame}
 
-\begin{frame}[fragile]{Solução com complexidade $O(N)$}
+\begin{frame}[fragile]{Solução com complexidade $O(N\log N)$}
 
     \begin{itemize}
-        \item Assim, o coficiente $\binom{n}{\lfloor n/2\rfloor}$ é o maior dentre todos de uma
+        \item Assim, o coeficiente $\binom{n}{\lfloor n/2\rfloor}$ é o maior dentre todos de uma
             mesma linha e, quanto mais próximo deste centro, maior o coeficiente
 
         \item Assim, se os valores da sequência deles forem ordenados, o maior deles será o $a_i$
@@ -44,11 +44,11 @@
         \item Para determinar o $a_j$, é preciso avaliar os $N - 1$ termos restantes, em relação
             à sua distância ao centro: o mais próximo deles é o $a_j$ desejado
 
-        \item Esta solução tem complexidade $O(N)$
+        \item Esta solução tem complexidade $O(N\log N)$
     \end{itemize}
 
 \end{frame}
 
-\begin{frame}[fragile]{Solução com complexidade $O(1)$}
+\begin{frame}[fragile]{Solução com complexidade $O(N\log N)$}
     \inputsnippet{cpp}{5}{21}{codes/B094D.cpp}
 \end{frame}

@@ -1,0 +1,41 @@
+\begin{frame}[fragile]{OJ 763 -- Fibinary Numbers}
+
+    \textbf{Versão resumida do problema}: determine a representação em base de Fibonacci da soma
+        dos números $a$ e $b$ dados em base de Fibonacci.
+            
+    \vspace{0.1in}
+
+    \textbf{Restrição}: $a, b$ tem, no máximo, 100 dígitos em base de Fibonacci
+\end{frame}
+
+\begin{frame}[fragile]{Solução em $O(N)$}
+
+    \begin{itemize}
+        \item Primeiramente é preciso observar que não é possível somar diretamente os números em
+            base de Fibonacci
+
+        \item Por exemplo, em base de Fibonacci o número 5 é representado por \texttt{1000} e a
+            soma $5 + 5 = 10$ teria representação \code{cpp}{10010}
+
+        \item Veja que ao somar os dois dígitos \texttt{1} correspondentes, o dígito que o ocupa
+            a segunda posição da representação, o qual já teria sido processado, foi modificado
+
+        \item Assim, a solução consiste em converter $a$ e $b$ para a base decimal, obter a soma
+            $c = a + b$ e converter $c$ para a base de Fibonacci
+
+        \item Se $N = \max\{|a|, |b|\}$, então esta solução tem complexidade $O(N)$
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Solução em $O(N)$}
+    \inputsnippet{py}{1}{16}{codes/763.py}
+\end{frame}
+
+\begin{frame}[fragile]{Solução em $O(N)$}
+    \inputsnippet{py}{17}{33}{codes/763.py}
+\end{frame}
+
+\begin{frame}[fragile]{Solução em $O(N)$}
+    \inputsnippet{py}{34}{50}{codes/763.py}
+\end{frame}

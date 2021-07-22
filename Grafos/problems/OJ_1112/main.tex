@@ -1,0 +1,1085 @@
+\documentclass{whiteboard}
+\begin{document}
+\begin{frame}[plain,t]
+ \bbcover{OJ 1112}{Mice and Maze}{Prof. Edson Alves}{Faculdade UnB Gama}
+\end{frame}
+
+\begin{frame}[plain,t]
+\vspace*{\fill}
+ \bbenglish{A set of laboratory mice is being trained to escape a maze. The maze is made up of cells, and each cell is connected to some other cells. However, there are obstacles in the passage between cells and therefore there is a time penalty to overcome the passage. Also, some passages allow mice to go one-way, but not the other way round.}
+
+ \vspace{0.1in}
+
+ \bbenglish{Suppose that all mice are now trained and, when placed in an arbitrary cell in the maze, take a path that leads them to the exit cell in minimum time.}
+\vspace*{\fill}
+\end{frame}
+
+\begin{frame}[plain,t]
+\vspace*{\fill}
+ \bbtext{Um conjunto de ratos de laboratório está sendo treinado para escapar de um labirinto. O labirinto é formado por celas, e cada cela está conectada a algumas outras celas. Contudo, há obstáculos nas passagens entre as celas e portanto há uma penalidade de tempo para atravessar a passagem. Além disso, algumas passagens permitem aos ratos seguir em uma direção, mas não na direção contrária.}
+
+ \vspace{0.1in}
+
+ \bbtext{Suponha que todos os ratos estejam treinados e, quando postos em uma cela arbitrária do labirinto, eles escolhem o caminho que os leva a saída no menor tempo possível.}
+\vspace*{\fill}
+\end{frame}
+
+\begin{frame}[plain,t]
+\vspace*{\fill}
+ \bbenglish{We are going to conduct the following experiment: a mouse is placed in each cell of the maze and a count-down timer is started. When the timer stops we count the number of mice out of the maze.}
+
+ \vspace{0.1in}
+
+ \bbenglish{Write a program that, given a description of the maze and the time limit, predicts the number of mice that will exit the maze. Assume that there are no bottlenecks in the maze, i.e. that all cells have room for an arbitrary number of mice.}
+\vspace*{\fill}
+\end{frame}
+
+\begin{frame}[plain,t]
+\vspace*{\fill}
+ \bbtext{Vamos conduzir o seguinte experimento: um rato será colocado em cada uma das celas do labirinto e um temporizador será iniciado. Quando o temporizador finalizar sua contagem decrescente contaremos o número de ratos que conseguiu escapar do labirinto. }
+
+ \vspace{0.1in}
+
+ \bbtext{Escreva um programa que, dada a descrição do labirinto e o limite de tempo, compute o número de ratos que irão escapar do labirinto. Assuma que não há gargalos no labirinto, isto é, que todas as celas tem espaço suficiente para um número arbitrário de ratos.}
+\vspace*{\fill}
+\end{frame}
+
+\begin{frame}[plain,t]
+\vspace*{\fill}
+ \bbbold{Input}
+
+ \vspace{0.1in}
+
+ \bbenglish{The input begins with a single positive integer on a line by itself indicating the number of the cases following, each of them as described below. This line is followed by a blank line, and there is also a blank line between two consecutive inputs.}
+
+ \vspace{0.1in}
+
+ \bbenglish{The maze cells are numbered $1, 2, \ldots, N$, where $N$ is the total number of cells. You can assume that $N\leq 100$.}
+
+ \vspace{0.1in}
+
+ \bbenglish{The first three input lines contain $N$, the number of cells in the maze, $E$, the number of the exit cell, and the starting value $T$ for the count-down timer (in some arbitrary time unit).}
+\vspace*{\fill}
+\end{frame}
+
+\begin{frame}[plain,t]
+\vspace*{\fill}
+ \bbbold{Entrada}
+
+ \vspace{0.1in}
+
+ \bbtext{A entrada começa com uma linha contendo um único inteiro positivo, o qual indica o número de casos de teste que se seguem, cada um deles descritos como indicado abaixo. Esta linha é seguida por uma linha em branco, e há uma linha em branco entre dois casos de teste consecutivos.}
+
+ \vspace{0.1in}
+
+ \bbtext{As celas do labirinto são numeradas $1, 2, \ldots, N$, onde $N$ é o número total de celas. Você pode assumir que $N\leq 100$.}
+
+ \vspace{0.1in}
+
+ \bbtext{As três primeiras linhas de um caso de teste contém o inteiro $N$, o número de celas no labirinto, $E$, o número da cela onde está a saída, e o valor inicial $T$ do temporizador (em alguma unidade de tempo arbitrária).}
+\vspace*{\fill}
+\end{frame}
+
+\begin{frame}[plain,t]
+\vspace*{\fill}
+ \bbbold{Input}
+
+ \vspace{0.1in}
+
+ \bbenglish{The fourth line contains the number $M$ of connections in the maze, and is followed by $M$ lines, each specifying a connection with three integer numbers: two cell numbers $a$ and $b$ (in the range $1, \ldots, N$) and the number of time units it takes to travel from $a$ to $b$.}
+
+ \vspace{0.1in}
+
+ \bbenglish{Notice that each connection is one-way, i.e., the mice can’t travel from $b$ to $a$ unless there is another line specifying that passage. Notice also that the time required to travel in each direction might be different.}
+\vspace*{\fill}
+\end{frame}
+
+\begin{frame}[plain,t]
+\vspace*{\fill}
+ \bbbold{Entrada}
+
+ \vspace{0.1in}
+
+ \bbtext{A quarta linha contém o número $M$ de passagens no labirinto, e é seguida por $M$ linhas, cada uma especificando uma passagem por meio de três números inteiros: os números das celas $a$ e $b$ (no intervalo $1, \ldots, N$) e o tempo necessário para ir da cela $a$ para a cela $b$.}
+
+ \vspace{0.1in}
+
+ \bbtext{Note que cada passagem é de mão única, isto é, os ratos não podem ir de $b$ para $a$ a menos que exista uma outra linha especificando esta passagem. Note também que o tempo necessário para atravessar a passagem em uma direção pode ser diferente do tempo necessário para atravessá-la na outra direção.}
+\vspace*{\fill}
+\end{frame}
+
+\begin{frame}[plain,t]
+\vspace*{\fill}
+ \bbbold{Output}
+
+ \vspace{0.1in}
+
+ \bbenglish{For each test case, the output must follow the description below. The outputs of two consecutive cases will be separated by a blank line.}
+
+ \vspace{0.1in}
+
+ \bbenglish{The output consists of a single line with the number of mice that reached the exit cell $E$ in at most $T$ time units.}
+\vspace*{\fill}
+\end{frame}
+
+\begin{frame}[plain,t]
+\vspace*{\fill}
+ \bbbold{Saída}
+
+ \vspace{0.1in}
+
+ \bbtext{Para cada caso de teste, a saída deve seguir a descrição abaixo. As saídas de dois casos de teste consecutivos devem ser separadas por uma linha em branco.}
+
+ \vspace{0.1in}
+
+ \bbtext{A saída consiste em uma única linha com o número de ratos que chegaram a saída $E$ em, no máximo, $T$ unidades de tempo.}
+\vspace*{\fill}
+\end{frame}
+
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+ \node[anchor=west] at (0, 7.5) { \bbbold{Exemplo de entrada e saída} };
+\end{tikzpicture}
+\end{frame}
+
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+ \node[anchor=west] at (0, 7.5) { \bbbold{Exemplo de entrada e saída} };
+ \node[anchor=west] at (1, 6.5) { \bbtext{1} };
+\end{tikzpicture}
+\end{frame}
+
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+ \node[anchor=west] at (0, 7.5) { \bbbold{Exemplo de entrada e saída} };
+ \node[anchor=west] at (1, 6.5) { \bbtext{1} };
+ \node[anchor=west] at (2.25, 6.5) { \footnotesize \bbcomment{\# de casos de teste} };
+ \draw[->,color=BBViolet] (1.5, 6.5) -- (2.25, 6.5);
+\end{tikzpicture}
+\end{frame}
+
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+ \node[anchor=west] at (0, 7.5) { \bbbold{Exemplo de entrada e saída} };
+ \node[anchor=west] at (1, 6.5) { \bbtext{1} };
+ \node[anchor=west] at (1, 5.5) { \bbtext{4} };
+\end{tikzpicture}
+\end{frame}
+
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+ \node[anchor=west] at (0, 7.5) { \bbbold{Exemplo de entrada e saída} };
+ \node[anchor=west] at (1, 6.5) { \bbtext{1} };
+ \node[anchor=west] at (1, 5.5) { \bbtext{4} };
+ \node[anchor=west] at (2.25, 5.5) { \footnotesize \bbcomment{\# de celas} };
+ \draw[->,color=BBViolet] (1.5, 5.5) -- (2.25, 5.5);
+\end{tikzpicture}
+\end{frame}
+
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+ \node[anchor=west] at (0, 7.5) { \bbbold{Exemplo de entrada e saída} };
+ \node[anchor=west] at (1, 6.5) { \bbtext{1} };
+ \node[anchor=west] at (1, 5.5) { \bbtext{4} };
+ \node[anchor=west] at (2.25, 5.5) { \footnotesize \bbcomment{\# de celas} };
+ \draw[->,color=BBViolet] (1.5, 5.5) -- (2.25, 5.5);
+ \node[draw,very thick,circle] (A) at (6, 4) { \bbtext{1} };
+ \node[draw,very thick,circle] (B) at (9, 7) { \bbtext{2} };
+ \node[draw,very thick,circle] (C) at (12, 4) { \bbtext{3} };
+ \node[draw,very thick,circle] (D) at (9, 1) { \bbtext{4} };
+\end{tikzpicture}
+\end{frame}
+
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+ \node[anchor=west] at (0, 7.5) { \bbbold{Exemplo de entrada e saída} };
+ \node[anchor=west] at (1, 6.5) { \bbtext{1} };
+ \node[anchor=west] at (1, 5.5) { \bbtext{4} };
+ \node[draw,very thick,circle] (A) at (6, 4) { \bbtext{1} };
+ \node[draw,very thick,circle] (B) at (9, 7) { \bbtext{2} };
+ \node[draw,very thick,circle] (C) at (12, 4) { \bbtext{3} };
+ \node[draw,very thick,circle] (D) at (9, 1) { \bbtext{4} };
+ \node[anchor=west] at (1, 5.0) { \bbtext{2} };
+\end{tikzpicture}
+\end{frame}
+
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+ \node[anchor=west] at (0, 7.5) { \bbbold{Exemplo de entrada e saída} };
+ \node[anchor=west] at (1, 6.5) { \bbtext{1} };
+ \node[anchor=west] at (1, 5.5) { \bbtext{4} };
+ \node[draw,very thick,circle] (A) at (6, 4) { \bbtext{1} };
+ \node[draw,very thick,circle] (B) at (9, 7) { \bbtext{2} };
+ \node[draw,very thick,circle] (C) at (12, 4) { \bbtext{3} };
+ \node[draw,very thick,circle] (D) at (9, 1) { \bbtext{4} };
+ \node[anchor=west] at (1, 5.0) { \bbtext{2} };
+ \node[anchor=west] at (2.25, 5.0) { \footnotesize \bbcomment{\# da saída} };
+ \draw[->,color=BBViolet] (1.5, 5.0) -- (2.25, 5.0);
+\end{tikzpicture}
+\end{frame}
+
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+ \node[anchor=west] at (0, 7.5) { \bbbold{Exemplo de entrada e saída} };
+ \node[anchor=west] at (1, 6.5) { \bbtext{1} };
+ \node[anchor=west] at (1, 5.5) { \bbtext{4} };
+ \node[draw,very thick,circle] (A) at (6, 4) { \bbtext{1} };
+ \node[draw,very thick,circle] (C) at (12, 4) { \bbtext{3} };
+ \node[draw,very thick,circle] (D) at (9, 1) { \bbtext{4} };
+ \node[anchor=west] at (1, 5.0) { \bbtext{2} };
+ \node[anchor=west] at (2.25, 5.0) { \footnotesize \bbcomment{\# da saída} };
+ \draw[->,color=BBViolet] (1.5, 5.0) -- (2.25, 5.0);
+ \node[draw,very thick,circle,fill=BBGreen] (B) at (9, 7) { \bbtext{2} };
+\end{tikzpicture}
+\end{frame}
+
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+ \node[anchor=west] at (0, 7.5) { \bbbold{Exemplo de entrada e saída} };
+ \node[anchor=west] at (1, 6.5) { \bbtext{1} };
+ \node[anchor=west] at (1, 5.5) { \bbtext{4} };
+ \node[draw,very thick,circle] (A) at (6, 4) { \bbtext{1} };
+ \node[draw,very thick,circle] (C) at (12, 4) { \bbtext{3} };
+ \node[draw,very thick,circle] (D) at (9, 1) { \bbtext{4} };
+ \node[anchor=west] at (1, 5.0) { \bbtext{2} };
+ \node[draw,very thick,circle,fill=BBGreen] (B) at (9, 7) { \bbtext{2} };
+ \node[anchor=west] at (1, 4.5) { \bbtext{1} };
+\end{tikzpicture}
+\end{frame}
+
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+ \node[anchor=west] at (0, 7.5) { \bbbold{Exemplo de entrada e saída} };
+ \node[anchor=west] at (1, 6.5) { \bbtext{1} };
+ \node[anchor=west] at (1, 5.5) { \bbtext{4} };
+ \node[draw,very thick,circle] (A) at (6, 4) { \bbtext{1} };
+ \node[draw,very thick,circle] (C) at (12, 4) { \bbtext{3} };
+ \node[draw,very thick,circle] (D) at (9, 1) { \bbtext{4} };
+ \node[anchor=west] at (1, 5.0) { \bbtext{2} };
+ \node[draw,very thick,circle,fill=BBGreen] (B) at (9, 7) { \bbtext{2} };
+ \node[anchor=west] at (1, 4.5) { \bbtext{1} };
+ \node[anchor=west] at (2.25, 4.5) { \footnotesize \bbcomment{limite de tempo} };
+ \draw[->,color=BBViolet] (1.5, 4.5) -- (2.25, 4.5);
+\end{tikzpicture}
+\end{frame}
+
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+ \node[anchor=west] at (0, 7.5) { \bbbold{Exemplo de entrada e saída} };
+ \node[anchor=west] at (1, 6.5) { \bbtext{1} };
+ \node[anchor=west] at (1, 5.5) { \bbtext{4} };
+ \node[draw,very thick,circle] (A) at (6, 4) { \bbtext{1} };
+ \node[draw,very thick,circle] (C) at (12, 4) { \bbtext{3} };
+ \node[draw,very thick,circle] (D) at (9, 1) { \bbtext{4} };
+ \node[anchor=west] at (1, 5.0) { \bbtext{2} };
+ \node[draw,very thick,circle,fill=BBGreen] (B) at (9, 7) { \bbtext{2} };
+ \node[anchor=west] at (1, 4.5) { \bbtext{1} };
+ \node[anchor=west] at (1, 4.0) { \bbtext{8} };
+\end{tikzpicture}
+\end{frame}
+
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+ \node[anchor=west] at (0, 7.5) { \bbbold{Exemplo de entrada e saída} };
+ \node[anchor=west] at (1, 6.5) { \bbtext{1} };
+ \node[anchor=west] at (1, 5.5) { \bbtext{4} };
+ \node[draw,very thick,circle] (A) at (6, 4) { \bbtext{1} };
+ \node[draw,very thick,circle] (C) at (12, 4) { \bbtext{3} };
+ \node[draw,very thick,circle] (D) at (9, 1) { \bbtext{4} };
+ \node[anchor=west] at (1, 5.0) { \bbtext{2} };
+ \node[draw,very thick,circle,fill=BBGreen] (B) at (9, 7) { \bbtext{2} };
+ \node[anchor=west] at (1, 4.5) { \bbtext{1} };
+ \node[anchor=west] at (1, 4.0) { \bbtext{8} };
+ \node[anchor=west] at (2.25, 4.0) { \footnotesize \bbcomment{\# de passagens} };
+ \draw[->,color=BBViolet] (1.5, 4.0) -- (2.25, 4.0);
+\end{tikzpicture}
+\end{frame}
+
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+ \node[anchor=west] at (0, 7.5) { \bbbold{Exemplo de entrada e saída} };
+ \node[anchor=west] at (1, 6.5) { \bbtext{1} };
+ \node[anchor=west] at (1, 5.5) { \bbtext{4} };
+ \node[draw,very thick,circle] (A) at (6, 4) { \bbtext{1} };
+ \node[draw,very thick,circle] (C) at (12, 4) { \bbtext{3} };
+ \node[draw,very thick,circle] (D) at (9, 1) { \bbtext{4} };
+ \node[anchor=west] at (1, 5.0) { \bbtext{2} };
+ \node[draw,very thick,circle,fill=BBGreen] (B) at (9, 7) { \bbtext{2} };
+ \node[anchor=west] at (1, 4.5) { \bbtext{1} };
+ \node[anchor=west] at (1, 4.0) { \bbtext{8} };
+ \node[anchor=west] at (1, 3.5) { \bbtext{1 2 1} };
+\end{tikzpicture}
+\end{frame}
+
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+ \node[anchor=west] at (0, 7.5) { \bbbold{Exemplo de entrada e saída} };
+ \node[anchor=west] at (1, 6.5) { \bbtext{1} };
+ \node[anchor=west] at (1, 5.5) { \bbtext{4} };
+ \node[draw,very thick,circle] (A) at (6, 4) { \bbtext{1} };
+ \node[draw,very thick,circle] (C) at (12, 4) { \bbtext{3} };
+ \node[draw,very thick,circle] (D) at (9, 1) { \bbtext{4} };
+ \node[anchor=west] at (1, 5.0) { \bbtext{2} };
+ \node[draw,very thick,circle,fill=BBGreen] (B) at (9, 7) { \bbtext{2} };
+ \node[anchor=west] at (1, 4.5) { \bbtext{1} };
+ \node[anchor=west] at (1, 4.0) { \bbtext{8} };
+ \node[anchor=west] at (1, 3.5) { \bbtext{1 2 1} };
+ \draw[-latex,thick] (A) to [bend left] node[above left] { \bbinfo{1} } (B);
+\end{tikzpicture}
+\end{frame}
+
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+ \node[anchor=west] at (0, 7.5) { \bbbold{Exemplo de entrada e saída} };
+ \node[anchor=west] at (1, 6.5) { \bbtext{1} };
+ \node[anchor=west] at (1, 5.5) { \bbtext{4} };
+ \node[draw,very thick,circle] (A) at (6, 4) { \bbtext{1} };
+ \node[draw,very thick,circle] (C) at (12, 4) { \bbtext{3} };
+ \node[draw,very thick,circle] (D) at (9, 1) { \bbtext{4} };
+ \node[anchor=west] at (1, 5.0) { \bbtext{2} };
+ \node[draw,very thick,circle,fill=BBGreen] (B) at (9, 7) { \bbtext{2} };
+ \node[anchor=west] at (1, 4.5) { \bbtext{1} };
+ \node[anchor=west] at (1, 4.0) { \bbtext{8} };
+ \node[anchor=west] at (1, 3.5) { \bbtext{1 2 1} };
+ \draw[-latex,thick] (A) to [bend left] node[above left] { \bbinfo{1} } (B);
+ \node[anchor=west] at (1, 3.0) { \bbtext{1 3 1} };
+\end{tikzpicture}
+\end{frame}
+
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+ \node[anchor=west] at (0, 7.5) { \bbbold{Exemplo de entrada e saída} };
+ \node[anchor=west] at (1, 6.5) { \bbtext{1} };
+ \node[anchor=west] at (1, 5.5) { \bbtext{4} };
+ \node[draw,very thick,circle] (A) at (6, 4) { \bbtext{1} };
+ \node[draw,very thick,circle] (C) at (12, 4) { \bbtext{3} };
+ \node[draw,very thick,circle] (D) at (9, 1) { \bbtext{4} };
+ \node[anchor=west] at (1, 5.0) { \bbtext{2} };
+ \node[draw,very thick,circle,fill=BBGreen] (B) at (9, 7) { \bbtext{2} };
+ \node[anchor=west] at (1, 4.5) { \bbtext{1} };
+ \node[anchor=west] at (1, 4.0) { \bbtext{8} };
+ \node[anchor=west] at (1, 3.5) { \bbtext{1 2 1} };
+ \draw[-latex,thick] (A) to [bend left] node[above left] { \bbinfo{1} } (B);
+ \node[anchor=west] at (1, 3.0) { \bbtext{1 3 1} };
+ \draw[-latex,thick] (A) to [bend left] node[above left,pos=0.3] { \bbinfo{1} } (C);
+\end{tikzpicture}
+\end{frame}
+
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+ \node[anchor=west] at (0, 7.5) { \bbbold{Exemplo de entrada e saída} };
+ \node[anchor=west] at (1, 6.5) { \bbtext{1} };
+ \node[anchor=west] at (1, 5.5) { \bbtext{4} };
+ \node[draw,very thick,circle] (A) at (6, 4) { \bbtext{1} };
+ \node[draw,very thick,circle] (C) at (12, 4) { \bbtext{3} };
+ \node[draw,very thick,circle] (D) at (9, 1) { \bbtext{4} };
+ \node[anchor=west] at (1, 5.0) { \bbtext{2} };
+ \node[draw,very thick,circle,fill=BBGreen] (B) at (9, 7) { \bbtext{2} };
+ \node[anchor=west] at (1, 4.5) { \bbtext{1} };
+ \node[anchor=west] at (1, 4.0) { \bbtext{8} };
+ \node[anchor=west] at (1, 3.5) { \bbtext{1 2 1} };
+ \draw[-latex,thick] (A) to [bend left] node[above left] { \bbinfo{1} } (B);
+ \node[anchor=west] at (1, 3.0) { \bbtext{1 3 1} };
+ \draw[-latex,thick] (A) to [bend left] node[above left,pos=0.3] { \bbinfo{1} } (C);
+ \node[anchor=west] at (1, 2.5) { \bbtext{2 1 1} };
+\end{tikzpicture}
+\end{frame}
+
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+ \node[anchor=west] at (0, 7.5) { \bbbold{Exemplo de entrada e saída} };
+ \node[anchor=west] at (1, 6.5) { \bbtext{1} };
+ \node[anchor=west] at (1, 5.5) { \bbtext{4} };
+ \node[draw,very thick,circle] (A) at (6, 4) { \bbtext{1} };
+ \node[draw,very thick,circle] (C) at (12, 4) { \bbtext{3} };
+ \node[draw,very thick,circle] (D) at (9, 1) { \bbtext{4} };
+ \node[anchor=west] at (1, 5.0) { \bbtext{2} };
+ \node[draw,very thick,circle,fill=BBGreen] (B) at (9, 7) { \bbtext{2} };
+ \node[anchor=west] at (1, 4.5) { \bbtext{1} };
+ \node[anchor=west] at (1, 4.0) { \bbtext{8} };
+ \node[anchor=west] at (1, 3.5) { \bbtext{1 2 1} };
+ \draw[-latex,thick] (A) to [bend left] node[above left] { \bbinfo{1} } (B);
+ \node[anchor=west] at (1, 3.0) { \bbtext{1 3 1} };
+ \draw[-latex,thick] (A) to [bend left] node[above left,pos=0.3] { \bbinfo{1} } (C);
+ \node[anchor=west] at (1, 2.5) { \bbtext{2 1 1} };
+ \draw[-latex,thick] (B) to node[above] { \bbinfo{1} } (A);
+\end{tikzpicture}
+\end{frame}
+
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+ \node[anchor=west] at (0, 7.5) { \bbbold{Exemplo de entrada e saída} };
+ \node[anchor=west] at (1, 6.5) { \bbtext{1} };
+ \node[anchor=west] at (1, 5.5) { \bbtext{4} };
+ \node[draw,very thick,circle] (A) at (6, 4) { \bbtext{1} };
+ \node[draw,very thick,circle] (C) at (12, 4) { \bbtext{3} };
+ \node[draw,very thick,circle] (D) at (9, 1) { \bbtext{4} };
+ \node[anchor=west] at (1, 5.0) { \bbtext{2} };
+ \node[draw,very thick,circle,fill=BBGreen] (B) at (9, 7) { \bbtext{2} };
+ \node[anchor=west] at (1, 4.5) { \bbtext{1} };
+ \node[anchor=west] at (1, 4.0) { \bbtext{8} };
+ \node[anchor=west] at (1, 3.5) { \bbtext{1 2 1} };
+ \draw[-latex,thick] (A) to [bend left] node[above left] { \bbinfo{1} } (B);
+ \node[anchor=west] at (1, 3.0) { \bbtext{1 3 1} };
+ \draw[-latex,thick] (A) to [bend left] node[above left,pos=0.3] { \bbinfo{1} } (C);
+ \node[anchor=west] at (1, 2.5) { \bbtext{2 1 1} };
+ \draw[-latex,thick] (B) to node[above] { \bbinfo{1} } (A);
+ \node[anchor=west] at (1, 2.0) { \bbtext{2 4 1} };
+\end{tikzpicture}
+\end{frame}
+
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+ \node[anchor=west] at (0, 7.5) { \bbbold{Exemplo de entrada e saída} };
+ \node[anchor=west] at (1, 6.5) { \bbtext{1} };
+ \node[anchor=west] at (1, 5.5) { \bbtext{4} };
+ \node[draw,very thick,circle] (A) at (6, 4) { \bbtext{1} };
+ \node[draw,very thick,circle] (C) at (12, 4) { \bbtext{3} };
+ \node[draw,very thick,circle] (D) at (9, 1) { \bbtext{4} };
+ \node[anchor=west] at (1, 5.0) { \bbtext{2} };
+ \node[draw,very thick,circle,fill=BBGreen] (B) at (9, 7) { \bbtext{2} };
+ \node[anchor=west] at (1, 4.5) { \bbtext{1} };
+ \node[anchor=west] at (1, 4.0) { \bbtext{8} };
+ \node[anchor=west] at (1, 3.5) { \bbtext{1 2 1} };
+ \draw[-latex,thick] (A) to [bend left] node[above left] { \bbinfo{1} } (B);
+ \node[anchor=west] at (1, 3.0) { \bbtext{1 3 1} };
+ \draw[-latex,thick] (A) to [bend left] node[above left,pos=0.3] { \bbinfo{1} } (C);
+ \node[anchor=west] at (1, 2.5) { \bbtext{2 1 1} };
+ \draw[-latex,thick] (B) to node[above] { \bbinfo{1} } (A);
+ \node[anchor=west] at (1, 2.0) { \bbtext{2 4 1} };
+ \draw[-latex,thick] (B) to [bend left] node[above left,pos=0.7] { \bbinfo{1} } (D);
+\end{tikzpicture}
+\end{frame}
+
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+ \node[anchor=west] at (0, 7.5) { \bbbold{Exemplo de entrada e saída} };
+ \node[anchor=west] at (1, 6.5) { \bbtext{1} };
+ \node[anchor=west] at (1, 5.5) { \bbtext{4} };
+ \node[draw,very thick,circle] (A) at (6, 4) { \bbtext{1} };
+ \node[draw,very thick,circle] (C) at (12, 4) { \bbtext{3} };
+ \node[draw,very thick,circle] (D) at (9, 1) { \bbtext{4} };
+ \node[anchor=west] at (1, 5.0) { \bbtext{2} };
+ \node[draw,very thick,circle,fill=BBGreen] (B) at (9, 7) { \bbtext{2} };
+ \node[anchor=west] at (1, 4.5) { \bbtext{1} };
+ \node[anchor=west] at (1, 4.0) { \bbtext{8} };
+ \node[anchor=west] at (1, 3.5) { \bbtext{1 2 1} };
+ \draw[-latex,thick] (A) to [bend left] node[above left] { \bbinfo{1} } (B);
+ \node[anchor=west] at (1, 3.0) { \bbtext{1 3 1} };
+ \draw[-latex,thick] (A) to [bend left] node[above left,pos=0.3] { \bbinfo{1} } (C);
+ \node[anchor=west] at (1, 2.5) { \bbtext{2 1 1} };
+ \draw[-latex,thick] (B) to node[above] { \bbinfo{1} } (A);
+ \node[anchor=west] at (1, 2.0) { \bbtext{2 4 1} };
+ \draw[-latex,thick] (B) to [bend left] node[above left,pos=0.7] { \bbinfo{1} } (D);
+ \node[anchor=west] at (1, 1.5) { \bbtext{3 1 1} };
+\end{tikzpicture}
+\end{frame}
+
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+ \node[anchor=west] at (0, 7.5) { \bbbold{Exemplo de entrada e saída} };
+ \node[anchor=west] at (1, 6.5) { \bbtext{1} };
+ \node[anchor=west] at (1, 5.5) { \bbtext{4} };
+ \node[draw,very thick,circle] (A) at (6, 4) { \bbtext{1} };
+ \node[draw,very thick,circle] (C) at (12, 4) { \bbtext{3} };
+ \node[draw,very thick,circle] (D) at (9, 1) { \bbtext{4} };
+ \node[anchor=west] at (1, 5.0) { \bbtext{2} };
+ \node[draw,very thick,circle,fill=BBGreen] (B) at (9, 7) { \bbtext{2} };
+ \node[anchor=west] at (1, 4.5) { \bbtext{1} };
+ \node[anchor=west] at (1, 4.0) { \bbtext{8} };
+ \node[anchor=west] at (1, 3.5) { \bbtext{1 2 1} };
+ \draw[-latex,thick] (A) to [bend left] node[above left] { \bbinfo{1} } (B);
+ \node[anchor=west] at (1, 3.0) { \bbtext{1 3 1} };
+ \draw[-latex,thick] (A) to [bend left] node[above left,pos=0.3] { \bbinfo{1} } (C);
+ \node[anchor=west] at (1, 2.5) { \bbtext{2 1 1} };
+ \draw[-latex,thick] (B) to node[above] { \bbinfo{1} } (A);
+ \node[anchor=west] at (1, 2.0) { \bbtext{2 4 1} };
+ \draw[-latex,thick] (B) to [bend left] node[above left,pos=0.7] { \bbinfo{1} } (D);
+ \node[anchor=west] at (1, 1.5) { \bbtext{3 1 1} };
+ \draw[-latex,thick] (C) to node[above,pos=0.7] { \bbinfo{1} } (A);
+\end{tikzpicture}
+\end{frame}
+
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+ \node[anchor=west] at (0, 7.5) { \bbbold{Exemplo de entrada e saída} };
+ \node[anchor=west] at (1, 6.5) { \bbtext{1} };
+ \node[anchor=west] at (1, 5.5) { \bbtext{4} };
+ \node[draw,very thick,circle] (A) at (6, 4) { \bbtext{1} };
+ \node[draw,very thick,circle] (C) at (12, 4) { \bbtext{3} };
+ \node[draw,very thick,circle] (D) at (9, 1) { \bbtext{4} };
+ \node[anchor=west] at (1, 5.0) { \bbtext{2} };
+ \node[draw,very thick,circle,fill=BBGreen] (B) at (9, 7) { \bbtext{2} };
+ \node[anchor=west] at (1, 4.5) { \bbtext{1} };
+ \node[anchor=west] at (1, 4.0) { \bbtext{8} };
+ \node[anchor=west] at (1, 3.5) { \bbtext{1 2 1} };
+ \draw[-latex,thick] (A) to [bend left] node[above left] { \bbinfo{1} } (B);
+ \node[anchor=west] at (1, 3.0) { \bbtext{1 3 1} };
+ \draw[-latex,thick] (A) to [bend left] node[above left,pos=0.3] { \bbinfo{1} } (C);
+ \node[anchor=west] at (1, 2.5) { \bbtext{2 1 1} };
+ \draw[-latex,thick] (B) to node[above] { \bbinfo{1} } (A);
+ \node[anchor=west] at (1, 2.0) { \bbtext{2 4 1} };
+ \draw[-latex,thick] (B) to [bend left] node[above left,pos=0.7] { \bbinfo{1} } (D);
+ \node[anchor=west] at (1, 1.5) { \bbtext{3 1 1} };
+ \draw[-latex,thick] (C) to node[above,pos=0.7] { \bbinfo{1} } (A);
+ \node[anchor=west] at (1, 1.0) { \bbtext{3 4 1} };
+\end{tikzpicture}
+\end{frame}
+
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+ \node[anchor=west] at (0, 7.5) { \bbbold{Exemplo de entrada e saída} };
+ \node[anchor=west] at (1, 6.5) { \bbtext{1} };
+ \node[anchor=west] at (1, 5.5) { \bbtext{4} };
+ \node[draw,very thick,circle] (A) at (6, 4) { \bbtext{1} };
+ \node[draw,very thick,circle] (C) at (12, 4) { \bbtext{3} };
+ \node[draw,very thick,circle] (D) at (9, 1) { \bbtext{4} };
+ \node[anchor=west] at (1, 5.0) { \bbtext{2} };
+ \node[draw,very thick,circle,fill=BBGreen] (B) at (9, 7) { \bbtext{2} };
+ \node[anchor=west] at (1, 4.5) { \bbtext{1} };
+ \node[anchor=west] at (1, 4.0) { \bbtext{8} };
+ \node[anchor=west] at (1, 3.5) { \bbtext{1 2 1} };
+ \draw[-latex,thick] (A) to [bend left] node[above left] { \bbinfo{1} } (B);
+ \node[anchor=west] at (1, 3.0) { \bbtext{1 3 1} };
+ \draw[-latex,thick] (A) to [bend left] node[above left,pos=0.3] { \bbinfo{1} } (C);
+ \node[anchor=west] at (1, 2.5) { \bbtext{2 1 1} };
+ \draw[-latex,thick] (B) to node[above] { \bbinfo{1} } (A);
+ \node[anchor=west] at (1, 2.0) { \bbtext{2 4 1} };
+ \draw[-latex,thick] (B) to [bend left] node[above left,pos=0.7] { \bbinfo{1} } (D);
+ \node[anchor=west] at (1, 1.5) { \bbtext{3 1 1} };
+ \draw[-latex,thick] (C) to node[above,pos=0.7] { \bbinfo{1} } (A);
+ \node[anchor=west] at (1, 1.0) { \bbtext{3 4 1} };
+ \draw[-latex,thick] (C) to [bend left] node[below right] { \bbinfo{1} } (D);
+\end{tikzpicture}
+\end{frame}
+
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+ \node[anchor=west] at (0, 7.5) { \bbbold{Exemplo de entrada e saída} };
+ \node[anchor=west] at (1, 6.5) { \bbtext{1} };
+ \node[anchor=west] at (1, 5.5) { \bbtext{4} };
+ \node[draw,very thick,circle] (A) at (6, 4) { \bbtext{1} };
+ \node[draw,very thick,circle] (C) at (12, 4) { \bbtext{3} };
+ \node[draw,very thick,circle] (D) at (9, 1) { \bbtext{4} };
+ \node[anchor=west] at (1, 5.0) { \bbtext{2} };
+ \node[draw,very thick,circle,fill=BBGreen] (B) at (9, 7) { \bbtext{2} };
+ \node[anchor=west] at (1, 4.5) { \bbtext{1} };
+ \node[anchor=west] at (1, 4.0) { \bbtext{8} };
+ \node[anchor=west] at (1, 3.5) { \bbtext{1 2 1} };
+ \draw[-latex,thick] (A) to [bend left] node[above left] { \bbinfo{1} } (B);
+ \node[anchor=west] at (1, 3.0) { \bbtext{1 3 1} };
+ \draw[-latex,thick] (A) to [bend left] node[above left,pos=0.3] { \bbinfo{1} } (C);
+ \node[anchor=west] at (1, 2.5) { \bbtext{2 1 1} };
+ \draw[-latex,thick] (B) to node[above] { \bbinfo{1} } (A);
+ \node[anchor=west] at (1, 2.0) { \bbtext{2 4 1} };
+ \draw[-latex,thick] (B) to [bend left] node[above left,pos=0.7] { \bbinfo{1} } (D);
+ \node[anchor=west] at (1, 1.5) { \bbtext{3 1 1} };
+ \draw[-latex,thick] (C) to node[above,pos=0.7] { \bbinfo{1} } (A);
+ \node[anchor=west] at (1, 1.0) { \bbtext{3 4 1} };
+ \draw[-latex,thick] (C) to [bend left] node[below right] { \bbinfo{1} } (D);
+ \node[anchor=west] at (1, 0.5) { \bbtext{4 2 1} };
+\end{tikzpicture}
+\end{frame}
+
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+ \node[anchor=west] at (0, 7.5) { \bbbold{Exemplo de entrada e saída} };
+ \node[anchor=west] at (1, 6.5) { \bbtext{1} };
+ \node[anchor=west] at (1, 5.5) { \bbtext{4} };
+ \node[draw,very thick,circle] (A) at (6, 4) { \bbtext{1} };
+ \node[draw,very thick,circle] (C) at (12, 4) { \bbtext{3} };
+ \node[draw,very thick,circle] (D) at (9, 1) { \bbtext{4} };
+ \node[anchor=west] at (1, 5.0) { \bbtext{2} };
+ \node[draw,very thick,circle,fill=BBGreen] (B) at (9, 7) { \bbtext{2} };
+ \node[anchor=west] at (1, 4.5) { \bbtext{1} };
+ \node[anchor=west] at (1, 4.0) { \bbtext{8} };
+ \node[anchor=west] at (1, 3.5) { \bbtext{1 2 1} };
+ \draw[-latex,thick] (A) to [bend left] node[above left] { \bbinfo{1} } (B);
+ \node[anchor=west] at (1, 3.0) { \bbtext{1 3 1} };
+ \draw[-latex,thick] (A) to [bend left] node[above left,pos=0.3] { \bbinfo{1} } (C);
+ \node[anchor=west] at (1, 2.5) { \bbtext{2 1 1} };
+ \draw[-latex,thick] (B) to node[above] { \bbinfo{1} } (A);
+ \node[anchor=west] at (1, 2.0) { \bbtext{2 4 1} };
+ \draw[-latex,thick] (B) to [bend left] node[above left,pos=0.7] { \bbinfo{1} } (D);
+ \node[anchor=west] at (1, 1.5) { \bbtext{3 1 1} };
+ \draw[-latex,thick] (C) to node[above,pos=0.7] { \bbinfo{1} } (A);
+ \node[anchor=west] at (1, 1.0) { \bbtext{3 4 1} };
+ \draw[-latex,thick] (C) to [bend left] node[below right] { \bbinfo{1} } (D);
+ \node[anchor=west] at (1, 0.5) { \bbtext{4 2 1} };
+ \draw[-latex,thick] (D) to node[left,pos=0.3] { \bbinfo{1} } (B);
+\end{tikzpicture}
+\end{frame}
+
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+ \node[anchor=west] at (0, 7.5) { \bbbold{Exemplo de entrada e saída} };
+ \node[anchor=west] at (1, 6.5) { \bbtext{1} };
+ \node[anchor=west] at (1, 5.5) { \bbtext{4} };
+ \node[draw,very thick,circle] (A) at (6, 4) { \bbtext{1} };
+ \node[draw,very thick,circle] (C) at (12, 4) { \bbtext{3} };
+ \node[draw,very thick,circle] (D) at (9, 1) { \bbtext{4} };
+ \node[anchor=west] at (1, 5.0) { \bbtext{2} };
+ \node[draw,very thick,circle,fill=BBGreen] (B) at (9, 7) { \bbtext{2} };
+ \node[anchor=west] at (1, 4.5) { \bbtext{1} };
+ \node[anchor=west] at (1, 4.0) { \bbtext{8} };
+ \node[anchor=west] at (1, 3.5) { \bbtext{1 2 1} };
+ \draw[-latex,thick] (A) to [bend left] node[above left] { \bbinfo{1} } (B);
+ \node[anchor=west] at (1, 3.0) { \bbtext{1 3 1} };
+ \draw[-latex,thick] (A) to [bend left] node[above left,pos=0.3] { \bbinfo{1} } (C);
+ \node[anchor=west] at (1, 2.5) { \bbtext{2 1 1} };
+ \draw[-latex,thick] (B) to node[above] { \bbinfo{1} } (A);
+ \node[anchor=west] at (1, 2.0) { \bbtext{2 4 1} };
+ \draw[-latex,thick] (B) to [bend left] node[above left,pos=0.7] { \bbinfo{1} } (D);
+ \node[anchor=west] at (1, 1.5) { \bbtext{3 1 1} };
+ \draw[-latex,thick] (C) to node[above,pos=0.7] { \bbinfo{1} } (A);
+ \node[anchor=west] at (1, 1.0) { \bbtext{3 4 1} };
+ \draw[-latex,thick] (C) to [bend left] node[below right] { \bbinfo{1} } (D);
+ \node[anchor=west] at (1, 0.5) { \bbtext{4 2 1} };
+ \draw[-latex,thick] (D) to node[left,pos=0.3] { \bbinfo{1} } (B);
+ \node[anchor=west] at (1, 0.0) { \bbtext{4 3 1} };
+\end{tikzpicture}
+\end{frame}
+
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+ \node[anchor=west] at (0, 7.5) { \bbbold{Exemplo de entrada e saída} };
+ \node[anchor=west] at (1, 6.5) { \bbtext{1} };
+ \node[anchor=west] at (1, 5.5) { \bbtext{4} };
+ \node[draw,very thick,circle] (A) at (6, 4) { \bbtext{1} };
+ \node[draw,very thick,circle] (C) at (12, 4) { \bbtext{3} };
+ \node[draw,very thick,circle] (D) at (9, 1) { \bbtext{4} };
+ \node[anchor=west] at (1, 5.0) { \bbtext{2} };
+ \node[draw,very thick,circle,fill=BBGreen] (B) at (9, 7) { \bbtext{2} };
+ \node[anchor=west] at (1, 4.5) { \bbtext{1} };
+ \node[anchor=west] at (1, 4.0) { \bbtext{8} };
+ \node[anchor=west] at (1, 3.5) { \bbtext{1 2 1} };
+ \draw[-latex,thick] (A) to [bend left] node[above left] { \bbinfo{1} } (B);
+ \node[anchor=west] at (1, 3.0) { \bbtext{1 3 1} };
+ \draw[-latex,thick] (A) to [bend left] node[above left,pos=0.3] { \bbinfo{1} } (C);
+ \node[anchor=west] at (1, 2.5) { \bbtext{2 1 1} };
+ \draw[-latex,thick] (B) to node[above] { \bbinfo{1} } (A);
+ \node[anchor=west] at (1, 2.0) { \bbtext{2 4 1} };
+ \draw[-latex,thick] (B) to [bend left] node[above left,pos=0.7] { \bbinfo{1} } (D);
+ \node[anchor=west] at (1, 1.5) { \bbtext{3 1 1} };
+ \draw[-latex,thick] (C) to node[above,pos=0.7] { \bbinfo{1} } (A);
+ \node[anchor=west] at (1, 1.0) { \bbtext{3 4 1} };
+ \draw[-latex,thick] (C) to [bend left] node[below right] { \bbinfo{1} } (D);
+ \node[anchor=west] at (1, 0.5) { \bbtext{4 2 1} };
+ \draw[-latex,thick] (D) to node[left,pos=0.3] { \bbinfo{1} } (B);
+ \node[anchor=west] at (1, 0.0) { \bbtext{4 3 1} };
+ \draw[-latex,thick] (D) to node[above] { \bbinfo{1} } (C);
+\end{tikzpicture}
+\end{frame}
+
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+ \node[anchor=west] at (0, 7.5) { \bbbold{Exemplo de entrada e saída} };
+ \node[anchor=west] at (1, 6.5) { \bbtext{1} };
+ \node[anchor=west] at (1, 5.5) { \bbtext{4} };
+ \node[anchor=west] at (1, 5.0) { \bbtext{2} };
+ \node[anchor=west] at (1, 4.5) { \bbtext{1} };
+ \node[anchor=west] at (1, 4.0) { \bbtext{8} };
+ \node[anchor=west] at (1, 3.5) { \bbtext{1 2 1} };
+ \node[anchor=west] at (1, 3.0) { \bbtext{1 3 1} };
+ \node[anchor=west] at (1, 2.5) { \bbtext{2 1 1} };
+ \node[anchor=west] at (1, 2.0) { \bbtext{2 4 1} };
+ \node[anchor=west] at (1, 1.5) { \bbtext{3 1 1} };
+ \node[anchor=west] at (1, 1.0) { \bbtext{3 4 1} };
+ \node[anchor=west] at (1, 0.5) { \bbtext{4 2 1} };
+ \node[anchor=west] at (1, 0.0) { \bbtext{4 3 1} };
+ \node at (10.0, 7) { \faFlagCheckered };
+ \node[draw,very thick,circle,fill=BBGreen] (B) at (9, 7) { \includegraphics[scale=0.03]{figs/mouse.png} };
+ \node[draw,very thick,circle] (A) at (6, 4) { \includegraphics[scale=0.03]{figs/mouse.png} };
+ \node[draw,very thick,circle] (C) at (12, 4) { \includegraphics[scale=0.03]{figs/mouse.png} };
+ \node[draw,very thick,circle] (D) at (9, 1) { \includegraphics[scale=0.03]{figs/mouse.png} };
+ \draw[-latex,thick] (A) to [bend left] node[above left] { \bbinfo{1} } (B);
+ \draw[-latex,thick] (A) to [bend left] node[above left,pos=0.3] { \bbinfo{1} } (C);
+ \draw[-latex,thick] (B) to node[above] { \bbinfo{1} } (A);
+ \draw[-latex,thick] (B) to [bend left] node[above left,pos=0.7] { \bbinfo{1} } (D);
+ \draw[-latex,thick] (C) to node[above,pos=0.7] { \bbinfo{1} } (A);
+ \draw[-latex,thick] (C) to [bend left] node[below right] { \bbinfo{1} } (D);
+ \draw[-latex,thick] (D) to node[left,pos=0.3] { \bbinfo{1} } (B);
+ \draw[-latex,thick] (D) to node[above] { \bbinfo{1} } (C);
+\end{tikzpicture}
+\end{frame}
+
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+ \node[anchor=west] at (0, 7.5) { \bbbold{Exemplo de entrada e saída} };
+ \node[anchor=west] at (1, 6.5) { \bbtext{1} };
+ \node[anchor=west] at (1, 5.5) { \bbtext{4} };
+ \node[anchor=west] at (1, 5.0) { \bbtext{2} };
+ \node[anchor=west] at (1, 4.5) { \bbtext{1} };
+ \node[anchor=west] at (1, 4.0) { \bbtext{8} };
+ \node[anchor=west] at (1, 3.5) { \bbtext{1 2 1} };
+ \node[anchor=west] at (1, 3.0) { \bbtext{1 3 1} };
+ \node[anchor=west] at (1, 2.5) { \bbtext{2 1 1} };
+ \node[anchor=west] at (1, 2.0) { \bbtext{2 4 1} };
+ \node[anchor=west] at (1, 1.5) { \bbtext{3 1 1} };
+ \node[anchor=west] at (1, 1.0) { \bbtext{3 4 1} };
+ \node[anchor=west] at (1, 0.5) { \bbtext{4 2 1} };
+ \node[anchor=west] at (1, 0.0) { \bbtext{4 3 1} };
+ \node at (10.0, 7) { \faFlagCheckered };
+ \node[draw,very thick,circle,fill=BBGreen] (B) at (9, 7) { \includegraphics[scale=0.03]{figs/mouse.png} };
+ \node[draw,very thick,circle] (C) at (12, 4) { \includegraphics[scale=0.03]{figs/mouse.png} };
+ \node[draw,very thick,circle] (D) at (9, 1) { \includegraphics[scale=0.03]{figs/mouse.png} };
+ \draw[-latex,thick] (A) to [bend left] node[above left,pos=0.3] { \bbinfo{1} } (C);
+ \draw[-latex,thick] (B) to node[above] { \bbinfo{1} } (A);
+ \draw[-latex,thick] (B) to [bend left] node[above left,pos=0.7] { \bbinfo{1} } (D);
+ \draw[-latex,thick] (C) to node[above,pos=0.7] { \bbinfo{1} } (A);
+ \draw[-latex,thick] (C) to [bend left] node[below right] { \bbinfo{1} } (D);
+ \draw[-latex,thick] (D) to node[left,pos=0.3] { \bbinfo{1} } (B);
+ \draw[-latex,thick] (D) to node[above] { \bbinfo{1} } (C);
+ \draw[-latex,color=BBCyan,very thick] (A) to [bend left] node[above left] { \bbinfo{1} } (B);
+ \node[draw,very thick,circle,fill=BBCyan] (A) at (6, 4) { \includegraphics[scale=0.03]{figs/mouse.png} };
+\end{tikzpicture}
+\end{frame}
+
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+ \node[anchor=west] at (0, 7.5) { \bbbold{Exemplo de entrada e saída} };
+ \node[anchor=west] at (1, 6.5) { \bbtext{1} };
+ \node[anchor=west] at (1, 5.5) { \bbtext{4} };
+ \node[anchor=west] at (1, 5.0) { \bbtext{2} };
+ \node[anchor=west] at (1, 4.5) { \bbtext{1} };
+ \node[anchor=west] at (1, 4.0) { \bbtext{8} };
+ \node[anchor=west] at (1, 3.5) { \bbtext{1 2 1} };
+ \node[anchor=west] at (1, 3.0) { \bbtext{1 3 1} };
+ \node[anchor=west] at (1, 2.5) { \bbtext{2 1 1} };
+ \node[anchor=west] at (1, 2.0) { \bbtext{2 4 1} };
+ \node[anchor=west] at (1, 1.5) { \bbtext{3 1 1} };
+ \node[anchor=west] at (1, 1.0) { \bbtext{3 4 1} };
+ \node[anchor=west] at (1, 0.5) { \bbtext{4 2 1} };
+ \node[anchor=west] at (1, 0.0) { \bbtext{4 3 1} };
+ \node at (10.0, 7) { \faFlagCheckered };
+ \node[draw,very thick,circle,fill=BBGreen] (B) at (9, 7) { \includegraphics[scale=0.03]{figs/mouse.png} };
+ \node[draw,very thick,circle] (D) at (9, 1) { \includegraphics[scale=0.03]{figs/mouse.png} };
+ \draw[-latex,thick] (A) to [bend left] node[above left,pos=0.3] { \bbinfo{1} } (C);
+ \draw[-latex,thick] (B) to node[above] { \bbinfo{1} } (A);
+ \draw[-latex,thick] (B) to [bend left] node[above left,pos=0.7] { \bbinfo{1} } (D);
+ \draw[-latex,thick] (C) to [bend left] node[below right] { \bbinfo{1} } (D);
+ \draw[-latex,thick] (D) to node[left,pos=0.3] { \bbinfo{1} } (B);
+ \draw[-latex,thick] (D) to node[above] { \bbinfo{1} } (C);
+ \draw[-latex,color=BBCyan,very thick] (A) to [bend left] node[above left] { \bbinfo{1} } (B);
+ \node[draw,very thick,circle,fill=BBCyan] (A) at (6, 4) { \includegraphics[scale=0.03]{figs/mouse.png} };
+ \node[draw,very thick,circle,fill=BBRed] (C) at (12, 4) { \includegraphics[scale=0.03]{figs/mouse.png} };
+ \draw[-latex,color=BBRed,very thick] (C) to node[above,pos=0.7] { \bbinfo{1} } (A);
+\end{tikzpicture}
+\end{frame}
+
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+ \node[anchor=west] at (0, 7.5) { \bbbold{Exemplo de entrada e saída} };
+ \node[anchor=west] at (1, 6.5) { \bbtext{1} };
+ \node[anchor=west] at (1, 5.5) { \bbtext{4} };
+ \node[anchor=west] at (1, 5.0) { \bbtext{2} };
+ \node[anchor=west] at (1, 4.5) { \bbtext{1} };
+ \node[anchor=west] at (1, 4.0) { \bbtext{8} };
+ \node[anchor=west] at (1, 3.5) { \bbtext{1 2 1} };
+ \node[anchor=west] at (1, 3.0) { \bbtext{1 3 1} };
+ \node[anchor=west] at (1, 2.5) { \bbtext{2 1 1} };
+ \node[anchor=west] at (1, 2.0) { \bbtext{2 4 1} };
+ \node[anchor=west] at (1, 1.5) { \bbtext{3 1 1} };
+ \node[anchor=west] at (1, 1.0) { \bbtext{3 4 1} };
+ \node[anchor=west] at (1, 0.5) { \bbtext{4 2 1} };
+ \node[anchor=west] at (1, 0.0) { \bbtext{4 3 1} };
+ \node at (10.0, 7) { \faFlagCheckered };
+ \node[draw,very thick,circle,fill=BBGreen] (B) at (9, 7) { \includegraphics[scale=0.03]{figs/mouse.png} };
+ \draw[-latex,thick] (A) to [bend left] node[above left,pos=0.3] { \bbinfo{1} } (C);
+ \draw[-latex,thick] (B) to node[above] { \bbinfo{1} } (A);
+ \draw[-latex,thick] (B) to [bend left] node[above left,pos=0.7] { \bbinfo{1} } (D);
+ \draw[-latex,thick] (C) to [bend left] node[below right] { \bbinfo{1} } (D);
+ \draw[-latex,thick] (D) to node[above] { \bbinfo{1} } (C);
+ \draw[-latex,color=BBCyan,very thick] (A) to [bend left] node[above left] { \bbinfo{1} } (B);
+ \node[draw,very thick,circle,fill=BBCyan] (A) at (6, 4) { \includegraphics[scale=0.03]{figs/mouse.png} };
+ \node[draw,very thick,circle,fill=BBRed] (C) at (12, 4) { \includegraphics[scale=0.03]{figs/mouse.png} };
+ \draw[-latex,color=BBRed,very thick] (C) to node[above,pos=0.7] { \bbinfo{1} } (A);
+ \node[draw,very thick,circle,fill=BBCyan] (D) at (9, 1) { \includegraphics[scale=0.03]{figs/mouse.png} };
+ \draw[-latex,color=BBCyan,very thick] (D) to node[left,pos=0.3] { \bbinfo{1} } (B);
+\end{tikzpicture}
+\end{frame}
+
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+ \node[anchor=west] at (0, 7.5) { \bbbold{Exemplo de entrada e saída} };
+ \node[anchor=west] at (1, 6.5) { \bbtext{1} };
+ \node[anchor=west] at (1, 5.5) { \bbtext{4} };
+ \node[anchor=west] at (1, 5.0) { \bbtext{2} };
+ \node[anchor=west] at (1, 4.5) { \bbtext{1} };
+ \node[anchor=west] at (1, 4.0) { \bbtext{8} };
+ \node[anchor=west] at (1, 3.5) { \bbtext{1 2 1} };
+ \node[anchor=west] at (1, 3.0) { \bbtext{1 3 1} };
+ \node[anchor=west] at (1, 2.5) { \bbtext{2 1 1} };
+ \node[anchor=west] at (1, 2.0) { \bbtext{2 4 1} };
+ \node[anchor=west] at (1, 1.5) { \bbtext{3 1 1} };
+ \node[anchor=west] at (1, 1.0) { \bbtext{3 4 1} };
+ \node[anchor=west] at (1, 0.5) { \bbtext{4 2 1} };
+ \node[anchor=west] at (1, 0.0) { \bbtext{4 3 1} };
+ \node at (10.0, 7) { \faFlagCheckered };
+ \node[draw,very thick,circle,fill=BBGreen] (B) at (9, 7) { \includegraphics[scale=0.03]{figs/mouse.png} };
+ \draw[-latex,thick] (A) to [bend left] node[above left,pos=0.3] { \bbinfo{1} } (C);
+ \draw[-latex,thick] (B) to node[above] { \bbinfo{1} } (A);
+ \draw[-latex,thick] (B) to [bend left] node[above left,pos=0.7] { \bbinfo{1} } (D);
+ \draw[-latex,thick] (C) to [bend left] node[below right] { \bbinfo{1} } (D);
+ \draw[-latex,thick] (D) to node[above] { \bbinfo{1} } (C);
+ \draw[-latex,color=BBCyan,very thick] (A) to [bend left] node[above left] { \bbinfo{1} } (B);
+ \node[draw,very thick,circle,fill=BBCyan] (A) at (6, 4) { \includegraphics[scale=0.03]{figs/mouse.png} };
+ \node[draw,very thick,circle,fill=BBRed] (C) at (12, 4) { \includegraphics[scale=0.03]{figs/mouse.png} };
+ \draw[-latex,color=BBRed,very thick] (C) to node[above,pos=0.7] { \bbinfo{1} } (A);
+ \node[draw,very thick,circle,fill=BBCyan] (D) at (9, 1) { \includegraphics[scale=0.03]{figs/mouse.png} };
+ \draw[-latex,color=BBCyan,very thick] (D) to node[left,pos=0.3] { \bbinfo{1} } (B);
+ \draw[-latex,very thick] (3, 2) to (4, 2);
+ \node[anchor=west] at (4.3, 2) { \bbinfo{3} };
+\end{tikzpicture}
+\end{frame}
+
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+ \node[anchor=west] at (0, 7) { \Large \bbbold{Solução} };
+\end{tikzpicture}
+\end{frame}
+
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+ \node[anchor=west] at (0, 7) { \Large \bbbold{Solução} };
+ \node[draw,very thick,circle,fill=BBCyan] (A) at (1, 4.5) { \bbtext{A} };
+ \node[draw,very thick,circle,fill=BBGreen] (B) at (3, 4.5) { \bbtext{B} };
+ \node[draw,very thick,circle,fill=BBGreen] (C) at (5, 4.5) { \bbtext{D} };
+ \node[draw,very thick,circle,fill=BBGreen] (D) at (5, 6) { \bbtext{C} };
+ \node[draw,very thick,circle,fill=BBGreen] (E) at (5, 3) { \bbtext{E} };
+ \draw[-latex,thick] (A) to (B);
+ \draw[-latex,thick] (B) to (C);
+ \draw[-latex,thick] (B) to (D);
+ \draw[-latex,thick] (B) to (E);
+\end{tikzpicture}
+\end{frame}
+
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+ \node[anchor=west] at (0, 7) { \Large \bbbold{Solução} };
+ \node[draw,very thick,circle,fill=BBCyan] (A) at (1, 4.5) { \bbtext{A} };
+ \node[draw,very thick,circle,fill=BBGreen] (B) at (3, 4.5) { \bbtext{B} };
+ \node[draw,very thick,circle,fill=BBGreen] (C) at (5, 4.5) { \bbtext{D} };
+ \node[draw,very thick,circle,fill=BBGreen] (D) at (5, 6) { \bbtext{C} };
+ \node[draw,very thick,circle,fill=BBGreen] (E) at (5, 3) { \bbtext{E} };
+ \draw[-latex,thick] (A) to (B);
+ \draw[-latex,thick] (B) to (C);
+ \draw[-latex,thick] (B) to (D);
+ \draw[-latex,thick] (B) to (E);
+ \node at (3, 1.5) { \bbbold{Bellman-Ford/Dijkstra:} };
+ \node at (3, 0.75) { \bbtext{Uma \bbupdate{partida}, múltiplas \textcolor{BBGreen}{chegadas} } };
+\end{tikzpicture}
+\end{frame}
+
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+ \node[anchor=west] at (0, 7) { \Large \bbbold{Solução} };
+ \node[draw,very thick,circle,fill=BBCyan] (A) at (1, 4.5) { \bbtext{A} };
+ \node[draw,very thick,circle,fill=BBGreen] (B) at (3, 4.5) { \bbtext{B} };
+ \node[draw,very thick,circle,fill=BBGreen] (C) at (5, 4.5) { \bbtext{D} };
+ \node[draw,very thick,circle,fill=BBGreen] (D) at (5, 6) { \bbtext{C} };
+ \node[draw,very thick,circle,fill=BBGreen] (E) at (5, 3) { \bbtext{E} };
+ \draw[-latex,thick] (A) to (B);
+ \draw[-latex,thick] (B) to (C);
+ \draw[-latex,thick] (B) to (D);
+ \draw[-latex,thick] (B) to (E);
+ \node at (3, 1.5) { \bbbold{Bellman-Ford/Dijkstra:} };
+ \node at (3, 0.75) { \bbtext{Uma \bbupdate{partida}, múltiplas \textcolor{BBGreen}{chegadas} } };
+ \node[draw,very thick,circle,fill=BBGreen] (A1) at (8, 4.5) { \bbtext{A} };
+ \node[draw,very thick,circle,fill=BBCyan] (B1) at (10, 4.5) { \bbtext{B} };
+ \node[draw,very thick,circle,fill=BBCyan] (C1) at (12, 4.5) { \bbtext{D} };
+ \node[draw,very thick,circle,fill=BBCyan] (D1) at (12, 6) { \bbtext{C} };
+ \node[draw,very thick,circle,fill=BBCyan] (E1) at (12, 3) { \bbtext{E} };
+ \draw[latex-,thick] (A1) to (B1);
+ \draw[latex-,thick] (B1) to (C1);
+ \draw[latex-,thick] (B1) to (D1);
+ \draw[latex-,thick] (B1) to (E1);
+\end{tikzpicture}
+\end{frame}
+
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+ \node[anchor=west] at (0, 7) { \Large \bbbold{Solução} };
+ \node[draw,very thick,circle,fill=BBCyan] (A) at (1, 4.5) { \bbtext{A} };
+ \node[draw,very thick,circle,fill=BBGreen] (B) at (3, 4.5) { \bbtext{B} };
+ \node[draw,very thick,circle,fill=BBGreen] (C) at (5, 4.5) { \bbtext{D} };
+ \node[draw,very thick,circle,fill=BBGreen] (D) at (5, 6) { \bbtext{C} };
+ \node[draw,very thick,circle,fill=BBGreen] (E) at (5, 3) { \bbtext{E} };
+ \draw[-latex,thick] (A) to (B);
+ \draw[-latex,thick] (B) to (C);
+ \draw[-latex,thick] (B) to (D);
+ \draw[-latex,thick] (B) to (E);
+ \node at (3, 1.5) { \bbbold{Bellman-Ford/Dijkstra:} };
+ \node at (3, 0.75) { \bbtext{Uma \bbupdate{partida}, múltiplas \textcolor{BBGreen}{chegadas} } };
+ \node[draw,very thick,circle,fill=BBGreen] (A1) at (8, 4.5) { \bbtext{A} };
+ \node[draw,very thick,circle,fill=BBCyan] (B1) at (10, 4.5) { \bbtext{B} };
+ \node[draw,very thick,circle,fill=BBCyan] (C1) at (12, 4.5) { \bbtext{D} };
+ \node[draw,very thick,circle,fill=BBCyan] (D1) at (12, 6) { \bbtext{C} };
+ \node[draw,very thick,circle,fill=BBCyan] (E1) at (12, 3) { \bbtext{E} };
+ \draw[latex-,thick] (A1) to (B1);
+ \draw[latex-,thick] (B1) to (C1);
+ \draw[latex-,thick] (B1) to (D1);
+ \draw[latex-,thick] (B1) to (E1);
+ \node at (10, 1.5) { \bbbold{Problema:} };
+ \node at (10, 0.75) { \bbtext{Múltiplas \bbupdate{partidas}, uma \textcolor{BBGreen}{chegada} } };
+\end{tikzpicture}
+\end{frame}
+
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+ \node[anchor=west] at (0, 7) { \Large \bbbold{Solução} };
+ \node[draw,very thick,circle,fill=BBCyan] (A) at (1, 4.5) { \bbtext{A} };
+ \node[draw,very thick,circle,fill=BBGreen] (B) at (3, 4.5) { \bbtext{B} };
+ \node[draw,very thick,circle,fill=BBGreen] (C) at (5, 4.5) { \bbtext{D} };
+ \node[draw,very thick,circle,fill=BBGreen] (D) at (5, 6) { \bbtext{C} };
+ \node[draw,very thick,circle,fill=BBGreen] (E) at (5, 3) { \bbtext{E} };
+ \draw[-latex,thick] (A) to (B);
+ \draw[-latex,thick] (B) to (C);
+ \draw[-latex,thick] (B) to (D);
+ \draw[-latex,thick] (B) to (E);
+ \node at (3, 1.5) { \bbbold{Bellman-Ford/Dijkstra:} };
+ \node at (3, 0.75) { \bbtext{Uma \bbupdate{partida}, múltiplas \textcolor{BBGreen}{chegadas} } };
+ \node[draw,very thick,circle,fill=BBGreen] (A1) at (8, 4.5) { \bbtext{A} };
+ \node[draw,very thick,circle,fill=BBCyan] (B1) at (10, 4.5) { \bbtext{B} };
+ \node[draw,very thick,circle,fill=BBCyan] (C1) at (12, 4.5) { \bbtext{D} };
+ \node[draw,very thick,circle,fill=BBCyan] (D1) at (12, 6) { \bbtext{C} };
+ \node[draw,very thick,circle,fill=BBCyan] (E1) at (12, 3) { \bbtext{E} };
+ \draw[latex-,thick] (A1) to (B1);
+ \draw[latex-,thick] (B1) to (C1);
+ \draw[latex-,thick] (B1) to (D1);
+ \draw[latex-,thick] (B1) to (E1);
+ \node at (10, 1.5) { \bbbold{Problema:} };
+ \node at (10, 0.75) { \bbtext{Múltiplas \bbupdate{partidas}, uma \textcolor{BBGreen}{chegada} } };
+ \draw[-latex,color=BBViolet,thick] (9, 1.7) to [bend right] node[above] { \footnotesize \bbcomment{\textbf{?}} } (5, 1.7);
+\end{tikzpicture}
+\end{frame}
+
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+ \node[anchor=west] at (0, 7) { \Large \bbbold{Solução} };
+ \node[draw,very thick,circle,fill=BBCyan] (A) at (1, 4.5) { \bbtext{A} };
+ \node[draw,very thick,circle,fill=BBGreen] (B) at (3, 4.5) { \bbtext{B} };
+ \node[draw,very thick,circle,fill=BBGreen] (C) at (5, 4.5) { \bbtext{D} };
+ \node[draw,very thick,circle,fill=BBGreen] (D) at (5, 6) { \bbtext{C} };
+ \node[draw,very thick,circle,fill=BBGreen] (E) at (5, 3) { \bbtext{E} };
+ \draw[-latex,thick] (A) to (B);
+ \draw[-latex,thick] (B) to (C);
+ \draw[-latex,thick] (B) to (D);
+ \draw[-latex,thick] (B) to (E);
+ \node at (3, 1.5) { \bbbold{Bellman-Ford/Dijkstra:} };
+ \node at (3, 0.75) { \bbtext{Uma \bbupdate{partida}, múltiplas \textcolor{BBGreen}{chegadas} } };
+ \node[draw,very thick,circle,fill=BBGreen] (A1) at (8, 4.5) { \bbtext{A} };
+ \node[draw,very thick,circle,fill=BBCyan] (B1) at (10, 4.5) { \bbtext{B} };
+ \node[draw,very thick,circle,fill=BBCyan] (C1) at (12, 4.5) { \bbtext{D} };
+ \node[draw,very thick,circle,fill=BBCyan] (D1) at (12, 6) { \bbtext{C} };
+ \node[draw,very thick,circle,fill=BBCyan] (E1) at (12, 3) { \bbtext{E} };
+ \draw[latex-,thick] (A1) to (B1);
+ \draw[latex-,thick] (B1) to (C1);
+ \draw[latex-,thick] (B1) to (D1);
+ \draw[latex-,thick] (B1) to (E1);
+ \node at (10, 1.5) { \bbbold{Problema:} };
+ \node at (10, 0.75) { \bbtext{Múltiplas \bbupdate{partidas}, uma \textcolor{BBGreen}{chegada} } };
+ \draw[-latex,color=BBViolet,thick] (9, 1.7) to [bend right] node[above] { \footnotesize \bbcomment{Inverta as arestas!} } (5, 1.7);
+\end{tikzpicture}
+\end{frame}
+
+\begin{frame}[plain,t]
+ \inputsnippet{cpp}{9}{27}{codes/1112.cpp}
+\end{frame}
+
+\begin{frame}[plain,t]
+ \inputsnippet{cpp}{29}{48}{codes/1112.cpp}
+\end{frame}
+
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+ \node[anchor=west] at (0, 6) { \Large \bbbold{Créditos} };
+ \node[anchor=west] at (1, 5) { $\star$ \bbtext{Mouse icon made by Freepik from \bbenglish{www.flaticon.com} } };
+\end{tikzpicture}
+\end{frame}
+
+\end{document}

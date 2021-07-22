@@ -1,0 +1,1148 @@
+\documentclass{whiteboard}
+\begin{document}
+\begin{frame}[plain,t]
+\bbcover{Codeforces Round \#516 (Div. 1)}{Problem B -- Labyrinth}{Prof. Edson Alves}{Faculdade UnB Gama}
+
+\end{frame}
+\begin{frame}[plain,t]
+\vspace*{\fill}
+
+\bbenglish{You are playing some computer game. One of its levels puts you in a maze consisting of $n$ lines, each of which contains $m$ cells. Each cell either is free or is occupied by an obstacle. The starting cell is in the row $r$ and column $c$. In one step you can move one square up, left, down or right, if the target cell is not occupied by an obstacle. You can't move beyond the boundaries of the labyrinth.}
+
+\vspace{0.1in}
+
+\bbenglish{Unfortunately, your keyboard is about to break, so you can move left no more than $x$ times and move right no more than $y$ times. There are no restrictions on the number of moves up and down since the keys used to move up and down are in perfect condition.}
+
+\vspace{0.1in}
+
+\bbenglish{Now you would like to determine for each cell whether there exists a sequence of moves that will put you from the starting cell to this particular one. How many cells of the board have this property?}
+
+\vspace*{\fill}
+\end{frame}
+\begin{frame}[plain,t]
+\vspace*{\fill}
+
+\bbtext{Você está jogando um jogo de computador. Um dos níveis do jogo o coloca em um labirinto composto por $n$ linhas, cada uma delas contendo $m$ celas. Cada cela ou está livre ou está ocupada por um obstáculo. A cela de partida está na linha $r$, coluna $c$. A cada passo você pode se mover um quadrado para cima, esquerda, baixo ou direita, se a cela alvo não estiver ocupada por um obstáculo. Você não pode ser mover além dos limites do labirinto.}
+
+\vspace{0.1in}
+
+\bbtext{Infelizmente, seu teclado está prestes a quebrar, de modo que você pode ser mover para a esquerda no máximo $x$ vezes e se mover para a direita no máximo $y$ vezes. Não há restrição quanto ao número de movimentos para cima ou para baixo, uma vez que as teclas utilizadas para se mover para cima ou para baixo estão em perfeitas condições.}
+\vspace{0.1in}
+
+\bbtext{Agora você gostaria de determinar, para cada cela, se existe uma sequência de movimentos que permitem atingir tal cela a partir da cela de partida. Quantas celas do tabuleiro tem esta propriedade?}
+
+\vspace*{\fill}
+\end{frame}
+\begin{frame}[plain,t]
+\vspace*{\fill}
+
+\bbbold{Input}
+
+\vspace{0.1in}
+
+\bbenglish{The first line contains two integers $n, m$ $(1\leq n, m\leq 2000)$ -- the number of rows and the number columns in the labyrinth respectively.}
+
+\vspace{0.1in}
+
+\bbenglish{The second line contains two integers $r, c$ $(1\leq r\leq n, 1\leq c\leq m)$ -- index of the row and index of the column that define the starting cell.}
+
+\vspace{0.1in}
+
+\bbenglish{The third line contains two integers $x, y$ $(0\leq x, y\leq 10^9)$ -- the maximum allowed number of movements to the left and to the right respectively.}
+
+\vspace*{\fill}
+\end{frame}
+\begin{frame}[plain,t]
+\vspace*{\fill}
+
+\bbbold{Entrada}
+
+\vspace{0.1in}
+
+\bbtext{A primeira linha contém dois inteiros $n, m$ $(1\leq n, m\leq 2000)$ -- o número de linhas e o número de colunas no labirinto, respectivamente.}
+
+\vspace{0.1in}
+
+\bbtext{A segunda linha contém dois inteiros $r, c$ $(1\leq r\leq n, 1\leq c\leq m)$ -- os índices da linha e da coluna que definem a cela de partida.}
+
+\vspace{0.1in}
+
+\bbtext{A terceira linha contém dois inteiros $x, y$ $(0\leq x, y\leq 10^9)$ -- o número máximo de movimentos permitidos para a esquerda e para a direita, respectivamente.}
+
+\vspace*{\fill}
+\end{frame}
+\begin{frame}[plain,t]
+\vspace*{\fill}
+
+\bbenglish{The next $n$ lines describe the labyrinth. Each of them has length of $m$ and consists only of symbols `\texttt{.}' and `\texttt{*}'. The $j$-th character of the $i$-th line corresponds to the cell of labyrinth at row $i$ and column $j$. Symbol `\texttt{.}' denotes the free cell, while symbol `\texttt{*}' denotes the cell with an obstacle.}
+
+\vspace{0.1in}
+
+\bbenglish{It is guaranteed, that the starting cell contains no obstacles.}
+
+\vspace{0.2in}
+
+\bbbold{Output}
+
+\vspace{0.1in}
+
+\bbenglish{Print exactly one integer -- the number of cells in the labyrinth, which are reachable from starting cell, including the starting cell itself.}
+
+\vspace*{\fill}
+\end{frame}
+\begin{frame}[plain,t]
+\vspace*{\fill}
+
+\bbtext{As próximas $n$ linhas descrevem o labirinto. Cada uma delas tem tamanho $m$ e são compostas apenas pelos símbolos `\texttt{.}' e `\texttt{*}'. O $j$-ésimo caractere da $i$-ésima linha corresponde a cela do labirinto que ocupa a linha $i$ e a coluna $j$. O símbolo `\texttt{.}' indica uma cela livre, enquanto que o símbolo `\texttt{*}' indica uma cela com um obstáculo.}
+
+\vspace{0.1in}
+
+\bbtext{É garantido que a cela de partida não contém obstáculos.}
+
+\vspace{0.2in}
+
+\bbbold{Output}
+
+\vspace{0.1in}
+
+\bbtext{Imprima um único inteiro -- o número de celas do labirinto que são alcancáveis a partir da cela de partida, inclusive a própria cela de partida.}
+
+\vspace*{\fill}
+\end{frame}
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+
+	\node[anchor=west] (header) at (0, 7.0) { \bbbold{Exemplo de entrada e saída} };
+
+\end{tikzpicture}
+\end{frame}
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+
+	\node[anchor=west] (header) at (0, 7.0) { \bbbold{Exemplo de entrada e saída} };
+
+
+	\node[anchor=west] (line1) at (1.0, 6.0) { \bbtext{\texttt{4 5} } };
+
+\end{tikzpicture}
+\end{frame}
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+
+	\node[anchor=west] (header) at (0, 7.0) { \bbbold{Exemplo de entrada e saída} };
+
+
+	\node[anchor=west] (line1) at (1.0, 6.0) { \bbtext{\texttt{4 5} } };
+
+
+	\draw[->,color=BBViolet] (1.25, 5.0) to  (1.25, 5.75);
+
+	\node[] (r) at (1.25, 4.75) { \footnotesize \bbcomment{\# de linhas} };
+
+\end{tikzpicture}
+\end{frame}
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+
+	\node[anchor=west] (header) at (0, 7.0) { \bbbold{Exemplo de entrada e saída} };
+
+
+	\node[anchor=west] (line1) at (1.0, 6.0) { \bbtext{\texttt{4 5} } };
+
+
+	\draw[->,color=BBViolet] (1.65, 5.0) to  (1.65, 5.75);
+
+	\node[] (r) at (1.65, 4.75) { \footnotesize \bbcomment{\# de colunas} };
+
+
+
+\end{tikzpicture}
+\end{frame}
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+
+	\node[anchor=west] (header) at (0, 7.0) { \bbbold{Exemplo de entrada e saída} };
+
+
+	\node[anchor=west] (line1) at (1.0, 6.0) { \bbtext{\texttt{4 5} } };
+
+
+
+
+
+
+
+	\draw[very thick] (7.0, 2.0) grid  (12.0, 6.0);
+
+\end{tikzpicture}
+\end{frame}
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+
+	\node[anchor=west] (header) at (0, 7.0) { \bbbold{Exemplo de entrada e saída} };
+
+
+	\node[anchor=west] (line1) at (1.0, 6.0) { \bbtext{\texttt{4 5} } };
+
+
+
+
+
+
+
+	\draw[very thick] (7.0, 2.0) grid  (12.0, 6.0);
+
+
+	\node[anchor=west] (line2) at (1.0, 5.5) { \bbtext{\texttt{3 2} } };
+
+\end{tikzpicture}
+\end{frame}
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+
+	\node[anchor=west] (header) at (0, 7.0) { \bbbold{Exemplo de entrada e saída} };
+
+
+	\node[anchor=west] (line1) at (1.0, 6.0) { \bbtext{\texttt{4 5} } };
+
+
+	\draw[->,color=BBViolet] (1.25, 4.5) to  (1.25, 5.25);
+
+	\node[] (r) at (1.25, 4.25) { \footnotesize $r$ };
+
+
+
+
+	\draw[very thick] (7.0, 2.0) grid  (12.0, 6.0);
+
+
+	\node[anchor=west] (line2) at (1.0, 5.5) { \bbtext{\texttt{3 2} } };
+
+
+
+
+\end{tikzpicture}
+\end{frame}
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+
+	\node[anchor=west] (header) at (0, 7.0) { \bbbold{Exemplo de entrada e saída} };
+
+
+	\node[anchor=west] (line1) at (1.0, 6.0) { \bbtext{\texttt{4 5} } };
+
+
+	\draw[->,color=BBViolet] (1.65, 4.5) to  (1.65, 5.25);
+
+	\node[] (r) at (1.65, 4.25) { \footnotesize $c$ };
+
+
+
+
+	\draw[very thick] (7.0, 2.0) grid  (12.0, 6.0);
+
+
+	\node[anchor=west] (line2) at (1.0, 5.5) { \bbtext{\texttt{3 2} } };
+
+
+
+
+
+
+
+\end{tikzpicture}
+\end{frame}
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+
+	\node[anchor=west] (header) at (0, 7.0) { \bbbold{Exemplo de entrada e saída} };
+
+
+	\node[anchor=west] (line1) at (1.0, 6.0) { \bbtext{\texttt{4 5} } };
+
+
+	\draw[->,color=BBViolet] (1.65, 4.5) to  (1.65, 5.25);
+
+	\node[] (r) at (1.65, 4.25) { \footnotesize $c$ };
+
+
+
+
+	\draw[very thick] (7.0, 2.0) grid  (12.0, 6.0);
+
+
+	\node[anchor=west] (line2) at (1.0, 5.5) { \bbtext{\texttt{3 2} } };
+
+
+
+
+
+
+
+
+	\draw[fill=BBGreen,draw,very thick] (8.0, 3.0) rectangle  (9.0, 4.0);
+
+\end{tikzpicture}
+\end{frame}
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+
+	\node[anchor=west] (header) at (0, 7.0) { \bbbold{Exemplo de entrada e saída} };
+
+
+	\node[anchor=west] (line1) at (1.0, 6.0) { \bbtext{\texttt{4 5} } };
+
+
+
+
+
+
+
+	\draw[very thick] (7.0, 2.0) grid  (12.0, 6.0);
+
+
+	\node[anchor=west] (line2) at (1.0, 5.5) { \bbtext{\texttt{3 2} } };
+
+
+
+
+
+
+
+
+	\draw[fill=BBGreen,draw,very thick] (8.0, 3.0) rectangle  (9.0, 4.0);
+
+
+	\node[anchor=west] (line3) at (1.0, 5.0) { \bbtext{\texttt{1 2} } };
+
+\end{tikzpicture}
+\end{frame}
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+
+	\node[anchor=west] (header) at (0, 7.0) { \bbbold{Exemplo de entrada e saída} };
+
+
+	\node[anchor=west] (line1) at (1.0, 6.0) { \bbtext{\texttt{4 5} } };
+
+
+	\draw[->,color=BBViolet] (1.25, 4.0) to  (1.25, 4.75);
+
+	\node[] (r) at (1.25, 3.75) { \footnotesize \bbcomment{mov. para esquerda} };
+
+
+
+
+	\draw[very thick] (7.0, 2.0) grid  (12.0, 6.0);
+
+
+	\node[anchor=west] (line2) at (1.0, 5.5) { \bbtext{\texttt{3 2} } };
+
+
+
+
+
+
+
+
+	\draw[fill=BBGreen,draw,very thick] (8.0, 3.0) rectangle  (9.0, 4.0);
+
+
+	\node[anchor=west] (line3) at (1.0, 5.0) { \bbtext{\texttt{1 2} } };
+
+
+
+
+\end{tikzpicture}
+\end{frame}
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+
+	\node[anchor=west] (header) at (0, 7.0) { \bbbold{Exemplo de entrada e saída} };
+
+
+	\node[anchor=west] (line1) at (1.0, 6.0) { \bbtext{\texttt{4 5} } };
+
+
+	\draw[->,color=BBViolet] (1.65, 4.0) to  (1.65, 4.75);
+
+	\node[] (r) at (1.65, 3.75) { \footnotesize \bbcomment{mov. para direita} };
+
+
+
+
+	\draw[very thick] (7.0, 2.0) grid  (12.0, 6.0);
+
+
+	\node[anchor=west] (line2) at (1.0, 5.5) { \bbtext{\texttt{3 2} } };
+
+
+
+
+
+
+
+
+	\draw[fill=BBGreen,draw,very thick] (8.0, 3.0) rectangle  (9.0, 4.0);
+
+
+	\node[anchor=west] (line3) at (1.0, 5.0) { \bbtext{\texttt{1 2} } };
+
+
+
+
+
+
+
+\end{tikzpicture}
+\end{frame}
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+
+	\node[anchor=west] (header) at (0, 7.0) { \bbbold{Exemplo de entrada e saída} };
+
+
+	\node[anchor=west] (line1) at (1.0, 6.0) { \bbtext{\texttt{4 5} } };
+
+
+
+
+
+
+
+	\draw[very thick] (7.0, 2.0) grid  (12.0, 6.0);
+
+
+	\node[anchor=west] (line2) at (1.0, 5.5) { \bbtext{\texttt{3 2} } };
+
+
+
+
+
+
+
+
+	\draw[fill=BBGreen,draw,very thick] (8.0, 3.0) rectangle  (9.0, 4.0);
+
+
+	\node[anchor=west] (line3) at (1.0, 5.0) { \bbtext{\texttt{1 2} } };
+
+
+
+
+
+
+
+
+
+	\node[anchor=west] (line4) at (1.0, 4.5) { \bbtext{\texttt{.....} } };
+
+	\node[anchor=west] (line5) at (1.0, 4.0) { \bbtext{\texttt{.***.} } };
+
+	\node[anchor=west] (line6) at (1.0, 3.5) { \bbtext{\texttt{...**} } };
+
+	\node[anchor=west] (line7) at (1.0, 3.0) { \bbtext{\texttt{*.... } } };
+
+\end{tikzpicture}
+\end{frame}
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+
+	\node[anchor=west] (header) at (0, 7.0) { \bbbold{Exemplo de entrada e saída} };
+
+
+	\node[anchor=west] (line1) at (1.0, 6.0) { \bbtext{\texttt{4 5} } };
+
+
+
+
+
+
+
+	\draw[very thick] (7.0, 2.0) grid  (12.0, 6.0);
+
+
+	\node[anchor=west] (line2) at (1.0, 5.5) { \bbtext{\texttt{3 2} } };
+
+
+
+
+
+
+
+
+	\draw[fill=BBGreen,draw,very thick] (8.0, 3.0) rectangle  (9.0, 4.0);
+
+
+	\node[anchor=west] (line3) at (1.0, 5.0) { \bbtext{\texttt{1 2} } };
+
+
+
+
+
+
+
+
+
+	\node[anchor=west] (line4) at (1.0, 4.5) { \bbtext{\texttt{.....} } };
+
+	\node[anchor=west] (line5) at (1.0, 4.0) { \bbtext{\texttt{.***.} } };
+
+	\node[anchor=west] (line6) at (1.0, 3.5) { \bbtext{\texttt{...**} } };
+
+	\node[anchor=west] (line7) at (1.0, 3.0) { \bbtext{\texttt{*.... } } };
+
+
+	\draw[fill=BBBlack,draw,very thick] (8.0, 4.0) rectangle  (9.0, 5.0);
+
+	\draw[fill=BBBlack,draw,very thick] (9.0, 4.0) rectangle  (10.0, 5.0);
+
+	\draw[fill=BBBlack,draw,very thick] (10.0, 4.0) rectangle  (11.0, 5.0);
+
+	\draw[fill=BBBlack,draw,very thick] (10.0, 3.0) rectangle  (11.0, 4.0);
+
+	\draw[fill=BBBlack,draw,very thick] (11.0, 3.0) rectangle  (12.0, 4.0);
+
+	\draw[fill=BBBlack,draw,very thick] (7.0, 2.0) rectangle  (8.0, 3.0);
+
+\end{tikzpicture}
+\end{frame}
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+
+	\node[anchor=west] (header) at (0, 7.0) { \bbbold{Exemplo de entrada e saída} };
+
+
+	\node[anchor=west] (line1) at (1.0, 6.0) { \bbtext{\texttt{4 5} } };
+
+
+
+
+
+
+
+	\draw[very thick] (7.0, 2.0) grid  (12.0, 6.0);
+
+
+	\node[anchor=west] (line2) at (1.0, 5.5) { \bbtext{\texttt{3 2} } };
+
+
+
+
+
+
+
+
+	\draw[fill=BBGreen,draw,very thick] (8.0, 3.0) rectangle  (9.0, 4.0);
+
+
+	\node[anchor=west] (line3) at (1.0, 5.0) { \bbtext{\texttt{1 2} } };
+
+
+
+
+
+
+
+
+
+	\node[anchor=west] (line4) at (1.0, 4.5) { \bbtext{\texttt{.....} } };
+
+	\node[anchor=west] (line5) at (1.0, 4.0) { \bbtext{\texttt{.***.} } };
+
+	\node[anchor=west] (line6) at (1.0, 3.5) { \bbtext{\texttt{...**} } };
+
+	\node[anchor=west] (line7) at (1.0, 3.0) { \bbtext{\texttt{*.... } } };
+
+
+	\draw[fill=BBBlack,draw,very thick] (8.0, 4.0) rectangle  (9.0, 5.0);
+
+	\draw[fill=BBBlack,draw,very thick] (9.0, 4.0) rectangle  (10.0, 5.0);
+
+	\draw[fill=BBBlack,draw,very thick] (10.0, 4.0) rectangle  (11.0, 5.0);
+
+	\draw[fill=BBBlack,draw,very thick] (10.0, 3.0) rectangle  (11.0, 4.0);
+
+	\draw[fill=BBBlack,draw,very thick] (11.0, 3.0) rectangle  (12.0, 4.0);
+
+	\draw[fill=BBBlack,draw,very thick] (7.0, 2.0) rectangle  (8.0, 3.0);
+
+
+	\draw[fill=BBCyan,draw,very thick] (7.0, 5.0) rectangle  (8.0, 6.0);
+
+	\draw[fill=BBCyan,draw,very thick] (8.0, 5.0) rectangle  (9.0, 6.0);
+
+	\draw[fill=BBCyan,draw,very thick] (9.0, 5.0) rectangle  (10.0, 6.0);
+
+	\draw[fill=BBCyan,draw,very thick] (7.0, 4.0) rectangle  (8.0, 5.0);
+
+	\draw[fill=BBCyan,draw,very thick] (7.0, 3.0) rectangle  (8.0, 4.0);
+
+	\draw[fill=BBCyan,draw,very thick] (8.0, 2.0) rectangle  (9.0, 3.0);
+
+	\draw[fill=BBCyan,draw,very thick] (9.0, 3.0) rectangle  (10.0, 4.0);
+
+	\draw[fill=BBCyan,draw,very thick] (9.0, 2.0) rectangle  (10.0, 3.0);
+
+	\draw[fill=BBCyan,draw,very thick] (10.0, 2.0) rectangle  (11.0, 3.0);
+
+\end{tikzpicture}
+\end{frame}
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+
+	\node[anchor=west] (header) at (0, 7.0) { \bbbold{Exemplo de entrada e saída} };
+
+
+	\node[anchor=west] (line1) at (1.0, 6.0) { \bbtext{\texttt{4 5} } };
+
+
+	\draw[->,color=BBBlack,very thick,-latex] (1.65, 2.75) to  (1.65, 2.0);
+
+	\node[] (r) at (1.65, 1.75) { \bbinfo{10} };
+
+
+
+
+	\draw[very thick] (7.0, 2.0) grid  (12.0, 6.0);
+
+
+	\node[anchor=west] (line2) at (1.0, 5.5) { \bbtext{\texttt{3 2} } };
+
+
+
+
+
+
+
+
+	\draw[fill=BBGreen,draw,very thick] (8.0, 3.0) rectangle  (9.0, 4.0);
+
+
+	\node[anchor=west] (line3) at (1.0, 5.0) { \bbtext{\texttt{1 2} } };
+
+
+
+
+
+
+
+
+
+	\node[anchor=west] (line4) at (1.0, 4.5) { \bbtext{\texttt{.....} } };
+
+	\node[anchor=west] (line5) at (1.0, 4.0) { \bbtext{\texttt{.***.} } };
+
+	\node[anchor=west] (line6) at (1.0, 3.5) { \bbtext{\texttt{...**} } };
+
+	\node[anchor=west] (line7) at (1.0, 3.0) { \bbtext{\texttt{*.... } } };
+
+
+	\draw[fill=BBBlack,draw,very thick] (8.0, 4.0) rectangle  (9.0, 5.0);
+
+	\draw[fill=BBBlack,draw,very thick] (9.0, 4.0) rectangle  (10.0, 5.0);
+
+	\draw[fill=BBBlack,draw,very thick] (10.0, 4.0) rectangle  (11.0, 5.0);
+
+	\draw[fill=BBBlack,draw,very thick] (10.0, 3.0) rectangle  (11.0, 4.0);
+
+	\draw[fill=BBBlack,draw,very thick] (11.0, 3.0) rectangle  (12.0, 4.0);
+
+	\draw[fill=BBBlack,draw,very thick] (7.0, 2.0) rectangle  (8.0, 3.0);
+
+
+	\draw[fill=BBCyan,draw,very thick] (7.0, 5.0) rectangle  (8.0, 6.0);
+
+	\draw[fill=BBCyan,draw,very thick] (8.0, 5.0) rectangle  (9.0, 6.0);
+
+	\draw[fill=BBCyan,draw,very thick] (9.0, 5.0) rectangle  (10.0, 6.0);
+
+	\draw[fill=BBCyan,draw,very thick] (7.0, 4.0) rectangle  (8.0, 5.0);
+
+	\draw[fill=BBCyan,draw,very thick] (7.0, 3.0) rectangle  (8.0, 4.0);
+
+	\draw[fill=BBCyan,draw,very thick] (8.0, 2.0) rectangle  (9.0, 3.0);
+
+	\draw[fill=BBCyan,draw,very thick] (9.0, 3.0) rectangle  (10.0, 4.0);
+
+	\draw[fill=BBCyan,draw,very thick] (9.0, 2.0) rectangle  (10.0, 3.0);
+
+	\draw[fill=BBCyan,draw,very thick] (10.0, 2.0) rectangle  (11.0, 3.0);
+
+
+\end{tikzpicture}
+\end{frame}
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+
+	\node[anchor=west] (header) at (0, 7.0) { \bbbold{Exemplo de entrada e saída} };
+
+\end{tikzpicture}
+\end{frame}
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+
+	\node[anchor=west] (header) at (0, 7.0) { \bbbold{Exemplo de entrada e saída} };
+
+
+	\node[anchor=west] (line1) at (1.0, 6.0) { \bbtext{\texttt{4 4} } };
+
+\end{tikzpicture}
+\end{frame}
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+
+	\node[anchor=west] (header) at (0, 7.0) { \bbbold{Exemplo de entrada e saída} };
+
+
+	\node[anchor=west] (line1) at (1.0, 6.0) { \bbtext{\texttt{4 4} } };
+
+
+	\draw[very thick] (7.0, 2.0) grid  (11.0, 6.0);
+
+\end{tikzpicture}
+\end{frame}
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+
+	\node[anchor=west] (header) at (0, 7.0) { \bbbold{Exemplo de entrada e saída} };
+
+
+	\node[anchor=west] (line1) at (1.0, 6.0) { \bbtext{\texttt{4 4} } };
+
+
+	\draw[very thick] (7.0, 2.0) grid  (11.0, 6.0);
+
+
+	\node[anchor=west] (line2) at (1.0, 5.5) { \bbtext{\texttt{2 2} } };
+
+\end{tikzpicture}
+\end{frame}
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+
+	\node[anchor=west] (header) at (0, 7.0) { \bbbold{Exemplo de entrada e saída} };
+
+
+	\node[anchor=west] (line1) at (1.0, 6.0) { \bbtext{\texttt{4 4} } };
+
+
+	\draw[very thick] (7.0, 2.0) grid  (11.0, 6.0);
+
+
+	\node[anchor=west] (line2) at (1.0, 5.5) { \bbtext{\texttt{2 2} } };
+
+
+	\draw[fill=BBGreen,draw,very thick] (8.0, 4.0) rectangle  (9.0, 5.0);
+
+\end{tikzpicture}
+\end{frame}
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+
+	\node[anchor=west] (header) at (0, 7.0) { \bbbold{Exemplo de entrada e saída} };
+
+
+	\node[anchor=west] (line1) at (1.0, 6.0) { \bbtext{\texttt{4 4} } };
+
+
+	\draw[very thick] (7.0, 2.0) grid  (11.0, 6.0);
+
+
+	\node[anchor=west] (line2) at (1.0, 5.5) { \bbtext{\texttt{2 2} } };
+
+
+	\draw[fill=BBGreen,draw,very thick] (8.0, 4.0) rectangle  (9.0, 5.0);
+
+
+	\node[anchor=west] (line3) at (1.0, 5.0) { \bbtext{\texttt{0 1} } };
+
+\end{tikzpicture}
+\end{frame}
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+
+	\node[anchor=west] (header) at (0, 7.0) { \bbbold{Exemplo de entrada e saída} };
+
+
+	\node[anchor=west] (line1) at (1.0, 6.0) { \bbtext{\texttt{4 4} } };
+
+
+	\draw[very thick] (7.0, 2.0) grid  (11.0, 6.0);
+
+
+	\node[anchor=west] (line2) at (1.0, 5.5) { \bbtext{\texttt{2 2} } };
+
+
+	\draw[fill=BBGreen,draw,very thick] (8.0, 4.0) rectangle  (9.0, 5.0);
+
+
+	\node[anchor=west] (line3) at (1.0, 5.0) { \bbtext{\texttt{0 1} } };
+
+
+	\node[anchor=west] (line4) at (1.0, 4.5) { \bbtext{\texttt{.....} } };
+
+	\node[anchor=west] (line5) at (1.0, 4.0) { \bbtext{\texttt{...*.} } };
+
+	\node[anchor=west] (line6) at (1.0, 3.5) { \bbtext{\texttt{.....} } };
+
+	\node[anchor=west] (line7) at (1.0, 3.0) { \bbtext{\texttt{.....} } };
+
+\end{tikzpicture}
+\end{frame}
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+
+	\node[anchor=west] (header) at (0, 7.0) { \bbbold{Exemplo de entrada e saída} };
+
+
+	\node[anchor=west] (line1) at (1.0, 6.0) { \bbtext{\texttt{4 4} } };
+
+
+	\draw[very thick] (7.0, 2.0) grid  (11.0, 6.0);
+
+
+	\node[anchor=west] (line2) at (1.0, 5.5) { \bbtext{\texttt{2 2} } };
+
+
+	\draw[fill=BBGreen,draw,very thick] (8.0, 4.0) rectangle  (9.0, 5.0);
+
+
+	\node[anchor=west] (line3) at (1.0, 5.0) { \bbtext{\texttt{0 1} } };
+
+
+	\node[anchor=west] (line4) at (1.0, 4.5) { \bbtext{\texttt{.....} } };
+
+	\node[anchor=west] (line5) at (1.0, 4.0) { \bbtext{\texttt{...*.} } };
+
+	\node[anchor=west] (line6) at (1.0, 3.5) { \bbtext{\texttt{.....} } };
+
+	\node[anchor=west] (line7) at (1.0, 3.0) { \bbtext{\texttt{.....} } };
+
+
+	\draw[fill=BBBlack,draw,very thick] (9.0, 4.0) rectangle  (10.0, 5.0);
+
+\end{tikzpicture}
+\end{frame}
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+
+	\node[anchor=west] (header) at (0, 7.0) { \bbbold{Exemplo de entrada e saída} };
+
+
+	\node[anchor=west] (line1) at (1.0, 6.0) { \bbtext{\texttt{4 4} } };
+
+
+	\draw[very thick] (7.0, 2.0) grid  (11.0, 6.0);
+
+
+	\node[anchor=west] (line2) at (1.0, 5.5) { \bbtext{\texttt{2 2} } };
+
+
+	\draw[fill=BBGreen,draw,very thick] (8.0, 4.0) rectangle  (9.0, 5.0);
+
+
+	\node[anchor=west] (line3) at (1.0, 5.0) { \bbtext{\texttt{0 1} } };
+
+
+	\node[anchor=west] (line4) at (1.0, 4.5) { \bbtext{\texttt{.....} } };
+
+	\node[anchor=west] (line5) at (1.0, 4.0) { \bbtext{\texttt{...*.} } };
+
+	\node[anchor=west] (line6) at (1.0, 3.5) { \bbtext{\texttt{.....} } };
+
+	\node[anchor=west] (line7) at (1.0, 3.0) { \bbtext{\texttt{.....} } };
+
+
+	\draw[fill=BBBlack,draw,very thick] (9.0, 4.0) rectangle  (10.0, 5.0);
+
+
+	\draw[fill=BBCyan,draw,very thick] (8.0, 5.0) rectangle  (9.0, 6.0);
+
+	\draw[fill=BBCyan,draw,very thick] (9.0, 5.0) rectangle  (10.0, 6.0);
+
+	\draw[fill=BBCyan,draw,very thick] (8.0, 3.0) rectangle  (9.0, 4.0);
+
+	\draw[fill=BBCyan,draw,very thick] (9.0, 3.0) rectangle  (10.0, 4.0);
+
+	\draw[fill=BBCyan,draw,very thick] (8.0, 2.0) rectangle  (9.0, 3.0);
+
+	\draw[fill=BBCyan,draw,very thick] (9.0, 2.0) rectangle  (10.0, 3.0);
+
+\end{tikzpicture}
+\end{frame}
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+
+	\node[anchor=west] (header) at (0, 7.0) { \bbbold{Exemplo de entrada e saída} };
+
+
+	\node[anchor=west] (line1) at (1.0, 6.0) { \bbtext{\texttt{4 4} } };
+
+
+	\draw[very thick] (7.0, 2.0) grid  (11.0, 6.0);
+
+
+	\node[anchor=west] (line2) at (1.0, 5.5) { \bbtext{\texttt{2 2} } };
+
+
+	\draw[fill=BBGreen,draw,very thick] (8.0, 4.0) rectangle  (9.0, 5.0);
+
+
+	\node[anchor=west] (line3) at (1.0, 5.0) { \bbtext{\texttt{0 1} } };
+
+
+	\node[anchor=west] (line4) at (1.0, 4.5) { \bbtext{\texttt{.....} } };
+
+	\node[anchor=west] (line5) at (1.0, 4.0) { \bbtext{\texttt{...*.} } };
+
+	\node[anchor=west] (line6) at (1.0, 3.5) { \bbtext{\texttt{.....} } };
+
+	\node[anchor=west] (line7) at (1.0, 3.0) { \bbtext{\texttt{.....} } };
+
+
+	\draw[fill=BBBlack,draw,very thick] (9.0, 4.0) rectangle  (10.0, 5.0);
+
+
+	\draw[fill=BBCyan,draw,very thick] (8.0, 5.0) rectangle  (9.0, 6.0);
+
+	\draw[fill=BBCyan,draw,very thick] (9.0, 5.0) rectangle  (10.0, 6.0);
+
+	\draw[fill=BBCyan,draw,very thick] (8.0, 3.0) rectangle  (9.0, 4.0);
+
+	\draw[fill=BBCyan,draw,very thick] (9.0, 3.0) rectangle  (10.0, 4.0);
+
+	\draw[fill=BBCyan,draw,very thick] (8.0, 2.0) rectangle  (9.0, 3.0);
+
+	\draw[fill=BBCyan,draw,very thick] (9.0, 2.0) rectangle  (10.0, 3.0);
+
+
+	\draw[color=BBBlack,very thick,-latex] (1.65, 2.75) to  (1.65, 2.0);
+
+	\node[] (r) at (1.65, 1.75) { \bbinfo{7} };
+
+\end{tikzpicture}
+\end{frame}
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+
+	\node[anchor=west] (header) at (0, 7.0) { \Large \bbbold{Solução} };
+
+\end{tikzpicture}
+\end{frame}
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+
+	\node[anchor=west] (header) at (0, 7.0) { \Large \bbbold{Solução} };
+
+
+	\draw[very thick] (4.0, 3.0) grid  (10.0, 6.0);
+
+	\draw[fill=BBGreen,draw,very thick] (8.0, 3.0) rectangle  (9.0, 4.0);
+
+	\draw[fill=BBBlack,draw,very thick] (8.0, 4.0) rectangle  (9.0, 5.0);
+
+	\draw[fill=BBBlack,draw,very thick] (7.0, 3.0) rectangle  (8.0, 4.0);
+
+	\draw[fill=BBBlack,draw,very thick] (6.0, 5.0) rectangle  (7.0, 6.0);
+
+	\draw[fill=BBBlack,draw,very thick] (5.0, 4.0) rectangle  (6.0, 5.0);
+
+	\draw[fill=BBCyan,draw,very thick] (5.0, 5.0) rectangle  (6.0, 6.0);
+
+\end{tikzpicture}
+\end{frame}
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+
+	\node[anchor=west] (header) at (0, 7.0) { \Large \bbbold{Solução} };
+
+
+	\draw[very thick] (4.0, 3.0) grid  (10.0, 6.0);
+
+	\draw[fill=BBGreen,draw,very thick] (8.0, 3.0) rectangle  (9.0, 4.0);
+
+	\draw[fill=BBBlack,draw,very thick] (8.0, 4.0) rectangle  (9.0, 5.0);
+
+	\draw[fill=BBBlack,draw,very thick] (7.0, 3.0) rectangle  (8.0, 4.0);
+
+	\draw[fill=BBBlack,draw,very thick] (6.0, 5.0) rectangle  (7.0, 6.0);
+
+	\draw[fill=BBBlack,draw,very thick] (5.0, 4.0) rectangle  (6.0, 5.0);
+
+	\draw[fill=BBCyan,draw,very thick] (5.0, 5.0) rectangle  (6.0, 6.0);
+
+
+	\draw[color=BBViolet,->,thick] (8.5, 3.5) to (9.5, 3.5) to (9.5, 4.5) to (9.5, 5.5) to (8.5, 5.5) to (7.5, 5.5) to (7.5, 4.5) to (6.5, 4.5) to (6.5, 3.5) to (5.5, 3.5) to (4.5, 3.5) to (4.5, 4.5) to (4.5, 5.5) to (5.5, 5.5);
+
+\end{tikzpicture}
+\end{frame}
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+
+	\node[anchor=west] (header) at (0, 7.0) { \Large \bbbold{Solução} };
+
+
+	\draw[very thick] (4.0, 3.0) grid  (10.0, 6.0);
+
+	\draw[fill=BBGreen,draw,very thick] (8.0, 3.0) rectangle  (9.0, 4.0);
+
+	\draw[fill=BBBlack,draw,very thick] (8.0, 4.0) rectangle  (9.0, 5.0);
+
+	\draw[fill=BBBlack,draw,very thick] (7.0, 3.0) rectangle  (8.0, 4.0);
+
+	\draw[fill=BBBlack,draw,very thick] (6.0, 5.0) rectangle  (7.0, 6.0);
+
+	\draw[fill=BBBlack,draw,very thick] (5.0, 4.0) rectangle  (6.0, 5.0);
+
+	\draw[fill=BBCyan,draw,very thick] (5.0, 5.0) rectangle  (6.0, 6.0);
+
+
+	\draw[color=BBViolet,->,thick] (8.5, 3.5) to (9.5, 3.5) to (9.5, 4.5) to (9.5, 5.5) to (8.5, 5.5) to (7.5, 5.5) to (7.5, 4.5) to (6.5, 4.5) to (6.5, 3.5) to (5.5, 3.5) to (4.5, 3.5) to (4.5, 4.5) to (4.5, 5.5) to (5.5, 5.5);
+
+
+	\node[anchor=west] (info) at (1.0, 2.0) { \bbtext{Considere $(x_p, y_p)$ e $(x_q, y_q)$ os pontos de partida e chegada, respectivamente.} };
+
+\end{tikzpicture}
+\end{frame}
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+
+	\node[anchor=west] (header) at (0, 7.0) { \Large \bbbold{Solução} };
+
+
+	\draw[very thick] (4.0, 3.0) grid  (10.0, 6.0);
+
+	\draw[fill=BBGreen,draw,very thick] (8.0, 3.0) rectangle  (9.0, 4.0);
+
+	\draw[fill=BBBlack,draw,very thick] (8.0, 4.0) rectangle  (9.0, 5.0);
+
+	\draw[fill=BBBlack,draw,very thick] (7.0, 3.0) rectangle  (8.0, 4.0);
+
+	\draw[fill=BBBlack,draw,very thick] (6.0, 5.0) rectangle  (7.0, 6.0);
+
+	\draw[fill=BBBlack,draw,very thick] (5.0, 4.0) rectangle  (6.0, 5.0);
+
+	\draw[fill=BBCyan,draw,very thick] (5.0, 5.0) rectangle  (6.0, 6.0);
+
+
+	\draw[color=BBViolet,->,thick] (8.5, 3.5) to (9.5, 3.5) to (9.5, 4.5) to (9.5, 5.5) to (8.5, 5.5) to (7.5, 5.5) to (7.5, 4.5) to (6.5, 4.5) to (6.5, 3.5) to (5.5, 3.5) to (4.5, 3.5) to (4.5, 4.5) to (4.5, 5.5) to (5.5, 5.5);
+
+
+	\node[anchor=west] (info) at (1.0, 2.0) { \bbtext{Se foram dados $L$ passos para a esquerda e $R$ passos a direita, então} };
+
+
+
+	\node[anchor=west] (more) at (5.0, 1.0) { $x_q = x_p + R - L$ };
+
+\end{tikzpicture}
+\end{frame}
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+
+	\node[anchor=west] (header) at (0, 7.0) { \Large \bbbold{Solução} };
+
+
+	\draw[very thick] (4.0, 3.0) grid  (10.0, 6.0);
+
+	\draw[fill=BBGreen,draw,very thick] (8.0, 3.0) rectangle  (9.0, 4.0);
+
+	\draw[fill=BBBlack,draw,very thick] (8.0, 4.0) rectangle  (9.0, 5.0);
+
+	\draw[fill=BBBlack,draw,very thick] (7.0, 3.0) rectangle  (8.0, 4.0);
+
+	\draw[fill=BBBlack,draw,very thick] (6.0, 5.0) rectangle  (7.0, 6.0);
+
+	\draw[fill=BBBlack,draw,very thick] (5.0, 4.0) rectangle  (6.0, 5.0);
+
+	\draw[fill=BBCyan,draw,very thick] (5.0, 5.0) rectangle  (6.0, 6.0);
+
+
+	\draw[color=BBViolet,->,thick] (8.5, 3.5) to (9.5, 3.5) to (9.5, 4.5) to (9.5, 5.5) to (8.5, 5.5) to (7.5, 5.5) to (7.5, 4.5) to (6.5, 4.5) to (6.5, 3.5) to (5.5, 3.5) to (4.5, 3.5) to (4.5, 4.5) to (4.5, 5.5) to (5.5, 5.5);
+
+
+	\node[anchor=west] (info) at (1.0, 2.0) { \bbtext{Se $L$ for minimizado, o valor de $R$ pode ser obtido por meio da expressão} };
+
+
+
+	\node[anchor=west] (more) at (5.0, 1.0) { $R = x_q - x_p + L$ };
+
+
+
+\end{tikzpicture}
+\end{frame}
+\begin{frame}[plain,t]
+
+\inputsnippet{cpp}{9}{28}{codes/1063B.cpp}
+
+\end{frame}
+\begin{frame}[plain,t]
+
+\inputsnippet{cpp}{30}{49}{codes/1063B.cpp}
+
+\end{frame}
+\end{document}
