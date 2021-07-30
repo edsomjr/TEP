@@ -183,9 +183,9 @@
 ## Scene
 + \node[anchor=west] at (1, 6) { \Large \bbbold{Graus} };
 
-+ \node[anchor=west] at (2, 5) { $\star$ \bbtext{Grau de entrada $g_i(u)$: \# vértices que chegam em $u$} };
++ \node[anchor=west] at (2, 5) { $\star$ \bbtext{Grau de entrada $g_i(u)$: \# arestas que chegam em $u$} };
 
-+ \node[anchor=west] at (2, 4) { $\star$ \bbtext{Grau de saída $g_o(u)$: \# vértices que partem de $u$} };
++ \node[anchor=west] at (2, 4) { $\star$ \bbtext{Grau de saída $g_o(u)$: \# arestas que partem de $u$} };
 
 + \node[anchor=west] at (2, 3) { $\star$ \bbtext{Se $G$ é não-direcionado, então $g_i(u) = g_o(u)$, $\forall u\in V$} };
 

@@ -215,8 +215,8 @@
 + \node[anchor=west] at (1, 3) { $\star$ \bbtext{Os elementos do grafo são identificados sob demanda} };
 
 ## Scene
-+ \node[anchor=west] at (0, 7.5) { $G = G(V, E)$ };
-+ \node[anchor=west] at (0, 7) { $E = \{ (u, v)\in \mathbb{N}^2\ |\ u = kv, k\in \mathbb{N}\} $ };
++ \node[anchor=west] at (0, 7.5) { \footnotesize $G = G(V, E)$ };
++ \node[anchor=west] at (0, 7) { \footnotesize $E = \{ (u, v)\in \mathbb{N}^2\ |\ u\neq v, u = kv, k\in \mathbb{N}\} $ };
 
 + \node[draw,circle,very thick] (A) at (3, 4) { \bbtext{1} };
 + \node[draw,circle,very thick] (B) at (7, 5) { \bbtext{2} };

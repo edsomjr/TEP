@@ -1,7 +1,6 @@
 #include <bits/stdc++.h>
 
 using namespace std;
-
 using edge = tuple<int, int, int>;
 
 vector<edge> es { { 1, 2, 2 }, { 1, 3, 1 }, { 1, 4, 8 }, { 2, 1, 5 }, 
@@ -10,7 +9,7 @@ vector<edge> es { { 1, 2, 2 }, { 1, 3, 1 }, { 1, 4, 8 }, { 2, 1, 5 },
 
 int main()
 {
-    for (const auto& [u, v, w] : es)
+    for (auto [u, v, w] : es)
         cout << "(" << u << ", " << v << ", " << w << ")\n";
 
     return 0;

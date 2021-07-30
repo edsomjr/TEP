@@ -1,6 +1,6 @@
 \ProvidesClass{slides}
 
-\LoadClass[10pt]{beamer}
+\LoadClass[10pt,aspectratio=169]{beamer}
 
 % packages
 \usetheme{metropolis}
