@@ -303,13 +303,766 @@ e15 => Edge
     @e15.from = node1
     @e15.to = node5
     &e15.thick
-    %e15.label = node[below right,pos=.8] {\footnotesize \bbinfo{2}}
+    %e15.label = node[above left,pos=.6] {\footnotesize \bbinfo{2}}
+
+e23 => Edge
+    @e23.from = node2
+    @e23.to = node3
+    &e23.thick
+    %e23.label = node[above left] {\footnotesize \bbinfo{1}}
+
+e26 => Edge
+    @e26.from = node2
+    @e26.to = node6
+    &e26.thick
+    %e26.label = node[below right,pos=.8] {\footnotesize \bbinfo{3}}
+
+e26 => Edge
+    @e26.from = node2
+    @e26.to = node6
+    &e26.thick
+    %e26.label = node[below right,pos=.8] {\footnotesize \bbinfo{3}}
+
+e34 => Edge
+    @e34.from = node3
+    @e34.to = node4
+    &e34.thick
+    %e34.label = node[above] {\footnotesize \bbinfo{2}}
+
+e45 => Edge
+    @e45.from = node4
+    @e45.to = node5
+    &e45.thick
+    %e45.label = node[below right] {\footnotesize \bbinfo{1}}
+
+e56 => Edge
+    @e56.from = node5
+    @e56.to = node6
+    &e56.thick
+    %e56.label = node[below left] {\footnotesize \bbinfo{11}}
+
+---
+
+a11 => Node
+    @a11.x = 8.5
+    @a11.y = 6.5
+    @a11.text = $\mathbf{0}$
+
+a22 => Node
+    @a22.x = 9.5
+    @a22.y = 5.5
+    @a22.text = $\mathbf{0}$
+
+a33 => Node
+    @a33.x = 10.5
+    @a33.y = 4.5
+    @a33.text = $\mathbf{0}$
+
+a44 => Node
+    @a44.x = 11.5
+    @a44.y = 3.5
+    @a44.text = $\mathbf{0}$
+
+a55 => Node
+    @a55.x = 12.5
+    @a55.y = 2.5
+    @a55.text = $\mathbf{0}$
+
+a66 => Node
+    @a66.x = 13.5
+    @a66.y = 1.5
+    @a66.text = $\mathbf{0}$
+
+--- 
+
+@a11.text = $0$
+@a22.text = $0$
+@a33.text = $0$
+@a44.text = $0$
+@a55.text = $0$
+@a66.text = $0$
+
+a12 => Node
+    @a12.x = 9.5
+    @a12.y = 6.5
+    @a12.text = $\mathbf{9}$
+
+a21 => Node
+    @a21.x = 8.5
+    @a21.y = 5.5
+    @a21.text = $\mathbf{9}$
+
+a13 => Node
+    @a13.x = 10.5
+    @a13.y = 6.5
+    @a13.text = $\mathbf{7}$
+
+a31 => Node
+    @a31.x = 8.5
+    @a31.y = 4.5
+    @a31.text = $\mathbf{7}$
+
+a14 => Node
+    @a14.x = 11.5
+    @a14.y = 6.5
+    @a14.text = $\mathbf{4}$
+
+a41 => Node
+    @a41.x = 8.5
+    @a41.y = 3.5
+    @a41.text = $\mathbf{4}$
+
+a15 => Node
+    @a15.x = 12.5
+    @a15.y = 6.5
+    @a15.text = $\mathbf{2}$
+
+a51 => Node
+    @a51.x = 8.5
+    @a51.y = 2.5
+    @a51.text = $\mathbf{2}$
+
+a23 => Node
+    @a23.x = 10.5
+    @a23.y = 5.5
+    @a23.text = $\mathbf{1}$
+
+a32 => Node
+    @a32.x = 9.5
+    @a32.y = 4.5
+    @a32.text = $\mathbf{1}$
+
+a26 => Node
+    @a26.x = 13.5
+    @a26.y = 5.5
+    @a26.text = $\mathbf{3}$
+
+a62 => Node
+    @a62.x = 9.5
+    @a62.y = 1.5
+    @a62.text = $\mathbf{3}$
+
+a34 => Node
+    @a34.x = 11.5
+    @a34.y = 4.5
+    @a34.text = $\mathbf{2}$
+
+a43 => Node
+    @a43.x = 10.5
+    @a43.y = 3.5
+    @a43.text = $\mathbf{2}$
+
+a45 => Node
+    @a45.x = 12.5
+    @a45.y = 3.5
+    @a45.text = $\mathbf{1}$
+
+a54 => Node
+    @a54.x = 11.5
+    @a54.y = 2.5
+    @a54.text = $\mathbf{1}$
+
+a56 => Node
+    @a56.x = 13.5
+    @a56.y = 2.5
+    @a56.text = $\mathbf{11}$
+
+a65 => Node
+    @a65.x = 12.5
+    @a65.y = 1.5
+    @a65.text = $\mathbf{11}$
+
+---
+
+@a12.text = $9$
+@a13.text = $7$
+@a14.text = $4$
+@a15.text = $2$
+@a21.text = $9$
+@a23.text = $1$
+@a26.text = $3$
+@a31.text = $7$
+@a32.text = $1$
+@a34.text = $2$
+@a41.text = $4$
+@a43.text = $2$
+@a45.text = $1$
+@a51.text = $2$
+@a54.text = $1$
+@a56.text = $11$
+@a62.text = $3$
+@a65.text = $11$
+
+a16 => Node
+    @a16.x = 13.5
+    @a16.y = 6.5
+    @a16.text = $\mathbf{\infty}$
+
+a24 => Node
+    @a24.x = 11.5
+    @a24.y = 5.5
+    @a24.text = $\mathbf{\infty}$
+
+a25 => Node
+    @a25.x = 12.5
+    @a25.y = 5.5
+    @a25.text = $\mathbf{\infty}$
+
+a35 => Node
+    @a35.x = 12.5
+    @a35.y = 4.5
+    @a35.text = $\mathbf{\infty}$
+
+a36 => Node
+    @a36.x = 13.5
+    @a36.y = 4.5
+    @a36.text = $\mathbf{\infty}$
+
+a42 => Node
+    @a42.x = 9.5
+    @a42.y = 3.5
+    @a42.text = $\mathbf{\infty}$
+
+a46 => Node
+    @a46.x = 13.5
+    @a46.y = 3.5
+    @a46.text = $\mathbf{\infty}$
+
+a52 => Node
+    @a52.x = 9.5
+    @a52.y = 2.5
+    @a52.text = $\mathbf{\infty}$
+
+a53 => Node
+    @a53.x = 10.5
+    @a53.y = 2.5
+    @a53.text = $\mathbf{\infty}$
+
+a61 => Node
+    @a61.x = 8.5
+    @a61.y = 1.5
+    @a61.text = $\mathbf{\infty}$
+
+a63 => Node
+    @a63.x = 10.5
+    @a63.y = 1.5
+    @a63.text = $\mathbf{\infty}$
+
+a64 => Node
+    @a64.x = 11.5
+    @a64.y = 1.5
+    @a64.text = $\mathbf{\infty}$
+
+---
+
+    @node1.fill = BBCyan
+
+    @a24.text = $\mathbf{13}$
+    @a25.text = $\mathbf{11}$
+    @a35.text = $\mathbf{9}$
+    @a42.text = $\mathbf{13}$
+    @a52.text = $\mathbf{11}$
+    @a53.text = $\mathbf{9}$
+
+---
+    @node1.fill = BBGreen
+    @node2.fill = BBCyan
+
+    @a24.text = ${13}$
+    @a25.text = ${11}$
+    @a35.text = ${9}$
+    @a42.text = ${13}$
+    @a52.text = ${11}$
+    @a53.text = ${9}$
+
+    @a16.text = $\mathbf{12}$
+    @a36.text = $\mathbf{4}$
+    @a46.text = $\mathbf{16}$
+    @a61.text = $\mathbf{12}$
+    @a63.text = $\mathbf{4}$
+    @a64.text = $\mathbf{16}$
+
+---
+
+    @node2.fill = BBGreen
+    @node3.fill = BBCyan
+
+    @a16.text = ${12}$
+    @a36.text = ${4}$
+    @a46.text = ${16}$
+    @a61.text = ${12}$
+    @a63.text = ${4}$
+    @a64.text = ${16}$
+
+    @a12.text = $\mathbf{8}$
+    @a16.text = $\mathbf{11}$
+    @a24.text = $\mathbf{3}$
+    @a25.text = $\mathbf{10}$
+    @a46.text = $\mathbf{6}$
+    @a21.text = $\mathbf{8}$
+    @a61.text = $\mathbf{11}$
+    @a42.text = $\mathbf{3}$
+    @a52.text = $\mathbf{10}$
+    @a64.text = $\mathbf{6}$
 
 
+---
+
+    @node3.fill = BBGreen
+    @node4.fill = BBCyan
+
+    @a12.text = ${8}$
+    @a16.text = ${11}$
+    @a24.text = ${3}$
+    @a25.text = ${10}$
+    @a46.text = ${6}$
+    @a21.text = ${8}$
+    @a61.text = ${11}$
+    @a42.text = ${3}$
+    @a52.text = ${10}$
+    @a64.text = ${6}$
+
+    @a12.text = $\mathbf{7}$
+    @a13.text = $\mathbf{6}$
+    @a16.text = $\mathbf{10}$
+    @a25.text = $\mathbf{4}$
+    @a35.text = $\mathbf{3}$
+    @a56.text = $\mathbf{7}$
+    @a21.text = $\mathbf{7}$
+    @a31.text = $\mathbf{6}$
+    @a61.text = $\mathbf{10}$
+    @a52.text = $\mathbf{4}$
+    @a53.text = $\mathbf{3}$
+    @a65.text = $\mathbf{7}$
+
+---
+
+    @node4.fill = BBGreen
+    @node5.fill = BBCyan
+
+    @a12.text = ${7}$
+    @a13.text = ${6}$
+    @a16.text = ${10}$
+    @a25.text = ${4}$
+    @a35.text = ${3}$
+    @a56.text = ${7}$
+    @a21.text = ${7}$
+    @a31.text = ${6}$
+    @a61.text = ${10}$
+    @a52.text = ${4}$
+    @a53.text = ${3}$
+    @a65.text = ${7}$
+
+    @a12.text = $\mathbf{6}$
+    @a13.text = $\mathbf{5}$
+    @a14.text = $\mathbf{3}$
+    @a16.text = $\mathbf{9}$
+    @a21.text = $\mathbf{6}$
+    @a31.text = $\mathbf{5}$
+    @a41.text = $\mathbf{3}$
+    @a61.text = $\mathbf{9}$
+
+---
+
+    @node5.fill = BBGreen
+    @node6.fill = BBCyan
+
+    @a12.text = ${6}$
+    @a13.text = ${5}$
+    @a14.text = ${3}$
+    @a16.text = ${9}$
+    @a21.text = ${6}$
+    @a31.text = ${5}$
+    @a41.text = ${3}$
+    @a61.text = ${9}$
+
+## Frame
+
+\inputsnippet{cpp}{11}{28}{codes/floyd.cpp}
+
+## Scene
+
+title => Node
+    @title.x = 0
+    @title.y = 7
+    @title.text = \Large \bbbold{Identificação de um caminho mínimo}
+    @title.anchor = west
+
+---
+
+a1 => Node
+    @a1.x = 1
+    @a1.y = 6
+    @a1.text = $\star$ \bbtext{O algoritmo de Dijkstra computa as distâncias mínimas, mas não os}
+    @a1.anchor = west
+
+a2 => Node
+    @a2.x = 0.5
+    @a2.y = 5.5
+    @a2.text = \bbtext{caminhos mínimos}
+    @a2.anchor = west
+
+---
+
+b1 => Node
+    @b1.x = 1
+    @b1.y = 4.5
+    @b1.text = $\star$ \bbtext{Para determinar um caminho mínimo, é preciso definir uma matriz auxiliar}
+    @b1.anchor = west
+
+b2 => Node
+    @b2.x = 0.5
+    @b2.y = 4.0
+    @b2.text = \bbtext{$\mathrm{pred}$, onde $\mathrm{pred}[u][v] = $ antecessor de $v$ no caminho mínimo de $u$ a $v$}
+    @b2.anchor = west
+
+---
+
+c1 => Node
+    @c1.x = 1
+    @c1.y = 3.0
+    @c1.text = $\star$ \bbtext{No início do algoritmo,}
+    @c1.anchor = west
+
+c2 => Node
+    @c2.x = 2
+    @c2.y = 2.5
+    @c2.text = \bbtext{$(a)$ $\mathrm{pred}[u][u] = u, \forall u\in V$}
+    @c2.anchor = west
+
+c3 => Node
+    @c3.x = 2
+    @c3.y = 2.0
+    @c3.text = \bbtext{$(b)$ $\mathrm{pred}[u][v] = u$, se $(u, v)\in E$}
+    @c3.anchor = west
+
+c4 => Node
+    @c4.x = 2
+    @c4.y = 1.5
+    @c4.text = \bbtext{$(c)$ $\mathrm{pred}[u][v] = \mathrm{undef}$, caso contrário}
+    @c4.anchor = west
+
+
+## Scene
+
+title => Node
+    @title.x = 0
+    @title.y = 6
+    @title.text = \Large \bbbold{Identificação de um caminho mínimo}
+    @title.anchor = west
+
+---
+
+a => Node
+    @a.x = 1
+    @a.y = 5
+    @a.text = $\star$ \bbtext{Se $(u, v)$ atualizar $d[v]$, faça $\mathrm{pred}[v] = u$}
+    @a.anchor = west
+
+
+---
+
+b1 => Node
+    @b1.x = 1
+    @b1.y = 4
+    @b1.text = $\star$ \bbtext{A sequência } 
+    @b1.anchor = west
+
+b2 => Node
+    @b2.x = 7
+    @b2.y = 3
+    @b2.text = \bbtext{$ p = \{ (u, \mathrm{pred}^{k - 1}[u][v]), \ldots, (\mathrm{pred}[\mathrm{pred}[u][v]], \mathrm{pred}[u][v]), (\mathrm{pred}[u][v], v)\}$ }
+
+b3 => Node
+    @b3.x = 0.5
+    @b3.y = 2
+    @b3.text = \bbtext{é um caminho mínimo de $u$ a $v$ composto por $k$ arestas e tamanho $d[u][v]$}
+    @b3.anchor = west
+
+## Scene
+
+a => Node
+    @a.x = 0
+    @a.y = 4
+    @a.text = \bbtext{A}
+    &a.circle
+    &a.draw
+    &a.very thick
+
+b => Node
+    @b.x = 3
+    @b.y = 7
+    @b.text = \bbtext{B}
+    &b.circle
+    &b.draw
+    &b.very thick
+
+c => Node
+    @c.x = 6
+    @c.y = 4
+    @c.text = \bbtext{C}
+    &c.circle
+    &c.draw
+    &c.very thick
+
+d => Node
+    @d.x = 3
+    @d.y = 1
+    @d.text = \bbtext{D}
+    &d.circle
+    &d.draw
+    &d.very thick
+
+eAB => Edge
+    @eAB.from = a
+    @eAB.to = b
+    %eAB.label = node[above left] { \bbinfo{1} }
+    &eAB.-latex
+    &eAB.thick
+    
+eAC => Edge
+    @eAC.from = a
+    @eAC.to = c
+    %eAC.label = node[above] { \bbinfo{4} }
+    &eAC.-latex
+    &eAC.thick
+ 
+eAD => Edge
+    @eAD.from = a
+    @eAD.to = d
+    %eAD.label = node[above right] { \bbinfo{9} }
+    &eAD.-latex
+    &eAD.thick
+ 
+eBC => Edge
+    @eBC.from = b
+    @eBC.to = c
+    %eBC.label = node[above right] { \bbinfo{2} }
+    &eBC.-latex
+    &eBC.thick
+ 
+eCD => Edge
+    @eCD.from = c
+    @eCD.to = d
+    %eCD.label = node[above left] { \bbinfo{5} }
+    &eCD.-latex
+    &eCD.thick
+ 
+grid => Grid
+    @grid.x = 9
+    @grid.y = 2
+    @grid.u = 13
+    @grid.v = 6
+    &grid.thick
+
+matrix => Node
+    @matrix.x = 8.5
+    @matrix.y = 4
+    @matrix.text = $M = $
+
+legend => Node
+    @legend.x = 11
+    @legend.y = 1.0
+    @legend.text = $m_{ij} = \mathrm{dist}[i][j]_{\mathrm{pred}[i][j]}$
+
+r1 => Node
+    @r1.x = 13.5
+    @r1.y = 5.5
+    @r1.text = \bbtext{A}
+
+r2 => Node
+    @r2.x = 13.5
+    @r2.y = 4.5
+    @r2.text = \bbtext{B}
+
+r3 => Node
+    @r3.x = 13.5
+    @r3.y = 3.5
+    @r3.text = \bbtext{C}
+
+r4 => Node
+    @r4.x = 13.5
+    @r4.y = 2.5
+    @r4.text = \bbtext{D}
+
+c1 => Node
+    @c1.x = 9.5
+    @c1.y = 6.5
+    @c1.text = \bbtext{A}
+
+c2 => Node
+    @c2.x = 10.5
+    @c2.y = 6.5
+    @c2.text = \bbtext{B}
+
+c3 => Node
+    @c3.x = 11.5
+    @c3.y = 6.5
+    @c3.text = \bbtext{C}
+
+c4 => Node
+    @c4.x = 12.5
+    @c4.y = 6.5
+    @c4.text = \bbtext{D}
+
+---
+
+a11 => Node
+    @a11.x = 9.5
+    @a11.y = 5.5
+    @a11.text = $\bbupdate{0}_{\bbtext{A}}$
+
+a22 => Node
+    @a22.x = 10.5
+    @a22.y = 4.5
+    @a22.text = $\bbupdate{0}_{\bbtext{B}}$
+
+a33 => Node
+    @a33.x = 11.5
+    @a33.y = 3.5
+    @a33.text = $\bbupdate{0}_{\bbtext{C}}$
+
+a44 => Node
+    @a44.x = 12.5
+    @a44.y = 2.5
+    @a44.text = $\bbupdate{0}_{\bbtext{D}}$
+
+---
+
+    @a11.text = $0_{\bbtext{A}}$
+    @a22.text = $0_{\bbtext{B}}$
+    @a33.text = $0_{\bbtext{C}}$
+    @a44.text = $0_{\bbtext{D}}$
+
+a12 => Node
+    @a12.x = 10.5
+    @a12.y = 5.5
+    @a12.text = $\bbupdate{1}_{\bbtext{A}}$
+
+a13 => Node
+    @a13.x = 11.5
+    @a13.y = 5.5
+    @a13.text = $\bbupdate{4}_{\bbtext{A}}$
+
+a14 => Node
+    @a14.x = 12.5
+    @a14.y = 5.5
+    @a14.text = $\bbupdate{9}_{\bbtext{A}}$
+
+b23 => Node
+    @b23.x = 11.5
+    @b23.y = 4.5
+    @b23.text = $\bbupdate{2}_{\bbtext{B}}$
+
+c34 => Node
+    @c34.x = 12.5
+    @c34.y = 3.5
+    @c34.text = $\bbupdate{5}_{\bbtext{C}}$
+
+---
+
+    @a12.text = $1_{\bbtext{A}}$
+    @a13.text = $4_{\bbtext{A}}$
+    @a14.text = $9_{\bbtext{A}}$
+    @b23.text = $2_{\bbtext{B}}$
+    @c34.text = $5_{\bbtext{C}}$
+
+b21 => Node
+    @b21.x = 9.5
+    @b21.y = 4.5
+    @b21.text = $\bbupdate{\infty}_{\bbtext{-}}$
+
+b24 => Node
+    @b24.x = 12.5
+    @b24.y = 4.5
+    @b24.text = $\bbupdate{\infty}_{\bbtext{-}}$
+
+c31 => Node
+    @c31.x = 9.5
+    @c31.y = 3.5
+    @c31.text = $\bbupdate{\infty}_{\bbtext{-}}$
+
+c32 => Node
+    @c32.x = 10.5
+    @c32.y = 3.5
+    @c32.text = $\bbupdate{\infty}_{\bbtext{-}}$
+
+d41 => Node
+    @d41.x = 9.5
+    @d41.y = 2.5
+    @d41.text = $\bbupdate{\infty}_{\bbtext{-}}$
+
+d42 => Node
+    @d42.x = 10.5
+    @d42.y = 2.5
+    @d42.text = $\bbupdate{\infty}_{\bbtext{-}}$
+
+d43 => Node
+    @d43.x = 11.5
+    @d43.y = 2.5
+    @d43.text = $\bbupdate{\infty}_{\bbtext{-}}$
+
+---
+
+    @a.fill = BBGreen
+    
+---
+
+    @b.fill = BBGreen
+    @a.fill = BBCyan
+
+    @a13.text = $\bbupdate{3}_{\bbtext{\bbupdate{B}}}$
+
+---
+
+    @c.fill = BBGreen
+    @b.fill = BBCyan
+
+    @a13.text = ${3}_{\bbtext{{B}}}$
+    @a14.text = $\bbupdate{8}_{\bbtext{\bbupdate{C}}}$
+    @b24.text = $\bbupdate{7}_{\bbtext{\bbupdate{C}}}$
+
+---
+
+    @d.fill = BBGreen
+    @c.fill = BBCyan
+
+    @a14.text = ${8}_{\bbtext{{C}}}$
+    @b24.text = ${7}_{\bbtext{{C}}}$
+
+---
+
+eDC => Edge
+    @eDC.from = d
+    @eDC.to = c
+    @eDC.color = BBViolet
+    %eDC.label = [bend right] node[below right, pos=0.3] { \tiny $(\mathrm{prev}(\mbox{\bbtext{D}}), \mbox{\bbtext{D}})$ }
+    &eDC.-latex
+    &eDC.dashed
+
+---
+
+eCB => Edge
+    @eCB.from = c
+    @eCB.to = b
+    @eCB.color = BBViolet
+    %eCB.label = [bend right] node[above right, pos=0.3] { \tiny $(\mathrm{prev}(\mbox{\bbtext{C}}), \mbox{\bbtext{C}})$ }
+    &eCB.-latex
+    &eCB.dashed
+
+---
+
+eBA => Edge
+    @eBA.from = b
+    @eBA.to = a
+    @eBA.color = BBViolet
+    %eBA.label = [bend right] node[above left, pos=0.3] { \tiny $(\mathrm{prev}(\mbox{\bbtext{B}}), \mbox{\bbtext{B}})$ }
+    &eBA.-latex
+    &eBA.dashed
 
 ## End
 
-## Scene
+# Scene
 + \node[anchor=west] at (0, 5.5) { 
 
 + \node[anchor=west] at (1, 4.5) { 
