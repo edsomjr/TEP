@@ -1036,8 +1036,8 @@ eDC => Edge
     @eDC.from = d
     @eDC.to = c
     @eDC.color = BBViolet
-    %eDC.label = [bend right] node[below right, pos=0.3] { \tiny $(\mathrm{prev}(\mbox{\bbtext{D}}), \mbox{\bbtext{D}})$ }
-    &eDC.-latex
+    %eDC.label = [bend right] node[below right, pos=0.3] { \tiny $(\mathrm{prev}[\mbox{\bbtext{A}}][\mbox{\bbtext{D}}], \mbox{\bbtext{D}})$ }
+    &eDC.latex-
     &eDC.dashed
 
 ---
@@ -1046,8 +1046,8 @@ eCB => Edge
     @eCB.from = c
     @eCB.to = b
     @eCB.color = BBViolet
-    %eCB.label = [bend right] node[above right, pos=0.3] { \tiny $(\mathrm{prev}(\mbox{\bbtext{C}}), \mbox{\bbtext{C}})$ }
-    &eCB.-latex
+    %eCB.label = [bend right] node[above right, pos=0.3] { \tiny $(\mathrm{prev}[\bbtext{A}][\mbox{\bbtext{C}}], \mbox{\bbtext{C}})$ }
+    &eCB.latex-
     &eCB.dashed
 
 ---
@@ -1056,8 +1056,8 @@ eBA => Edge
     @eBA.from = b
     @eBA.to = a
     @eBA.color = BBViolet
-    %eBA.label = [bend right] node[above left, pos=0.3] { \tiny $(\mathrm{prev}(\mbox{\bbtext{B}}), \mbox{\bbtext{B}})$ }
-    &eBA.-latex
+    %eBA.label = [bend right] node[above left, pos=0.3] { \tiny $(\mathrm{prev}[\bbtext{A}][\mbox{\bbtext{B}}], \mbox{\bbtext{B}})$ }
+    &eBA.latex-
     &eBA.dashed
 
 ## End
