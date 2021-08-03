@@ -39,7 +39,7 @@ Teoria dos Grafos
     1. [BFS 0/1](slides/bfs_01/bfs_01.pdf)
         1. [OJ 11573 - Ocean Currents](https://onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&category=24&page=show_problem&problem=2620) ([_upsolving_](problems/OJ_11573/OJ_11573.pdf))
         1. [Codeforces Round #516 (Div. 1) - Problem B: Labyrinth](https://codeforces.com/contest/1063/problem/B) ([_upsolving_](problems/CF_1063B/CF_103B.pdf))
-    1. [Algoritmo de Floyd-Warshall](slides/SSP-3/SSP-3.pdf) ([problems resolvidos](problems/SSP-3/SSP-3.pdf))
+    1. [Algoritmo de Floyd-Warshall](slides/floyd-warshall/floyd-warshall.pdf)
 1. Árvores
     1. [Travessias e Diâmetro](slides/TR-1/TR-1.pdf)
 
