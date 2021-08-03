@@ -8,12 +8,10 @@ const int MAX { 210 }, oo { 1000000010 };
 int dist[MAX][MAX];
 vector<ii> adj[MAX];
 
-vector<vector<int>> floyd_warshall(int N)
-{
-    vector<vector<int>> dist(N + 1, vector<int>(N + 1, oo));
-
+bool has_negative_cycle(int N) {
     for (int u = 1; u <= N; ++u)
-        dist[u][u] = 0;
+        for (int v = 1; v <= N; ++v)
+            dist[u][v] = u == v ? 0 : oo;
 
     for (int u = 1; u <= N; ++u)
         for (auto [v, w] : adj[u])
@@ -25,7 +23,10 @@ vector<vector<int>> floyd_warshall(int N)
                 if (dist[u][k] < oo and dist[k][v] < oo)
                     dist[u][v] = min(dist[u][v], dist[u][k] + dist[k][v]);
 
-    return dist;
+    for (int i = 1; i <= N; ++i)
+        if (dist[i][i] < 0) return true;
+
+    return false;
 }
 
 int main() {
@@ -38,7 +39,7 @@ int main() {
         adj[v].push_back(ii(u, w));
     }
 
-    floyd_warshall(6);
+    has_negative_cycle(6);
 
     return 0;
 } 

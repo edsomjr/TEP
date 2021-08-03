@@ -1529,7 +1529,7 @@
 \end{frame}
 \begin{frame}[plain,t]
 
-\inputsnippet{cpp}{11}{28}{codes/floyd.cpp}
+\inputsnippet{cpp}{11}{29}{codes/floyd.cpp}
 
 \end{frame}
 \begin{frame}[plain,t]
@@ -1620,7 +1620,7 @@
 	\node[anchor=west] (title) at (0.0, 6.0) { \Large \bbbold{Identificação de um caminho mínimo} };
 
 
-	\node[anchor=west] (a) at (1.0, 5.0) { $\star$ \bbtext{Se $(u, v)$ atualizar $d[v]$, faça $\mathrm{pred}[v] = u$} };
+	\node[anchor=west] (a) at (1.0, 5.0) { $\star$ \bbtext{Se $k$ atualizar $d[u][v]$, faça $\mathrm{pred}[u][v] = \mathrm{pred}[k][v]$} };
 
 
 \end{tikzpicture}
@@ -1633,7 +1633,7 @@
 	\node[anchor=west] (title) at (0.0, 6.0) { \Large \bbbold{Identificação de um caminho mínimo} };
 
 
-	\node[anchor=west] (a) at (1.0, 5.0) { $\star$ \bbtext{Se $(u, v)$ atualizar $d[v]$, faça $\mathrm{pred}[v] = u$} };
+	\node[anchor=west] (a) at (1.0, 5.0) { $\star$ \bbtext{Se $k$ atualizar $d[u][v]$, faça $\mathrm{pred}[u][v] = \mathrm{pred}[k][v]$} };
 
 
 
@@ -2562,6 +2562,144 @@
 
 
 	\draw[color=BBViolet,latex-,dashed](b) to [bend right] node[above left, pos=0.3] { \tiny $(\mathrm{prev}[\bbtext{A}][\mbox{\bbtext{B}}], \mbox{\bbtext{B}})$ } (a);
+
+\end{tikzpicture}
+\end{frame}
+\begin{frame}[plain,t]
+
+\inputsnippet{cpp}{10}{27}{codes/floyd_path.cpp}
+
+\end{frame}
+\begin{frame}[plain,t]
+
+\inputsnippet{cpp}{28}{44}{codes/floyd_path.cpp}
+
+\end{frame}
+\begin{frame}[plain,t]
+
+\inputsnippet{cpp}{46}{58}{codes/floyd_path.cpp}
+
+\end{frame}
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+
+	\node[anchor=west] (title) at (0.0, 6.5) { \Large \bbbold{Identificação de ciclos negativos} };
+
+\end{tikzpicture}
+\end{frame}
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+
+	\node[anchor=west] (title) at (0.0, 6.5) { \Large \bbbold{Identificação de ciclos negativos} };
+
+
+	\node[anchor=west] (line1) at (1.0, 5.5) { $\star$ \bbtext{O algoritmo de Floyd-Warshall é capaz de detectar ciclos negativos} };
+
+\end{tikzpicture}
+\end{frame}
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+
+	\node[anchor=west] (title) at (0.0, 6.5) { \Large \bbbold{Identificação de ciclos negativos} };
+
+
+	\node[anchor=west] (line1) at (1.0, 5.5) { $\star$ \bbtext{O algoritmo de Floyd-Warshall é capaz de detectar ciclos negativos} };
+
+
+	\node[anchor=west] (line2) at (1.0, 4.5) { $\star$ \bbtext{Inicialmente $\dist[u][u] = 0, \forall u\in V$, se $G$ não tem \bbenglish{autoloops}} };
+
+
+\end{tikzpicture}
+\end{frame}
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+
+	\node[anchor=west] (title) at (0.0, 6.5) { \Large \bbbold{Identificação de ciclos negativos} };
+
+
+	\node[anchor=west] (line1) at (1.0, 5.5) { $\star$ \bbtext{O algoritmo de Floyd-Warshall é capaz de detectar ciclos negativos} };
+
+
+	\node[anchor=west] (line2) at (1.0, 4.5) { $\star$ \bbtext{Inicialmente $\dist[u][u] = 0, \forall u\in V$, se $G$ não tem \bbenglish{autoloops}} };
+
+
+
+	\node[anchor=west] (line3) at (1.0, 3.5) { $\star$ \bbtext{Caso exista um ciclo negativo que passe por $u$, seguir este ciclo de $u$ a $u$} };
+
+	\node[anchor=west] (line3a) at (0.5, 3.0) { \bbtext{torna $\dist[u][u] < 0$} };
+
+\end{tikzpicture}
+\end{frame}
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+
+	\node[anchor=west] (title) at (0.0, 6.5) { \Large \bbbold{Identificação de ciclos negativos} };
+
+
+	\node[anchor=west] (line1) at (1.0, 5.5) { $\star$ \bbtext{O algoritmo de Floyd-Warshall é capaz de detectar ciclos negativos} };
+
+
+	\node[anchor=west] (line2) at (1.0, 4.5) { $\star$ \bbtext{Inicialmente $\dist[u][u] = 0, \forall u\in V$, se $G$ não tem \bbenglish{autoloops}} };
+
+
+
+	\node[anchor=west] (line3) at (1.0, 3.5) { $\star$ \bbtext{Caso exista um ciclo negativo que passe por $u$, seguir este ciclo de $u$ a $u$} };
+
+	\node[anchor=west] (line3a) at (0.5, 3.0) { \bbtext{torna $\dist[u][u] < 0$} };
+
+
+	\node[anchor=west] (line4) at (1.0, 2.0) { $\star$ \bbtext{Assim, $G$ terá um ciclo negativo se, ao final do algoritmo, $\dist[i][i] < 0$ para} };
+
+	\node[anchor=west] (line4a) at (0.5, 1.5) { \bbtext{algum $i\in V$} };
+
+\end{tikzpicture}
+\end{frame}
+\begin{frame}[plain,t]
+
+\inputsnippet{cpp}{11}{30}{codes/cycle.cpp}
+
+\end{frame}
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+
+	\node[anchor=west] (title) at (0.0, 6.0) { \Large \bbbold{Problemas sugeridos} };
+
+	\node[anchor=west] (a) at (1.0, 5.0) { $1.$ \bbtext{Codeforces Round \#179 (Div. 1) -- Problem B: Greg and Graph} };
+
+	\node[anchor=west] (b) at (1.0, 4.0) { $2.$ \bbtext{LightOJ -- Travel Company} };
+
+	\node[anchor=west] (c) at (1.0, 3.0) { $3.$ \bbtext{OJ 104 -- Arbitrage} };
+
+	\node[anchor=west] (d) at (1.0, 2.0) { $4.$ \bbtext{OJ 10171 -- Meeting Prof. Miguel...} };
+
+\end{tikzpicture}
+\end{frame}
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+
+	\node[anchor=west] (title) at (0.0, 6.0) { \Large \bbbold{Referências} };
+
+	\node[anchor=west] (a) at (1.0, 5.0) { $1.$ \bbtext{\bbbold{CP-Algorithms}. \bbenglish{Floyd-Warshall Algorithm}, acesso em 03/08/2021.} };
+
+	\node[anchor=west] (b) at (1.0, 4.0) { $2.$ \bbbold{HALIM}, \bbtext{Felix}; \bbbold{HALIM}, \bbtext{Steve}. \bbenglish{Competitive Programming 3,} \bbtext{2010.} };
+
+	\node[anchor=west] (c) at (1.0, 3.0) { $3.$ \bbbold{LAAKSONEN}, \bbtext{Antti}. \bbenglish{Competitive Programmer's Handbook,} \bbtext{2018.} };
+
+	\node[anchor=west] (d) at (1.0, 2.0) { $4.$ \bbbold{SKIENA}, \bbtext{Steven}; \bbbold{REVILLA}, \bbtext{Miguel}. \bbenglish{Programming Challenges,} \bbtext{2003.} };
 
 \end{tikzpicture}
 \end{frame}

@@ -678,7 +678,7 @@ a64 => Node
 
 ## Frame
 
-\inputsnippet{cpp}{11}{28}{codes/floyd.cpp}
+\inputsnippet{cpp}{11}{29}{codes/floyd.cpp}
 
 ## Scene
 
@@ -756,7 +756,7 @@ title => Node
 a => Node
     @a.x = 1
     @a.y = 5
-    @a.text = $\star$ \bbtext{Se $(u, v)$ atualizar $d[v]$, faça $\mathrm{pred}[v] = u$}
+    @a.text = $\star$ \bbtext{Se $k$ atualizar $d[u][v]$, faça $\mathrm{pred}[u][v] = \mathrm{pred}[k][v]$}
     @a.anchor = west
 
 
@@ -1060,18 +1060,137 @@ eBA => Edge
     &eBA.latex-
     &eBA.dashed
 
+## Frame
+
+\inputsnippet{cpp}{10}{27}{codes/floyd_path.cpp}
+
+## Frame
+
+\inputsnippet{cpp}{28}{44}{codes/floyd_path.cpp}
+
+## Frame
+
+\inputsnippet{cpp}{46}{58}{codes/floyd_path.cpp}
+
+## Scene
+
+title => Node
+    @title.x = 0
+    @title.y = 6.5
+    @title.text = \Large \bbbold{Identificação de ciclos negativos}
+    @title.anchor = west
+
+---
+
+line1 => Node
+    @line1.x = 1
+    @line1.y = 5.5
+    @line1.text = $\star$ \bbtext{O algoritmo de Floyd-Warshall é capaz de detectar ciclos negativos}
+    @line1.anchor = west
+
+---
+
+line2 => Node
+    @line2.x = 1
+    @line2.y = 4.5
+    @line2.text = $\star$ \bbtext{Inicialmente $\dist[u][u] = 0, \forall u\in V$, se $G$ não tem \bbenglish{autoloops}}
+    @line2.anchor = west
+
+
+---
+
+line3 => Node
+    @line3.x = 1
+    @line3.y = 3.5
+    @line3.text = $\star$ \bbtext{Caso exista um ciclo negativo que passe por $u$, seguir este ciclo de $u$ a $u$}
+    @line3.anchor = west
+
+line3a => Node
+    @line3a.x = 0.5
+    @line3a.y = 3.0
+    @line3a.text = \bbtext{torna $\dist[u][u] < 0$}
+    @line3a.anchor = west
+
+---
+
+line4 => Node
+    @line4.x = 1
+    @line4.y = 2.0
+    @line4.text = $\star$ \bbtext{Assim, $G$ terá um ciclo negativo se, ao final do algoritmo, $\dist[i][i] < 0$ para}
+    @line4.anchor = west
+
+line4a => Node
+    @line4a.x = 0.5
+    @line4a.y = 1.5
+    @line4a.text = \bbtext{algum $i\in V$}
+    @line4a.anchor = west
+
+## Frame
+
+\inputsnippet{cpp}{11}{30}{codes/cycle.cpp}
+
+## Scene
+
+title => Node
+    @title.x = 0
+    @title.y = 6
+    @title.text = \Large \bbbold{Problemas sugeridos}
+    @title.anchor = west
+
+a => Node
+    @a.x = 1
+    @a.y = 5
+    @a.text = $1.$ \bbtext{Codeforces Round \#179 (Div. 1) -- Problem B: Greg and Graph}
+    @a.anchor = west
+
+b => Node
+    @b.x = 1
+    @b.y = 4
+    @b.text = $2.$ \bbtext{LightOJ -- Travel Company}
+    @b.anchor = west
+
+c => Node
+    @c.x = 1
+    @c.y = 3
+    @c.text = $3.$ \bbtext{OJ 104 -- Arbitrage}
+    @c.anchor = west
+
+d => Node
+    @d.x = 1
+    @d.y = 2
+    @d.text = $4.$ \bbtext{OJ 10171 -- Meeting Prof. Miguel...}
+    @d.anchor = west
+
+## Scene
+
+title => Node
+    @title.x = 0
+    @title.y = 6
+    @title.text = \Large \bbbold{Referências}
+    @title.anchor = west
+
+a => Node
+    @a.x = 1
+    @a.y = 5
+    @a.text = $1.$ \bbtext{\bbbold{CP-Algorithms}. \bbenglish{Floyd-Warshall Algorithm}, acesso em 03/08/2021.}
+    @a.anchor = west
+
+b => Node
+    @b.x = 1
+    @b.y = 4
+    @b.text = $2.$ \bbbold{HALIM}, \bbtext{Felix}; \bbbold{HALIM}, \bbtext{Steve}. \bbenglish{Competitive Programming 3,} \bbtext{2010.}
+    @b.anchor = west
+
+c => Node
+    @c.x = 1
+    @c.y = 3
+    @c.text = $3.$ \bbbold{LAAKSONEN}, \bbtext{Antti}. \bbenglish{Competitive Programmer's Handbook,} \bbtext{2018.}
+    @c.anchor = west
+
+d => Node
+    @d.x = 1
+    @d.y = 2
+    @d.text = $4.$ \bbbold{SKIENA}, \bbtext{Steven}; \bbbold{REVILLA}, \bbtext{Miguel}. \bbenglish{Programming Challenges,} \bbtext{2003.}
+    @d.anchor = west
+
 ## End
-
-# Scene
-+ \node[anchor=west] at (0, 5.5) { 
-
-+ \node[anchor=west] at (1, 4.5) { 
-
-+ \node[anchor=west] at (1, 3.5) { $2.$ \bbtext{Para cada aresta $(u, v, w)\in E$, se existe um caminho de $s$ a $u$ (isto é, } };
-+ \node[anchor=west] at (0.5, 3.0) { \bbtext{$d[u] < \infty$) e $d[u] + w < d[v]$, faça $d[v] = d[u] + w$} };
-
-+ \node[anchor=west] at (1, 2.0) { $3.$ \bbtext{Se o vetor $d$ foi atualizado ao menos uma vez, volte ao passo $2.$ } };
-
-+ \node[anchor=west] at (1, 1.0) { $4.$ \bbtext{Retorne $d$ } };
-
-
