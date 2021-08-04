@@ -1,0 +1,1 @@
+../../../whiteboard.cls
