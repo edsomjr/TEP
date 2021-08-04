@@ -4,15 +4,14 @@ using namespace std;
 using ii = pair<int, int>;
 using edge = tuple<int, int, int>;
 
-const int MAX { 210 }, oo { 1000000010 };
-int dist[MAX][MAX], pred[MAX][MAX];
+const int oo { 1000000010 }, MAX { 200010 };
 vector<ii> adj[MAX];
 
-void floyd_warshall(int N)
+pair<vector<vector<int>>, vector<vector<int>>>
+floyd_warshall(int N)
 {
-    for (int u = 1; u <= N; ++u)
-        for (int v = 1; v <= N; ++v)
-            dist[u][v] = oo;
+    vector<vector<int>> dist(N + 1, vector<int>(N + 1, oo));
+    vector<vector<int>> pred(N + 1, vector<int>(N + 1, oo));
 
     for (int u = 1; u <= N; ++u)
     {
@@ -21,7 +20,7 @@ void floyd_warshall(int N)
     }
 
     for (int u = 1; u <= N; ++u)
-        for (const auto& [v, w] : adj[u]) {
+        for (auto [v, w] : adj[u]) {
             dist[u][v] = w;
             pred[u][v] = u;
         }
@@ -32,14 +31,30 @@ void floyd_warshall(int N)
         {
             for (int v = 1; v <= N; ++v)
             {
-                if (dist[u][v] > dist[u][k] + dist[k][v])
-                {
-                    dist[u][v] = dist[u][k] + dist[k][v];
-                    pred[u][v] = pred[k][v];
+                if (dist[u][k] < oo and dist[k][v] < oo 
+                    and dist[u][v] > dist[u][k] + dist[k][v]) {
+                        dist[u][v] = dist[u][k] + dist[k][v];
+                        pred[u][v] = pred[k][v];
                 }
             }
         }
     }
+
+    return { dist, pred };
+}
+
+vector<ii> path(int u, int v, const vector<vector<int>>& pred)
+{
+    vector<ii> p;
+
+    do {
+        p.push_back(ii(pred[u][v], v));
+        v = pred[u][v];
+    } while (v != u);
+
+    reverse(p.begin(), p.end());
+
+    return p;
 }
 
 int main() {
@@ -54,28 +69,19 @@ int main() {
         adj[v].push_back(ii(u, w));
     }
 
-    floyd_warshall(N);
+    auto [dist, pred] = floyd_warshall(N);
 
     for (int u = 1; u <= N; ++u)
     {
         for (int v = 1; v <= N; ++v)
         {
-            vector<int> path;
-            auto p = v;
-
-            while (p != u) {
-                path.push_back(p);
-                p = pred[u][p];
-            } 
-
-            path.push_back(u);
-            reverse(path.begin(), path.end());
+            auto p = path(u, v, pred);
 
             cout << "dist[" << u << "][" << v << "] = " << dist[u][v] 
                 << '\n';
 
-            for (size_t i = 0; i < path.size(); ++i)
-                cout << path[i] << (i + 1 == path.size() ? "\n" : " -> ");
+            for (size_t i = 0; i < p.size(); ++i)
+                cout << "(" << p[i].first << ", " << p[i].second << ")" << (i + 1 == p.size() ? "\n" : " -> ");
         }
     }
 

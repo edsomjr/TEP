@@ -8,22 +8,24 @@ const int MAX { 210 }, oo { 1000000010 };
 int dist[MAX][MAX];
 vector<ii> adj[MAX];
 
-void floyd_warshall(int N) {
-    for (int u = 1; u <= N; ++u)
-        for (int v = 1; v <= N; ++v)
-            dist[u][v] = oo;
+vector<vector<int>> floyd_warshall(int N)
+{
+    vector<vector<int>> dist(N + 1, vector<int>(N + 1, oo));
 
     for (int u = 1; u <= N; ++u)
         dist[u][u] = 0;
 
     for (int u = 1; u <= N; ++u)
-        for (const auto& [v, w] : adj[u])
+        for (auto [v, w] : adj[u])
             dist[u][v] = w;
 
     for (int k = 1; k <= N; ++k)
         for (int u = 1; u <= N; ++u)
             for (int v = 1; v <= N; ++v)
-                dist[u][v] = min(dist[u][v], dist[u][k] + dist[k][v]);
+                if (dist[u][k] < oo and dist[k][v] < oo)
+                    dist[u][v] = min(dist[u][v], dist[u][k] + dist[k][v]);
+
+    return dist;
 }
 
 int main() {
