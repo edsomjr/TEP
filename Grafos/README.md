@@ -41,6 +41,7 @@ Teoria dos Grafos
         1. [Codeforces Round #516 (Div. 1) - Problem B: Labyrinth](https://codeforces.com/contest/1063/problem/B) ([_upsolving_](problems/CF_1063B/CF_103B.pdf))
     1. [Algoritmo de Floyd-Warshall](slides/floyd-warshall/floyd-warshall.pdf)
 1. Árvores
+        1. [Codeforces Round #179 (Div. 1) - Problem B: Greg and Graph](https://codeforces.com/problemset/problem/295/B) ([_upsolving_](problems/CF_295B/CF_295B.pdf))
     1. [Travessias e Diâmetro](slides/TR-1/TR-1.pdf)
 
 <!---
