@@ -390,10 +390,14 @@ e2 => Edge
     &e1.dashed
 
 ---
+
 -e1
+    @info.text = \bbtext{A raiz não tem pai!}
+    @G.fill = BBWhite
+
+---
 
     @info.text = \bbtext{Folhas são nós com apenas um vizinho (sem filhos)}
-    @G.fill = BBWhite
 
 ---
 
@@ -416,37 +420,165 @@ p => Path
     &p.color = BBViolet
     @p.path = (8, 1) [bend right] to (10, 0) [bend right] to (12, 1) [bend right] to (10, 4) [bend right] to [bend right] (8, 1)
 
+---
+-p
+    @G.fill = BBWhite
+
+    @info.text = \bbtext{O nível $l(u)$ do nó $u$ é igual ao número de nós no caminho de $u$ até a raiz}
+
+---
+e3 => Edge
+    @e3.x = 7.75
+    @e3.y = 1
+    @e3.u = 8.5
+    @e3.v = 1
+    @e3.color = BBViolet
+    &e3.thick
+    &e3.latex-
+ 
+
+value => Node
+    @value.x = 7.75
+    @value.y = 1
+    @value.text = \footnotesize $l(1) = 3$
+    @value.anchor = east
+
+---
+-e3
+-value
+
+    @info.text = \bbtext{A altura $h$ é igual ao máximo entre os níveis de todos os nós}
+
+---
+
++e3
++value
+
+    @e3.x = 11.5
+    @e3.y = 5
+    @e3.u = 10.75
+    @e3.v = 5
+
+    @value.x = 10.75
+    @value.y = 5
+    @value.text = \footnotesize $h = 3$
+
+---
+-e3
+-value
+
+    @info.text = \bbtext{Uma árvore com um único nó tem altura $1$}
+
+---
+
+-A
+-B
+-C
+-E
+-F
+-G
+-E42
+-E45
+-E17
+-E73
+-E74
+-E56
+-a
+-b
+-c
+-e
+-f
+-g
+
+-e17
+-e73
+-e74
+-e42
+-e45
+-e56 
+
+---
+    @info.text = \bbtext{Árvores vazias tem altura igual a zero}
+
+---
+-d
+-D
 
 ## Scene
 
 title => Node
     @title.x = 0
     @title.y = 6
+    @title.text = \Large \bbbold{Definição formal de árvore}
+    @title.anchor = west
+
+---
+
+line1 => Node
+    @line1.x = 1
+    @line1.y = 5
+    @line1.text = $1.$ \bbtext{Uma estrutura vazia é uma árvore}
+    @line1.anchor = west
+
+---
+
+line2 => Node
+    @line2.x = 1
+    @line2.y = 4
+    @line2.text = $2.$ \bbtext{Se $T_1, T_2, \ldots, T_k$ são árvores disjuntas, então a estrutura cuja raiz tem}
+    @line2.anchor = west
+
+line2a => Node
+    @line2a.x = 1.5
+    @line2a.y = 3.5
+    @line2a.text = \bbtext{como filhos as raizes de $T_1, T_2, \ldots, T_k$ também é uma árvore}
+    @line2a.anchor = west
+
+---
+
+line3 => Node
+    @line3.x = 1
+    @line3.y = 2.5
+    @line3.text = $3.$ \bbtext{Apenas estruturas geradas pelas regras $1$ e $2$ são árvores}
+    @line3.anchor = west
+
+## Scene
+
+title => Node
+    @title.x = 0
+    @title.y = 7
     @title.text = \Large \bbbold{Referências}
     @title.anchor = west
 
 a => Node
     @a.x = 1
     @a.y = 2
-    @a.text = $4.$ \bbtext{\bbbold{Wikipédia}. \bbenglish{Tree (graph theory),} acesso em 06/08/2021.}
+    @a.text = $5.$ \bbtext{\bbbold{Wikipédia}. \bbenglish{Tree (graph theory),} acesso em 06/08/2021.}
     @a.anchor = west
+
+e => Node
+    @e.x = 1
+    @e.y = 6
+    @e.text = $1.$ \bbbold{DROZDEK}, \bbtext{Adam}. \bbenglish{Algoritmos e Estruturas de Dados em C++,} \bbtext{2002.}
+    @e.anchor = west
+
 
 b => Node
     @b.x = 1
     @b.y = 5
-    @b.text = $1.$ \bbbold{HALIM}, \bbtext{Felix}; \bbbold{HALIM}, \bbtext{Steve}. \bbenglish{Competitive Programming 3,} \bbtext{2010.}
+    @b.text = $2.$ \bbbold{HALIM}, \bbtext{Felix}; \bbbold{HALIM}, \bbtext{Steve}. \bbenglish{Competitive Programming 3,} \bbtext{2010.}
     @b.anchor = west
 
 c => Node
     @c.x = 1
     @c.y = 4
-    @c.text = $2.$ \bbbold{LAAKSONEN}, \bbtext{Antti}. \bbenglish{Competitive Programmer's Handbook,} \bbtext{2018.}
+    @c.text = $3.$ \bbbold{LAAKSONEN}, \bbtext{Antti}. \bbenglish{Competitive Programmer's Handbook,} \bbtext{2018.}
     @c.anchor = west
 
 d => Node
     @d.x = 1
     @d.y = 3
-    @d.text = $3.$ \bbbold{SKIENA}, \bbtext{Steven}; \bbbold{REVILLA}, \bbtext{Miguel}. \bbenglish{Programming Challenges,} \bbtext{2003.}
+    @d.text = $4.$ \bbbold{SKIENA}, \bbtext{Steven}; \bbbold{REVILLA}, \bbtext{Miguel}. \bbenglish{Programming Challenges,} \bbtext{2003.}
     @d.anchor = west
 
 ## End
