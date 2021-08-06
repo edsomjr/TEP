@@ -112,7 +112,6 @@
 + \node[draw,circle,very thick] (E) at (9, 2) { \scriptsize \bbtext{5} };
 + \node[draw,circle,very thick] (F) at (8, 1) { \scriptsize \bbtext{6} };
 
-
 + \draw[-latex,color=BBOrange] (A) to [bend right] (B);
 + \draw[-latex,color=BBOrange] (A) to [bend right] (D);
 
@@ -126,7 +125,7 @@
 + \node at (3.2, 4.4) { \bbalert{x} };
 
 ## Scene
-+ \node[anchor=west] at (0, 6) { \bbbold{Solução} };
++ \node[anchor=west] at (0, 6) { \Large \bbbold{Solução} };
 
 + \node[anchor=west] at (1, 5) { $\star$ \bbtext{Adjacência de $u$: $(d^2, x, y, v)$} };
 
