@@ -92,7 +92,7 @@ header => Node
 line1 => Node
     @line1.x = 1
     @line1.y = 6
-    @line1.text = \bbtext{\texttt{2} }
+    @line1.text = \bbtext{\texttt{4} }
     @line1.anchor = west
 
 ---
@@ -108,126 +108,218 @@ arrow => Edge
 r => Node
     @r.x = 1.25
     @r.y = 4.75
-    @r.text = \footnotesize \bbcomment{\# de vértices}
+    @r.text = \footnotesize \bbcomment{\# de estradas}
 
 ---
 -r
 -arrow
 
-node1 => Node
-    @node1.x = 7
-    @node1.y = 4
-    @node1.text = \bbtext{1}
-    &node1.draw
-    &node1.very thick
-    &node1.circle
+a => Node
+    @a.x = 7
+    @a.y = 4
+    @a.text = \bbtext{A}
+    &a.draw
+    &a.very thick
+    &a.circle
 
-node2 => Node
-    @node2.x = 12
-    @node2.y = 4
-    @node2.text = \bbtext{2}
-    &node2.draw
-    &node2.very thick
-    &node2.circle
+b => Node
+    @b.x = 10
+    @b.y = 7
+    @b.text = \bbtext{B}
+    &b.draw
+    &b.very thick
+    &b.circle
+
+c => Node
+    @c.x = 13
+    @c.y = 4
+    @c.text = \bbtext{C}
+    &c.draw
+    &c.very thick
+    &c.circle
+
+d => Node
+    @d.x = 10
+    @d.y = 1
+    @d.text = \bbtext{D}
+    &d.draw
+    &d.very thick
+    &d.circle
 
 ---
 
 line2 => Node
     @line2.x = 1
     @line2.y = 5.5
-    @line2.text = \bbtext{\texttt{0 5} }
+    @line2.text = \bbtext{\texttt{Y U A B 4} }
     @line2.anchor = west
 
-line3 => Node
-    @line3.x = 1
-    @line3.y = 5.0
-    @line3.text = \bbtext{\texttt{4 0} }
-    @line3.anchor = west
-
----
 +r
-    @r.x = 1.85
-    @r.y = 3.5
-    @r.text = \bbcomment{matriz de adjacências}
+    @r.y = 4.0
+    @r.text = \footnotesize \bbcomment{público da rua}
 
 +arrow
-    @arrow.x = 1.45
-    @arrow.y = 3.75
-    @arrow.u = 1.45
-    @arrow.v = 4.75
+    @arrow.y = 4.25
+    @arrow.v = 5.25
+
+---
+    @r.x = 1.65
+    @r.text = \footnotesize \bbcomment{sentido do tráfego}
+
+    @arrow.x = 1.65
+    @arrow.u = 1.65
+
+---
+    @r.x = 2.05
+    @r.text = \footnotesize \bbcomment{ponto de partida}
+
+    @arrow.x = 2.05
+    @arrow.u = 2.05
+
+---
+    @r.x = 2.45
+    @r.text = \footnotesize \bbcomment{ponto de chegada}
+
+    @arrow.x = 2.45
+    @arrow.u = 2.45
+
+---
+    @r.x = 2.85
+    @r.text = \footnotesize \bbcomment{custo de energia}
+
+    @arrow.x = 2.85
+    @arrow.u = 2.85
 
 ---
 -r
 -arrow
 
-e12 => Edge
-    @e12.from = node1
-    @e12.to = node2
-    &e12.very thick
-    &e12.-latex
-    %e12.label = [bend left] node[above] { \bbinfo{5} }
+eAB => Edge
+    @eAB.from = a
+    @eAB.to = b
+    @eAB.color = BBCyan
+    &eAB.very thick
+    &eAB.-latex
+    %eAB.label = node[above left] { \bbinfo{4} }
 
-e21 => Edge
-    @e21.from = node2
-    @e21.to = node1
-    &e21.very thick
-    &e21.-latex
-    %e21.label = [bend left] node[above] { \bbinfo{4} }
+---
+
+line3 => Node
+    @line3.x = 1
+    @line3.y = 5.0
+    @line3.text = \bbtext{\texttt{Y U C A 1}}
+    @line3.anchor = west
+
+---
+
+eCA => Edge
+    @eCA.from = c
+    @eCA.to = a
+    @eCA.color = BBCyan
+    &eCA.very thick
+    &eCA.-latex
+    %eCA.label = node[above, pos=0.8] { \bbinfo{1} }
 
 ---
 
 line4 => Node
     @line4.x = 1
     @line4.y = 4.5
-    @line4.text = \bbtext{\texttt{1 2} }
+    @line4.text = \bbtext{\texttt{M U D B 6}}
     @line4.anchor = west
 
 ---
 
-+r
-    @r.y = 3.0
-    @r.text = \bbcomment{vértices excluídos}
+eDB => Edge
+    @eDB.from = d
+    @eDB.to = b
+    @eDB.color = BBGreen
+    &eDB.very thick
+    &eDB.-latex
+    %eDB.label = node[right, pos=0.8] { \bbinfo{6} }
 
+---
+
+line5 => Node
+    @line5.x = 1
+    @line5.y = 4.0
+    @line5.text = \bbtext{\texttt{M B C D 2}}
+    @line5.anchor = west
+
+---
+
+eBC => Edge
+    @eBC.from = b
+    @eBC.to = c
+    @eBC.color = BBGreen
+    &eBC.very thick
+    &eBC.>=latex
+    &eBC.<->
+    %eBC.label = node[above right] { \bbinfo{2} }
+
+---
+
+line6 => Node
+    @line6.x = 1
+    @line6.y = 3.5
+    @line6.text = \bbtext{\texttt{A D}}
+    @line6.anchor = west
+
+---
+
++r
 +arrow
-    @arrow.y = 3.25
-    @arrow.v = 4.25
+
+    @r.x = 1.25
+    @r.y = 2.0
+    @r.text = \footnotesize \bbcomment{Prof. Shahriar}
+
+    @arrow.x = 1.25
+    @arrow.y = 2.25
+    @arrow.u = 1.25
+    @arrow.v = 3.25
 
 ---
 -r
--arrow
-
-eq => Node
-    @eq.x = 7
-    @eq.y = 1.5
-    @eq.text = $\displaystyle \sum_{u, v, u\neq v} d(1, u, v) = d(1, 1, 2) + d(1, 2, 1) = 5 + 4 = 9$
+-arrow    
+    @a.text = \footnotesize \textcolor{BBCyan}{\faUser}
 
 ---
--eq
-
-    @node1.fill = BBRed
-
----
-
--node1
--e12
--e21
-
----
-+eq
-    @eq.text = $\displaystyle \sum_{u, v, u\neq v} d(2, u, v) = 0$
-
----
--eq
-+arrow
 +r
++arrow    
+    @r.x = 1.65
+    @r.y = 2.0
+    @r.text = \footnotesize \bbcomment{Prof. Miguel}
 
+    @arrow.x = 1.65
+    @arrow.y = 2.25
+    @arrow.u = 1.65
+    @arrow.v = 3.25
+
+---
+-r
+-arrow    
+
+    @d.text = \footnotesize \textcolor{BBGreen}{\faUser}
+
+---
+
+    &eAB.dashed
+    &eDB.dashed
+
+---
++r
++arrow
     @r.x = 1.45
-    @r.text = \bbinfo{9 0}
+    @r.text = \bbinfo{10}
 
+    @arrow.x = 1.45
+    @arrow.u = 1.45
     @arrow.color = BBBlack
+    &arrow.-latex
     &arrow.very thick
-    &arrow.latex-
 
+    
 ## Scene
 
 header => Node
@@ -240,420 +332,107 @@ header => Node
 line1 => Node
     @line1.x = 1
     @line1.y = 6
-    @line1.text = \bbtext{\texttt{4} }
+    @line1.text = \bbtext{\texttt{2} }
     @line1.anchor = west
 
 ---
 
-node1 => Node
-    @node1.x = 5
-    @node1.y = 4
-    @node1.text = \bbtext{1}
-    &node1.draw
-    &node1.very thick
-    &node1.circle
+a => Node
+    @a.x = 7
+    @a.y = 4
+    @a.text = \bbtext{A}
+    &a.draw
+    &a.very thick
+    &a.circle
 
-node2 => Node
-    @node2.x = 6.5
-    @node2.y = 6
-    @node2.text = \bbtext{2}
-    &node2.draw
-    &node2.very thick
-    &node2.circle
+b => Node
+    @b.x = 10
+    @b.y = 7
+    @b.text = \bbtext{B}
+    &b.draw
+    &b.very thick
+    &b.circle
 
-node3 => Node
-    @node3.x = 8
-    @node3.y = 4
-    @node3.text = \bbtext{3}
-    &node3.draw
-    &node3.very thick
-    &node3.circle
+c => Node
+    @c.x = 13
+    @c.y = 4
+    @c.text = \bbtext{C}
+    &c.draw
+    &c.very thick
+    &c.circle
 
-node4 => Node
-    @node4.x = 6.5
-    @node4.y = 2
-    @node4.text = \bbtext{4}
-    &node4.draw
-    &node4.very thick
-    &node4.circle
+d => Node
+    @d.x = 10
+    @d.y = 1
+    @d.text = \bbtext{D}
+    &d.draw
+    &d.very thick
+    &d.circle
 
 ---
 
 line2 => Node
     @line2.x = 1
     @line2.y = 5.5
-    @line2.text = \bbtext{\texttt{0 3 1 1} }
+    @line2.text = \bbtext{\texttt{Y U A B 10}}
     @line2.anchor = west
+
+---
+
+eAB => Edge
+    @eAB.from = a
+    @eAB.to = b
+    @eAB.color = BBCyan
+    &eAB.very thick
+    &eAB.-latex
+    %eAB.label = node[above left] { \bbinfo{10} }
+
+---
 
 line3 => Node
     @line3.x = 1
-    @line3.y = 5
-    @line3.text = \bbtext{\texttt{6 0 400 1} }
+    @line3.y = 5.0
+    @line3.text = \bbtext{\texttt{M U C D 20}}
     @line3.anchor = west
+
+---
+
+eCD => Edge
+    @eCD.from = c
+    @eCD.to = d
+    @eCD.color = BBGreen
+    &eCD.very thick
+    &eCD.-latex
+    %eCD.label = node[above left] { \bbinfo{20} }
+
+---
 
 line4 => Node
     @line4.x = 1
     @line4.y = 4.5
-    @line4.text = \bbtext{\texttt{2 4 0 1} }
+    @line4.text = \bbtext{\texttt{A D}}
     @line4.anchor = west
 
-line5 => Node
-    @line5.x = 1
-    @line5.y = 4
-    @line5.text = \bbtext{\texttt{1 1 1 0} }
-    @line5.anchor = west
-
---- 
-
-grid => Grid
-    @grid.x = 10
-    @grid.y = 2
-    @grid.u = 14
-    @grid.v = 6
-    &grid.thick
-
-c1 => Node
-    @c1.x = 9.5
-    @c1.y = 5.5
-    @c1.text = \bbtext{1}
-
-c2 => Node
-    @c2.x = 9.5
-    @c2.y = 4.5
-    @c2.text = \bbtext{2}
-
-c3 => Node
-    @c3.x = 9.5
-    @c3.y = 3.5
-    @c3.text = \bbtext{3}
-
-c4 => Node
-    @c4.x = 9.5
-    @c4.y = 2.5
-    @c4.text = \bbtext{4}
-
-r1 => Node
-    @r1.x = 10.5
-    @r1.y = 6.5
-    @r1.text = \bbtext{1}
-
-r2 => Node
-    @r2.x = 11.5
-    @r2.y = 6.5
-    @r2.text = \bbtext{2}
-
-r3 => Node
-    @r3.x = 12.5
-    @r3.y = 6.5
-    @r3.text = \bbtext{3}
-
-r4 => Node
-    @r4.x = 13.5
-    @r4.y = 6.5
-    @r4.text = \bbtext{4}
-
-a11 => Node
-    @a11.x = 10.5
-    @a11.y = 5.5
-    @a11.text = \footnotesize $0$
-
-a12 => Node
-    @a12.x = 11.5
-    @a12.y = 5.5
-    @a12.text = \footnotesize $3$
-
-a13 => Node
-    @a13.x = 12.5
-    @a13.y = 5.5
-    @a13.text = \footnotesize $1$
-
-a14 => Node
-    @a14.x = 13.5
-    @a14.y = 5.5
-    @a14.text = \footnotesize $1$
-
-a21 => Node
-    @a21.x = 10.5
-    @a21.y = 4.5
-    @a21.text = \footnotesize $6$
-
-a22 => Node
-    @a22.x = 11.5
-    @a22.y = 4.5
-    @a22.text = \footnotesize $0$
-
-a23 => Node
-    @a23.x = 12.5
-    @a23.y = 4.5
-    @a23.text = \footnotesize $400$
-
-a24 => Node
-    @a24.x = 13.5
-    @a24.y = 4.5
-    @a24.text = \footnotesize $1$
-
-a31 => Node
-    @a31.x = 10.5
-    @a31.y = 3.5
-    @a31.text = \footnotesize $2$
-
-a32 => Node
-    @a32.x = 11.5
-    @a32.y = 3.5
-    @a32.text = \footnotesize $4$
-
-a33 => Node
-    @a33.x = 12.5
-    @a33.y = 3.5
-    @a33.text = \footnotesize $0$
-
-a34 => Node
-    @a34.x = 13.5
-    @a34.y = 3.5
-    @a34.text = \footnotesize $1$
-
-a41 => Node
-    @a41.x = 10.5
-    @a41.y = 2.5
-    @a41.text = \footnotesize $1$
-
-a42 => Node
-    @a42.x = 11.5
-    @a42.y = 2.5
-    @a42.text = \footnotesize $1$
-
-a43 => Node
-    @a43.x = 12.5
-    @a43.y = 2.5
-    @a43.text = \footnotesize $1$
-
-a44 => Node
-    @a44.x = 13.5
-    @a44.y = 2.5
-    @a44.text = \footnotesize $0$
-
-e12 => Edge
-    @e12.from = node1
-    @e12.to = node2
-    &e12.-latex
-    %e12.label = [bend left] node[above,pos=0.9] { \scriptsize \bbinfo{3} }
-    &e12.thick
-
-e13 => Edge
-    @e13.from = node1
-    @e13.to = node3
-    &e13.-latex
-    %e13.label = [bend right] node[below,pos=0.9] { \scriptsize \bbinfo{1} }
-    &e13.thick
-
-e14 => Edge
-    @e14.from = node1
-    @e14.to = node4
-    &e14.-latex
-    %e14.label = node[left,pos=0.9] { \scriptsize \bbinfo{1} }
-    &e14.thick
-
-e21 => Edge
-    @e21.from = node2
-    @e21.to = node1
-    &e21.-latex
-    %e21.label = node[above,pos=0.9] { \scriptsize \bbinfo{6} }
-    &e21.thick
-
-e23 => Edge
-    @e23.from = node2
-    @e23.to = node3
-    &e23.-latex
-    %e23.label = [bend left] node[right,pos=0.9] { \scriptsize \bbinfo{400} }
-    &e23.thick
-
-e24 => Edge
-    @e24.from = node2
-    @e24.to = node4
-    &e24.-latex
-    %e24.label = [bend left] node[left,pos=0.9] { \scriptsize \bbinfo{1} }
-    &e24.thick
-
-e31 => Edge
-    @e31.from = node3
-    @e31.to = node1
-    &e31.-latex
-    %e31.label = [bend right] node[below,pos=0.9] { \scriptsize \bbinfo{2} }
-    &e31.thick
-
-e32 => Edge
-    @e32.from = node3
-    @e32.to = node2
-    &e32.-latex
-    %e32.label = node[right,pos=0.9] { \scriptsize \bbinfo{4} }
-    &e32.thick
-
-e34 => Edge
-    @e34.from = node3
-    @e34.to = node4
-    &e34.-latex
-    %e34.label = node[right,pos=0.9] { \scriptsize \bbinfo{1} }
-    &e34.thick
-
-e41 => Edge
-    @e41.from = node4
-    @e41.to = node1
-    &e41.-latex
-    %e41.label = [bend left] node[left,pos=0.9] { \scriptsize \bbinfo{1} }
-    &e41.thick
-
-e42 => Edge
-    @e42.from = node4
-    @e42.to = node2
-    &e42.-latex
-    %e42.label = node[left,pos=0.9] { \scriptsize \bbinfo{1} }
-    &e42.thick
-
-e43 => Edge
-    @e43.from = node4
-    @e43.to = node3
-    &e43.-latex
-    %e43.label = [bend right] node[right,pos=0.9] { \scriptsize \bbinfo{1} }
-    &e43.thick
-
-
 ---
 
-line6 => Node
-    @line6.x = 1
-    @line6.y = 3.5
-    @line6.text = \bbtext{\texttt{4 1 2 3} }
-    @line6.anchor = west
+    @a.text = \footnotesize \textcolor{BBCyan}{\faUser}
+    @d.text = \footnotesize \textcolor{BBGreen}{\faUser}
 
 ---
-
-    @a12.text = \footnotesize $\mathbf{2}$
-    @a21.text = \footnotesize $\mathbf{2}$
-    @a23.text = \footnotesize $\mathbf{2}$
-    @a32.text = \footnotesize $\mathbf{2}$
-
----
-
-eq => Node
-    @eq.x = 10
-    @eq.y = 1
-    @eq.text = $\displaystyle \sum_{u, v, u\neq v} d(1, u, v) = 17$
-    @eq.anchor = west
-
----
-
--eq
-    @a12.text = \footnotesize ${2}$
-    @a21.text = \footnotesize ${2}$
-    @a23.text = \footnotesize ${2}$
-    @a32.text = \footnotesize ${2}$
-
-    @node4.fill = BBRed
-
----
-
--node4
--e41
--e42
--e43
--e14
--e24
--e34
-
----
-
-    @a14.text = \footnotesize $\infty$
-    @a24.text = \footnotesize $\infty$
-    @a34.text = \footnotesize $\infty$
-    @a44.text = \footnotesize $\infty$
-    @a41.text = \footnotesize $\infty$
-    @a42.text = \footnotesize $\infty$
-    @a43.text = \footnotesize $\infty$
-    @a12.text = \footnotesize $\mathbf{3}$
-    @a21.text = \footnotesize $\mathbf{6}$
-    @a23.text = \footnotesize $\mathbf{7}$
-    @a32.text = \footnotesize $\mathbf{4}$
-
----
-
-+eq
-
-    @eq.text = $\displaystyle \sum_{u, v, u\neq v} d(2, u, v) = 23$
-
----
-
--eq
-
-    @a12.text = \footnotesize ${3}$
-    @a21.text = \footnotesize ${6}$
-    @a23.text = \footnotesize ${7}$
-    @a32.text = \footnotesize ${4}$
-
-    @node1.fill = BBRed
-
----
-
--node1
--e12
--e13
--e21
--e31
-
----
-    @a11.text = \footnotesize $\infty$
-    @a12.text = \footnotesize $\infty$
-    @a13.text = \footnotesize $\infty$
-    @a21.text = \footnotesize $\infty$
-    @a31.text = \footnotesize $\infty$
-    @a23.text = \footnotesize $\mathbf{400}$
-
----
-
-+eq
-
-    @eq.text = $\displaystyle \sum_{u, v, u\neq v} d(3, u, v) = 404$
-
----
-
--eq
-
-    @a23.text = \footnotesize ${400}$
-
-    @node2.fill = BBRed
-
----
-
--node2
--e23
--e32
-
----
-
-    @a22.text = \footnotesize $\infty$
-    @a23.text = \footnotesize $\infty$
-    @a32.text = \footnotesize $\infty$
-
----
-
-+eq
-
-    @eq.text = $\displaystyle \sum_{u, v, u\neq v} d(4, u, v) = 0$
-
----
-
-arrow => Edge
-    &arrow.-latex
-    &arrow.very thick
-    @arrow.x = 1.85
-    @arrow.y = 3.25
-    @arrow.u = 1.85
-    @arrow.v = 2.25
-    @arrow.color = BBBlack
 
 r => Node
-    @r.x = 1.85
-    @r.y = 2.0
-    @r.text = \bbinfo{17 23 404 0} 
+    @r.x = 1.45
+    @r.y = 3.0
+    @r.text = \bbalert{x}
+
+arrow => Edge
+    @arrow.x = 1.45
+    @arrow.y = 3.25
+    @arrow.u = 1.45
+    @arrow.v = 4.25
+    @arrow.color = BBBlack
+    &arrow.-latex
+    &arrow.very thick
 
 ## Scene
 
@@ -665,46 +444,326 @@ header => Node
 
 ---
 
-line1 => Node
-    @line1.x = 1
-    @line1.y = 6
-    @line1.text = $\star$ \bbtext{As arestas de um vértice podem ser removidas da matriz de adjacências}
-    @line1.anchor = west
+gA => Node
+    @gA.x = 5
+    @gA.y = 6
+    @gA.text = \tiny \bbtext{A}
+    &gA.draw
+    &gA.thick
+    &gA.circle
 
-line1a => Node
-    @line1a.x = 0.5
-    @line1a.y = 5.5
-    @line1a.text = \bbtext{em $O(N)$}
-    @line1a.anchor = west
+gB => Node
+    @gB.x = 7
+    @gB.y = 7
+    @gB.text = \tiny \bbtext{B}
+    &gB.draw
+    &gB.thick
+    &gB.circle
 
+gC => Node
+    @gC.x = 8
+    @gC.y = 5
+    @gC.text = \tiny \bbtext{C}
+    &gC.draw
+    &gC.thick
+    &gC.circle
+
+gD => Node
+    @gD.x = 10
+    @gD.y = 5
+    @gD.text = \tiny \bbtext{D}
+    &gD.draw
+    &gD.thick
+    &gD.circle
+
+gE => Node
+    @gE.x = 6
+    @gE.y = 4
+    @gE.text = \tiny \bbtext{E}
+    &gE.draw
+    &gE.thick
+    &gE.circle
+
+gF => Node
+    @gF.x = 4
+    @gF.y = 5
+    @gF.text = \tiny \bbtext{F}
+    &gF.draw
+    &gF.thick
+    &gF.circle
+
+eAB => Edge
+    @eAB.from = gA
+    @eAB.to = gB
+    @eAB.color = BBCyan
+    &eAB.thick
+    &eAB.-latex
+    %eAB.label = [bend left]
+    
+eAC => Edge
+    @eAC.from = gA
+    @eAC.to = gC
+    @eAC.color = BBCyan
+    &eAC.thick
+    &eAC.>=latex
+    &eAC.<->
+ 
+eDA => Edge
+    @eDA.from = gD
+    @eDA.to = gA
+    @eDA.color = BBCyan
+    &eDA.thick
+    &eDA.>=latex
+    &eDA.<->
+    %eDA.label = [bend right]
+ 
+eFE => Edge
+    @eFE.from = gF
+    @eFE.to = gE
+    @eFE.color = BBCyan
+    &eFE.thick
+    &eFE.>=latex
+    &eFE.<->
+
+eBA => Edge
+    @eBA.from = gB
+    @eBA.to = gA
+    @eBA.color = BBGreen
+    &eBA.thick
+    &eBA.-latex
+    %eBA.label = [bend left]
+ 
+eBC => Edge
+    @eBC.from = gB
+    @eBC.to = gC
+    @eBC.color = BBGreen
+    &eBC.thick
+    &eBC.>=latex
+    &eBC.<->
+ 
+eDC => Edge
+    @eDC.from = gD
+    @eDC.to = gC
+    @eDC.color = BBGreen
+    &eDC.thick
+    &eDC.-latex
+ 
+eDE => Edge
+    @eDE.from = gD
+    @eDE.to = gE
+    @eDE.color = BBGreen
+    &eDE.thick
+    &eDE.-latex
+    %eDE.label = [bend left]
+
+eEC => Edge
+    @eEC.from = gE
+    @eEC.to = gC
+    @eEC.color = BBGreen
+    &eEC.thick
+    &eEC.-latex
+ 
+eFA => Edge
+    @eFA.from = gF
+    @eFA.to = gA
+    @eFA.color = BBGreen
+    &eFA.thick
+    &eFA.>=latex
+    &eFA.<->
+ 
 ---
 
-line2 => Node
-    @line2.x = 1
-    @line2.y = 4.5
-    @line2.text = $\star$ \bbtext{Em cada etapa, os caminhos mínimos entre todos os pares podem ser}
-    @line2.anchor = west
+sA => Node
+    @sA.x = 1.5
+    @sA.y = 2
+    @sA.text = \tiny \bbtext{A}
+    &sA.draw
+    &sA.thick
+    &sA.circle
 
-line2a => Node
-    @line2a.x = 0.5
-    @line2a.y = 4.0
-    @line2a.text = \bbtext{computados com Floyd-Warshall em $O(N^3)$}
-    @line2a.anchor = west
+mA => Node
+    @mA.x = 9
+    @mA.y = 2
+    @mA.text = \tiny \bbtext{A}
+    &mA.draw
+    &mA.thick
+    &mA.circle
 
----
+sB => Node
+    @sB.x = 3.5
+    @sB.y = 3
+    @sB.text = \tiny \bbtext{B}
+    &sB.draw
+    &sB.thick
+    &sB.circle
 
-line3 => Node
-    @line3.x = 1
-    @line3.y = 3
-    @line3.text = $\star$ \bbtext{Como são $N$ etapas, esta solução tem complexidade $O(N^4)$}
-    @line3.anchor = west
----
+mB => Node
+    @mB.x = 11
+    @mB.y = 3
+    @mB.text = \tiny \bbtext{B}
+    &mB.draw
+    &mB.thick
+    &mB.circle
 
-line4 => Node
-    @line4.x = 1
-    @line4.y = 2
-    @line4.text = $\star$ \bbbold{Veredito}\bbtext{: TLE!}
-    @line4.anchor = west
+sC => Node
+    @sC.x = 4.5
+    @sC.y = 1
+    @sC.text = \tiny \bbtext{C}
+    &sC.draw
+    &sC.thick
+    &sC.circle
+
+mC => Node
+    @mC.x = 12
+    @mC.y = 1
+    @mC.text = \tiny \bbtext{C}
+    &mC.draw
+    &mC.thick
+    &mC.circle
+
+sD => Node
+    @sD.x = 6.5
+    @sD.y = 1
+    @sD.text = \tiny \bbtext{D}
+    &sD.draw
+    &sD.thick
+    &sD.circle
+
+mD => Node
+    @mD.x = 14
+    @mD.y = 1
+    @mD.text = \tiny \bbtext{D}
+    &mD.draw
+    &mD.thick
+    &mD.circle
+
+mE => Node
+    @mE.x = 10
+    @mE.y = 0
+    @mE.text = \tiny \bbtext{E}
+    &mE.draw
+    &mE.thick
+    &mE.circle
+
+sE => Node
+    @sE.x = 2.5
+    @sE.y = 0
+    @sE.text = \tiny \bbtext{E}
+    &sE.draw
+    &sE.thick
+    &sE.circle
+
+sF => Node
+    @sF.x = 0.5
+    @sF.y = 1
+    @sF.text = \tiny \bbtext{F}
+    &sF.draw
+    &sF.thick
+    &sF.circle
+
+mF => Node
+    @mF.x = 8
+    @mF.y = 1
+    @mF.text = \tiny \bbtext{F}
+    &mF.draw
+    &mF.thick
+    &mF.circle
+
+s => Edge
+    @s.x = 5.5
+    @s.y = 3.5
+    @s.u = 4.5
+    @s.v = 2.5
+    &s.very thick
+    &s.-latex
+ 
+m => Edge
+    @m.x = 9
+    @m.y = 4.0
+    @m.u = 10
+    @m.v = 3.0
+    &m.very thick
+    &m.-latex
+ 
+sAB => Edge
+    @sAB.from = sA
+    @sAB.to = sB
+    @sAB.color = BBCyan
+    &sAB.thick
+    &sAB.-latex
+    %sAB.label = [bend left]
+    
+sAC => Edge
+    @sAC.from = sA
+    @sAC.to = sC
+    @sAC.color = BBCyan
+    &sAC.thick
+    &sAC.>=latex
+    &sAC.<->
+ 
+sDA => Edge
+    @sDA.from = sD
+    @sDA.to = sA
+    @sDA.color = BBCyan
+    &sDA.thick
+    &sDA.>=latex
+    &sDA.<->
+    %sDA.label = [bend right]
+ 
+sFE => Edge
+    @sFE.from = sF
+    @sFE.to = sE
+    @sFE.color = BBCyan
+    &sFE.thick
+    &sFE.>=latex
+    &sFE.<->
+
+mBA => Edge
+    @mBA.from = mB
+    @mBA.to = mA
+    @mBA.color = BBGreen
+    &mBA.thick
+    &mBA.-latex
+    %mBA.label = [bend left]
+ 
+mBC => Edge
+    @mBC.from = mB
+    @mBC.to = mC
+    @mBC.color = BBGreen
+    &mBC.thick
+    &mBC.>=latex
+    &mBC.<->
+ 
+mDC => Edge
+    @mDC.from = mD
+    @mDC.to = mC
+    @mDC.color = BBGreen
+    &mDC.thick
+    &mDC.-latex
+ 
+mDE => Edge
+    @mDE.from = mD
+    @mDE.to = mE
+    @mDE.color = BBGreen
+    &mDE.thick
+    &mDE.-latex
+    %mDE.label = [bend left]
+
+mEC => Edge
+    @mEC.from = mE
+    @mEC.to = mC
+    @mEC.color = BBGreen
+    &mEC.thick
+    &mEC.-latex
+ 
+mFA => Edge
+    @mFA.from = mF
+    @mFA.to = mA
+    @mFA.color = BBGreen
+    &mFA.thick
+    &mFA.>=latex
+    &mFA.<->
+ 
 
 ## Scene
 
@@ -716,61 +775,90 @@ header => Node
 
 ---
 
-line1 => Node
-    @line1.x = 1
-    @line1.y = 6
-    @line1.text = $\star$ \bbtext{Para reduzir a complexidade, é preciso compreender o funcionamento do}
-    @line1.anchor = west
+s => Node
+    @s.x = 1
+    @s.y = 5
+    @s.text = $\displaystyle \begin{bmatrix} m_{11} & m_{12} & \ldots & \infty \\ m_{21} & \infty & \ldots & m_{2N} \\ \vdots & \vdots & \ddots & \vdots \\ m_{N1} & m_{N2} & \ldots & \infty \end{bmatrix}$
+    @s.anchor = west
 
-line1a => Node
-    @line1a.x = 0.5
-    @line1a.y = 5.5
-    @line1a.text = \bbtext{algoritmo de Floyd-Warshall}
-    @line1a.anchor = west
-
----
-
-line2 => Node
-    @line2.x = 1
-    @line2.y = 4.5
-    @line2.text = $\star$ \bbtext{A cada iteração, as distâncias são relaxadas usando o vértice $k$ como}
-    @line2.anchor = west
-
-line2a => Node
-    @line2a.x = 0.5
-    @line2a.y = 4.0
-    @line2a.text = \bbtext{intermediário}
-    @line2a.anchor = west
+m => Node
+    @m.x = 8
+    @m.y = 5
+    @m.text = $\displaystyle \begin{bmatrix} s_{11} & \infty & \ldots & s_{1N} \\ \infty & s_{22} & \ldots & s_{2N} \\ \vdots & \vdots & \ddots & \vdots \\ s_{N1} & s_{N2} & \ldots & \infty \end{bmatrix}$
+    @m.anchor = west
 
 ---
 
-line3 => Node
-    @line3.x = 1
-    @line3.y = 3
-    @line3.text = $\star$ \bbtext{Assim, basta começar com o grafo vazio e, a cada etapa, em ordem reversa,}
-    @line3.anchor = west
+me => Edge
+    @me.x = 3.5
+    @me.y = 1.5
+    @me.u = 3.5
+    @me.v = 3.5
+    @me.color = BBViolet
+    &me.thick
+    &me.-latex
 
-line3a => Node
-    @line3a.x = 0.5
-    @line3a.y = 2.5
-    @line3a.text = \bbtext{adicionar o vértice $x_i$ e suas arestas a $G$, e relaxar as distâncias usando $x_i$}
-    @line3a.anchor = west
+minfo1 => Node
+    @minfo1.x = 3.5
+    @minfo1.y = 1.25
+    @minfo1.text = \footnotesize \bbcomment{distâncias mínimas para}
+
+minfo2 => Node
+    @minfo2.x = 3.5
+    @minfo2.y = 0.75
+    @minfo2.text = \footnotesize \bbcomment{o prof. Miguel}
 
 ---
+    @me.x = 10
+    @me.u = 10
+    @minfo1.x = 10
+    @minfo2.x = 10
 
-line4 => Node
-    @line4.x = 1
-    @line4.y = 1.5
-    @line4.text = $\star$ \bbbold{Complexidade}\bbtext{: $O(N^3)$}
-    @line4.anchor = west
+    @minfo1.text = \footnotesize \bbcomment{distâncias mínimas para}
+    @minfo2.text = \footnotesize \bbcomment{o prof. Shahriar}
+---
+-me
+-minfo1
+-minfo2
+
+line => Edge
+    @line.x = 6
+    @line.y = 4.5
+    @line.u = 7.5
+    @line.v = 4.5
+    &line.very thick
+
+e => Edge
+    @e.x = 6.75
+    @e.y = 4.5
+    @e.u = 6.75
+    @e.v = 3.25
+    &e.very thick
+    &e.-latex
+
+
+d => Node
+    @d.x = 6.75
+    @d.y = 2
+    @d.text = $\displaystyle \begin{bmatrix} d_{11} & \infty & \ldots & \infty \\ \infty & \infty & \ldots & d_{2N} \\ \vdots & \vdots & \ddots & \vdots \\ d_{N1} & d_{N2} & \ldots & \infty \end{bmatrix}$
+
+note => Node
+    @note.x = 10
+    @note.y = 2
+    @note.text = $d_{ij} = m_{ij} + s_{ij}$
+    @note.anchor = west
 
 
 ## Frame
 
-\inputsnippet{cpp}{11}{28}{codes/10171.cpp}
+\inputsnippet{cpp}{9}{25}{codes/10171.cpp}
 
 ## Frame
 
-\inputsnippet{cpp}{30}{42}{codes/10171.cpp}
+\inputsnippet{cpp}{27}{44}{codes/10171.cpp}
+
+## Frame
+
+\inputsnippet{cpp}{46}{56}{codes/10171.cpp}
 
 ## End
