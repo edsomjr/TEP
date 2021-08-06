@@ -43,7 +43,7 @@ Teoria dos Grafos
         1. [OJ 10717 - Meeting Prof. Miguel...](https://onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&category=24&page=show_problem&problem=1112) ([_upsolving_](problems/OJ_10171/OJ_10171.pdf))
         1. [Codeforces Round #179 (Div. 1) - Problem B: Greg and Graph](https://codeforces.com/problemset/problem/295/B) ([_upsolving_](problems/CF_295B/CF_295B.pdf))
 1. Árvores
-    1. [Travessias e Diâmetro](slides/TR-1/TR-1.pdf)
+    1. [Fundamentos](slides/arvores_fundamentos/arvores_fundamentos.pdf)
 
 <!---
 Pendências
