@@ -9,7 +9,7 @@
 + \bbenglish{You are commissioned by Amazon State Government to write a program that decides if, given the localization of each station, messages can reach all stations.}
 
 ## Text
-+ \bbtext{Uma rede de estações de aquisição de dados autônomas, alimentadas por baterias, foram instaladas para monitorar o clima na região da Amazônia. Uma estação de controle pode iniciar a transição de instruções para as demais estações para que elas alterem seus parâmetros atuais. Para evitar a sobrecarga da bateria, cada estação (incluindo a estação de controle) podem transmitir informações para apenas duas outras estações. Os destinatários de uma estação são as duas estações mais próximas. Em caso de empate, o primeiro critério é escolher a estação mais à oeste (esquerda no mapa), e o segundo critério é escolher a estação mais ao sul (parte inferior do mapa).}
++ \bbtext{Uma rede de estações de aquisição de dados autônomas, alimentadas por baterias, foram instaladas para monitorar o clima na região da Amazônia. Uma estação de controle pode iniciar a transição de instruções para as demais estações para que elas alterem seus parâmetros atuais. Para evitar a sobrecarga da bateria, cada estação (incluindo a estação de controle) pode transmitir informações para apenas duas outras estações. Os destinatários de uma estação são as duas estações mais próximas. Em caso de empate, o primeiro critério é escolher a estação mais à oeste (esquerda no mapa), e o segundo critério é escolher a estação mais ao sul (parte inferior do mapa).}
 +
 + \vspace{0.1in}
 + 
@@ -35,7 +35,7 @@
 +
 + \vspace{0.1in}
 +
-+ \bbtext{A entrada consiste em um inteiro $N$, seguido por $N$ pares de inteiros $X_i, Y_i$, indicando as coordenadas de localização de cada estação. O primeiro par de coordenadas determina a posição da estação de controle, enquaneo que os $N - 1$ pares restantes são as coordenadas das outras estações. São impostas as seguintes restrições: $-20\leq X_i, Y_i\leq 20$ e $1\leq N\leq 1000$. A entrada terminada com $N = 0$.}
++ \bbtext{A entrada consiste em um inteiro $N$, seguido por $N$ pares de inteiros $X_i, Y_i$, indicando as coordenadas de localização de cada estação. O primeiro par de coordenadas determina a posição da estação de controle, enquanto que os $N - 1$ pares restantes são as coordenadas das outras estações. São impostas as seguintes restrições: $-20\leq X_i, Y_i\leq 20$ e $1\leq N\leq 1000$. A entrada terminada com $N = 0$.}
 +
 + \vspace{0.2in}
 +
@@ -43,7 +43,7 @@
 +
 + \vspace{0.1in}
 +
-+ \bbtext{Para cada expressão dada a saída imprima uma linha indicando se todas as estações podem ser atingidas ou não (veja o exemplo para o formato exato da saída).}
++ \bbtext{Para cada expressão dada imprima uma linha indicando se todas as estações podem ser atingidas ou não (veja o exemplo para o formato exato da saída).}
 
 ## Scene
 + \node[anchor=west] at (0, 7) { \bbbold{Exemplo de entrada e saída} };
