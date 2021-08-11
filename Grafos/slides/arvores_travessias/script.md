@@ -680,15 +680,37 @@ n7 => Node
 
 \inputsnippet{cpp}{9}{28}{codes/to_leaf.cpp}
 
-Codeforces Round #250 (Div. 2) -- Problem C: The Child and Toy
-https://codeforces.com/problemset/problem/437/C
+## Scene
 
-Codeforces Tound #660 (Div. 2) -- Problem C: Uncle Bogdan and Country Happiness
-https://codeforces.com/problemset/problem/1388/C
+title => Node
+    @title.x = 0
+    @title.y = 6
+    @title.text = \Large \bbbold{Problemas sugeridos}
+    @title.anchor = west
 
-Binary Tree
+a => Node
+    @a.x = 0.25
+    @a.y = 5
+    @a.text = $1.$ \bbtext{AtCoder Beginner Contest 126 -- Problem D: Even Relation}
+    @a.anchor = west
 
-https://codeforces.com/problemset/problem/792/D
+b => Node
+    @b.x = 0.25
+    @b.y = 4
+    @b.text = $2.$ \bbtext{Codeforces Round \#250 (Div. 2) -- Problem C: The Child and Toy}
+    @b.anchor = west
+
+c => Node
+    @c.x = 0.25
+    @c.y = 3
+    @c.text = $3.$ \bbtext{Codeforces Tound \#660 (Div. 2) -- Problem C: Uncle Bogdan and Country Happiness}
+    @c.anchor = west
+
+d => Node
+    @d.x = 0.25
+    @d.y = 2
+    @d.text = $4.$ \bbtext{OJ 548 -- Tree}
+    @d.anchor = west
 
 ## Scene
 
