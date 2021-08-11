@@ -44,6 +44,8 @@ Teoria dos Grafos
         1. [Codeforces Round #179 (Div. 1) - Problem B: Greg and Graph](https://codeforces.com/problemset/problem/295/B) ([_upsolving_](problems/CF_295B/CF_295B.pdf))
 1. Árvores
     1. [Fundamentos](slides/arvores_fundamentos/arvores_fundamentos.pdf)
+    1. [Travessias](slides/arvores_travessias/arvores_travessias.pdf)
+        1. [AtCoder Beginner Contest 126 -- Problem D: Even Relation](https://atcoder.jp/contests/abc126/tasks/abc126_d) ([_upsolving_](problems/ABC_126D/ABC_126D.pdf))
 
 <!---
 Pendências
