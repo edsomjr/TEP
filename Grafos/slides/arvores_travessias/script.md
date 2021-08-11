@@ -697,13 +697,13 @@ a => Node
 b => Node
     @b.x = 0.25
     @b.y = 4
-    @b.text = $2.$ \bbtext{Codeforces Round \#250 (Div. 2) -- Problem C: The Child and Toy}
+    @b.text = $2.$ \bbtext{Codeforces Beta Round \#87 (Div. 1 Only) -- Problem A: Party}
     @b.anchor = west
 
 c => Node
     @c.x = 0.25
     @c.y = 3
-    @c.text = $3.$ \bbtext{Codeforces Tound \#660 (Div. 2) -- Problem C: Uncle Bogdan and Country Happiness}
+    @c.text = $3.$ \bbtext{Codeforces Round \#660 (Div. 2) -- Problem C: Uncle Bogdan and Country Happiness}
     @c.anchor = west
 
 d => Node
