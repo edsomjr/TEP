@@ -8,7 +8,7 @@ const int MAX { 100010 };
 bitset<MAX> visited;
 vector<int> adj[MAX];
 
-bool dfs(int u)
+bool dfs(int u, int p = -1)
 {
     if (visited[u])
         return false;
@@ -17,10 +17,10 @@ bool dfs(int u)
 
     for (auto v : adj[u])
     {
-        if (visited[v] and v != u)
+        if (visited[v] and v != p)
             return true;
 
-        if (dfs(v))
+        if (dfs(v, u))
             return true;
     }
 
