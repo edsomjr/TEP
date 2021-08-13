@@ -4,8 +4,8 @@
 ## Scene
 + \node[anchor=west] at (0, 7) { \Large \bbbold{Ciclos} };
 
-+ \node[anchor=west] at (1, 6) { \bbtext{Um \bbbold{ciclo} é um caminho, com três ou mais arestas distintas, cujos} };
-+ \node[anchor=west] at (0.5, 5) { \bbtext{pontos de partida e de chegada são iguais.} };
++ \node[anchor=west] at (1, 6) { \bbtext{Seja $G$ um grafo não-direcionado. Um \bbbold{ciclo} é um caminho, com três ou} };
++ \node[anchor=west] at (0.5, 5.25) { \bbtext{mais arestas distintas, cujos pontos de partida e de chegada são iguais.} };
 
 + \node[circle,draw,very thick] (A) at (1, 2) {\bbtext{1}};
 + \node[circle,draw,very thick] (B) at (4, 2) {\bbtext{2}};
@@ -23,7 +23,7 @@
 ## Scene
 + \node[anchor=west] at (0, 7) { \Large \bbbold{Grafos acíclicos} };
 
-+ \node[anchor=west] at (1, 6) { \bbtext{Um grafo é dito \bbbold{acíclico} se não possui nem ciclo. Árvores são grafos acíclicos.} };
++ \node[anchor=west] at (1, 6) { \bbtext{Um grafo é dito \bbbold{acíclico} se não possui ciclos. Árvores são grafos acíclicos.} };
 
 + \node[circle,draw,very thick] (A) at (7, 5) {\bbtext{1}};
 + \node[circle,draw,very thick] (B) at (5, 3) {\bbtext{2}};
@@ -41,8 +41,8 @@
 + \node[anchor=west] at (0, 6) { \Large \bbbold{Detecção de ciclos} };
 
 + \node[anchor=west] at (1, 5) { \bbtext{Considere uma travessia por profundidade. Se, durante a travessia, um dos} };
-+ \node[anchor=west] at (0.5, 4) { \bbtext{dos vizinhos $v$ de $u$ já foi visitado, e $v\neq u$, então existe um ciclo que começa} };
-+ \node[anchor=west] at (0.5, 3) { \bbtext{e termina em $u$ e que passa por $v$. } };
++ \node[anchor=west] at (0.5, 4.25) { \bbtext{dos vizinhos $v$ de $u$ já foi visitado, e $v$ não é o vértice $p$ que descobriu $u$ na} }; 
++ \node[anchor=west] at (0.5, 3.5) { \bbtext{travessia, então existe um ciclo que começa e termina em $u$ e que passa por $v$. } };
 
 ## Scene
 + \node[circle, draw, very thick] (A) at (0, 6) { \bbtext{1} };
@@ -108,8 +108,8 @@
 ## Scene
 + \node[anchor=west] at (0, 6) { \Large \bbbold{Grafos não-direcionados e ciclos} };
 
-+ \node[anchor=west] at (1, 5) { \bbtext{Se $G$ é um grafo não-direcionado com $V$ vértices e $E$ arestas, então $G$ tem} };
-+ \node[anchor=west] at (0.5, 4) { \bbtext{ao menos um ciclo se $E \geq V$.} };
++ \node[anchor=west] at (1, 5) { \bbtext{Se $G$ é um grafo simples não-direcionado com $V$ vértices e $E$ arestas, } };
++ \node[anchor=west] at (0.5, 4.25) { \bbtext{então $G$ tem ao menos um ciclo se $E \geq V$.} };
 
 ## Frame
 + \begin{center}\inputsnippet{cpp}{11}{22}{codes/cycle_connected.cpp}\end{center}

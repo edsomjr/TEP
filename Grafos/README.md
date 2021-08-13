@@ -40,9 +40,13 @@ Teoria dos Grafos
         1. [OJ 11573 - Ocean Currents](https://onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&category=24&page=show_problem&problem=2620) ([_upsolving_](problems/OJ_11573/OJ_11573.pdf))
         1. [Codeforces Round #516 (Div. 1) - Problem B: Labyrinth](https://codeforces.com/contest/1063/problem/B) ([_upsolving_](problems/CF_1063B/CF_103B.pdf))
     1. [Algoritmo de Floyd-Warshall](slides/floyd-warshall/floyd-warshall.pdf)
-1. Árvores
+        1. [OJ 10717 - Meeting Prof. Miguel...](https://onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&category=24&page=show_problem&problem=1112) ([_upsolving_](problems/OJ_10171/OJ_10171.pdf))
         1. [Codeforces Round #179 (Div. 1) - Problem B: Greg and Graph](https://codeforces.com/problemset/problem/295/B) ([_upsolving_](problems/CF_295B/CF_295B.pdf))
-    1. [Travessias e Diâmetro](slides/TR-1/TR-1.pdf)
+1. Árvores
+    1. [Fundamentos](slides/arvores_fundamentos/arvores_fundamentos.pdf)
+    1. [Travessias](slides/arvores_travessias/arvores_travessias.pdf)
+        1. [AtCoder Beginner Contest 126 -- Problem D: Even Relation](https://atcoder.jp/contests/abc126/tasks/abc126_d) ([_upsolving_](problems/ABC_126D/ABC_126D.pdf))
+        1. [OJ 10459 -- The Tree Root](https://onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&category=24&page=show_problem&problem=1400) ([_upsolving_](problems/OJ_10459/OJ_10459.pdf))
 
 <!---
 Pendências

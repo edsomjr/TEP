@@ -13,11 +13,11 @@
 + \bbenglish{Initially there are no dogs. Place dogs onto the pasture in such a way that no wolf can reach any sheep, or determine that it is impossible. Note that since you have many dogs, you do \bbbold{not} need to minimize their number.}
 
 ## Text
-+ \bbtext{Bob é um fazendeiro. Ele tem um pasto largo com muitas ovelhas. Recentemente, ele perdeu algumas delas devido a ataques de lobos. Assim ele decidiu colocar alguns cães pastores e modo que todas suas ovelhas estejam protegidas.}
++ \bbtext{Bob é um fazendeiro. Ele tem um pasto largo com muitas ovelhas. Recentemente, ele perdeu algumas delas devido a ataques de lobos. Assim ele decidiu colocar alguns cães pastores de modo que todas suas ovelhas estejam protegidas.}
 +
 + \vspace{0.2in}
 + 
-+ \bbtext{O pasto é um retângulo composto por $R\times C$ células. Cada célula ou está vazia, ou contém uma ovelha, ou um lobo ou um cão. Ovelhas e cães sempre ficam no lugar, mas lobos podem andar livremente pelo pasto, movendo-se para as células vizinhas à esquerda, à direita, acima ou abaixo. Quando um lobo entra em um célula contendod uma ovelha, ele a devora. Contudo, nenhum lobo podem entrar em uma célula contendo um cão.}
++ \bbtext{O pasto é um retângulo composto por $R\times C$ células. Cada célula ou está vazia, ou contém uma ovelha, ou um lobo ou um cão. Ovelhas e cães sempre ficam no lugar, mas lobos podem andar livremente pelo pasto, movendo-se para as células vizinhas à esquerda, à direita, acima ou abaixo. Quando um lobo entra em um célula contendo uma ovelha, ele a devora. Contudo, nenhum lobo pode entrar em uma célula contendo um cão.}
 +
 + \vspace{0.2in}
 + 

@@ -13,7 +13,7 @@
 
 + \node[anchor=west] at (2, 2.5) { $3.$ \bbtext{Enfileire todos vizinhos de $u$ não visitados} };
 
-+ \node[anchor=west] at (2, 1.5) { $4.$ \bbtext{Extraia o próximo elemento $p$ da fila e faça $u = p$}};
++ \node[anchor=west] at (2, 1.5) { $4.$ \bbtext{Extraia o próximo elemento $p$ da fila, faça $u = p$ e retorne a regra $2$}};
 
 ## Scene
 + \node[circle,draw,very thick,color=BBOrange] (A) at (0, 4) {\bbtext{1}};

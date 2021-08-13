@@ -89,7 +89,6 @@
 +    \item \bbtext{Embora as afirmativas usem números menores do que 100, as respostas das consultas podem ser números maiores, os quais não excedem 10000 quando eliminados os divisores comuns.}
 + \end{itemize}
 
-
 ## Scene
 + \node[anchor=west] at (0, 7) { \bbbold{Exemplo de entrada e saída} };
 

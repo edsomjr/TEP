@@ -81,7 +81,7 @@
 +
 + \vspace{0.1in}
 +
-+ \bbtext{Para cada estudante $a$ de $1$ a $n$ imprima qual estudante irá receber dois furos em sua insígnia, se $a$ foid o primeiro estudante capturado pelo professor.}
++ \bbtext{Para cada estudante $a$ de $1$ a $n$ imprima qual estudante irá receber dois furos em sua insígnia, se $a$ foi o primeiro estudante capturado pelo professor.}
 
 ## Scene
 + \node[anchor=west] at (0, 7) { \bbbold{Exemplo de entrada e saída} };

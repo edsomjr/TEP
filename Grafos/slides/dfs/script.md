@@ -4,9 +4,8 @@
 ## Scene
 + \node[anchor=west] at (0, 6) { \Large \bbbold{Definição de travessia } };
 
-+ \node[anchor=west] at (1, 5) { \bbtext{Uma travessia consiste em visitar todos os nós atingíveis a partir de um}};
-+ \node[anchor=west] at (0.5, 4) { \bbtext{vértice de partida $s$, em alguma ordem. Cada vértice deve ser visitado}};
-+ \node[anchor=west] at (0.5, 3) { \bbtext{exatamente uma vez.}};
++ \node[anchor=west] at (1, 5) { \bbtext{Uma travessia consiste em visitar todos vértices de um grafo em alguma}};
++ \node[anchor=west] at (0.5, 4) { \bbtext{ordem. Cada vértice deve ser visitado exatamente uma vez.}};
 
 ## Scene
 + \node[anchor=west] at (0, 6) { \Large \bbbold{Características da travessias} };
@@ -28,8 +27,9 @@
 + \node[anchor=west] at (2, 3.5) { $2.$ \bbtext{Visite $u$}};
 
 + \node[anchor=west] at (2, 2.5) { $3.1$ \bbtext{Se $u$ tive ao menos um vizinho $v$ ainda não visitado, faça $u = v$}};
++ \node[anchor=west] at (2.5, 2.0) { \bbtext{e retorne para a regra $2$} };
 
-+ \node[anchor=west] at (2, 1.5) { $3.2$ \bbtext{Caso contrário, volte para o vértice que descobriu $u$}};
++ \node[anchor=west] at (2, 1.0) { $3.2$ \bbtext{Caso contrário, volte para o vértice que descobriu $u$}};
 
 ## Scene
 + \node[circle,draw,very thick,color=BBOrange] (A) at (0, 4) {\bbtext{1}};

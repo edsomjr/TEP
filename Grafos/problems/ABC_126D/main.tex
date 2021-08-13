@@ -1,0 +1,2594 @@
+\documentclass{whiteboard}
+\begin{document}
+\begin{frame}[plain,t]
+\bbcover{AtCoder Beginner Contest 126}{Problem D -- Even Relation}{Prof. Edson Alves}{Faculdade UnB Gama}
+
+\end{frame}
+\begin{frame}[plain,t]
+\vspace*{\fill}
+
+\bbenglish{We have a tree with $N$ vertices numbered $1$ to $N$. The $i$-th edge in the tree connects Vertex $u_i$ and Vertex $v_i$, and its length is $w_i$. Your objective is to paint each vertex in the tree white or black (it is fine to paint all vertices the same color) so that the following condition is satisfied:}
+
+\vspace{0.1in}
+
+\begin{itemize}
+\item \bbenglish{For any two vertices painted in the same color, the distance between them is an even number.}
+\end{itemize}
+
+\vspace{0.1in}
+
+\bbenglish{Find a coloring of the vertices that satisfies the condition and print it. It can be proved that at least one such coloring exists under the constraints of this problem.}
+
+\vspace*{\fill}
+\end{frame}
+\begin{frame}[plain,t]
+\vspace*{\fill}
+
+\bbtext{Nós temos uma árvore com $N$ vértices numerados de $1$ a $N$. A $i$-ésima aresta da árvore conecta o Vértice $u_i$ e o Vértice $v_i$, e seu comprimento é $w_i$. Seu objetivo é pintar cada vértice da árvore de branco ou preto (é válido pintar todos os vértices com uma mesma cor) de modo que a seguinte condição é satisfeita:}
+
+\vspace{0.1in}
+
+\begin{itemize}
+\item \bbtext{Para quaisquer dois vértices pintados com a mesma cor, a distância entre eles é um número par.}
+\end{itemize}
+
+\vspace{0.1in}
+
+\bbtext{Determine uma coloração dos vértices que satisfaça a condição e a imprima. Pode ser provado que existe no mínimo uma coloração que atenda a condição imposta pelo problema.}
+
+\vspace*{\fill}
+\end{frame}
+\begin{frame}[plain,t]
+\vspace*{\fill}
+
+\bbbold{Constraints}
+
+\vspace{0.1in}
+
+\begin{itemize}
+\item \bbenglish{All values in input are integers.}
+\item $1\leq N\leq 10^5$
+\item $1\leq u_i < v_i\leq N$
+\item $1\leq w_i\leq 10^9$
+\end{itemize}
+
+\vspace*{\fill}
+\end{frame}
+\begin{frame}[plain,t]
+\vspace*{\fill}
+
+\bbbold{Restrições}
+
+\vspace{0.1in}
+
+\begin{itemize}
+\item \bbtext{Todos os valores da entrada são inteiros.}
+\item $1\leq N\leq 10^5$
+\item $1\leq u_i < v_i\leq N$
+\item $1\leq w_i\leq 10^9$
+\end{itemize}
+
+
+\vspace*{\fill}
+\end{frame}
+\begin{frame}[plain,t]
+\vspace*{\fill}
+
+\bbbold{Input}
+
+\vspace{0.1in}
+
+\bbenglish{Input is given from Standard Input in the following format:}
+\[
+\begin{matrix}
+N \\
+u_1 & v_1 & w_1 \\
+u_2 & v_2 & w_2 \\
+\vdots \\
+u_{N - 1} & v_{N - 1} & w_{N - 1}
+\end{matrix}
+\]
+
+\bbbold{Output}
+
+\vspace{0.1in}
+
+\bbenglish{Print a coloring of the vertices that satisfies the condition, in $N$ lines. The $i$-th line should contain \texttt{0} if Vertex $i$ is painted white and \texttt{1} if it is painted black.}
+
+\vspace{0.1in}
+
+\bbenglish{If there are multiple colorings that satisfy the condition, any of them will be accepted.}
+
+\vspace*{\fill}
+\end{frame}
+\begin{frame}[plain,t]
+\vspace*{\fill}
+
+\bbbold{Entrada}
+
+\vspace{0.1in}
+
+\bbtext{A entrada é dada na Entrada Padrão no seguinte formato: }
+\[
+\begin{matrix}
+N \\
+u_1 & v_1 & w_1 \\
+u_2 & v_2 & w_2 \\
+\vdots \\
+u_{N - 1} & v_{N - 1} & w_{N - 1}
+\end{matrix}
+\]
+
+\bbbold{Saída}
+
+\vspace{0.1in}
+
+\bbtext{Imprima uma coloração dos vértices que satisfaça a condição, em $N$ linhas. A $i$-ésima linha deve conter \texttt{0} se o Vértice $i$ deve ser pintado branco ou \texttt{1} se ele deve ser pintado preto.}
+
+\vspace{0.1in}
+
+\bbtext{Se há múltiplas colorações que satisfaçam a condição, qualquer uma delas será aceita.}
+
+\vspace*{\fill}
+\end{frame}
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+
+	\node[anchor=west] (header) at (0, 7.0) { \bbbold{Exemplo de entrada e saída} };
+
+\end{tikzpicture}
+\end{frame}
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+
+	\node[anchor=west] (header) at (0, 7.0) { \bbbold{Exemplo de entrada e saída} };
+
+
+	\node[anchor=west] (line1) at (1.0, 6.0) { \bbtext{\texttt{3} } };
+
+\end{tikzpicture}
+\end{frame}
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+
+	\node[anchor=west] (header) at (0, 7.0) { \bbbold{Exemplo de entrada e saída} };
+
+
+	\node[anchor=west] (line1) at (1.0, 6.0) { \bbtext{\texttt{3} } };
+
+
+	\draw[->,color=BBViolet] (1.25, 5.0) to  (1.25, 5.75);
+
+	\node[] (r) at (1.25, 4.75) { \footnotesize \bbcomment{\# número de vértices} };
+
+\end{tikzpicture}
+\end{frame}
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+
+	\node[anchor=west] (header) at (0, 7.0) { \bbbold{Exemplo de entrada e saída} };
+
+
+	\node[anchor=west] (line1) at (1.0, 6.0) { \bbtext{\texttt{3} } };
+
+
+
+
+
+	\node[fill=BBGray,draw,very thick,circle] (node1) at (7.0, 2.0) { \bbtext{1} };
+
+	\node[fill=BBGray,draw,very thick,circle] (node2) at (10.0, 6.0) { \bbtext{2} };
+
+	\node[fill=BBGray,draw,very thick,circle] (node3) at (13.0, 2.0) { \bbtext{3} };
+
+\end{tikzpicture}
+\end{frame}
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+
+	\node[anchor=west] (header) at (0, 7.0) { \bbbold{Exemplo de entrada e saída} };
+
+
+	\node[anchor=west] (line1) at (1.0, 6.0) { \bbtext{\texttt{3} } };
+
+
+
+
+
+	\node[fill=BBGray,draw,very thick,circle] (node1) at (7.0, 2.0) { \bbtext{1} };
+
+	\node[fill=BBGray,draw,very thick,circle] (node2) at (10.0, 6.0) { \bbtext{2} };
+
+	\node[fill=BBGray,draw,very thick,circle] (node3) at (13.0, 2.0) { \bbtext{3} };
+
+
+	\node[anchor=west] (line2) at (1.0, 5.5) { \bbtext{\texttt{1 2 2} } };
+
+\end{tikzpicture}
+\end{frame}
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+
+	\node[anchor=west] (header) at (0, 7.0) { \bbbold{Exemplo de entrada e saída} };
+
+
+	\node[anchor=west] (line1) at (1.0, 6.0) { \bbtext{\texttt{3} } };
+
+
+	\draw[->,color=BBViolet] (1.25, 5.25) to  (1.25, 4.25);
+
+	\node[] (r) at (1.25, 4.0) { \footnotesize $u_1$ };
+
+
+	\node[fill=BBGray,draw,very thick,circle] (node1) at (7.0, 2.0) { \bbtext{1} };
+
+	\node[fill=BBGray,draw,very thick,circle] (node2) at (10.0, 6.0) { \bbtext{2} };
+
+	\node[fill=BBGray,draw,very thick,circle] (node3) at (13.0, 2.0) { \bbtext{3} };
+
+
+	\node[anchor=west] (line2) at (1.0, 5.5) { \bbtext{\texttt{1 2 2} } };
+
+
+
+
+\end{tikzpicture}
+\end{frame}
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+
+	\node[anchor=west] (header) at (0, 7.0) { \bbbold{Exemplo de entrada e saída} };
+
+
+	\node[anchor=west] (line1) at (1.0, 6.0) { \bbtext{\texttt{3} } };
+
+
+	\draw[->,color=BBViolet] (1.65, 5.25) to  (1.65, 4.25);
+
+	\node[] (r) at (1.65, 4.0) { \footnotesize $v_1$ };
+
+
+	\node[fill=BBGray,draw,very thick,circle] (node1) at (7.0, 2.0) { \bbtext{1} };
+
+	\node[fill=BBGray,draw,very thick,circle] (node2) at (10.0, 6.0) { \bbtext{2} };
+
+	\node[fill=BBGray,draw,very thick,circle] (node3) at (13.0, 2.0) { \bbtext{3} };
+
+
+	\node[anchor=west] (line2) at (1.0, 5.5) { \bbtext{\texttt{1 2 2} } };
+
+
+
+
+
+
+
+\end{tikzpicture}
+\end{frame}
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+
+	\node[anchor=west] (header) at (0, 7.0) { \bbbold{Exemplo de entrada e saída} };
+
+
+	\node[anchor=west] (line1) at (1.0, 6.0) { \bbtext{\texttt{3} } };
+
+
+	\draw[->,color=BBViolet] (2.05, 5.25) to  (2.05, 4.25);
+
+	\node[] (r) at (2.05, 4.0) { \footnotesize $w_1$ };
+
+
+	\node[fill=BBGray,draw,very thick,circle] (node1) at (7.0, 2.0) { \bbtext{1} };
+
+	\node[fill=BBGray,draw,very thick,circle] (node2) at (10.0, 6.0) { \bbtext{2} };
+
+	\node[fill=BBGray,draw,very thick,circle] (node3) at (13.0, 2.0) { \bbtext{3} };
+
+
+	\node[anchor=west] (line2) at (1.0, 5.5) { \bbtext{\texttt{1 2 2} } };
+
+
+
+
+
+
+
+
+
+\end{tikzpicture}
+\end{frame}
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+
+	\node[anchor=west] (header) at (0, 7.0) { \bbbold{Exemplo de entrada e saída} };
+
+
+	\node[anchor=west] (line1) at (1.0, 6.0) { \bbtext{\texttt{3} } };
+
+
+
+
+
+	\node[fill=BBGray,draw,very thick,circle] (node1) at (7.0, 2.0) { \bbtext{1} };
+
+	\node[fill=BBGray,draw,very thick,circle] (node2) at (10.0, 6.0) { \bbtext{2} };
+
+	\node[fill=BBGray,draw,very thick,circle] (node3) at (13.0, 2.0) { \bbtext{3} };
+
+
+	\node[anchor=west] (line2) at (1.0, 5.5) { \bbtext{\texttt{1 2 2} } };
+
+
+
+
+
+
+
+
+
+
+	\draw[thick](node1) to node[above left] { \bbinfo{2} } (node2);
+
+\end{tikzpicture}
+\end{frame}
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+
+	\node[anchor=west] (header) at (0, 7.0) { \bbbold{Exemplo de entrada e saída} };
+
+
+	\node[anchor=west] (line1) at (1.0, 6.0) { \bbtext{\texttt{3} } };
+
+
+
+
+
+	\node[fill=BBGray,draw,very thick,circle] (node1) at (7.0, 2.0) { \bbtext{1} };
+
+	\node[fill=BBGray,draw,very thick,circle] (node2) at (10.0, 6.0) { \bbtext{2} };
+
+	\node[fill=BBGray,draw,very thick,circle] (node3) at (13.0, 2.0) { \bbtext{3} };
+
+
+	\node[anchor=west] (line2) at (1.0, 5.5) { \bbtext{\texttt{1 2 2} } };
+
+
+
+
+
+
+
+
+
+
+	\draw[thick](node1) to node[above left] { \bbinfo{2} } (node2);
+
+
+	\node[anchor=west] (line3) at (1.0, 5.0) { \bbtext{\texttt{2 3 1} } };
+
+\end{tikzpicture}
+\end{frame}
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+
+	\node[anchor=west] (header) at (0, 7.0) { \bbbold{Exemplo de entrada e saída} };
+
+
+	\node[anchor=west] (line1) at (1.0, 6.0) { \bbtext{\texttt{3} } };
+
+
+
+
+
+	\node[fill=BBGray,draw,very thick,circle] (node1) at (7.0, 2.0) { \bbtext{1} };
+
+	\node[fill=BBGray,draw,very thick,circle] (node2) at (10.0, 6.0) { \bbtext{2} };
+
+	\node[fill=BBGray,draw,very thick,circle] (node3) at (13.0, 2.0) { \bbtext{3} };
+
+
+	\node[anchor=west] (line2) at (1.0, 5.5) { \bbtext{\texttt{1 2 2} } };
+
+
+
+
+
+
+
+
+
+
+	\draw[thick](node1) to node[above left] { \bbinfo{2} } (node2);
+
+
+	\node[anchor=west] (line3) at (1.0, 5.0) { \bbtext{\texttt{2 3 1} } };
+
+	\draw[thick](node2) to node[above right] { \bbinfo{1} } (node3);
+
+\end{tikzpicture}
+\end{frame}
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+
+	\node[anchor=west] (header) at (0, 7.0) { \bbbold{Exemplo de entrada e saída} };
+
+
+	\node[anchor=west] (line1) at (1.0, 6.0) { \bbtext{\texttt{3} } };
+
+
+
+
+
+	\node[fill=BBWhite,draw,very thick,circle] (node1) at (7.0, 2.0) { \bbtext{1} };
+
+	\node[fill=BBGray,draw,very thick,circle] (node2) at (10.0, 6.0) { \bbtext{2} };
+
+	\node[fill=BBGray,draw,very thick,circle] (node3) at (13.0, 2.0) { \bbtext{3} };
+
+
+	\node[anchor=west] (line2) at (1.0, 5.5) { \bbtext{\texttt{1 2 2} } };
+
+
+
+
+
+
+
+
+
+
+	\draw[thick](node1) to node[above left] { \bbinfo{2} } (node2);
+
+
+	\node[anchor=west] (line3) at (1.0, 5.0) { \bbtext{\texttt{2 3 1} } };
+
+	\draw[thick](node2) to node[above right] { \bbinfo{1} } (node3);
+
+
+\end{tikzpicture}
+\end{frame}
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+
+	\node[anchor=west] (header) at (0, 7.0) { \bbbold{Exemplo de entrada e saída} };
+
+
+	\node[anchor=west] (line1) at (1.0, 6.0) { \bbtext{\texttt{3} } };
+
+
+
+
+
+	\node[fill=BBWhite,draw,very thick,circle] (node1) at (7.0, 2.0) { \bbtext{1} };
+
+	\node[fill=BBWhite,draw,very thick,circle] (node2) at (10.0, 6.0) { \bbtext{2} };
+
+	\node[fill=BBGray,draw,very thick,circle] (node3) at (13.0, 2.0) { \bbtext{3} };
+
+
+	\node[anchor=west] (line2) at (1.0, 5.5) { \bbtext{\texttt{1 2 2} } };
+
+
+
+
+
+
+
+
+
+
+	\draw[thick](node1) to node[above left] { \bbinfo{2} } (node2);
+
+
+	\node[anchor=west] (line3) at (1.0, 5.0) { \bbtext{\texttt{2 3 1} } };
+
+	\draw[thick](node2) to node[above right] { \bbinfo{1} } (node3);
+
+
+
+\end{tikzpicture}
+\end{frame}
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+
+	\node[anchor=west] (header) at (0, 7.0) { \bbbold{Exemplo de entrada e saída} };
+
+
+	\node[anchor=west] (line1) at (1.0, 6.0) { \bbtext{\texttt{3} } };
+
+
+
+
+
+	\node[fill=BBWhite,draw,very thick,circle] (node1) at (7.0, 2.0) { \bbtext{1} };
+
+	\node[fill=BBWhite,draw,very thick,circle] (node2) at (10.0, 6.0) { \bbtext{2} };
+
+	\node[fill=BBBlack,draw,very thick,circle] (node3) at (13.0, 2.0) { \textcolor{BBWhite}{\textbf{3}} };
+
+
+	\node[anchor=west] (line2) at (1.0, 5.5) { \bbtext{\texttt{1 2 2} } };
+
+
+
+
+
+
+
+
+
+
+	\draw[thick](node1) to node[above left] { \bbinfo{2} } (node2);
+
+
+	\node[anchor=west] (line3) at (1.0, 5.0) { \bbtext{\texttt{2 3 1} } };
+
+	\draw[thick](node2) to node[above right] { \bbinfo{1} } (node3);
+
+
+
+
+\end{tikzpicture}
+\end{frame}
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+
+	\node[anchor=west] (header) at (0, 7.0) { \bbbold{Exemplo de entrada e saída} };
+
+
+	\node[anchor=west] (line1) at (1.0, 6.0) { \bbtext{\texttt{3} } };
+
+
+	\draw[->,color=BBBlack,-latex,very thick] (1.65, 4.75) to  (1.65, 3.75);
+
+	\node[] (r) at (1.65, 3.5) { \bbinfo{0 0 1} };
+
+
+	\node[fill=BBWhite,draw,very thick,circle] (node1) at (7.0, 2.0) { \bbtext{1} };
+
+	\node[fill=BBWhite,draw,very thick,circle] (node2) at (10.0, 6.0) { \bbtext{2} };
+
+	\node[fill=BBBlack,draw,very thick,circle] (node3) at (13.0, 2.0) { \textcolor{BBWhite}{\textbf{3}} };
+
+
+	\node[anchor=west] (line2) at (1.0, 5.5) { \bbtext{\texttt{1 2 2} } };
+
+
+
+
+
+
+
+
+
+
+	\draw[thick](node1) to node[above left] { \bbinfo{2} } (node2);
+
+
+	\node[anchor=west] (line3) at (1.0, 5.0) { \bbtext{\texttt{2 3 1} } };
+
+	\draw[thick](node2) to node[above right] { \bbinfo{1} } (node3);
+
+
+
+
+
+
+
+\end{tikzpicture}
+\end{frame}
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+
+	\node[anchor=west] (header) at (0, 7.0) { \bbbold{Exemplo de entrada e saída} };
+
+\end{tikzpicture}
+\end{frame}
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+
+	\node[anchor=west] (header) at (0, 7.0) { \bbbold{Exemplo de entrada e saída} };
+
+
+	\node[anchor=west] (line1) at (1.0, 6.0) { \bbtext{\texttt{5} } };
+
+\end{tikzpicture}
+\end{frame}
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+
+	\node[anchor=west] (header) at (0, 7.0) { \bbbold{Exemplo de entrada e saída} };
+
+
+	\node[anchor=west] (line1) at (1.0, 6.0) { \bbtext{\texttt{5} } };
+
+
+	\node[fill=BBGray,draw,very thick,circle] (node1) at (6.0, 5.0) { \bbtext{1} };
+
+	\node[fill=BBGray,draw,very thick,circle] (node2) at (9.0, 7.0) { \bbtext{2} };
+
+	\node[fill=BBGray,draw,very thick,circle] (node3) at (12.0, 5.0) { \bbtext{3} };
+
+	\node[fill=BBGray,draw,very thick,circle] (node4) at (11.0, 2.0) { \bbtext{4} };
+
+	\node[fill=BBGray,draw,very thick,circle] (node5) at (7.0, 2.0) { \bbtext{5} };
+
+\end{tikzpicture}
+\end{frame}
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+
+	\node[anchor=west] (header) at (0, 7.0) { \bbbold{Exemplo de entrada e saída} };
+
+
+	\node[anchor=west] (line1) at (1.0, 6.0) { \bbtext{\texttt{5} } };
+
+
+	\node[fill=BBGray,draw,very thick,circle] (node1) at (6.0, 5.0) { \bbtext{1} };
+
+	\node[fill=BBGray,draw,very thick,circle] (node2) at (9.0, 7.0) { \bbtext{2} };
+
+	\node[fill=BBGray,draw,very thick,circle] (node3) at (12.0, 5.0) { \bbtext{3} };
+
+	\node[fill=BBGray,draw,very thick,circle] (node4) at (11.0, 2.0) { \bbtext{4} };
+
+	\node[fill=BBGray,draw,very thick,circle] (node5) at (7.0, 2.0) { \bbtext{5} };
+
+
+	\node[anchor=west] (line2) at (1.0, 5.5) { \bbtext{\texttt{2 5 2}} };
+
+\end{tikzpicture}
+\end{frame}
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+
+	\node[anchor=west] (header) at (0, 7.0) { \bbbold{Exemplo de entrada e saída} };
+
+
+	\node[anchor=west] (line1) at (1.0, 6.0) { \bbtext{\texttt{5} } };
+
+
+	\node[fill=BBGray,draw,very thick,circle] (node1) at (6.0, 5.0) { \bbtext{1} };
+
+	\node[fill=BBGray,draw,very thick,circle] (node2) at (9.0, 7.0) { \bbtext{2} };
+
+	\node[fill=BBGray,draw,very thick,circle] (node3) at (12.0, 5.0) { \bbtext{3} };
+
+	\node[fill=BBGray,draw,very thick,circle] (node4) at (11.0, 2.0) { \bbtext{4} };
+
+	\node[fill=BBGray,draw,very thick,circle] (node5) at (7.0, 2.0) { \bbtext{5} };
+
+
+	\node[anchor=west] (line2) at (1.0, 5.5) { \bbtext{\texttt{2 5 2}} };
+
+
+	\draw[thick](node2) to node[above left,pos=0.8] { \bbinfo{2} } (node5);
+
+\end{tikzpicture}
+\end{frame}
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+
+	\node[anchor=west] (header) at (0, 7.0) { \bbbold{Exemplo de entrada e saída} };
+
+
+	\node[anchor=west] (line1) at (1.0, 6.0) { \bbtext{\texttt{5} } };
+
+
+	\node[fill=BBGray,draw,very thick,circle] (node1) at (6.0, 5.0) { \bbtext{1} };
+
+	\node[fill=BBGray,draw,very thick,circle] (node2) at (9.0, 7.0) { \bbtext{2} };
+
+	\node[fill=BBGray,draw,very thick,circle] (node3) at (12.0, 5.0) { \bbtext{3} };
+
+	\node[fill=BBGray,draw,very thick,circle] (node4) at (11.0, 2.0) { \bbtext{4} };
+
+	\node[fill=BBGray,draw,very thick,circle] (node5) at (7.0, 2.0) { \bbtext{5} };
+
+
+	\node[anchor=west] (line2) at (1.0, 5.5) { \bbtext{\texttt{2 5 2}} };
+
+
+	\draw[thick](node2) to node[above left,pos=0.8] { \bbinfo{2} } (node5);
+
+
+	\node[anchor=west] (line3) at (1.0, 5.0) { \bbtext{\texttt{2 3 10}} };
+
+\end{tikzpicture}
+\end{frame}
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+
+	\node[anchor=west] (header) at (0, 7.0) { \bbbold{Exemplo de entrada e saída} };
+
+
+	\node[anchor=west] (line1) at (1.0, 6.0) { \bbtext{\texttt{5} } };
+
+
+	\node[fill=BBGray,draw,very thick,circle] (node1) at (6.0, 5.0) { \bbtext{1} };
+
+	\node[fill=BBGray,draw,very thick,circle] (node2) at (9.0, 7.0) { \bbtext{2} };
+
+	\node[fill=BBGray,draw,very thick,circle] (node3) at (12.0, 5.0) { \bbtext{3} };
+
+	\node[fill=BBGray,draw,very thick,circle] (node4) at (11.0, 2.0) { \bbtext{4} };
+
+	\node[fill=BBGray,draw,very thick,circle] (node5) at (7.0, 2.0) { \bbtext{5} };
+
+
+	\node[anchor=west] (line2) at (1.0, 5.5) { \bbtext{\texttt{2 5 2}} };
+
+
+	\draw[thick](node2) to node[above left,pos=0.8] { \bbinfo{2} } (node5);
+
+
+	\node[anchor=west] (line3) at (1.0, 5.0) { \bbtext{\texttt{2 3 10}} };
+
+
+	\draw[thick](node2) to node[above right] { \bbinfo{10} } (node3);
+
+\end{tikzpicture}
+\end{frame}
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+
+	\node[anchor=west] (header) at (0, 7.0) { \bbbold{Exemplo de entrada e saída} };
+
+
+	\node[anchor=west] (line1) at (1.0, 6.0) { \bbtext{\texttt{5} } };
+
+
+	\node[fill=BBGray,draw,very thick,circle] (node1) at (6.0, 5.0) { \bbtext{1} };
+
+	\node[fill=BBGray,draw,very thick,circle] (node2) at (9.0, 7.0) { \bbtext{2} };
+
+	\node[fill=BBGray,draw,very thick,circle] (node3) at (12.0, 5.0) { \bbtext{3} };
+
+	\node[fill=BBGray,draw,very thick,circle] (node4) at (11.0, 2.0) { \bbtext{4} };
+
+	\node[fill=BBGray,draw,very thick,circle] (node5) at (7.0, 2.0) { \bbtext{5} };
+
+
+	\node[anchor=west] (line2) at (1.0, 5.5) { \bbtext{\texttt{2 5 2}} };
+
+
+	\draw[thick](node2) to node[above left,pos=0.8] { \bbinfo{2} } (node5);
+
+
+	\node[anchor=west] (line3) at (1.0, 5.0) { \bbtext{\texttt{2 3 10}} };
+
+
+	\draw[thick](node2) to node[above right] { \bbinfo{10} } (node3);
+
+
+	\node[anchor=west] (line4) at (1.0, 4.5) { \bbtext{\texttt{1 3 8}} };
+
+\end{tikzpicture}
+\end{frame}
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+
+	\node[anchor=west] (header) at (0, 7.0) { \bbbold{Exemplo de entrada e saída} };
+
+
+	\node[anchor=west] (line1) at (1.0, 6.0) { \bbtext{\texttt{5} } };
+
+
+	\node[fill=BBGray,draw,very thick,circle] (node1) at (6.0, 5.0) { \bbtext{1} };
+
+	\node[fill=BBGray,draw,very thick,circle] (node2) at (9.0, 7.0) { \bbtext{2} };
+
+	\node[fill=BBGray,draw,very thick,circle] (node3) at (12.0, 5.0) { \bbtext{3} };
+
+	\node[fill=BBGray,draw,very thick,circle] (node4) at (11.0, 2.0) { \bbtext{4} };
+
+	\node[fill=BBGray,draw,very thick,circle] (node5) at (7.0, 2.0) { \bbtext{5} };
+
+
+	\node[anchor=west] (line2) at (1.0, 5.5) { \bbtext{\texttt{2 5 2}} };
+
+
+	\draw[thick](node2) to node[above left,pos=0.8] { \bbinfo{2} } (node5);
+
+
+	\node[anchor=west] (line3) at (1.0, 5.0) { \bbtext{\texttt{2 3 10}} };
+
+
+	\draw[thick](node2) to node[above right] { \bbinfo{10} } (node3);
+
+
+	\node[anchor=west] (line4) at (1.0, 4.5) { \bbtext{\texttt{1 3 8}} };
+
+
+	\draw[thick](node1) to node[above left,pos=0.8] { \bbinfo{8} } (node3);
+
+\end{tikzpicture}
+\end{frame}
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+
+	\node[anchor=west] (header) at (0, 7.0) { \bbbold{Exemplo de entrada e saída} };
+
+
+	\node[anchor=west] (line1) at (1.0, 6.0) { \bbtext{\texttt{5} } };
+
+
+	\node[fill=BBGray,draw,very thick,circle] (node1) at (6.0, 5.0) { \bbtext{1} };
+
+	\node[fill=BBGray,draw,very thick,circle] (node2) at (9.0, 7.0) { \bbtext{2} };
+
+	\node[fill=BBGray,draw,very thick,circle] (node3) at (12.0, 5.0) { \bbtext{3} };
+
+	\node[fill=BBGray,draw,very thick,circle] (node4) at (11.0, 2.0) { \bbtext{4} };
+
+	\node[fill=BBGray,draw,very thick,circle] (node5) at (7.0, 2.0) { \bbtext{5} };
+
+
+	\node[anchor=west] (line2) at (1.0, 5.5) { \bbtext{\texttt{2 5 2}} };
+
+
+	\draw[thick](node2) to node[above left,pos=0.8] { \bbinfo{2} } (node5);
+
+
+	\node[anchor=west] (line3) at (1.0, 5.0) { \bbtext{\texttt{2 3 10}} };
+
+
+	\draw[thick](node2) to node[above right] { \bbinfo{10} } (node3);
+
+
+	\node[anchor=west] (line4) at (1.0, 4.5) { \bbtext{\texttt{1 3 8}} };
+
+
+	\draw[thick](node1) to node[above left,pos=0.8] { \bbinfo{8} } (node3);
+
+
+	\node[anchor=west] (line5) at (1.0, 4.0) { \bbtext{\texttt{3 4 2}} };
+
+\end{tikzpicture}
+\end{frame}
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+
+	\node[anchor=west] (header) at (0, 7.0) { \bbbold{Exemplo de entrada e saída} };
+
+
+	\node[anchor=west] (line1) at (1.0, 6.0) { \bbtext{\texttt{5} } };
+
+
+	\node[fill=BBGray,draw,very thick,circle] (node1) at (6.0, 5.0) { \bbtext{1} };
+
+	\node[fill=BBGray,draw,very thick,circle] (node2) at (9.0, 7.0) { \bbtext{2} };
+
+	\node[fill=BBGray,draw,very thick,circle] (node3) at (12.0, 5.0) { \bbtext{3} };
+
+	\node[fill=BBGray,draw,very thick,circle] (node4) at (11.0, 2.0) { \bbtext{4} };
+
+	\node[fill=BBGray,draw,very thick,circle] (node5) at (7.0, 2.0) { \bbtext{5} };
+
+
+	\node[anchor=west] (line2) at (1.0, 5.5) { \bbtext{\texttt{2 5 2}} };
+
+
+	\draw[thick](node2) to node[above left,pos=0.8] { \bbinfo{2} } (node5);
+
+
+	\node[anchor=west] (line3) at (1.0, 5.0) { \bbtext{\texttt{2 3 10}} };
+
+
+	\draw[thick](node2) to node[above right] { \bbinfo{10} } (node3);
+
+
+	\node[anchor=west] (line4) at (1.0, 4.5) { \bbtext{\texttt{1 3 8}} };
+
+
+	\draw[thick](node1) to node[above left,pos=0.8] { \bbinfo{8} } (node3);
+
+
+	\node[anchor=west] (line5) at (1.0, 4.0) { \bbtext{\texttt{3 4 2}} };
+
+
+	\draw[thick](node3) to node[above left] { \bbinfo{2} } (node4);
+
+
+\end{tikzpicture}
+\end{frame}
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+
+	\node[anchor=west] (header) at (0, 7.0) { \bbbold{Exemplo de entrada e saída} };
+
+
+	\node[anchor=west] (line1) at (1.0, 6.0) { \bbtext{\texttt{5} } };
+
+
+	\node[fill=BBBlack,draw,very thick,circle] (node1) at (6.0, 5.0) { \textcolor{BBWhite}{\textbf{1}} };
+
+	\node[fill=BBGray,draw,very thick,circle] (node2) at (9.0, 7.0) { \bbtext{2} };
+
+	\node[fill=BBGray,draw,very thick,circle] (node3) at (12.0, 5.0) { \bbtext{3} };
+
+	\node[fill=BBGray,draw,very thick,circle] (node4) at (11.0, 2.0) { \bbtext{4} };
+
+	\node[fill=BBGray,draw,very thick,circle] (node5) at (7.0, 2.0) { \bbtext{5} };
+
+
+	\node[anchor=west] (line2) at (1.0, 5.5) { \bbtext{\texttt{2 5 2}} };
+
+
+	\draw[thick](node2) to node[above left,pos=0.8] { \bbinfo{2} } (node5);
+
+
+	\node[anchor=west] (line3) at (1.0, 5.0) { \bbtext{\texttt{2 3 10}} };
+
+
+	\draw[thick](node2) to node[above right] { \bbinfo{10} } (node3);
+
+
+	\node[anchor=west] (line4) at (1.0, 4.5) { \bbtext{\texttt{1 3 8}} };
+
+
+	\draw[thick](node1) to node[above left,pos=0.8] { \bbinfo{8} } (node3);
+
+
+	\node[anchor=west] (line5) at (1.0, 4.0) { \bbtext{\texttt{3 4 2}} };
+
+
+	\draw[thick](node3) to node[above left] { \bbinfo{2} } (node4);
+
+
+
+\end{tikzpicture}
+\end{frame}
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+
+	\node[anchor=west] (header) at (0, 7.0) { \bbbold{Exemplo de entrada e saída} };
+
+
+	\node[anchor=west] (line1) at (1.0, 6.0) { \bbtext{\texttt{5} } };
+
+
+	\node[fill=BBBlack,draw,very thick,circle] (node1) at (6.0, 5.0) { \textcolor{BBWhite}{\textbf{1}} };
+
+	\node[fill=BBWhite,draw,very thick,circle] (node2) at (9.0, 7.0) { \bbtext{2} };
+
+	\node[fill=BBGray,draw,very thick,circle] (node3) at (12.0, 5.0) { \bbtext{3} };
+
+	\node[fill=BBGray,draw,very thick,circle] (node4) at (11.0, 2.0) { \bbtext{4} };
+
+	\node[fill=BBGray,draw,very thick,circle] (node5) at (7.0, 2.0) { \bbtext{5} };
+
+
+	\node[anchor=west] (line2) at (1.0, 5.5) { \bbtext{\texttt{2 5 2}} };
+
+
+	\draw[thick](node2) to node[above left,pos=0.8] { \bbinfo{2} } (node5);
+
+
+	\node[anchor=west] (line3) at (1.0, 5.0) { \bbtext{\texttt{2 3 10}} };
+
+
+	\draw[thick](node2) to node[above right] { \bbinfo{10} } (node3);
+
+
+	\node[anchor=west] (line4) at (1.0, 4.5) { \bbtext{\texttt{1 3 8}} };
+
+
+	\draw[thick](node1) to node[above left,pos=0.8] { \bbinfo{8} } (node3);
+
+
+	\node[anchor=west] (line5) at (1.0, 4.0) { \bbtext{\texttt{3 4 2}} };
+
+
+	\draw[thick](node3) to node[above left] { \bbinfo{2} } (node4);
+
+
+
+
+\end{tikzpicture}
+\end{frame}
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+
+	\node[anchor=west] (header) at (0, 7.0) { \bbbold{Exemplo de entrada e saída} };
+
+
+	\node[anchor=west] (line1) at (1.0, 6.0) { \bbtext{\texttt{5} } };
+
+
+	\node[fill=BBBlack,draw,very thick,circle] (node1) at (6.0, 5.0) { \textcolor{BBWhite}{\textbf{1}} };
+
+	\node[fill=BBWhite,draw,very thick,circle] (node2) at (9.0, 7.0) { \bbtext{2} };
+
+	\node[fill=BBBlack,draw,very thick,circle] (node3) at (12.0, 5.0) { \textcolor{BBWhite}{\textbf{3}} };
+
+	\node[fill=BBGray,draw,very thick,circle] (node4) at (11.0, 2.0) { \bbtext{4} };
+
+	\node[fill=BBGray,draw,very thick,circle] (node5) at (7.0, 2.0) { \bbtext{5} };
+
+
+	\node[anchor=west] (line2) at (1.0, 5.5) { \bbtext{\texttt{2 5 2}} };
+
+
+	\draw[thick](node2) to node[above left,pos=0.8] { \bbinfo{2} } (node5);
+
+
+	\node[anchor=west] (line3) at (1.0, 5.0) { \bbtext{\texttt{2 3 10}} };
+
+
+	\draw[thick](node2) to node[above right] { \bbinfo{10} } (node3);
+
+
+	\node[anchor=west] (line4) at (1.0, 4.5) { \bbtext{\texttt{1 3 8}} };
+
+
+	\draw[thick](node1) to node[above left,pos=0.8] { \bbinfo{8} } (node3);
+
+
+	\node[anchor=west] (line5) at (1.0, 4.0) { \bbtext{\texttt{3 4 2}} };
+
+
+	\draw[thick](node3) to node[above left] { \bbinfo{2} } (node4);
+
+
+
+
+
+\end{tikzpicture}
+\end{frame}
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+
+	\node[anchor=west] (header) at (0, 7.0) { \bbbold{Exemplo de entrada e saída} };
+
+
+	\node[anchor=west] (line1) at (1.0, 6.0) { \bbtext{\texttt{5} } };
+
+
+	\node[fill=BBBlack,draw,very thick,circle] (node1) at (6.0, 5.0) { \textcolor{BBWhite}{\textbf{1}} };
+
+	\node[fill=BBWhite,draw,very thick,circle] (node2) at (9.0, 7.0) { \bbtext{2} };
+
+	\node[fill=BBBlack,draw,very thick,circle] (node3) at (12.0, 5.0) { \textcolor{BBWhite}{\textbf{3}} };
+
+	\node[fill=BBWhite,draw,very thick,circle] (node4) at (11.0, 2.0) { \bbtext{4} };
+
+	\node[fill=BBGray,draw,very thick,circle] (node5) at (7.0, 2.0) { \bbtext{5} };
+
+
+	\node[anchor=west] (line2) at (1.0, 5.5) { \bbtext{\texttt{2 5 2}} };
+
+
+	\draw[thick](node2) to node[above left,pos=0.8] { \bbinfo{2} } (node5);
+
+
+	\node[anchor=west] (line3) at (1.0, 5.0) { \bbtext{\texttt{2 3 10}} };
+
+
+	\draw[thick](node2) to node[above right] { \bbinfo{10} } (node3);
+
+
+	\node[anchor=west] (line4) at (1.0, 4.5) { \bbtext{\texttt{1 3 8}} };
+
+
+	\draw[thick](node1) to node[above left,pos=0.8] { \bbinfo{8} } (node3);
+
+
+	\node[anchor=west] (line5) at (1.0, 4.0) { \bbtext{\texttt{3 4 2}} };
+
+
+	\draw[thick](node3) to node[above left] { \bbinfo{2} } (node4);
+
+
+
+
+
+
+\end{tikzpicture}
+\end{frame}
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+
+	\node[anchor=west] (header) at (0, 7.0) { \bbbold{Exemplo de entrada e saída} };
+
+
+	\node[anchor=west] (line1) at (1.0, 6.0) { \bbtext{\texttt{5} } };
+
+
+	\node[fill=BBBlack,draw,very thick,circle] (node1) at (6.0, 5.0) { \textcolor{BBWhite}{\textbf{1}} };
+
+	\node[fill=BBWhite,draw,very thick,circle] (node2) at (9.0, 7.0) { \bbtext{2} };
+
+	\node[fill=BBBlack,draw,very thick,circle] (node3) at (12.0, 5.0) { \textcolor{BBWhite}{\textbf{3}} };
+
+	\node[fill=BBWhite,draw,very thick,circle] (node4) at (11.0, 2.0) { \bbtext{4} };
+
+	\node[fill=BBBlack,draw,very thick,circle] (node5) at (7.0, 2.0) { \textcolor{BBWhite}{\textbf{5}} };
+
+
+	\node[anchor=west] (line2) at (1.0, 5.5) { \bbtext{\texttt{2 5 2}} };
+
+
+	\draw[thick](node2) to node[above left,pos=0.8] { \bbinfo{2} } (node5);
+
+
+	\node[anchor=west] (line3) at (1.0, 5.0) { \bbtext{\texttt{2 3 10}} };
+
+
+	\draw[thick](node2) to node[above right] { \bbinfo{10} } (node3);
+
+
+	\node[anchor=west] (line4) at (1.0, 4.5) { \bbtext{\texttt{1 3 8}} };
+
+
+	\draw[thick](node1) to node[above left,pos=0.8] { \bbinfo{8} } (node3);
+
+
+	\node[anchor=west] (line5) at (1.0, 4.0) { \bbtext{\texttt{3 4 2}} };
+
+
+	\draw[thick](node3) to node[above left] { \bbinfo{2} } (node4);
+
+
+
+
+
+
+
+\end{tikzpicture}
+\end{frame}
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+
+	\node[anchor=west] (header) at (0, 7.0) { \bbbold{Exemplo de entrada e saída} };
+
+
+	\node[anchor=west] (line1) at (1.0, 6.0) { \bbtext{\texttt{5} } };
+
+
+	\node[fill=BBBlack,draw,very thick,circle] (node1) at (6.0, 5.0) { \textcolor{BBWhite}{\textbf{1}} };
+
+	\node[fill=BBWhite,draw,very thick,circle] (node2) at (9.0, 7.0) { \bbtext{2} };
+
+	\node[fill=BBBlack,draw,very thick,circle] (node3) at (12.0, 5.0) { \textcolor{BBWhite}{\textbf{3}} };
+
+	\node[fill=BBWhite,draw,very thick,circle] (node4) at (11.0, 2.0) { \bbtext{4} };
+
+	\node[fill=BBBlack,draw,very thick,circle] (node5) at (7.0, 2.0) { \textcolor{BBWhite}{\textbf{5}} };
+
+
+	\node[anchor=west] (line2) at (1.0, 5.5) { \bbtext{\texttt{2 5 2}} };
+
+
+	\draw[thick](node2) to node[above left,pos=0.8] { \bbinfo{2} } (node5);
+
+
+	\node[anchor=west] (line3) at (1.0, 5.0) { \bbtext{\texttt{2 3 10}} };
+
+
+	\draw[thick](node2) to node[above right] { \bbinfo{10} } (node3);
+
+
+	\node[anchor=west] (line4) at (1.0, 4.5) { \bbtext{\texttt{1 3 8}} };
+
+
+	\draw[thick](node1) to node[above left,pos=0.8] { \bbinfo{8} } (node3);
+
+
+	\node[anchor=west] (line5) at (1.0, 4.0) { \bbtext{\texttt{3 4 2}} };
+
+
+	\draw[thick](node3) to node[above left] { \bbinfo{2} } (node4);
+
+
+
+
+
+
+
+	\node[] (r) at (1.65, 2.5) { \bbinfo{1 0 1 0 1} };
+
+	\draw[color=BBBlack,-latex,very thick] (1.65, 3.75) to  (1.65, 2.75);
+
+\end{tikzpicture}
+\end{frame}
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+
+	\node[anchor=west] (header) at (0, 7.0) { \Large \bbbold{Solução} };
+
+\end{tikzpicture}
+\end{frame}
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+
+	\node[anchor=west] (header) at (0, 7.0) { \Large \bbbold{Solução} };
+
+
+	\node[fill=BBGray,draw,very thick,circle] (nodeA) at (6.0, 1.5) { \bbtext{A} };
+
+	\node[fill=BBGray,draw,very thick,circle] (nodeB) at (8.0, 4.5) { \bbtext{B} };
+
+	\draw[thick](nodeA) to node[above left] { $p$ } (nodeB);
+
+\end{tikzpicture}
+\end{frame}
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+
+	\node[anchor=west] (header) at (0, 7.0) { \Large \bbbold{Solução} };
+
+
+	\node[fill=BBGray,draw,very thick,circle] (nodeA) at (6.0, 1.5) { \bbtext{A} };
+
+	\node[fill=BBGray,draw,very thick,circle] (nodeB) at (8.0, 4.5) { \bbtext{B} };
+
+	\draw[thick](nodeA) to node[above left] { $p$ } (nodeB);
+
+
+	\node[anchor=west] (info) at (1.0, 6.0) { \bbtext{Se o peso $w$ é um número par $p$, ambos vértices devem ter a mesma cor} };
+
+
+\end{tikzpicture}
+\end{frame}
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+
+	\node[anchor=west] (header) at (0, 7.0) { \Large \bbbold{Solução} };
+
+
+	\node[fill=BBWhite,draw,very thick,circle] (nodeA) at (6.0, 1.5) { \bbtext{A} };
+
+	\node[fill=BBWhite,draw,very thick,circle] (nodeB) at (8.0, 4.5) { \bbtext{B} };
+
+	\draw[thick](nodeA) to node[above left] { $p$ } (nodeB);
+
+
+	\node[anchor=west] (info) at (1.0, 6.0) { \bbtext{Se o peso $w$ é um número par $p$, ambos vértices devem ter a mesma cor} };
+
+
+
+\end{tikzpicture}
+\end{frame}
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+
+	\node[anchor=west] (header) at (0, 7.0) { \Large \bbbold{Solução} };
+
+
+	\node[fill=BBGray,draw,very thick,circle] (nodeA) at (6.0, 1.5) { \bbtext{A} };
+
+	\node[fill=BBGray,draw,very thick,circle] (nodeB) at (8.0, 4.5) { \bbtext{B} };
+
+	\draw[thick](nodeA) to node[above left] { $i$ } (nodeB);
+
+
+
+
+
+
+\end{tikzpicture}
+\end{frame}
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+
+	\node[anchor=west] (header) at (0, 7.0) { \Large \bbbold{Solução} };
+
+
+	\node[fill=BBGray,draw,very thick,circle] (nodeA) at (6.0, 1.5) { \bbtext{A} };
+
+	\node[fill=BBGray,draw,very thick,circle] (nodeB) at (8.0, 4.5) { \bbtext{B} };
+
+	\draw[thick](nodeA) to node[above left] { $i$ } (nodeB);
+
+
+	\node[anchor=west] (info) at (1.0, 6.0) { \bbtext{Se o peso $w$ é um número ímpar $i$, ambos vértices devem ter cores distintas} };
+
+
+
+
+
+\end{tikzpicture}
+\end{frame}
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+
+	\node[anchor=west] (header) at (0, 7.0) { \Large \bbbold{Solução} };
+
+
+	\node[fill=BBWhite,draw,very thick,circle] (nodeA) at (6.0, 1.5) { \bbtext{A} };
+
+	\node[fill=BBBlack,draw,very thick,circle] (nodeB) at (8.0, 4.5) { \textcolor{BBWhite}{\textbf{B}} };
+
+	\draw[thick](nodeA) to node[above left] { $i$ } (nodeB);
+
+
+	\node[anchor=west] (info) at (1.0, 6.0) { \bbtext{Se o peso $w$ é um número ímpar $i$, ambos vértices devem ter cores distintas} };
+
+
+
+
+
+
+\end{tikzpicture}
+\end{frame}
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+
+	\node[anchor=west] (header) at (0, 7.0) { \Large \bbbold{Solução} };
+
+
+
+
+
+
+	\node[anchor=west] (info) at (1.0, 6.0) { \bbtext{Estes dois critérios são suficientes para a resolução do problema!} };
+
+
+
+
+
+
+
+
+\end{tikzpicture}
+\end{frame}
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+
+	\node[anchor=west] (header) at (0, 7.0) { \Large \bbbold{Solução} };
+
+
+
+
+
+
+	\node[anchor=west] (info) at (1.0, 6.0) { \bbtext{Estes dois critérios são suficientes para a resolução do problema!} };
+
+
+
+
+
+
+
+
+	\node[] (info2) at (7.0, 5.0) { \bbcomment{Isto porque cada aresta com peso ímpar em um caminho} };
+
+	\node[] (info3) at (7.0, 4.5) { \bbcomment{corresponde a uma troca de cores!} };
+
+\end{tikzpicture}
+\end{frame}
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+
+	\node[anchor=west] (header) at (0, 7.0) { \Large \bbbold{Solução} };
+
+
+
+
+
+
+	\node[anchor=west] (info) at (1.0, 6.0) { \bbtext{Se a distância de $u$ a $v$ é par, ou todas arestas são pares, ou há um número} };
+
+
+
+
+
+
+
+
+	\node[anchor=west] (info2) at (0.5, 5.5) { \bbtext{par de arestas ímpares no caminho de $u$ a $v$.} };
+
+
+
+
+
+
+\end{tikzpicture}
+\end{frame}
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+
+	\node[anchor=west] (header) at (0, 7.0) { \Large \bbbold{Solução} };
+
+
+	\node[fill=BBGray,draw,very thick,circle] (nodeA) at (2.0, 2.5) { \bbtext{A} };
+
+	\node[fill=BBGray,draw,very thick,circle] (nodeB) at (4.0, 4.0) { \bbtext{B} };
+
+	\draw[thick](nodeA) to node[above left] { $i$ } (nodeB);
+
+
+	\node[anchor=west] (info) at (1.0, 6.0) { \bbtext{Se a distância de $u$ a $v$ é par, ou todas arestas são pares, ou há um número} };
+
+
+
+
+
+
+
+
+	\node[anchor=west] (info2) at (0.5, 5.5) { \bbtext{par de arestas ímpares no caminho de $u$ a $v$.} };
+
+
+
+
+
+
+
+
+
+
+	\node[fill=BBGray,draw,very thick,circle] (nodeU) at (5.0, 1.0) { $u$ };
+
+	\draw[thick](nodeU) to node[above right] { $p$ } (nodeB);
+
+
+	\node[fill=BBGray,draw,very thick,circle] (nodeC) at (7.0, 2.5) { \bbtext{C} };
+
+	\draw[thick](nodeC) to node[above] { $i$ } (nodeB);
+
+	\node[fill=BBGray,draw,very thick,circle] (nodeD) at (9.0, 4.0) { \bbtext{D} };
+
+	\draw[thick](nodeC) to node[above] { $p$ } (nodeD);
+
+	\node[fill=BBGray,draw,very thick,circle] (nodeE) at (9.0, 1.0) { \bbtext{E} };
+
+	\draw[thick](nodeE) to node[left] { $i$ } (nodeD);
+
+	\node[fill=BBGray,draw,very thick,circle] (nodeF) at (13.0, 1.0) { \bbtext{F} };
+
+	\draw[thick](nodeE) to node[below] { $i$ } (nodeF);
+
+	\node[fill=BBGray,draw,very thick,circle] (nodeG) at (12.0, 4.0) { \bbtext{G} };
+
+	\draw[thick](nodeG) to node[above right] { $p$ } (nodeF);
+
+
+	\node[fill=BBGray,draw,very thick,circle] (nodeV) at (10.0, 2.5) { $v$ };
+
+	\draw[thick](nodeV) to node[above] { $i$ } (nodeG);
+
+\end{tikzpicture}
+\end{frame}
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+
+	\node[anchor=west] (header) at (0, 7.0) { \Large \bbbold{Solução} };
+
+
+	\node[fill=BBGray,draw,very thick,circle] (nodeA) at (2.0, 2.5) { \bbtext{A} };
+
+	\node[fill=BBGray,draw,very thick,circle] (nodeB) at (4.0, 4.0) { \bbtext{B} };
+
+	\draw[thick](nodeA) to node[above left] { $i$ } (nodeB);
+
+
+	\node[anchor=west] (info) at (1.0, 6.0) { \bbtext{Se a distância de $u$ a $v$ é par, ou todas arestas são pares, ou há um número} };
+
+
+
+
+
+
+
+
+	\node[anchor=west] (info2) at (0.5, 5.5) { \bbtext{par de arestas ímpares no caminho de $u$ a $v$.} };
+
+
+
+
+
+
+
+
+
+
+	\node[fill=BBWhite,draw,very thick,circle] (nodeU) at (5.0, 1.0) { $u$ };
+
+	\draw[thick](nodeU) to node[above right] { $p$ } (nodeB);
+
+
+	\node[fill=BBGray,draw,very thick,circle] (nodeC) at (7.0, 2.5) { \bbtext{C} };
+
+	\draw[thick](nodeC) to node[above] { $i$ } (nodeB);
+
+	\node[fill=BBGray,draw,very thick,circle] (nodeD) at (9.0, 4.0) { \bbtext{D} };
+
+	\draw[thick](nodeC) to node[above] { $p$ } (nodeD);
+
+	\node[fill=BBGray,draw,very thick,circle] (nodeE) at (9.0, 1.0) { \bbtext{E} };
+
+	\draw[thick](nodeE) to node[left] { $i$ } (nodeD);
+
+	\node[fill=BBGray,draw,very thick,circle] (nodeF) at (13.0, 1.0) { \bbtext{F} };
+
+	\draw[thick](nodeE) to node[below] { $i$ } (nodeF);
+
+	\node[fill=BBGray,draw,very thick,circle] (nodeG) at (12.0, 4.0) { \bbtext{G} };
+
+	\draw[thick](nodeG) to node[above right] { $p$ } (nodeF);
+
+
+	\node[fill=BBGray,draw,very thick,circle] (nodeV) at (10.0, 2.5) { $v$ };
+
+	\draw[thick](nodeV) to node[above] { $i$ } (nodeG);
+
+
+\end{tikzpicture}
+\end{frame}
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+
+	\node[anchor=west] (header) at (0, 7.0) { \Large \bbbold{Solução} };
+
+
+	\node[fill=BBGray,draw,very thick,circle] (nodeA) at (2.0, 2.5) { \bbtext{A} };
+
+	\node[fill=BBWhite,draw,very thick,circle] (nodeB) at (4.0, 4.0) { \bbtext{B} };
+
+	\draw[thick](nodeA) to node[above left] { $i$ } (nodeB);
+
+
+	\node[anchor=west] (info) at (1.0, 6.0) { \bbtext{Se a distância de $u$ a $v$ é par, ou todas arestas são pares, ou há um número} };
+
+
+
+
+
+
+
+
+	\node[anchor=west] (info2) at (0.5, 5.5) { \bbtext{par de arestas ímpares no caminho de $u$ a $v$.} };
+
+
+
+
+
+
+
+
+
+
+	\node[fill=BBWhite,draw,very thick,circle] (nodeU) at (5.0, 1.0) { $u$ };
+
+	\draw[thick](nodeU) to node[above right] { $p$ } (nodeB);
+
+
+	\node[fill=BBGray,draw,very thick,circle] (nodeC) at (7.0, 2.5) { \bbtext{C} };
+
+	\draw[thick](nodeC) to node[above] { $i$ } (nodeB);
+
+	\node[fill=BBGray,draw,very thick,circle] (nodeD) at (9.0, 4.0) { \bbtext{D} };
+
+	\draw[thick](nodeC) to node[above] { $p$ } (nodeD);
+
+	\node[fill=BBGray,draw,very thick,circle] (nodeE) at (9.0, 1.0) { \bbtext{E} };
+
+	\draw[thick](nodeE) to node[left] { $i$ } (nodeD);
+
+	\node[fill=BBGray,draw,very thick,circle] (nodeF) at (13.0, 1.0) { \bbtext{F} };
+
+	\draw[thick](nodeE) to node[below] { $i$ } (nodeF);
+
+	\node[fill=BBGray,draw,very thick,circle] (nodeG) at (12.0, 4.0) { \bbtext{G} };
+
+	\draw[thick](nodeG) to node[above right] { $p$ } (nodeF);
+
+
+	\node[fill=BBGray,draw,very thick,circle] (nodeV) at (10.0, 2.5) { $v$ };
+
+	\draw[thick](nodeV) to node[above] { $i$ } (nodeG);
+
+
+
+\end{tikzpicture}
+\end{frame}
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+
+	\node[anchor=west] (header) at (0, 7.0) { \Large \bbbold{Solução} };
+
+
+	\node[fill=BBGray,draw,very thick,circle] (nodeA) at (2.0, 2.5) { \bbtext{A} };
+
+	\node[fill=BBWhite,draw,very thick,circle] (nodeB) at (4.0, 4.0) { \bbtext{B} };
+
+	\draw[thick](nodeA) to node[above left] { $i$ } (nodeB);
+
+
+	\node[anchor=west] (info) at (1.0, 6.0) { \bbtext{Se a distância de $u$ a $v$ é par, ou todas arestas são pares, ou há um número} };
+
+
+
+
+
+
+
+
+	\node[anchor=west] (info2) at (0.5, 5.5) { \bbtext{par de arestas ímpares no caminho de $u$ a $v$.} };
+
+
+
+
+
+
+
+
+
+
+	\node[fill=BBWhite,draw,very thick,circle] (nodeU) at (5.0, 1.0) { $u$ };
+
+	\draw[thick](nodeU) to node[above right] { $p$ } (nodeB);
+
+
+	\node[fill=BBBlack,draw,very thick,circle] (nodeC) at (7.0, 2.5) { \textcolor{BBWhite}{\textbf{C}} };
+
+	\draw[thick](nodeC) to node[above] { $i$ } (nodeB);
+
+	\node[fill=BBGray,draw,very thick,circle] (nodeD) at (9.0, 4.0) { \bbtext{D} };
+
+	\draw[thick](nodeC) to node[above] { $p$ } (nodeD);
+
+	\node[fill=BBGray,draw,very thick,circle] (nodeE) at (9.0, 1.0) { \bbtext{E} };
+
+	\draw[thick](nodeE) to node[left] { $i$ } (nodeD);
+
+	\node[fill=BBGray,draw,very thick,circle] (nodeF) at (13.0, 1.0) { \bbtext{F} };
+
+	\draw[thick](nodeE) to node[below] { $i$ } (nodeF);
+
+	\node[fill=BBGray,draw,very thick,circle] (nodeG) at (12.0, 4.0) { \bbtext{G} };
+
+	\draw[thick](nodeG) to node[above right] { $p$ } (nodeF);
+
+
+	\node[fill=BBGray,draw,very thick,circle] (nodeV) at (10.0, 2.5) { $v$ };
+
+	\draw[thick](nodeV) to node[above] { $i$ } (nodeG);
+
+
+
+
+\end{tikzpicture}
+\end{frame}
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+
+	\node[anchor=west] (header) at (0, 7.0) { \Large \bbbold{Solução} };
+
+
+	\node[fill=BBGray,draw,very thick,circle] (nodeA) at (2.0, 2.5) { \bbtext{A} };
+
+	\node[fill=BBWhite,draw,very thick,circle] (nodeB) at (4.0, 4.0) { \bbtext{B} };
+
+	\draw[thick](nodeA) to node[above left] { $i$ } (nodeB);
+
+
+	\node[anchor=west] (info) at (1.0, 6.0) { \bbtext{Se a distância de $u$ a $v$ é par, ou todas arestas são pares, ou há um número} };
+
+
+
+
+
+
+
+
+	\node[anchor=west] (info2) at (0.5, 5.5) { \bbtext{par de arestas ímpares no caminho de $u$ a $v$.} };
+
+
+
+
+
+
+
+
+
+
+	\node[fill=BBWhite,draw,very thick,circle] (nodeU) at (5.0, 1.0) { $u$ };
+
+	\draw[thick](nodeU) to node[above right] { $p$ } (nodeB);
+
+
+	\node[fill=BBBlack,draw,very thick,circle] (nodeC) at (7.0, 2.5) { \textcolor{BBWhite}{\textbf{C}} };
+
+	\draw[thick](nodeC) to node[above] { $i$ } (nodeB);
+
+	\node[fill=BBBlack,draw,very thick,circle] (nodeD) at (9.0, 4.0) { \textcolor{BBWhite}{\textbf{D}} };
+
+	\draw[thick](nodeC) to node[above] { $p$ } (nodeD);
+
+	\node[fill=BBGray,draw,very thick,circle] (nodeE) at (9.0, 1.0) { \bbtext{E} };
+
+	\draw[thick](nodeE) to node[left] { $i$ } (nodeD);
+
+	\node[fill=BBGray,draw,very thick,circle] (nodeF) at (13.0, 1.0) { \bbtext{F} };
+
+	\draw[thick](nodeE) to node[below] { $i$ } (nodeF);
+
+	\node[fill=BBGray,draw,very thick,circle] (nodeG) at (12.0, 4.0) { \bbtext{G} };
+
+	\draw[thick](nodeG) to node[above right] { $p$ } (nodeF);
+
+
+	\node[fill=BBGray,draw,very thick,circle] (nodeV) at (10.0, 2.5) { $v$ };
+
+	\draw[thick](nodeV) to node[above] { $i$ } (nodeG);
+
+
+
+
+
+\end{tikzpicture}
+\end{frame}
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+
+	\node[anchor=west] (header) at (0, 7.0) { \Large \bbbold{Solução} };
+
+
+	\node[fill=BBGray,draw,very thick,circle] (nodeA) at (2.0, 2.5) { \bbtext{A} };
+
+	\node[fill=BBWhite,draw,very thick,circle] (nodeB) at (4.0, 4.0) { \bbtext{B} };
+
+	\draw[thick](nodeA) to node[above left] { $i$ } (nodeB);
+
+
+	\node[anchor=west] (info) at (1.0, 6.0) { \bbtext{Se a distância de $u$ a $v$ é par, ou todas arestas são pares, ou há um número} };
+
+
+
+
+
+
+
+
+	\node[anchor=west] (info2) at (0.5, 5.5) { \bbtext{par de arestas ímpares no caminho de $u$ a $v$.} };
+
+
+
+
+
+
+
+
+
+
+	\node[fill=BBWhite,draw,very thick,circle] (nodeU) at (5.0, 1.0) { $u$ };
+
+	\draw[thick](nodeU) to node[above right] { $p$ } (nodeB);
+
+
+	\node[fill=BBBlack,draw,very thick,circle] (nodeC) at (7.0, 2.5) { \textcolor{BBWhite}{\textbf{C}} };
+
+	\draw[thick](nodeC) to node[above] { $i$ } (nodeB);
+
+	\node[fill=BBBlack,draw,very thick,circle] (nodeD) at (9.0, 4.0) { \textcolor{BBWhite}{\textbf{D}} };
+
+	\draw[thick](nodeC) to node[above] { $p$ } (nodeD);
+
+	\node[fill=BBWhite,draw,very thick,circle] (nodeE) at (9.0, 1.0) { \bbtext{E} };
+
+	\draw[thick](nodeE) to node[left] { $i$ } (nodeD);
+
+	\node[fill=BBGray,draw,very thick,circle] (nodeF) at (13.0, 1.0) { \bbtext{F} };
+
+	\draw[thick](nodeE) to node[below] { $i$ } (nodeF);
+
+	\node[fill=BBGray,draw,very thick,circle] (nodeG) at (12.0, 4.0) { \bbtext{G} };
+
+	\draw[thick](nodeG) to node[above right] { $p$ } (nodeF);
+
+
+	\node[fill=BBGray,draw,very thick,circle] (nodeV) at (10.0, 2.5) { $v$ };
+
+	\draw[thick](nodeV) to node[above] { $i$ } (nodeG);
+
+
+
+
+
+
+\end{tikzpicture}
+\end{frame}
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+
+	\node[anchor=west] (header) at (0, 7.0) { \Large \bbbold{Solução} };
+
+
+	\node[fill=BBGray,draw,very thick,circle] (nodeA) at (2.0, 2.5) { \bbtext{A} };
+
+	\node[fill=BBWhite,draw,very thick,circle] (nodeB) at (4.0, 4.0) { \bbtext{B} };
+
+	\draw[thick](nodeA) to node[above left] { $i$ } (nodeB);
+
+
+	\node[anchor=west] (info) at (1.0, 6.0) { \bbtext{Se a distância de $u$ a $v$ é par, ou todas arestas são pares, ou há um número} };
+
+
+
+
+
+
+
+
+	\node[anchor=west] (info2) at (0.5, 5.5) { \bbtext{par de arestas ímpares no caminho de $u$ a $v$.} };
+
+
+
+
+
+
+
+
+
+
+	\node[fill=BBWhite,draw,very thick,circle] (nodeU) at (5.0, 1.0) { $u$ };
+
+	\draw[thick](nodeU) to node[above right] { $p$ } (nodeB);
+
+
+	\node[fill=BBBlack,draw,very thick,circle] (nodeC) at (7.0, 2.5) { \textcolor{BBWhite}{\textbf{C}} };
+
+	\draw[thick](nodeC) to node[above] { $i$ } (nodeB);
+
+	\node[fill=BBBlack,draw,very thick,circle] (nodeD) at (9.0, 4.0) { \textcolor{BBWhite}{\textbf{D}} };
+
+	\draw[thick](nodeC) to node[above] { $p$ } (nodeD);
+
+	\node[fill=BBWhite,draw,very thick,circle] (nodeE) at (9.0, 1.0) { \bbtext{E} };
+
+	\draw[thick](nodeE) to node[left] { $i$ } (nodeD);
+
+	\node[fill=BBBlack,draw,very thick,circle] (nodeF) at (13.0, 1.0) { \textcolor{BBWhite}{\textbf{F}} };
+
+	\draw[thick](nodeE) to node[below] { $i$ } (nodeF);
+
+	\node[fill=BBGray,draw,very thick,circle] (nodeG) at (12.0, 4.0) { \bbtext{G} };
+
+	\draw[thick](nodeG) to node[above right] { $p$ } (nodeF);
+
+
+	\node[fill=BBGray,draw,very thick,circle] (nodeV) at (10.0, 2.5) { $v$ };
+
+	\draw[thick](nodeV) to node[above] { $i$ } (nodeG);
+
+
+
+
+
+
+
+\end{tikzpicture}
+\end{frame}
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+
+	\node[anchor=west] (header) at (0, 7.0) { \Large \bbbold{Solução} };
+
+
+	\node[fill=BBGray,draw,very thick,circle] (nodeA) at (2.0, 2.5) { \bbtext{A} };
+
+	\node[fill=BBWhite,draw,very thick,circle] (nodeB) at (4.0, 4.0) { \bbtext{B} };
+
+	\draw[thick](nodeA) to node[above left] { $i$ } (nodeB);
+
+
+	\node[anchor=west] (info) at (1.0, 6.0) { \bbtext{Se a distância de $u$ a $v$ é par, ou todas arestas são pares, ou há um número} };
+
+
+
+
+
+
+
+
+	\node[anchor=west] (info2) at (0.5, 5.5) { \bbtext{par de arestas ímpares no caminho de $u$ a $v$.} };
+
+
+
+
+
+
+
+
+
+
+	\node[fill=BBWhite,draw,very thick,circle] (nodeU) at (5.0, 1.0) { $u$ };
+
+	\draw[thick](nodeU) to node[above right] { $p$ } (nodeB);
+
+
+	\node[fill=BBBlack,draw,very thick,circle] (nodeC) at (7.0, 2.5) { \textcolor{BBWhite}{\textbf{C}} };
+
+	\draw[thick](nodeC) to node[above] { $i$ } (nodeB);
+
+	\node[fill=BBBlack,draw,very thick,circle] (nodeD) at (9.0, 4.0) { \textcolor{BBWhite}{\textbf{D}} };
+
+	\draw[thick](nodeC) to node[above] { $p$ } (nodeD);
+
+	\node[fill=BBWhite,draw,very thick,circle] (nodeE) at (9.0, 1.0) { \bbtext{E} };
+
+	\draw[thick](nodeE) to node[left] { $i$ } (nodeD);
+
+	\node[fill=BBBlack,draw,very thick,circle] (nodeF) at (13.0, 1.0) { \textcolor{BBWhite}{\textbf{F}} };
+
+	\draw[thick](nodeE) to node[below] { $i$ } (nodeF);
+
+	\node[fill=BBBlack,draw,very thick,circle] (nodeG) at (12.0, 4.0) { \textcolor{BBWhite}{\textbf{G}} };
+
+	\draw[thick](nodeG) to node[above right] { $p$ } (nodeF);
+
+
+	\node[fill=BBGray,draw,very thick,circle] (nodeV) at (10.0, 2.5) { $v$ };
+
+	\draw[thick](nodeV) to node[above] { $i$ } (nodeG);
+
+
+
+
+
+
+
+
+\end{tikzpicture}
+\end{frame}
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+
+	\node[anchor=west] (header) at (0, 7.0) { \Large \bbbold{Solução} };
+
+
+	\node[fill=BBGray,draw,very thick,circle] (nodeA) at (2.0, 2.5) { \bbtext{A} };
+
+	\node[fill=BBWhite,draw,very thick,circle] (nodeB) at (4.0, 4.0) { \bbtext{B} };
+
+	\draw[thick](nodeA) to node[above left] { $i$ } (nodeB);
+
+
+	\node[anchor=west] (info) at (1.0, 6.0) { \bbtext{Se a distância de $u$ a $v$ é par, ou todas arestas são pares, ou há um número} };
+
+
+
+
+
+
+
+
+	\node[anchor=west] (info2) at (0.5, 5.5) { \bbtext{par de arestas ímpares no caminho de $u$ a $v$.} };
+
+
+
+
+
+
+
+
+
+
+	\node[fill=BBWhite,draw,very thick,circle] (nodeU) at (5.0, 1.0) { $u$ };
+
+	\draw[thick](nodeU) to node[above right] { $p$ } (nodeB);
+
+
+	\node[fill=BBBlack,draw,very thick,circle] (nodeC) at (7.0, 2.5) { \textcolor{BBWhite}{\textbf{C}} };
+
+	\draw[thick](nodeC) to node[above] { $i$ } (nodeB);
+
+	\node[fill=BBBlack,draw,very thick,circle] (nodeD) at (9.0, 4.0) { \textcolor{BBWhite}{\textbf{D}} };
+
+	\draw[thick](nodeC) to node[above] { $p$ } (nodeD);
+
+	\node[fill=BBWhite,draw,very thick,circle] (nodeE) at (9.0, 1.0) { \bbtext{E} };
+
+	\draw[thick](nodeE) to node[left] { $i$ } (nodeD);
+
+	\node[fill=BBBlack,draw,very thick,circle] (nodeF) at (13.0, 1.0) { \textcolor{BBWhite}{\textbf{F}} };
+
+	\draw[thick](nodeE) to node[below] { $i$ } (nodeF);
+
+	\node[fill=BBBlack,draw,very thick,circle] (nodeG) at (12.0, 4.0) { \textcolor{BBWhite}{\textbf{G}} };
+
+	\draw[thick](nodeG) to node[above right] { $p$ } (nodeF);
+
+
+	\node[fill=BBWhite,draw,very thick,circle] (nodeV) at (10.0, 2.5) { $v$ };
+
+	\draw[thick](nodeV) to node[above] { $i$ } (nodeG);
+
+
+
+
+
+
+
+
+
+\end{tikzpicture}
+\end{frame}
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+
+	\node[anchor=west] (header) at (0, 7.0) { \Large \bbbold{Solução} };
+
+
+	\node[fill=BBGray,draw,very thick,circle] (nodeA) at (2.0, 2.5) { $u$ };
+
+	\node[fill=BBGray,draw,very thick,circle] (nodeB) at (4.0, 4.0) { \bbtext{B} };
+
+	\draw[thick](nodeA) to node[above left] { $i$ } (nodeB);
+
+
+	\node[anchor=west] (info) at (1.0, 6.0) { \bbtext{Se a distância de $u$ a $v$ é par, ou todas arestas são pares, ou há um número} };
+
+
+
+
+
+
+
+
+	\node[anchor=west] (info2) at (0.5, 5.5) { \bbtext{par de arestas ímpares no caminho de $u$ a $v$.} };
+
+
+
+
+
+
+
+
+
+
+	\node[fill=BBGray,draw,very thick,circle] (nodeU) at (5.0, 1.0) { \bbtext{A} };
+
+	\draw[thick](nodeU) to node[above right] { $p$ } (nodeB);
+
+
+	\node[fill=BBGray,draw,very thick,circle] (nodeC) at (7.0, 2.5) { \bbtext{C} };
+
+	\draw[thick](nodeC) to node[above] { $i$ } (nodeB);
+
+	\node[fill=BBGray,draw,very thick,circle] (nodeD) at (9.0, 4.0) { \bbtext{D} };
+
+	\draw[thick](nodeC) to node[above] { $p$ } (nodeD);
+
+	\node[fill=BBGray,draw,very thick,circle] (nodeE) at (9.0, 1.0) { $v$ };
+
+	\draw[thick](nodeE) to node[left] { $i$ } (nodeD);
+
+	\node[fill=BBGray,draw,very thick,circle] (nodeF) at (13.0, 1.0) { \bbtext{F} };
+
+	\draw[thick](nodeE) to node[below] { $i$ } (nodeF);
+
+	\node[fill=BBGray,draw,very thick,circle] (nodeG) at (12.0, 4.0) { \bbtext{G} };
+
+	\draw[thick](nodeG) to node[above right] { $p$ } (nodeF);
+
+
+	\node[fill=BBGray,draw,very thick,circle] (nodeV) at (10.0, 2.5) { \bbtext{H} };
+
+	\draw[thick](nodeV) to node[above] { $i$ } (nodeG);
+
+
+
+
+
+
+
+
+
+
+\end{tikzpicture}
+\end{frame}
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+
+	\node[anchor=west] (header) at (0, 7.0) { \Large \bbbold{Solução} };
+
+
+	\node[fill=BBWhite,draw,very thick,circle] (nodeA) at (2.0, 2.5) { $u$ };
+
+	\node[fill=BBGray,draw,very thick,circle] (nodeB) at (4.0, 4.0) { \bbtext{B} };
+
+	\draw[thick](nodeA) to node[above left] { $i$ } (nodeB);
+
+
+	\node[anchor=west] (info) at (1.0, 6.0) { \bbtext{Se a distância de $u$ a $v$ é par, ou todas arestas são pares, ou há um número} };
+
+
+
+
+
+
+
+
+	\node[anchor=west] (info2) at (0.5, 5.5) { \bbtext{par de arestas ímpares no caminho de $u$ a $v$.} };
+
+
+
+
+
+
+
+
+
+
+	\node[fill=BBGray,draw,very thick,circle] (nodeU) at (5.0, 1.0) { \bbtext{A} };
+
+	\draw[thick](nodeU) to node[above right] { $p$ } (nodeB);
+
+
+	\node[fill=BBGray,draw,very thick,circle] (nodeC) at (7.0, 2.5) { \bbtext{C} };
+
+	\draw[thick](nodeC) to node[above] { $i$ } (nodeB);
+
+	\node[fill=BBGray,draw,very thick,circle] (nodeD) at (9.0, 4.0) { \bbtext{D} };
+
+	\draw[thick](nodeC) to node[above] { $p$ } (nodeD);
+
+	\node[fill=BBGray,draw,very thick,circle] (nodeE) at (9.0, 1.0) { $v$ };
+
+	\draw[thick](nodeE) to node[left] { $i$ } (nodeD);
+
+	\node[fill=BBGray,draw,very thick,circle] (nodeF) at (13.0, 1.0) { \bbtext{F} };
+
+	\draw[thick](nodeE) to node[below] { $i$ } (nodeF);
+
+	\node[fill=BBGray,draw,very thick,circle] (nodeG) at (12.0, 4.0) { \bbtext{G} };
+
+	\draw[thick](nodeG) to node[above right] { $p$ } (nodeF);
+
+
+	\node[fill=BBGray,draw,very thick,circle] (nodeV) at (10.0, 2.5) { \bbtext{H} };
+
+	\draw[thick](nodeV) to node[above] { $i$ } (nodeG);
+
+
+
+
+
+
+
+
+
+
+
+\end{tikzpicture}
+\end{frame}
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+
+	\node[anchor=west] (header) at (0, 7.0) { \Large \bbbold{Solução} };
+
+
+	\node[fill=BBWhite,draw,very thick,circle] (nodeA) at (2.0, 2.5) { $u$ };
+
+	\node[fill=BBBlack,draw,very thick,circle] (nodeB) at (4.0, 4.0) { \textcolor{BBWhite}{\textbf{B}} };
+
+	\draw[thick](nodeA) to node[above left] { $i$ } (nodeB);
+
+
+	\node[anchor=west] (info) at (1.0, 6.0) { \bbtext{Se a distância de $u$ a $v$ é par, ou todas arestas são pares, ou há um número} };
+
+
+
+
+
+
+
+
+	\node[anchor=west] (info2) at (0.5, 5.5) { \bbtext{par de arestas ímpares no caminho de $u$ a $v$.} };
+
+
+
+
+
+
+
+
+
+
+	\node[fill=BBGray,draw,very thick,circle] (nodeU) at (5.0, 1.0) { \bbtext{A} };
+
+	\draw[thick](nodeU) to node[above right] { $p$ } (nodeB);
+
+
+	\node[fill=BBGray,draw,very thick,circle] (nodeC) at (7.0, 2.5) { \bbtext{C} };
+
+	\draw[thick](nodeC) to node[above] { $i$ } (nodeB);
+
+	\node[fill=BBGray,draw,very thick,circle] (nodeD) at (9.0, 4.0) { \bbtext{D} };
+
+	\draw[thick](nodeC) to node[above] { $p$ } (nodeD);
+
+	\node[fill=BBGray,draw,very thick,circle] (nodeE) at (9.0, 1.0) { $v$ };
+
+	\draw[thick](nodeE) to node[left] { $i$ } (nodeD);
+
+	\node[fill=BBGray,draw,very thick,circle] (nodeF) at (13.0, 1.0) { \bbtext{F} };
+
+	\draw[thick](nodeE) to node[below] { $i$ } (nodeF);
+
+	\node[fill=BBGray,draw,very thick,circle] (nodeG) at (12.0, 4.0) { \bbtext{G} };
+
+	\draw[thick](nodeG) to node[above right] { $p$ } (nodeF);
+
+
+	\node[fill=BBGray,draw,very thick,circle] (nodeV) at (10.0, 2.5) { \bbtext{H} };
+
+	\draw[thick](nodeV) to node[above] { $i$ } (nodeG);
+
+
+
+
+
+
+
+
+
+
+
+
+\end{tikzpicture}
+\end{frame}
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+
+	\node[anchor=west] (header) at (0, 7.0) { \Large \bbbold{Solução} };
+
+
+	\node[fill=BBWhite,draw,very thick,circle] (nodeA) at (2.0, 2.5) { $u$ };
+
+	\node[fill=BBBlack,draw,very thick,circle] (nodeB) at (4.0, 4.0) { \textcolor{BBWhite}{\textbf{B}} };
+
+	\draw[thick](nodeA) to node[above left] { $i$ } (nodeB);
+
+
+	\node[anchor=west] (info) at (1.0, 6.0) { \bbtext{Se a distância de $u$ a $v$ é par, ou todas arestas são pares, ou há um número} };
+
+
+
+
+
+
+
+
+	\node[anchor=west] (info2) at (0.5, 5.5) { \bbtext{par de arestas ímpares no caminho de $u$ a $v$.} };
+
+
+
+
+
+
+
+
+
+
+	\node[fill=BBGray,draw,very thick,circle] (nodeU) at (5.0, 1.0) { \bbtext{A} };
+
+	\draw[thick](nodeU) to node[above right] { $p$ } (nodeB);
+
+
+	\node[fill=BBWhite,draw,very thick,circle] (nodeC) at (7.0, 2.5) { \bbtext{C} };
+
+	\draw[thick](nodeC) to node[above] { $i$ } (nodeB);
+
+	\node[fill=BBGray,draw,very thick,circle] (nodeD) at (9.0, 4.0) { \bbtext{D} };
+
+	\draw[thick](nodeC) to node[above] { $p$ } (nodeD);
+
+	\node[fill=BBGray,draw,very thick,circle] (nodeE) at (9.0, 1.0) { $v$ };
+
+	\draw[thick](nodeE) to node[left] { $i$ } (nodeD);
+
+	\node[fill=BBGray,draw,very thick,circle] (nodeF) at (13.0, 1.0) { \bbtext{F} };
+
+	\draw[thick](nodeE) to node[below] { $i$ } (nodeF);
+
+	\node[fill=BBGray,draw,very thick,circle] (nodeG) at (12.0, 4.0) { \bbtext{G} };
+
+	\draw[thick](nodeG) to node[above right] { $p$ } (nodeF);
+
+
+	\node[fill=BBGray,draw,very thick,circle] (nodeV) at (10.0, 2.5) { \bbtext{H} };
+
+	\draw[thick](nodeV) to node[above] { $i$ } (nodeG);
+
+
+
+
+
+
+
+
+
+
+
+
+
+\end{tikzpicture}
+\end{frame}
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+
+	\node[anchor=west] (header) at (0, 7.0) { \Large \bbbold{Solução} };
+
+
+	\node[fill=BBWhite,draw,very thick,circle] (nodeA) at (2.0, 2.5) { $u$ };
+
+	\node[fill=BBBlack,draw,very thick,circle] (nodeB) at (4.0, 4.0) { \textcolor{BBWhite}{\textbf{B}} };
+
+	\draw[thick](nodeA) to node[above left] { $i$ } (nodeB);
+
+
+	\node[anchor=west] (info) at (1.0, 6.0) { \bbtext{Se a distância de $u$ a $v$ é par, ou todas arestas são pares, ou há um número} };
+
+
+
+
+
+
+
+
+	\node[anchor=west] (info2) at (0.5, 5.5) { \bbtext{par de arestas ímpares no caminho de $u$ a $v$.} };
+
+
+
+
+
+
+
+
+
+
+	\node[fill=BBGray,draw,very thick,circle] (nodeU) at (5.0, 1.0) { \bbtext{A} };
+
+	\draw[thick](nodeU) to node[above right] { $p$ } (nodeB);
+
+
+	\node[fill=BBWhite,draw,very thick,circle] (nodeC) at (7.0, 2.5) { \bbtext{C} };
+
+	\draw[thick](nodeC) to node[above] { $i$ } (nodeB);
+
+	\node[fill=BBWhite,draw,very thick,circle] (nodeD) at (9.0, 4.0) { \bbtext{D} };
+
+	\draw[thick](nodeC) to node[above] { $p$ } (nodeD);
+
+	\node[fill=BBGray,draw,very thick,circle] (nodeE) at (9.0, 1.0) { $v$ };
+
+	\draw[thick](nodeE) to node[left] { $i$ } (nodeD);
+
+	\node[fill=BBGray,draw,very thick,circle] (nodeF) at (13.0, 1.0) { \bbtext{F} };
+
+	\draw[thick](nodeE) to node[below] { $i$ } (nodeF);
+
+	\node[fill=BBGray,draw,very thick,circle] (nodeG) at (12.0, 4.0) { \bbtext{G} };
+
+	\draw[thick](nodeG) to node[above right] { $p$ } (nodeF);
+
+
+	\node[fill=BBGray,draw,very thick,circle] (nodeV) at (10.0, 2.5) { \bbtext{H} };
+
+	\draw[thick](nodeV) to node[above] { $i$ } (nodeG);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\end{tikzpicture}
+\end{frame}
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+
+	\node[anchor=west] (header) at (0, 7.0) { \Large \bbbold{Solução} };
+
+
+	\node[fill=BBWhite,draw,very thick,circle] (nodeA) at (2.0, 2.5) { $u$ };
+
+	\node[fill=BBBlack,draw,very thick,circle] (nodeB) at (4.0, 4.0) { \textcolor{BBWhite}{\textbf{B}} };
+
+	\draw[thick](nodeA) to node[above left] { $i$ } (nodeB);
+
+
+	\node[anchor=west] (info) at (1.0, 6.0) { \bbtext{Se a distância de $u$ a $v$ é par, ou todas arestas são pares, ou há um número} };
+
+
+
+
+
+
+
+
+	\node[anchor=west] (info2) at (0.5, 5.5) { \bbtext{par de arestas ímpares no caminho de $u$ a $v$.} };
+
+
+
+
+
+
+
+
+
+
+	\node[fill=BBGray,draw,very thick,circle] (nodeU) at (5.0, 1.0) { \bbtext{A} };
+
+	\draw[thick](nodeU) to node[above right] { $p$ } (nodeB);
+
+
+	\node[fill=BBWhite,draw,very thick,circle] (nodeC) at (7.0, 2.5) { \bbtext{C} };
+
+	\draw[thick](nodeC) to node[above] { $i$ } (nodeB);
+
+	\node[fill=BBWhite,draw,very thick,circle] (nodeD) at (9.0, 4.0) { \bbtext{D} };
+
+	\draw[thick](nodeC) to node[above] { $p$ } (nodeD);
+
+	\node[fill=BBBlack,draw,very thick,circle] (nodeE) at (9.0, 1.0) { $\textcolor{BBWhite}{v}$ };
+
+	\draw[thick](nodeE) to node[left] { $i$ } (nodeD);
+
+	\node[fill=BBGray,draw,very thick,circle] (nodeF) at (13.0, 1.0) { \bbtext{F} };
+
+	\draw[thick](nodeE) to node[below] { $i$ } (nodeF);
+
+	\node[fill=BBGray,draw,very thick,circle] (nodeG) at (12.0, 4.0) { \bbtext{G} };
+
+	\draw[thick](nodeG) to node[above right] { $p$ } (nodeF);
+
+
+	\node[fill=BBGray,draw,very thick,circle] (nodeV) at (10.0, 2.5) { \bbtext{H} };
+
+	\draw[thick](nodeV) to node[above] { $i$ } (nodeG);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\end{tikzpicture}
+\end{frame}
+\begin{frame}[plain,t]
+
+\inputsnippet{cpp}{10}{24}{codes/B126D.cpp}
+
+\end{frame}
+\begin{frame}[plain,t]
+
+\inputsnippet{cpp}{26}{33}{codes/B126D.cpp}
+
+\end{frame}
+\end{document}

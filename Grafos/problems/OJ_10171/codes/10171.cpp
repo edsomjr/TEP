@@ -4,14 +4,11 @@ using namespace std;
 using ii = pair<int, int>;
 using edge = tuple<int, int, int>;
 
-const int MAX { 26 }, oo { 1000000010 };
-int distM[MAX][MAX], distR[MAX][MAX];
+const int oo { 1000000010 }, MAX { 26 };
 
-void floyd_warshall(int N, int dist[][MAX], const vector<edge>& edges)
+vector<vector<int>> floyd_warshall(int N, const vector<edge>& edges)
 {
-    for (int u = 0; u < N; ++u)
-        for (int v = 0; v < N; ++v)
-            dist[u][v] = oo;
+    vector<vector<int>> dist(N + 1, vector<int>(N + 1, oo));
 
     for (const auto& [u, v, w] : edges)
         dist[u][v] = w;
@@ -23,48 +20,25 @@ void floyd_warshall(int N, int dist[][MAX], const vector<edge>& edges)
         for (int u = 0; u < N; ++u)
             for (int v = 0; v < N; ++v)
                 dist[u][v] = min(dist[u][v], dist[u][k] + dist[k][v]);
+
+    return dist;
 }
 
 vector<int>
 solve(int m, int r, const vector<edge>& ys, const vector<edge>& ms)
 {
-    floyd_warshall(MAX, distM, ys);
-    floyd_warshall(MAX, distR, ms);
+    auto distM = floyd_warshall(MAX, ys);
+    auto distS = floyd_warshall(MAX, ms);
 
-/*
-cout << "distR\n";
-for (int i = 0; i < MAX; ++i)
-{
-for (int j = 0; j < MAX; ++j)
-    if (distR[i][j] == oo)
-        cout << "oo ";
-    else
-        cout << distR[i][j] << ' ';
-cout << '\n';
-}
-*/
-
-/*
-cout << "distM\n";
-for (int i = 0; i < 26; ++i)
-{
-for (int j = 0; j < 26; ++j)
-    if (distM[i][j] == oo)
-        cout << "oo ";
-    else
-    cout << distM[i][j] << ' ';
-cout << '\n';
-}
-*/
     int min_cost = oo;
     vector<int> ans;
 
     for (int u = 0; u < MAX; ++u)
     {
-        if (distR[r][u] == oo or distM[m][u] == oo)
+        if (distM[r][u] == oo or distS[m][u] == oo)
             continue;
 
-        auto cost = distR[r][u] + distM[m][u];
+        auto cost = distM[r][u] + distS[m][u];
 
         if (cost > min_cost)
             continue;

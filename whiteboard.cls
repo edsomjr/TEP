@@ -16,6 +16,7 @@
 
 % Setup
 \usetikzlibrary{calc}
+\usetikzlibrary{arrows, arrows.meta}
 \usefonttheme{professionalfonts}
 \beamertemplatenavigationsymbolsempty
 \usefonttheme{serif}

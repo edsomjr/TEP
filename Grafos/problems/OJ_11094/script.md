@@ -113,7 +113,7 @@
 + \node at (1.4, 1.7) { \bbinfo{2} };
 
 ## Scene
-+ \node[anchor=west] at (0, 7) { \bbbold{Solução} };
++ \node[anchor=west] at (0, 7) { \Large \bbbold{Solução} };
 
 + \node[anchor=west] at (1, 6) { $\star$ \bbtext{O mapa induz um grafo $G$ onde: } };
 
