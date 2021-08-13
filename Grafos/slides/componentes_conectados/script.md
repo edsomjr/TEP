@@ -5,8 +5,7 @@
 + \node[anchor=west] at (0, 6) { \Large \bbbold{Grafos conectados} };
 
 + \node[anchor=west] at (1, 5) { \bbtext{Um grafo não-direcionado $G(V, E)$ é dito \bbbold{conectado} se, para qualquer} };
-
-+ \node[anchor=west] at (0.5, 4) { \bbtext{par de vértices $u, v\in V$, existe ao menos um caminho de $u$ a $v$.} };
++ \node[anchor=west] at (0.5, 4.25) { \bbtext{par de vértices $u, v\in V$, existe ao menos um caminho de $u$ a $v$.} };
 
 ## Scene
 + \node[anchor=west] at (0, 7.5) { \Large \bbbold{Grafo conectado} };
@@ -53,13 +52,11 @@
 + \draw[very thick] (E) -- (F);
 
 ## Scene
-+ \node[anchor=west] at (0, 7) { \Large \bbbold{Componente conectado} };
++ \node[anchor=west] at (0, 6) { \Large \bbbold{Componente conectado} };
 
-+ \node[anchor=west] at (1, 6) { \bbtext{O componente conectado do grafo $G(V,E)$ que contém o vértice $u$ é o maior} };
-+ \node[anchor=west] at (0.5, 5) { \bbtext{subgrafo conectado $S(V', E')$ de $G$ tal que $v\in V'$ } };
-
-+ \node[anchor=west] at (1, 3) { \bbtext{Os elementos de $V'$ podem ser determinados por meio de uma travessia} };
-+ \node[anchor=west] at (0.5, 2) { \bbtext{com início em $v$. } };
++ \node[anchor=west] at (1, 5) { \bbtext{O componente conectado do grafo $G(V,E)$ que contém o vértice $u$ é o maior} };
++ \node[anchor=west] at (0.5, 4.25) { \bbtext{subgrafo conectado $S(V', E')$ de $G$ tal que $u\in V'$. Os elementos de $V'$ podem} };
++ \node[anchor=west] at (0.5, 3.5) { \bbtext{ ser determinados por meio de uma travessia com início em $u$. } };
 
 ## Scene
 + \node[circle, draw, very thick] (A) at (0, 3) { \bbtext{1} };
@@ -142,7 +139,7 @@
 + \node[anchor=west] at (0, 6) { \Large \bbbold{Grafos conectados e componentes conectados} };
 
 + \node[anchor=west] at (1, 5) { \bbtext{Um grafo não-direcionado $G$ é conectado se, e somente se, $G$ tem um} };
-+ \node[anchor=west] at (0.5, 4) { \bbtext{único componente conectado.} };
++ \node[anchor=west] at (0.5, 4.25) { \bbtext{único componente conectado.} };
 
 ## Scene
 + \node[anchor=west] at (0, 6) { \Large \bbbold{Problemas sugeridos} };
