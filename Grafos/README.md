@@ -14,7 +14,7 @@ Teoria dos Grafos
         1. [Codeforces Round #470 (Div. 2) - Problem A: Protect Sheep](https://codeforces.com/problemset/problem/948/A) ([_upsolving_](problems/CF_948A/CF_948A.pdf))
         1. [OJ 10687 - Monitoring the Amazon](https://onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&page=show_problem&category=0&problem=1628&mosmsg=Submission+received+with+ID+26496145) ([_upsolving_](problems/OJ_10687/OJ_10687.pdf))
 1. Aplicações de travessias
-    1. [Componentes conectados](slides/componenents_conectados/componenents_conectados.pdf)
+    1. [Componentes conectados](slides/componentes_conectados/componentes_conectados.pdf)
         1. [Educational Codeforces Round 33 (Rated for Div. 2) - Problem C: Rumor](https://codeforces.com/contest/893/problem/C) ([_upsolving_](problems/CF_893C/CF_893C.pdf))
         1. [OJ 11094 - Continents](http://onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&category=24&page=show_problem&problem=2035) ([_upsolving_](problems/OJ_11094/OJ_11094.pdf))
     1. [Detecção de ciclos](slides/deteccao_de_ciclos/deteccao_de_ciclos.pdf)
