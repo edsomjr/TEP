@@ -286,7 +286,7 @@
 + \node[anchor=west] at (3.7, 4.25) { \bbinfo{0} };
 
 ## Scene
-+ \node[anchor=west] at (0, 7) { \bbbold{Solução} };
++ \node[anchor=west] at (0, 7) { \Large \bbbold{Solução} };
 
 + \node[anchor=west] at (0.5, 6) { $\star$ \bbtext{Determine, para cada componente conectado $C$, se ele é bipartido ou não} };
 
