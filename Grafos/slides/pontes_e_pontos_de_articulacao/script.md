@@ -5,7 +5,7 @@
 + \node[anchor=west] at (0, 7) { \Large \bbbold{Pontes} };
 
 + \node[anchor=west] at (1, 6) { \bbtext{Seja $G(V, E)$ um grafo não-direcionado conectado. Uma aresta $e\in E$ é uma } };
-+ \node[anchor=west] at (0.5, 5) { \bbtext{\bbbold{ponte} se a exclusão de $e$ torna o grafo $G$ desconectado.} };
++ \node[anchor=west] at (0.5, 5.25) { \bbtext{\bbbold{ponte} se a exclusão de $e$ torna o grafo $G$ desconectado.} };
 
 + \node[circle, draw, very thick] (A) at (4, 3) { \bbtext{1} };
 + \node[circle, draw, very thick] (B) at (4, 1) { \bbtext{2} };
@@ -27,7 +27,7 @@
 ## Scene
 + \node[anchor=west] at (0, 7) { \Large \bbbold{Árvore gerada pela DFS} };
 
-+ \node[anchor=west] at (1, 6) { $\star$ \bbtext{Uma DFS num grafo $G$ gera uma árvore} };
++ \node[anchor=west] at (1, 6) { $\star$ \bbtext{Uma DFS em um grafo $G$ gera uma árvore} };
 
 + \node[anchor=west] at (1, 5) { $\star$ \bbtext{Os vértices são os mesmos de $G$ } };
 
@@ -120,7 +120,7 @@
 + \node[anchor=west] at (0.5, 4.5) { \bbtext{$s$ como vértice inicial} };
 
 + \node[anchor=west] at (1, 3.5) { $\star$ \bbtext{Se $i_s(u) < i_s(v)$ então ou $u$ é ancestral de $v$ ou $u$ está em uma subárvore } };
-+ \node[anchor=west] at (0.5, 3.0) { \bbtext{de $s$ da subárvore que contém $v$ } };
++ \node[anchor=west] at (0.5, 3.0) { \bbtext{de $s$ da distinta da subárvore que contém $v$ } };
 
 + \node[anchor=west] at (1, 2) { $\star$ \bbtext{Se $(u, v)\in E$ e $i_s(v) < i_s(u)$, então $(u, v)$ é uma aresta \bbbold{reversa} } };
 
@@ -205,9 +205,9 @@
 + \node[anchor=west] at (0, 6) { \Large \bbbold{Identificação de pontes} };
 
 + \node[anchor=west] at (1, 5) { \bbtext{Seja $G(V, E)$ um grafo conectado e $s\in V$ o vértice de partida de uma DFS. } };
-+ \node[anchor=west] at (0.5, 4) { \bbtext{A aresta $(u, v)\in E$ é uma ponte se $\mu_s(v) > i_s(u)$. } }; 
++ \node[anchor=west] at (0.5, 4.25) { \bbtext{A aresta $(u, v)\in E$ é uma ponte se $\mu_s(v) > i_s(u)$. } }; 
 
-+ \node[anchor=west] at (1, 2) { \bbbold{Definição}: \bbtext{Se $G$ não pontes ele é denominado \bbbold{biconectado.} } };
++ \node[anchor=west] at (1, 2.5) { \bbbold{Definição}: \bbtext{Se $G$ não tem pontes ele é denominado \bbbold{biconectado.} } };
 
 ## Scene
 + \node[anchor=west] at (0, 7.5) { \bbbold{Grafo} };
@@ -327,8 +327,8 @@
 + \node[anchor=west] at (0, 7) { \Large \bbbold{Pontos de articulação} };
 
 + \node[anchor=west] at (1, 6) { \bbtext{Seja $G(V, E)$ um grafo não-direcionado conectado. Um vértice $u\in V$ é um } };
-+ \node[anchor=west] at (0.5, 5.5) { \bbtext{\bbbold{ponto de articulação} se a exclusão de $u$ e de todas as arestas que incidem em } };
-+ \node[anchor=west] at (0.5, 5) { \bbtext{$u$ torna o grafo desconectado. } };
++ \node[anchor=west] at (0.5, 5.25) { \bbtext{\bbbold{ponto de articulação} se a exclusão de $u$ e de todas as arestas que incidem em } };
++ \node[anchor=west] at (0.5, 4.5) { \bbtext{$u$ torna o grafo desconectado. } };
 
 + \node[circle, draw, very thick] (A) at (4, 3) { \bbtext{1} };
 + \node[circle, draw, very thick] (B) at (4, 1) { \bbtext{2} };
@@ -352,9 +352,9 @@
 + \node[anchor=west] at (0, 6) { \Large \bbbold{Identificação de pontos de articulação} };
 
 + \node[anchor=west] at (1, 5) { \bbtext{Seja $G(V, E)$ um grafo conectado e $s\in V$ o vértice de partida de uma DFS. } };
-+ \node[anchor=west] at (0.5, 4) { \bbtext{A aresta $(u, v)\in E$ é uma ponte se $\mu_s(v) \geq i_s(u)$. } }; 
++ \node[anchor=west] at (0.5, 4.25) { \bbtext{O vértice $(v, u)\in E$ identifica o ponto de articulação $u$ se $\mu_s(v) \geq i_s(u)$. } }; 
 
-+ \node[anchor=west] at (1, 2) { \bbbold{Caso especial:} \bbtext{$s$ só é ponto de articulação se ele tem, no mínimo, dois filhos } };
++ \node[anchor=west] at (1, 2.5) { \bbbold{Caso especial:} \bbtext{$s$ só é ponto de articulação se ele tem, no mínimo, dois filhos } };
 
 ## Scene
 + \node[anchor=west] at (0, 7.5) { \bbbold{Grafo} };
