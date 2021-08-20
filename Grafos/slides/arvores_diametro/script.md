@@ -344,23 +344,58 @@ title => Node
 ---
 
 a => Node
-    @a.x = 1
-    @a.y = 5
-    @a.text = $\star$ \bbtext{Em uma árvore enraizada, todo caminho tem um pico}
+    @a.x = 2
+    @a.y = 3
+    @a.text = $\displaystyle \mathrm{maxLength}[u]$
     @a.anchor = west
 
-b => Node
-    @b.x = 1
-    @b.y = 4
-    @b.text = $\star$ \bbtext{O pico de um caminho é o nó que ocupa o nível baixo na árvore}
-    @b.anchor = west
+---
+
+info => Node
+    @info.x = 1
+    @info.y = 4.6
+    @info.text = \footnotesize \bbcomment{Tamanho do maior caminho que tem pico igual a $u$}
+    @info.anchor = west
+
+arrow => Edge
+    @arrow.x = 3
+    @arrow.y = 3.3
+    @arrow.u = 3
+    @arrow.v = 4.3
+    @arrow.color = BBViolet
+    &arrow.-latex
+
+---
+-info
+-arrow
+
+    @a.text = $\displaystyle \mathrm{maxLength}[u] = \left\{ \begin{array}{ll} 0,& \mbox{se $u$ não tem filhos}\\ \ \\ \end{array}\right.$
+
+---
+    @a.text = $\displaystyle \mathrm{maxLength}[u] = \left\{ \begin{array}{ll} 0,& \mbox{se $u$ não tem filhos}\\ 1 + \mathrm{toLeaf}[v],& \mbox{se $u$ tem apenas um filho $v$}, \\\ \\ \end{array}\right.$
+
+---
+    @a.text = $\displaystyle \mathrm{maxLength}[u] = \left\{ \begin{array}{ll} 0,& \mbox{se $u$ não tem filhos}\\ 1 + \mathrm{toLeaf}[v],& \mbox{se $u$ tem apenas um filho $v$}, \\2 + \mathrm{toLeaf}[v] + \mathrm{toLeaf}[w],& \mbox{caso contrário}, \\ \end{array}\right.$
+
++info
+    @info.x = 0.5
+    @info.y = 1.5
+    @info.text = \bbtext{onde $v$ e $w$ são dois filhos distintos de $u$ com os dois maiores valores de $\mathrm{toLeaf}$}
+
+---
+
+diameter => Node
+    @diameter.x = 2
+    @diameter.y = 4.5
+    @diameter.text = $\displaystyle \mathrm{diameter}(G) = \max_{u\in V} \left\{\ \mathrm{maxLength}[u]\ \right\}$
+    @diameter.anchor = west
 
 
 ## Scene
 
 node4 => Node
     @node4.x = 7
-    @node4.y = 7
+    @node4.y = 7.5
     @node4.text = \bbtext{4}
     &node4.draw
     &node4.very thick
@@ -368,7 +403,7 @@ node4 => Node
  
 node7 => Node
     @node7.x = 3
-    @node7.y = 5
+    @node7.y = 5.5
     @node7.text = \bbtext{7}
     &node7.draw
     &node7.very thick
@@ -376,7 +411,7 @@ node7 => Node
  
 node2 => Node
     @node2.x = 7
-    @node2.y = 5
+    @node2.y = 5.5
     @node2.text = \bbtext{2}
     &node2.draw
     &node2.very thick
@@ -384,7 +419,7 @@ node2 => Node
  
 node5 => Node
     @node5.x = 11
-    @node5.y = 5
+    @node5.y = 5.5
     @node5.text = \bbtext{5}
     &node5.draw
     &node5.very thick
@@ -392,7 +427,7 @@ node5 => Node
  
 node1 => Node
     @node1.x = 1
-    @node1.y = 3
+    @node1.y = 3.5
     @node1.text = \bbtext{1}
     &node1.draw
     &node1.very thick
@@ -400,7 +435,7 @@ node1 => Node
  
 node3 => Node
     @node3.x = 5
-    @node3.y = 3
+    @node3.y = 3.5
     @node3.text = \bbtext{3}
     &node3.draw
     &node3.very thick
@@ -408,7 +443,7 @@ node3 => Node
  
 node6 => Node
     @node6.x = 11
-    @node6.y = 3
+    @node6.y = 3.5
     @node6.text = \bbtext{6}
     &node6.draw
     &node6.very thick
@@ -450,45 +485,57 @@ grid => Grid
     @grid.u = 11
     @grid.v = 1
 
+grid2 => Grid
+    @grid2.x = 4
+    @grid2.y = 1
+    @grid2.u = 11
+    @grid2.v = 2
+
 text => Node
     @text.x = 3.9
     @text.y = 0.5
     @text.anchor = east
-    @text.text = $\mathrm{nodes}[u] = $
+    @text.text = $\mathrm{maxLength}[u] = $
+
+text2 => Node
+    @text2.x = 3.9
+    @text2.y = 1.5
+    @text2.anchor = east
+    @text2.text = $\mathrm{toLeaf}[u] = $
 
 1 => Node
     @1.x = 4.5
-    @1.y = 1.5
+    @1.y = 2.5
     @1.text = \bbtext{1}
 
 2 => Node
     @2.x = 5.5
-    @2.y = 1.5
+    @2.y = 2.5
     @2.text = \bbtext{2}
 
 3 => Node
     @3.x = 6.5
-    @3.y = 1.5
+    @3.y = 2.5
     @3.text = \bbtext{3}
 
 4 => Node
     @4.x = 7.5
-    @4.y = 1.5
+    @4.y = 2.5
     @4.text = \bbtext{4}
 
 5 => Node
     @5.x = 8.5
-    @5.y = 1.5
+    @5.y = 2.5
     @5.text = \bbtext{5}
 
 6 => Node
     @6.x = 9.5
-    @6.y = 1.5
+    @6.y = 2.5
     @6.text = \bbtext{6}
 
 7 => Node
     @7.x = 10.5
-    @7.y = 1.5
+    @7.y = 2.5
     @7.text = \bbtext{7}
 
 n1 => Node
@@ -526,78 +573,100 @@ n7 => Node
     @n7.y = 0.5
     @n7.text = \bbtext{-}
 
----
-    @node4.fill = BBGreen
-    @n4.text = $\mathbf{1}$
+L1 => Node
+    @L1.x = 4.5
+    @L1.y = 1.5
+    @L1.text = \bbtext{-}
+
+L2 => Node
+    @L2.x = 5.5
+    @L2.y = 1.5
+    @L2.text = \bbtext{-}
+
+L3 => Node
+    @L3.x = 6.5
+    @L3.y = 1.5
+    @L3.text = \bbtext{-}
+
+L4 => Node
+    @L4.x = 7.5
+    @L4.y = 1.5
+    @L4.text = \bbtext{-}
+
+L5 => Node
+    @L5.x = 8.5
+    @L5.y = 1.5
+    @L5.text = \bbtext{-}
+
+L6 => Node
+    @L6.x = 9.5
+    @L6.y = 1.5
+    @L6.text = \bbtext{-}
+
+L7 => Node
+    @L7.x = 10.5
+    @L7.y = 1.5
+    @L7.text = \bbtext{-}
 
 ---
-    @node4.fill = BBGray
-    @node7.fill = BBGreen
-    @n7.text = $\mathbf{1}$
-    @n4.text = ${1}$
-
----
-    @node7.fill = BBGray
     @node1.fill = BBCyan
-    @n1.text = $\mathbf{1}$
-    @n7.text = ${1}$
+    @n1.text = $\mathbf{0}$
+    @L1.text = $\mathbf{0}$
 
 ---
-    @node7.fill = BBGreen
-    @n7.text = $\mathbf{2}$
-    @n1.text = ${1}$
-
----
-    @node7.fill = BBGray
     @node3.fill = BBCyan
-    @n3.text = $\mathbf{1}$
-    @n7.text = ${2}$
+    @n3.text = $\mathbf{0}$
+    @L3.text = $\mathbf{0}$
+    @n1.text = ${0}$
+    @L1.text = ${0}$
 
 ---
-    @node7.fill = BBCyan
-    @n7.text = $\mathbf{3}$
-    @n3.text = ${1}$
-
----
-    @node4.fill = BBGreen
-    @n4.text = $\mathbf{4}$
-    @n7.text = ${3}$
-
----
-    @node4.fill = BBGray
     @node2.fill = BBCyan
-    @n2.text = $\mathbf{1}$
-    @n4.text = ${4}$
+    @n2.text = $\mathbf{0}$
+    @L2.text = $\mathbf{0}$
+    @n3.text = ${0}$
+    @L3.text = ${0}$
 
 ---
-    @node4.fill = BBGreen
-    @n2.text = ${1}$
-    @n4.text = $\mathbf{5}$
-
----
-    @node4.fill = BBGray
-    @node5.fill = BBGreen
-    @n4.text = ${5}$
-    @n5.text = $\mathbf{1}$
-
----
-    @node5.fill = BBGray
     @node6.fill = BBCyan
+    @n6.text = $\mathbf{0}$
+    @L6.text = $\mathbf{0}$
+    @n2.text = ${0}$
+    @L2.text = ${0}$
+
+---
+    @node5.fill = BBGreen
+    @n5.text = $\mathbf{1}$
+    @L5.text = $\mathbf{1}$
+    @n6.text = ${0}$
+    @L6.text = ${0}$
+
+---
+    @node7.fill = BBOrange
+    @n7.text = $\mathbf{2}$
+    @L7.text = $\mathbf{1}$
     @n5.text = ${1}$
-    @n6.text = $\mathbf{1}$
+    @L5.text = ${1}$
 
 ---
-    @node5.fill = BBCyan
-    @n6.text = ${1}$
-    @n5.text = $\mathbf{2}$
+    @node4.fill = BBOrange
+    @n4.text = $\mathbf{4}$
+    @L4.text = $\mathbf{2}$
+    @n7.text = ${2}$
+    @L7.text = ${1}$
 
----
-    @node4.fill = BBCyan
-    @n5.text = ${2}$
-    @n4.text = $\mathbf{7}$
 
----
-    @n4.text = ${7}$
+## Frame
+
+\inputsnippet{cpp}{43}{53}{codes/dp.cpp}
+
+## Frame
+
+\inputsnippet{cpp}{10}{25}{codes/dp.cpp}
+
+## Frame
+
+\inputsnippet{cpp}{27}{41}{codes/dp.cpp}
 
 ## Scene
 

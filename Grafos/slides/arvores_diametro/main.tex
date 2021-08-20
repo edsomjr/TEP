@@ -364,9 +364,38 @@
 
 	\node[anchor=west] (title) at (0.0, 6.0) { \Large \bbbold{Diâmetro de uma árvore com programação dinâmica} };
 
-	\node[anchor=west] (a) at (1.0, 5.0) { $\star$ \bbtext{Em uma árvore enraizada, todo caminho tem um pico} };
+	\node[anchor=west] (a) at (2.0, 3.0) { $\displaystyle \mathrm{maxLength}[u]$ };
 
-	\node[anchor=west] (b) at (1.0, 4.0) { $\star$ \bbtext{O pico de um caminho é o nó que ocupa o nível baixo na árvore} };
+\end{tikzpicture}
+\end{frame}
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+
+	\node[anchor=west] (title) at (0.0, 6.0) { \Large \bbbold{Diâmetro de uma árvore com programação dinâmica} };
+
+	\node[anchor=west] (a) at (2.0, 3.0) { $\displaystyle \mathrm{maxLength}[u]$ };
+
+
+	\node[anchor=west] (info) at (1.0, 4.6) { \footnotesize \bbcomment{Tamanho do maior caminho que tem pico igual a $u$} };
+
+	\draw[color=BBViolet,-latex] (3.0, 3.3) to  (3.0, 4.3);
+
+\end{tikzpicture}
+\end{frame}
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+
+	\node[anchor=west] (title) at (0.0, 6.0) { \Large \bbbold{Diâmetro de uma árvore com programação dinâmica} };
+
+	\node[anchor=west] (a) at (2.0, 3.0) { $\displaystyle \mathrm{maxLength}[u] = \left\{ \begin{array}{ll} 0,& \mbox{se $u$ não tem filhos}\\ \ \\ \end{array}\right.$ };
+
+
+
+
 
 
 \end{tikzpicture}
@@ -376,19 +405,80 @@
 \node[draw,opacity=0] at (0, 0) {x};
 \node[draw,opacity=0] at (14, 8) {x};
 
-	\node[draw,very thick,circle] (node4) at (7.0, 7.0) { \bbtext{4} };
+	\node[anchor=west] (title) at (0.0, 6.0) { \Large \bbbold{Diâmetro de uma árvore com programação dinâmica} };
 
-	\node[draw,very thick,circle] (node7) at (3.0, 5.0) { \bbtext{7} };
+	\node[anchor=west] (a) at (2.0, 3.0) { $\displaystyle \mathrm{maxLength}[u] = \left\{ \begin{array}{ll} 0,& \mbox{se $u$ não tem filhos}\\ 1 + \mathrm{toLeaf}[v],& \mbox{se $u$ tem apenas um filho $v$}, \\\ \\ \end{array}\right.$ };
 
-	\node[draw,very thick,circle] (node2) at (7.0, 5.0) { \bbtext{2} };
 
-	\node[draw,very thick,circle] (node5) at (11.0, 5.0) { \bbtext{5} };
 
-	\node[draw,very thick,circle] (node1) at (1.0, 3.0) { \bbtext{1} };
 
-	\node[draw,very thick,circle] (node3) at (5.0, 3.0) { \bbtext{3} };
 
-	\node[draw,very thick,circle] (node6) at (11.0, 3.0) { \bbtext{6} };
+
+
+\end{tikzpicture}
+\end{frame}
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+
+	\node[anchor=west] (title) at (0.0, 6.0) { \Large \bbbold{Diâmetro de uma árvore com programação dinâmica} };
+
+	\node[anchor=west] (a) at (2.0, 3.0) { $\displaystyle \mathrm{maxLength}[u] = \left\{ \begin{array}{ll} 0,& \mbox{se $u$ não tem filhos}\\ 1 + \mathrm{toLeaf}[v],& \mbox{se $u$ tem apenas um filho $v$}, \\2 + \mathrm{toLeaf}[v] + \mathrm{toLeaf}[w],& \mbox{caso contrário}, \\ \end{array}\right.$ };
+
+
+	\node[anchor=west] (info) at (0.5, 1.5) { \bbtext{onde $v$ e $w$ são dois filhos distintos de $u$ com os dois maiores valores de $\mathrm{toLeaf}$} };
+
+
+
+
+
+
+
+\end{tikzpicture}
+\end{frame}
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+
+	\node[anchor=west] (title) at (0.0, 6.0) { \Large \bbbold{Diâmetro de uma árvore com programação dinâmica} };
+
+	\node[anchor=west] (a) at (2.0, 3.0) { $\displaystyle \mathrm{maxLength}[u] = \left\{ \begin{array}{ll} 0,& \mbox{se $u$ não tem filhos}\\ 1 + \mathrm{toLeaf}[v],& \mbox{se $u$ tem apenas um filho $v$}, \\2 + \mathrm{toLeaf}[v] + \mathrm{toLeaf}[w],& \mbox{caso contrário}, \\ \end{array}\right.$ };
+
+
+	\node[anchor=west] (info) at (0.5, 1.5) { \bbtext{onde $v$ e $w$ são dois filhos distintos de $u$ com os dois maiores valores de $\mathrm{toLeaf}$} };
+
+
+
+
+
+
+
+
+	\node[anchor=west] (diameter) at (2.0, 4.5) { $\displaystyle \mathrm{diameter}(G) = \max_{u\in V} \left\{\ \mathrm{maxLength}[u]\ \right\}$ };
+
+
+\end{tikzpicture}
+\end{frame}
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+
+	\node[draw,very thick,circle] (node4) at (7.0, 7.5) { \bbtext{4} };
+
+	\node[draw,very thick,circle] (node7) at (3.0, 5.5) { \bbtext{7} };
+
+	\node[draw,very thick,circle] (node2) at (7.0, 5.5) { \bbtext{2} };
+
+	\node[draw,very thick,circle] (node5) at (11.0, 5.5) { \bbtext{5} };
+
+	\node[draw,very thick,circle] (node1) at (1.0, 3.5) { \bbtext{1} };
+
+	\node[draw,very thick,circle] (node3) at (5.0, 3.5) { \bbtext{3} };
+
+	\node[draw,very thick,circle] (node6) at (11.0, 3.5) { \bbtext{6} };
 
 	\draw[thick](node4) to (node7);
 
@@ -404,21 +494,25 @@
 
 	\draw[] (4.0, 0.0) grid  (11.0, 1.0);
 
-	\node[anchor=east] (text) at (3.9, 0.5) { $\mathrm{nodes}[u] = $ };
+	\draw[] (4.0, 1.0) grid  (11.0, 2.0);
 
-	\node[] (1) at (4.5, 1.5) { \bbtext{1} };
+	\node[anchor=east] (text) at (3.9, 0.5) { $\mathrm{maxLength}[u] = $ };
 
-	\node[] (2) at (5.5, 1.5) { \bbtext{2} };
+	\node[anchor=east] (text2) at (3.9, 1.5) { $\mathrm{toLeaf}[u] = $ };
 
-	\node[] (3) at (6.5, 1.5) { \bbtext{3} };
+	\node[] (1) at (4.5, 2.5) { \bbtext{1} };
 
-	\node[] (4) at (7.5, 1.5) { \bbtext{4} };
+	\node[] (2) at (5.5, 2.5) { \bbtext{2} };
 
-	\node[] (5) at (8.5, 1.5) { \bbtext{5} };
+	\node[] (3) at (6.5, 2.5) { \bbtext{3} };
 
-	\node[] (6) at (9.5, 1.5) { \bbtext{6} };
+	\node[] (4) at (7.5, 2.5) { \bbtext{4} };
 
-	\node[] (7) at (10.5, 1.5) { \bbtext{7} };
+	\node[] (5) at (8.5, 2.5) { \bbtext{5} };
+
+	\node[] (6) at (9.5, 2.5) { \bbtext{6} };
+
+	\node[] (7) at (10.5, 2.5) { \bbtext{7} };
 
 	\node[] (n1) at (4.5, 0.5) { \bbtext{-} };
 
@@ -434,6 +528,20 @@
 
 	\node[] (n7) at (10.5, 0.5) { \bbtext{-} };
 
+	\node[] (L1) at (4.5, 1.5) { \bbtext{-} };
+
+	\node[] (L2) at (5.5, 1.5) { \bbtext{-} };
+
+	\node[] (L3) at (6.5, 1.5) { \bbtext{-} };
+
+	\node[] (L4) at (7.5, 1.5) { \bbtext{-} };
+
+	\node[] (L5) at (8.5, 1.5) { \bbtext{-} };
+
+	\node[] (L6) at (9.5, 1.5) { \bbtext{-} };
+
+	\node[] (L7) at (10.5, 1.5) { \bbtext{-} };
+
 \end{tikzpicture}
 \end{frame}
 \begin{frame}[plain,t]
@@ -441,19 +549,19 @@
 \node[draw,opacity=0] at (0, 0) {x};
 \node[draw,opacity=0] at (14, 8) {x};
 
-	\node[draw,very thick,circle,fill=BBGreen] (node4) at (7.0, 7.0) { \bbtext{4} };
+	\node[draw,very thick,circle] (node4) at (7.0, 7.5) { \bbtext{4} };
 
-	\node[draw,very thick,circle] (node7) at (3.0, 5.0) { \bbtext{7} };
+	\node[draw,very thick,circle] (node7) at (3.0, 5.5) { \bbtext{7} };
 
-	\node[draw,very thick,circle] (node2) at (7.0, 5.0) { \bbtext{2} };
+	\node[draw,very thick,circle] (node2) at (7.0, 5.5) { \bbtext{2} };
 
-	\node[draw,very thick,circle] (node5) at (11.0, 5.0) { \bbtext{5} };
+	\node[draw,very thick,circle] (node5) at (11.0, 5.5) { \bbtext{5} };
 
-	\node[draw,very thick,circle] (node1) at (1.0, 3.0) { \bbtext{1} };
+	\node[draw,very thick,circle,fill=BBCyan] (node1) at (1.0, 3.5) { \bbtext{1} };
 
-	\node[draw,very thick,circle] (node3) at (5.0, 3.0) { \bbtext{3} };
+	\node[draw,very thick,circle] (node3) at (5.0, 3.5) { \bbtext{3} };
 
-	\node[draw,very thick,circle] (node6) at (11.0, 3.0) { \bbtext{6} };
+	\node[draw,very thick,circle] (node6) at (11.0, 3.5) { \bbtext{6} };
 
 	\draw[thick](node4) to (node7);
 
@@ -469,29 +577,33 @@
 
 	\draw[] (4.0, 0.0) grid  (11.0, 1.0);
 
-	\node[anchor=east] (text) at (3.9, 0.5) { $\mathrm{nodes}[u] = $ };
+	\draw[] (4.0, 1.0) grid  (11.0, 2.0);
 
-	\node[] (1) at (4.5, 1.5) { \bbtext{1} };
+	\node[anchor=east] (text) at (3.9, 0.5) { $\mathrm{maxLength}[u] = $ };
 
-	\node[] (2) at (5.5, 1.5) { \bbtext{2} };
+	\node[anchor=east] (text2) at (3.9, 1.5) { $\mathrm{toLeaf}[u] = $ };
 
-	\node[] (3) at (6.5, 1.5) { \bbtext{3} };
+	\node[] (1) at (4.5, 2.5) { \bbtext{1} };
 
-	\node[] (4) at (7.5, 1.5) { \bbtext{4} };
+	\node[] (2) at (5.5, 2.5) { \bbtext{2} };
 
-	\node[] (5) at (8.5, 1.5) { \bbtext{5} };
+	\node[] (3) at (6.5, 2.5) { \bbtext{3} };
 
-	\node[] (6) at (9.5, 1.5) { \bbtext{6} };
+	\node[] (4) at (7.5, 2.5) { \bbtext{4} };
 
-	\node[] (7) at (10.5, 1.5) { \bbtext{7} };
+	\node[] (5) at (8.5, 2.5) { \bbtext{5} };
 
-	\node[] (n1) at (4.5, 0.5) { \bbtext{-} };
+	\node[] (6) at (9.5, 2.5) { \bbtext{6} };
+
+	\node[] (7) at (10.5, 2.5) { \bbtext{7} };
+
+	\node[] (n1) at (4.5, 0.5) { $\mathbf{0}$ };
 
 	\node[] (n2) at (5.5, 0.5) { \bbtext{-} };
 
 	\node[] (n3) at (6.5, 0.5) { \bbtext{-} };
 
-	\node[] (n4) at (7.5, 0.5) { $\mathbf{1}$ };
+	\node[] (n4) at (7.5, 0.5) { \bbtext{-} };
 
 	\node[] (n5) at (8.5, 0.5) { \bbtext{-} };
 
@@ -499,6 +611,20 @@
 
 	\node[] (n7) at (10.5, 0.5) { \bbtext{-} };
 
+	\node[] (L1) at (4.5, 1.5) { $\mathbf{0}$ };
+
+	\node[] (L2) at (5.5, 1.5) { \bbtext{-} };
+
+	\node[] (L3) at (6.5, 1.5) { \bbtext{-} };
+
+	\node[] (L4) at (7.5, 1.5) { \bbtext{-} };
+
+	\node[] (L5) at (8.5, 1.5) { \bbtext{-} };
+
+	\node[] (L6) at (9.5, 1.5) { \bbtext{-} };
+
+	\node[] (L7) at (10.5, 1.5) { \bbtext{-} };
+
 
 \end{tikzpicture}
 \end{frame}
@@ -507,19 +633,19 @@
 \node[draw,opacity=0] at (0, 0) {x};
 \node[draw,opacity=0] at (14, 8) {x};
 
-	\node[draw,very thick,circle,fill=BBGray] (node4) at (7.0, 7.0) { \bbtext{4} };
+	\node[draw,very thick,circle] (node4) at (7.0, 7.5) { \bbtext{4} };
 
-	\node[draw,very thick,circle,fill=BBGreen] (node7) at (3.0, 5.0) { \bbtext{7} };
+	\node[draw,very thick,circle] (node7) at (3.0, 5.5) { \bbtext{7} };
 
-	\node[draw,very thick,circle] (node2) at (7.0, 5.0) { \bbtext{2} };
+	\node[draw,very thick,circle] (node2) at (7.0, 5.5) { \bbtext{2} };
 
-	\node[draw,very thick,circle] (node5) at (11.0, 5.0) { \bbtext{5} };
+	\node[draw,very thick,circle] (node5) at (11.0, 5.5) { \bbtext{5} };
 
-	\node[draw,very thick,circle] (node1) at (1.0, 3.0) { \bbtext{1} };
+	\node[draw,very thick,circle,fill=BBCyan] (node1) at (1.0, 3.5) { \bbtext{1} };
 
-	\node[draw,very thick,circle] (node3) at (5.0, 3.0) { \bbtext{3} };
+	\node[draw,very thick,circle,fill=BBCyan] (node3) at (5.0, 3.5) { \bbtext{3} };
 
-	\node[draw,very thick,circle] (node6) at (11.0, 3.0) { \bbtext{6} };
+	\node[draw,very thick,circle] (node6) at (11.0, 3.5) { \bbtext{6} };
 
 	\draw[thick](node4) to (node7);
 
@@ -535,35 +661,53 @@
 
 	\draw[] (4.0, 0.0) grid  (11.0, 1.0);
 
-	\node[anchor=east] (text) at (3.9, 0.5) { $\mathrm{nodes}[u] = $ };
+	\draw[] (4.0, 1.0) grid  (11.0, 2.0);
 
-	\node[] (1) at (4.5, 1.5) { \bbtext{1} };
+	\node[anchor=east] (text) at (3.9, 0.5) { $\mathrm{maxLength}[u] = $ };
 
-	\node[] (2) at (5.5, 1.5) { \bbtext{2} };
+	\node[anchor=east] (text2) at (3.9, 1.5) { $\mathrm{toLeaf}[u] = $ };
 
-	\node[] (3) at (6.5, 1.5) { \bbtext{3} };
+	\node[] (1) at (4.5, 2.5) { \bbtext{1} };
 
-	\node[] (4) at (7.5, 1.5) { \bbtext{4} };
+	\node[] (2) at (5.5, 2.5) { \bbtext{2} };
 
-	\node[] (5) at (8.5, 1.5) { \bbtext{5} };
+	\node[] (3) at (6.5, 2.5) { \bbtext{3} };
 
-	\node[] (6) at (9.5, 1.5) { \bbtext{6} };
+	\node[] (4) at (7.5, 2.5) { \bbtext{4} };
 
-	\node[] (7) at (10.5, 1.5) { \bbtext{7} };
+	\node[] (5) at (8.5, 2.5) { \bbtext{5} };
 
-	\node[] (n1) at (4.5, 0.5) { \bbtext{-} };
+	\node[] (6) at (9.5, 2.5) { \bbtext{6} };
+
+	\node[] (7) at (10.5, 2.5) { \bbtext{7} };
+
+	\node[] (n1) at (4.5, 0.5) { ${0}$ };
 
 	\node[] (n2) at (5.5, 0.5) { \bbtext{-} };
 
-	\node[] (n3) at (6.5, 0.5) { \bbtext{-} };
+	\node[] (n3) at (6.5, 0.5) { $\mathbf{0}$ };
 
-	\node[] (n4) at (7.5, 0.5) { ${1}$ };
+	\node[] (n4) at (7.5, 0.5) { \bbtext{-} };
 
 	\node[] (n5) at (8.5, 0.5) { \bbtext{-} };
 
 	\node[] (n6) at (9.5, 0.5) { \bbtext{-} };
 
-	\node[] (n7) at (10.5, 0.5) { $\mathbf{1}$ };
+	\node[] (n7) at (10.5, 0.5) { \bbtext{-} };
+
+	\node[] (L1) at (4.5, 1.5) { ${0}$ };
+
+	\node[] (L2) at (5.5, 1.5) { \bbtext{-} };
+
+	\node[] (L3) at (6.5, 1.5) { $\mathbf{0}$ };
+
+	\node[] (L4) at (7.5, 1.5) { \bbtext{-} };
+
+	\node[] (L5) at (8.5, 1.5) { \bbtext{-} };
+
+	\node[] (L6) at (9.5, 1.5) { \bbtext{-} };
+
+	\node[] (L7) at (10.5, 1.5) { \bbtext{-} };
 
 
 
@@ -574,19 +718,19 @@
 \node[draw,opacity=0] at (0, 0) {x};
 \node[draw,opacity=0] at (14, 8) {x};
 
-	\node[draw,very thick,circle,fill=BBGray] (node4) at (7.0, 7.0) { \bbtext{4} };
+	\node[draw,very thick,circle] (node4) at (7.0, 7.5) { \bbtext{4} };
 
-	\node[draw,very thick,circle,fill=BBGray] (node7) at (3.0, 5.0) { \bbtext{7} };
+	\node[draw,very thick,circle] (node7) at (3.0, 5.5) { \bbtext{7} };
 
-	\node[draw,very thick,circle] (node2) at (7.0, 5.0) { \bbtext{2} };
+	\node[draw,very thick,circle,fill=BBCyan] (node2) at (7.0, 5.5) { \bbtext{2} };
 
-	\node[draw,very thick,circle] (node5) at (11.0, 5.0) { \bbtext{5} };
+	\node[draw,very thick,circle] (node5) at (11.0, 5.5) { \bbtext{5} };
 
-	\node[draw,very thick,circle,fill=BBCyan] (node1) at (1.0, 3.0) { \bbtext{1} };
+	\node[draw,very thick,circle,fill=BBCyan] (node1) at (1.0, 3.5) { \bbtext{1} };
 
-	\node[draw,very thick,circle] (node3) at (5.0, 3.0) { \bbtext{3} };
+	\node[draw,very thick,circle,fill=BBCyan] (node3) at (5.0, 3.5) { \bbtext{3} };
 
-	\node[draw,very thick,circle] (node6) at (11.0, 3.0) { \bbtext{6} };
+	\node[draw,very thick,circle] (node6) at (11.0, 3.5) { \bbtext{6} };
 
 	\draw[thick](node4) to (node7);
 
@@ -602,35 +746,53 @@
 
 	\draw[] (4.0, 0.0) grid  (11.0, 1.0);
 
-	\node[anchor=east] (text) at (3.9, 0.5) { $\mathrm{nodes}[u] = $ };
+	\draw[] (4.0, 1.0) grid  (11.0, 2.0);
 
-	\node[] (1) at (4.5, 1.5) { \bbtext{1} };
+	\node[anchor=east] (text) at (3.9, 0.5) { $\mathrm{maxLength}[u] = $ };
 
-	\node[] (2) at (5.5, 1.5) { \bbtext{2} };
+	\node[anchor=east] (text2) at (3.9, 1.5) { $\mathrm{toLeaf}[u] = $ };
 
-	\node[] (3) at (6.5, 1.5) { \bbtext{3} };
+	\node[] (1) at (4.5, 2.5) { \bbtext{1} };
 
-	\node[] (4) at (7.5, 1.5) { \bbtext{4} };
+	\node[] (2) at (5.5, 2.5) { \bbtext{2} };
 
-	\node[] (5) at (8.5, 1.5) { \bbtext{5} };
+	\node[] (3) at (6.5, 2.5) { \bbtext{3} };
 
-	\node[] (6) at (9.5, 1.5) { \bbtext{6} };
+	\node[] (4) at (7.5, 2.5) { \bbtext{4} };
 
-	\node[] (7) at (10.5, 1.5) { \bbtext{7} };
+	\node[] (5) at (8.5, 2.5) { \bbtext{5} };
 
-	\node[] (n1) at (4.5, 0.5) { $\mathbf{1}$ };
+	\node[] (6) at (9.5, 2.5) { \bbtext{6} };
 
-	\node[] (n2) at (5.5, 0.5) { \bbtext{-} };
+	\node[] (7) at (10.5, 2.5) { \bbtext{7} };
 
-	\node[] (n3) at (6.5, 0.5) { \bbtext{-} };
+	\node[] (n1) at (4.5, 0.5) { ${0}$ };
 
-	\node[] (n4) at (7.5, 0.5) { ${1}$ };
+	\node[] (n2) at (5.5, 0.5) { $\mathbf{0}$ };
+
+	\node[] (n3) at (6.5, 0.5) { ${0}$ };
+
+	\node[] (n4) at (7.5, 0.5) { \bbtext{-} };
 
 	\node[] (n5) at (8.5, 0.5) { \bbtext{-} };
 
 	\node[] (n6) at (9.5, 0.5) { \bbtext{-} };
 
-	\node[] (n7) at (10.5, 0.5) { ${1}$ };
+	\node[] (n7) at (10.5, 0.5) { \bbtext{-} };
+
+	\node[] (L1) at (4.5, 1.5) { ${0}$ };
+
+	\node[] (L2) at (5.5, 1.5) { $\mathbf{0}$ };
+
+	\node[] (L3) at (6.5, 1.5) { ${0}$ };
+
+	\node[] (L4) at (7.5, 1.5) { \bbtext{-} };
+
+	\node[] (L5) at (8.5, 1.5) { \bbtext{-} };
+
+	\node[] (L6) at (9.5, 1.5) { \bbtext{-} };
+
+	\node[] (L7) at (10.5, 1.5) { \bbtext{-} };
 
 
 
@@ -642,19 +804,19 @@
 \node[draw,opacity=0] at (0, 0) {x};
 \node[draw,opacity=0] at (14, 8) {x};
 
-	\node[draw,very thick,circle,fill=BBGray] (node4) at (7.0, 7.0) { \bbtext{4} };
+	\node[draw,very thick,circle] (node4) at (7.0, 7.5) { \bbtext{4} };
 
-	\node[draw,very thick,circle,fill=BBGreen] (node7) at (3.0, 5.0) { \bbtext{7} };
+	\node[draw,very thick,circle] (node7) at (3.0, 5.5) { \bbtext{7} };
 
-	\node[draw,very thick,circle] (node2) at (7.0, 5.0) { \bbtext{2} };
+	\node[draw,very thick,circle,fill=BBCyan] (node2) at (7.0, 5.5) { \bbtext{2} };
 
-	\node[draw,very thick,circle] (node5) at (11.0, 5.0) { \bbtext{5} };
+	\node[draw,very thick,circle] (node5) at (11.0, 5.5) { \bbtext{5} };
 
-	\node[draw,very thick,circle,fill=BBCyan] (node1) at (1.0, 3.0) { \bbtext{1} };
+	\node[draw,very thick,circle,fill=BBCyan] (node1) at (1.0, 3.5) { \bbtext{1} };
 
-	\node[draw,very thick,circle] (node3) at (5.0, 3.0) { \bbtext{3} };
+	\node[draw,very thick,circle,fill=BBCyan] (node3) at (5.0, 3.5) { \bbtext{3} };
 
-	\node[draw,very thick,circle] (node6) at (11.0, 3.0) { \bbtext{6} };
+	\node[draw,very thick,circle,fill=BBCyan] (node6) at (11.0, 3.5) { \bbtext{6} };
 
 	\draw[thick](node4) to (node7);
 
@@ -670,35 +832,53 @@
 
 	\draw[] (4.0, 0.0) grid  (11.0, 1.0);
 
-	\node[anchor=east] (text) at (3.9, 0.5) { $\mathrm{nodes}[u] = $ };
+	\draw[] (4.0, 1.0) grid  (11.0, 2.0);
 
-	\node[] (1) at (4.5, 1.5) { \bbtext{1} };
+	\node[anchor=east] (text) at (3.9, 0.5) { $\mathrm{maxLength}[u] = $ };
 
-	\node[] (2) at (5.5, 1.5) { \bbtext{2} };
+	\node[anchor=east] (text2) at (3.9, 1.5) { $\mathrm{toLeaf}[u] = $ };
 
-	\node[] (3) at (6.5, 1.5) { \bbtext{3} };
+	\node[] (1) at (4.5, 2.5) { \bbtext{1} };
 
-	\node[] (4) at (7.5, 1.5) { \bbtext{4} };
+	\node[] (2) at (5.5, 2.5) { \bbtext{2} };
 
-	\node[] (5) at (8.5, 1.5) { \bbtext{5} };
+	\node[] (3) at (6.5, 2.5) { \bbtext{3} };
 
-	\node[] (6) at (9.5, 1.5) { \bbtext{6} };
+	\node[] (4) at (7.5, 2.5) { \bbtext{4} };
 
-	\node[] (7) at (10.5, 1.5) { \bbtext{7} };
+	\node[] (5) at (8.5, 2.5) { \bbtext{5} };
 
-	\node[] (n1) at (4.5, 0.5) { ${1}$ };
+	\node[] (6) at (9.5, 2.5) { \bbtext{6} };
 
-	\node[] (n2) at (5.5, 0.5) { \bbtext{-} };
+	\node[] (7) at (10.5, 2.5) { \bbtext{7} };
 
-	\node[] (n3) at (6.5, 0.5) { \bbtext{-} };
+	\node[] (n1) at (4.5, 0.5) { ${0}$ };
 
-	\node[] (n4) at (7.5, 0.5) { ${1}$ };
+	\node[] (n2) at (5.5, 0.5) { ${0}$ };
+
+	\node[] (n3) at (6.5, 0.5) { ${0}$ };
+
+	\node[] (n4) at (7.5, 0.5) { \bbtext{-} };
 
 	\node[] (n5) at (8.5, 0.5) { \bbtext{-} };
 
-	\node[] (n6) at (9.5, 0.5) { \bbtext{-} };
+	\node[] (n6) at (9.5, 0.5) { $\mathbf{0}$ };
 
-	\node[] (n7) at (10.5, 0.5) { $\mathbf{2}$ };
+	\node[] (n7) at (10.5, 0.5) { \bbtext{-} };
+
+	\node[] (L1) at (4.5, 1.5) { ${0}$ };
+
+	\node[] (L2) at (5.5, 1.5) { ${0}$ };
+
+	\node[] (L3) at (6.5, 1.5) { ${0}$ };
+
+	\node[] (L4) at (7.5, 1.5) { \bbtext{-} };
+
+	\node[] (L5) at (8.5, 1.5) { \bbtext{-} };
+
+	\node[] (L6) at (9.5, 1.5) { $\mathbf{0}$ };
+
+	\node[] (L7) at (10.5, 1.5) { \bbtext{-} };
 
 
 
@@ -711,19 +891,19 @@
 \node[draw,opacity=0] at (0, 0) {x};
 \node[draw,opacity=0] at (14, 8) {x};
 
-	\node[draw,very thick,circle,fill=BBGray] (node4) at (7.0, 7.0) { \bbtext{4} };
+	\node[draw,very thick,circle] (node4) at (7.0, 7.5) { \bbtext{4} };
 
-	\node[draw,very thick,circle,fill=BBGray] (node7) at (3.0, 5.0) { \bbtext{7} };
+	\node[draw,very thick,circle] (node7) at (3.0, 5.5) { \bbtext{7} };
 
-	\node[draw,very thick,circle] (node2) at (7.0, 5.0) { \bbtext{2} };
+	\node[draw,very thick,circle,fill=BBCyan] (node2) at (7.0, 5.5) { \bbtext{2} };
 
-	\node[draw,very thick,circle] (node5) at (11.0, 5.0) { \bbtext{5} };
+	\node[draw,very thick,circle,fill=BBGreen] (node5) at (11.0, 5.5) { \bbtext{5} };
 
-	\node[draw,very thick,circle,fill=BBCyan] (node1) at (1.0, 3.0) { \bbtext{1} };
+	\node[draw,very thick,circle,fill=BBCyan] (node1) at (1.0, 3.5) { \bbtext{1} };
 
-	\node[draw,very thick,circle,fill=BBCyan] (node3) at (5.0, 3.0) { \bbtext{3} };
+	\node[draw,very thick,circle,fill=BBCyan] (node3) at (5.0, 3.5) { \bbtext{3} };
 
-	\node[draw,very thick,circle] (node6) at (11.0, 3.0) { \bbtext{6} };
+	\node[draw,very thick,circle,fill=BBCyan] (node6) at (11.0, 3.5) { \bbtext{6} };
 
 	\draw[thick](node4) to (node7);
 
@@ -739,400 +919,53 @@
 
 	\draw[] (4.0, 0.0) grid  (11.0, 1.0);
 
-	\node[anchor=east] (text) at (3.9, 0.5) { $\mathrm{nodes}[u] = $ };
+	\draw[] (4.0, 1.0) grid  (11.0, 2.0);
 
-	\node[] (1) at (4.5, 1.5) { \bbtext{1} };
+	\node[anchor=east] (text) at (3.9, 0.5) { $\mathrm{maxLength}[u] = $ };
 
-	\node[] (2) at (5.5, 1.5) { \bbtext{2} };
+	\node[anchor=east] (text2) at (3.9, 1.5) { $\mathrm{toLeaf}[u] = $ };
 
-	\node[] (3) at (6.5, 1.5) { \bbtext{3} };
+	\node[] (1) at (4.5, 2.5) { \bbtext{1} };
 
-	\node[] (4) at (7.5, 1.5) { \bbtext{4} };
+	\node[] (2) at (5.5, 2.5) { \bbtext{2} };
 
-	\node[] (5) at (8.5, 1.5) { \bbtext{5} };
+	\node[] (3) at (6.5, 2.5) { \bbtext{3} };
 
-	\node[] (6) at (9.5, 1.5) { \bbtext{6} };
+	\node[] (4) at (7.5, 2.5) { \bbtext{4} };
 
-	\node[] (7) at (10.5, 1.5) { \bbtext{7} };
+	\node[] (5) at (8.5, 2.5) { \bbtext{5} };
 
-	\node[] (n1) at (4.5, 0.5) { ${1}$ };
+	\node[] (6) at (9.5, 2.5) { \bbtext{6} };
 
-	\node[] (n2) at (5.5, 0.5) { \bbtext{-} };
+	\node[] (7) at (10.5, 2.5) { \bbtext{7} };
 
-	\node[] (n3) at (6.5, 0.5) { $\mathbf{1}$ };
+	\node[] (n1) at (4.5, 0.5) { ${0}$ };
 
-	\node[] (n4) at (7.5, 0.5) { ${1}$ };
+	\node[] (n2) at (5.5, 0.5) { ${0}$ };
 
-	\node[] (n5) at (8.5, 0.5) { \bbtext{-} };
+	\node[] (n3) at (6.5, 0.5) { ${0}$ };
 
-	\node[] (n6) at (9.5, 0.5) { \bbtext{-} };
-
-	\node[] (n7) at (10.5, 0.5) { ${2}$ };
-
-
-
-
-
-
-\end{tikzpicture}
-\end{frame}
-\begin{frame}[plain,t]
-\begin{tikzpicture}
-\node[draw,opacity=0] at (0, 0) {x};
-\node[draw,opacity=0] at (14, 8) {x};
-
-	\node[draw,very thick,circle,fill=BBGray] (node4) at (7.0, 7.0) { \bbtext{4} };
-
-	\node[draw,very thick,circle,fill=BBCyan] (node7) at (3.0, 5.0) { \bbtext{7} };
-
-	\node[draw,very thick,circle] (node2) at (7.0, 5.0) { \bbtext{2} };
-
-	\node[draw,very thick,circle] (node5) at (11.0, 5.0) { \bbtext{5} };
-
-	\node[draw,very thick,circle,fill=BBCyan] (node1) at (1.0, 3.0) { \bbtext{1} };
-
-	\node[draw,very thick,circle,fill=BBCyan] (node3) at (5.0, 3.0) { \bbtext{3} };
-
-	\node[draw,very thick,circle] (node6) at (11.0, 3.0) { \bbtext{6} };
-
-	\draw[thick](node4) to (node7);
-
-	\draw[thick](node4) to (node2);
-
-	\draw[thick](node4) to (node5);
-
-	\draw[thick](node7) to (node1);
-
-	\draw[thick](node7) to (node3);
-
-	\draw[thick](node5) to (node6);
-
-	\draw[] (4.0, 0.0) grid  (11.0, 1.0);
-
-	\node[anchor=east] (text) at (3.9, 0.5) { $\mathrm{nodes}[u] = $ };
-
-	\node[] (1) at (4.5, 1.5) { \bbtext{1} };
-
-	\node[] (2) at (5.5, 1.5) { \bbtext{2} };
-
-	\node[] (3) at (6.5, 1.5) { \bbtext{3} };
-
-	\node[] (4) at (7.5, 1.5) { \bbtext{4} };
-
-	\node[] (5) at (8.5, 1.5) { \bbtext{5} };
-
-	\node[] (6) at (9.5, 1.5) { \bbtext{6} };
-
-	\node[] (7) at (10.5, 1.5) { \bbtext{7} };
-
-	\node[] (n1) at (4.5, 0.5) { ${1}$ };
-
-	\node[] (n2) at (5.5, 0.5) { \bbtext{-} };
-
-	\node[] (n3) at (6.5, 0.5) { ${1}$ };
-
-	\node[] (n4) at (7.5, 0.5) { ${1}$ };
-
-	\node[] (n5) at (8.5, 0.5) { \bbtext{-} };
-
-	\node[] (n6) at (9.5, 0.5) { \bbtext{-} };
-
-	\node[] (n7) at (10.5, 0.5) { $\mathbf{3}$ };
-
-
-
-
-
-
-
-\end{tikzpicture}
-\end{frame}
-\begin{frame}[plain,t]
-\begin{tikzpicture}
-\node[draw,opacity=0] at (0, 0) {x};
-\node[draw,opacity=0] at (14, 8) {x};
-
-	\node[draw,very thick,circle,fill=BBGreen] (node4) at (7.0, 7.0) { \bbtext{4} };
-
-	\node[draw,very thick,circle,fill=BBCyan] (node7) at (3.0, 5.0) { \bbtext{7} };
-
-	\node[draw,very thick,circle] (node2) at (7.0, 5.0) { \bbtext{2} };
-
-	\node[draw,very thick,circle] (node5) at (11.0, 5.0) { \bbtext{5} };
-
-	\node[draw,very thick,circle,fill=BBCyan] (node1) at (1.0, 3.0) { \bbtext{1} };
-
-	\node[draw,very thick,circle,fill=BBCyan] (node3) at (5.0, 3.0) { \bbtext{3} };
-
-	\node[draw,very thick,circle] (node6) at (11.0, 3.0) { \bbtext{6} };
-
-	\draw[thick](node4) to (node7);
-
-	\draw[thick](node4) to (node2);
-
-	\draw[thick](node4) to (node5);
-
-	\draw[thick](node7) to (node1);
-
-	\draw[thick](node7) to (node3);
-
-	\draw[thick](node5) to (node6);
-
-	\draw[] (4.0, 0.0) grid  (11.0, 1.0);
-
-	\node[anchor=east] (text) at (3.9, 0.5) { $\mathrm{nodes}[u] = $ };
-
-	\node[] (1) at (4.5, 1.5) { \bbtext{1} };
-
-	\node[] (2) at (5.5, 1.5) { \bbtext{2} };
-
-	\node[] (3) at (6.5, 1.5) { \bbtext{3} };
-
-	\node[] (4) at (7.5, 1.5) { \bbtext{4} };
-
-	\node[] (5) at (8.5, 1.5) { \bbtext{5} };
-
-	\node[] (6) at (9.5, 1.5) { \bbtext{6} };
-
-	\node[] (7) at (10.5, 1.5) { \bbtext{7} };
-
-	\node[] (n1) at (4.5, 0.5) { ${1}$ };
-
-	\node[] (n2) at (5.5, 0.5) { \bbtext{-} };
-
-	\node[] (n3) at (6.5, 0.5) { ${1}$ };
-
-	\node[] (n4) at (7.5, 0.5) { $\mathbf{4}$ };
-
-	\node[] (n5) at (8.5, 0.5) { \bbtext{-} };
-
-	\node[] (n6) at (9.5, 0.5) { \bbtext{-} };
-
-	\node[] (n7) at (10.5, 0.5) { ${3}$ };
-
-
-
-
-
-
-
-
-\end{tikzpicture}
-\end{frame}
-\begin{frame}[plain,t]
-\begin{tikzpicture}
-\node[draw,opacity=0] at (0, 0) {x};
-\node[draw,opacity=0] at (14, 8) {x};
-
-	\node[draw,very thick,circle,fill=BBGray] (node4) at (7.0, 7.0) { \bbtext{4} };
-
-	\node[draw,very thick,circle,fill=BBCyan] (node7) at (3.0, 5.0) { \bbtext{7} };
-
-	\node[draw,very thick,circle,fill=BBCyan] (node2) at (7.0, 5.0) { \bbtext{2} };
-
-	\node[draw,very thick,circle] (node5) at (11.0, 5.0) { \bbtext{5} };
-
-	\node[draw,very thick,circle,fill=BBCyan] (node1) at (1.0, 3.0) { \bbtext{1} };
-
-	\node[draw,very thick,circle,fill=BBCyan] (node3) at (5.0, 3.0) { \bbtext{3} };
-
-	\node[draw,very thick,circle] (node6) at (11.0, 3.0) { \bbtext{6} };
-
-	\draw[thick](node4) to (node7);
-
-	\draw[thick](node4) to (node2);
-
-	\draw[thick](node4) to (node5);
-
-	\draw[thick](node7) to (node1);
-
-	\draw[thick](node7) to (node3);
-
-	\draw[thick](node5) to (node6);
-
-	\draw[] (4.0, 0.0) grid  (11.0, 1.0);
-
-	\node[anchor=east] (text) at (3.9, 0.5) { $\mathrm{nodes}[u] = $ };
-
-	\node[] (1) at (4.5, 1.5) { \bbtext{1} };
-
-	\node[] (2) at (5.5, 1.5) { \bbtext{2} };
-
-	\node[] (3) at (6.5, 1.5) { \bbtext{3} };
-
-	\node[] (4) at (7.5, 1.5) { \bbtext{4} };
-
-	\node[] (5) at (8.5, 1.5) { \bbtext{5} };
-
-	\node[] (6) at (9.5, 1.5) { \bbtext{6} };
-
-	\node[] (7) at (10.5, 1.5) { \bbtext{7} };
-
-	\node[] (n1) at (4.5, 0.5) { ${1}$ };
-
-	\node[] (n2) at (5.5, 0.5) { $\mathbf{1}$ };
-
-	\node[] (n3) at (6.5, 0.5) { ${1}$ };
-
-	\node[] (n4) at (7.5, 0.5) { ${4}$ };
-
-	\node[] (n5) at (8.5, 0.5) { \bbtext{-} };
-
-	\node[] (n6) at (9.5, 0.5) { \bbtext{-} };
-
-	\node[] (n7) at (10.5, 0.5) { ${3}$ };
-
-
-
-
-
-
-
-
-
-\end{tikzpicture}
-\end{frame}
-\begin{frame}[plain,t]
-\begin{tikzpicture}
-\node[draw,opacity=0] at (0, 0) {x};
-\node[draw,opacity=0] at (14, 8) {x};
-
-	\node[draw,very thick,circle,fill=BBGreen] (node4) at (7.0, 7.0) { \bbtext{4} };
-
-	\node[draw,very thick,circle,fill=BBCyan] (node7) at (3.0, 5.0) { \bbtext{7} };
-
-	\node[draw,very thick,circle,fill=BBCyan] (node2) at (7.0, 5.0) { \bbtext{2} };
-
-	\node[draw,very thick,circle] (node5) at (11.0, 5.0) { \bbtext{5} };
-
-	\node[draw,very thick,circle,fill=BBCyan] (node1) at (1.0, 3.0) { \bbtext{1} };
-
-	\node[draw,very thick,circle,fill=BBCyan] (node3) at (5.0, 3.0) { \bbtext{3} };
-
-	\node[draw,very thick,circle] (node6) at (11.0, 3.0) { \bbtext{6} };
-
-	\draw[thick](node4) to (node7);
-
-	\draw[thick](node4) to (node2);
-
-	\draw[thick](node4) to (node5);
-
-	\draw[thick](node7) to (node1);
-
-	\draw[thick](node7) to (node3);
-
-	\draw[thick](node5) to (node6);
-
-	\draw[] (4.0, 0.0) grid  (11.0, 1.0);
-
-	\node[anchor=east] (text) at (3.9, 0.5) { $\mathrm{nodes}[u] = $ };
-
-	\node[] (1) at (4.5, 1.5) { \bbtext{1} };
-
-	\node[] (2) at (5.5, 1.5) { \bbtext{2} };
-
-	\node[] (3) at (6.5, 1.5) { \bbtext{3} };
-
-	\node[] (4) at (7.5, 1.5) { \bbtext{4} };
-
-	\node[] (5) at (8.5, 1.5) { \bbtext{5} };
-
-	\node[] (6) at (9.5, 1.5) { \bbtext{6} };
-
-	\node[] (7) at (10.5, 1.5) { \bbtext{7} };
-
-	\node[] (n1) at (4.5, 0.5) { ${1}$ };
-
-	\node[] (n2) at (5.5, 0.5) { ${1}$ };
-
-	\node[] (n3) at (6.5, 0.5) { ${1}$ };
-
-	\node[] (n4) at (7.5, 0.5) { $\mathbf{5}$ };
-
-	\node[] (n5) at (8.5, 0.5) { \bbtext{-} };
-
-	\node[] (n6) at (9.5, 0.5) { \bbtext{-} };
-
-	\node[] (n7) at (10.5, 0.5) { ${3}$ };
-
-
-
-
-
-
-
-
-
-
-\end{tikzpicture}
-\end{frame}
-\begin{frame}[plain,t]
-\begin{tikzpicture}
-\node[draw,opacity=0] at (0, 0) {x};
-\node[draw,opacity=0] at (14, 8) {x};
-
-	\node[draw,very thick,circle,fill=BBGray] (node4) at (7.0, 7.0) { \bbtext{4} };
-
-	\node[draw,very thick,circle,fill=BBCyan] (node7) at (3.0, 5.0) { \bbtext{7} };
-
-	\node[draw,very thick,circle,fill=BBCyan] (node2) at (7.0, 5.0) { \bbtext{2} };
-
-	\node[draw,very thick,circle,fill=BBGreen] (node5) at (11.0, 5.0) { \bbtext{5} };
-
-	\node[draw,very thick,circle,fill=BBCyan] (node1) at (1.0, 3.0) { \bbtext{1} };
-
-	\node[draw,very thick,circle,fill=BBCyan] (node3) at (5.0, 3.0) { \bbtext{3} };
-
-	\node[draw,very thick,circle] (node6) at (11.0, 3.0) { \bbtext{6} };
-
-	\draw[thick](node4) to (node7);
-
-	\draw[thick](node4) to (node2);
-
-	\draw[thick](node4) to (node5);
-
-	\draw[thick](node7) to (node1);
-
-	\draw[thick](node7) to (node3);
-
-	\draw[thick](node5) to (node6);
-
-	\draw[] (4.0, 0.0) grid  (11.0, 1.0);
-
-	\node[anchor=east] (text) at (3.9, 0.5) { $\mathrm{nodes}[u] = $ };
-
-	\node[] (1) at (4.5, 1.5) { \bbtext{1} };
-
-	\node[] (2) at (5.5, 1.5) { \bbtext{2} };
-
-	\node[] (3) at (6.5, 1.5) { \bbtext{3} };
-
-	\node[] (4) at (7.5, 1.5) { \bbtext{4} };
-
-	\node[] (5) at (8.5, 1.5) { \bbtext{5} };
-
-	\node[] (6) at (9.5, 1.5) { \bbtext{6} };
-
-	\node[] (7) at (10.5, 1.5) { \bbtext{7} };
-
-	\node[] (n1) at (4.5, 0.5) { ${1}$ };
-
-	\node[] (n2) at (5.5, 0.5) { ${1}$ };
-
-	\node[] (n3) at (6.5, 0.5) { ${1}$ };
-
-	\node[] (n4) at (7.5, 0.5) { ${5}$ };
+	\node[] (n4) at (7.5, 0.5) { \bbtext{-} };
 
 	\node[] (n5) at (8.5, 0.5) { $\mathbf{1}$ };
 
-	\node[] (n6) at (9.5, 0.5) { \bbtext{-} };
+	\node[] (n6) at (9.5, 0.5) { ${0}$ };
 
-	\node[] (n7) at (10.5, 0.5) { ${3}$ };
+	\node[] (n7) at (10.5, 0.5) { \bbtext{-} };
 
+	\node[] (L1) at (4.5, 1.5) { ${0}$ };
 
+	\node[] (L2) at (5.5, 1.5) { ${0}$ };
 
+	\node[] (L3) at (6.5, 1.5) { ${0}$ };
 
+	\node[] (L4) at (7.5, 1.5) { \bbtext{-} };
 
+	\node[] (L5) at (8.5, 1.5) { $\mathbf{1}$ };
+
+	\node[] (L6) at (9.5, 1.5) { ${0}$ };
+
+	\node[] (L7) at (10.5, 1.5) { \bbtext{-} };
 
 
 
@@ -1146,19 +979,19 @@
 \node[draw,opacity=0] at (0, 0) {x};
 \node[draw,opacity=0] at (14, 8) {x};
 
-	\node[draw,very thick,circle,fill=BBGray] (node4) at (7.0, 7.0) { \bbtext{4} };
+	\node[draw,very thick,circle] (node4) at (7.0, 7.5) { \bbtext{4} };
 
-	\node[draw,very thick,circle,fill=BBCyan] (node7) at (3.0, 5.0) { \bbtext{7} };
+	\node[draw,very thick,circle,fill=BBOrange] (node7) at (3.0, 5.5) { \bbtext{7} };
 
-	\node[draw,very thick,circle,fill=BBCyan] (node2) at (7.0, 5.0) { \bbtext{2} };
+	\node[draw,very thick,circle,fill=BBCyan] (node2) at (7.0, 5.5) { \bbtext{2} };
 
-	\node[draw,very thick,circle,fill=BBGray] (node5) at (11.0, 5.0) { \bbtext{5} };
+	\node[draw,very thick,circle,fill=BBGreen] (node5) at (11.0, 5.5) { \bbtext{5} };
 
-	\node[draw,very thick,circle,fill=BBCyan] (node1) at (1.0, 3.0) { \bbtext{1} };
+	\node[draw,very thick,circle,fill=BBCyan] (node1) at (1.0, 3.5) { \bbtext{1} };
 
-	\node[draw,very thick,circle,fill=BBCyan] (node3) at (5.0, 3.0) { \bbtext{3} };
+	\node[draw,very thick,circle,fill=BBCyan] (node3) at (5.0, 3.5) { \bbtext{3} };
 
-	\node[draw,very thick,circle,fill=BBCyan] (node6) at (11.0, 3.0) { \bbtext{6} };
+	\node[draw,very thick,circle,fill=BBCyan] (node6) at (11.0, 3.5) { \bbtext{6} };
 
 	\draw[thick](node4) to (node7);
 
@@ -1174,40 +1007,53 @@
 
 	\draw[] (4.0, 0.0) grid  (11.0, 1.0);
 
-	\node[anchor=east] (text) at (3.9, 0.5) { $\mathrm{nodes}[u] = $ };
+	\draw[] (4.0, 1.0) grid  (11.0, 2.0);
 
-	\node[] (1) at (4.5, 1.5) { \bbtext{1} };
+	\node[anchor=east] (text) at (3.9, 0.5) { $\mathrm{maxLength}[u] = $ };
 
-	\node[] (2) at (5.5, 1.5) { \bbtext{2} };
+	\node[anchor=east] (text2) at (3.9, 1.5) { $\mathrm{toLeaf}[u] = $ };
 
-	\node[] (3) at (6.5, 1.5) { \bbtext{3} };
+	\node[] (1) at (4.5, 2.5) { \bbtext{1} };
 
-	\node[] (4) at (7.5, 1.5) { \bbtext{4} };
+	\node[] (2) at (5.5, 2.5) { \bbtext{2} };
 
-	\node[] (5) at (8.5, 1.5) { \bbtext{5} };
+	\node[] (3) at (6.5, 2.5) { \bbtext{3} };
 
-	\node[] (6) at (9.5, 1.5) { \bbtext{6} };
+	\node[] (4) at (7.5, 2.5) { \bbtext{4} };
 
-	\node[] (7) at (10.5, 1.5) { \bbtext{7} };
+	\node[] (5) at (8.5, 2.5) { \bbtext{5} };
 
-	\node[] (n1) at (4.5, 0.5) { ${1}$ };
+	\node[] (6) at (9.5, 2.5) { \bbtext{6} };
 
-	\node[] (n2) at (5.5, 0.5) { ${1}$ };
+	\node[] (7) at (10.5, 2.5) { \bbtext{7} };
 
-	\node[] (n3) at (6.5, 0.5) { ${1}$ };
+	\node[] (n1) at (4.5, 0.5) { ${0}$ };
 
-	\node[] (n4) at (7.5, 0.5) { ${5}$ };
+	\node[] (n2) at (5.5, 0.5) { ${0}$ };
+
+	\node[] (n3) at (6.5, 0.5) { ${0}$ };
+
+	\node[] (n4) at (7.5, 0.5) { \bbtext{-} };
 
 	\node[] (n5) at (8.5, 0.5) { ${1}$ };
 
-	\node[] (n6) at (9.5, 0.5) { $\mathbf{1}$ };
+	\node[] (n6) at (9.5, 0.5) { ${0}$ };
 
-	\node[] (n7) at (10.5, 0.5) { ${3}$ };
+	\node[] (n7) at (10.5, 0.5) { $\mathbf{2}$ };
 
+	\node[] (L1) at (4.5, 1.5) { ${0}$ };
 
+	\node[] (L2) at (5.5, 1.5) { ${0}$ };
 
+	\node[] (L3) at (6.5, 1.5) { ${0}$ };
 
+	\node[] (L4) at (7.5, 1.5) { \bbtext{-} };
 
+	\node[] (L5) at (8.5, 1.5) { ${1}$ };
+
+	\node[] (L6) at (9.5, 1.5) { ${0}$ };
+
+	\node[] (L7) at (10.5, 1.5) { $\mathbf{1}$ };
 
 
 
@@ -1222,19 +1068,19 @@
 \node[draw,opacity=0] at (0, 0) {x};
 \node[draw,opacity=0] at (14, 8) {x};
 
-	\node[draw,very thick,circle,fill=BBGray] (node4) at (7.0, 7.0) { \bbtext{4} };
+	\node[draw,very thick,circle,fill=BBOrange] (node4) at (7.0, 7.5) { \bbtext{4} };
 
-	\node[draw,very thick,circle,fill=BBCyan] (node7) at (3.0, 5.0) { \bbtext{7} };
+	\node[draw,very thick,circle,fill=BBOrange] (node7) at (3.0, 5.5) { \bbtext{7} };
 
-	\node[draw,very thick,circle,fill=BBCyan] (node2) at (7.0, 5.0) { \bbtext{2} };
+	\node[draw,very thick,circle,fill=BBCyan] (node2) at (7.0, 5.5) { \bbtext{2} };
 
-	\node[draw,very thick,circle,fill=BBCyan] (node5) at (11.0, 5.0) { \bbtext{5} };
+	\node[draw,very thick,circle,fill=BBGreen] (node5) at (11.0, 5.5) { \bbtext{5} };
 
-	\node[draw,very thick,circle,fill=BBCyan] (node1) at (1.0, 3.0) { \bbtext{1} };
+	\node[draw,very thick,circle,fill=BBCyan] (node1) at (1.0, 3.5) { \bbtext{1} };
 
-	\node[draw,very thick,circle,fill=BBCyan] (node3) at (5.0, 3.0) { \bbtext{3} };
+	\node[draw,very thick,circle,fill=BBCyan] (node3) at (5.0, 3.5) { \bbtext{3} };
 
-	\node[draw,very thick,circle,fill=BBCyan] (node6) at (11.0, 3.0) { \bbtext{6} };
+	\node[draw,very thick,circle,fill=BBCyan] (node6) at (11.0, 3.5) { \bbtext{6} };
 
 	\draw[thick](node4) to (node7);
 
@@ -1250,117 +1096,53 @@
 
 	\draw[] (4.0, 0.0) grid  (11.0, 1.0);
 
-	\node[anchor=east] (text) at (3.9, 0.5) { $\mathrm{nodes}[u] = $ };
+	\draw[] (4.0, 1.0) grid  (11.0, 2.0);
 
-	\node[] (1) at (4.5, 1.5) { \bbtext{1} };
+	\node[anchor=east] (text) at (3.9, 0.5) { $\mathrm{maxLength}[u] = $ };
 
-	\node[] (2) at (5.5, 1.5) { \bbtext{2} };
+	\node[anchor=east] (text2) at (3.9, 1.5) { $\mathrm{toLeaf}[u] = $ };
 
-	\node[] (3) at (6.5, 1.5) { \bbtext{3} };
+	\node[] (1) at (4.5, 2.5) { \bbtext{1} };
 
-	\node[] (4) at (7.5, 1.5) { \bbtext{4} };
+	\node[] (2) at (5.5, 2.5) { \bbtext{2} };
 
-	\node[] (5) at (8.5, 1.5) { \bbtext{5} };
+	\node[] (3) at (6.5, 2.5) { \bbtext{3} };
 
-	\node[] (6) at (9.5, 1.5) { \bbtext{6} };
+	\node[] (4) at (7.5, 2.5) { \bbtext{4} };
 
-	\node[] (7) at (10.5, 1.5) { \bbtext{7} };
+	\node[] (5) at (8.5, 2.5) { \bbtext{5} };
 
-	\node[] (n1) at (4.5, 0.5) { ${1}$ };
+	\node[] (6) at (9.5, 2.5) { \bbtext{6} };
 
-	\node[] (n2) at (5.5, 0.5) { ${1}$ };
+	\node[] (7) at (10.5, 2.5) { \bbtext{7} };
 
-	\node[] (n3) at (6.5, 0.5) { ${1}$ };
+	\node[] (n1) at (4.5, 0.5) { ${0}$ };
 
-	\node[] (n4) at (7.5, 0.5) { ${5}$ };
+	\node[] (n2) at (5.5, 0.5) { ${0}$ };
 
-	\node[] (n5) at (8.5, 0.5) { $\mathbf{2}$ };
+	\node[] (n3) at (6.5, 0.5) { ${0}$ };
 
-	\node[] (n6) at (9.5, 0.5) { ${1}$ };
+	\node[] (n4) at (7.5, 0.5) { $\mathbf{4}$ };
 
-	\node[] (n7) at (10.5, 0.5) { ${3}$ };
+	\node[] (n5) at (8.5, 0.5) { ${1}$ };
 
+	\node[] (n6) at (9.5, 0.5) { ${0}$ };
 
+	\node[] (n7) at (10.5, 0.5) { ${2}$ };
 
+	\node[] (L1) at (4.5, 1.5) { ${0}$ };
 
+	\node[] (L2) at (5.5, 1.5) { ${0}$ };
 
+	\node[] (L3) at (6.5, 1.5) { ${0}$ };
 
+	\node[] (L4) at (7.5, 1.5) { $\mathbf{2}$ };
 
+	\node[] (L5) at (8.5, 1.5) { ${1}$ };
 
+	\node[] (L6) at (9.5, 1.5) { ${0}$ };
 
-
-
-
-
-\end{tikzpicture}
-\end{frame}
-\begin{frame}[plain,t]
-\begin{tikzpicture}
-\node[draw,opacity=0] at (0, 0) {x};
-\node[draw,opacity=0] at (14, 8) {x};
-
-	\node[draw,very thick,circle,fill=BBCyan] (node4) at (7.0, 7.0) { \bbtext{4} };
-
-	\node[draw,very thick,circle,fill=BBCyan] (node7) at (3.0, 5.0) { \bbtext{7} };
-
-	\node[draw,very thick,circle,fill=BBCyan] (node2) at (7.0, 5.0) { \bbtext{2} };
-
-	\node[draw,very thick,circle,fill=BBCyan] (node5) at (11.0, 5.0) { \bbtext{5} };
-
-	\node[draw,very thick,circle,fill=BBCyan] (node1) at (1.0, 3.0) { \bbtext{1} };
-
-	\node[draw,very thick,circle,fill=BBCyan] (node3) at (5.0, 3.0) { \bbtext{3} };
-
-	\node[draw,very thick,circle,fill=BBCyan] (node6) at (11.0, 3.0) { \bbtext{6} };
-
-	\draw[thick](node4) to (node7);
-
-	\draw[thick](node4) to (node2);
-
-	\draw[thick](node4) to (node5);
-
-	\draw[thick](node7) to (node1);
-
-	\draw[thick](node7) to (node3);
-
-	\draw[thick](node5) to (node6);
-
-	\draw[] (4.0, 0.0) grid  (11.0, 1.0);
-
-	\node[anchor=east] (text) at (3.9, 0.5) { $\mathrm{nodes}[u] = $ };
-
-	\node[] (1) at (4.5, 1.5) { \bbtext{1} };
-
-	\node[] (2) at (5.5, 1.5) { \bbtext{2} };
-
-	\node[] (3) at (6.5, 1.5) { \bbtext{3} };
-
-	\node[] (4) at (7.5, 1.5) { \bbtext{4} };
-
-	\node[] (5) at (8.5, 1.5) { \bbtext{5} };
-
-	\node[] (6) at (9.5, 1.5) { \bbtext{6} };
-
-	\node[] (7) at (10.5, 1.5) { \bbtext{7} };
-
-	\node[] (n1) at (4.5, 0.5) { ${1}$ };
-
-	\node[] (n2) at (5.5, 0.5) { ${1}$ };
-
-	\node[] (n3) at (6.5, 0.5) { ${1}$ };
-
-	\node[] (n4) at (7.5, 0.5) { $\mathbf{7}$ };
-
-	\node[] (n5) at (8.5, 0.5) { ${2}$ };
-
-	\node[] (n6) at (9.5, 0.5) { ${1}$ };
-
-	\node[] (n7) at (10.5, 0.5) { ${3}$ };
-
-
-
-
-
+	\node[] (L7) at (10.5, 1.5) { ${1}$ };
 
 
 
@@ -1373,83 +1155,19 @@
 \end{tikzpicture}
 \end{frame}
 \begin{frame}[plain,t]
-\begin{tikzpicture}
-\node[draw,opacity=0] at (0, 0) {x};
-\node[draw,opacity=0] at (14, 8) {x};
 
-	\node[draw,very thick,circle,fill=BBCyan] (node4) at (7.0, 7.0) { \bbtext{4} };
+\inputsnippet{cpp}{43}{53}{codes/dp.cpp}
 
-	\node[draw,very thick,circle,fill=BBCyan] (node7) at (3.0, 5.0) { \bbtext{7} };
+\end{frame}
+\begin{frame}[plain,t]
 
-	\node[draw,very thick,circle,fill=BBCyan] (node2) at (7.0, 5.0) { \bbtext{2} };
+\inputsnippet{cpp}{10}{25}{codes/dp.cpp}
 
-	\node[draw,very thick,circle,fill=BBCyan] (node5) at (11.0, 5.0) { \bbtext{5} };
+\end{frame}
+\begin{frame}[plain,t]
 
-	\node[draw,very thick,circle,fill=BBCyan] (node1) at (1.0, 3.0) { \bbtext{1} };
+\inputsnippet{cpp}{27}{41}{codes/dp.cpp}
 
-	\node[draw,very thick,circle,fill=BBCyan] (node3) at (5.0, 3.0) { \bbtext{3} };
-
-	\node[draw,very thick,circle,fill=BBCyan] (node6) at (11.0, 3.0) { \bbtext{6} };
-
-	\draw[thick](node4) to (node7);
-
-	\draw[thick](node4) to (node2);
-
-	\draw[thick](node4) to (node5);
-
-	\draw[thick](node7) to (node1);
-
-	\draw[thick](node7) to (node3);
-
-	\draw[thick](node5) to (node6);
-
-	\draw[] (4.0, 0.0) grid  (11.0, 1.0);
-
-	\node[anchor=east] (text) at (3.9, 0.5) { $\mathrm{nodes}[u] = $ };
-
-	\node[] (1) at (4.5, 1.5) { \bbtext{1} };
-
-	\node[] (2) at (5.5, 1.5) { \bbtext{2} };
-
-	\node[] (3) at (6.5, 1.5) { \bbtext{3} };
-
-	\node[] (4) at (7.5, 1.5) { \bbtext{4} };
-
-	\node[] (5) at (8.5, 1.5) { \bbtext{5} };
-
-	\node[] (6) at (9.5, 1.5) { \bbtext{6} };
-
-	\node[] (7) at (10.5, 1.5) { \bbtext{7} };
-
-	\node[] (n1) at (4.5, 0.5) { ${1}$ };
-
-	\node[] (n2) at (5.5, 0.5) { ${1}$ };
-
-	\node[] (n3) at (6.5, 0.5) { ${1}$ };
-
-	\node[] (n4) at (7.5, 0.5) { ${7}$ };
-
-	\node[] (n5) at (8.5, 0.5) { ${2}$ };
-
-	\node[] (n6) at (9.5, 0.5) { ${1}$ };
-
-	\node[] (n7) at (10.5, 0.5) { ${3}$ };
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-\end{tikzpicture}
 \end{frame}
 \begin{frame}[plain,t]
 \begin{tikzpicture}
