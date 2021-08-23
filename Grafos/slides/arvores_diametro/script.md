@@ -69,7 +69,7 @@ c => Node
 c1 => Node
     @c1.x = 0.5
     @c1.y = 2.5
-    @c1.text = \bbtext{ou duas DFS}
+    @c1.text = \bbtext{ou duas BFS}
     @c1.anchor = west
 
 ---
@@ -673,310 +673,429 @@ L7 => Node
 title => Node
     @title.x = 0
     @title.y = 7
-    @title.text = \Large \bbbold{Maior caminho até uma folha}
+    @title.text = \Large \bbbold{Uso de BFS para o cálculo do diâmetro}
     @title.anchor = west
 
 ---
 
-a => Node
-    @a.x = 1
-    @a.y = 6
-    @a.text = $\star$ \bbtext{Outra aplicação de DFS com DP é o cálculo do tamanho, em arestas, do }
-    @a.anchor = west
+info => Node
+    @info.x = 7
+    @info.y = 6
+    @info.text = \bbtext{A BFS permite computar as distância, em arestas, de qualquer vértice a $u$}
 
-a1 => Node
-    @a1.x = 0.5
-    @a1.y = 5.5
-    @a1.text = \bbtext{maior caminho $\mathrm{toLeaf}[u]$ de $u$ até uma folha}
-    @a1.anchor = west
+nodeA => Node
+    @nodeA.x = 1
+    @nodeA.y = 0.5
+    @nodeA.text = \footnotesize $\textcolor{BBWhite}{a}$
+    &nodeA.draw
+    &nodeA.thick
+    &nodeA.circle
+ 
+nodeU => Node
+    @nodeU.x = 3
+    @nodeU.y = 1.5
+    @nodeU.fill = BBGreen
+    @nodeU.text = \footnotesize $\textcolor{BBWhite}{u}$
+    &nodeU.draw
+    &nodeU.thick
+    &nodeU.circle
+
+nodeB => Node
+    @nodeB.x = 5
+    @nodeB.y = 2.5
+    @nodeB.text = \footnotesize $\textcolor{BBWhite}{r}$
+    &nodeB.draw
+    &nodeB.thick
+    &nodeB.circle
+ 
+dots1 => Node
+    @dots1.x = 8
+    @dots1.y = 2.5
+    @dots1.text = $\texttt{...}$
+ 
+dots2 => Node
+    @dots2.x = 9
+    @dots2.y = 3.5
+    @dots2.text = $\texttt{...}$
+ 
+nodeC => Node
+    @nodeC.x = 11
+    @nodeC.y = 2.5
+    @nodeC.text = \footnotesize $\textcolor{BBWhite}{c}$
+    &nodeC.draw
+    &nodeC.thick
+    &nodeC.circle
+ 
+nodeV => Node
+    @nodeV.x = 13
+    @nodeV.y = 0.5
+    @nodeV.text = \footnotesize $\textcolor{BBWhite}{v}$
+    &nodeV.draw
+    &nodeV.thick
+    &nodeV.circle
+ 
+nodeP => Node
+    @nodeP.x = 1
+    @nodeP.y = 3.5
+    @nodeP.text = \footnotesize $\textcolor{BBWhite}{p}$
+    &nodeP.draw
+    &nodeP.thick
+    &nodeP.circle
+ 
+nodeD => Node
+    @nodeD.x = 3
+    @nodeD.y = 4.5
+    @nodeD.text = \footnotesize $\textcolor{BBWhite}{e}$
+    &nodeD.draw
+    &nodeD.thick
+    &nodeD.circle
+ 
+nodeE => Node
+    @nodeE.x = 5
+    @nodeE.y = 3.5
+    @nodeE.text = \footnotesize $\textcolor{BBWhite}{e}$
+    &nodeE.draw
+    &nodeE.thick
+    &nodeE.circle
+ 
+nodeF => Node
+    @nodeF.x = 7
+    @nodeF.y = 3.5
+    @nodeF.text = \footnotesize $\textcolor{BBWhite}{s}$
+    &nodeF.draw
+    &nodeF.thick
+    &nodeF.circle
+ 
+nodeG => Node
+    @nodeG.x = 11
+    @nodeG.y = 3.5
+    @nodeG.text = \footnotesize $\textcolor{BBWhite}{e}$
+    &nodeG.draw
+    &nodeG.thick
+    &nodeG.circle
+ 
+nodeQ => Node
+    @nodeQ.x = 13
+    @nodeQ.y = 3.5
+    @nodeQ.text = \footnotesize $\textcolor{BBWhite}{q}$
+    &nodeQ.draw
+    &nodeQ.thick
+    &nodeQ.circle
+ 
+eAU => Edge
+    @eAU.from = nodeA
+    @eAU.to = nodeU
+    &eAU.thick
+ 
+eBU => Edge
+    @eBU.from = nodeB
+    @eBU.to = nodeU
+    &eBU.thick
+ 
+eCV => Edge
+    @eCV.from = nodeC
+    @eCV.to = nodeV
+    &eCV.thick
+
+ePD => Edge
+    @ePD.from = nodeP
+    @ePD.to = nodeD
+    &ePD.thick
+
+eDE => Edge
+    @eDE.from = nodeD
+    @eDE.to = nodeE
+    &eDE.thick
+
+eEF => Edge
+    @eEF.from = nodeE
+    @eEF.to = nodeF
+    &eEF.thick
+
+eGQ => Edge
+    @eGQ.from = nodeG
+    @eGQ.to = nodeQ
+    &eGQ.thick
+ 
+eBF => Edge
+    @eBF.from = nodeB
+    @eBF.to = nodeF
+    &eBF.thick
+ 
+---
+
+    @info.text = \bbtext{Seja $v$ o vértice mais distante de $u$ e $D$ o diâmetro da árvore $T$}
 
 ---
 
-b => Node
-    @b.x = 1
-    @b.y = 4.5
-    @b.text = $\star$ \bbtext{Se $u$ for uma folha, então $\mathrm{toLeaf}[u] = 0$}
-    @b.anchor = west
+    @nodeV.fill = BBCyan
 
 ---
 
-c => Node
-    @c.x = 1
-    @c.y = 3.5
-    @c.text = $\star$ \bbtext{Caso contrário,}
-    @c.anchor = west
+    @info.text = \bbbold{Fato \#1:} \bbtext{Ao menos um nó do caminho de $u$ a $v$ faz parte de um}
 
-c1 => Node
-    @c1.x = 7
-    @c1.y = 2.5
-    @c1.text = $\displaystyle \mathrm{toLeaf}[u] = 1 + \max_{v\in\mathrm{adj[u]}}\{\ \mathrm{toLeaf}[v]\ \}$
+info2 => Node
+    @info2.x = 7
+    @info2.y = 5.5
+    @info2.text = \bbtext{caminho cujo comprimento é $D$}
 
 ---
 
-d => Node
-    @d.x = 1
-    @d.y = 1.5
-    @d.text = $\star$ \bbtext{Este algoritmo pode ser adaptado para computar o tamanho como soma }
-    @d.anchor = west
+    @info.text = \bbbold{Prova:} \bbtext{Suponha que nenhum vértice do caminho de $u$ a $v$ faça parte}
+    @info2.text = \bbtext{de um caminho cujo comprimento é $D$}
 
-d1 => Node
-    @d1.x = 0.5
-    @d1.y = 1.0
-    @d1.text = \bbtext{dos pesos das arestas do caminho que vai de $u$ até a folha}
-    @d1.anchor = west
+---
+-info2
+
+    @info.text = \bbtext{Assuma que $\dist(p, q) = D$}
+
+    &ePD.dashed
+    &eDE.dashed
+    &eEF.dashed
+    &eGQ.dashed
+
+    @nodeP.fill = BBOrange
+    @nodeQ.fill = BBOrange
+
+---
++info2
+
+    @info.text = \bbtext{Sendo $T$ conectada, existe ao menos um caminho de $r$ no caminho de $u$ a $v$}
+    @info2.text = \bbtext{para um $s$ no caminho de $p$ a $q$}
+
+---
+    &eBF.-latex
+    &eBF.very thick
+
+    @nodeB.fill = BBGray
+    @nodeF.fill = BBGray
+
+---
+
+    @info.text = \bbtext{Como $v$ é vértice mais distante de $u$, vale que}
+    @info2.y = 5.25
+    @info2.text = $\displaystyle \dist(u, r) + \dist(r, s) + \dist(s, p) \leq \dist(u, v)$
+
+---
+
+eUR => Edge
+    @eUR.from = nodeU
+    @eUR.to = nodeB
+    @eUR.color = BBViolet
+    &eUR.-latex
+    %eUR.label = [bend left]
+
+eRS => Edge
+    @eRS.from = nodeB
+    @eRS.to = nodeF
+    @eRS.color = BBViolet
+    &eRS.-latex
+    %eRS.label = [bend right]
+
+eSE => Edge
+    @eSE.from = nodeF
+    @eSE.to = nodeE
+    @eSE.color = BBViolet
+    &eSE.-latex
+    %eSE.label = [bend right]
+
+eED => Edge
+    @eED.from = nodeE
+    @eED.to = nodeD
+    @eED.color = BBViolet
+    &eED.-latex
+    %eED.label = [bend left]
+
+eDP => Edge
+    @eDP.from = nodeD
+    @eDP.to = nodeP
+    @eDP.color = BBViolet
+    &eDP.-latex
+    %eDP.label = [bend right]
+
+---
+-eUR
+-eRS
+-eSE
+-eED
+-eDP
+
+    @info.text = \bbtext{e também que}
+    @info2.text = $\displaystyle \dist(v, r) + \dist(r, s) + \dist(s, q) \leq \dist(u, v)$
+
+---
+
+eVC => Edge
+    @eVC.from = nodeV
+    @eVC.to = nodeC
+    @eVC.color = BBViolet
+    &eVC.-latex
+    %eVC.label = [bend right]
+
+eCB => Edge
+    @eCB.from = nodeC
+    @eCB.to = nodeB
+    @eCB.color = BBViolet
+    &eCB.-latex
+    %eCB.label = [bend left]
+
++eRS
+
+eSG => Edge
+    @eSG.from = nodeF
+    @eSG.to = nodeG
+    @eSG.color = BBViolet
+    &eSG.-latex
+    %eSG.label = [bend left]
+
+eQG => Edge
+    @eQG.from = nodeG
+    @eQG.to = nodeQ
+    @eQG.color = BBViolet
+    &eQG.-latex
+    %eQG.label = [bend left]
+
+---
+-eVC
+-eRS
+-eCB
+-eSG
+-eQG
+
+    @info.text = \bbtext{Somando ambas desigualdades, temos que}
+    @info2.text = $\displaystyle D + 2\times \dist(r, s) \leq \dist(u, v)$
+
+---
+    @info.text = \bbtext{Como $\dist(r, s) > 0$, teríamos $\dist(u, v) > D$, uma contradição!}
+
+-info2
+
+---
+
+    @info.text = \bbbold{Fato \#2:} \bbtext{$v$ é um dos extremos de um caminho cujo tamanho é $D$}
+
+-eBF
+
+eFB => Edge
+    @eFB.from = nodeB
+    @eFB.to = nodeF
+    &eFB.thick
+ 
+---
+
+    @info.text = \bbbold{Prova:} \bbtext{Seja $s$ um nó do caminho de $u$ a $v$ pelo qual passa o}
+
++info2
+    @info2.y = 5.5
+    @info2.text = \bbtext{caminho de $p$ a $q$ cujo tamanho é $D$}
+
+---
+
+    @info.text = \bbtext{Se $v$ não é extremo de um caminho cujo tamanho é $D$, então}
+
+    @info2.y = 5.25
+    @info2.text = $\displaystyle \dist(v, n) < D, \ \forall n \in V$
+
+---
+
+    @info.text = \bbtext{Em particular,}
+
+    @info2.y = 5.25
+    @info2.text = $\displaystyle \dist(v, s) + \dist(s, q) = \dist(v, q) < \dist(p, q) = \dist(p, s) + \dist(s, v)$
+
+
++eVC
++eRS
++eCB
++eSE
++eED
++eDP
++eSG
++eQG
+
+    &eDP.latex-
+    &eDP.dashed
+    &eED.latex-
+    &eED.dashed
+    &eSE.latex-
+    &eSE.dashed
+    &eSG.very thick
+    &eQG.very thick
+
+---
+
+    @info.text = \bbtext{Deste modo, $\dist(s, p) > \dist(s, v)$, o que leva a}
+    @info2.text = $\displaystyle \dist(u, v) = \dist(u, s) + \dist(s, v) < \dist(u, s) + \dist(s, p) = \dist(u, p)$
+
+-eVC
+-eRS
+-eCB
+-eSE
+-eED
+-eDP
+-eSG
+-eQG
+
+---
+
+    @info.text = \bbtext{Logo $p$ estaria mais distante de $u$ do que $v$, que é o vértice mais distante}
+    @info2.y = 5.5
+    @info2.text = \bbtext{de $u$, outra contradição!}
+
 
 ## Scene
 
-node4 => Node
-    @node4.x = 6
-    @node4.y = 7
-    @node4.text = \bbtext{4}
-    &node4.draw
-    &node4.very thick
-    &node4.circle
- 
-node7 => Node
-    @node7.x = 10
-    @node7.y = 5
-    @node7.text = \bbtext{7}
-    &node7.draw
-    &node7.very thick
-    &node7.circle
- 
-node2 => Node
-    @node2.x = 6
-    @node2.y = 5
-    @node2.text = \bbtext{2}
-    &node2.draw
-    &node2.very thick
-    &node2.circle
- 
-node5 => Node
-    @node5.x = 2
-    @node5.y = 5
-    @node5.text = \bbtext{5}
-    &node5.draw
-    &node5.very thick
-    &node5.circle
- 
-node1 => Node
-    @node1.x = 8
-    @node1.y = 3
-    @node1.text = \bbtext{1}
-    &node1.draw
-    &node1.very thick
-    &node1.circle
- 
-node3 => Node
-    @node3.x = 12
-    @node3.y = 3
-    @node3.text = \bbtext{3}
-    &node3.draw
-    &node3.very thick
-    &node3.circle
- 
-node6 => Node
-    @node6.x = 2
-    @node6.y = 3
-    @node6.text = \bbtext{6}
-    &node6.draw
-    &node6.very thick
-    &node6.circle
- 
-e47 => Edge
-    @e47.from = node4
-    @e47.to = node7
-    &e47.thick
-    
-e42 => Edge
-    @e42.from = node4
-    @e42.to = node2
-    &e42.thick
- 
-e45 => Edge
-    @e45.from = node4
-    @e45.to = node5
-    &e45.thick
- 
-e71 => Edge
-    @e71.from = node7
-    @e71.to = node1
-    &e71.thick
- 
-e73 => Edge
-    @e73.from = node7
-    @e73.to = node3
-    &e73.thick
- 
-e56 => Edge
-    @e56.from = node5
-    @e56.to = node6
-    &e56.thick
- 
-grid => Grid
-    @grid.x = 4
-    @grid.y = 0
-    @grid.u = 11
-    @grid.v = 1
-
-text => Node
-    @text.x = 3.9
-    @text.y = 0.5
-    @text.anchor = east
-    @text.text = $\mathrm{toLeaf}[u] = $
-
-1 => Node
-    @1.x = 4.5
-    @1.y = 1.5
-    @1.text = \bbtext{1}
-
-2 => Node
-    @2.x = 5.5
-    @2.y = 1.5
-    @2.text = \bbtext{2}
-
-3 => Node
-    @3.x = 6.5
-    @3.y = 1.5
-    @3.text = \bbtext{3}
-
-4 => Node
-    @4.x = 7.5
-    @4.y = 1.5
-    @4.text = \bbtext{4}
-
-5 => Node
-    @5.x = 8.5
-    @5.y = 1.5
-    @5.text = \bbtext{5}
-
-6 => Node
-    @6.x = 9.5
-    @6.y = 1.5
-    @6.text = \bbtext{6}
-
-7 => Node
-    @7.x = 10.5
-    @7.y = 1.5
-    @7.text = \bbtext{7}
-
-n1 => Node
-    @n1.x = 4.5
-    @n1.y = 0.5
-    @n1.text = \bbtext{-}
-
-n2 => Node
-    @n2.x = 5.5
-    @n2.y = 0.5
-    @n2.text = \bbtext{-}
-
-n3 => Node
-    @n3.x = 6.5
-    @n3.y = 0.5
-    @n3.text = \bbtext{-}
-
-n4 => Node
-    @n4.x = 7.5
-    @n4.y = 0.5
-    @n4.text = \bbtext{-}
-
-n5 => Node
-    @n5.x = 8.5
-    @n5.y = 0.5
-    @n5.text = \bbtext{-}
-
-n6 => Node
-    @n6.x = 9.5
-    @n6.y = 0.5
-    @n6.text = \bbtext{-}
-
-n7 => Node
-    @n7.x = 10.5
-    @n7.y = 0.5
-    @n7.text = \bbtext{-}
+title => Node
+    @title.x = 0
+    @title.y = 7
+    @title.text = \Large \bbbold{Pseudocódigo}
+    @title.anchor = west
 
 ---
 
-    @node4.fill = BBGreen
+input => Node
+    @input.x = 0.5
+    @input.y = 6
+    @input.text = \bbemph{Entrada:} \bbtext{uma árvore $T(V, E)$}
+    @input.anchor = west
 
----
+output => Node
+    @output.x = 0.5
+    @output.y = 5.5
+    @output.text = \bbemph{Saída:} \bbtext{o diâmetro $D$ do grafo}
+    @output.anchor = west
 
-    @node4.fill = BBGray
-    @node5.fill = BBGreen
+step1 => Node
+    @step1.x = 1.0
+    @step1.y = 4.5
+    @step1.text = $1.$ \bbtext{Escolha um vértice $u\in V$ qualquer}
+    @step1.anchor = west
 
----
+step2 => Node
+    @step2.x = 1.0
+    @step2.y = 3.5
+    @step2.text = $2.$ \bbtext{Seja $v$ o vértice mais distante de $u$, identificado por meio de uma BFS}
+    @step2.anchor = west
 
-    @node5.fill = BBGray
-    @node6.fill = BBCyan
+step3 => Node
+    @step3.x = 1.0
+    @step3.y = 2.5
+    @step3.text = $3.$ \bbtext{Seja $w$ o vértice mais distante de $v$, identificado por meio de uma BFS}
+    @step3.anchor = west
 
-    @n6.text = $\mathbf{0}$
+step4 => Node
+    @step4.x = 1.0
+    @step4.y = 1.5
+    @step4.text = $4.$ \bbtext{Retorne $D = \dist(v, w)$}
+    @step4.anchor = west
 
----
+## Frame
 
-    @node5.fill = BBCyan
+\inputsnippet{cpp}{10}{29}{codes/bfs.cpp}
 
-    @n6.text = ${0}$
-    @n5.text = $\mathbf{1}$
+## Frame
 
----
-
-    @node4.fill = BBGreen
-
-    @n5.text = ${1}$
-    @n4.text = $\mathbf{2}$
-
----
-
-    @node2.fill = BBCyan
-    @node4.fill = BBGray
-
-    @n4.text = ${2}$
-    @n2.text = $\mathbf{0}$
-
----
-
-    @node4.fill = BBGreen
-
-    @n2.text = ${0}$
-
----
-
-    @node7.fill = BBGreen
-    @node4.fill = BBGray
-
----
-
-    @node1.fill = BBCyan
-    @node7.fill = BBGray
-
-    @n1.text = $\mathbf{0}$
-
----
-
-    @node7.fill = BBGreen
-
-    @n7.text = $\mathbf{0}$
-    @n1.text = ${0}$
-
----
-
-    @node7.fill = BBGray
-    @node3.fill = BBCyan
-
-    @n3.text = $\mathbf{0}$
-    @n7.text = ${0}$
-
----
-
-    @node7.fill = BBCyan
-
-    @n7.text = $\mathbf{1}$
-    @n3.text = ${0}$
-
----
-
-    @node4.fill = BBCyan
-    @n7.text = ${1}$
+\inputsnippet{cpp}{31}{37}{codes/bfs.cpp}
 
 ## Scene
 
@@ -987,27 +1106,27 @@ title => Node
     @title.anchor = west
 
 a => Node
-    @a.x = 0.25
+    @a.x = 1
     @a.y = 5
-    @a.text = $1.$ \bbtext{AtCoder Beginner Contest 126 -- Problem D: Even Relation}
+    @a.text = $1.$ \bbtext{AIZU Online Judge GRL 5A -- Diameter of a Tree}
     @a.anchor = west
 
 b => Node
-    @b.x = 0.25
+    @b.x = 1
     @b.y = 4
-    @b.text = $2.$ \bbtext{Codeforces Beta Round \#87 (Div. 1 Only) -- Problem A: Party}
+    @b.text = $2.$ \bbtext{Codechef DTREE -- Diameter of Tree}
     @b.anchor = west
 
 c => Node
-    @c.x = 0.25
+    @c.x = 1
     @c.y = 3
-    @c.text = $3.$ \bbtext{Codeforces Round \#660 (Div. 2) -- Problem C: Uncle Bogdan and Country Happiness}
+    @c.text = $3.$ \bbtext{DM::OJ -- Tree Tasks}
     @c.anchor = west
 
 d => Node
-    @d.x = 0.25
+    @d.x = 1
     @d.y = 2
-    @d.text = $4.$ \bbtext{OJ 10459 -- The Tree Root}
+    @d.text = $4.$ \bbtext{OJ 10308 -- Roads in the North}
     @d.anchor = west
 
 ## Scene
@@ -1050,3 +1169,10 @@ d => Node
     @d.anchor = west
 
 ## End
+
+https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_5_A
+https://www.codechef.com/problems/DTREE
+https://dmoj.ca/problem/treepractice1
+OJ10308,Roads in the North,graph,tree,diameter
+
+
