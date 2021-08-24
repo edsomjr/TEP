@@ -48,11 +48,12 @@ Teoria dos Grafos
         1. [AtCoder Beginner Contest 126 -- Problem D: Even Relation](https://atcoder.jp/contests/abc126/tasks/abc126_d) ([_upsolving_](problems/ABC_126D/ABC_126D.pdf))
         1. [OJ 10459 -- The Tree Root](https://onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&category=24&page=show_problem&problem=1400) ([_upsolving_](problems/OJ_10459/OJ_10459.pdf))
     1. [Diâmetro](slides/arvores_diametro/arvores_diametro.pdf)
+        1. [OJ 10308](http://onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&category=24&page=show_problem&problem=1249) ([_upsolving_](problems/OJ_10308/OJ_10308.pdf))
 
 <!---
 Pendências
+    - Raio de uma árvore
     - Fluxo
     - Minimum Spanning Tree
-    - Pontes e pontos de articulação
     - Maximum Independent Subset
 -->
