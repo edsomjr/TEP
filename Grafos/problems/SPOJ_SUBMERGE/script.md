@@ -2,10 +2,10 @@
 + \bbcover{SPOJ SUBMERGE}{Submerging Islands}{Prof. Edson Alves}{Faculdade UnB Gama}
 
 ## Text
-+ \bbenglish{Vice City is built over a group of islands, with bridges connecting them. As anyone in Vice City knows, the biggest fear of vice-citiers is that some day the islands will submerge. The big problem with this is that once the islands submerge, some of the other islands could get disconnected. You have been hired by the mayor of Vice city to tell him how many islands, when submerged, will disconnect parts of Vice City. You should know that initially all the islands of the city are connected.}
++ \bbenglish{Vice City is built over a group of islands, with bridges connecting them. As anyone in Vice City knows, the biggest fear of vice-citiers is that some day the islands will submerge. The big problem with this is that once the islands submerge, some of the other islands could get disconnected. You have been hired by the mayor of Vice City to tell him how many islands, when submerged, will disconnect parts of Vice City. You should know that initially all the islands of the city are connected.}
 
 ## Text
-+ \bbtext{Vice City foi construída sobre um grupo de ilhas, com pontes conectando-as. Como todos em Vice City sabem, o maior medo dos moradores é que em algum dia as ilhas venham a submergir. O maior problema é que, uma vez que uma ilha afunde, as outras ilhas podem ficar desconectadas. Você foi contratado pelo prefeito de Vice city para dizer a ele quantas ilhas, se submergissem, desconectariam as ilhas de Vice City. Assuma que todas as ilhas da cidade estão inicialmente conectadas.}
++ \bbtext{Vice City foi construída sobre um grupo de ilhas, com pontes conectando-as. Como todos em Vice City sabem, o maior medo dos moradores é que em algum dia as ilhas venham a submergir. O maior problema é que, uma vez que uma ilha afunde, as outras ilhas podem ficar desconectadas. Você foi contratado pelo prefeito de Vice City para dizer a ele quantas ilhas, se submergissem, desconectariam as ilhas de Vice City. Assuma que todas as ilhas da cidade estão inicialmente conectadas.}
 
 ## Text
 + \bbbold{Input}

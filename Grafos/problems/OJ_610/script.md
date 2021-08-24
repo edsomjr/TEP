@@ -13,7 +13,7 @@
 +
 + \vspace{0.2in}
 + 
-+ \bbtext{Você irá receber uma lista de vias (todas de mão dupla) da cidade. Cada via conecta duas interseções, e não atravessa nenhuma interseção. No máximo quatro vias atingem cada interseção, e há no máximo uma via conectando qualquer par de interseções. É possível que uma interseção serja o ponto final de uma única via. Você pode assumir que é possível para um motorista ir a qualquer interseção a partir de qualquer interseção quando todas as vias são de mão dupla.}
++ \bbtext{Você irá receber uma lista de vias (todas de mão dupla) da cidade. Cada via conecta duas interseções, e não atravessa nenhuma interseção. No máximo quatro vias atingem cada interseção, e há no máximo uma via conectando qualquer par de interseções. É possível que uma interseção seja o ponto final de uma única via. Você pode assumir que é possível para um motorista ir a qualquer interseção a partir de qualquer interseção quando todas as vias são de mão dupla.}
 
 ## Text
 + \bbbold{Input}

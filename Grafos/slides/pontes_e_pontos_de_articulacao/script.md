@@ -352,7 +352,7 @@
 + \node[anchor=west] at (0, 6) { \Large \bbbold{Identificação de pontos de articulação} };
 
 + \node[anchor=west] at (1, 5) { \bbtext{Seja $G(V, E)$ um grafo conectado e $s\in V$ o vértice de partida de uma DFS. } };
-+ \node[anchor=west] at (0.5, 4.25) { \bbtext{O vértice $(v, u)\in E$ identifica o ponto de articulação $u$ se $\mu_s(v) \geq i_s(u)$. } }; 
++ \node[anchor=west] at (0.5, 4.25) { \bbtext{A aresta $(v, u)\in E$ identifica o ponto de articulação $u$ se $\mu_s(v) \geq i_s(u)$. } }; 
 
 + \node[anchor=west] at (1, 2.5) { \bbbold{Caso especial:} \bbtext{$s$ só é ponto de articulação se ele tem, no mínimo, dois filhos } };
 

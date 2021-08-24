@@ -69,7 +69,7 @@
 +
 + \vspace{0.1in}
 +
-+ \bbtext{Para cada caso de teste a saída deverá consistir em uma única linha contendo um inteiro, o número máximo e pessoas que podem ser convidadas, de modo que todas elas aceitem o convite.}
++ \bbtext{Para cada caso de teste a saída deverá consistir em uma única linha contendo um inteiro, o número máximo de pessoas que podem ser convidadas, de modo que todas elas aceitem o convite.}
 
 ## Scene
 + \node[anchor=west] at (0, 7) { \bbbold{Exemplo de entrada e saída} };

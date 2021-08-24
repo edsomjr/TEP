@@ -7,12 +7,14 @@ const int MAX { 1010 };
 vector<int> adj[MAX];
 int to_leaf[MAX], max_length[MAX];
 
-void dfs(int u, int p) {
-
+void dfs(int u, int p)
+{
     vector<int> ds;
 
-    for (const auto& v : adj[u]) {
-        if (v == p) continue;
+    for (auto v : adj[u])
+    {
+        if (v == p)
+            continue;
 
         dfs(v, u);
         ds.push_back(to_leaf[v]);
@@ -22,7 +24,7 @@ void dfs(int u, int p) {
 
     to_leaf[u] = ds.empty() ? 0 : ds.back() + 1;
 
-    int N = ds.size();
+    auto N = ds.size();
  
     switch (N) {
     case 0:

@@ -1,3 +1,2 @@
 CF437D,greedy,priority queue
 OJ548,Tree,binary tree,tree recover
-OJ10308,Roads in the North,graph,tree,diameter
