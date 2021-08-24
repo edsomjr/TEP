@@ -1169,10 +1169,3 @@ d => Node
     @d.anchor = west
 
 ## End
-
-https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_5_A
-https://www.codechef.com/problems/DTREE
-https://dmoj.ca/problem/treepractice1
-OJ10308,Roads in the North,graph,tree,diameter
-
-
