@@ -50,6 +50,11 @@ Teoria dos Grafos
     1. [Diâmetro](slides/arvores_diametro/arvores_diametro.pdf)
         1. [OJ 10308 - Roads in the North](http://onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&category=24&page=show_problem&problem=1249) ([_upsolving_](problems/OJ_10308/OJ_10308.pdf))
         1. [AIZU GRL 5A - Diameter of a Tree](https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_5_A) ([_upsolving_](problems/AIZU_GRL_5_A/AIZU_GRL_5_A.pdf))
+1. Árvore mínima geradora 
+    1. [Definição](slides/mst_definicao/mst_definicao.pdf)
+    1. [Algoritmo de Kruskal](slides/kruskal/kruskal.pdf)
+        1. [OJ 10600 - ACM contest and Blackout](http://onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&category=24&page=show_problem&problem=1541) ([_upsolving_](problems/OJ_10600/OJ_10600.pdf))
+        1. [OJ 10369 - Arctic Network](http://uva.onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&category=24&page=show_problem&problem=1310) ([_upsolving_](problems/OJ_10369/OJ_10369.pdf))
 
 <!---
 Pendências
