@@ -52,6 +52,7 @@ Teoria dos Grafos
         1. [AIZU GRL 5A - Diameter of a Tree](https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_5_A) ([_upsolving_](problems/AIZU_GRL_5_A/AIZU_GRL_5_A.pdf))
 1. Árvore mínima geradora 
     1. [Definição](slides/mst_definicao/mst_definicao.pdf)
+    1. [Algoritmo de Kruskal](slides/kruskal/kruskal.pdf)
 
 <!---
 Pendências
