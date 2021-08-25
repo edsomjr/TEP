@@ -920,7 +920,7 @@ eBE => Edge
     @eBE.from = nodeB
     @eBE.to = nodeE
     &eBE.thick
-    %eBE.label = node[above left,pos=0.2] { \footnotesize \bbinfo{3} }
+    %eBE.label = node[above left,pos=0.2] { \footnotesize \bbinfo{8} }
  
 eCD => Edge
     @eCD.from = nodeC
