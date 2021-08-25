@@ -53,6 +53,7 @@ Teoria dos Grafos
 1. Árvore mínima geradora 
     1. [Definição](slides/mst_definicao/mst_definicao.pdf)
     1. [Algoritmo de Kruskal](slides/kruskal/kruskal.pdf)
+        1. [OJ 10600 - ACM contest and Blackout](http://onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&category=24&page=show_problem&problem=1541) ([_upsolving_](problems/OJ_10600/OJ_10600.pdf))
 
 <!---
 Pendências
