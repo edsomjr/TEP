@@ -687,13 +687,13 @@ a => Node
 b => Node
     @b.x = 1
     @b.y = 5
-    @b.text = $\star$ \bbtext{Esta segunda melhor MST pode ser identificada por meio de uma nova} 
+    @b.text = $\star$ \bbtext{Esta segunda melhor MST, se existir, pode ser identificada por meio de } 
     @b.anchor = west
 
 b1 => Node
     @b1.x = 0.5
     @b1.y = 4.5
-    @b1.text = \bbtext{modificação no algoritmo de Kruskal}
+    @b1.text = \bbtext{uma nova modificação no algoritmo de Kruskal}
     @b1.anchor = west
 
 ---
@@ -923,11 +923,11 @@ eAC1 => Edge
  
 ## Frame
 
-\inputsnippet{cpp}{46}{65}{codes/second_best.cpp}
+\inputsnippet{cpp}{48}{67}{codes/second_best.cpp}
 
 ## Frame
 
-\inputsnippet{cpp}{67}{81}{codes/second_best.cpp}
+\inputsnippet{cpp}{69}{83}{codes/second_best.cpp}
 
 ## Scene
 

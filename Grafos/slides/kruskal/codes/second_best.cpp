@@ -45,10 +45,10 @@ public:
     }
 };
 
-pair<int, unordered_set<int>>
+pair<int, vector<int>>
 kruskal(int N, vector<edge>& es, int blocked = -1)
 {
-    unordered_set<int> mst;
+    vector<int> mst;
     UnionFind ufds(N);
     int cost = 0;
 
@@ -59,11 +59,11 @@ kruskal(int N, vector<edge>& es, int blocked = -1)
         if (i != blocked and not ufds.same_set(u, v)) {
             cost += w;
             ufds.union_set(u, v);
-            mst.insert(i);
+            mst.emplace_back(i);
         }
     }
 
-    return { cost, mst };
+    return { (int) mst.size() == N - 1 ? cost : oo, mst };
 }
 
 int second_best(int N, vector<edge>& es)
