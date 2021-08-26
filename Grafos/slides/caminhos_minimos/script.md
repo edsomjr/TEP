@@ -4,9 +4,9 @@
 ## Scene
 + \node[anchor=west] at (0, 7) { \Large \bbbold{Caminhos mínimos} };
 + \node[anchor=west] at (1, 6) { \bbtext{Seja $p$ um caminho entre os vértices $u$ e $v$ do grafo $G$ . Dizemos que $p$ é um} };
-+ \node[anchor=west] at (0.5, 5) { \bbtext{\bbbold{caminho mínimo} de $u$ a $v$ se, para qualquer caminho $q$ de $u$ a $v$, vale que } };
-+ \node at (6.5, 3.5) { \bbtext{$\displaystyle{\sum_{e_i\in p} w(e_i) \leq \sum_{e_j\in q} w(e_j)}$ } };
-+ \node[anchor=west] at (0.5, 2) { \bbtext{onde $w(e)$ é o peso da aresta $e$. } };
++ \node[anchor=west] at (0.5, 5.25) { \bbtext{\bbbold{caminho mínimo} de $u$ a $v$ se, para qualquer caminho $q$ de $u$ a $v$, vale que } };
++ \node at (6.5, 3.75) { \bbtext{$\displaystyle{\sum_{e_i\in p} w(e_i) \leq \sum_{e_j\in q} w(e_j)}$ } };
++ \node[anchor=west] at (0.5, 2.25) { \bbtext{onde $w(e)$ é o peso da aresta $e$. } };
 
 ## Scene
 + \node[circle, draw, very thick] (A) at (2, 5) { \bbtext{A} };
@@ -63,8 +63,7 @@
 + \node[anchor=west] at (1, 3.5) { $\star$ \bbtext{Neste caso, uma BFS pode determinar a distância mínima entre o vértice de } };
 + \node[anchor=west] at (0.5, 3.0) { \bbtext{partida $s$ e todos os vértices de $G$ } };
 
-+ \node[anchor=west] at (1, 2.0) { $\star$ \bbtext{A BFS também poder ser usada em grafos cujas arestas tem todas o mesmo } };
-+ \node[anchor=west] at (0.5, 1.5) { \bbtext{peso $c$ } };
++ \node[anchor=west] at (1, 2.0) { $\star$ \bbtext{A BFS também poder ser usada em grafos cujas arestas tem o mesmo peso} };
 
 ## Scene
 + \node[circle, draw, very thick] (A) at (2, 5.5) { \bbtext{A} };
@@ -144,12 +143,12 @@
 
 + \node[anchor=west] at (0.5, 4.5) { $\star$ \bbtext{No caso geral, deve ser empregado o algoritmo de Bellman-Ford} };
 
-+ \node[anchor=west] at (0.5, 3.5) { $\star$ \bbtext{Se não há arestas com pesos negativos, pode-se usar o algoritmo de Dijkstra} };
++ \node[anchor=west] at (0.5, 3.5) { $\star$ \bbtext{Se $G$ não tem arestas com pesos negativos, pode-se usar o algoritmo de Dijkstra} };
 
 + \node[anchor=west] at (0.5, 2.5) { $\star$ \bbtext{Se os pesos das arestas são ou $0$ ou $1$, a BFS 0/1 é uma alternativa eficiente } };
 
 + \node[anchor=west] at (0.5, 1.5) { $\star$ \bbtext{Para determinar todas as distâncias mínimas entre todos os pares de vértices} };
-+ \node[anchor=west] at (0.0, 1.0) { \bbtext{de $G$, há o algoritmo de Floyd-Warshall } };
++ \node[anchor=west] at (0.0, 1.0) { \bbtext{de $G$, existe o algoritmo de Floyd-Warshall } };
 
 ## Scene
 + \node[anchor=west] at (0, 6) { \Large \bbbold{Problemas sugeridos} };
