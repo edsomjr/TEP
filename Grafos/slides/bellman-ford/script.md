@@ -522,18 +522,18 @@
 + \node[anchor=west] at (3, 1) { $\omega(q) = 1$ };
 
 ## Scene
-+ \node[anchor=west] at (0, 6.5) { \Large \bbbold{Número de rodadas do algoritmo de Bellman-Ford} };
++ \node[anchor=west] at (0, 6) { \Large \bbbold{Número de rodadas do algoritmo de Bellman-Ford} };
 
 + \node[anchor=west] at (1, 5) { \bbtext{\bbbold{Teorema.} Seja $G(V, E)$ um grafo cujos pesos de suas arestas sejam todos } }; 
-+ \node[anchor=west] at (0.5, 4) { \bbtext{não-negativos. Então para qualquer $v\in V$, o caminho mínimo de $s$ a $u$ iden-} };
-+ \node[anchor=west] at (0.5, 3) { \bbtext{tificado pelo algoritmo de Bellman-Ford tem, no máximo, $|V| - 1$ arestas. } };
++ \node[anchor=west] at (0.5, 4.25) { \bbtext{não-negativos. Então para qualquer $v\in V$, o caminho mínimo de $s$ a $u$ iden-} };
++ \node[anchor=west] at (0.5, 3.5) { \bbtext{tificado pelo algoritmo de Bellman-Ford tem, no máximo, $|V| - 1$ arestas. } };
 
 ## Scene
-+ \node[anchor=west] at (0, 6.5) { \Large \bbbold{Detecção de ciclos negativos} };
++ \node[anchor=west] at (0, 6) { \Large \bbbold{Detecção de ciclos negativos} };
 
 + \node[anchor=west] at (1, 5) { \bbtext{\bbbold{Teorema.} Seja $G(V, E)$ um grafo. Se a $|V|$-ésima rodada do algoritmo de } }; 
-+ \node[anchor=west] at (0.5, 4) { \bbtext{Bellman-Ford atualizar o vetor $d$ ao menos uma vez, então $G$ possui pelo menos } };
-+ \node[anchor=west] at (0.5, 3) { \bbtext{um ciclo negativo. } };
++ \node[anchor=west] at (0.5, 4.25) { \bbtext{Bellman-Ford atualizar o vetor $d$ ao menos uma vez, então $G$ possui pelo menos } };
++ \node[anchor=west] at (0.5, 3.5) { \bbtext{um ciclo negativo. } };
 
 ## Frame
 + \begin{center}\inputsnippet{cpp}{6}{23}{codes/negative-cycle.cpp}\end{center}
