@@ -6,7 +6,7 @@ const int MAX { 110 };
 
 vector<int> adj[MAX];
 
-vector<int> max_dist(int s, int N, int c = 1) {
+vector<int> max_dist(int s, int N, int w = 1) {
     vector<int> dist(N + 1, -1);
     queue<int> q;
 
@@ -17,8 +17,8 @@ vector<int> max_dist(int s, int N, int c = 1) {
         auto u = q.front(); q.pop();
 
         for (auto v : adj[u]) {
-            if (dist[v] < dist[u] + c) {
-                dist[v] = dist[u] + c;
+            if (dist[v] < dist[u] + w) {
+                dist[v] = dist[u] + w;
                 q.push(v);
             }
         }

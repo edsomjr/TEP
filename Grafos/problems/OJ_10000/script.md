@@ -13,7 +13,7 @@
 +
 + \vspace{0.2in}
 + 
-+ \bbtext{César tem este tipo de problema. Quando ele precisa ir de um ponto ao outro ele entende que ele ainda tem que visitar muitas pessoas, e assim ele escolhe o caminho mais longo. Um dos amigos deCésar, Felipe, entendeu a natureza do problema. Felipe imagina que, com a a ajuda de um computador, ele será capaz de calcular o tempo que César levará para chegar ao seu destino. Deste modo ele poderá passasr seu tempo fazendo algo mais divertido do que ficar esperando por César.}
++ \bbtext{César tem este tipo de problema. Quando ele precisa ir de um ponto ao outro ele entende que ele ainda tem que visitar muitas pessoas, e assim ele escolhe o caminho mais longo. Um dos amigos de César, Felipe, entendeu a natureza do problema. Felipe imagina que, com a a ajuda de um computador, ele será capaz de calcular o tempo que César levará para chegar ao seu destino. Deste modo ele poderá passar seu tempo fazendo algo mais divertido do que ficar esperando por César.}
 
 ## Text
 + \bbenglish{Your goal is to help Felipe developing a program that computes the length of the longest path that can be constructed in a given graph from a given starting point (César’s residence). You can assume that there is at least one path from this starting point to any destination. Also, the graph has no cycles (there is no path from any node to itself), so César will reach his destination in a finite time. In the same line of reasoning, nodes are not considered directly connected to themselves.}
