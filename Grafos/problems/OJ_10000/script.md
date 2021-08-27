@@ -9,11 +9,11 @@
 + \bbenglish{César has this kind of problem. When he has to go from one point to another he realizes that he has to visit many people, and thus always chooses the longest path. One of César’s friends, Felipe, has understood the nature of the problem. Felipe thinks that with the help of a computer he might be able to calculate the time that César is going to need to arrive to his destination. That way he could spend his time in something more enjoyable than waiting for César.}
 
 ## Text
-+ \bbtext{É bem conhecido o fato que algumas pessoas não tem suas habilidades sociais plenamente desenvolvidas. Um exemplo é a falta de talento para calcular distâncias e intervalos de tempo. Isto faz com que algumas pessoas sempre escolham o caminho mais longo de um lugar a outro, e assim eles chegam atrasados em quaisquer compromissos que eles tenham, incluindo casamentos e maratonas de programação. Este comportamento pode ser irritante para seus amigos.}
++ \bbtext{É bem conhecido o fato que algumas pessoas não tem suas habilidades sociais plenamente desenvolvidas. Um exemplo é a falta de talento para calcular distâncias e intervalos de tempo. Isto faz com que algumas pessoas sempre escolham o caminho mais longo de um lugar a outro, e assim elas chegam atrasadas em quaisquer compromissos que elas tenham, incluindo casamentos e maratonas de programação. Este comportamento pode ser irritante para seus amigos.}
 +
 + \vspace{0.2in}
 + 
-+ \bbtext{César tem este tipo de problema. Quando ele precisa ir de um ponto ao outro ele entende que ele ainda tem que visitar muitas pessoas, e assim ele escolhe o caminho mais longo. Um dos amigos deCésar, Felipe, entendeu a natureza do problema. Felipe imagina que, com a a ajuda de um computador, ele será capaz de calcular o tempo que César levará para chegar ao seu destino. Deste modo ele poderá passasr seu tmepo fazendo algo mais divertido do que ficar esperando por César.}
++ \bbtext{César tem este tipo de problema. Quando ele precisa ir de um ponto ao outro ele entende que ele ainda tem que visitar muitas pessoas, e assim ele escolhe o caminho mais longo. Um dos amigos de César, Felipe, entendeu a natureza do problema. Felipe imagina que, com a a ajuda de um computador, ele será capaz de calcular o tempo que César levará para chegar ao seu destino. Deste modo ele poderá passar seu tempo fazendo algo mais divertido do que ficar esperando por César.}
 
 ## Text
 + \bbenglish{Your goal is to help Felipe developing a program that computes the length of the longest path that can be constructed in a given graph from a given starting point (César’s residence). You can assume that there is at least one path from this starting point to any destination. Also, the graph has no cycles (there is no path from any node to itself), so César will reach his destination in a finite time. In the same line of reasoning, nodes are not considered directly connected to themselves.}
@@ -49,7 +49,7 @@
 +
 + \vspace{0.1in}
 +
-+ \bbtext{A linha seguinte contém um inteiro $s$, indicando o ponto de partida da jornada de César $(1\leq s\leq n)$. Então, há uma lista de pares de localidades $p$ e $q$, um par por linha, com as localizações separadas por um espaço em branco. O par ``$p$ $q$'' indica que César pode visitar $q$ pós $p$.}
++ \bbtext{A linha seguinte contém um inteiro $s$, indicando o ponto de partida da jornada de César $(1\leq s\leq n)$. Então, há uma lista de pares de localidades $p$ e $q$, um par por linha, com as localizações separadas por um espaço em branco. O par ``$p$ $q$'' indica que César pode visitar $q$ após $p$.}
 
 ## Text
 + \bbbold{Input}

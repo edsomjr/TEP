@@ -1087,7 +1087,7 @@
 \end{frame}
 
 \begin{frame}[plain,t]
- \begin{center}\inputsnippet{cpp}{6}{18}{codes/bellman-ford.cpp}\end{center}
+ \begin{center}\inputsnippet{cpp}{6}{19}{codes/bellman-ford.cpp}\end{center}
 \end{frame}
 
 \begin{frame}[plain,t]
@@ -1447,7 +1447,7 @@
  \node at (10.5, 2.5) { $\bbtext{D}$ };
  \draw[-latex,thick] (D) to node[above] { \bbinfo{3} } (B);
  \node at (10.5, 5.5) { ${6}$ };
- \draw[latex-,thick,color=BBViolet] (B) to [bend right] node[above right] { \tiny $(\mathrm{prev}(\mbox{\bbtext{B}}), \mbox{\bbtext{B}})$ } (D);
+ \draw[latex-,thick,color=BBViolet] (B) to [bend right] node[above right] { \tiny $(\mathrm{pred}(\mbox{\bbtext{B}}), \mbox{\bbtext{B}})$ } (D);
 \end{tikzpicture}
 \end{frame}
 
@@ -1483,8 +1483,8 @@
  \node at (10.5, 2.5) { $\bbtext{D}$ };
  \draw[-latex,thick] (D) to node[above] { \bbinfo{3} } (B);
  \node at (10.5, 5.5) { ${6}$ };
- \draw[latex-,thick,color=BBViolet] (B) to [bend right] node[above right] { \tiny $(\mathrm{prev}(\mbox{\bbtext{B}}), \mbox{\bbtext{B}})$ } (D);
- \draw[-latex,thick,color=BBViolet] (C) to [bend right] node[right, pos=0.3] { \tiny $(\mathrm{prev}(\mbox{\bbtext{D}}), \mbox{\bbtext{D}})$ } (D);
+ \draw[latex-,thick,color=BBViolet] (B) to [bend right] node[above right] { \tiny $(\mathrm{pred}(\mbox{\bbtext{B}}), \mbox{\bbtext{B}})$ } (D);
+ \draw[-latex,thick,color=BBViolet] (C) to [bend right] node[right, pos=0.3] { \tiny $(\mathrm{pred}(\mbox{\bbtext{D}}), \mbox{\bbtext{D}})$ } (D);
 \end{tikzpicture}
 \end{frame}
 
@@ -1520,9 +1520,9 @@
  \node at (10.5, 2.5) { $\bbtext{D}$ };
  \draw[-latex,thick] (D) to node[above] { \bbinfo{3} } (B);
  \node at (10.5, 5.5) { ${6}$ };
- \draw[latex-,thick,color=BBViolet] (B) to [bend right] node[above right] { \tiny $(\mathrm{prev}(\mbox{\bbtext{B}}), \mbox{\bbtext{B}})$ } (D);
- \draw[-latex,thick,color=BBViolet] (C) to [bend right] node[right, pos=0.3] { \tiny $(\mathrm{prev}(\mbox{\bbtext{D}}), \mbox{\bbtext{D}})$ } (D);
- \draw[-latex,thick,color=BBViolet] (A) to [bend right] node[below left, pos=0.8] { \tiny $(\mathrm{prev}(\mbox{\bbtext{C}}), \mbox{\bbtext{C}})$ } (C);
+ \draw[latex-,thick,color=BBViolet] (B) to [bend right] node[above right] { \tiny $(\mathrm{pred}(\mbox{\bbtext{B}}), \mbox{\bbtext{B}})$ } (D);
+ \draw[-latex,thick,color=BBViolet] (C) to [bend right] node[right, pos=0.3] { \tiny $(\mathrm{pred}(\mbox{\bbtext{D}}), \mbox{\bbtext{D}})$ } (D);
+ \draw[-latex,thick,color=BBViolet] (A) to [bend right] node[below left, pos=0.8] { \tiny $(\mathrm{pred}(\mbox{\bbtext{C}}), \mbox{\bbtext{C}})$ } (C);
 \end{tikzpicture}
 \end{frame}
 
@@ -2072,7 +2072,7 @@
  \draw[-latex,very thick,color=BBCyan] (E) to node[below] { \bbinfo{5} } (F);
  \draw[-latex,very thick,color=BBCyan] (F) to node[below] { \bbinfo{-6} } (B);
  \draw[-latex,very thick,color=BBCyan] (B) to node[below] { \bbinfo{2} } (C);
- \node[anchor=west] at (3, 2) { $\omega(p) = 3$ };
+ \node[anchor=west] at (3, 2) { $\omega(p) = 1$ };
 \end{tikzpicture}
 \end{frame}
 
@@ -2088,7 +2088,7 @@
  \node[circle, draw, very thick] (F) at (3.5, 5) { \bbtext{F} };
  \draw[-latex,color=BBCyan] (1, 2) to (2, 2);
  \node[anchor=west] at (2, 2) { $p$ };
- \node[anchor=west] at (3, 2) { $\omega(p) = 3$ };
+ \node[anchor=west] at (3, 2) { $\omega(p) = 1$ };
  \draw[thick] (A) to node[below] { \bbinfo{1} } (B);
  \draw[thick] (B) to node[below] { \bbinfo{2} } (C);
  \draw[thick] (B) to node[below] { \bbinfo{3} } (D);
@@ -2112,7 +2112,7 @@
  \node[circle, draw, very thick] (F) at (3.5, 5) { \bbtext{F} };
  \draw[-latex,color=BBCyan] (1, 2) to (2, 2);
  \node[anchor=west] at (2, 2) { $p$ };
- \node[anchor=west] at (3, 2) { $\omega(p) = 3$ };
+ \node[anchor=west] at (3, 2) { $\omega(p) = 1$ };
  \draw[thick] (B) to node[below] { \bbinfo{2} } (C);
  \draw[thick] (B) to node[below] { \bbinfo{3} } (D);
  \draw[thick] (D) to node[below] { \bbinfo{-4} } (E);
@@ -2136,7 +2136,7 @@
  \node[circle, draw, very thick] (F) at (3.5, 5) { \bbtext{F} };
  \draw[-latex,color=BBCyan] (1, 2) to (2, 2);
  \node[anchor=west] at (2, 2) { $p$ };
- \node[anchor=west] at (3, 2) { $\omega(p) = 3$ };
+ \node[anchor=west] at (3, 2) { $\omega(p) = 1$ };
  \draw[thick] (B) to node[below] { \bbinfo{2} } (C);
  \draw[thick] (D) to node[below] { \bbinfo{-4} } (E);
  \draw[thick] (E) to node[below] { \bbinfo{5} } (F);
@@ -2160,7 +2160,7 @@
  \node[circle, draw, very thick] (F) at (3.5, 5) { \bbtext{F} };
  \draw[-latex,color=BBCyan] (1, 2) to (2, 2);
  \node[anchor=west] at (2, 2) { $p$ };
- \node[anchor=west] at (3, 2) { $\omega(p) = 3$ };
+ \node[anchor=west] at (3, 2) { $\omega(p) = 1$ };
  \draw[thick] (B) to node[below] { \bbinfo{2} } (C);
  \draw[thick] (E) to node[below] { \bbinfo{5} } (F);
  \draw[thick] (F) to node[below] { \bbinfo{-6} } (B);
@@ -2184,7 +2184,7 @@
  \node[circle, draw, very thick] (F) at (3.5, 5) { \bbtext{F} };
  \draw[-latex,color=BBCyan] (1, 2) to (2, 2);
  \node[anchor=west] at (2, 2) { $p$ };
- \node[anchor=west] at (3, 2) { $\omega(p) = 3$ };
+ \node[anchor=west] at (3, 2) { $\omega(p) = 1$ };
  \draw[thick] (B) to node[below] { \bbinfo{2} } (C);
  \draw[thick] (F) to node[below] { \bbinfo{-6} } (B);
  \draw[dashed,-latex,color=BBGreen] (1, 1) to (2, 1);
@@ -2208,7 +2208,7 @@
  \node[circle, draw, very thick] (F) at (3.5, 5) { \bbtext{F} };
  \draw[-latex,color=BBCyan] (1, 2) to (2, 2);
  \node[anchor=west] at (2, 2) { $p$ };
- \node[anchor=west] at (3, 2) { $\omega(p) = 3$ };
+ \node[anchor=west] at (3, 2) { $\omega(p) = 1$ };
  \draw[thick] (B) to node[below] { \bbinfo{2} } (C);
  \draw[dashed,-latex,color=BBGreen] (1, 1) to (2, 1);
  \node[anchor=west] at (2, 1) { $q$ };
@@ -2232,32 +2232,7 @@
  \node[circle, draw, very thick] (F) at (3.5, 5) { \bbtext{F} };
  \draw[-latex,color=BBCyan] (1, 2) to (2, 2);
  \node[anchor=west] at (2, 2) { $p$ };
- \node[anchor=west] at (3, 2) { $\omega(p) = 3$ };
- \draw[thick] (B) to node[below] { \bbinfo{2} } (C);
- \draw[dashed,-latex,color=BBGreen] (1, 1) to (2, 1);
- \node[anchor=west] at (2, 1) { $q$ };
- \draw[dashed,-latex,very thick,color=BBGreen] (A) to node[below] { \bbinfo{1} } (B);
- \draw[dashed,-latex,very thick,color=BBGreen] (B) to node[below] { \bbinfo{3} } (D);
- \draw[dashed,-latex,very thick,color=BBGreen] (D) to node[below] { \bbinfo{-4} } (E);
- \draw[dashed,-latex,very thick,color=BBGreen] (E) to node[below] { \bbinfo{5} } (F);
- \draw[dashed,-latex,very thick,color=BBGreen] (F) to node[below] { \bbinfo{-6} } (B);
- \draw[very thick,-latex,color=BBGreen,dashed] (B) to [bend left] (D);
-\end{tikzpicture}
-\end{frame}
-
-\begin{frame}[plain,t]
-\begin{tikzpicture}
-\node[draw,opacity=0] at (0, 0) {x};
-\node[draw,opacity=0] at (14, 8) {x};
- \node[circle, draw, very thick] (A) at (0.5, 7) { \bbtext{A} };
- \node[circle, draw, very thick] (B) at (6.5, 7) { \bbtext{B} };
- \node[circle, draw, very thick] (C) at (12.5, 7) { \bbtext{C} };
- \node[circle, draw, very thick] (D) at (9.5, 5) { \bbtext{D} };
- \node[circle, draw, very thick] (E) at (6.5, 3) { \bbtext{E} };
- \node[circle, draw, very thick] (F) at (3.5, 5) { \bbtext{F} };
- \draw[-latex,color=BBCyan] (1, 2) to (2, 2);
- \node[anchor=west] at (2, 2) { $p$ };
- \node[anchor=west] at (3, 2) { $\omega(p) = 3$ };
+ \node[anchor=west] at (3, 2) { $\omega(p) = 1$ };
  \draw[thick] (B) to node[below] { \bbinfo{2} } (C);
  \draw[dashed,-latex,color=BBGreen] (1, 1) to (2, 1);
  \node[anchor=west] at (2, 1) { $q$ };
@@ -2267,7 +2242,6 @@
  \draw[dashed,-latex,very thick,color=BBGreen] (E) to node[below] { \bbinfo{5} } (F);
  \draw[dashed,-latex,very thick,color=BBGreen] (F) to node[below] { \bbinfo{-6} } (B);
  \draw[very thick,-latex,color=BBGreen,dashed] (B) to [bend left] (D);
- \draw[very thick,-latex,color=BBGreen,dashed] (D) to [bend left] (E);
 \end{tikzpicture}
 \end{frame}
 
@@ -2283,7 +2257,7 @@
  \node[circle, draw, very thick] (F) at (3.5, 5) { \bbtext{F} };
  \draw[-latex,color=BBCyan] (1, 2) to (2, 2);
  \node[anchor=west] at (2, 2) { $p$ };
- \node[anchor=west] at (3, 2) { $\omega(p) = 3$ };
+ \node[anchor=west] at (3, 2) { $\omega(p) = 1$ };
  \draw[thick] (B) to node[below] { \bbinfo{2} } (C);
  \draw[dashed,-latex,color=BBGreen] (1, 1) to (2, 1);
  \node[anchor=west] at (2, 1) { $q$ };
@@ -2294,7 +2268,6 @@
  \draw[dashed,-latex,very thick,color=BBGreen] (F) to node[below] { \bbinfo{-6} } (B);
  \draw[very thick,-latex,color=BBGreen,dashed] (B) to [bend left] (D);
  \draw[very thick,-latex,color=BBGreen,dashed] (D) to [bend left] (E);
- \draw[very thick,-latex,color=BBGreen,dashed] (E) to [bend left] (F);
 \end{tikzpicture}
 \end{frame}
 
@@ -2310,7 +2283,7 @@
  \node[circle, draw, very thick] (F) at (3.5, 5) { \bbtext{F} };
  \draw[-latex,color=BBCyan] (1, 2) to (2, 2);
  \node[anchor=west] at (2, 2) { $p$ };
- \node[anchor=west] at (3, 2) { $\omega(p) = 3$ };
+ \node[anchor=west] at (3, 2) { $\omega(p) = 1$ };
  \draw[thick] (B) to node[below] { \bbinfo{2} } (C);
  \draw[dashed,-latex,color=BBGreen] (1, 1) to (2, 1);
  \node[anchor=west] at (2, 1) { $q$ };
@@ -2322,7 +2295,6 @@
  \draw[very thick,-latex,color=BBGreen,dashed] (B) to [bend left] (D);
  \draw[very thick,-latex,color=BBGreen,dashed] (D) to [bend left] (E);
  \draw[very thick,-latex,color=BBGreen,dashed] (E) to [bend left] (F);
- \draw[very thick,-latex,color=BBGreen,dashed] (F) to [bend left] (B);
 \end{tikzpicture}
 \end{frame}
 
@@ -2338,7 +2310,8 @@
  \node[circle, draw, very thick] (F) at (3.5, 5) { \bbtext{F} };
  \draw[-latex,color=BBCyan] (1, 2) to (2, 2);
  \node[anchor=west] at (2, 2) { $p$ };
- \node[anchor=west] at (3, 2) { $\omega(p) = 3$ };
+ \node[anchor=west] at (3, 2) { $\omega(p) = 1$ };
+ \draw[thick] (B) to node[below] { \bbinfo{2} } (C);
  \draw[dashed,-latex,color=BBGreen] (1, 1) to (2, 1);
  \node[anchor=west] at (2, 1) { $q$ };
  \draw[dashed,-latex,very thick,color=BBGreen] (A) to node[below] { \bbinfo{1} } (B);
@@ -2350,7 +2323,6 @@
  \draw[very thick,-latex,color=BBGreen,dashed] (D) to [bend left] (E);
  \draw[very thick,-latex,color=BBGreen,dashed] (E) to [bend left] (F);
  \draw[very thick,-latex,color=BBGreen,dashed] (F) to [bend left] (B);
- \draw[dashed,-latex,very thick,color=BBGreen] (B) to node[below] { \bbinfo{2} } (C);
 \end{tikzpicture}
 \end{frame}
 
@@ -2366,7 +2338,7 @@
  \node[circle, draw, very thick] (F) at (3.5, 5) { \bbtext{F} };
  \draw[-latex,color=BBCyan] (1, 2) to (2, 2);
  \node[anchor=west] at (2, 2) { $p$ };
- \node[anchor=west] at (3, 2) { $\omega(p) = 3$ };
+ \node[anchor=west] at (3, 2) { $\omega(p) = 1$ };
  \draw[dashed,-latex,color=BBGreen] (1, 1) to (2, 1);
  \node[anchor=west] at (2, 1) { $q$ };
  \draw[dashed,-latex,very thick,color=BBGreen] (A) to node[below] { \bbinfo{1} } (B);
@@ -2379,7 +2351,6 @@
  \draw[very thick,-latex,color=BBGreen,dashed] (E) to [bend left] (F);
  \draw[very thick,-latex,color=BBGreen,dashed] (F) to [bend left] (B);
  \draw[dashed,-latex,very thick,color=BBGreen] (B) to node[below] { \bbinfo{2} } (C);
- \node[anchor=west] at (3, 1) { $\omega(q) = 1$ };
 \end{tikzpicture}
 \end{frame}
 
@@ -2387,7 +2358,28 @@
 \begin{tikzpicture}
 \node[draw,opacity=0] at (0, 0) {x};
 \node[draw,opacity=0] at (14, 8) {x};
- \node[anchor=west] at (0, 6.5) { \Large \bbbold{Número de rodadas do algoritmo de Bellman-Ford} };
+ \node[circle, draw, very thick] (A) at (0.5, 7) { \bbtext{A} };
+ \node[circle, draw, very thick] (B) at (6.5, 7) { \bbtext{B} };
+ \node[circle, draw, very thick] (C) at (12.5, 7) { \bbtext{C} };
+ \node[circle, draw, very thick] (D) at (9.5, 5) { \bbtext{D} };
+ \node[circle, draw, very thick] (E) at (6.5, 3) { \bbtext{E} };
+ \node[circle, draw, very thick] (F) at (3.5, 5) { \bbtext{F} };
+ \draw[-latex,color=BBCyan] (1, 2) to (2, 2);
+ \node[anchor=west] at (2, 2) { $p$ };
+ \node[anchor=west] at (3, 2) { $\omega(p) = 1$ };
+ \draw[dashed,-latex,color=BBGreen] (1, 1) to (2, 1);
+ \node[anchor=west] at (2, 1) { $q$ };
+ \draw[dashed,-latex,very thick,color=BBGreen] (A) to node[below] { \bbinfo{1} } (B);
+ \draw[dashed,-latex,very thick,color=BBGreen] (B) to node[below] { \bbinfo{3} } (D);
+ \draw[dashed,-latex,very thick,color=BBGreen] (D) to node[below] { \bbinfo{-4} } (E);
+ \draw[dashed,-latex,very thick,color=BBGreen] (E) to node[below] { \bbinfo{5} } (F);
+ \draw[dashed,-latex,very thick,color=BBGreen] (F) to node[below] { \bbinfo{-6} } (B);
+ \draw[very thick,-latex,color=BBGreen,dashed] (B) to [bend left] (D);
+ \draw[very thick,-latex,color=BBGreen,dashed] (D) to [bend left] (E);
+ \draw[very thick,-latex,color=BBGreen,dashed] (E) to [bend left] (F);
+ \draw[very thick,-latex,color=BBGreen,dashed] (F) to [bend left] (B);
+ \draw[dashed,-latex,very thick,color=BBGreen] (B) to node[below] { \bbinfo{2} } (C);
+ \node[anchor=west] at (3, 1) { $\omega(q) = -1$ };
 \end{tikzpicture}
 \end{frame}
 
@@ -2395,10 +2387,18 @@
 \begin{tikzpicture}
 \node[draw,opacity=0] at (0, 0) {x};
 \node[draw,opacity=0] at (14, 8) {x};
- \node[anchor=west] at (0, 6.5) { \Large \bbbold{Número de rodadas do algoritmo de Bellman-Ford} };
+ \node[anchor=west] at (0, 6) { \Large \bbbold{Número de rodadas do algoritmo de Bellman-Ford} };
+\end{tikzpicture}
+\end{frame}
+
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+ \node[anchor=west] at (0, 6) { \Large \bbbold{Número de rodadas do algoritmo de Bellman-Ford} };
  \node[anchor=west] at (1, 5) { \bbtext{\bbbold{Teorema.} Seja $G(V, E)$ um grafo cujos pesos de suas arestas sejam todos } };
- \node[anchor=west] at (0.5, 4) { \bbtext{não-negativos. Então para qualquer $v\in V$, o caminho mínimo de $s$ a $u$ iden-} };
- \node[anchor=west] at (0.5, 3) { \bbtext{tificado pelo algoritmo de Bellman-Ford tem, no máximo, $|V| - 1$ arestas. } };
+ \node[anchor=west] at (0.5, 4.25) { \bbtext{não-negativos. Então para qualquer $v\in V$, o caminho mínimo de $s$ a $u$ iden-} };
+ \node[anchor=west] at (0.5, 3.5) { \bbtext{tificado pelo algoritmo de Bellman-Ford tem, no máximo, $|V| - 1$ arestas. } };
 \end{tikzpicture}
 \end{frame}
 
@@ -2406,7 +2406,7 @@
 \begin{tikzpicture}
 \node[draw,opacity=0] at (0, 0) {x};
 \node[draw,opacity=0] at (14, 8) {x};
- \node[anchor=west] at (0, 6.5) { \Large \bbbold{Detecção de ciclos negativos} };
+ \node[anchor=west] at (0, 6) { \Large \bbbold{Detecção de ciclos negativos} };
 \end{tikzpicture}
 \end{frame}
 
@@ -2414,10 +2414,10 @@
 \begin{tikzpicture}
 \node[draw,opacity=0] at (0, 0) {x};
 \node[draw,opacity=0] at (14, 8) {x};
- \node[anchor=west] at (0, 6.5) { \Large \bbbold{Detecção de ciclos negativos} };
+ \node[anchor=west] at (0, 6) { \Large \bbbold{Detecção de ciclos negativos} };
  \node[anchor=west] at (1, 5) { \bbtext{\bbbold{Teorema.} Seja $G(V, E)$ um grafo. Se a $|V|$-ésima rodada do algoritmo de } };
- \node[anchor=west] at (0.5, 4) { \bbtext{Bellman-Ford atualizar o vetor $d$ ao menos uma vez, então $G$ possui pelo menos } };
- \node[anchor=west] at (0.5, 3) { \bbtext{um ciclo negativo. } };
+ \node[anchor=west] at (0.5, 4.25) { \bbtext{Bellman-Ford atualizar o vetor $d$ ao menos uma vez, então $G$ possui pelo menos } };
+ \node[anchor=west] at (0.5, 3.5) { \bbtext{um ciclo negativo. } };
 \end{tikzpicture}
 \end{frame}
 

@@ -30,7 +30,7 @@ vector<ii> path(int s, int u, const vector<int>& pred)
     int v = u;
 
     do {
-        p.push_back(ii(pred[v], v));
+        p.emplace_back(pred[v], v);
         v = pred[v];
     } while (v != s);
 

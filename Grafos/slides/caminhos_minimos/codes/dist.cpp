@@ -1,4 +1,4 @@
-vector<int> min_dist(int s, int N, int c = 1) {
+vector<int> min_dist(int s, int N, int w = 1) {
     vector<int> dist(N + 1, oo);
     queue<int> q;
 
@@ -10,7 +10,7 @@ vector<int> min_dist(int s, int N, int c = 1) {
 
         for (auto v : adj[u]) {
             if (dist[v] == oo) {
-                dist[v] = dist[u] + c;
+                dist[v] = dist[u] + w;
                 q.push(v);
             }
         }

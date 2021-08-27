@@ -248,7 +248,7 @@
 + \node at (9.5, 1.5) { $\mathbf{9}$ };
 
 ## Frame
-+ \begin{center}\inputsnippet{cpp}{6}{18}{codes/bellman-ford.cpp}\end{center}
++ \begin{center}\inputsnippet{cpp}{6}{19}{codes/bellman-ford.cpp}\end{center}
 
 ## Scene
 + \node[anchor=west] at (0, 6) { \Large \bbbold{Identificação do caminho mínimo} };
@@ -355,11 +355,11 @@
 - \node at (10.5, 5.5) { $\mathbf{6}$ };
 + \node at (10.5, 5.5) { ${6}$ };
 
-+ \draw[latex-,thick,color=BBViolet] (B) to [bend right] node[above right] { \tiny $(\mathrm{prev}(\mbox{\bbtext{B}}), \mbox{\bbtext{B}})$ } (D);
++ \draw[latex-,thick,color=BBViolet] (B) to [bend right] node[above right] { \tiny $(\mathrm{pred}(\mbox{\bbtext{B}}), \mbox{\bbtext{B}})$ } (D);
 
-+ \draw[-latex,thick,color=BBViolet] (C) to [bend right] node[right, pos=0.3] { \tiny $(\mathrm{prev}(\mbox{\bbtext{D}}), \mbox{\bbtext{D}})$ } (D);
++ \draw[-latex,thick,color=BBViolet] (C) to [bend right] node[right, pos=0.3] { \tiny $(\mathrm{pred}(\mbox{\bbtext{D}}), \mbox{\bbtext{D}})$ } (D);
 
-+ \draw[-latex,thick,color=BBViolet] (A) to [bend right] node[below left, pos=0.8] { \tiny $(\mathrm{prev}(\mbox{\bbtext{C}}), \mbox{\bbtext{C}})$ } (C);
++ \draw[-latex,thick,color=BBViolet] (A) to [bend right] node[below left, pos=0.8] { \tiny $(\mathrm{pred}(\mbox{\bbtext{C}}), \mbox{\bbtext{C}})$ } (C);
 
 ## Frame
 + \begin{center}\inputsnippet{cpp}{9}{25}{codes/bellman-ford-path.cpp}\end{center}
@@ -476,7 +476,7 @@
 - \draw[thick] (B) to node[below] { \bbinfo{2} } (C);
 + \draw[-latex,very thick,color=BBCyan] (B) to node[below] { \bbinfo{2} } (C);
 
-+ \node[anchor=west] at (3, 2) { $\omega(p) = 3$ };
++ \node[anchor=west] at (3, 2) { $\omega(p) = 1$ };
 
 - \draw[-latex,very thick,color=BBCyan] (A) to node[below] { \bbinfo{1} } (B);
 - \draw[-latex,very thick,color=BBCyan] (B) to node[below] { \bbinfo{3} } (D);
@@ -519,21 +519,21 @@
 - \draw[thick] (B) to node[below] { \bbinfo{2} } (C);
 + \draw[dashed,-latex,very thick,color=BBGreen] (B) to node[below] { \bbinfo{2} } (C);
 
-+ \node[anchor=west] at (3, 1) { $\omega(q) = 1$ };
++ \node[anchor=west] at (3, 1) { $\omega(q) = -1$ };
 
 ## Scene
-+ \node[anchor=west] at (0, 6.5) { \Large \bbbold{Número de rodadas do algoritmo de Bellman-Ford} };
++ \node[anchor=west] at (0, 6) { \Large \bbbold{Número de rodadas do algoritmo de Bellman-Ford} };
 
 + \node[anchor=west] at (1, 5) { \bbtext{\bbbold{Teorema.} Seja $G(V, E)$ um grafo cujos pesos de suas arestas sejam todos } }; 
-+ \node[anchor=west] at (0.5, 4) { \bbtext{não-negativos. Então para qualquer $v\in V$, o caminho mínimo de $s$ a $u$ iden-} };
-+ \node[anchor=west] at (0.5, 3) { \bbtext{tificado pelo algoritmo de Bellman-Ford tem, no máximo, $|V| - 1$ arestas. } };
++ \node[anchor=west] at (0.5, 4.25) { \bbtext{não-negativos. Então para qualquer $v\in V$, o caminho mínimo de $s$ a $u$ iden-} };
++ \node[anchor=west] at (0.5, 3.5) { \bbtext{tificado pelo algoritmo de Bellman-Ford tem, no máximo, $|V| - 1$ arestas. } };
 
 ## Scene
-+ \node[anchor=west] at (0, 6.5) { \Large \bbbold{Detecção de ciclos negativos} };
++ \node[anchor=west] at (0, 6) { \Large \bbbold{Detecção de ciclos negativos} };
 
 + \node[anchor=west] at (1, 5) { \bbtext{\bbbold{Teorema.} Seja $G(V, E)$ um grafo. Se a $|V|$-ésima rodada do algoritmo de } }; 
-+ \node[anchor=west] at (0.5, 4) { \bbtext{Bellman-Ford atualizar o vetor $d$ ao menos uma vez, então $G$ possui pelo menos } };
-+ \node[anchor=west] at (0.5, 3) { \bbtext{um ciclo negativo. } };
++ \node[anchor=west] at (0.5, 4.25) { \bbtext{Bellman-Ford atualizar o vetor $d$ ao menos uma vez, então $G$ possui pelo menos } };
++ \node[anchor=west] at (0.5, 3.5) { \bbtext{um ciclo negativo. } };
 
 ## Frame
 + \begin{center}\inputsnippet{cpp}{6}{23}{codes/negative-cycle.cpp}\end{center}

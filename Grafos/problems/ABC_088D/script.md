@@ -13,7 +13,7 @@
 + \bbenglish{Before Snuke starts the game, he can change the color of some of the white squares to black. However, he cannot change the color of square $(1, 1)$ and $(H, W)$. Also, changes of color must all be carried out before the beginning of the game.}
 
 ## Text
-+ \bbtext{Nos temos uma malha $H\times W$ cujos quadrados são pintados de preto ou branco. O quadrado na $i$-ésima linha a partir do topo e na $j$-ésima coluna a contar da esquerda é representada pelo par $(i, j)$.}
++ \bbtext{Nos temos uma malha $H\times W$ cujos quadrados são pintados de preto ou branco. O quadrado na $i$-ésima linha a partir do topo e na $j$-ésima coluna a contar da esquerda é representado pelo par $(i, j)$.}
 +
 + \vspace{0.2in}
 + 
@@ -87,7 +87,7 @@
 +       & s_{H,1}s_{H,2}s_{H,3}\ldots s_{H,W}
 + \end{align*}
 +
-+ \bbbold{Output}
++ \bbbold{Saída}
 +
 + \vspace{0.1in}
 +
