@@ -348,7 +348,7 @@
 
 
 
-	\draw[very thick,color=BBCyan](node1) to node[above] { \bbinfo{16} } (node2);
+	\draw[very thick,color=BBCyan,dashed](node1) to node[above] { \bbinfo{16} } (node2);
 
 
 
@@ -383,7 +383,7 @@
 
 
 
-	\draw[very thick,color=BBCyan](node1) to node[above] { \bbinfo{16} } (node2);
+	\draw[very thick,color=BBCyan,dashed](node1) to node[above] { \bbinfo{16} } (node2);
 
 
 
@@ -842,7 +842,6 @@
 
 	\draw[very thick](c) to node[above left] { \bbinfo{8} } (e);
 
-
 \end{tikzpicture}
 \end{frame}
 \begin{frame}[plain,t]
@@ -850,140 +849,52 @@
 \node[draw,opacity=0] at (0, 0) {x};
 \node[draw,opacity=0] at (14, 8) {x};
 
-	\node[anchor=west] (header) at (0.0, 7.0) { \Large \bbbold{Solução} };
-
-\end{tikzpicture}
-\end{frame}
-\begin{frame}[plain,t]
-\begin{tikzpicture}
-\node[draw,opacity=0] at (0, 0) {x};
-\node[draw,opacity=0] at (14, 8) {x};
-
-	\node[anchor=west] (header) at (0.0, 7.0) { \Large \bbbold{Solução} };
+	\node[anchor=west] (header) at (0, 7.0) { \bbbold{Exemplo de entrada e saída} };
 
 
-	\node[draw,thick,circle] (gA) at (5.0, 6.0) { \tiny \bbtext{A} };
-
-	\node[draw,thick,circle] (gB) at (7.0, 7.0) { \tiny \bbtext{B} };
-
-	\node[draw,thick,circle] (gC) at (8.0, 5.0) { \tiny \bbtext{C} };
-
-	\node[draw,thick,circle] (gD) at (10.0, 5.0) { \tiny \bbtext{D} };
-
-	\node[draw,thick,circle] (gE) at (6.0, 4.0) { \tiny \bbtext{E} };
-
-	\node[draw,thick,circle] (gF) at (4.0, 5.0) { \tiny \bbtext{F} };
-
-	\draw[color=BBCyan,thick,-latex](gA) to [bend left] (gB);
-
-	\draw[color=BBCyan,thick,>=latex,<->](gA) to (gC);
-
-	\draw[color=BBCyan,thick,>=latex,<->](gD) to [bend right] (gA);
-
-	\draw[color=BBCyan,thick,>=latex,<->](gF) to (gE);
-
-	\draw[color=BBGreen,thick,-latex](gB) to [bend left] (gA);
-
-	\draw[color=BBGreen,thick,>=latex,<->](gB) to (gC);
-
-	\draw[color=BBGreen,thick,-latex](gD) to (gC);
-
-	\draw[color=BBGreen,thick,-latex](gD) to [bend left] (gE);
-
-	\draw[color=BBGreen,thick,-latex](gE) to (gC);
-
-	\draw[color=BBGreen,thick,>=latex,<->](gF) to (gA);
-
-\end{tikzpicture}
-\end{frame}
-\begin{frame}[plain,t]
-\begin{tikzpicture}
-\node[draw,opacity=0] at (0, 0) {x};
-\node[draw,opacity=0] at (14, 8) {x};
-
-	\node[anchor=west] (header) at (0.0, 7.0) { \Large \bbbold{Solução} };
+	\node[anchor=west] (line1) at (1.0, 6.0) { \bbtext{\texttt{5 5} } };
 
 
-	\node[draw,thick,circle] (gA) at (5.0, 6.0) { \tiny \bbtext{A} };
+	\node[draw,very thick,circle] (a) at (7.0, 4.0) { \bbtext{1} };
 
-	\node[draw,thick,circle] (gB) at (7.0, 7.0) { \tiny \bbtext{B} };
+	\node[draw,very thick,circle] (b) at (10.0, 7.0) { \bbtext{2} };
 
-	\node[draw,thick,circle] (gC) at (8.0, 5.0) { \tiny \bbtext{C} };
+	\node[draw,very thick,circle] (c) at (13.0, 4.0) { \bbtext{3} };
 
-	\node[draw,thick,circle] (gD) at (10.0, 5.0) { \tiny \bbtext{D} };
+	\node[draw,very thick,circle] (d) at (12.0, 1.0) { \bbtext{4} };
 
-	\node[draw,thick,circle] (gE) at (6.0, 4.0) { \tiny \bbtext{E} };
-
-	\node[draw,thick,circle] (gF) at (4.0, 5.0) { \tiny \bbtext{F} };
-
-	\draw[color=BBCyan,thick,-latex](gA) to [bend left] (gB);
-
-	\draw[color=BBCyan,thick,>=latex,<->](gA) to (gC);
-
-	\draw[color=BBCyan,thick,>=latex,<->](gD) to [bend right] (gA);
-
-	\draw[color=BBCyan,thick,>=latex,<->](gF) to (gE);
-
-	\draw[color=BBGreen,thick,-latex](gB) to [bend left] (gA);
-
-	\draw[color=BBGreen,thick,>=latex,<->](gB) to (gC);
-
-	\draw[color=BBGreen,thick,-latex](gD) to (gC);
-
-	\draw[color=BBGreen,thick,-latex](gD) to [bend left] (gE);
-
-	\draw[color=BBGreen,thick,-latex](gE) to (gC);
-
-	\draw[color=BBGreen,thick,>=latex,<->](gF) to (gA);
+	\node[draw,very thick,circle] (e) at (8.0, 1.0) { \bbtext{5} };
 
 
-	\node[draw,thick,circle] (sA) at (1.5, 2.0) { \tiny \bbtext{A} };
 
-	\node[draw,thick,circle] (mA) at (9.0, 2.0) { \tiny \bbtext{A} };
+	\node[anchor=west] (line2) at (1.0, 5.5) { \bbtext{\texttt{1 2 2} } };
 
-	\node[draw,thick,circle] (sB) at (3.5, 3.0) { \tiny \bbtext{B} };
 
-	\node[draw,thick,circle] (mB) at (11.0, 3.0) { \tiny \bbtext{B} };
+	\draw[very thick,color=BBCyan,dashed](a) to node[above left] { \bbinfo{2} } (b);
 
-	\node[draw,thick,circle] (sC) at (4.5, 1.0) { \tiny \bbtext{C} };
 
-	\node[draw,thick,circle] (mC) at (12.0, 1.0) { \tiny \bbtext{C} };
+	\node[anchor=west] (line3) at (1.0, 5.0) { \bbtext{\texttt{2 3 2 } } };
 
-	\node[draw,thick,circle] (sD) at (6.5, 1.0) { \tiny \bbtext{D} };
 
-	\node[draw,thick,circle] (mD) at (14.0, 1.0) { \tiny \bbtext{D} };
+	\draw[very thick](c) to node[above right] { \bbinfo{2} } (b);
 
-	\node[draw,thick,circle] (mE) at (10.0, 0.0) { \tiny \bbtext{E} };
 
-	\node[draw,thick,circle] (sE) at (2.5, 0.0) { \tiny \bbtext{E} };
+	\node[anchor=west] (line4) at (1.0, 4.5) { \bbtext{\texttt{1 3 4} } };
 
-	\node[draw,thick,circle] (sF) at (0.5, 1.0) { \tiny \bbtext{F} };
 
-	\node[draw,thick,circle] (mF) at (8.0, 1.0) { \tiny \bbtext{F} };
+	\draw[very thick](c) to node[above] { \bbinfo{4} } (a);
 
-	\draw[very thick,-latex] (5.5, 3.5) to  (4.5, 2.5);
 
-	\draw[very thick,-latex] (9.0, 4.0) to  (10.0, 3.0);
+	\node[anchor=west] (line5) at (1.0, 4.0) { \bbtext{\texttt{3 4 16} } };
 
-	\draw[color=BBCyan,thick,-latex](sA) to [bend left] (sB);
 
-	\draw[color=BBCyan,thick,>=latex,<->](sA) to (sC);
+	\draw[very thick](c) to node[below right] { \bbinfo{16} } (d);
 
-	\draw[color=BBCyan,thick,>=latex,<->](sD) to [bend right] (sA);
 
-	\draw[color=BBCyan,thick,>=latex,<->](sF) to (sE);
+	\node[anchor=west] (line6) at (1.0, 3.5) { \bbtext{\texttt{3 5 8} } };
 
-	\draw[color=BBGreen,thick,-latex](mB) to [bend left] (mA);
 
-	\draw[color=BBGreen,thick,>=latex,<->](mB) to (mC);
-
-	\draw[color=BBGreen,thick,-latex](mD) to (mC);
-
-	\draw[color=BBGreen,thick,-latex](mD) to [bend left] (mE);
-
-	\draw[color=BBGreen,thick,-latex](mE) to (mC);
-
-	\draw[color=BBGreen,thick,>=latex,<->](mF) to (mA);
+	\draw[very thick](c) to node[above left] { \bbinfo{8} } (e);
 
 
 \end{tikzpicture}
@@ -993,63 +904,54 @@
 \node[draw,opacity=0] at (0, 0) {x};
 \node[draw,opacity=0] at (14, 8) {x};
 
-	\node[anchor=west] (header) at (0.0, 7.0) { \Large \bbbold{Solução} };
-
-\end{tikzpicture}
-\end{frame}
-\begin{frame}[plain,t]
-\begin{tikzpicture}
-\node[draw,opacity=0] at (0, 0) {x};
-\node[draw,opacity=0] at (14, 8) {x};
-
-	\node[anchor=west] (header) at (0.0, 7.0) { \Large \bbbold{Solução} };
+	\node[anchor=west] (header) at (0, 7.0) { \bbbold{Exemplo de entrada e saída} };
 
 
-	\node[anchor=west] (s) at (1.0, 5.0) { $\displaystyle \begin{bmatrix} m_{11} & m_{12} & \ldots & \infty \\ m_{21} & \infty & \ldots & m_{2N} \\ \vdots & \vdots & \ddots & \vdots \\ m_{N1} & m_{N2} & \ldots & \infty \end{bmatrix}$ };
-
-	\node[anchor=west] (m) at (8.0, 5.0) { $\displaystyle \begin{bmatrix} s_{11} & \infty & \ldots & s_{1N} \\ \infty & s_{22} & \ldots & s_{2N} \\ \vdots & \vdots & \ddots & \vdots \\ s_{N1} & s_{N2} & \ldots & \infty \end{bmatrix}$ };
-
-\end{tikzpicture}
-\end{frame}
-\begin{frame}[plain,t]
-\begin{tikzpicture}
-\node[draw,opacity=0] at (0, 0) {x};
-\node[draw,opacity=0] at (14, 8) {x};
-
-	\node[anchor=west] (header) at (0.0, 7.0) { \Large \bbbold{Solução} };
+	\node[anchor=west] (line1) at (1.0, 6.0) { \bbtext{\texttt{5 5} } };
 
 
-	\node[anchor=west] (s) at (1.0, 5.0) { $\displaystyle \begin{bmatrix} m_{11} & m_{12} & \ldots & \infty \\ m_{21} & \infty & \ldots & m_{2N} \\ \vdots & \vdots & \ddots & \vdots \\ m_{N1} & m_{N2} & \ldots & \infty \end{bmatrix}$ };
+	\node[draw,very thick,circle] (a) at (7.0, 4.0) { \bbtext{1} };
 
-	\node[anchor=west] (m) at (8.0, 5.0) { $\displaystyle \begin{bmatrix} s_{11} & \infty & \ldots & s_{1N} \\ \infty & s_{22} & \ldots & s_{2N} \\ \vdots & \vdots & \ddots & \vdots \\ s_{N1} & s_{N2} & \ldots & \infty \end{bmatrix}$ };
+	\node[draw,very thick,circle] (b) at (10.0, 7.0) { \bbtext{2} };
 
+	\node[draw,very thick,circle] (c) at (13.0, 4.0) { \bbtext{3} };
 
-	\draw[color=BBViolet,thick,-latex] (3.5, 1.5) to  (3.5, 3.5);
+	\node[draw,very thick,circle] (d) at (12.0, 1.0) { \bbtext{4} };
 
-	\node[] (minfo1) at (3.5, 1.25) { \footnotesize \bbcomment{distâncias mínimas para} };
-
-	\node[] (minfo2) at (3.5, 0.75) { \footnotesize \bbcomment{o prof. Miguel} };
-
-\end{tikzpicture}
-\end{frame}
-\begin{frame}[plain,t]
-\begin{tikzpicture}
-\node[draw,opacity=0] at (0, 0) {x};
-\node[draw,opacity=0] at (14, 8) {x};
-
-	\node[anchor=west] (header) at (0.0, 7.0) { \Large \bbbold{Solução} };
+	\node[draw,very thick,circle] (e) at (8.0, 1.0) { \bbtext{5} };
 
 
-	\node[anchor=west] (s) at (1.0, 5.0) { $\displaystyle \begin{bmatrix} m_{11} & m_{12} & \ldots & \infty \\ m_{21} & \infty & \ldots & m_{2N} \\ \vdots & \vdots & \ddots & \vdots \\ m_{N1} & m_{N2} & \ldots & \infty \end{bmatrix}$ };
 
-	\node[anchor=west] (m) at (8.0, 5.0) { $\displaystyle \begin{bmatrix} s_{11} & \infty & \ldots & s_{1N} \\ \infty & s_{22} & \ldots & s_{2N} \\ \vdots & \vdots & \ddots & \vdots \\ s_{N1} & s_{N2} & \ldots & \infty \end{bmatrix}$ };
+	\node[anchor=west] (line2) at (1.0, 5.5) { \bbtext{\texttt{1 2 2} } };
 
 
-	\draw[color=BBViolet,thick,-latex] (10.0, 1.5) to  (10.0, 3.5);
+	\draw[very thick,color=BBCyan,dashed](a) to node[above left] { \bbinfo{2} } (b);
 
-	\node[] (minfo1) at (10.0, 1.25) { \footnotesize \bbcomment{distâncias mínimas para} };
 
-	\node[] (minfo2) at (10.0, 0.75) { \footnotesize \bbcomment{o prof. Shahriar} };
+	\node[anchor=west] (line3) at (1.0, 5.0) { \bbtext{\texttt{2 3 2 } } };
+
+
+	\draw[very thick,color=BBCyan,dashed](c) to node[above right] { \bbinfo{2} } (b);
+
+
+	\node[anchor=west] (line4) at (1.0, 4.5) { \bbtext{\texttt{1 3 4} } };
+
+
+	\draw[very thick](c) to node[above] { \bbinfo{4} } (a);
+
+
+	\node[anchor=west] (line5) at (1.0, 4.0) { \bbtext{\texttt{3 4 16} } };
+
+
+	\draw[very thick](c) to node[below right] { \bbinfo{16} } (d);
+
+
+	\node[anchor=west] (line6) at (1.0, 3.5) { \bbtext{\texttt{3 5 8} } };
+
+
+	\draw[very thick](c) to node[above left] { \bbinfo{8} } (e);
+
+
 
 
 \end{tikzpicture}
@@ -1059,27 +961,284 @@
 \node[draw,opacity=0] at (0, 0) {x};
 \node[draw,opacity=0] at (14, 8) {x};
 
-	\node[anchor=west] (header) at (0.0, 7.0) { \Large \bbbold{Solução} };
+	\node[anchor=west] (header) at (0, 7.0) { \bbbold{Exemplo de entrada e saída} };
 
 
-	\node[anchor=west] (s) at (1.0, 5.0) { $\displaystyle \begin{bmatrix} m_{11} & m_{12} & \ldots & \infty \\ m_{21} & \infty & \ldots & m_{2N} \\ \vdots & \vdots & \ddots & \vdots \\ m_{N1} & m_{N2} & \ldots & \infty \end{bmatrix}$ };
-
-	\node[anchor=west] (m) at (8.0, 5.0) { $\displaystyle \begin{bmatrix} s_{11} & \infty & \ldots & s_{1N} \\ \infty & s_{22} & \ldots & s_{2N} \\ \vdots & \vdots & \ddots & \vdots \\ s_{N1} & s_{N2} & \ldots & \infty \end{bmatrix}$ };
+	\node[anchor=west] (line1) at (1.0, 6.0) { \bbtext{\texttt{5 5} } };
 
 
+	\node[draw,very thick,circle] (a) at (7.0, 4.0) { \bbtext{1} };
+
+	\node[draw,very thick,circle] (b) at (10.0, 7.0) { \bbtext{2} };
+
+	\node[draw,very thick,circle] (c) at (13.0, 4.0) { \bbtext{3} };
+
+	\node[draw,very thick,circle] (d) at (12.0, 1.0) { \bbtext{4} };
+
+	\node[draw,very thick,circle] (e) at (8.0, 1.0) { \bbtext{5} };
+
+
+
+	\node[anchor=west] (line2) at (1.0, 5.5) { \bbtext{\texttt{1 2 2} } };
+
+
+	\draw[very thick,color=BBCyan,dashed](a) to node[above left] { \bbinfo{2} } (b);
+
+
+	\node[anchor=west] (line3) at (1.0, 5.0) { \bbtext{\texttt{2 3 2 } } };
+
+
+	\draw[very thick,color=BBCyan,dashed](c) to node[above right] { \bbinfo{2} } (b);
+
+
+	\node[anchor=west] (line4) at (1.0, 4.5) { \bbtext{\texttt{1 3 4} } };
+
+
+	\draw[very thick](c) to node[above] { \bbinfo{4} } (a);
+
+
+	\node[anchor=west] (line5) at (1.0, 4.0) { \bbtext{\texttt{3 4 16} } };
+
+
+	\draw[very thick](c) to node[below right] { \bbinfo{16} } (d);
+
+
+	\node[anchor=west] (line6) at (1.0, 3.5) { \bbtext{\texttt{3 5 8} } };
+
+
+	\draw[very thick,color=BBCyan,dashed](c) to node[above left] { \bbinfo{8} } (e);
 
 
 
 
 
-	\draw[very thick] (6.0, 4.5) to  (7.5, 4.5);
+\end{tikzpicture}
+\end{frame}
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
 
-	\draw[very thick,-latex] (6.75, 4.5) to  (6.75, 3.25);
+	\node[anchor=west] (header) at (0, 7.0) { \bbbold{Exemplo de entrada e saída} };
 
 
-	\node[] (d) at (6.75, 2.0) { $\displaystyle \begin{bmatrix} d_{11} & \infty & \ldots & \infty \\ \infty & \infty & \ldots & d_{2N} \\ \vdots & \vdots & \ddots & \vdots \\ d_{N1} & d_{N2} & \ldots & \infty \end{bmatrix}$ };
+	\node[anchor=west] (line1) at (1.0, 6.0) { \bbtext{\texttt{5 5} } };
 
-	\node[anchor=west] (note) at (10.0, 2.0) { $d_{ij} = m_{ij} + s_{ij}$ };
+
+	\node[draw,very thick,circle] (a) at (7.0, 4.0) { \bbtext{1} };
+
+	\node[draw,very thick,circle] (b) at (10.0, 7.0) { \bbtext{2} };
+
+	\node[draw,very thick,circle] (c) at (13.0, 4.0) { \bbtext{3} };
+
+	\node[draw,very thick,circle] (d) at (12.0, 1.0) { \bbtext{4} };
+
+	\node[draw,very thick,circle] (e) at (8.0, 1.0) { \bbtext{5} };
+
+
+
+	\node[anchor=west] (line2) at (1.0, 5.5) { \bbtext{\texttt{1 2 2} } };
+
+
+	\draw[very thick,color=BBCyan,dashed](a) to node[above left] { \bbinfo{2} } (b);
+
+
+	\node[anchor=west] (line3) at (1.0, 5.0) { \bbtext{\texttt{2 3 2 } } };
+
+
+	\draw[very thick,color=BBCyan,dashed](c) to node[above right] { \bbinfo{2} } (b);
+
+
+	\node[anchor=west] (line4) at (1.0, 4.5) { \bbtext{\texttt{1 3 4} } };
+
+
+	\draw[very thick](c) to node[above] { \bbinfo{4} } (a);
+
+
+	\node[anchor=west] (line5) at (1.0, 4.0) { \bbtext{\texttt{3 4 16} } };
+
+
+	\draw[very thick,color=BBCyan,dashed](c) to node[below right] { \bbinfo{16} } (d);
+
+
+	\node[anchor=west] (line6) at (1.0, 3.5) { \bbtext{\texttt{3 5 8} } };
+
+
+	\draw[very thick,color=BBCyan,dashed](c) to node[above left] { \bbinfo{8} } (e);
+
+
+
+
+
+
+\end{tikzpicture}
+\end{frame}
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+
+	\node[anchor=west] (header) at (0, 7.0) { \bbbold{Exemplo de entrada e saída} };
+
+
+	\node[anchor=west] (line1) at (1.0, 6.0) { \bbtext{\texttt{5 5} } };
+
+
+	\node[draw,very thick,circle] (a) at (7.0, 4.0) { \bbtext{1} };
+
+	\node[draw,very thick,circle] (b) at (10.0, 7.0) { \bbtext{2} };
+
+	\node[draw,very thick,circle] (c) at (13.0, 4.0) { \bbtext{3} };
+
+	\node[draw,very thick,circle] (d) at (12.0, 1.0) { \bbtext{4} };
+
+	\node[draw,very thick,circle] (e) at (8.0, 1.0) { \bbtext{5} };
+
+
+
+	\node[anchor=west] (line2) at (1.0, 5.5) { \bbtext{\texttt{1 2 2} } };
+
+
+	\draw[very thick,color=BBCyan,dashed](a) to node[above left] { \bbinfo{2} } (b);
+
+
+	\node[anchor=west] (line3) at (1.0, 5.0) { \bbtext{\texttt{2 3 2 } } };
+
+
+	\draw[very thick,color=BBCyan,dashed](c) to node[above right] { \bbinfo{2} } (b);
+
+
+	\node[anchor=west] (line4) at (1.0, 4.5) { \bbtext{\texttt{1 3 4} } };
+
+
+	\draw[very thick](c) to node[above] { \bbinfo{4} } (a);
+
+
+	\node[anchor=west] (line5) at (1.0, 4.0) { \bbtext{\texttt{3 4 16} } };
+
+
+	\draw[very thick,color=BBCyan,dashed](c) to node[below right] { \bbinfo{16} } (d);
+
+
+	\node[anchor=west] (line6) at (1.0, 3.5) { \bbtext{\texttt{3 5 8} } };
+
+
+	\draw[very thick,color=BBCyan,dashed](c) to node[above left] { \bbinfo{8} } (e);
+
+
+
+
+
+
+
+	\node[] (r) at (1.65, 2.0) { \bbinfo{10} };
+
+	\draw[color=BBBlack,-latex,very thick] (1.65, 3.25) to  (1.65, 2.25);
+
+\end{tikzpicture}
+\end{frame}
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+
+	\node[anchor=west] (title) at (0.0, 7.0) { \Large \bbbold{Solução} };
+\end{tikzpicture}
+\end{frame}
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+
+	\node[anchor=west] (title) at (0.0, 7.0) { \Large \bbbold{Solução} };
+
+	\node[anchor=west] (a) at (1.0, 6.0) { $\star$ \bbtext{A MST minimiza também o produto dos pesos da arestas} };
+
+\end{tikzpicture}
+\end{frame}
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+
+	\node[anchor=west] (title) at (0.0, 7.0) { \Large \bbbold{Solução} };
+
+	\node[anchor=west] (a) at (1.0, 6.0) { $\star$ \bbtext{A MST minimiza também o produto dos pesos da arestas} };
+
+
+	\node[anchor=west] (b) at (1.0, 5.0) { $\star$ \bbtext{Para verificar este fato, basta substituir os pesos de $G$ por seus respectivos} };
+
+	\node[anchor=west] (b1) at (0.5, 4.5) { \bbtext{logaritmos e identificar a MST do grafo $G'$ resultante} };
+
+\end{tikzpicture}
+\end{frame}
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+
+	\node[anchor=west] (title) at (0.0, 7.0) { \Large \bbbold{Solução} };
+
+	\node[anchor=west] (a) at (1.0, 6.0) { $\star$ \bbtext{A MST minimiza também o produto dos pesos da arestas} };
+
+
+	\node[anchor=west] (b) at (1.0, 5.0) { $\star$ \bbtext{Para verificar este fato, basta substituir os pesos de $G$ por seus respectivos} };
+
+	\node[anchor=west] (b1) at (0.5, 4.5) { \bbtext{logaritmos e identificar a MST do grafo $G'$ resultante} };
+
+
+	\node[anchor=west] (c) at (1.0, 3.5) { $\star$ \bbtext{Neste problema em particular, por conta das restrições dos pesos, use $\log_2()$} };
+
+\end{tikzpicture}
+\end{frame}
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+
+	\node[anchor=west] (title) at (0.0, 7.0) { \Large \bbbold{Solução} };
+
+	\node[anchor=west] (a) at (1.0, 6.0) { $\star$ \bbtext{A MST minimiza também o produto dos pesos da arestas} };
+
+
+	\node[anchor=west] (b) at (1.0, 5.0) { $\star$ \bbtext{Para verificar este fato, basta substituir os pesos de $G$ por seus respectivos} };
+
+	\node[anchor=west] (b1) at (0.5, 4.5) { \bbtext{logaritmos e identificar a MST do grafo $G'$ resultante} };
+
+
+	\node[anchor=west] (c) at (1.0, 3.5) { $\star$ \bbtext{Neste problema em particular, por conta das restrições dos pesos, use $\log_2()$} };
+
+
+	\node[anchor=west] (d) at (1.0, 2.5) { $\star$ \bbtext{O produto mínimo $p$ da MST original pode ser obtido a partir do custo $k$ da} };
+
+	\node[anchor=west] (d1) at (0.5, 2.0) { \bbtext{MST de $G'$ por meio da expressão $p = 2^k$} };
+
+\end{tikzpicture}
+\end{frame}
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+
+	\node[anchor=west] (title) at (0.0, 7.0) { \Large \bbbold{Solução} };
+
+	\node[anchor=west] (a) at (1.0, 6.0) { $\star$ \bbtext{A MST minimiza também o produto dos pesos da arestas} };
+
+
+	\node[anchor=west] (b) at (1.0, 5.0) { $\star$ \bbtext{Para verificar este fato, basta substituir os pesos de $G$ por seus respectivos} };
+
+	\node[anchor=west] (b1) at (0.5, 4.5) { \bbtext{logaritmos e identificar a MST do grafo $G'$ resultante} };
+
+
+	\node[anchor=west] (c) at (1.0, 3.5) { $\star$ \bbtext{Neste problema em particular, por conta das restrições dos pesos, use $\log_2()$} };
+
+
+	\node[anchor=west] (d) at (1.0, 2.5) { $\star$ \bbtext{O produto mínimo $p$ da MST original pode ser obtido a partir do custo $k$ da} };
+
+	\node[anchor=west] (d1) at (0.5, 2.0) { \bbtext{MST de $G'$ por meio da expressão $p = 2^k$} };
+
+
+	\node[anchor=west] (e) at (1.0, 1.0) { $\star$ \bbtext{O número de divisores de $2^k$ é igual a $k + 1$} };
 
 
 \end{tikzpicture}

@@ -199,6 +199,7 @@ e12 => Edge
 ---
 
     @e12.color = BBCyan
+    &e12.dashed
 
 ---
 
@@ -354,420 +355,97 @@ eCE => Edge
     &eCE.very thick
     %eCE.label = node[above left] { \bbinfo{8} }
 
-
-## Scene
-
-header => Node
-    @header.x = 0
-    @header.y = 7
-    @header.text = \Large \bbbold{Solução}
-    @header.anchor = west
-
 ---
-
-gA => Node
-    @gA.x = 5
-    @gA.y = 6
-    @gA.text = \tiny \bbtext{A}
-    &gA.draw
-    &gA.thick
-    &gA.circle
-
-gB => Node
-    @gB.x = 7
-    @gB.y = 7
-    @gB.text = \tiny \bbtext{B}
-    &gB.draw
-    &gB.thick
-    &gB.circle
-
-gC => Node
-    @gC.x = 8
-    @gC.y = 5
-    @gC.text = \tiny \bbtext{C}
-    &gC.draw
-    &gC.thick
-    &gC.circle
-
-gD => Node
-    @gD.x = 10
-    @gD.y = 5
-    @gD.text = \tiny \bbtext{D}
-    &gD.draw
-    &gD.thick
-    &gD.circle
-
-gE => Node
-    @gE.x = 6
-    @gE.y = 4
-    @gE.text = \tiny \bbtext{E}
-    &gE.draw
-    &gE.thick
-    &gE.circle
-
-gF => Node
-    @gF.x = 4
-    @gF.y = 5
-    @gF.text = \tiny \bbtext{F}
-    &gF.draw
-    &gF.thick
-    &gF.circle
-
-eAB => Edge
-    @eAB.from = gA
-    @eAB.to = gB
     @eAB.color = BBCyan
-    &eAB.thick
-    &eAB.-latex
-    %eAB.label = [bend left]
-    
-eAC => Edge
-    @eAC.from = gA
-    @eAC.to = gC
-    @eAC.color = BBCyan
-    &eAC.thick
-    &eAC.>=latex
-    &eAC.<->
- 
-eDA => Edge
-    @eDA.from = gD
-    @eDA.to = gA
-    @eDA.color = BBCyan
-    &eDA.thick
-    &eDA.>=latex
-    &eDA.<->
-    %eDA.label = [bend right]
- 
-eFE => Edge
-    @eFE.from = gF
-    @eFE.to = gE
-    @eFE.color = BBCyan
-    &eFE.thick
-    &eFE.>=latex
-    &eFE.<->
+    &eAB.dashed
 
-eBA => Edge
-    @eBA.from = gB
-    @eBA.to = gA
-    @eBA.color = BBGreen
-    &eBA.thick
-    &eBA.-latex
-    %eBA.label = [bend left]
- 
-eBC => Edge
-    @eBC.from = gB
-    @eBC.to = gC
-    @eBC.color = BBGreen
-    &eBC.thick
-    &eBC.>=latex
-    &eBC.<->
- 
-eDC => Edge
-    @eDC.from = gD
-    @eDC.to = gC
-    @eDC.color = BBGreen
-    &eDC.thick
-    &eDC.-latex
- 
-eDE => Edge
-    @eDE.from = gD
-    @eDE.to = gE
-    @eDE.color = BBGreen
-    &eDE.thick
-    &eDE.-latex
-    %eDE.label = [bend left]
+---
+    @eCB.color = BBCyan
+    &eCB.dashed
 
-eEC => Edge
-    @eEC.from = gE
-    @eEC.to = gC
-    @eEC.color = BBGreen
-    &eEC.thick
-    &eEC.-latex
- 
-eFA => Edge
-    @eFA.from = gF
-    @eFA.to = gA
-    @eFA.color = BBGreen
-    &eFA.thick
-    &eFA.>=latex
-    &eFA.<->
- 
+
+---
+    @eCE.color = BBCyan
+    &eCE.dashed
+
+---
+    @eCD.color = BBCyan
+    &eCD.dashed
+
 ---
 
-sA => Node
-    @sA.x = 1.5
-    @sA.y = 2
-    @sA.text = \tiny \bbtext{A}
-    &sA.draw
-    &sA.thick
-    &sA.circle
+r => Node
+    @r.x = 1.65
+    @r.y = 2
+    @r.text = \bbinfo{10}
 
-mA => Node
-    @mA.x = 9
-    @mA.y = 2
-    @mA.text = \tiny \bbtext{A}
-    &mA.draw
-    &mA.thick
-    &mA.circle
-
-sB => Node
-    @sB.x = 3.5
-    @sB.y = 3
-    @sB.text = \tiny \bbtext{B}
-    &sB.draw
-    &sB.thick
-    &sB.circle
-
-mB => Node
-    @mB.x = 11
-    @mB.y = 3
-    @mB.text = \tiny \bbtext{B}
-    &mB.draw
-    &mB.thick
-    &mB.circle
-
-sC => Node
-    @sC.x = 4.5
-    @sC.y = 1
-    @sC.text = \tiny \bbtext{C}
-    &sC.draw
-    &sC.thick
-    &sC.circle
-
-mC => Node
-    @mC.x = 12
-    @mC.y = 1
-    @mC.text = \tiny \bbtext{C}
-    &mC.draw
-    &mC.thick
-    &mC.circle
-
-sD => Node
-    @sD.x = 6.5
-    @sD.y = 1
-    @sD.text = \tiny \bbtext{D}
-    &sD.draw
-    &sD.thick
-    &sD.circle
-
-mD => Node
-    @mD.x = 14
-    @mD.y = 1
-    @mD.text = \tiny \bbtext{D}
-    &mD.draw
-    &mD.thick
-    &mD.circle
-
-mE => Node
-    @mE.x = 10
-    @mE.y = 0
-    @mE.text = \tiny \bbtext{E}
-    &mE.draw
-    &mE.thick
-    &mE.circle
-
-sE => Node
-    @sE.x = 2.5
-    @sE.y = 0
-    @sE.text = \tiny \bbtext{E}
-    &sE.draw
-    &sE.thick
-    &sE.circle
-
-sF => Node
-    @sF.x = 0.5
-    @sF.y = 1
-    @sF.text = \tiny \bbtext{F}
-    &sF.draw
-    &sF.thick
-    &sF.circle
-
-mF => Node
-    @mF.x = 8
-    @mF.y = 1
-    @mF.text = \tiny \bbtext{F}
-    &mF.draw
-    &mF.thick
-    &mF.circle
-
-s => Edge
-    @s.x = 5.5
-    @s.y = 3.5
-    @s.u = 4.5
-    @s.v = 2.5
-    &s.very thick
-    &s.-latex
- 
-m => Edge
-    @m.x = 9
-    @m.y = 4.0
-    @m.u = 10
-    @m.v = 3.0
-    &m.very thick
-    &m.-latex
- 
-sAB => Edge
-    @sAB.from = sA
-    @sAB.to = sB
-    @sAB.color = BBCyan
-    &sAB.thick
-    &sAB.-latex
-    %sAB.label = [bend left]
-    
-sAC => Edge
-    @sAC.from = sA
-    @sAC.to = sC
-    @sAC.color = BBCyan
-    &sAC.thick
-    &sAC.>=latex
-    &sAC.<->
- 
-sDA => Edge
-    @sDA.from = sD
-    @sDA.to = sA
-    @sDA.color = BBCyan
-    &sDA.thick
-    &sDA.>=latex
-    &sDA.<->
-    %sDA.label = [bend right]
- 
-sFE => Edge
-    @sFE.from = sF
-    @sFE.to = sE
-    @sFE.color = BBCyan
-    &sFE.thick
-    &sFE.>=latex
-    &sFE.<->
-
-mBA => Edge
-    @mBA.from = mB
-    @mBA.to = mA
-    @mBA.color = BBGreen
-    &mBA.thick
-    &mBA.-latex
-    %mBA.label = [bend left]
- 
-mBC => Edge
-    @mBC.from = mB
-    @mBC.to = mC
-    @mBC.color = BBGreen
-    &mBC.thick
-    &mBC.>=latex
-    &mBC.<->
- 
-mDC => Edge
-    @mDC.from = mD
-    @mDC.to = mC
-    @mDC.color = BBGreen
-    &mDC.thick
-    &mDC.-latex
- 
-mDE => Edge
-    @mDE.from = mD
-    @mDE.to = mE
-    @mDE.color = BBGreen
-    &mDE.thick
-    &mDE.-latex
-    %mDE.label = [bend left]
-
-mEC => Edge
-    @mEC.from = mE
-    @mEC.to = mC
-    @mEC.color = BBGreen
-    &mEC.thick
-    &mEC.-latex
- 
-mFA => Edge
-    @mFA.from = mF
-    @mFA.to = mA
-    @mFA.color = BBGreen
-    &mFA.thick
-    &mFA.>=latex
-    &mFA.<->
- 
+arrow => Edge
+    @arrow.x = 1.65
+    @arrow.y = 3.25
+    @arrow.u = 1.65
+    @arrow.v = 2.25
+    @arrow.color = BBBlack
+    &arrow.-latex
+    &arrow.very thick
 
 ## Scene
 
-header => Node
-    @header.x = 0
-    @header.y = 7
-    @header.text = \Large \bbbold{Solução}
-    @header.anchor = west
+title => Node
+    @title.x = 0
+    @title.y = 7
+    @title.text = \Large \bbbold{Solução}
+    @title.anchor = west
+---
+
+a => Node
+    @a.x = 1
+    @a.y = 6
+    @a.text = $\star$ \bbtext{A MST minimiza também o produto dos pesos da arestas}
+    @a.anchor = west
 
 ---
 
-s => Node
-    @s.x = 1
-    @s.y = 5
-    @s.text = $\displaystyle \begin{bmatrix} m_{11} & m_{12} & \ldots & \infty \\ m_{21} & \infty & \ldots & m_{2N} \\ \vdots & \vdots & \ddots & \vdots \\ m_{N1} & m_{N2} & \ldots & \infty \end{bmatrix}$
-    @s.anchor = west
+b => Node
+    @b.x = 1
+    @b.y = 5
+    @b.text = $\star$ \bbtext{Para verificar este fato, basta substituir os pesos de $G$ por seus respectivos}
+    @b.anchor = west
 
-m => Node
-    @m.x = 8
-    @m.y = 5
-    @m.text = $\displaystyle \begin{bmatrix} s_{11} & \infty & \ldots & s_{1N} \\ \infty & s_{22} & \ldots & s_{2N} \\ \vdots & \vdots & \ddots & \vdots \\ s_{N1} & s_{N2} & \ldots & \infty \end{bmatrix}$
-    @m.anchor = west
-
----
-
-me => Edge
-    @me.x = 3.5
-    @me.y = 1.5
-    @me.u = 3.5
-    @me.v = 3.5
-    @me.color = BBViolet
-    &me.thick
-    &me.-latex
-
-minfo1 => Node
-    @minfo1.x = 3.5
-    @minfo1.y = 1.25
-    @minfo1.text = \footnotesize \bbcomment{distâncias mínimas para}
-
-minfo2 => Node
-    @minfo2.x = 3.5
-    @minfo2.y = 0.75
-    @minfo2.text = \footnotesize \bbcomment{o prof. Miguel}
+b1 => Node
+    @b1.x = 0.5
+    @b1.y = 4.5
+    @b1.text = \bbtext{logaritmos e identificar a MST do grafo $G'$ resultante}
+    @b1.anchor = west
 
 ---
-    @me.x = 10
-    @me.u = 10
-    @minfo1.x = 10
-    @minfo2.x = 10
 
-    @minfo1.text = \footnotesize \bbcomment{distâncias mínimas para}
-    @minfo2.text = \footnotesize \bbcomment{o prof. Shahriar}
+c => Node
+    @c.x = 1
+    @c.y = 3.5
+    @c.text = $\star$ \bbtext{Neste problema em particular, por conta das restrições dos pesos, use $\log_2()$}
+    @c.anchor = west
+
 ---
--me
--minfo1
--minfo2
-
-line => Edge
-    @line.x = 6
-    @line.y = 4.5
-    @line.u = 7.5
-    @line.v = 4.5
-    &line.very thick
-
-e => Edge
-    @e.x = 6.75
-    @e.y = 4.5
-    @e.u = 6.75
-    @e.v = 3.25
-    &e.very thick
-    &e.-latex
-
 
 d => Node
-    @d.x = 6.75
-    @d.y = 2
-    @d.text = $\displaystyle \begin{bmatrix} d_{11} & \infty & \ldots & \infty \\ \infty & \infty & \ldots & d_{2N} \\ \vdots & \vdots & \ddots & \vdots \\ d_{N1} & d_{N2} & \ldots & \infty \end{bmatrix}$
+    @d.x = 1
+    @d.y = 2.5
+    @d.text = $\star$ \bbtext{O produto mínimo $p$ da MST original pode ser obtido a partir do custo $k$ da}
+    @d.anchor = west
 
-note => Node
-    @note.x = 10
-    @note.y = 2
-    @note.text = $d_{ij} = m_{ij} + s_{ij}$
-    @note.anchor = west
+d1 => Node
+    @d1.x = 0.5
+    @d1.y = 2.0
+    @d1.text = \bbtext{MST de $G'$ por meio da expressão $p = 2^k$}
+    @d1.anchor = west
+
+---
+
+e => Node
+    @e.x = 1
+    @e.y = 1.0
+    @e.text = $\star$ \bbtext{O número de divisores de $2^k$ é igual a $k + 1$}
+    @e.anchor = west
 
 
 ## Frame
