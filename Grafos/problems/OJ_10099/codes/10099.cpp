@@ -23,14 +23,13 @@ vector<int> minimax(int s, int N)
     {
         auto [w, u, v] = pq.top();
         pq.pop();
-//cout << "--- u = " << u << ", v = " << v << ", w = " << w << endl;
+
         if (C.count(v))
             continue;
 
         C.insert(v);
 
         ms[v] = u == s ? w : min(w, ms[u]);
-//cout << "+++ v = " << v << ", ms = " << ms[v] << endl;
 
         for (auto [r, c] : adj[v])
             pq.push(edge(c, v, r));
@@ -44,7 +43,6 @@ int solve(int N, int S, int D, int T)
     auto ms = minimax(S, N);
     auto M = ms[D];
 
- //   cout << "M = " << M << '\n';
     return (T + M - 2)/(M - 1);
 }
 
