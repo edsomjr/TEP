@@ -627,10 +627,9 @@ p => Path
 ---
 
 info => Node
-    @info.x = 1
+    @info.x = 7
     @info.y = 2
     @info.text = \bbtext{Considere $(x_p, y_p)$ e $(x_q, y_q)$ os pontos de partida e chegada, respectivamente.}
-    @info.anchor = west
 
 ---
 

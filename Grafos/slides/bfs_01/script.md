@@ -15,7 +15,7 @@
 ## Scene
 + \node[anchor=west] at (0, 7) { \Large \bbbold{Fila x fila com prioridades} };
 
-+ \node[anchor=west] at (1, 6) { $\star$ \bbtext{O algoritmo de Dijkstra usa uma fila de prioridades para identificar o } };
++ \node[anchor=west] at (1, 6) { $\star$ \bbtext{O algoritmo de Dijkstra usa uma fila com prioridades para identificar o } };
 + \node[anchor=west] at (0.5, 5.5) { \bbtext{vértice $u$ mais próximo de $s$ ainda não processado} };
 
 + \node[anchor=west] at (1, 4.5) { $\star$ \bbtext{Com a restrição dos pesos $w_i$ ao conjunto $\{0, 1\}$, o relaxamento terá} };
@@ -199,7 +199,7 @@
 - \node at (6.5, 0.5) { $\infty$ };
 + \node at (6.5, 0.5) { $\mathbf{2}$ };
 - \node[anchor=west] at ((10, 0.5) { $Q = \{$ \bbtext{} $\}$ };
-+ \node[anchor=west] at ((10, 0.5) { $Q = \{$ \bbtext{F} $\}$ };
++ \node[anchor=west] at ((10, 0.5) { $Q = \{$ \bbtext{E} $\}$ };
 
 - \draw[-latex,color=BBCyan,very thick] (F) to node[above] { \bbinfo{1} } (E);
 + \draw[-latex,thick] (F) to node[above] { \bbinfo{1} } (E);
@@ -209,7 +209,7 @@
 + \node[circle, draw, very thick,fill=BBGray] (F) at (8, 3) { \bbtext{F} };
 - \node[circle, draw, very thick] (E) at (10, 5) { \bbtext{E} };
 + \node[circle, draw, very thick,fill=BBGreen] (E) at (10, 5) { \bbtext{E} };
-- \node[anchor=west] at ((10, 0.5) { $Q = \{$ \bbtext{F} $\}$ };
+- \node[anchor=west] at ((10, 0.5) { $Q = \{$ \bbtext{E} $\}$ };
 + \node[anchor=west] at ((10, 0.5) { $Q = \{$ \bbtext{} $\}$ };
 
 - \draw[-latex,thick] (E) to node[above right] { \bbinfo{1} } (D);
