@@ -54,9 +54,11 @@ Teoria dos Grafos
     1. [Definição](slides/mst_definicao/mst_definicao.pdf)
     1. [Algoritmo de Kruskal](slides/kruskal/kruskal.pdf)
         1. [OJ 10600 - ACM contest and Blackout](http://onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&category=24&page=show_problem&problem=1541) ([_upsolving_](problems/OJ_10600/OJ_10600.pdf))
-        1. [OJ 10369 - Arctic Network](http://uva.onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&category=24&page=show_problem&problem=1310) ([_upsolving_](problems/OJ_10369/OJ_10369.pdf))
+        1. [OJ 10369 - Arctic Network](http://onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&category=24&page=show_problem&problem=1310) ([_upsolving_](problems/OJ_10369/OJ_10369.pdf))
     1. [Algoritmo de Prim](slides/prim/prim.pdf)
         1. [SPOJ IITKWPCG - Help the old King](https://www.spoj.com/problems/IITKWPCG/) ([_upsolving_](problems/IITKWPCG/IITKWPCK.pdf))
+        1. [OJ 10099 -- The Tourist Guide](http://onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&category=24&page=show_problem&problem=1040} ([_upsolving_](problems/OJ_10099/OJ_10099.pdf))
+
 <!---
 Pendências
     - Raio de uma árvore
