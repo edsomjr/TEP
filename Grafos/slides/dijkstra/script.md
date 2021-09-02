@@ -382,11 +382,11 @@
 - \draw[-latex,color=BBCyan,very thick] (C) to node[below right] { \bbinfo{5} } (D);
 + \draw[-latex,thick] (C) to node[below right] { \bbinfo{5} } (D);
 
-+ \draw[-latex,thick,color=BBViolet,dashed] (C) to [bend left] node[below right, pos=0.3] { \tiny $(\mathrm{prev}(\mbox{\bbtext{D}}), \mbox{\bbtext{D}})$ } (D);
++ \draw[-latex,thick,color=BBViolet,dashed] (C) to [bend left] node[below right, pos=0.3] { \tiny $(\mathrm{pred}(\mbox{\bbtext{D}}), \mbox{\bbtext{D}})$ } (D);
 
-+ \draw[-latex,thick,color=BBViolet,dashed] (B) to [bend left] node[above right, pos=0.3] { \tiny $(\mathrm{prev}(\mbox{\bbtext{C}}), \mbox{\bbtext{C}})$ } (C);
++ \draw[-latex,thick,color=BBViolet,dashed] (B) to [bend left] node[above right, pos=0.3] { \tiny $(\mathrm{pred}(\mbox{\bbtext{C}}), \mbox{\bbtext{C}})$ } (C);
 
-+ \draw[-latex,thick,color=BBViolet,dashed] (A) to [bend left] node[above left, pos=0.7] { \tiny $(\mathrm{prev}(\mbox{\bbtext{B}}), \mbox{\bbtext{B}})$ } (B);
++ \draw[-latex,thick,color=BBViolet,dashed] (A) to [bend left] node[above left, pos=0.7] { \tiny $(\mathrm{pred}(\mbox{\bbtext{B}}), \mbox{\bbtext{B}})$ } (B);
 
 ## Frame
 + \begin{center} \inputsnippet{cpp}{11}{26}{codes/dijkstra-path.cpp} \end{center}
