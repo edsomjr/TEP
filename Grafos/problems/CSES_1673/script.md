@@ -184,7 +184,7 @@
 + \node[draw,very thick,circle] (A) at (1, 2.5) { \bbtext{A} };
 + \node[draw,very thick,circle] (B) at (3, 2.5) { \bbtext{B} };
 + \node[draw,very thick,circle] (C) at (5, 2.5) { \bbtext{C} };
-+ \node[draw,very thick,circle] (D) at (7, 2.5) { \bbtext{C} };
++ \node[draw,very thick,circle] (D) at (7, 2.5) { \bbtext{D} };
 + \draw[-latex,thick] (A) to node[below] { \bbinfo{1} } (B);
 + \draw[-latex,thick] (B) to node[below] { \bbinfo{2} } (C);
 + \draw[-latex,thick] (C) to [bend right] node[above] { \bbinfo{-3} } (B);
