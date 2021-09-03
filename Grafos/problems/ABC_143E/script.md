@@ -34,7 +34,7 @@
 + \item $2\leq N\leq 300$
 + \item $0\leq M \leq \frac{N(N - 1)}{2}$
 + \item $1\leq L\leq 10^9$
-+ \item $\leq A_i, B_i\leq N$
++ \item $1\leq A_i, B_i\leq N$
 + \item $A_i\neq B_i$
 + \item $(A_i, B_i)\neq (A_j, B_j)$ \bbenglish{(if $i\neq j$)}
 + \item $(A_i, B_i)\neq (B_j, A_j)$ \bbenglish{(if $i\neq j$)}
@@ -57,7 +57,7 @@
 + \item $2\leq N\leq 300$
 + \item $0\leq M \leq \frac{N(N - 1)}{2}$
 + \item $1\leq L\leq 10^9$
-+ \item $\leq A_i, B_i\leq N$
++ \item $1\leq A_i, B_i\leq N$
 + \item $A_i\neq B_i$
 + \item $(A_i, B_i)\neq (A_j, B_j)$ \bbtext{(se $i\neq j$)}
 + \item $(A_i, B_i)\neq (B_j, A_j)$ \bbtext{(se $i\neq j$)}
