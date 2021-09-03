@@ -66,14 +66,14 @@
 +
 + \vspace{0.1in}
 +
-+ \begin{itemize} \item $1\leq 2500\leq n$ \item $1\leq 5000\leq m$ \item $1\leq a, b\leq n$ \item $-10^9 \leq x\leq 10^9$\end{itemize}
++ \begin{itemize} \item $1\leq n \leq 2500$ \item $1\leq m\leq 5000$ \item $1\leq a, b\leq n$ \item $-10^9 \leq x\leq 10^9$\end{itemize}
 
 ## Text
 + \bbbold{Restrições}
 +
 + \vspace{0.1in}
 +
-+ \begin{itemize} \item $1\leq 2500\leq n$ \item $1\leq 5000\leq m$ \item $1\leq a, b\leq n$ \item $-10^9 \leq x\leq 10^9$\end{itemize}
++ \begin{itemize} \item $1\leq n\leq 2500$ \item $1\leq m\leq 5000$ \item $1\leq a, b\leq n$ \item $-10^9 \leq x\leq 10^9$\end{itemize}
 
 ## Scene
 + \node[anchor=west] at (0, 7) { \bbbold{Exemplo de entrada e saída} };
