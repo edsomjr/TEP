@@ -66,14 +66,14 @@
 +
 + \vspace{0.1in}
 +
-+ \begin{itemize} \item $1\leq 2500\leq n$ \item $1\leq 5000\leq m$ \item $1\leq a, b\leq n$ \item $-10^9 \leq x\leq 10^9$\end{itemize}
++ \begin{itemize} \item $1\leq n \leq 2500$ \item $1\leq m\leq 5000$ \item $1\leq a, b\leq n$ \item $-10^9 \leq x\leq 10^9$\end{itemize}
 
 ## Text
 + \bbbold{Restrições}
 +
 + \vspace{0.1in}
 +
-+ \begin{itemize} \item $1\leq 2500\leq n$ \item $1\leq 5000\leq m$ \item $1\leq a, b\leq n$ \item $-10^9 \leq x\leq 10^9$\end{itemize}
++ \begin{itemize} \item $1\leq n\leq 2500$ \item $1\leq m\leq 5000$ \item $1\leq a, b\leq n$ \item $-10^9 \leq x\leq 10^9$\end{itemize}
 
 ## Scene
 + \node[anchor=west] at (0, 7) { \bbbold{Exemplo de entrada e saída} };
@@ -184,7 +184,7 @@
 + \node[draw,very thick,circle] (A) at (1, 2.5) { \bbtext{A} };
 + \node[draw,very thick,circle] (B) at (3, 2.5) { \bbtext{B} };
 + \node[draw,very thick,circle] (C) at (5, 2.5) { \bbtext{C} };
-+ \node[draw,very thick,circle] (D) at (7, 2.5) { \bbtext{C} };
++ \node[draw,very thick,circle] (D) at (7, 2.5) { \bbtext{D} };
 + \draw[-latex,thick] (A) to node[below] { \bbinfo{1} } (B);
 + \draw[-latex,thick] (B) to node[below] { \bbinfo{2} } (C);
 + \draw[-latex,thick] (C) to [bend right] node[above] { \bbinfo{-3} } (B);

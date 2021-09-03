@@ -138,7 +138,7 @@
 
 + \node[anchor=west] at (1, 3) { $\star$ \bbtext{Naturalmente, $\mathrm{jump}[1] = 0$ } };
 
-+ \node[anchor=west] at (1, 2) { $\star$ \bbtext{Para cada aresta $(u, v)$, $\mathrm{jump}[u] = \min\{\mathrm{jump}[u], \max(\mathrm{jump}[v], \dist(u, v))\}$ } };
++ \node[anchor=west] at (1, 2) { $\star$ \bbtext{Para cada aresta $(v, u)$, $\mathrm{jump}[u] = \min\{\mathrm{jump}[u], \max(\mathrm{jump}[v], \dist(v, u))\}$ } };
 
 ## Frame
 + \inputsnippet{cpp}{9}{28}{codes/534.cpp}

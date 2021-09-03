@@ -449,7 +449,7 @@
  \node[anchor=west] at (1, 5) { $\star$ \bbtext{Os pesos das arestas são as distâncias euclidianas entre as pedras} };
  \node[anchor=west] at (1, 4) { $\star$ \bbtext{Seja $\mathrm{jump}[u]$ o alcance de salto mínimo para chegar a $u$ a partir de $1$} };
  \node[anchor=west] at (1, 3) { $\star$ \bbtext{Naturalmente, $\mathrm{jump}[1] = 0$ } };
- \node[anchor=west] at (1, 2) { $\star$ \bbtext{Para cada aresta $(u, v)$, $\mathrm{jump}[u] = \min\{\mathrm{jump}[u], \max(\mathrm{jump}[v], \dist(u, v))\}$ } };
+ \node[anchor=west] at (1, 2) { $\star$ \bbtext{Para cada aresta $(v, u)$, $\mathrm{jump}[u] = \min\{\mathrm{jump}[u], \max(\mathrm{jump}[v], \dist(v, u))\}$ } };
 \end{tikzpicture}
 \end{frame}
 
