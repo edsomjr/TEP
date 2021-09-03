@@ -22,7 +22,7 @@
 ## Scene
 + \node[anchor=west] at (0, 7) { \Large \bbbold{Pseudocódigo } };
 
-+ \node[anchor=west] at (0, 6) { \bbemph{Entrada:} \bbtext{um grafo $G(V, E)$ e um vértice $s\in V$} };
++ \node[anchor=west] at (0, 6) { \bbemph{Entrada:} \bbtext{um grafo ponderado $G(V, E)$ e um vértice $s\in V$} };
 + \node[anchor=west] at (0, 5.5) { \bbemph{Saída:} \bbtext{um vetor $d$ tal que $d[u]$ é a distância mínima em $G$ entre $s$ e $u$ } };
 
 + \node[anchor=west] at (1.0, 4.5) { $1.$ \bbtext{Faça $d[s] = 0$, $d[u] = \infty$ se $u\neq s$ e seja $U = V$}};
