@@ -284,11 +284,11 @@ e25 => Edge
     &e25.thick
     &e25.-latex
 
-e31 => Edge
-    @e31.from = node3
-    @e31.to = node1
-    &e31.thick
-    &e31.-latex
+e13 => Edge
+    @e13.from = node1
+    @e13.to = node3
+    &e13.thick
+    &e13.-latex
 
 e34 => Edge
     @e34.from = node3
@@ -326,11 +326,11 @@ e56 => Edge
     &e56.thick
     &e56.-latex
 
-e67 => Edge
-    @e67.from = node6
-    @e67.to = node7
-    &e67.thick
-    &e67.-latex
+e69 => Edge
+    @e69.from = node6
+    @e69.to = node9
+    &e69.thick
+    &e69.-latex
 
 e78 => Edge
     @e78.from = node7
