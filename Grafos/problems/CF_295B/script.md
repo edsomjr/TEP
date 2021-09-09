@@ -222,7 +222,7 @@ eq => Node
 +r
 
     @r.x = 1.45
-    @r.text = \bbinfo{9 0}
+    @r.text = \footnotesize \bboutput{9 0}
 
     @arrow.color = BBBlack
     &arrow.very thick
@@ -653,7 +653,7 @@ arrow => Edge
 r => Node
     @r.x = 1.85
     @r.y = 2.0
-    @r.text = \bbinfo{17 23 404 0} 
+    @r.text = \footnotesize \bboutput{17 23 404 0} 
 
 ## Scene
 
@@ -714,7 +714,6 @@ header => Node
     @header.text = \Large \bbbold{Solução}
     @header.anchor = west
 
----
 
 line1 => Node
     @line1.x = 1
