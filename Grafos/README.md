@@ -57,10 +57,10 @@ Teoria dos Grafos
         1. [OJ 10369 - Arctic Network](http://onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&category=24&page=show_problem&problem=1310) ([_upsolving_](problems/OJ_10369/OJ_10369.pdf))
     1. [Algoritmo de Prim](slides/prim/prim.pdf)
         1. [SPOJ IITKWPCG - Help the old King](https://www.spoj.com/problems/IITKWPCG/) ([_upsolving_](problems/IITKWPCG/IITKWPCK.pdf))
-        1. [OJ 10099 -- The Tourist Guide](http://onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&category=24&page=show_problem&problem=1040} ([_upsolving_](problems/OJ_10099/OJ_10099.pdf))
+        1. [OJ 10099 - The Tourist Guide](http://onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&category=24&page=show_problem&problem=1040} ([_upsolving_](problems/OJ_10099/OJ_10099.pdf))
 1. Grafos direcionados
     1. [Ordenação topológica](slides/topological_sort/topological_sort.pdf)
-
+        1. [SPOJ TOPOSORT - Topological Sort](https://www.spoj.com/problems/TOPOSORT/) ([_upsolving_](problems/SPOJ_TOPOSORT/SPOJ_TOPOSORT.pdf))
 <!---
 Pendências
     - Raio de uma árvore
