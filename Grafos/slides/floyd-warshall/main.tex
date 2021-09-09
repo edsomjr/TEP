@@ -9,11 +9,23 @@
 \node[draw,opacity=0] at (0, 0) {x};
 \node[draw,opacity=0] at (14, 8) {x};
 
-	\node[] (floyd) at (2.0, 5.0) { \includegraphics[scale=0.4]{figs/floyd.jpg} };
+	\node[] (title) at (1.0, 7.0) { \Large \bbbold{Proponentes} };
 
-	\node[] (fname) at (2.0, 2.75) { \bbbold{Robert W. Floyd} };
+\end{tikzpicture}
+\end{frame}
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
 
-	\node[] (fdate) at (2.0, 2.25) { \bbtext{(1962)} };
+	\node[] (title) at (1.0, 7.0) { \Large \bbbold{Proponentes} };
+
+
+	\node[] (floyd) at (2.0, 4.0) { \includegraphics[scale=0.4]{figs/floyd.jpg} };
+
+	\node[] (fname) at (2.0, 1.75) { \bbbold{Robert W. Floyd} };
+
+	\node[] (fdate) at (2.0, 1.25) { \bbtext{(1962)} };
 
 
 \end{tikzpicture}
@@ -23,11 +35,14 @@
 \node[draw,opacity=0] at (0, 0) {x};
 \node[draw,opacity=0] at (14, 8) {x};
 
-	\node[] (floyd) at (2.0, 5.0) { \includegraphics[scale=0.4]{figs/floyd.jpg} };
+	\node[] (title) at (1.0, 7.0) { \Large \bbbold{Proponentes} };
 
-	\node[] (fname) at (2.0, 2.75) { \bbbold{Robert W. Floyd} };
 
-	\node[] (fdate) at (2.0, 2.25) { \bbtext{(1962)} };
+	\node[] (floyd) at (2.0, 4.0) { \includegraphics[scale=0.4]{figs/floyd.jpg} };
+
+	\node[] (fname) at (2.0, 1.75) { \bbbold{Robert W. Floyd} };
+
+	\node[] (fdate) at (2.0, 1.25) { \bbtext{(1962)} };
 
 
 
@@ -44,11 +59,14 @@
 \node[draw,opacity=0] at (0, 0) {x};
 \node[draw,opacity=0] at (14, 8) {x};
 
-	\node[] (floyd) at (2.0, 5.0) { \includegraphics[scale=0.4]{figs/floyd.jpg} };
+	\node[] (title) at (1.0, 7.0) { \Large \bbbold{Proponentes} };
 
-	\node[] (fname) at (2.0, 2.75) { \bbbold{Robert W. Floyd} };
 
-	\node[] (fdate) at (2.0, 2.25) { \bbtext{(1962)} };
+	\node[] (floyd) at (2.0, 4.0) { \includegraphics[scale=0.4]{figs/floyd.jpg} };
+
+	\node[] (fname) at (2.0, 1.75) { \bbbold{Robert W. Floyd} };
+
+	\node[] (fdate) at (2.0, 1.25) { \bbtext{(1962)} };
 
 
 
@@ -182,6 +200,21 @@
 
 	\node[anchor=west] (output) at (0.5, 5.5) { \bbemph{Saída:} \bbtext{uma matriz $d$ tal que $d[u][v]$ é a distância mínima em $G$ entre $u$ e $v$} };
 
+\end{tikzpicture}
+\end{frame}
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+
+	\node[anchor=west] (title) at (0.0, 7.0) { \Large \bbbold{Pseudocódigo} };
+
+
+	\node[anchor=west] (input) at (0.5, 6.0) { \bbemph{Entrada:} \bbtext{um grafo $G(V, E)$} };
+
+	\node[anchor=west] (output) at (0.5, 5.5) { \bbemph{Saída:} \bbtext{uma matriz $d$ tal que $d[u][v]$ é a distância mínima em $G$ entre $u$ e $v$} };
+
+
 	\node[anchor=west] (step1) at (1.0, 4.5) { $1.$ \bbtext{Faça:} };
 
 	\node[anchor=west] (step1_1) at (1.5, 4.0) { $(a)$ $d[u][u] = 0$, \bbtext{para todos} $u\in V$ };
@@ -190,9 +223,62 @@
 
 	\node[anchor=west] (step1_3) at (1.5, 3.0) { $(c)$ $d[u][v] = \infty$, \bbtext{caso contrário} };
 
+\end{tikzpicture}
+\end{frame}
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+
+	\node[anchor=west] (title) at (0.0, 7.0) { \Large \bbbold{Pseudocódigo} };
+
+
+	\node[anchor=west] (input) at (0.5, 6.0) { \bbemph{Entrada:} \bbtext{um grafo $G(V, E)$} };
+
+	\node[anchor=west] (output) at (0.5, 5.5) { \bbemph{Saída:} \bbtext{uma matriz $d$ tal que $d[u][v]$ é a distância mínima em $G$ entre $u$ e $v$} };
+
+
+	\node[anchor=west] (step1) at (1.0, 4.5) { $1.$ \bbtext{Faça:} };
+
+	\node[anchor=west] (step1_1) at (1.5, 4.0) { $(a)$ $d[u][u] = 0$, \bbtext{para todos} $u\in V$ };
+
+	\node[anchor=west] (step1_2) at (1.5, 3.5) { $(b)$ $d[u][v] = w$, \bbtext{se} $(u, v, w)\in E$ };
+
+	\node[anchor=west] (step1_3) at (1.5, 3.0) { $(c)$ $d[u][v] = \infty$, \bbtext{caso contrário} };
+
+
 	\node[anchor=west] (step2) at (1.0, 2.0) { $2.$ \bbtext{Para cada vértice $k$ e todos os pares $(u,v)\in V^2$, faça} };
 
 	\node[] (dist) at (7.0, 1.25) { $d[u][v] = \min(d[u][v], d[u][k] + d[k][v])$ };
+
+\end{tikzpicture}
+\end{frame}
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+
+	\node[anchor=west] (title) at (0.0, 7.0) { \Large \bbbold{Pseudocódigo} };
+
+
+	\node[anchor=west] (input) at (0.5, 6.0) { \bbemph{Entrada:} \bbtext{um grafo $G(V, E)$} };
+
+	\node[anchor=west] (output) at (0.5, 5.5) { \bbemph{Saída:} \bbtext{uma matriz $d$ tal que $d[u][v]$ é a distância mínima em $G$ entre $u$ e $v$} };
+
+
+	\node[anchor=west] (step1) at (1.0, 4.5) { $1.$ \bbtext{Faça:} };
+
+	\node[anchor=west] (step1_1) at (1.5, 4.0) { $(a)$ $d[u][u] = 0$, \bbtext{para todos} $u\in V$ };
+
+	\node[anchor=west] (step1_2) at (1.5, 3.5) { $(b)$ $d[u][v] = w$, \bbtext{se} $(u, v, w)\in E$ };
+
+	\node[anchor=west] (step1_3) at (1.5, 3.0) { $(c)$ $d[u][v] = \infty$, \bbtext{caso contrário} };
+
+
+	\node[anchor=west] (step2) at (1.0, 2.0) { $2.$ \bbtext{Para cada vértice $k$ e todos os pares $(u,v)\in V^2$, faça} };
+
+	\node[] (dist) at (7.0, 1.25) { $d[u][v] = \min(d[u][v], d[u][k] + d[k][v])$ };
+
 
 	\node[anchor=west] (step3) at (1.0, 0.5) { $3.$ \bbtext{Retorne} $d$ };
 
