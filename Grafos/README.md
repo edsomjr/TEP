@@ -61,6 +61,8 @@ Teoria dos Grafos
 1. Grafos direcionados
     1. [Ordenação topológica](slides/topological_sort/topological_sort.pdf)
         1. [SPOJ TOPOSORT - Topological Sort](https://www.spoj.com/problems/TOPOSORT/) ([_upsolving_](problems/SPOJ_TOPOSORT/SPOJ_TOPOSORT.pdf))
+        1. [Timus 1280 - Topological Sort](https://acm.timus.ru/problem.aspx?space=1&num=1280) ([_upsolving_](problems/Timus_1280/Timus_1280.pdf))
+
 <!---
 Pendências
     - Raio de uma árvore
