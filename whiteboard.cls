@@ -56,6 +56,7 @@
 \newcommand{\bbemph}[1]{\textbf{\textcolor{BBEmerald}{#1}}}
 \newcommand{\bbupdate}[1]{\textbf{\textcolor{BBCyan}{#1}}}
 \newcommand{\bbchalk}[1]{\textbf{\textcolor{BBWhite}{#1}}}
+\newcommand{\bboutput}[1]{\texttt{\textcolor{BBOrange}{#1}}}
 
 \newcommand{\bbcover}[4]{
     \vspace{1in}
