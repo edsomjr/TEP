@@ -773,8 +773,6 @@ header => Node
     @header.text = \Large \bbbold{Solução}
     @header.anchor = west
 
----
-
 s => Node
     @s.x = 1
     @s.y = 5

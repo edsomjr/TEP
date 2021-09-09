@@ -3,19 +3,26 @@
 
 ## Scene
 
+title => Node
+    @title.x = 1
+    @title.y = 7
+    @title.text = \Large \bbbold{Proponentes}
+
+---
+
 floyd => Node
     @floyd.x = 2
-    @floyd.y = 5
+    @floyd.y = 4
     @floyd.text = \includegraphics[scale=0.4]{figs/floyd.jpg}
 
 fname => Node
     @fname.x = 2
-    @fname.y = 2.75
+    @fname.y = 1.75
     @fname.text = \bbbold{Robert W. Floyd}
 
 fdate => Node
     @fdate.x = 2
-    @fdate.y = 2.25
+    @fdate.y = 1.25
     @fdate.text = \bbtext{(1962)}
 
 
@@ -123,6 +130,8 @@ output => Node
     @output.text = \bbemph{Saída:} \bbtext{uma matriz $d$ tal que $d[u][v]$ é a distância mínima em $G$ entre $u$ e $v$}
     @output.anchor = west
 
+---
+
 step1 => Node
     @step1.x = 1.0
     @step1.y = 4.5
@@ -147,6 +156,8 @@ step1_3 => Node
     @step1_3.text = $(c)$ $d[u][v] = \infty$, \bbtext{caso contrário}
     @step1_3.anchor = west
 
+---
+
 step2 => Node
     @step2.x = 1.0
     @step2.y = 2.0
@@ -157,6 +168,8 @@ dist => Node
     @dist.x = 7.0
     @dist.y = 1.25
     @dist.text = $d[u][v] = \min(d[u][v], d[u][k] + d[k][v])$
+
+---
 
 step3 => Node
     @step3.x = 1.0
