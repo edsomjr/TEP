@@ -82,7 +82,7 @@
 
 \vspace{0.2in}
 
-\bbbold{Output}
+\bbbold{Saída}
 
 \vspace{0.1in}
 
