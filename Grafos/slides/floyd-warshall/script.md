@@ -66,7 +66,7 @@ rdate => Node
 title => Node
     @title.x = 0
     @title.y = 7
-    @title.text = \Large \bbbold{Características do algoritmo de Bellman-Ford}
+    @title.text = \Large \bbbold{Características do algoritmo de Floyd-Warshall}
     @title.anchor = west
 ---
 
@@ -121,7 +121,7 @@ title => Node
 input => Node
     @input.x = 0.5
     @input.y = 6
-    @input.text = \bbemph{Entrada:} \bbtext{um grafo $G(V, E)$}
+    @input.text = \bbemph{Entrada:} \bbtext{um grafo ponderado $G(V, E)$}
     @input.anchor = west
 
 output => Node
@@ -706,7 +706,7 @@ title => Node
 a1 => Node
     @a1.x = 1
     @a1.y = 6
-    @a1.text = $\star$ \bbtext{O algoritmo de Dijkstra computa as distâncias mínimas, mas não os}
+    @a1.text = $\star$ \bbtext{O algoritmo de Floyd-Warshall computa as distâncias mínimas, mas não os}
     @a1.anchor = west
 
 a2 => Node
@@ -763,8 +763,6 @@ title => Node
     @title.y = 6
     @title.text = \Large \bbbold{Identificação de um caminho mínimo}
     @title.anchor = west
-
----
 
 a => Node
     @a.x = 1
