@@ -29,7 +29,7 @@
 
 \vspace{0.1in}
 
-\bbtext{Help Greg, print the value of the required sum before each step.}
+\bbtext{Ajude Greg, imprimindo o valor da soma requisitada antes de cada etapa.}
 
 ## Text
 
