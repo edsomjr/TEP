@@ -37,7 +37,7 @@
 
 ## Text
 
-\bbbold{Input}
+\bbbold{Entrada}
 
 \vspace{0.1in}
 
@@ -248,14 +248,14 @@ line5 => Node
 
 ---
 
-eBC => Edge
-    @eBC.from = b
-    @eBC.to = c
-    @eBC.color = BBGreen
-    &eBC.very thick
-    &eBC.>=latex
-    &eBC.<->
-    %eBC.label = node[above right] { \bbinfo{2} }
+eCD => Edge
+    @eCD.from = c
+    @eCD.to = d
+    @eCD.color = BBGreen
+    &eCD.very thick
+    &eCD.>=latex
+    &eCD.<->
+    %eCD.label = node[below right] { \bbinfo{2} }
 
 ---
 
