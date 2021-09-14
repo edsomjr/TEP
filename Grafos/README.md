@@ -63,6 +63,7 @@ Teoria dos Grafos
         1. [SPOJ TOPOSORT - Topological Sort](https://www.spoj.com/problems/TOPOSORT/) ([_upsolving_](problems/SPOJ_TOPOSORT/SPOJ_TOPOSORT.pdf))
         1. [Timus 1280 - Topological Sort](https://acm.timus.ru/problem.aspx?space=1&num=1280) ([_upsolving_](problems/Timus_1280/Timus_1280.pdf))
 
+    1. [Programação Dinâmica em DAGs](slides/dp_em_dags/dp_em_dags.pdf)
 <!---
 Pendências
     - Raio de uma árvore
