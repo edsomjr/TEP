@@ -2549,7 +2549,7 @@
 
 
 
-	\node[] (info2) at (7.0, 5.25) { $\displaystyle \dist(v, s) + \dist(s, q) = \dist(v, q) < \dist(p, q) = \dist(p, s) + \dist(s, v)$ };
+	\node[] (info2) at (7.0, 5.25) { $\displaystyle \dist(v, s) + \dist(s, q) = \dist(v, q) < \dist(p, q) = \dist(p, s) + \dist(s, q)$ };
 
 
 
@@ -2852,13 +2852,91 @@
 
 	\node[anchor=west] (input) at (0.5, 6.0) { \bbemph{Entrada:} \bbtext{uma árvore $T(V, E)$} };
 
-	\node[anchor=west] (output) at (0.5, 5.5) { \bbemph{Saída:} \bbtext{o diâmetro $D$ do grafo} };
+	\node[anchor=west] (output) at (0.5, 5.5) { \bbemph{Saída:} \bbtext{o diâmetro $D$ da árvore} };
+
+\end{tikzpicture}
+\end{frame}
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+
+	\node[anchor=west] (title) at (0.0, 7.0) { \Large \bbbold{Pseudocódigo} };
+
+
+	\node[anchor=west] (input) at (0.5, 6.0) { \bbemph{Entrada:} \bbtext{uma árvore $T(V, E)$} };
+
+	\node[anchor=west] (output) at (0.5, 5.5) { \bbemph{Saída:} \bbtext{o diâmetro $D$ da árvore} };
+
 
 	\node[anchor=west] (step1) at (1.0, 4.5) { $1.$ \bbtext{Escolha um vértice $u\in V$ qualquer} };
 
+\end{tikzpicture}
+\end{frame}
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+
+	\node[anchor=west] (title) at (0.0, 7.0) { \Large \bbbold{Pseudocódigo} };
+
+
+	\node[anchor=west] (input) at (0.5, 6.0) { \bbemph{Entrada:} \bbtext{uma árvore $T(V, E)$} };
+
+	\node[anchor=west] (output) at (0.5, 5.5) { \bbemph{Saída:} \bbtext{o diâmetro $D$ da árvore} };
+
+
+	\node[anchor=west] (step1) at (1.0, 4.5) { $1.$ \bbtext{Escolha um vértice $u\in V$ qualquer} };
+
+
 	\node[anchor=west] (step2) at (1.0, 3.5) { $2.$ \bbtext{Seja $v$ o vértice mais distante de $u$, identificado por meio de uma BFS} };
 
+\end{tikzpicture}
+\end{frame}
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+
+	\node[anchor=west] (title) at (0.0, 7.0) { \Large \bbbold{Pseudocódigo} };
+
+
+	\node[anchor=west] (input) at (0.5, 6.0) { \bbemph{Entrada:} \bbtext{uma árvore $T(V, E)$} };
+
+	\node[anchor=west] (output) at (0.5, 5.5) { \bbemph{Saída:} \bbtext{o diâmetro $D$ da árvore} };
+
+
+	\node[anchor=west] (step1) at (1.0, 4.5) { $1.$ \bbtext{Escolha um vértice $u\in V$ qualquer} };
+
+
+	\node[anchor=west] (step2) at (1.0, 3.5) { $2.$ \bbtext{Seja $v$ o vértice mais distante de $u$, identificado por meio de uma BFS} };
+
+
 	\node[anchor=west] (step3) at (1.0, 2.5) { $3.$ \bbtext{Seja $w$ o vértice mais distante de $v$, identificado por meio de uma BFS} };
+
+\end{tikzpicture}
+\end{frame}
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+
+	\node[anchor=west] (title) at (0.0, 7.0) { \Large \bbbold{Pseudocódigo} };
+
+
+	\node[anchor=west] (input) at (0.5, 6.0) { \bbemph{Entrada:} \bbtext{uma árvore $T(V, E)$} };
+
+	\node[anchor=west] (output) at (0.5, 5.5) { \bbemph{Saída:} \bbtext{o diâmetro $D$ da árvore} };
+
+
+	\node[anchor=west] (step1) at (1.0, 4.5) { $1.$ \bbtext{Escolha um vértice $u\in V$ qualquer} };
+
+
+	\node[anchor=west] (step2) at (1.0, 3.5) { $2.$ \bbtext{Seja $v$ o vértice mais distante de $u$, identificado por meio de uma BFS} };
+
+
+	\node[anchor=west] (step3) at (1.0, 2.5) { $3.$ \bbtext{Seja $w$ o vértice mais distante de $v$, identificado por meio de uma BFS} };
+
 
 	\node[anchor=west] (step4) at (1.0, 1.5) { $4.$ \bbtext{Retorne $D = \dist(v, w)$} };
 
