@@ -48,17 +48,9 @@ c1 => Node
 
 ---
 
-d => Node
-    @d.x = 1
-    @d.y = 2
-    @d.text = $\star$ \bbtext{A complexidade de memória se reduz de $O(V)$ para $O(1)$}
-    @d.anchor = west
-
----
-
 e => Node
     @e.x = 1
-    @e.y = 1
+    @e.y = 2
     @e.text = $\star$ \bbtext{Na primeira chamada, $p = 0$ (ou algum sentinela apropriado)}
     @e.anchor = west
 
@@ -653,7 +645,7 @@ n7 => Node
 
     @node7.fill = BBGreen
 
-    @n7.text = $\mathbf{0}$
+    @n7.text = $\mathbf{1}$
     @n1.text = ${0}$
 
 ---
@@ -662,19 +654,17 @@ n7 => Node
     @node3.fill = BBCyan
 
     @n3.text = $\mathbf{0}$
-    @n7.text = ${0}$
+    @n7.text = ${1}$
 
 ---
 
     @node7.fill = BBCyan
 
-    @n7.text = $\mathbf{1}$
     @n3.text = ${0}$
 
 ---
 
     @node4.fill = BBCyan
-    @n7.text = ${1}$
 
 ## Frame
 
