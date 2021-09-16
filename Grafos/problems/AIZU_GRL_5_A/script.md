@@ -84,7 +84,7 @@ $$
 
 \vspace{0.1in}
 
-\bbenglish{Imprima, em uma linha, o diâmetro da árvore.}
+\bbtext{Imprima, em uma linha, o diâmetro da árvore.}
 
 \vspace{0.3in}
 
@@ -250,7 +250,7 @@ e31 => Edge
 +r
     @r.x = 1.65
     @r.y = 3
-    @r.text = \bbinfo{2 + 3 = 5}
+    @r.text = \bboutput{2 + 3 = 5}
 
 +arrow
     @arrow.x = 1.65
@@ -388,7 +388,7 @@ e32 => Edge
 +r
     @r.x = 1.65
     @r.y = 3
-    @r.text = \bbinfo{1 + 2 + 4 = 7}
+    @r.text = \bboutput{1 + 2 + 4 = 7}
 
 +arrow
     @arrow.x = 1.65
