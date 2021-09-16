@@ -57,15 +57,18 @@ Teoria dos Grafos
         1. [OJ 10369 - Arctic Network](http://onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&category=24&page=show_problem&problem=1310) ([_upsolving_](problems/OJ_10369/OJ_10369.pdf))
     1. [Algoritmo de Prim](slides/prim/prim.pdf)
         1. [SPOJ IITKWPCG - Help the old King](https://www.spoj.com/problems/IITKWPCG/) ([_upsolving_](problems/IITKWPCG/IITKWPCK.pdf))
-        1. [OJ 10099 - The Tourist Guide](http://onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&category=24&page=show_problem&problem=1040} ([_upsolving_](problems/OJ_10099/OJ_10099.pdf))
+        1. [OJ 10099 - The Tourist Guide](http://onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&category=24&page=show_problem&problem=1040) ([_upsolving_](problems/OJ_10099/OJ_10099.pdf))
 1. Grafos direcionados
     1. [Ordenação topológica](slides/topological_sort/topological_sort.pdf)
         1. [SPOJ TOPOSORT - Topological Sort](https://www.spoj.com/problems/TOPOSORT/) ([_upsolving_](problems/SPOJ_TOPOSORT/SPOJ_TOPOSORT.pdf))
         1. [Timus 1280 - Topological Sort](https://acm.timus.ru/problem.aspx?space=1&num=1280) ([_upsolving_](problems/Timus_1280/Timus_1280.pdf))
+    1. [Programação dinâmica em DAGs](slides/dp_em_dags/dp_em_dags.pdf)
+        1. [SPOJ DAGCNT2 - Counting in a DAG](https://www.spoj.com/problems/DAGCNT2/) ([_upsolving_](problems/SPOJ_DAGCNT2/SPOJ_DAGCNT2.pdf))
 
 <!---
 Pendências
     - Raio de uma árvore
     - Fluxo
     - Maximum Independent Subset
+    - https://en.wikipedia.org/wiki/Maximum_flow_problem#Minimum_path_cover_in_directed_acyclic_graph
 -->

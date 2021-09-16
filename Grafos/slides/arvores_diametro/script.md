@@ -1001,7 +1001,7 @@ eFB => Edge
     @info.text = \bbtext{Em particular,}
 
     @info2.y = 5.25
-    @info2.text = $\displaystyle \dist(v, s) + \dist(s, q) = \dist(v, q) < \dist(p, q) = \dist(p, s) + \dist(s, v)$
+    @info2.text = $\displaystyle \dist(v, s) + \dist(s, q) = \dist(v, q) < \dist(p, q) = \dist(p, s) + \dist(s, q)$
 
 
 +eVC
@@ -1062,8 +1062,10 @@ input => Node
 output => Node
     @output.x = 0.5
     @output.y = 5.5
-    @output.text = \bbemph{Saída:} \bbtext{o diâmetro $D$ do grafo}
+    @output.text = \bbemph{Saída:} \bbtext{o diâmetro $D$ da árvore}
     @output.anchor = west
+
+---
 
 step1 => Node
     @step1.x = 1.0
@@ -1071,17 +1073,23 @@ step1 => Node
     @step1.text = $1.$ \bbtext{Escolha um vértice $u\in V$ qualquer}
     @step1.anchor = west
 
+---
+
 step2 => Node
     @step2.x = 1.0
     @step2.y = 3.5
     @step2.text = $2.$ \bbtext{Seja $v$ o vértice mais distante de $u$, identificado por meio de uma BFS}
     @step2.anchor = west
 
+---
+
 step3 => Node
     @step3.x = 1.0
     @step3.y = 2.5
     @step3.text = $3.$ \bbtext{Seja $w$ o vértice mais distante de $v$, identificado por meio de uma BFS}
     @step3.anchor = west
+
+---
 
 step4 => Node
     @step4.x = 1.0

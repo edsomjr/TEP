@@ -248,7 +248,7 @@ a23 => Edge
 
     @r.x = 1.65
     @r.y = 3.5
-    @r.text = \bbinfo{0 0 1}
+    @r.text = \bboutput{0 0 1}
 
     @arrow.x = 1.65
     @arrow.y = 4.75
@@ -407,7 +407,7 @@ a34 => Edge
 r => Node
     @r.x = 1.65
     @r.y = 2.5
-    @r.text = \bbinfo{1 0 1 0 1}
+    @r.text = \bboutput{1 0 1 0 1}
 
 arrow => Edge
     @arrow.x = 1.65

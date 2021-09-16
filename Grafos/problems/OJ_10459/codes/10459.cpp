@@ -38,7 +38,7 @@ pair<vector<int>, vector<int>> solve(int N)
         auto u = q.front();
         q.pop();
 
-        int h = 0;
+        int H = 0;
 
         for (auto v : adj[u])
         {
@@ -57,10 +57,10 @@ pair<vector<int>, vector<int>> solve(int N)
                 ys[ii(u, v)] = 1 + y;
             }
 
-            h = max(h, ys[ii(u, v)]);
+            H = max(H, ys[ii(u, v)]);
         }
 
-        ans[h].emplace_back(u);
+        ans[H].emplace_back(u);
     }
     
     auto best = ans.begin()->second;

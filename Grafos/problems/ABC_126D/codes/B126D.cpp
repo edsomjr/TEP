@@ -23,11 +23,11 @@ void dfs(int u, int color, vector<int>& cs)
     }
 }
 
-vector<int> solve(int N, int u)
+vector<int> solve(int N)
 {
     vector<int> cs(N + 1, -1);
     
-    dfs(u, 0, cs);
+    dfs(1, 0, cs);
 
     return cs;
 }
@@ -49,7 +49,7 @@ int main()
         adj[v].push_back(ii(u, w));
     }
 
-    auto ans = solve(N, u);
+    auto ans = solve(N);
 
     for (int i = 1; i <= N; ++i)
         cout << ans[i] << '\n';

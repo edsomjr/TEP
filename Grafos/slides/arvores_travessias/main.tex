@@ -85,36 +85,7 @@
 
 
 
-	\node[anchor=west] (d) at (1.0, 2.0) { $\star$ \bbtext{A complexidade de memória se reduz de $O(V)$ para $O(1)$} };
-
-\end{tikzpicture}
-\end{frame}
-\begin{frame}[plain,t]
-\begin{tikzpicture}
-\node[draw,opacity=0] at (0, 0) {x};
-\node[draw,opacity=0] at (14, 8) {x};
-
-	\node[anchor=west] (title) at (0.0, 7.0) { \Large \bbbold{DFS em árvores} };
-
-	\node[anchor=west] (a) at (1.0, 6.0) { $\star$ \bbtext{A estrutura das árvores simplifica a implementação da DFS} };
-
-
-	\node[anchor=west] (b) at (1.0, 5.0) { $\star$ \bbtext{Por conta da ausência de ciclos, a DFS em árvores dispensa o registro dos} };
-
-	\node[anchor=west] (b1) at (0.5, 4.5) { \bbtext{vértices já visitados} };
-
-
-
-	\node[anchor=west] (c) at (1.0, 3.5) { $\star$ \bbtext{Este registro é substituído por um parâmetro extra, com o vértice $p$ que } };
-
-	\node[anchor=west] (c1) at (0.5, 3.0) { \bbtext{antecedeu $u$ na travessia} };
-
-
-
-	\node[anchor=west] (d) at (1.0, 2.0) { $\star$ \bbtext{A complexidade de memória se reduz de $O(V)$ para $O(1)$} };
-
-
-	\node[anchor=west] (e) at (1.0, 1.0) { $\star$ \bbtext{Na primeira chamada, $p = 0$ (ou algum sentinela apropriado)} };
+	\node[anchor=west] (e) at (1.0, 2.0) { $\star$ \bbtext{Na primeira chamada, $p = 0$ (ou algum sentinela apropriado)} };
 
 
 \end{tikzpicture}
@@ -2213,7 +2184,7 @@
 
 	\node[] (n6) at (9.5, 0.5) { ${0}$ };
 
-	\node[] (n7) at (10.5, 0.5) { $\mathbf{0}$ };
+	\node[] (n7) at (10.5, 0.5) { $\mathbf{1}$ };
 
 
 
@@ -2305,7 +2276,7 @@
 
 	\node[] (n6) at (9.5, 0.5) { ${0}$ };
 
-	\node[] (n7) at (10.5, 0.5) { ${0}$ };
+	\node[] (n7) at (10.5, 0.5) { ${1}$ };
 
 
 
@@ -2400,7 +2371,7 @@
 
 	\node[] (n6) at (9.5, 0.5) { ${0}$ };
 
-	\node[] (n7) at (10.5, 0.5) { $\mathbf{1}$ };
+	\node[] (n7) at (10.5, 0.5) { ${1}$ };
 
 
 

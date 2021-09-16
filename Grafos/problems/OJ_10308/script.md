@@ -252,7 +252,7 @@ e61 => Edge
 
     @r.x = 1.65
     @r.y = 2.5
-    @r.text = \bbinfo{6 + 7 + 9 = 22}
+    @r.text = \bboutput{6 + 7 + 9 = 22}
 
     @arrow.x = 1.65
     @arrow.y = 2.75
