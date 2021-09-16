@@ -6,7 +6,7 @@ using edge = tuple<int, int, int>;
 
 const int MAX { 100010 }, oo { 1000000010 };
 vector<ii> adj[MAX];
-set<int> in[MAX];
+vector<int> in[MAX];
 bitset<MAX> processed;
 
 vector<int> dijkstra_order(int s, int N)
@@ -38,7 +38,7 @@ vector<int> dijkstra_order(int s, int N)
                 pq.emplace(dist[v], v);
                 in[v] = { u };
             } else if (dist[v] == d + w)
-                in[v].emplace(u);
+                in[v].push_back(u);
         }
     }
 
