@@ -974,19 +974,13 @@ title => Node
 a => Node
     @a.x = 1
     @a.y = 5
-    @a.text = $1.$ \bbtext{CSES 1750 -- Planet Queries I}
+    @a.text = $1.$ \bbtext{CSES 1750 -- Planets Queries I}
     @a.anchor = west
-
-b => Node
-    @b.x = 1
-    @b.y = 4
-    @b.text = $2.$ \bbtext{CSES 1160 - Planty Queries II}
-    @b.anchor = west
 
 c => Node
     @c.x = 1
-    @c.y = 3
-    @c.text = $3.$ \bbtext{USACO 2017 December Contest, Silver - Problem 3: The Bovine Shuffle}
+    @c.y = 4
+    @c.text = $2.$ \bbtext{USACO 2017 December Contest, Silver - Problem 3: The Bovine Shuffle}
     @c.anchor = west
 
 ## Scene
@@ -1026,3 +1020,4 @@ Planet Queries I - https://cses.fi/problemset/task/1750
 Planet Queries II - https://cses.fi/problemset/task/1160
 
 Planet Cycles - https://cses.fi/problemset/task/1751
+
