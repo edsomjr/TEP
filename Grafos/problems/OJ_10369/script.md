@@ -47,7 +47,7 @@
 
 \vspace{0.1in}
 
-\bbtext{A primeira linha da entrada contém $N$, o número de casos de teste. A primeira linha de cada caso de teste contém $1\leq S\leq 100$, o número de canais de satélite, e $S < P\leq 500$, o número de postos. As $P$ linhas seguintes contém as coordenadas $(x, y)$ de cada posto, em km (coordenadas são inteiros entre $0$ e $10,000$).}
+\bbtext{A primeira linha da entrada contém $N$, o número de casos de teste. A primeira linha de cada caso de teste contém $1\leq S\leq 100$, o número de canais de satélite, e $S < P\leq 500$, o número de postos. As $P$ linhas seguintes contém as coordenadas $(x, y)$ de cada posto, em km (coordenadas são inteiros entre $0$ e $10.000$).}
 
 \vspace{0.2in}
 
@@ -223,10 +223,10 @@ e14 => Edge
     @arrow.v = 2.75
     @arrow.color = BBBlack
     &arrow.-latex
-    &arrow.very thick
+    &arrow.thick
 
     @r.y = 2.5
-    @r.text = \bbinfo{212.13}
+    @r.text = \footnotesize \bboutput{212.13}
 
 ## Scene
 
