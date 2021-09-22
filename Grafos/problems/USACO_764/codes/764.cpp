@@ -36,7 +36,6 @@ auto solve(int N, const vector<int>& as)
         {
             num[u] = next++;
             found[u] = true;
-// cout << "-- u = " << u << ", num = " << num[u] << '\n';
 
             s.insert(u);
             u = as[u];
@@ -45,7 +44,6 @@ auto solve(int N, const vector<int>& as)
         if (s.count(u))
             len = next - num[u];
 
-// cout << "   next = " << next << ", len = " << len << '\n';
         ans += len;
     }
  

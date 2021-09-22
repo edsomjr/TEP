@@ -17,14 +17,21 @@
 
 \bbtext{Procurando por danças bovinas populares, o fazendeiro John decidiu ensinar a suas vacas a ``Misturada Bovina''. A Misturada Bovina consiste em alinhar suas $N$ vacas $(1\leq N\leq 100.000)$ em uma linha, em alguma ordem. Então elas executam sucessivas ``misturas'', cada uma delas potencialmente reordenando as vacas. Para que as vacas possam se localizar com mais facilidade, o fazendeiro John marcou posições na linha com números de $1\ldots N$, de modo que a primeira vaca se alinhe na posição $1$, a próxima na posição $2$, e assim por diante, até a posição $N$.}
 
-
 ## Text
 
-\bbenglish{A shuffle is described with $N$ numbers, $a_1\ldots a_N$, where a cow in position $i$ moves to position $a_i$ during the shuffle (and so, each $a_i$ is in the range $1\leq N$). Every cow moves to its new location during the shuffle. Unfortunately, all the $a_i$'s are not necessarily distinct, so multiple cows might try to move to the same position during a shuffle, after which they will move together for all remaining shuffles.}
+\bbenglish{A shuffle is described with $N$ numbers, $a_1\ldots a_N$, where a cow in position $i$ moves to position $a_i$ during the shuffle (and so, each $a_i$ is in the range $1\ldots N$). Every cow moves to its new location during the shuffle. Unfortunately, all the $a_i$'s are not necessarily distinct, so multiple cows might try to move to the same position during a shuffle, after which they will move together for all remaining shuffles.}
 
 \vspace{0.1in}
 
 \bbenglish{Farmer John notices that some positions in his lineup contain cows in them no matter how many shuffles take place. Please help him count the number of such positions.}
+
+## Text
+
+\bbtext{Uma mistura é descrita por $N$ números, $a_1\ldots a_N$, onde a vaca que ocupa a posição $i$ se move para a posição $a_i$ durante a mistura (e assim por diante, cada $a_i$ está no intervalo $1\ldots N$). Cada vaca se move para sua nova localização durante a mistura. Infelizmente, os $a_i$'s não são necessariamente distintos, de modo que múltiplas vacas podem tentar se move para a mesma posição durante a mistura, e após isso elas deve se mover juntas durante todas as misturas restantes.}
+
+\vspace{0.1in}
+
+\bbtext{O fazendeiro John notou que algumas posições na linha sempre tinham vacas sobre elas independentemente do número de misturas feitas. Por favor o ajude a contar o número de tais posições.}
 
 ## Text
 
@@ -42,7 +49,21 @@
 
 \bbenglish{Please output the number of positions that will always contain cows, no matter how many shuffles take place.}
 
-## End
+## Text
+
+\bbbold{Entrada}
+
+\vspace{0.1in}
+
+\bbtext{A primeira linha da entrada contém $N$, o número de vacas. A próxima linha contém os $N$ inteiros $a_1\ldots a_N$.}
+
+\vspace{0.2in}
+
+\bbbold{Saída}
+
+\vspace{0.1in}
+
+\bbtext{Por favor imprima o número de posições que sempre terão vacas, independentemente de quantas misturas sejam feitas.}
 
 ## Scene
 
@@ -56,7 +77,7 @@ header => Node
 line1 => Node
     @line1.x = 1
     @line1.y = 6
-    @line1.text = \bbtext{\texttt{8 9} }
+    @line1.text = \bbtext{\texttt{4} }
     @line1.anchor = west
 
 ---
@@ -72,14 +93,7 @@ arrow => Edge
 r => Node
     @r.x = 1.25
     @r.y = 4.75
-    @r.text = \footnotesize \bbcomment{\# de tarefas}
-
----
-
-    @r.x = 2.5
-    @r.text = \footnotesize \bbcomment{\# de relações de dependência}
-    @arrow.x = 1.65
-    @arrow.u = 1.65
+    @r.text = \footnotesize \bbcomment{\# de vacas}
 
 ---
 -r
@@ -87,7 +101,7 @@ r => Node
 
 node1 => Node
     @node1.x = 6
-    @node1.y = 5
+    @node1.y = 4
     @node1.text = \bbtext{1}
     &node1.draw
     &node1.very thick
@@ -95,7 +109,7 @@ node1 => Node
 
 node2 => Node
     @node2.x = 8
-    @node2.y = 7
+    @node2.y = 4
     @node2.text = \bbtext{2}
     &node2.draw
     &node2.very thick
@@ -103,7 +117,7 @@ node2 => Node
 
 node3 => Node
     @node3.x = 10
-    @node3.y = 7
+    @node3.y = 4
     @node3.text = \bbtext{3}
     &node3.draw
     &node3.very thick
@@ -111,66 +125,46 @@ node3 => Node
 
 node4 => Node
     @node4.x = 12
-    @node4.y = 5
+    @node4.y = 4
     @node4.text = \bbtext{4}
     &node4.draw
     &node4.very thick
     &node4.circle
 
-node5 => Node
-    @node5.x = 12
-    @node5.y = 3
-    @node5.text = \bbtext{5}
-    &node5.draw
-    &node5.very thick
-    &node5.circle
+cow1 => Node
+    @cow1.x = 6
+    @cow1.y = 5
+    @cow1.text = \includegraphics[scale=0.05]{figs/cow.png}
 
-node6 => Node
-    @node6.x = 10
-    @node6.y = 1
-    @node6.text = \bbtext{6}
-    &node6.draw
-    &node6.very thick
-    &node6.circle
+cow2 => Node
+    @cow2.x = 8
+    @cow2.y = 5
+    @cow2.text = \includegraphics[scale=0.05]{figs/cow.png}
 
-node7 => Node
-    @node7.x = 8
-    @node7.y = 1
-    @node7.text = \bbtext{7}
-    &node7.draw
-    &node7.very thick
-    &node7.circle
+cow3 => Node
+    @cow3.x = 10
+    @cow3.y = 5
+    @cow3.text = \includegraphics[scale=0.05]{figs/cow.png}
 
-node8 => Node
-    @node8.x = 6
-    @node8.y = 3
-    @node8.text = \bbtext{8}
-    &node8.draw
-    &node8.very thick
-    &node8.circle
-
-node9 => Node
-    @node9.x = 6
-    @node9.y = 4
-    @node9.text = \bbtext{9}
-    &node9.draw
-    &node9.very thick
-    &node9.circle
-
--node9
+cow4 => Node
+    @cow4.x = 12
+    @cow4.y = 5
+    @cow4.text = \includegraphics[scale=0.05]{figs/cow.png}
 
 ---
 
 line2 => Node
     @line2.x = 1
     @line2.y = 5.5
-    @line2.text = \bbtext{\texttt{1 4} }
+    @line2.text = \bbtext{\texttt{3 2 1 3} }
     @line2.anchor = west
+
+---
 
 +r
     @r.x = 1.25
     @r.y = 4.0
-    @r.text = \footnotesize \bbcomment{$x$}
+    @r.text = \footnotesize \bbcomment{$a_1$}
 
 +arrow
     @arrow.x = 1.25
@@ -179,60 +173,48 @@ line2 => Node
     @arrow.v = 5.25
 
 ---
+
+e13 => Edge
+    @e13.from = node1
+    @e13.to = node3
+    &e13.thick
+    &e13.-latex
+    %e13.label = [bend right]
+
+---
+
     @r.x = 1.65
-    @r.text = \footnotesize \bbcomment{$y$}
+    @r.text = \footnotesize \bbcomment{$a_2$}
 
     @arrow.x = 1.65
     @arrow.u = 1.65
 
 ---
--r
--arrow
 
-e14 => Edge
-    @e14.from = node1
-    @e14.to = node4
-    &e14.thick
-    &e14.-latex
+e22 => Edge
+    @e22.from = node2
+    @e22.to = node2
+    &e22.thick
+    &e22.-latex
+    %e22.label = [loop left]
 
----
-
-line3 => Node
-    @line3.x = 1
-    @line3.y = 5.0
-    @line3.text = \bbtext{\texttt{1 2} }
-    @line3.anchor = west
 
 ---
+    @r.x = 2.05
+    @r.text = \footnotesize \bbcomment{$a_3$}
 
-e12 => Edge
-    @e12.from = node1
-    @e12.to = node2
-    &e12.thick
-    &e12.-latex
-
----
-
-line4 => Node
-    @line4.x = 1
-    @line4.y = 4.5
-    @line4.text = \bbtext{\texttt{4 2} }
-    @line4.anchor = west
+    @arrow.x = 2.05
+    @arrow.u = 2.05
 
 ---
+    &e13.latex-latex
 
-e42 => Edge
-    @e42.from = node4
-    @e42.to = node2
-    &e42.thick
-    &e42.-latex
 ---
+    @r.x = 2.45
+    @r.text = \footnotesize \bbcomment{$a_4$}
 
-line5 => Node
-    @line5.x = 1
-    @line5.y = 4.0
-    @line5.text = \bbtext{\texttt{4 3} }
-    @line5.anchor = west
+    @arrow.x = 2.45
+    @arrow.u = 2.45
 
 ---
 
@@ -243,258 +225,41 @@ e43 => Edge
     &e43.-latex
 
 ---
-
-line6 => Node
-    @line6.x = 1
-    @line6.y = 3.5
-    @line6.text = \bbtext{\texttt{3 2} }
-    @line6.anchor = west
+-r
+-arrow
 
 ---
 
-e32 => Edge
-    @e32.from = node3
-    @e32.to = node2
-    &e32.thick
-    &e32.-latex
+info => Node
+    @info.x = 9
+    @info.y = 2
+    @info.text = \bbbold{Mistura \#1}
 
 ---
-
-line7 => Node
-    @line7.x = 1
-    @line7.y = 3.0
-    @line7.text = \bbtext{\texttt{5 2} }
-    @line7.anchor = west
+    @cow4.x = 10
+    @cow4.y = 5.75
 
 ---
-
-e52 => Edge
-    @e52.from = node5
-    @e52.to = node2
-    &e52.thick
-    &e52.-latex
-
+    @info.text = \bbbold{Mistura \#2}
 ---
-
-line8 => Node
-    @line8.x = 1
-    @line8.y = 2.5
-    @line8.text = \bbtext{\texttt{3 5} }
-    @line8.anchor = west
-
----
-
-e35 => Edge
-    @e35.from = node3
-    @e35.to = node5
-    &e35.thick
-    &e35.-latex
-
----
-
-line9 => Node
-    @line9.x = 1
-    @line9.y = 2.0
-    @line9.text = \bbtext{\texttt{8 2} }
-    @line9.anchor = west
-
----
-
-e82 => Edge
-    @e82.from = node8
-    @e82.to = node2
-    &e82.thick
-    &e82.-latex
-
----
-
-line10 => Node
-    @line10.x = 1
-    @line10.y = 1.5
-    @line10.text = \bbtext{\texttt{8 6} }
-    @line10.anchor = west
-
----
-
-e86 => Edge
-    @e86.from = node8
-    @e86.to = node6
-    &e86.thick
-    &e86.-latex
-
----
-
-    @node1.fill = BBGreen
-    @node7.fill = BBGreen
-    @node8.fill = BBGreen
-    @node9.fill = BBGreen
-
----
-    @node1.fill = BBCyan
-
----
--node1
--e12
--e14
-
----
-    @node4.fill = BBGreen
-
----
-    @node4.fill = BBCyan
-
----
--node4
--e42
--e43
-
----
-    @node3.fill = BBGreen
-
----
-    @node3.fill = BBCyan
-
----
--node3
--e32
--e35
-
----
-    @node5.fill = BBGreen
-
----
-    @node5.fill = BBCyan
-
----
--node5
--e52
-
----
-    @node7.fill = BBCyan
-
----
--node7
-
----
-    @node8.fill = BBCyan
-
----
--node8
--e82
--e86
-
----
-    @node2.fill = BBGreen
-    @node6.fill = BBGreen
-
----
-    @node2.fill = BBCyan
----
--node2
-
----
-    @node6.fill = BBCyan
----
--node6
+    @cow4.x = 6
 
 ---
 +r
-    @r.x = 3.5
-    @r.y = 2.5
-    @r.text = \footnotesize \bboutput{1 4 3 5 7 8 2 6}
-    @r.anchor = west
+    @r.x = 1.85
+    @r.y = 4
+    @r.text = \footnotesize \bboutput{3}
 
 +arrow
-    @arrow.x = 2.25
-    @arrow.y = 2.5
-    @arrow.u = 3.25
-    @arrow.v = 2.5
+    @arrow.x = 1.85
+    @arrow.y = 5.25
+    @arrow.u = 1.85
+    @arrow.v = 4.25
     @arrow.color = BBBlack
     &arrow.very thick
     &arrow.-latex
-    
-## Scene
 
-header => Node
-    @header.y = 7
-    @header.text = \bbbold{Exemplo de entrada e saída}
-    @header.anchor = west
 
----
-
-line1 => Node
-    @line1.x = 1
-    @line1.y = 6
-    @line1.text = \bbtext{\texttt{2 2} }
-    @line1.anchor = west
-
----
-
-a => Node
-    @a.x = 7
-    @a.y = 4
-    @a.text = \bbtext{1}
-    &a.draw
-    &a.very thick
-    &a.circle
-
-b => Node
-    @b.x = 12
-    @b.y = 4
-    @b.text = \bbtext{2}
-    &b.draw
-    &b.very thick
-    &b.circle
-
----
-
-line2 => Node
-    @line2.x = 1
-    @line2.y = 5.5
-    @line2.text = \bbtext{\texttt{1 2} }
-    @line2.anchor = west
-
----
-
-eAB => Edge
-    @eAB.from = a
-    @eAB.to = b
-    &eAB.thick
-    &eAB.-latex
-    %eAB.label = [bend left]
-
----
-
-line3 => Node
-    @line3.x = 1
-    @line3.y = 5.0
-    @line3.text = \bbtext{\texttt{2 1 } }
-    @line3.anchor = west
-
----
-
-eBA => Edge
-    @eBA.from = b
-    @eBA.to = a
-    &eBA.thick
-    &eBA.-latex
-    %eBA.label = [bend left]
-
----
-r => Node
-    @r.x = 1.45
-    @r.y = 3.5
-    @r.text = \footnotesize \bboutput{Sandro fails.}
-
-arrow => Edge
-    @arrow.x = 1.45
-    @arrow.y = 4.75
-    @arrow.u = 1.45
-    @arrow.v = 3.75
-    @arrow.color = BBBlack
-    &arrow.very thick
-    &arrow.-latex
- 
 ## Scene
 
 title => Node
@@ -505,70 +270,284 @@ title => Node
 ---
 
 a => Node
-    @a.x = 1
+    @a.x = 7
     @a.y = 6
-    @a.text = $\star$ \bbtext{Sandro será capaz de cumprir suas tarefas apenas se elas puderem ser}
-    @a.anchor = west
-
-a1 => Node
-    @a1.x = 0.5
-    @a1.y = 5.5
-    @a1.text = \bbtext{ordenadas de tal forma que as prioridades sejam respeitadas}
-    @a1.anchor = west
-
----
+    @a.text = \bbtext{No problema, as posições são os vértices e as movimentações as arestas}
 
 b => Node
-    @b.x = 1
-    @b.y = 4.5
-    @b.text = $\star$ \bbtext{Em outras palavras, há solução apenas se existe uma ordenação topológica}
-    @b.anchor = west
+    @b.x = 7
+    @b.y = 5.25
+    @b.text = \bbtext{de um grafo $G$}
+
+---
+-b
+    @a.text = \bbtext{Este grafo $G$ é um grafo de sucessores}
+
+---
++b
+    @a.text = \bbtext{Assim, ele tem um mais um componentes, onde cada componente tem um ciclo}
+    @b.text = \bbtext{e um ou mais caminhos que levam a este ciclo}
 
 ---
 
-c => Node
-    @c.x = 1
-    @c.y = 3.5
-    @c.text = $\star$ \bbtext{Se o grafo tem um ou mais ciclos, a resposta é \bboutput{Sandro fails.}}
-    @c.anchor = west
+a1 => Node
+    @a1.x = 0.8
+    @a1.y = 2
+    &a1.draw
+    &a1.circle
+    &a1.thick
 
+a2 => Node
+    @a2.x = 2.4
+    @a2.y = 4
+    &a2.draw
+    &a2.circle
+    &a2.thick
+
+a3 => Node
+    @a3.x = 4
+    @a3.y = 2
+    &a3.draw
+    &a3.circle
+    &a3.thick
+
+a4 => Node
+    @a4.x = 3.2
+    @a4.y = 0
+    &a4.draw
+    &a4.circle
+    &a4.thick
+
+a5 => Node
+    @a5.x = 1.6
+    @a5.y = 0
+    &a5.draw
+    &a5.circle
+    &a5.thick
+
+a12 => Edge
+    @a12.from = a1
+    @a12.to = a2
+    &a12.-latex
+    &a12.thick
+    
+a23 => Edge
+    @a23.from = a2
+    @a23.to = a3
+    &a23.-latex
+    &a23.thick
+ 
+a34 => Edge
+    @a34.from = a3
+    @a34.to = a4
+    &a34.-latex
+    &a34.thick
+ 
+a45 => Edge
+    @a45.from = a4
+    @a45.to = a5
+    &a45.-latex
+    &a45.thick
+ 
+a51 => Edge
+    @a51.from = a5
+    @a51.to = a1
+    &a51.-latex
+    &a51.thick
+ 
 ---
 
-d => Node
-    @d.x = 1
-    @d.y = 2.5
-    @d.text = $\star$ \bbtext{O problema pede, na saída, uma ordenação específica}
-    @d.anchor = west
+b1 => Node
+    @b1.x = 5.5
+    @b1.y = 3
+    &b1.draw
+    &b1.circle
+    &b1.thick
 
+b2 => Node
+    @b2.x = 6.5
+    @b2.y = 3
+    &b2.draw
+    &b2.circle
+    &b2.thick
+
+b3 => Node
+    @b3.x = 7.5
+    @b3.y = 3
+    &b3.draw
+    &b3.circle
+    &b3.thick
+
+b4 => Node
+    @b4.x = 8.5
+    @b4.y = 3
+    &b4.draw
+    &b4.circle
+    &b4.thick
+
+b12 => Edge
+    @b12.from = b1
+    @b12.to = b2
+    &b12.-latex
+    &b12.thick
+ 
+b23 => Edge
+    @b23.from = b2
+    @b23.to = b3
+    &b23.-latex
+    &b23.thick
+
+b34 => Edge
+    @b34.from = b3
+    @b34.to = b4
+    &b34.-latex
+    &b34.thick
+
+b43 => Edge
+    @b43.from = b4
+    @b43.to = b3
+    &b43.-latex
+    &b43.thick
+    %b43.label = [bend right]
+ 
 ---
 
-e => Node
-    @e.x = 1
-    @e.y = 1.5
-    @e.text = $\star$ \bbtext{Esta ordenação pode ser obtida se a fila do algoritmo de Kahn for}
-    @e.anchor = west
+c1 => Node
+    @c1.x = 9.8
+    @c1.y = 1.6
+    &c1.draw
+    &c1.circle
+    &c1.thick
 
-e1 => Node
-    @e1.x = 0.5
-    @e1.y = 1.0
-    @e1.text = \bbtext{substituída por uma \bbenglish{min heap}}
-    @e1.anchor = west
+c2 => Node
+    @c2.x = 10.6
+    @c2.y = 2.8
+    &c2.draw
+    &c2.circle
+    &c2.thick
+
+c3 => Node
+    @c3.x = 11.4
+    @c3.y = 4
+    &c3.draw
+    &c3.circle
+    &c3.thick
+
+c4 => Node
+    @c4.x = 12.2
+    @c4.y = 2.8
+    &c4.draw
+    &c4.circle
+    &c4.thick
+
+c5 => Node
+    @c5.x = 12.2
+    @c5.y = 1.6
+    &c5.draw
+    &c5.circle
+    &c5.thick
+
+c6 => Node
+    @c6.x = 11.4
+    @c6.y = 0.4
+    &c6.draw
+    &c6.circle
+    &c6.thick
+
+c7 => Node
+    @c7.x = 13
+    @c7.y = 0.4
+    &c7.draw
+    &c7.circle
+    &c7.thick
+
+c12 => Edge
+    @c12.from = c1
+    @c12.to = c2
+    &c12.-latex
+    &c12.thick
+ 
+c23 => Edge
+    @c23.from = c2
+    @c23.to = c3
+    &c23.-latex
+    &c23.thick
+
+c34 => Edge
+    @c34.from = c3
+    @c34.to = c4
+    &c34.-latex
+    &c34.thick
+
+c42 => Edge
+    @c42.from = c4
+    @c42.to = c2
+    &c42.-latex
+    &c42.thick
+
+c54 => Edge
+    @c54.from = c5
+    @c54.to = c4
+    &c54.-latex
+    &c54.thick
+
+c65 => Edge
+    @c65.from = c6
+    @c65.to = c5
+    &c65.-latex
+    &c65.thick
+
+c75 => Edge
+    @c75.from = c7
+    @c75.to = c5
+    &c75.-latex
+    &c75.thick
+ 
+---
+-b
+    @a.text = \bbtext{As vacas convergem, a cada mistura, para os ciclos}
+
+---
+    @a1.fill = BBCyan
+    @a2.fill = BBCyan
+    @a3.fill = BBCyan
+    @a4.fill = BBCyan
+    @a5.fill = BBCyan
+
+---
+    @b3.fill = BBGreen
+    @b4.fill = BBGreen
+
+---
+    @c2.fill = BBOrange
+    @c3.fill = BBOrange
+    @c4.fill = BBOrange
+
+---
+    @a.text = \bbtext{Assim, a solução é a soma dos comprimentos destes ciclos}
 
 
 ## Frame
 
-\inputsnippet{cpp}{11}{29}{codes/764.cpp}
+\inputsnippet{cpp}{11}{30}{codes/764.cpp}
 
 ## Frame
 
-\inputsnippet{cpp}{31}{42}{codes/764.cpp}
+\inputsnippet{cpp}{32}{51}{codes/764.cpp}
 
+## Scene
+
+title => Node
+    @title.x = 0
+    @title.y = 6.5
+    @title.text = \Large \bbbold{Créditos}
+    @title.anchor = west
+---
+
+a => Node
+    @a.x = 1
+    @a.y = 5.5
+    @a.text = \bbtext{Cow icon made by surang from \bbenglish{www.flaticon.com}. }
+    @a.anchor = west
 
 ## End
-
-SAMPLE INPUT:
-4
-3 2 1 3
-SAMPLE OUTPUT:
-3
-Problem credits: Brian Dean
