@@ -100,17 +100,23 @@ output => Node
     @output.text = \bbemph{Saída:} \bbtext{uma MST de $G$}
     @output.anchor = west
 
+---
+
 step1 => Node
     @step1.x = 1.0
     @step1.y = 4.5
     @step1.text = $1.$ \bbtext{Faça $M = \emptyset$ e seja $F(V, \emptyset)$ uma floresta de vértices isolados}
     @step1.anchor = west
 
+---
+
 step2 => Node
     @step2.x = 1.0
     @step2.y = 3.5
     @step2.text = $2.$ \bbtext{Ordene $E$ ascendentemente, por peso} 
     @step2.anchor = west
+
+---
 
 step3 => Node
     @step3.x = 1.0
@@ -121,21 +127,22 @@ step3 => Node
 step3a => Node
     @step3a.x = 2.0
     @step3a.y = 2.0
-    @step3a.text = $(a)$ \bbtext{Una estes componentes em $F$}
+    @step3a.text = $(a)$ \bbtext{una estes componentes em $F$}
     @step3a.anchor = west
 
 step3b => Node
     @step3b.x = 2.0
     @step3b.y = 1.5
-    @step3b.text = $(b)$ \bbtext{Inclua $(u, v, w)$ no conjunto $M$}
+    @step3b.text = $(b)$ \bbtext{inclua $(u, v, w)$ no conjunto $M$}
     @step3b.anchor = west
+
+---
 
 step4 => Node
     @step4.x = 1.0
     @step4.y = 0.5
     @step4.text = $4.$ \bbtext{Retorne $M$}
     @step4.anchor = west
-
 
 ## Scene
 

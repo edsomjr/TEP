@@ -139,18 +139,99 @@
 
 	\node[anchor=west] (output) at (0.5, 5.5) { \bbemph{Saída:} \bbtext{uma MST de $G$} };
 
+\end{tikzpicture}
+\end{frame}
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+
+	\node[anchor=west] (title) at (0.0, 7.0) { \Large \bbbold{Pseudocódigo} };
+
+
+	\node[anchor=west] (input) at (0.5, 6.0) { \bbemph{Entrada:} \bbtext{um grafo ponderado $G(V, E)$} };
+
+	\node[anchor=west] (output) at (0.5, 5.5) { \bbemph{Saída:} \bbtext{uma MST de $G$} };
+
+
 	\node[anchor=west] (step1) at (1.0, 4.5) { $1.$ \bbtext{Faça $M = \emptyset$ e seja $F(V, \emptyset)$ uma floresta de vértices isolados} };
+
+\end{tikzpicture}
+\end{frame}
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+
+	\node[anchor=west] (title) at (0.0, 7.0) { \Large \bbbold{Pseudocódigo} };
+
+
+	\node[anchor=west] (input) at (0.5, 6.0) { \bbemph{Entrada:} \bbtext{um grafo ponderado $G(V, E)$} };
+
+	\node[anchor=west] (output) at (0.5, 5.5) { \bbemph{Saída:} \bbtext{uma MST de $G$} };
+
+
+	\node[anchor=west] (step1) at (1.0, 4.5) { $1.$ \bbtext{Faça $M = \emptyset$ e seja $F(V, \emptyset)$ uma floresta de vértices isolados} };
+
 
 	\node[anchor=west] (step2) at (1.0, 3.5) { $2.$ \bbtext{Ordene $E$ ascendentemente, por peso} };
 
+\end{tikzpicture}
+\end{frame}
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+
+	\node[anchor=west] (title) at (0.0, 7.0) { \Large \bbbold{Pseudocódigo} };
+
+
+	\node[anchor=west] (input) at (0.5, 6.0) { \bbemph{Entrada:} \bbtext{um grafo ponderado $G(V, E)$} };
+
+	\node[anchor=west] (output) at (0.5, 5.5) { \bbemph{Saída:} \bbtext{uma MST de $G$} };
+
+
+	\node[anchor=west] (step1) at (1.0, 4.5) { $1.$ \bbtext{Faça $M = \emptyset$ e seja $F(V, \emptyset)$ uma floresta de vértices isolados} };
+
+
+	\node[anchor=west] (step2) at (1.0, 3.5) { $2.$ \bbtext{Ordene $E$ ascendentemente, por peso} };
+
+
 	\node[anchor=west] (step3) at (1.0, 2.5) { $3.$ \bbtext{Para cada $(u, v, w)\in E$, se $u$ e $v$ estão em componentes distintos de $F$:} };
 
-	\node[anchor=west] (step3a) at (2.0, 2.0) { $(a)$ \bbtext{Una estes componentes em $F$} };
+	\node[anchor=west] (step3a) at (2.0, 2.0) { $(a)$ \bbtext{una estes componentes em $F$} };
 
-	\node[anchor=west] (step3b) at (2.0, 1.5) { $(b)$ \bbtext{Inclua $(u, v, w)$ no conjunto $M$} };
+	\node[anchor=west] (step3b) at (2.0, 1.5) { $(b)$ \bbtext{inclua $(u, v, w)$ no conjunto $M$} };
+
+\end{tikzpicture}
+\end{frame}
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+
+	\node[anchor=west] (title) at (0.0, 7.0) { \Large \bbbold{Pseudocódigo} };
+
+
+	\node[anchor=west] (input) at (0.5, 6.0) { \bbemph{Entrada:} \bbtext{um grafo ponderado $G(V, E)$} };
+
+	\node[anchor=west] (output) at (0.5, 5.5) { \bbemph{Saída:} \bbtext{uma MST de $G$} };
+
+
+	\node[anchor=west] (step1) at (1.0, 4.5) { $1.$ \bbtext{Faça $M = \emptyset$ e seja $F(V, \emptyset)$ uma floresta de vértices isolados} };
+
+
+	\node[anchor=west] (step2) at (1.0, 3.5) { $2.$ \bbtext{Ordene $E$ ascendentemente, por peso} };
+
+
+	\node[anchor=west] (step3) at (1.0, 2.5) { $3.$ \bbtext{Para cada $(u, v, w)\in E$, se $u$ e $v$ estão em componentes distintos de $F$:} };
+
+	\node[anchor=west] (step3a) at (2.0, 2.0) { $(a)$ \bbtext{una estes componentes em $F$} };
+
+	\node[anchor=west] (step3b) at (2.0, 1.5) { $(b)$ \bbtext{inclua $(u, v, w)$ no conjunto $M$} };
+
 
 	\node[anchor=west] (step4) at (1.0, 0.5) { $4.$ \bbtext{Retorne $M$} };
-
 
 \end{tikzpicture}
 \end{frame}
