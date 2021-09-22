@@ -63,7 +63,11 @@ Teoria dos Grafos
         1. [SPOJ TOPOSORT - Topological Sort](https://www.spoj.com/problems/TOPOSORT/) ([_upsolving_](problems/SPOJ_TOPOSORT/SPOJ_TOPOSORT.pdf))
         1. [Timus 1280 - Topological Sort](https://acm.timus.ru/problem.aspx?space=1&num=1280) ([_upsolving_](problems/Timus_1280/Timus_1280.pdf))
     1. [Programação dinâmica em DAGs](slides/dp_em_dags/dp_em_dags.pdf)
+        1. [CSES 1202 - Investigation](https://cses.fi/problemset/task/1202) ([_upsolving_](problems/CSES_1202/CSES_1202.pdf))
         1. [SPOJ DAGCNT2 - Counting in a DAG](https://www.spoj.com/problems/DAGCNT2/) ([_upsolving_](problems/SPOJ_DAGCNT2/SPOJ_DAGCNT2.pdf))
+    1. [Grafos de sucessores](slides/grafos_de_sucessores/grafos_de_sucessores.pdf)
+        1. [CSES 1750 - Planets Queries I](https://cses.fi/problemset/task/1750) ([_upsolving_](problems/CSES_1750/CSES_1750.pdf))
+        1. [USACO 764 - The Bovine Shuffle](http://www.usaco.org/index.php?page=viewproblem2&cpid=764) ([_upsolving_](problems/USACO_764/USACO_764.pdf)) 
 
 <!---
 Pendências
