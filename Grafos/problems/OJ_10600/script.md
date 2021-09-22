@@ -340,12 +340,12 @@ info => Node
     @arrow.u = 1.65
     @arrow.v = 0.75
     @arrow.color = BBBlack
-    &arrow.very thick
+    &arrow.thick
     &arrow.-latex
 
     @r.x = 1.65
     @r.y = 0.5
-    @r.text = \bbinfo{110 121}
+    @r.text = \footnotesize \bboutput{110 121}
 
 
 ## Scene
