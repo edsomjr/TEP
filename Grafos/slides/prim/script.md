@@ -123,11 +123,15 @@ output => Node
     @output.text = \bbemph{Saída:} \bbtext{uma MST de $G$}
     @output.anchor = west
 
+---
+
 step1 => Node
     @step1.x = 1.0
     @step1.y = 4.5
     @step1.text = $1.$ \bbtext{Escolha um vértice $u\in V$ e faça $C = \{ u \}, M = \emptyset$}
     @step1.anchor = west
+
+---
 
 step2 => Node
     @step2.x = 1.0
@@ -146,6 +150,8 @@ step2b => Node
     @step2b.y = 2.5
     @step2b.text = $(b)$ \bbtext{Inclua $v$ em $C$ e a aresta que une $v$ a $C$ em $M$}
     @step2b.anchor = west
+
+---
 
 step3 => Node
     @step3.x = 1.0
