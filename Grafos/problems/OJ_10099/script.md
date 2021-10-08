@@ -173,7 +173,7 @@ e67 => Edge
 
 \vspace{0.1in}
 
-\bbtext{For each test case in the input first output the scenario number. Then output the minimum number of trips required for this case on a separate line. Print a blank line after the output of each test case.}
+\bbenglish{For each test case in the input first output the scenario number. Then output the minimum number of trips required for this case on a separate line. Print a blank line after the output of each test case.}
 
 ## Text
 
@@ -181,7 +181,7 @@ e67 => Edge
 
 \vspace{0.1in}
 
-\bbtext{Para cada caso de teste da entrada imprima o número do cenário. Entãoa imprima o número mínimo de viagens necessárias neste caso em uma linha. Imprima uma linha em branco após a saída de cada caso de teste.}
+\bbtext{Para cada caso de teste da entrada imprima o número do cenário. Então imprima o número mínimo de viagens necessárias neste caso em uma linha. Imprima uma linha em branco após a saída de cada caso de teste.}
 
 ## Scene
 
