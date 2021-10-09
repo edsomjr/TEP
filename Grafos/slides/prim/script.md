@@ -82,7 +82,7 @@ b => Node
 c => Node
     @c.x = 1
     @c.y = 3.5
-    @c.text = $\star$ \bbtext{Enquanto $C \neq V$, deve se identificar o vértice $u\not\in C$ mais pŕoximo de $C$}
+    @c.text = $\star$ \bbtext{Enquanto $C \neq V$, é identificado o vértice $u\not\in C$ mais pŕoximo de $C$}
     @c.anchor = west
 
 ---
@@ -423,7 +423,7 @@ title => Node
 a => Node
     @a.x = 1
     @a.y = 5.5
-    @a.text = $\star$ \bbtext{Uma MST minimiza o maior peso entre as arestas presente em qualquer }
+    @a.text = $\star$ \bbtext{Uma MST minimiza o maior peso entre as arestas presentes em qualquer }
     @a.anchor = west
 
 a1 => Node
@@ -645,7 +645,7 @@ b1 => Node
 c => Node
     @c.x = 1
     @c.y = 3.5
-    @c.text = $\star$ \bbtext{Por conta da restrição $E'$, $S_{E'}$, não é, necessariamente, uma MST}
+    @c.text = $\star$ \bbtext{Por conta da restrição $E'$, $S_{E'}$ não é, necessariamente, uma MST}
     @c.anchor = west
 
 ---
