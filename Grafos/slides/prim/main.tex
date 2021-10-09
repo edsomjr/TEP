@@ -77,7 +77,7 @@
 	\node[anchor=west] (b) at (1.0, 4.5) { $\star$ \bbtext{Um vértice $u$ é escolhido para iniciar um componente conectado $C$} };
 
 
-	\node[anchor=west] (c) at (1.0, 3.5) { $\star$ \bbtext{Enquanto $C \neq V$, deve se identificar o vértice $u\not\in C$ mais pŕoximo de $C$} };
+	\node[anchor=west] (c) at (1.0, 3.5) { $\star$ \bbtext{Enquanto $C \neq V$, é identificado o vértice $u\not\in C$ mais pŕoximo de $C$} };
 
 \end{tikzpicture}
 \end{frame}
@@ -94,7 +94,7 @@
 	\node[anchor=west] (b) at (1.0, 4.5) { $\star$ \bbtext{Um vértice $u$ é escolhido para iniciar um componente conectado $C$} };
 
 
-	\node[anchor=west] (c) at (1.0, 3.5) { $\star$ \bbtext{Enquanto $C \neq V$, deve se identificar o vértice $u\not\in C$ mais pŕoximo de $C$} };
+	\node[anchor=west] (c) at (1.0, 3.5) { $\star$ \bbtext{Enquanto $C \neq V$, é identificado o vértice $u\not\in C$ mais pŕoximo de $C$} };
 
 
 	\node[anchor=west] (d) at (1.0, 2.5) { $\star$ \bbtext{Então $u$ é inserido em $C$ e a aresta que uniu $u$ a $C$ faz parte de uma MST} };
@@ -114,7 +114,7 @@
 	\node[anchor=west] (b) at (1.0, 4.5) { $\star$ \bbtext{Um vértice $u$ é escolhido para iniciar um componente conectado $C$} };
 
 
-	\node[anchor=west] (c) at (1.0, 3.5) { $\star$ \bbtext{Enquanto $C \neq V$, deve se identificar o vértice $u\not\in C$ mais pŕoximo de $C$} };
+	\node[anchor=west] (c) at (1.0, 3.5) { $\star$ \bbtext{Enquanto $C \neq V$, é identificado o vértice $u\not\in C$ mais pŕoximo de $C$} };
 
 
 	\node[anchor=west] (d) at (1.0, 2.5) { $\star$ \bbtext{Então $u$ é inserido em $C$ e a aresta que uniu $u$ a $C$ faz parte de uma MST} };
@@ -145,13 +145,71 @@
 
 	\node[anchor=west] (output) at (0.5, 5.5) { \bbemph{Saída:} \bbtext{uma MST de $G$} };
 
+\end{tikzpicture}
+\end{frame}
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+
+	\node[anchor=west] (title) at (0.0, 7.0) { \Large \bbbold{Pseudocódigo} };
+
+
+	\node[anchor=west] (input) at (0.5, 6.0) { \bbemph{Entrada:} \bbtext{um grafo ponderado $G(V, E)$} };
+
+	\node[anchor=west] (output) at (0.5, 5.5) { \bbemph{Saída:} \bbtext{uma MST de $G$} };
+
+
 	\node[anchor=west] (step1) at (1.0, 4.5) { $1.$ \bbtext{Escolha um vértice $u\in V$ e faça $C = \{ u \}, M = \emptyset$} };
+
+\end{tikzpicture}
+\end{frame}
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+
+	\node[anchor=west] (title) at (0.0, 7.0) { \Large \bbbold{Pseudocódigo} };
+
+
+	\node[anchor=west] (input) at (0.5, 6.0) { \bbemph{Entrada:} \bbtext{um grafo ponderado $G(V, E)$} };
+
+	\node[anchor=west] (output) at (0.5, 5.5) { \bbemph{Saída:} \bbtext{uma MST de $G$} };
+
+
+	\node[anchor=west] (step1) at (1.0, 4.5) { $1.$ \bbtext{Escolha um vértice $u\in V$ e faça $C = \{ u \}, M = \emptyset$} };
+
 
 	\node[anchor=west] (step2) at (1.0, 3.5) { $2.$ \bbtext{Enquanto $C\neq V$:} };
 
 	\node[anchor=west] (step2a) at (2.0, 3.0) { $(a)$ \bbtext{Escolha o vértice $v\not\in C$ mais próximo de $C$} };
 
 	\node[anchor=west] (step2b) at (2.0, 2.5) { $(b)$ \bbtext{Inclua $v$ em $C$ e a aresta que une $v$ a $C$ em $M$} };
+
+\end{tikzpicture}
+\end{frame}
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+
+	\node[anchor=west] (title) at (0.0, 7.0) { \Large \bbbold{Pseudocódigo} };
+
+
+	\node[anchor=west] (input) at (0.5, 6.0) { \bbemph{Entrada:} \bbtext{um grafo ponderado $G(V, E)$} };
+
+	\node[anchor=west] (output) at (0.5, 5.5) { \bbemph{Saída:} \bbtext{uma MST de $G$} };
+
+
+	\node[anchor=west] (step1) at (1.0, 4.5) { $1.$ \bbtext{Escolha um vértice $u\in V$ e faça $C = \{ u \}, M = \emptyset$} };
+
+
+	\node[anchor=west] (step2) at (1.0, 3.5) { $2.$ \bbtext{Enquanto $C\neq V$:} };
+
+	\node[anchor=west] (step2a) at (2.0, 3.0) { $(a)$ \bbtext{Escolha o vértice $v\not\in C$ mais próximo de $C$} };
+
+	\node[anchor=west] (step2b) at (2.0, 2.5) { $(b)$ \bbtext{Inclua $v$ em $C$ e a aresta que une $v$ a $C$ em $M$} };
+
 
 	\node[anchor=west] (step3) at (1.0, 1.5) { $3.$ \bbtext{Retorne $M$} };
 
@@ -636,7 +694,7 @@
 	\node[anchor=west] (title) at (0.0, 6.5) { \Large \bbbold{Aplicação: Minimax} };
 
 
-	\node[anchor=west] (a) at (1.0, 5.5) { $\star$ \bbtext{Uma MST minimiza o maior peso entre as arestas presente em qualquer } };
+	\node[anchor=west] (a) at (1.0, 5.5) { $\star$ \bbtext{Uma MST minimiza o maior peso entre as arestas presentes em qualquer } };
 
 	\node[anchor=west] (a1) at (0.5, 5.0) { \bbtext{árvore geradora} };
 
@@ -650,7 +708,7 @@
 	\node[anchor=west] (title) at (0.0, 6.5) { \Large \bbbold{Aplicação: Minimax} };
 
 
-	\node[anchor=west] (a) at (1.0, 5.5) { $\star$ \bbtext{Uma MST minimiza o maior peso entre as arestas presente em qualquer } };
+	\node[anchor=west] (a) at (1.0, 5.5) { $\star$ \bbtext{Uma MST minimiza o maior peso entre as arestas presentes em qualquer } };
 
 	\node[anchor=west] (a1) at (0.5, 5.0) { \bbtext{árvore geradora} };
 
@@ -667,7 +725,7 @@
 	\node[anchor=west] (title) at (0.0, 6.5) { \Large \bbbold{Aplicação: Minimax} };
 
 
-	\node[anchor=west] (a) at (1.0, 5.5) { $\star$ \bbtext{Uma MST minimiza o maior peso entre as arestas presente em qualquer } };
+	\node[anchor=west] (a) at (1.0, 5.5) { $\star$ \bbtext{Uma MST minimiza o maior peso entre as arestas presentes em qualquer } };
 
 	\node[anchor=west] (a1) at (0.5, 5.0) { \bbtext{árvore geradora} };
 
@@ -689,7 +747,7 @@
 	\node[anchor=west] (title) at (0.0, 6.5) { \Large \bbbold{Aplicação: Minimax} };
 
 
-	\node[anchor=west] (a) at (1.0, 5.5) { $\star$ \bbtext{Uma MST minimiza o maior peso entre as arestas presente em qualquer } };
+	\node[anchor=west] (a) at (1.0, 5.5) { $\star$ \bbtext{Uma MST minimiza o maior peso entre as arestas presentes em qualquer } };
 
 	\node[anchor=west] (a1) at (0.5, 5.0) { \bbtext{árvore geradora} };
 
@@ -855,7 +913,7 @@
 	\node[anchor=west] (b1) at (0.5, 4.5) { \bbtext{todas as arestas $E'$ e que tem custo mínimo} };
 
 
-	\node[anchor=west] (c) at (1.0, 3.5) { $\star$ \bbtext{Por conta da restrição $E'$, $S_{E'}$, não é, necessariamente, uma MST} };
+	\node[anchor=west] (c) at (1.0, 3.5) { $\star$ \bbtext{Por conta da restrição $E'$, $S_{E'}$ não é, necessariamente, uma MST} };
 
 \end{tikzpicture}
 \end{frame}
@@ -875,7 +933,7 @@
 	\node[anchor=west] (b1) at (0.5, 4.5) { \bbtext{todas as arestas $E'$ e que tem custo mínimo} };
 
 
-	\node[anchor=west] (c) at (1.0, 3.5) { $\star$ \bbtext{Por conta da restrição $E'$, $S_{E'}$, não é, necessariamente, uma MST} };
+	\node[anchor=west] (c) at (1.0, 3.5) { $\star$ \bbtext{Por conta da restrição $E'$, $S_{E'}$ não é, necessariamente, uma MST} };
 
 
 	\node[anchor=west] (d) at (1.0, 2.5) { $\star$ \bbtext{O menor subgrafo gerador pode ser encontrado atribuíndo a $C$ todos os } };
@@ -900,7 +958,7 @@
 	\node[anchor=west] (b1) at (0.5, 4.5) { \bbtext{todas as arestas $E'$ e que tem custo mínimo} };
 
 
-	\node[anchor=west] (c) at (1.0, 3.5) { $\star$ \bbtext{Por conta da restrição $E'$, $S_{E'}$, não é, necessariamente, uma MST} };
+	\node[anchor=west] (c) at (1.0, 3.5) { $\star$ \bbtext{Por conta da restrição $E'$, $S_{E'}$ não é, necessariamente, uma MST} };
 
 
 	\node[anchor=west] (d) at (1.0, 2.5) { $\star$ \bbtext{O menor subgrafo gerador pode ser encontrado atribuíndo a $C$ todos os } };

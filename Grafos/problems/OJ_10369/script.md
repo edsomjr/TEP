@@ -190,7 +190,7 @@ line5 => Node
 
 node4 => Node
     @node4.x = 13.5
-    @node4.y = 1.5
+    @node4.y = 7.5
     @node4.text = \bbtext{4}
     &node4.draw
     &node4.very thick
@@ -204,11 +204,11 @@ e12 => Edge
     &e12.thick
     %e12.label = node[left] { \footnotesize \bbinfo{100}}
 
-e14 => Edge
-    @e14.from = node1
-    @e14.to = node4
-    &e14.thick
-    %e14.label = node[above] { \footnotesize \bbinfo{212.13}}
+e34 => Edge
+    @e34.from = node3
+    @e34.to = node4
+    &e34.thick
+    %e34.label = node[above] { \footnotesize \bbinfo{212.13}}
 
 ---
     @node1.fill = BBGreen

@@ -161,7 +161,7 @@ e67 => Edge
 
 \vspace{0.1in}
 
-\bbtext{A entrada é composta por um ou mais casos de teste. A primeira linha de cada caso de teste contém dois inteiros: $N$ $(N\leq 100)$ e $R$, representando o número de cidades e o número de estradas, respectivamente. As $R$ linhas seguintes contém três inteiros: $C_1, C_2$ e $P$. $C_1$ e $C_2$ são os números das cidades e  $P$ $(P > 1)$ é o número máximo de passageiros que podem ser transportados pelo serviço de ônibus entre as duas cidades. Os números das cidades são inteiros postiviso entre $1$ e $N$. A $(R + 1)$-ésima linha contém três inteiros: $S, D$ e $T$, representando o ponto de partida, o destino e o número de turistas a serem guiados, respectivamente.}
+\bbtext{A entrada é composta por um ou mais casos de teste. A primeira linha de cada caso de teste contém dois inteiros: $N$ $(N\leq 100)$ e $R$, representando o número de cidades e o número de estradas, respectivamente. As $R$ linhas seguintes contém três inteiros: $C_1, C_2$ e $P$. $C_1$ e $C_2$ são os números das cidades e  $P$ $(P > 1)$ é o número máximo de passageiros que podem ser transportados pelo serviço de ônibus entre as duas cidades. Os números das cidades são inteiros positivos entre $1$ e $N$. A $(R + 1)$-ésima linha contém três inteiros: $S, D$ e $T$, representando o ponto de partida, o destino e o número de turistas a serem guiados, respectivamente.}
 
 \vspace{0.1in}
 
@@ -173,7 +173,7 @@ e67 => Edge
 
 \vspace{0.1in}
 
-\bbtext{For each test case in the input first output the scenario number. Then output the minimum number of trips required for this case on a separate line. Print a blank line after the output of each test case.}
+\bbenglish{For each test case in the input first output the scenario number. Then output the minimum number of trips required for this case on a separate line. Print a blank line after the output of each test case.}
 
 ## Text
 
@@ -181,7 +181,7 @@ e67 => Edge
 
 \vspace{0.1in}
 
-\bbtext{Para cada caso de teste da entrada imprima o número do cenário. Entãoa imprima o número mínimo de viagens necessárias neste caso em uma linha. Imprima uma linha em branco após a saída de cada caso de teste.}
+\bbtext{Para cada caso de teste da entrada imprima o número do cenário. Então imprima o número mínimo de viagens necessárias neste caso em uma linha. Imprima uma linha em branco após a saída de cada caso de teste.}
 
 ## Scene
 

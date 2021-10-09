@@ -82,7 +82,7 @@ b => Node
 c => Node
     @c.x = 1
     @c.y = 3.5
-    @c.text = $\star$ \bbtext{Enquanto $C \neq V$, deve se identificar o vértice $u\not\in C$ mais pŕoximo de $C$}
+    @c.text = $\star$ \bbtext{Enquanto $C \neq V$, é identificado o vértice $u\not\in C$ mais pŕoximo de $C$}
     @c.anchor = west
 
 ---
@@ -123,11 +123,15 @@ output => Node
     @output.text = \bbemph{Saída:} \bbtext{uma MST de $G$}
     @output.anchor = west
 
+---
+
 step1 => Node
     @step1.x = 1.0
     @step1.y = 4.5
     @step1.text = $1.$ \bbtext{Escolha um vértice $u\in V$ e faça $C = \{ u \}, M = \emptyset$}
     @step1.anchor = west
+
+---
 
 step2 => Node
     @step2.x = 1.0
@@ -146,6 +150,8 @@ step2b => Node
     @step2b.y = 2.5
     @step2b.text = $(b)$ \bbtext{Inclua $v$ em $C$ e a aresta que une $v$ a $C$ em $M$}
     @step2b.anchor = west
+
+---
 
 step3 => Node
     @step3.x = 1.0
@@ -417,7 +423,7 @@ title => Node
 a => Node
     @a.x = 1
     @a.y = 5.5
-    @a.text = $\star$ \bbtext{Uma MST minimiza o maior peso entre as arestas presente em qualquer }
+    @a.text = $\star$ \bbtext{Uma MST minimiza o maior peso entre as arestas presentes em qualquer }
     @a.anchor = west
 
 a1 => Node
@@ -639,7 +645,7 @@ b1 => Node
 c => Node
     @c.x = 1
     @c.y = 3.5
-    @c.text = $\star$ \bbtext{Por conta da restrição $E'$, $S_{E'}$, não é, necessariamente, uma MST}
+    @c.text = $\star$ \bbtext{Por conta da restrição $E'$, $S_{E'}$ não é, necessariamente, uma MST}
     @c.anchor = west
 
 ---
