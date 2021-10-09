@@ -8,7 +8,7 @@ const int MAX { 100010 }, oo { 1000000010 };
 
 vector<ii> adj[MAX];
 
-vector<int> minimax(int s, int N)
+vector<int> maximin(int s, int N)
 {
     set<int> C;
     C.insert(s);
@@ -40,7 +40,7 @@ vector<int> minimax(int s, int N)
 
 int solve(int N, int S, int D, int T)
 {
-    auto ms = minimax(S, N);
+    auto ms = maximin(S, N);
     auto M = ms[D];
 
     return (T + M - 2)/(M - 1);
