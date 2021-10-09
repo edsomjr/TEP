@@ -15,7 +15,7 @@
 
 \vspace{0.1in}
 
-\bbtext{Você pode assumir que uma escola tem uma fonte de energia confiável se ela está conectada diratamente a ``Futuro'', ou a qualquer escola que tenha uma fonte de energia confiável. Serão dados os custos de conexão entre algumas escolas. O prefeito tem que decidir entre os dois planos de conexão mais baratos -- o custo de conexão é igual a soma das conexões entre todas as escolas. Sua tarefa é ajudar o prefeito -- determine os custos dos dois planos mais baratos.}
+\bbtext{Você pode assumir que uma escola tem uma fonte de energia confiável se ela está conectada diretamente a ``Futuro'', ou a qualquer escola que tenha uma fonte de energia confiável. Serão dados os custos de conexão entre algumas escolas. O prefeito tem que decidir entre os dois planos de conexão mais baratos -- o custo de conexão é igual a soma das conexões entre todas as escolas. Sua tarefa é ajudar o prefeito -- determine os custos dos dois planos mais baratos.}
 
 ## Text
 
@@ -150,7 +150,7 @@ line2 => Node
 
     @r.x = 1.25
     @r.y = 4
-    @r.text = \footnotesize \bbcomment{cidade A}
+    @r.text = \footnotesize \bbcomment{escola A}
 
 ---
 
@@ -158,7 +158,7 @@ line2 => Node
     @arrow.u = 1.65
 
     @r.x = 1.65
-    @r.text = \footnotesize \bbcomment{cidade B}
+    @r.text = \footnotesize \bbcomment{escola B}
 
 ---
 
