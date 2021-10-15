@@ -262,15 +262,75 @@
 
 	\node[anchor=west] (output) at (0.5, 5.5) { \bbemph{Saída:} \bbtext{uma ordenação topológica $O$ de $G$} };
 
-	\node[anchor=west] (step1) at (1.0, 4.5) { $1.$ \bbtext{Marque todos os vértices $v\in V$ como não encontrado} };
+\end{tikzpicture}
+\end{frame}
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+
+	\node[anchor=west] (title) at (0.0, 7.0) { \Large \bbbold{Pseudocódigo} };
+
+
+	\node[anchor=west] (input) at (0.5, 6.0) { \bbemph{Entrada:} \bbtext{um grafo direcionado acíclico $G(V, E)$} };
+
+	\node[anchor=west] (output) at (0.5, 5.5) { \bbemph{Saída:} \bbtext{uma ordenação topológica $O$ de $G$} };
+
+
+	\node[anchor=west] (step1) at (1.0, 4.5) { $1.$ \bbtext{Marque todos os vértices $v\in V$ como não encontrados} };
+
+\end{tikzpicture}
+\end{frame}
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+
+	\node[anchor=west] (title) at (0.0, 7.0) { \Large \bbbold{Pseudocódigo} };
+
+
+	\node[anchor=west] (input) at (0.5, 6.0) { \bbemph{Entrada:} \bbtext{um grafo direcionado acíclico $G(V, E)$} };
+
+	\node[anchor=west] (output) at (0.5, 5.5) { \bbemph{Saída:} \bbtext{uma ordenação topológica $O$ de $G$} };
+
+
+	\node[anchor=west] (step1) at (1.0, 4.5) { $1.$ \bbtext{Marque todos os vértices $v\in V$ como não encontrados} };
+
 
 	\node[anchor=west] (step2) at (1.0, 3.5) { $2.$ \bbtext{Enquanto existir ao menos um vértice $u$ não encontrado:} };
 
 	\node[anchor=west] (step2a) at (2.0, 3.0) { $(a)$ \bbtext{Marque $u$ como encontrado} };
 
-	\node[anchor=west] (step2b) at (2.0, 2.5) { $(b)$ \bbtext{Prossiga a travessia em todos seus filhos de $u$} };
+	\node[anchor=west] (step2b) at (2.0, 2.5) { $(b)$ \bbtext{Avalie todos os filhos não encontrados de $u$} };
 
 	\node[anchor=west] (step2c) at (2.0, 2.0) { $(c)$ \bbtext{Marque $u$ como processado e insira $u$ na frente da fila $O$} };
+
+\end{tikzpicture}
+\end{frame}
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+
+	\node[anchor=west] (title) at (0.0, 7.0) { \Large \bbbold{Pseudocódigo} };
+
+
+	\node[anchor=west] (input) at (0.5, 6.0) { \bbemph{Entrada:} \bbtext{um grafo direcionado acíclico $G(V, E)$} };
+
+	\node[anchor=west] (output) at (0.5, 5.5) { \bbemph{Saída:} \bbtext{uma ordenação topológica $O$ de $G$} };
+
+
+	\node[anchor=west] (step1) at (1.0, 4.5) { $1.$ \bbtext{Marque todos os vértices $v\in V$ como não encontrados} };
+
+
+	\node[anchor=west] (step2) at (1.0, 3.5) { $2.$ \bbtext{Enquanto existir ao menos um vértice $u$ não encontrado:} };
+
+	\node[anchor=west] (step2a) at (2.0, 3.0) { $(a)$ \bbtext{Marque $u$ como encontrado} };
+
+	\node[anchor=west] (step2b) at (2.0, 2.5) { $(b)$ \bbtext{Avalie todos os filhos não encontrados de $u$} };
+
+	\node[anchor=west] (step2c) at (2.0, 2.0) { $(c)$ \bbtext{Marque $u$ como processado e insira $u$ na frente da fila $O$} };
+
 
 	\node[] (step3) at (2.0, 1.0) { $3.$ \bbtext{Retorne $O$} };
 
@@ -1820,13 +1880,72 @@
 
 	\node[anchor=west] (output) at (0.5, 5.5) { \bbemph{Saída:} \bbtext{uma ordenação topológica $O$ de $G$} };
 
+\end{tikzpicture}
+\end{frame}
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+
+	\node[anchor=west] (title) at (0.0, 7.0) { \Large \bbbold{Pseudocódigo} };
+
+
+	\node[anchor=west] (input) at (0.5, 6.0) { \bbemph{Entrada:} \bbtext{um grafo direcionado acíclico $G(V, E)$} };
+
+	\node[anchor=west] (output) at (0.5, 5.5) { \bbemph{Saída:} \bbtext{uma ordenação topológica $O$ de $G$} };
+
+
 	\node[anchor=west] (step1) at (1.0, 4.5) { $1.$ \bbtext{Insira, em uma fila $Q$, todos os vértices com grau de entrada igual a zero} };
+
+\end{tikzpicture}
+\end{frame}
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+
+	\node[anchor=west] (title) at (0.0, 7.0) { \Large \bbbold{Pseudocódigo} };
+
+
+	\node[anchor=west] (input) at (0.5, 6.0) { \bbemph{Entrada:} \bbtext{um grafo direcionado acíclico $G(V, E)$} };
+
+	\node[anchor=west] (output) at (0.5, 5.5) { \bbemph{Saída:} \bbtext{uma ordenação topológica $O$ de $G$} };
+
+
+	\node[anchor=west] (step1) at (1.0, 4.5) { $1.$ \bbtext{Insira, em uma fila $Q$, todos os vértices com grau de entrada igual a zero} };
+
 
 	\node[anchor=west] (step2) at (1.0, 3.5) { $2.$ \bbtext{Enquanto $Q$ não estiver vazia:} };
 
 	\node[anchor=west] (step2a) at (2.0, 3.0) { $(a)$ \bbtext{Extraia o primeiro elemento $u$ da fila e o insira em $O$} };
 
-	\node[anchor=west] (step2b) at (2.0, 2.5) { $(b)$ \bbtext{Exclua $u$ e todas as suas arestas que parte de $u$ do grafo $G$} };
+	\node[anchor=west] (step2b) at (2.0, 2.5) { $(b)$ \bbtext{Exclua $u$ e todas as suas arestas que partem de $u$ do grafo $G$} };
+
+	\node[anchor=west] (step2c) at (2.0, 2.0) { $(b)$ \bbtext{Insira em $Q$ os vértices com grau de entrada igual a zero} };
+
+\end{tikzpicture}
+\end{frame}
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+
+	\node[anchor=west] (title) at (0.0, 7.0) { \Large \bbbold{Pseudocódigo} };
+
+
+	\node[anchor=west] (input) at (0.5, 6.0) { \bbemph{Entrada:} \bbtext{um grafo direcionado acíclico $G(V, E)$} };
+
+	\node[anchor=west] (output) at (0.5, 5.5) { \bbemph{Saída:} \bbtext{uma ordenação topológica $O$ de $G$} };
+
+
+	\node[anchor=west] (step1) at (1.0, 4.5) { $1.$ \bbtext{Insira, em uma fila $Q$, todos os vértices com grau de entrada igual a zero} };
+
+
+	\node[anchor=west] (step2) at (1.0, 3.5) { $2.$ \bbtext{Enquanto $Q$ não estiver vazia:} };
+
+	\node[anchor=west] (step2a) at (2.0, 3.0) { $(a)$ \bbtext{Extraia o primeiro elemento $u$ da fila e o insira em $O$} };
+
+	\node[anchor=west] (step2b) at (2.0, 2.5) { $(b)$ \bbtext{Exclua $u$ e todas as suas arestas que partem de $u$ do grafo $G$} };
 
 	\node[anchor=west] (step2c) at (2.0, 2.0) { $(b)$ \bbtext{Insira em $Q$ os vértices com grau de entrada igual a zero} };
 

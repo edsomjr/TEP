@@ -201,11 +201,15 @@ output => Node
     @output.text = \bbemph{Saída:} \bbtext{uma ordenação topológica $O$ de $G$}
     @output.anchor = west
 
+---
+
 step1 => Node
     @step1.x = 1.0
     @step1.y = 4.5
-    @step1.text = $1.$ \bbtext{Marque todos os vértices $v\in V$ como não encontrado}
+    @step1.text = $1.$ \bbtext{Marque todos os vértices $v\in V$ como não encontrados}
     @step1.anchor = west
+
+---
 
 step2 => Node
     @step2.x = 1.0
@@ -222,7 +226,7 @@ step2a => Node
 step2b => Node
     @step2b.x = 2.0
     @step2b.y = 2.5
-    @step2b.text = $(b)$ \bbtext{Prossiga a travessia em todos seus filhos de $u$}
+    @step2b.text = $(b)$ \bbtext{Avalie todos os filhos não encontrados de $u$}
     @step2b.anchor = west
 
 step2c => Node
@@ -230,6 +234,8 @@ step2c => Node
     @step2c.y = 2.0
     @step2c.text = $(c)$ \bbtext{Marque $u$ como processado e insira $u$ na frente da fila $O$}
     @step2c.anchor = west
+
+---
 
 step3 => Node
     @step3.x = 2.0
@@ -566,11 +572,15 @@ output => Node
     @output.text = \bbemph{Saída:} \bbtext{uma ordenação topológica $O$ de $G$}
     @output.anchor = west
 
+---
+
 step1 => Node
     @step1.x = 1.0
     @step1.y = 4.5
     @step1.text = $1.$ \bbtext{Insira, em uma fila $Q$, todos os vértices com grau de entrada igual a zero}
     @step1.anchor = west
+
+---
 
 step2 => Node
     @step2.x = 1.0
@@ -587,7 +597,7 @@ step2a => Node
 step2b => Node
     @step2b.x = 2.0
     @step2b.y = 2.5
-    @step2b.text = $(b)$ \bbtext{Exclua $u$ e todas as suas arestas que parte de $u$ do grafo $G$}
+    @step2b.text = $(b)$ \bbtext{Exclua $u$ e todas as suas arestas que partem de $u$ do grafo $G$}
     @step2b.anchor = west
 
 step2c => Node
@@ -596,6 +606,7 @@ step2c => Node
     @step2c.text = $(b)$ \bbtext{Insira em $Q$ os vértices com grau de entrada igual a zero}
     @step2c.anchor = west
 
+---
 
 step3 => Node
     @step3.x = 2.0
