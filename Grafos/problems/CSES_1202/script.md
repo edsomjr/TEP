@@ -23,8 +23,8 @@
 \begin{itemize}
     \item \bbtext{qual é o preço mínimo de tal rota?}
     \item \bbtext{existem quantas rotas de preço mínimo? (módulo $10^9+7$)}
-    \item \bbtext{qual é o número mínimo de voôs em uma rota de preço mínimo?}
-    \item \bbtext{qual é o número máximo de voôs em uma rota de preço mínimo?}
+    \item \bbtext{qual é o número mínimo de vôos em uma rota de preço mínimo?}
+    \item \bbtext{qual é o número máximo de vôos em uma rota de preço mínimo?}
 \end{itemize}
 
 ## Text
@@ -422,7 +422,7 @@ d2 => Node
 
 ## Frame
 
-\inputsnippet{cpp}{73}{79}{codes/1202.cpp}
+\inputsnippet{cpp}{72}{79}{codes/1202.cpp}
 
 ## Frame
 
