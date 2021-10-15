@@ -13,7 +13,7 @@ title => Node
 a => Node
     @a.x = 1
     @a.y = 5.0
-    @a.text = $\star$ \bbtext{É possível utilizar algoritmos de programação (DP) dinâmica em um grafo }
+    @a.text = $\star$ \bbtext{É possível utilizar algoritmos de programação dinâmica (DP) em um grafo }
     @a.anchor = west
 
 a1 => Node
