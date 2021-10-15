@@ -23,7 +23,7 @@
 
 \vspace{0.1in}
 
-\bbenglish{Print ``Sandro fails.'' if Sandro cannot complete all his duties on the list. If there is a solution print the correct ordering, the jobs to be done separated by a whitespace. If there are multiple solutions print the one, whose first number is smallest, if there are still multiple solutions, print the one whose second number is smallest, and so on.}
+\bbenglish{Print ``\texttt{Sandro fails.}'' if Sandro cannot complete all his duties on the list. If there is a solution print the correct ordering, the jobs to be done separated by a whitespace. If there are multiple solutions print the one, whose first number is smallest, if there are still multiple solutions, print the one whose second number is smallest, and so on.}
 
 ## Text
 
@@ -39,7 +39,7 @@
 
 \vspace{0.1in}
 
-\bbtext{Imprima ``Sandro fails.'' se Sandro não pode cumprir todas as tarefas da lista. Se há uma solução imprima-a na ordem correta, separando as tarefas por um espaço em branco. Se há múltiplas soluções imprima aquela cuja primeira tarefa tem o menor número. Se ainda restam múltiplas soluções, imprima a que tenha o segundo menor número, e assim por diante.}
+\bbtext{Imprima ``\texttt{Sandro fails.}'' se Sandro não pode cumprir todas as tarefas da lista. Se há uma solução imprima-a na ordem correta, separando as tarefas por um espaço em branco. Se há múltiplas soluções imprima aquela cuja primeira tarefa tem o menor número. Se ainda restam múltiplas soluções, imprima a que tenha o segundo menor número, e assim por diante.}
 
 ## Scene
 
