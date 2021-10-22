@@ -65,6 +65,33 @@
 
 \bbtext{Imprima a resposta para cada consulta.}
 
+## Text
+
+\bbbold{Constraints}
+
+\vspace{0.1in}
+
+\begin{itemize}
+    \item $1\leq n, q\leq 2\times 10^5$
+    \item $1\leq t_i\leq n$
+    \item $1\leq x \leq n$
+    \item $0\leq k\leq 10^9$
+\end{itemize}
+
+## Text
+
+\bbbold{Restrições}
+
+\vspace{0.1in}
+
+\begin{itemize}
+    \item $1\leq n, q\leq 2\times 10^5$
+    \item $1\leq t_i\leq n$
+    \item $1\leq x \leq n$
+    \item $0\leq k\leq 10^9$
+\end{itemize}
+
+
 ## Scene
 
 header => Node
