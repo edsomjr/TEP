@@ -482,7 +482,7 @@ c => Node
 d => Node
     @d.x = 0.5
     @d.y = 2.5
-    @d.text = \bbtext{onde $k = 2^\alpha 2^\beta \ldots 2^\omega$}
+    @d.text = \bbtext{onde $k = 2^\alpha + 2^\beta + \ldots + 2^\omega$}
     @d.anchor = west
 
 ## Scene
