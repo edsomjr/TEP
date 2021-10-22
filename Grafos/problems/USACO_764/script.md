@@ -27,7 +27,7 @@
 
 ## Text
 
-\bbtext{Uma mistura é descrita por $N$ números, $a_1\ldots a_N$, onde a vaca que ocupa a posição $i$ se move para a posição $a_i$ durante a mistura (e assim por diante, cada $a_i$ está no intervalo $1\ldots N$). Cada vaca se move para sua nova localização durante a mistura. Infelizmente, os $a_i$'s não são necessariamente distintos, de modo que múltiplas vacas podem tentar se move para a mesma posição durante a mistura, e após isso elas deve se mover juntas durante todas as misturas restantes.}
+\bbtext{Uma mistura é descrita por $N$ números, $a_1\ldots a_N$, onde a vaca que ocupa a posição $i$ se move para a posição $a_i$ durante a mistura (e assim por diante, cada $a_i$ está no intervalo $1\ldots N$). Cada vaca se move para sua nova localização durante a mistura. Infelizmente, os $a_i$'s não são necessariamente distintos, de modo que múltiplas vacas podem tentar se mover para a mesma posição durante a mistura, e após isso elas deve se mover juntas durante todas as misturas restantes.}
 
 \vspace{0.1in}
 
@@ -542,7 +542,6 @@ title => Node
     @title.y = 6.5
     @title.text = \Large \bbbold{Créditos}
     @title.anchor = west
----
 
 a => Node
     @a.x = 1
