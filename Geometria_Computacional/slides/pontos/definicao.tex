@@ -4,15 +4,19 @@
 
     \begin{itemize}
         \item Ponto é um termo primitivo da geometria
+        \pause
 
         \item No primeiro livro dos elementos, Euclides define ponto como 
             \lq\lq \textit{a point is that which has no part}\rq\rq, que numa tradução livre 
             diz que \lq\lq ponto é aquilo de que nada é parte\rq\rq
+        \pause
 
         \item Os pontos são elementos adimensionais, isto é, não tem dimensão alguma
+        \pause
 
         \item Em C/C++, pontos podem ser representados como classes ou estruturas, como
             pares ou como vetores
+        \pause
 
         \item Cada representação possível tem suas vantagens e desvantagens
    \end{itemize}
@@ -24,18 +28,22 @@
     \begin{itemize}
         \item Representar um ponto utilizando uma classe ou estrutura tem a vantagem da 
             legibilidade 
+        \pause
 
         \item A sintaxe para o uso é mais natural
+        \pause
 
         \item Porém esta representação demanda a implementação dos operadores relacionais 
             para comparações entre pontos
+        \pause
 
         \item O uso de estruturas simplifica a implementação, uma vez que em competição não há
             necessidade de encapsulamento dos membros
+        \pause
 
         \item O tipo usado para representar os valores das coordenadas pode ser parametrizado,
-            permitindo o uso da mesma implementação seja com inteiros, seja com pontos
-            flutuantes
+            permitindo o uso da mesma implementação seja com variáveis inteiras, seja com variáveis
+            em ponto flutuante 
     \end{itemize}
 
 \end{frame}
@@ -43,39 +51,46 @@
 
 \begin{frame}[fragile]{Exemplo de implementação de ponto usando uma estrutura}
 
-    \inputcode{c++}{struct.cpp}
+    \inputcode{c++}{codes/struct.cpp}
 
 \end{frame}
 
 
-\begin{frame}[fragile]{Representação de pontos como pares}
+\begin{frame}[fragile]{Representação de pontos como pares e tuplas}
 
     \begin{itemize}
-        \item A biblioteca padrão do C++ possui o tipo paramêtrico \code{c}{pair}, que pode
+        \item A biblioteca padrão do C++ possui o tipo paramêtrico \code{c++}{pair} (par), que pode
             ser usado para representar pontos
+        \pause
 
-        \item Usar pares do C++ tem como vantagem herdar os operadores de comparação dos
+        \item Usar pares tem como vantagem herdar os operadores de comparação dos
             tipos escolhidos
+        \pause
 
-        \item A desvantagem é a notação, que utiliza \texttt{first} e \texttt{second} para
-            acessar as duas coordenadas, ao invés de \code{c}{x} e \code{c}{y}, como nas classes e
+        \item A desvantagem é a notação, que utiliza \code{cpp}{first} e \code{cpp}{second} para
+            acessar as duas coordenadas, ao invés de \code{cpp}{x} e \code{cpp}{y}, como nas classes e
 estruturas 
+        \pause
 
-        \item Esta desvantagem pode ser contornada usando se as seguintes definições de 
+        \item Esta desvantagem pode ser contornada usando as seguintes definições de 
             pré-processador:
+        \pause
 
-        \inputcode{c++}{macros.cpp}
+        \inputcode{c++}{codes/macros.cpp}
+        \pause
+        \vspace{0.05in}
 
         \item Esta solução deve ser utilizada com cuidado, pois pode gerar efeitos colaterias
             indesejados
+        \pause
 
-        \item Além disso, pares podem ser utilizados diretamente para representar pontos tridimensionais
+        \item Além disso, tuplas (\code{cpp}{tuple}) podem ser utilizados diretamente para representar pontos tridimensionais
     \end{itemize}
 
 \end{frame}
 
-\begin{frame}[fragile]{Exemplo de implementação de ponto usando pares}
-    \inputcode{cpp}{pairs.cpp}
+\begin{frame}[fragile]{Exemplo de implementação de ponto usando pares e tuplas}
+    \inputcode{cpp}{codes/pairs.cpp}
 \end{frame}
 
 \begin{frame}[fragile]{Representação de pontos como vetores}
@@ -83,10 +98,13 @@ estruturas
     \begin{itemize}
         \item Representar pontos como vetores bidimensionais permite a travessia de conjuntos
             de pontos em laços por coordenada
+        \pause
 
         \item Além disso, é a implementação mais curta para pontos multidimensionais
+        \pause
 
         \item Porém, a legibilidade fica comprometida, uma vez que as coordenadas são acessadas
+        \pause
             por índices
 
         \item Esta representação não herda a atribuição, e ainda pode gerar 
@@ -97,6 +115,6 @@ estruturas
 
 \begin{frame}[fragile]{Exemplo de implementação de ponto usando vetores}
 
-    \inputcode{c++}{arrays.cpp}
+    \inputcode{c++}{codes/arrays.cpp}
 
 \end{frame}

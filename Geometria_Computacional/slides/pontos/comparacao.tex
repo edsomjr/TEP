@@ -5,24 +5,27 @@
     \begin{itemize}
         \item Os operadores relacionais que estarão disponíveis dependem da representação
             escolhida
+        \pause
 
         \item Os operadores fundamentais são a igualdade (operador \code{c}{==}) e a 
             desigualdade (operador \code{c}{!=})
+        \pause
 
         \item Os operadores \code{c}{<} e \code{c}{>} também podem ser definidos, embora a 
             semântica destas comparações dependa do contexto e da implementação utilizada
+        \pause
 
         \item Mesmo no caso dos pares, que herda a igualdade, é importante implementá-la caso
-            o tipo utilizado para armazenar as coordenadas seja de ponto flutuante, para que
-            use o limiar comentado anteriormente
+            o tipo utilizado para armazenar as coordenadas seja o ponto flutuante, para que
+            seja usado o limiar comentado anteriormente
    \end{itemize}
 
 \end{frame}
 
 \begin{frame}[fragile]{Exemplo de implementação da igualdade}
-    \inputsnippet{cpp}{1}{20}{equal.cpp}
+    \inputsnippet{cpp}{1}{19}{codes/equal.cpp}
 \end{frame}
 
 \begin{frame}[fragile]{Exemplo de implementação da igualdade}
-    \inputsnippet{cpp}{21}{41}{equal.cpp}
+    \inputsnippet{cpp}{21}{40}{codes/equal.cpp}
 \end{frame}
