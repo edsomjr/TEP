@@ -1,19 +1,19 @@
-#include <iostream>
-#include <set>
+#include <bits/stdc++.h>
+
+using namespace std;
 
 struct Point {
     int x, y;
 
-    bool operator<(const Point& p) const
-    {
+    bool operator<(const Point& p) const {
         return x == p.x ? y < p.y : x < p.x;
     }
 };
 
-bool has_center_of_symmetry(const std::set<Point>& S)
+bool has_center_of_symmetry(const set<Point>& S)
 {
-    auto A = *S.begin();    // Primeiro ponto, após ordenados
-    auto B = *S.rbegin();   // Último ponto, após ordenados
+    auto A = *S.begin();            // Primeiro ponto, após ordenação
+    auto B = *S.rbegin();           // Último ponto, após ordenação
 
     // Candidato à centro de simetria
     auto _2s = Point { A.x + B.x, A.y + B.y };
@@ -33,20 +33,22 @@ bool has_center_of_symmetry(const std::set<Point>& S)
 int main()
 {
     int c, n;
-    std::cin >> c;
+    cin >> c;
 
     while (c--) {
-        std::cin >> n;
+        cin >> n;
 
-        std::set<Point> S;
+        set<Point> S;
 
-        while (n--) {
+        while (n--)
+        {
             int x, y;
-            std::cin >> x >> y;
+            cin >> x >> y;
+
             S.insert(Point { x, y });
         }
 
-        std::cout << (has_center_of_symmetry(S) ? "yes" : "no") << '\n';
+        cout << (has_center_of_symmetry(S) ? "yes" : "no") << '\n';
     }
 
     return 0;

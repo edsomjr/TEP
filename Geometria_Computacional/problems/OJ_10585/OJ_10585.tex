@@ -1,15 +1,15 @@
-\section{UVA 10585 -- Center of symmetry}
+\section{OJ 10585 -- Center of symmetry}
 
 \begin{frame}[fragile]{Problema}
 
-\begin{minipage}{0.45\textwidth}
-Given is a set of $n$ points with integer coordinates. Your task is to decide whether the set
-has a center of symmetry.
+\begin{minipage}{0.6\textwidth}
+É dado um conjunto de $n$ pontos com coordenadas inteiras. Sua tarefa é decidir se o conjunto tem 
+ou não um centro de simetria. 
 
-A set of points $S$ has the center of symmetry if there exists a point $s$ (not necessarily in $S$)
-such that for every point $p$ in $S$ there exists a point $q$ in $S$ such that $p - s = s - q$.
+Um conjunto de pontos $S$ tem um centro de simetria se existe um ponto $s$ (não necessariamente em
+$S$) tal que para todo ponto $p$ em $S$ existe um ponto $q$ em $S$ tal que $p - s = s - q$.
 \end{minipage}
-\begin{minipage}{0.5\textwidth}
+\begin{minipage}{0.35\textwidth}
 \begin{center}
 \includegraphics[scale=0.5]{figure.png}
 \end{center}
@@ -19,27 +19,24 @@ such that for every point $p$ in $S$ there exists a point $q$ in $S$ such that $
 
 \begin{frame}[fragile]{Entrada e saída}
 
-\textbf{Input}
+\textbf{Entrada}
 
-The first line of input contains a number $c$ giving the
-number of cases that follow. The first line of data for
-a single case contains number $1 \leq n \leq 10000$. The
-subsequent $n$ lines contain two integer numbers each
-which are the $x$ and $y$ coordinates of a point. Every
-point is unique and we have that $-10000000 \leq x, y \leq
-10000000$.
+A primeira linha da entrada contém um número $c$ que indica o número de casos de teste que se
+seguem. A primeira linha de um caso de teste contém um número $1 \leq n \leq 10000$. As $n$ linhas
+subsequentes contém dois números inteiros cada, os quais são as coordenadas $x$ e $y$ de um ponto.
+Cada ponto é único e temos que $-10000000 \leq x, y \leq 10000000$.
 
-\textbf{Output}
+\textbf{Saída}
 
-For each set of input data print \lq\texttt{yes}\rq\ if the set of
-points has a center of symmetry and \lq\texttt{no}\rq\ otherwise.
+Para cada caso de teste imprima \lq\texttt{yes}\rq\ se o conjunto de pontos tem um centro de 
+simetria, e \lq\texttt{no}\rq, caso contrário.
 
 \end{frame}
 
 \begin{frame}[fragile]{Exemplo de entradas e saídas}
 
 \begin{minipage}[t]{0.5\textwidth}
-\textbf{Sample Input}
+\textbf{Entrada}
 \begin{verbatim}
 1
 8
@@ -54,7 +51,7 @@ points has a center of symmetry and \lq\texttt{no}\rq\ otherwise.
 \end{verbatim}
 \end{minipage}
 \begin{minipage}[t]{0.45\textwidth}
-\textbf{Sample Output}
+\textbf{Saída}
 \begin{verbatim}
 yes
 \end{verbatim}
@@ -68,22 +65,25 @@ yes
         \[
             s = \frac{p + q}{2},
         \]
-        ou seja, o centro de simetria é o ponto médio de $p$ e $q$
+        ou seja, o centro de simetria é o ponto médio entre $p$ e $q$
+        \pause
 
         \item O uso de ponto flutuante pode ser evitado se usarmos a expressão
         \[
-            2s = p + q,
+            2s = p + q
         \]
-        e trabalharmos com o dobro do centro de simetria
-
+        \pause
         \item A solução de força bruta consiste em fixar um ponto $A$ em $S$ e, para todos os
         pontos $B$ em $S$, computar $2s$ 
+        \pause
 
         \item Agora, para todos os pontos $p$ em $S$, calculamos $q = 2s - p$ e verificamos se
             $q$ pertence a $S$ ou não
+        \pause
 
         \item Usando uma estrutura \code{c}{set}, que permite verificar se $q$ pertence a $S$ em
             $O(\log n)$, temos uma solução $O(n^2\log n)$
+        \pause
 
         \item Como $n\leq 10^4$, esta solução pode dar TLE ou AC, a depender da velocidade do
             servidor
@@ -92,15 +92,15 @@ yes
 \end{frame}
 
 \begin{frame}[fragile]{Solução AC/TLE com complexidade $O(n^2\log n)$}
-    \inputsnippet{cpp}{1}{21}{ac_tle.cpp}
+    \inputsnippet{cpp}{1}{19}{codes/ac_tle.cpp}
 \end{frame}
 
 \begin{frame}[fragile]{Solução AC/TLE com complexidade $O(n^2\log n)$}
-    \inputsnippet{cpp}{22}{41}{ac_tle.cpp}
+    \inputsnippet{cpp}{21}{38}{codes/ac_tle.cpp}
 \end{frame}
 
 \begin{frame}[fragile]{Solução AC/TLE com complexidade $O(n^2\log n)$}
-    \inputsnippet{cpp}{42}{62}{ac_tle.cpp}
+    \inputsnippet{cpp}{39}{58}{codes/ac_tle.cpp}
 \end{frame}
 
 \begin{frame}[fragile]{Solução mais eficiente}
@@ -108,20 +108,26 @@ yes
     \begin{itemize}
         \item Para reduzir a complexidade assintótica da solução, é preciso investigar as
             propriedades do problema
+        \pause
 
         \item Suponha que o centro de simetria $s$ pertença ao conjunto $S$. Então fazendo $p = s$
             na expressão $p - s = s - q$ temos que $q = s$, ou seja, o ponto de simetria fica
             pareado consigo mesmo
+        \pause
 
         \item Como todos os pontos são distintos, então se $p\neq s$ então $q\neq s$, isto é,
             os pontos são pareados dois a dois
+        \pause
 
         \item Deste modo, se existir, $s$ só estará em $S$ se $n$ for ímpar
+        \pause
 
         \item Por um breve momento, vamos pensar no caso especial onde todos os pontos tem
             coordenada $y$ igual a zero
+        \pause
 
         \item Considere agora $p$ o ponto com menor coordenada $x$
+        \pause
 
         \item Neste cenário, podemos observar que $q$ deve ser, obrigatoriamente, o ponto com
             maior coordenada $x$
@@ -139,16 +145,20 @@ yes
             \frac{x_r + x_t}{2} > \frac{x_p + x_q}{2},
         \]
         pois $x_p < x_t$ e $x_q < x_r$, o que impossibilita a existência de um centro de simetria
+        \pause
 
         \item Assim, se os pontos estiverem ordenados, o primeiro deve parear com o último, de modo
             que é necessário verificar apenas um único candidato
+        \pause
 
         \item Porém o fato acima foi deduzido para pontos sobre o eixo-$x$
+        \pause
 
         \item Contudo, é fácil estender o resultado para duas dimensões: uma vez ordenados por
             coordenada $x$, o ponto com menor coordenada $x$ e menor coordenada $y$ deve parear
             com o ponto com maior coordenada $x$ e maior coordenada $y$, pelo mesmo motivo
             já apresentado
+        \pause
 
         \item Assim, a solução passa a ter complexidade $O(n\log  n)$
     \end{itemize}
@@ -156,15 +166,15 @@ yes
 \end{frame}
 
 \begin{frame}[fragile]{Solução AC com complexidade $O(n\log n)$}
-    \inputsnippet{cpp}{1}{12}{ac.cpp}
+    \inputsnippet{cpp}{1}{19}{codes/ac.cpp}
 \end{frame}
 
 \begin{frame}[fragile]{Solução AC com complexidade $O(n\log n)$}
-    \inputsnippet{cpp}{13}{32}{ac.cpp}
+    \inputsnippet{cpp}{21}{39}{codes/ac.cpp}
 \end{frame}
 
 \begin{frame}[fragile]{Solução AC com complexidade $O(n\log n)$}
-    \inputsnippet{cpp}{33}{53}{ac.cpp}
+    \inputsnippet{cpp}{41}{58}{codes/ac.cpp}
 \end{frame}
 
 

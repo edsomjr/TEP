@@ -3,7 +3,8 @@ Geometria Computacional
 
 1. [Introdução](slides/intro/intro.pdf)
 1. Elementos Primitivos
-    1. [Pontos](slides/pontos/pontos.pdf) ([problemas resolvidos](problems/pontos/pontos.pdf))
+    1. [Pontos](slides/pontos/pontos.pdf) 
+        1. [OJ 10585 - Center of symmetry](problems/OJ_10585/OJ_10585.pdf)
     1. [Retas](slides/LN-1/LN-1.pdf) ([problemas resolvidos](problems/LN-1/LN-1.pdf))
     1. [Retas: Algoritmos](slides/LN-2/LN-2.pdf) ([problemas resolvidos](problems/LN-2/LN-2.pdf))
     1. [Círculos](slides/CC-1/CC-1.pdf) ([problemas resolvidos](problems/CC-1/CC-1.pdf))
@@ -19,6 +20,9 @@ Geometria Computacional
     1. [Algoritmos](slides/SL-2/SL-2.pdf) ([problemas resolvidos](problems/SL-2/SL-2.pdf))
 
 <!-- Assuntos pendentes:
+Pontos:
+    1. exemplo de definição de ponto tridimensional com tuplas/decomposição estruturada
+
 1. Convex hull dinâmico
 2. Interseção entre dois conjuntos de segmentos
 3. Operações binárias em polígonos: união, subtração e interseção
