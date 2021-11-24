@@ -3,18 +3,25 @@
 \begin{frame}[fragile]{Geometria Computacional e Programação Competitiva}
 
     \begin{itemize}
-        \item A Geometria Computacional é uma área recente (anos 70), porém é um tópico frequente em maratonas de programação
+        \item A Geometria Computacional é uma área de estudos recente (anos 70), porém é um tópico 
+        frequente em maratonas de programação
+        \pause
 
-        \item Em geral, os competidores devem postergar a solução de problemas desta área para o meio ou o fim do \textit{contest}, pois estes problemas
+        \item Em geral, os competidores devem postergar a solução de problemas desta área para o meio ou o fim do \textit{contest}, pois
+        \pause
 
         \begin{enumerate}
-            \item possuem muitos \textit{corner cases}, os quais devem ser tratados com atenção
+            \item estes problemas possuem muitos \textit{corner cases}, os quais devem ser tratados com atenção
+        \pause
             \item erros de precisão inerentes às variáveis em ponto flutuante podem levar ao WA
-            \item envolvem operações triviais quando feitas com caneta e lápis, mas que possuem implementações sofisticadas
-            \item apresentam soluções que podem ter codificações longas e tediosas
+        \pause
+            \item estes problemas envolvem operações triviais quando feitas com caneta e lápis, mas que possuem implementações sofisticadas
+        \pause
+            \item estes problemas apresentam soluções que podem ter codificações longas e tediosas
         \end{enumerate}
+        \pause
 
-        \item Para atacar tais problemas, o competidor tem que se preparar previamente registrando, em suas anotações, as fórmulas básicas e implementações testadas dos algoritmos clássicos da geometria
+        \item Para atacar tais problemas, o competidor tem que se preparar previamente registrando, em suas anotações, as fórmulas básicas e implementações testadas dos algoritmos clássicos da geometria computacional
     \end{itemize}
 
 \end{frame}
@@ -23,19 +30,25 @@
 
     \begin{itemize}
         \item trate todos os \textit{corner cases} ou use implementações que os evitem;
+        \pause
 
         \item evite o uso de variáveis do tipo ponto flutuante sempre que possível;
+        \pause
 
-        \item se for possível usar variáveis em ponto flutuante, defina um limiar $\varepsilon$ 
-        (por exemplo, $\varepsilon = 10^{-6}$) para o teste de igualdades:
+        \item se for necessário o uso de variáveis em ponto flutuante, defina um limiar $\varepsilon$ 
+        (por exemplo, $\varepsilon = 10^{-9}$) para o teste de igualdades:
+        \pause
 
         \begin{enumerate}[i.]
             \item $a = b \ \mbox{se, e somente se, }\ |a - b| < \varepsilon$
+        \pause
             \item $a \leq 0 \ \mbox{se, e somente se, }\ a < \varepsilon$
+        \pause
             \item $a \geq 0 \ \mbox{se, e somente se, }\ a > -\varepsilon$
         \end{enumerate}
+        \pause
 
-        \inputcode{c++}{equals.cpp}
+        \inputcode{c++}{codes/equals.cpp}
 
     \end{itemize}
 
@@ -46,15 +59,18 @@
     \begin{itemize}
         \item caso seja necessário usar variáveis do tipo ponto flutuante, utilize 
             \code{c++}{double} ao invés de \code{c++}{float}
+        \pause
 
         \item se a precisão do tipo \code{c++}{float} (32 \textit{bits}) e do \code{c++}{double} 
         (64 \textit{bits}) não forem suficientes, utilize o tipo \code{c++}{long double}
         (80 \textit{bits})
+        \pause
 
         \item tome cuidado com a impressão do zero em ponto flutuante: em determinados casos, 
-        a saída ser precedida com o sinal negativo
+        a saída ser prefixada pelo o sinal negativo
+        \pause
 
-        \inputcode{c++}{negative_zero.cpp}
+        \inputcode{c++}{codes/negative_zero.cpp}
     \end{itemize}
 
 \end{frame}
@@ -64,22 +80,30 @@
     \begin{itemize}
         \item Há três abordagens possíveis na busca da solução de um problema de Geometria
         Computacional: Geometria Analítica, Geometria Plana e Álgebra Linear
+        \pause
 
         \item Na Geometria Analítica:
+        \pause
 
-        \begin{itemize}
+        \begin{enumerate}
             \item as figuras geométricas são localizadas no espaço através das coordenadas de seus pontos ou vértices
+        \pause
             \item são usadas equações para representar figuras e relações
+        \pause
             \item novas relações podem ser deduzidas através da combinação e manipulação destas expressões
-        \end {itemize}
+        \end {enumerate}
+        \pause
 
         \item Na Geometria Plana: 
+        \pause
 
-        \begin{itemize}
+        \begin{enumerate}
             \item as figuras são descritas por suas propriedades
+        \pause
             \item a posição absoluta no espaço não é importante, apenas a distância relativa entre duas ou mais figuras
+        \pause
             \item as relações são descobertas através de simetrias e semelhanças
-        \end{itemize}
+        \end{enumerate}
     \end{itemize}
 
 \end{frame}
@@ -89,16 +113,22 @@
     \begin{itemize}
  
         \item Na Álgebra Linear: 
+        \pause
     
         \begin{itemize}
             \item segmentos de retas são interpretados como vetores
+        \pause
             \item transformações como rotações e translações podem simplificar problemas ao deslocar os entes geométricos para uma nova origem
+        \pause
             \item transformações lineares são representadas como matrizes, e sua composição equivale a uma multiplicação matricial
+        \pause
         \end{itemize}
 
         \item A Geometria Analítica é a mais comum entre as três abordagens
+        \pause
 
         \item A Geometria Plana é a abordagem menos comum, mas pode simplificar os problemas quando bem utilizada
+        \pause
         \item A Álgebra Linear é útil para descobrir relações que seriam trabalhosas de se verificar utilizando apenas a Geometria Analítica
     \end{itemize}
 

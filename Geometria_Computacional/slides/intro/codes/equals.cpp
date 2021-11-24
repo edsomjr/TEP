@@ -1,5 +1,5 @@
 // Comparação de igualdade entre variáveis do tipo ponto flutuante
-#define EPS 1e-9
+const double EPS { 1e-9 };
 
 bool equals(double a, double b)
 {
