@@ -1,0 +1,116 @@
+\section{Codeforces Beta Round \#7 -- Problem C: Line}
+
+\begin{frame}[fragile]{Problema}
+
+Uma reta no plano é descrita pela equação $Ax + By + C = 0$. Você deve encontrar qualquer ponto
+desta reta cujas coordenadas são números inteiros entre $-5\cdot 10^{18}$ to $5\cdot 10^{18}$ 
+inclusive, ou determinar que tais pontos não existem.
+
+\end{frame}
+
+\begin{frame}[fragile]{Entrada e saída}
+
+\textbf{Entrada}
+
+A primeira linha contém três inteiros $A, B$ and $C$ $(-2\cdot 10^9\leq A, B, C\leq 2\cdot 10^9)$
+-- que correspondem aos coeficientes da equação da reta. É garantido que $A^2+ B^2 > 0$.
+
+\vspace{0.1in}
+
+\textbf{Saída}
+
+Se tal ponto existe, imprima suas coordenadas, caso contrário imprima \texttt{-1}.
+
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de entradas e saídas}
+
+\begin{minipage}[t]{0.5\textwidth}
+\textbf{Entrada}
+\begin{verbatim}
+2 5 3
+\end{verbatim}
+\end{minipage}
+\begin{minipage}[t]{0.45\textwidth}
+\textbf{Saída}
+\begin{verbatim}
+6 -3
+\end{verbatim}
+\end{minipage}
+\end{frame}
+
+\begin{frame}[fragile]{Observações sobre o problema}
+
+    \begin{itemize}
+        \item A condição $A^2 + B^2 > 0$ indica que ambos coeficientes não são ambos nulos,
+            de modo que as retas da entrada não são degeneradas
+        \pause
+
+        \item Os limites do problema impedem uma solução por busca completa: seriam, no pior 
+            caso, mais de $10^{19}$ candidatos para o valor de $x$
+        \pause
+
+        \item A equação geral da reta pode ser reescrita como
+        \[
+            Ax + By = -C
+        \]
+        \pause
+
+        \item Ainda assim, são duas variáveis para uma única equação. Como proceder neste
+            caso? 
+        \pause
+
+        \item Este problema, na verdade, equivale a uma equação diofantina
+        \pause
+
+        \item Equações diofantinas são equações cujas soluções deve ser inteiras
+    \end{itemize}
+
+\end{frame}
+
+
+\begin{frame}[fragile]{Equações Diofantinas Lineares}
+
+    \begin{itemize}
+
+        \item As equações diofantinas lineares, com duas variáveis $x$ e $y$, são as mais comuns,
+            e já foram amplamente estudadas
+        \pause
+
+        \item Para que tal equação tenha solução, o maior divisor comum $d = (A, B)$ de $A$ e $B$ 
+            deve dividir também o coeficiente $C$
+        \pause
+
+        \item Para encontrar uma solução, caso exista, deve ser utilizado o algoritmo de
+            Euclides estendido
+        \pause
+
+        \item Ele decorre do fato de que se $A = Bq + r$, com $0 \leq r < B$, então
+            $d = (A, B) = (B, r)$, que $(A, 0) = |A|$, e que existem $x_0, y_0$ inteiros tais que
+            $d = Ax_0 + By_0$ 
+        \pause
+
+        \item No caso base, $d = |A|, x_0 = \pm 1, y_0 = 0$, onde o sinal de $x_0$ é igual ao
+            sinal de $A$
+        \pause
+
+        \item No caso geral, $Ax_0 + By_0 = Bx_1 + ry_1$, o que nos dá
+        \[
+            x_0 = y_1, \, \, \, \, y_0 = x_1 - qy_1,
+        \]
+        pois $r = A - Bq$
+        \pause
+
+        \item Daí $x = kx_0, y = ky_0$, onde $k = -C/d$
+
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Solução AC com complexidade $O(\log (A + B))$}
+    \inputsnippet{cpp}{1}{19}{codes/ac.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Solução AC com complexidade $O(\log (A + B))$}
+    \inputsnippet{cpp}{21}{40}{codes/ac.cpp}
+\end{frame}
