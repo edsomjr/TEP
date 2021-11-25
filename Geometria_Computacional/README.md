@@ -7,6 +7,7 @@ Geometria Computacional
         1. [OJ 10585 - Center of symmetry](problems/OJ_10585/OJ_10585.pdf)
     1. Retas
         1. [Retas](slides/retas_definicao/retas_definicao.pdf) ([problemas resolvidos](problems/retas_definicao/retas_definicao.pdf))
+        1. [Vetores](slides/vetores_definicao/vetores_definicao.pdf)
     1. [Retas: Algoritmos](slides/LN-2/LN-2.pdf) ([problemas resolvidos](problems/LN-2/LN-2.pdf))
     1. [Círculos](slides/CC-1/CC-1.pdf) ([problemas resolvidos](problems/CC-1/CC-1.pdf))
     1. [Círculos: Algoritmos](slides/CC-2/CC-2.pdf) ([problemas resolvidos](problems/CC-2/CC-2.pdf))
