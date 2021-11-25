@@ -6,7 +6,8 @@ Geometria Computacional
     1. [Pontos](slides/pontos/pontos.pdf) 
         1. [OJ 10585 - Center of symmetry](problems/OJ_10585/OJ_10585.pdf)
     1. Retas
-        1. [Retas](slides/retas_definicao/retas_definicao.pdf) ([problemas resolvidos](problems/retas_definicao/retas_definicao.pdf))
+        1. [Retas](slides/retas_definicao/retas_definicao.pdf) 
+            1. [Codeforces Beta Round #7 - Problem C: Line](problems/CF_7C/CF_7C.pdf)
         1. [Vetores](slides/vetores_definicao/vetores_definicao.pdf)
         1. [Produtos vetoriais](slides/vetores_produtos/vetores_produtos.pdf)
     1. [Retas: Algoritmos](slides/LN-2/LN-2.pdf) ([problemas resolvidos](problems/LN-2/LN-2.pdf))
