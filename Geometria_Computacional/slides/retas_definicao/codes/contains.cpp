@@ -1,5 +1,3 @@
-// Definição da classe Point e da função de comparação equals
-
 template<typename T>
 struct Line {
     // Membros e construtor

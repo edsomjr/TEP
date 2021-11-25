@@ -1,5 +1,3 @@
-// Definição da classe Point
-
 template<typename T>
 struct Line {
     T a, b, c;
