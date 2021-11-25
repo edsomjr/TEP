@@ -30,6 +30,9 @@ Pontos:
 Retas:
     1. Equação paramétrica da reta
 
+Produtos vetoriais
+    1. Produto misto
+
 1. Convex hull dinâmico
 2. Interseção entre dois conjuntos de segmentos
 3. Operações binárias em polígonos: união, subtração e interseção
