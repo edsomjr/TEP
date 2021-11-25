@@ -1,0 +1,98 @@
+\section{Produto interno}
+
+\begin{frame}[fragile]{Produto interno}
+
+    \begin{itemize}
+        \item O produto interno (ou escalar) entre dois vetores $\vec{u}$ e $\vec{v}$ é dado pela 
+        soma dos produtos das coordenadas correspondentes dos dois vetores
+        \pause
+
+        \item O resultado deste produto não é um vetor, e sim um escalar
+        \pause
+
+        \item É possível mostrar que este produto coincide com o produto do tamanho dos dois 
+            vetores e do cosseno do ângulo entre estes vetores, conforme mostra a expressão abaixo:
+        \[
+            <\vec{u}, \vec{v}> = \vec{u} \cdot \vec{v} = u_xv_x + u_yv_y = |\vec{u}||\vec{v}|\cos \theta
+        \]
+        \pause
+
+        \item A relação acima permite computar o ângulo entre os vetores $\vec{u}$ e $\vec{v}$
+        \pause
+
+        \item O sinal do produto interno $d = \vec{u}\cdot\vec{v}$ pode ser utilizado para interpretar a natureza do ângulo entre os dois vetores:
+        \pause
+
+        \begin{enumerate}
+            \item se $d = 0$, os vetores são ortogonais (formam um ângulo de 90\textdegree)
+        \pause
+            \item se $d > 0$, os vetores foram um ângulo agudo (menor que 90\textdegree)
+        \pause
+            \item se $d < 0$, os vetores formam um ângulo obtuso (maior que 90\textdegree)
+        \end{enumerate}
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Implementação do produto interno e do ângulo entre vetores em C++}
+
+    \inputcode{cpp}{codes/dot.cpp}
+
+\end{frame}
+
+\section{Produto vetorial}
+
+\begin{frame}[fragile]{Produto vetorial}
+
+    \begin{itemize}
+        \item O produto vetorial entre dois vetores $\vec{u}$ e $\vec{v}$ é $\vec{w} = \vec{u}
+        \times \vec{v}$ cujas coordenadas são obtidas através do determinante 
+        \[
+            u\times v = \begin{vmatrix}
+                \vec{i} & \vec{j} & \vec{k} \\
+                u_x & u_y & u_z \\
+                v_x & v_y & v_z \\
+            \end{vmatrix},
+        \]
+        onde $\vec{i}, \vec{j}, \vec{k}$ são vetores unitários com mesma direção e sentido que os 
+        eixos $x, y, z$, respectivamente
+        \pause
+
+        \item Sendo definido por um determinante, o produto vetorial não é comutativo: a troca da 
+            ordem dos vetores altera o sentido do resultado
+        \pause
+
+        \item Para computar o produto vetorial entre vetores bidimensionais, basta fazer a 
+            coordenada $z$ de ambos vetores iguais a zero
+        \pause
+
+        \item O vetor resultante é perpendicular tanto a $\vec{u}$ quanto a $\vec{v}$ 
+
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Produto vetorial}
+
+    \begin{itemize}
+        \item A magnitude deste vetor é igual ao produto dos comprimentos dos vetores $\vec{u}$ e 
+            $\vec{v}$ e do seno do ângulo $\theta$ formado por estes dois vetores, isto é,
+        \[
+            |\vec{u}\times \vec{v}| = |\vec{u}||\vec{v}|\sin \theta
+        \]
+        \pause
+
+        \item Este valor coincide com a área do paralelogramo formado por $\vec{u}$ e $\vec{v}$
+        \pause
+
+        \item Se os vetores tiverem mesma direção, o produto vetorial terá comprimento zero (como não definirão um plano, não há um vetor normal)
+        \pause
+
+        \item Vetores normais podem ser utilizados para definir a orientação de uma figura tridimensional (o lado interno e externo da figura)
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de implementação de produto vetorial em C++}
+    \inputcode{cpp}{codes/cross.cpp}
+\end{frame}
