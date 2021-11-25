@@ -2,34 +2,41 @@
 
 \begin{frame}[fragile]{Problema}
 
-You are given the set of vectors on the plane, each of them starting at the origin. Your task is 
-to find a pair of vectors with the minimal non-oriented angle between them.
+É dado um conjunto de vetores no plano, cada um deles partindo da origem. Sua tarefa é encontrar um
+par de vetores com o ângulo não-orientado mínimo entre eles.
 
-Non-oriented angle is non-negative value, minimal between clockwise and counterclockwise direction 
-angles. Non-oriented angle is always between 0 and $\pi$. For example, opposite directions vectors 
-have angle equals to $\pi$.
+Um ângulo não-orientado é um valor não-negativo, mínimo entre os ângulos nos sentidos horário e
+anti-horário. Um ângulo não-orientado está sempre entre $0$ e $\pi$. For exemplo, vetores com
+direções opostas tem ângulo igual a $\pi$.
 
 \end{frame}
 
 \begin{frame}[fragile]{Entrada e saída}
 
-\textbf{Input}
+\textbf{Entrada}
 
-First line of the input contains a single integer $n$ $(2 \leq n \leq 100 000)$ -- the number of 
-vectors.
+A primeira linha da entrada contém um único inteiro $n$ $(2 \leq n \leq 100 000)$ -- o número de
+vetores.
 
-The $i$-th of the following $n$ lines contains two integers $x_i$ and $y_i$ $(|x|, |y| \leq 10 000, x^2 + y^2 > 0)$ -- the coordinates of the $i$-th vector. Vectors are numbered from 1 to $n$ in order of appearing in the input. It is guaranteed that no two vectors in the input share the same direction (but they still can have opposite directions).
+A $i$-ésima das $n$ linhas seguintes contém dois inteiros $x_i$ e $y_i$ $(|x|, |y| \leq 10 000, 
+x^2 + y^2 > 0)$ -- as coordenadas do $i$-ésimo vetor. Os vetores são numerados de $1$ a $n$ na 
+ordem em que aparecem na entreada. É garantido que nenhum par de vetores compartilha a mesma 
+direção (mas eles ainda podem ter direções opostas).
 
-\textbf{Output}
+\vspace{0.1in}
 
-If the required point exists, output its coordinates, otherwise output -1.
+\textbf{Saída}
+
+Imrpima dois números $a$ e $b$ ($a\neq b$) -- um par de índices de vetores com ângulo não-orientado
+mínimo. Você pode imprimir os números em qualquer ordem. Se há múltiplas soluções possíveis, 
+imprima qualquer uma delas.
 
 \end{frame}
 
 \begin{frame}[fragile]{Exemplo de entradas e saídas}
 
 \begin{minipage}[t]{0.5\textwidth}
-\textbf{Sample Input}
+\textbf{Entrada}
 \begin{verbatim}
 4
 -1 0
@@ -47,7 +54,7 @@ If the required point exists, output its coordinates, otherwise output -1.
 \end{verbatim}
 \end{minipage}
 \begin{minipage}[t]{0.45\textwidth}
-\textbf{Sample Output}
+\textbf{Saída}
 \begin{verbatim}
 3 4
 
@@ -61,18 +68,24 @@ If the required point exists, output its coordinates, otherwise output -1.
     \begin{itemize}
         \item O ângulo que um vetor faz com o eixo-$x$ positivo pode ser computado com a 
             função \code{c}{atan2()} da biblioteca de matemática do C/C++
+        \pause
 
         \item É preciso observa que o retorno da função está no intervalo $[-\pi, \pi]$
+        \pause
 
         \item Uma vez ordenados os vetores por ângulo, basta computar o ângulo entre dois
             vetores consecutivos usando a diferença
+        \pause
 
         \item Por conta do retorno da função \code{c}{atan2()}, esta diferença pode ser 
             negativa
+        \pause
 
         \item Caso isto aconteça, basta somar $2\pi$ ao resultado
+        \pause
 
         \item O valor de $\pi$ pode ser computado através da expressão \code{c}{acos(-1.0)}
+        \pause
 
         \item Por fim, é preciso usar o tipo \code{c}{long double}, caso contrário o
             veredito será WA, por conta da precisão
@@ -81,29 +94,29 @@ If the required point exists, output its coordinates, otherwise output -1.
 \end{frame}
 
 \begin{frame}[fragile]{Solução AC com complexidade $O(n \log n)$}
-    \inputsnippet{cpp}{1}{21}{ac2.cpp}
+    \inputsnippet{cpp}{1}{17}{codes/ac2.cpp}
 \end{frame}
 
 \begin{frame}[fragile]{Solução AC com complexidade $O(n \log n)$}
-    \inputsnippet{cpp}{22}{42}{ac2.cpp}
+    \inputsnippet{cpp}{19}{38}{codes/ac2.cpp}
 \end{frame}
 
 \begin{frame}[fragile]{Solução AC com complexidade $O(n \log n)$}
-    \inputsnippet{cpp}{44}{64}{ac2.cpp}
+    \inputsnippet{cpp}{40}{60}{codes/ac2.cpp}
 \end{frame}
 
 \begin{frame}[fragile]{Solução AC usando aritmética inteira estendida}
-    \inputsnippet{py}{1}{19}{ac2.py}
+    \inputsnippet{py}{1}{19}{codes/ac2.py}
 \end{frame}
 
 \begin{frame}[fragile]{Solução AC usando aritmética inteira estendida}
-    \inputsnippet{py}{20}{40}{ac2.py}
+    \inputsnippet{py}{20}{38}{codes/ac2.py}
 \end{frame}
 
 \begin{frame}[fragile]{Solução AC usando aritmética inteira estendida}
-    \inputsnippet{py}{41}{60}{ac2.py}
+    \inputsnippet{py}{41}{58}{codes/ac2.py}
 \end{frame}
 
 \begin{frame}[fragile]{Solução AC usando aritmética inteira estendida}
-    \inputsnippet{py}{61}{80}{ac2.py}
+    \inputsnippet{py}{61}{80}{codes/ac2.py}
 \end{frame}

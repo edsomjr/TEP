@@ -1,7 +1,4 @@
-#include <algorithm>
-#include <iostream>
-#include <vector>
-#include <cmath>
+#include <bits/stdc++.h>
 
 using ii = std::pair<int, int>;
 
@@ -19,8 +16,7 @@ struct Vector
     }
 };
 
-ii solve(std::vector<Vector>& vs, int N)
-{
+ii solve(std::vector<Vector>& vs, int N) {
     sort(vs.begin(), vs.end());
     vs.push_back(vs.front());
 
@@ -41,8 +37,7 @@ ii solve(std::vector<Vector>& vs, int N)
     return ans;
 }
 
-int main()
-{
+int main() {
     std::ios::sync_with_stdio(false);
 
     int N;
@@ -50,15 +45,14 @@ int main()
 
     std::vector<Vector> vs;
 
-    for (int i = 1; i <= N; ++i)
-    {
+    for (int i = 1; i <= N; ++i) {
         int x, y;
         std::cin >> x >> y;
-        vs.push_back(Vector { x, y, i });
+        vs.emplace_back(x, y, i);
     }
 
-    auto ans = solve(vs, N);
-    std::cout << ans.first << " " << ans.second << '\n';
+    auto [i, j] = solve(vs, N);
+    std::cout << i << ' ' << j << '\n';
 
     return 0;
 }
