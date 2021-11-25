@@ -1,0 +1,266 @@
+\section{Vetores}
+
+\begin{frame}[fragile]{Definição de vetores}
+
+    \begin{itemize}
+        \item Vetores são segmentos de retas orientados
+        \pause
+
+        \item Os vetores são caracterizados pela sua 
+
+        \begin{enumerate}
+            \item direção, isto é, a inclinação da reta que contém o segmento,
+            \pause
+
+            \item orientação, a partir da indicação do ponto de partida e do ponto de chegada, e
+            \pause
+        
+            \item tamanho, ou seja, a distância entre os dois pontos
+        \end{enumerate}
+        \pause
+
+        \item Dois vetores são iguais apenas se coincidirem nestas três características
+        \pause
+
+        \item Dados dois pontos $A$ e $B$, $\vv{u} = \overrightarrow{AB}$ é o vetor que parte do ponto $A$ em direção 
+        ao ponto $B$ 
+        \pause
+
+        \item Observe que $\overrightarrow{AB}$ e $\overrightarrow{BA}$ tem mesma direção e comprimento, mas orientações distintas
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Vetor posição}
+
+    \begin{itemize}
+        \item O vetor posição de um ponto $P$ é o vetor que une a origem $O$ ao ponto $P$ 
+            ($\overrightarrow{OP}$)
+        \pause
+
+        \item Na prática, trabalha-se apenas com vetores-posição: o vetor posição que equivale ao
+            vetor $\overrightarrow{AB}$ é o vetor $\vec{v} = (x_b - x_a, y_b - y_a)$
+        \pause
+
+        \item Deste modo, embora seja possível definir um tipo de dado para representar vetores, é possível utilizar pontos para representar vetores
+        \pause
+
+        \item Esta estratégia pode dificultar a leitura das rotinas, pois embora usem a mesma memória a semântica é diferente 
+        \pause
+
+        \item Há porém a vantagem da velocidade de codificação, devido a eliminação de código redundante
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de implementação de vetores em C++}
+    \inputcode{cpp}{codes/vector.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Direção de um vetor}
+
+    \begin{itemize}
+        \item A direção de um vetor pode ser caracterizada também pelo ângulo que o vetor posição
+            equivalente faz com o eixo-$x$ positivo
+        \pause
+
+        \item Este ângulo pode ser computado pela função \code{c}{atan2} da biblioteca 
+            \code{c}{cmath}
+        \pause
+
+        \item Esta função recebe dois parâmetros: a coordenada $y$ e a coordenada $x$ do
+            vetor posição
+        \pause
+
+        \item Esta função não lança exceções nem erros e tem retorno no intervalo $[-\pi, \pi]$
+        \pause
+
+        \item A função \code{c}{atan} difere no número de argumentos (um único) e no intervalo do 
+            retorno ($[-\pi/2, \pi/2]$, ou $-\infty$, ou $\infty$, ou \code{cpp}{NaN})
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Translações}
+
+    \begin{itemize}
+        \item Um ponto $P$ pode ser transladado no espaço, conhecidos os deslocamentos $dx$ e 
+        $dy$ nas direções paralelas aos eixos $x$ e $y$, respectivamente
+        \pause
+
+        \item Transladar ambos pontos que delimitam o vetor mantém o vetor inalterado
+        \pause
+
+        \item Contudo, transladar apenas o ponto final $P$ de um vetor posição pode alterar todas
+            as três características de um vetor
+        \pause
+
+        \inputcode{cpp}{codes/translate.cpp}
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Rotações}
+
+    \begin{itemize}
+        \item Um vetor posição pode ser rotacionado em $\theta$ graus no sentido anti-horário
+            através da multiplicação da matriz de rotação $R_\theta$ e o vetor $\vec{v}$, onde
+        \[
+            R_\theta = \begin{bmatrix} \cos \theta & -\sin \theta \\ \sin \theta & \cos \theta
+                \end{bmatrix}, \, \, \, \, \vec{v} = \begin{bmatrix} x \\ y \end{bmatrix}
+        \]
+        \pause
+
+        \item Esta matriz pode ser deduzida observando-se que as coordenadas do ponto $P$ do
+            vetor posição $\vec{v}$ podem ser expressas como 
+            \[
+                x = r\cos \omega, \, \, \, \, y = r\sin \omega, 
+            \]
+            onde $r$ é o tamanho do vetor $\vec{v}$ e $\omega$ é o ângulo que $\vec{v}$ faz com
+            o eixo-$x$ positivo
+        \pause
+
+        \item Assim, as coordenadas do ponto resultante da rotação são 
+        \[
+            x' = r\cos (\omega + \theta), \, \, \, \, y' = r\sin (\omega + \theta)
+        \]
+
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Rotações}
+
+    \begin{itemize}
+        \item Utilizando as fórmulas para soma de ângulos do seno e do cosseno obtemos
+        \[
+            x' = r\cos \omega\cos \theta - r\sin \omega\sin \theta
+        \] e
+        \[
+            y' = r\sin \omega\cos \theta + r\cos \omega\sin \theta,
+        \]
+        o que corresponde ao resultado do produto matricial já citado 
+        \pause
+
+        \inputcode{cpp}{codes/rotation.cpp} 
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Rotação em torno de um ponto arbitrário}
+
+    \begin{itemize}
+        \item Caso se deseje rotacionar o ponto $P$ em torno de outro ponto $C$ que não seja a 
+            origem (mais precisamente, outro eixo paralelo ao eixo-$z$ que passe pelo ponto 
+            dado), basta seguir os três passos abaixo:
+        \pause
+
+        \begin{enumerate}
+            \item transladar o ponto com deslocamentos iguais aos simétricos das coordenadas de $C$, 
+                obtendo-se o ponto $P'$
+        \pause
+            \item rotacionar o ponto transladado $P'$
+        \pause
+            \item transladar $P'$, com deslocamentos iguais às coordenadas de $C$
+        \end{enumerate}
+        \pause
+
+        \item A translação inicial muda o sistema de coordenadas do problema, o levando a um novo 
+            sistema onde $C$ é a origem
+        \pause
+
+        \item Assim, pode-se utilizar a rotina de rotação em torno da origem e, ao final do processo, retornar ao sistema original, aplicando a translação inversa
+        \pause
+
+        \item Importante notar que as três operações devem ser realizadas exatamente na ordem descrita
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Implementação da rotação em torno de um ponto arbitrário}
+    \inputcode{cpp}{codes/rotation2.cpp}
+\end{frame}
+
+
+\begin{frame}[fragile]{Rotações tridimensionais}
+
+    \begin{itemize}
+        \item A mesma ideia da rotação pode ser aplicada em pontos tridimensionais
+        \pause
+
+        \item As matrizes $R_x, R_y$ e $R_z$ abaixo rotacionam o ponto tridimensional 
+            $P = (x_p, y_p, z_p)$ em $\theta$ graus no sentido anti-horário
+        \[
+            R_x = \begin{bmatrix} 1 & 0 & 0 \\ 0 & \cos \theta & -\sin \theta \\
+                0 & \sin \theta & \cos \theta \end{bmatrix}, \, \, \, \,
+            R_y = \begin{bmatrix} \cos \theta & 0 & -\sin \theta \\ 0 & 1 & 0 \\
+                \sin \theta & 0 & \cos \theta \end{bmatrix}
+        \]
+        \[
+            R_z = \begin{bmatrix} \cos \theta & -\sin \theta & 0 \\
+                \sin \theta & \cos \theta & 0 \\ 0 & 0 & 1\end{bmatrix}
+        \]
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Observações sobre translações e rotações}
+
+    \begin{itemize}
+        \item Dado um conjunto de pontos $\mathcal{A}$, se aplicadas a todos pontos $P\in \mathcal{A}$, as operações de 
+        translação e rotação não alteram as distâncias entre os pares de pontos
+        \pause
+
+        \item Desta forma, se uma figura é descrita por um conjunto de pontos, todas as suas 
+            características que são baseadas em distâncias (ângulos internos, perímetro, área, 
+            volume, etc) são invariantes a estas duas transformações
+        \pause
+
+        \item Este importante fato pode ser utilizado para simplificar problemas, 
+            como exemplificado no caso da rotação em torno de um ponto arbitrário
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Escala}
+
+    \begin{itemize}
+        \item Outra transformação possível de um vetor posição é a escala
+        \pause
+
+        \item A escala consiste na multiplicação de cada componente $v_i$ de um vetor por um determinado escalar $s_i$
+        \pause
+
+        \item Se o mesmo escalar é utilizado em todos as componentes a escala é dita uniforme
+        \pause
+
+        \item Ao contrário das transformações anteriores, a escala não preserva distâncias
+        \pause
+
+        \inputcode{cpp}{codes/scale.cpp}
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Normalização de vetores}
+
+    \begin{itemize}
+        \item Uma aplicação comum da escala é a normalização de vetor
+        \pause
+
+        \item Um vetor é dito unitário se o seu comprimento é igual a 1
+        \pause
+
+        \item Dado um vetor $\vec{v}$ qualquer, é possível determinar um vetor unitário 
+            $\vec{u}$, na mesma direção e sentido de $\vec{v}$, dividindo-se as coordenadas de 
+            $\vec{v}$ pelo tamanho $|\vec{v}|$ de $\vec{v}$
+        \pause
+
+        \item Observe que a escala com constantes positivas preserva a direção e o sentido do
+            vetor
+        \pause
+
+        \inputcode{cpp}{codes/normalize.cpp}
+    \end{itemize}
+
+\end{frame}
