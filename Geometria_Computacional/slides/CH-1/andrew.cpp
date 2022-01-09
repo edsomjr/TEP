@@ -21,6 +21,25 @@ T D(const Point<T>& P, const Point<T>& Q, const Point<T>& R)
 }
 
 template<typename T>
+vector<Point<T>> make_hull(const vector<Point<T>>& points, vector<Point<T>>& hull)
+{
+    for (const auto& p : points)
+    {
+        auto size = hull.size();
+
+        while (size >= 2 and D(hull[size - 2], hull[size - 1], p) <= 0)
+        {
+            hull.pop_back();
+            size = hull.size();
+        }
+
+        hull.push_back(p);
+    }
+
+    return hull;
+}
+
+template<typename T>
 vector<Point<T>> monotone_chain(const vector<Point<T>>& points)
 {
     vector<Point<T>> P(points);
@@ -28,34 +47,12 @@ vector<Point<T>> monotone_chain(const vector<Point<T>>& points)
     sort(P.begin(), P.end());
 
     vector<Point<T>> lower, upper;
-
-    for (const auto& p : P)
-    {
-        auto size = lower.size();
-
-        while (size >= 2 and D(lower[size - 2], lower[size - 1], p) <= 0)
-        {
-            lower.pop_back();
-            size = lower.size();
-        }
-
-        lower.push_back(p);
-    }
+    
+    lower = make_hull(P, lower);
 
     reverse(P.begin(), P.end());
-
-    for (const auto& p : P)
-    {
-        auto size = upper.size();
-
-        while (size >= 2 and D(upper[size - 2], upper[size - 1], p) <= 0)
-        {
-            upper.pop_back();
-            size = upper.size();
-        }
-
-        upper.push_back(p);
-    }
+    
+    upper = make_hull(P, upper);
 
     lower.pop_back();
     lower.insert(lower.end(), upper.begin(), upper.end()); 
