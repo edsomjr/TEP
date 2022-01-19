@@ -1,6 +1,6 @@
 \ProvidesClass{slides}
 
-\LoadClass[10pt]{beamer}
+\LoadClass[10pt,aspectratio=169]{beamer}
 
 % packages
 \usetheme{metropolis}
@@ -74,3 +74,7 @@
 \renewcommand{\algorithmicensure}{\textbf{Output:}}
 \newcommand{\forto}{\ \mbox{\bf to}\ }
 \newcommand{\algand}{\ \mbox{\bf and}\ }
+
+\DeclareUnicodeCharacter{2229}{$\cap$}
+\DeclareUnicodeCharacter{2205}{$\emptyset$}
+\DeclareUnicodeCharacter{2282}{$\subset$}
