@@ -6,8 +6,8 @@
         \item O algoritmo de Graham (\textit{Graham Scan}, no original), foi proposto por
             Ronald Graham em 1972
 
-        \item Ele iniciamente ordena todos os $N$ pontos de $P$ de acordo com o ângulo que eles 
-            foram com um ponto pivô fixado previamente
+        \item Ele inicialmente ordena todos os $N$ pontos de $P$ de acordo com o ângulo que eles 
+            formam com um ponto pivô fixado previamente
 
         \item A escolha padrão para o pivô é o ponto de menor coordenada $y$ 
 
@@ -27,6 +27,10 @@
 \begin{frame}[fragile]{Ordenação dos pontos de acordo com o ângulo}
 
     \begin{itemize}
+        \item A ordem é dada, de forma crescente, pelo valor do ângulo que é formado entre um
+           ponto e o eixo $x$ positivo do pivô. Quando dois pontos formam um ângulo igual,
+           a prioridade é dada ao que está mais perto do pivô
+
         \item Para realizar a ordenação dos pontos é preciso definir um operador booleano que
         receba dois pontos $P$ e $Q$ e retorne verdadeiro se $P$ antecede $Q$ de
         acordo com a ordenação proposta
@@ -42,10 +46,7 @@
                 capturando o pivô por referência ou cópia
         \end{enumerate}
 
-        \item O ângulo que o vetor diferença entre o vetor-posição do pivô e o vetor posição de um
-            ponto do conjunto $P$ faz com o eixo-$x$ positivo pode ser obtido através da função
-            \code{c}{atan2()} da biblioteca \code{c}{math.h} da linguagem C/C++
-
+        \item O ângulo pode ser obtido através da função \code{c}{atan2()} da biblioteca \code{c}{math.h} da linguagem C/C++
     \end{itemize}
 
 \end{frame}
