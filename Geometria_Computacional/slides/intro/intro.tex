@@ -29,15 +29,16 @@
 \begin{frame}[fragile]{Observações sobre problemas de Geometria Computacional}
 
     \begin{itemize}
-        \item trate todos os \textit{corner cases} ou use implementações que os evitem;
+        \item Trate todos os \textit{corner cases} ou use implementações que os evitem
         \pause
 
-        \item evite o uso de variáveis do tipo ponto flutuante sempre que possível;
+        \item Evite o uso de variáveis do tipo ponto flutuante sempre que possível
         \pause
 
-        \item se for necessário o uso de variáveis em ponto flutuante, defina um limiar $\varepsilon$ 
+        \item Se for necessário o uso de variáveis em ponto flutuante, defina um limiar $\varepsilon$
         (por exemplo, $\varepsilon = 10^{-9}$) para o teste de igualdades:
         \pause
+
 
         \begin{enumerate}[i.]
             \item $a = b \ \mbox{se, e somente se, }\ |a - b| < \varepsilon$
@@ -57,16 +58,16 @@
 \begin{frame}[fragile]{Observações sobre problemas de Geometria Computacional}
 
     \begin{itemize}
-        \item caso seja necessário usar variáveis do tipo ponto flutuante, utilize 
+        \item Caso seja necessário usar variáveis do tipo ponto flutuante, utilize 
             \code{c++}{double} ao invés de \code{c++}{float}
         \pause
 
-        \item se a precisão do tipo \code{c++}{float} (32 \textit{bits}) e do \code{c++}{double} 
+        \item Se a precisão do tipo \code{c++}{float} (32 \textit{bits}) e do \code{c++}{double} 
         (64 \textit{bits}) não forem suficientes, utilize o tipo \code{c++}{long double}
-        (80 \textit{bits})
+        (128 \textit{bits})
         \pause
 
-        \item tome cuidado com a impressão do zero em ponto flutuante: em determinados casos, 
+        \item Tome cuidado com a impressão do zero em ponto flutuante: em determinados casos, 
         a saída ser prefixada pelo o sinal negativo
         \pause
 
