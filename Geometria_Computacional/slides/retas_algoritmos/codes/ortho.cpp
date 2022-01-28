@@ -1,5 +1,3 @@
-// Definição da função equals()
-
 template<typename T>
 struct Line
 {

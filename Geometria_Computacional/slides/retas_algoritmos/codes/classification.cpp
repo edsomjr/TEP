@@ -1,5 +1,3 @@
-// Definição da função equals()
-
 template<typename T>
 struct Line {
     // Membros e construtores (equação reduzida)
@@ -11,7 +9,7 @@ struct Line {
         return equals(b, r.b);
     }
 
-    bool parallel(const Line& r) const // Verdadeiro se paralelas
+    bool parallel(const Line& r) const      // Verdadeiro se paralelas
     {
         if (vertical && r.vertical) return b != r.b;
         if (vertical || r.vertical) return false;

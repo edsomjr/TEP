@@ -1,9 +1,6 @@
-// Definição da classe Point
-
 // Ângulo entre os segmentos de reta PQ e RS
 template<typename T>
-double angle(const Point<T>& P, const Point<T>& Q, 
-             const Point<T>& R, const Point<T>& S)
+double angle(const Point<T>& P, const Point<T>& Q, const Point<T>& R, const Point<T>& S)
 {
     auto ux = P.x - Q.x;
     auto uy = P.y - Q.y;

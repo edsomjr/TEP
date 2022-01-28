@@ -1,5 +1,3 @@
-// Definição da classe Point e da função de comparação equals()
-
 // Verifica se o ponto P pertence ao segmento de reta AB
 template<typename T>
 bool contains(const Point<T>& A, const Point<T>& B, const Point<T>& P)
