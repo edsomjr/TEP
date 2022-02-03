@@ -10,12 +10,12 @@ template<typename T>
 struct Line {
     T a, b, c;
 
-    double distance(const Point<T>& p) const   // Distância de p à reta
+    double distance(const Point<T>& p) const        // Distância de p à reta
     {
         return fabs(a*p.x + b*p.y + c)/hypot(a, b);
     }
 
-    Point<T> closest(const Point<T>& p) const // Ponto mais próximo de p
+    Point<T> closest(const Point<T>& p) const       // Ponto mais próximo de p
     {
         auto den = (a*a + b*b);
 

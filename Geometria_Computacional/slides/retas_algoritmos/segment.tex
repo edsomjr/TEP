@@ -3,14 +3,17 @@
 \begin{frame}[fragile]{Interseção entre segmentos}
 
     \begin{itemize}
-        \item Para se determinar se dois segmentos $AB$ e $PQ$ se intersectam pode-se utilizar um 
+        \item Para se determinar se dois segmentos $AB$ e $PQ$ se intersectam pode-se utilizar um
             algoritmo baseado no discriminante $D$
+        \pause
 
-        \item A ideia central é que dois segmentos se interceptam se a reta que passa por um 
+        \item A ideia central é que dois segmentos se interceptam se a reta que passa por um
             dos segmento separa os dois pontos do outro segmento em semiplanos distintos
+        \pause
 
-        \item É preciso, contudo, tomar cuidado com o caso onde um dos pontos de um segmento 
+        \item É preciso, contudo, tomar cuidado com o caso onde um dos pontos de um segmento
             (por exemplo, $A$) é colinear em relação aos pontos do outro segmento ($P$ e $Q$)
+        \pause
 
         \item Neste caso especial, o discriminante será igual a zero, e será necessário verificar
             se o ponto $A$ pertence ou não a $PQ$
@@ -19,9 +22,9 @@
 \end{frame}
 
 \begin{frame}[fragile]{Implementação da interseção de segmentos em C++}
-    \inputsnippet{cpp}{1}{17}{intersection.cpp}
+    \inputsnippet{cpp}{1}{17}{codes/intersection.cpp}
 \end{frame}
 
 \begin{frame}[fragile]{Implementação da interseção de segmentos em C++}
-    \inputsnippet{cpp}{18}{37}{intersection.cpp}
+    \inputsnippet{cpp}{18}{37}{codes/intersection.cpp}
 \end{frame}

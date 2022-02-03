@@ -3,23 +3,26 @@
 \begin{frame}[fragile]{Distância entre ponto e reta}
 
     \begin{itemize}
-        \item A distância de um ponto $P$ a uma reta $r$ é definida como a menor distância possível 
+        \item A distância de um ponto $P$ a uma reta $r$ é definida como a menor distância possível
             entre todos os pontos de $r$ e $P$:
         \[
             d(P, r) = \min \lbrace d(P, Q), Q\in r\rbrace
         \]
+        \pause
 
-        \item Contudo, não é necessário computar as infinitas distâncias possíveis: a menor 
-            distância será aquela entre $P$ e o ponto de interseção $Q$ de $r$ com a reta 
+        \item Não é necessário computar as infinitas distâncias possíveis: a menor
+            distância será aquela entre $P$ e o ponto de interseção $Q$ de $r$ com a reta
             perpendicular a $r$ que passa por $P$
+        \pause
 
-        \item Seja usando álgebra, geometria ou álgebra linear, é possível mostrar que esta 
+        \item Seja usando álgebra, geometria ou álgebra linear, é possível mostrar que esta
             distância $d$ entre $P = (x_p, y_p)$ e a reta $ax + by + c = 0$ é dada por
         \[
             d(P, r) = \frac{|ax_p + by_p + c|}{\sqrt{a^2 + b^2}}
         \]
+        \pause
 
-        \item As coordenadas de $Q = (x_q, y_q)$ podem ser obtidas utilizando-se as expressões 
+        \item As coordenadas de $Q = (x_q, y_q)$ podem ser obtidas utilizando-se as expressões
         \[
             x_q = \frac{b(bx_p - ay_p) - ac}{a^2 + b^2}, \, \, \, \, y_q = \frac{a(-bx_p + ay_p) - bc}{a^2 + b^2}
         \]
@@ -28,22 +31,24 @@
 \end{frame}
 
 \begin{frame}[fragile]{Implementação de distância entre ponto e reta em C++}
-    \inputsnippet{cpp}{1}{21}{dist.cpp}
+    \inputsnippet{cpp}{1}{16}{codes/dist.cpp}
 \end{frame}
 
 \begin{frame}[fragile]{Implementação de distância entre ponto e reta em C++}
-    \inputsnippet{cpp}{22}{42}{dist.cpp}
+    \inputsnippet{cpp}{18}{27}{codes/dist.cpp}
 \end{frame}
 
 \begin{frame}[fragile]{Reta mediatriz}
 
     \begin{itemize}
-        \item Dado o segmento de reta $PQ$, a mediatriz é a reta perpendicular a $PQ$ que passa 
+        \item Dado o segmento de reta $PQ$, a mediatriz é a reta perpendicular a $PQ$ que passa
             pelo ponto médio do segmento
+        \pause
 
-        \item Qualquer ponto da reta mediatriz é equidistante a $P$ e $Q$, e esta propriedade 
+        \item Qualquer ponto da reta mediatriz é equidistante a $P$ e $Q$, e esta propriedade
             permite a dedução dos coeficientes $a, b, c$ da mediatriz
-        
+        \pause
+
         \item Seja $R = (x, y)$ um ponto qualquer da mediatriz. Então
         \[
             d^2(P, R) = d^2(Q, R),
@@ -55,30 +60,35 @@
         Logo os coeficientes são
         \[
             a = 2(x_q - x_p), \, \, b = 2(y_q - x_q), \, \, c = (x_p^2 + y_p^2) - (y_p^2 + y_q^2)
-        \] 
+        \]
     \end{itemize}
 
 \end{frame}
 
 \begin{frame}[fragile]{Exemplo de implementação da reta mediatriz em C++}
-    \inputcode{cpp}{bisector.cpp}
+    \inputcode{cpp}{codes/bisector.cpp}
 \end{frame}
 
 \begin{frame}[fragile]{Orientação entre ponto e reta}
 
     \begin{itemize}
-        \item O determinante utilizado para o cálculo dos coeficientes da equação geral da reta 
+        \item O determinante utilizado para o cálculo dos coeficientes da equação geral da reta
             também identifica a orientação de um ponto em relação a uma reta
+        \pause
 
         \item Sejam $P, Q, R$ três pontos no plano e considere $r$ a reta que passa por $P$ e $Q$
+        \pause
 
         \item Logo o vetor $\vec{v} = (x_p - x_q, y_p - y_q)$ tem mesma direção que $r$
+        \pause
 
         \item Seja $\vec{u} = (x_r - x_q, y_r - y_q)$. O vetor $\vec{n} = (y_q - y_r, x_r - x_q)$
         é perpendicular ao vetor $\vec{u}$ (pois $\vec{u}\cdot \vec{n} = 0$)
+        \pause
 
-        \item Assim, $\vec{u}$ e $\vec{v}$ serão paralelos (e, como consequência, $P, Q$ e $R$ 
+        \item Assim, $\vec{u}$ e $\vec{v}$ serão paralelos (e, como consequência, $P, Q$ e $R$
             serão colineares) se o produto interno entre $\vec{v}$ e $\vec{n}$ for igual a zero
+        \pause
 
         \item Daí,
         \[
@@ -107,37 +117,47 @@
                 x_r & y_r  & 1 \\
             \end{bmatrix} = 0
         \]
- 
+        \pause
+
         \item Deste modo, o discriminante $D(P, Q, R)$ é definido como o determinante acima
+        \pause
 
         \item Se $r$ é uma reta que passa pelos pontos $P$ e $Q$, e $R$ é um ponto qualquer, então
+        \pause
 
         \begin{enumerate}
-            \item $R$ pertence a reta se $D = 0$, 
-            \item $R$ está no semiplano à esquerda da reta, se $D > 0$, ou 
+            \item $R$ pertence a reta se $D = 0$,
+            \pause
+
+            \item $R$ está no semiplano à esquerda da reta, se $D > 0$, ou
+            \pause
+
             \item $R$ no semiplano à direita da reta, se $D < 0$
         \end{enumerate}
-    
+        \pause
+
         \item A orientação (esquerda ou direita) diz respeito à direção que vai de $P$ a $Q$
     \end{itemize}
 
 \end{frame}
 
 \begin{frame}[fragile]{Exemplo de implementação do discriminante $D$ em C++}
-    \inputcode{cpp}{D.cpp}
+    \inputcode{cpp}{codes/D.cpp}
 \end{frame}
 
 \begin{frame}[fragile]{Ponto mais próximo a um segmento de reta}
 
     \begin{itemize}
-        \item Para determinar o ponto do segmento $AB$ mais próximo de um ponto $P$ dado, é 
+        \item Para determinar o ponto do segmento $AB$ mais próximo de um ponto $P$ dado, é
             preciso, inicialmente, determinar o ponto $Q$ da reta $r$ que contém $A$ e $B$ mais
             próximo de $P$
+        \pause
 
-        \item Em seguida, é preciso avaliar também os extremos $A$ e $B$ do segmento, pois o ponto 
+        \item Em seguida, é preciso avaliar também os extremos $A$ e $B$ do segmento, pois o ponto
             $Q$ pode estar fora do segmento
+        \pause
 
-        \item Assim, o ponto mais próximo (e a respectiva distância) será, dentre $A$, $B$ e $Q$, 
+        \item Assim, o ponto mais próximo (e a respectiva distância) será, dentre $A$, $B$ e $Q$,
             o mais próximo de $P$ que pertença ao intervalo
 
     \end{itemize}
@@ -145,9 +165,9 @@
 \end{frame}
 
 \begin{frame}[fragile]{Implementação do ponto mais próximo de $P$ em $AB$}
-    \inputsnippet{cpp}{1}{16}{closest_segment.cpp}
+    \inputsnippet{cpp}{1}{18}{codes/closest_segment.cpp}
 \end{frame}
 
 \begin{frame}[fragile]{Implementação do ponto mais próximo de $P$ em $AB$}
-    \inputsnippet{cpp}{17}{42}{closest_segment.cpp}
+    \inputsnippet{cpp}{20}{42}{codes/closest_segment.cpp}
 \end{frame}

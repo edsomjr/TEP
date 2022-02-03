@@ -1,17 +1,20 @@
-// Definição das classes Point e Line, e da função equals()
-
 template<typename T>
 struct Segment {
     Point<T> A, B;
 
-    // Verifica se o ponto P da reta r que contém _A_ e _B_ 
-    // pertence ao segmento
+    // Verifica se o ponto P da reta r que contém A e B  pertence ao segmento
     bool contains(const Point<T>& P) const
     {
-        if (equals(A.x, B.x))
-            return min(A.y, B.y) <= P.y and P.y <= max(A.y, B.y);
-        else
-            return min(A.x, B.x) <= P.x and P.x <= max(A.x, B.x);
+        return equals(A.x, B.x) ?  min(A.y, B.y) <= P.y and P.y <= max(A.y, B.y) 
+            : min(A.x, B.x) <= P.x and P.x <= max(A.x, B.x);
+    }
+
+    // Esta abordagem não exige que P esteja sobre a reta AB
+    bool contains2(const Point<T>& P) const
+    {
+        double dAB = dist(A, B), dAP = dist(A, P), dPB = dist(P, B);
+
+        return equals(dAP + dPB, dAB);
     }
 
     // Ponto mais próximo de P no segmento AB
