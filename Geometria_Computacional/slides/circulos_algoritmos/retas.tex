@@ -6,10 +6,13 @@
         \item Uma reta que passa pelos pontos $P_1$ e $P_2$ pode ser representada, de forma 
             paramétrica, pela expressão vetorial $\vec{P} = \vec{P_1} + t(\vec{P_2} - \vec{P_1})$, 
             onde $t$ é uma variável real
+        \pause
 
         \item Assim, a coordenada $x$ de $P$ é dada por $x = x_1 + t(x_2 - x_1)$
+        \pause
 
         \item De forma semelhante, a coordenada $y$ de $P$ é dada por $y = y_1 + t(y_2 - y_1)$
+        \pause
 
         \item Se estas coordenadas forem levadas para a equação do círculo de centro $C$ e raio $r$
          (isto é, $(x - x_C)^2 + (y - y_C)^2 = r^2$), o resultado é o polinômio 
@@ -32,10 +35,16 @@
     \begin{itemize}
         \item O discriminante $\Delta = b^2 - 4ac$  desta equação caracteriza as possíveis 
             interseções
+        \pause
 
-        \item se $\Delta < 0$, não há interseção entre o círculo e a reta
-        \item se $\Delta = 0$, há um único ponto de interseção (a reta é tangente ao círculo)
-        \item se $\Delta > 0$, há dois pontos distintos de interseção
+        \begin{enumerate}
+            \item se $\Delta < 0$, não há interseção entre o círculo e a reta
+            \pause
+            \item se $\Delta = 0$, há um único ponto de interseção (a reta é tangente ao círculo)
+            \pause
+            \item se $\Delta > 0$, há dois pontos distintos de interseção
+        \end{enumerate}
+        \pause
 
         \item As coordenadas dos pontos de interseção podem ser obtidas substuíndos os zeros
             do polinômio nas equações paramêtricas de $x$ e $y$
@@ -44,9 +53,9 @@
 \end{frame}
 
 \begin{frame}[fragile]{Implementação da interseção entre círculo e reta}
-    \inputsnippet{cpp}{1}{21}{inter_line_circle.cpp}
+    \inputsnippet{cpp}{1}{19}{codes/inter_line_circle.cpp}
 \end{frame}
 
 \begin{frame}[fragile]{Implementação da interseção entre círculo e reta}
-    \inputsnippet{cpp}{22}{42}{inter_line_circle.cpp}
+    \inputsnippet{cpp}{21}{42}{codes/inter_line_circle.cpp}
 \end{frame}

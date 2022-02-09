@@ -1,5 +1,3 @@
-// Definição das classes Point e Circle e da função equals()
-
 // Interseção entre o círculo c e a reta que passa por P e Q
 template<typename T> std::vector<Point<T>>
 intersection(const Circle<T>& c, const Point<T>& P, const Point<T>& Q)

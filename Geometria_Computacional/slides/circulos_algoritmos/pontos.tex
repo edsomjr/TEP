@@ -5,18 +5,24 @@
     \begin{itemize}
         \item Dado um ponto $P$ e um círculo de centro $C$ e raio $r$, uma (e apenas uma) das três 
             afirmações abaixo será verdadeira:
+        \pause
 
         \begin{enumerate}
             \item $P$ está dentro do círculo
+        \pause
             \item $P$ está sobre o círculo
+        \pause
             \item $P$ está fora do círculo
         \end{enumerate}
+        \pause
 
         \item Para determinar qual é a relação válida, basta computar a distância entre o ponto $P$
             e o centro $C$ do círculo
+        \pause
 
         \item Caso esta distância seja menor, igual ou maior que $r$, $P$ estará dentro, sobre e 
             fora do círculo, respectivamente
+        \pause
 
         \item O conjunto de pontos que estão dentro do círculo é denominado disco de raio $r$ e
             centro $C$
@@ -24,28 +30,35 @@
 \end{frame}
 
 \begin{frame}[fragile]{Implementação da posição do ponto em um círculo em C++}
-    \inputcode{cpp}{position.cpp}
+    \inputcode{cpp}{codes/position.cpp}
 \end{frame}
 
 \begin{frame}[fragile]{Construção de círculos a partir de dois pontos}
 
     \begin{itemize}
         \item É possível identificar o(s) círculo(s) que interceptam um conjunto de $N$ pontos dados
+        \pause
     
         \item No caso $N = 1$, existem infinitos círculos (com infinitos raios possíveis) que 
             passam por um dado ponto $P$
+        \pause
 
         \item O caso $N = 2$ se torna mais interessante se o raio $r$ for pré-determinado
+        \pause
 
         \item Dados dois pontos $P$ e $Q$ e o um raio $r$, os cenários possíveis são:
+        \pause
 
         \begin{enumerate}
             \item $P = Q$: esta situação é idêntica ao caso $N = 1$
+        \pause
             \item $\mathrm{dist}(P, Q) = 2r$: se a distância entre os dois pontos dados é igual ao 
                 diâmetro do círculo, existe um único círculo de raio $r$ que passa por $P$ e $Q$, 
                     cujo centro será o ponto médio do segmento $PQ$
+        \pause
             \item $\mathrm{dist}(P, Q) > 2r$: neste caso, nenhum círculo de $r$ pode passar por 
                 ambos pontos simultaneamente
+        \pause
             \item $\mathrm{dist}(P, Q) < 2r$: neste caso, exatamente dois círculos passam por $P$ e $Q$ com raio $r$
         \end{enumerate}
     \end{itemize}
@@ -53,22 +66,25 @@
 \end{frame}
 
 \begin{frame}[fragile]{Implementação da identificação de um círculo a partir de dois pontos e o raio}
-    \inputsnippet{cpp}{1}{20}{from_2_points.cpp}
+    \inputsnippet{cpp}{1}{19}{codes/from_2_points.cpp}
 \end{frame}
 
 \begin{frame}[fragile]{Implementação da identificação de um círculo a partir de dois pontos e o raio}
-    \inputsnippet{cpp}{21}{41}{from_2_points.cpp}
+    \inputsnippet{cpp}{20}{41}{codes/from_2_points.cpp}
 \end{frame}
 
 \begin{frame}[fragile]{Demonstração do algoritmo}
 
     \begin{itemize}
         \item A implementação do algoritmo anterior, embora simples, é baseada em fatos não-triviais
+        \pause
 
         \item Sejam $P$ e $Q$ dois pontos distintos tais que $\mathrm{dist}(P, Q) < 2r$, onde
             $r$ é o raio dado
+        \pause
 
         \item Neste cenário, o centro $C$ do círculo não pertence ao segmento $PQ$
+        \pause
 
         \item Assim, é formado um triângulo $PCQ$
 
@@ -106,12 +122,14 @@
             \[
                 a^2 = b^2 + c^2 - 2ab\cos \alpha
             \]
+        \pause
 
         \item Aplicando a Lei dos Cossenos ao triângulo $PCQ$, e considerando $\theta$
             o ângulo oposto ao lado $d$, têm-se que
         \[
             d^2 = r^2 + r^2 - 2r^2\cos \theta = 2r^2(1 - \cos \theta)
         \]
+        \pause
 
         \item Como $|\cos\theta| \leq 1$, vale a desigualdade
         \[
@@ -132,11 +150,14 @@
         \[
             \Delta = \frac{r^2}{d^2} - \frac{1}{4}
         \]
+        \pause
 
         \item Para que exista um círculo que passe por $P$ e $Q$ é preciso que $\Delta \geq 0$
+        \pause
     
-        \item Como $PCQ$ é um triângulo isóceles, sua altura (cuma medida é $h$) coincide com a 
+        \item Como $PCQ$ é um triângulo isóceles, sua altura (cuja medida é $h$) coincide com a 
             mediana
+        \pause
 
         \item Seja $M$ o ponto médio de $PQ$. Aplicando o Teorema de Pitágoras ao triângulo $PMC$
             obtêm-se
@@ -159,17 +180,20 @@
         \[
             \vec{u} = \frac{\vec{Q} - \vec{P}}{\| \vec{Q} - \vec{P}\|} = \left(\frac{x_Q - x_P}{d}, \frac{y_Q - y_P}{d}\right)
         \]
+        \pause
 
         \item O vetor unitário $\vec{n}$, normal a $\vec{u}$, é dado por
         \[
             \vec{n} = \left(\frac{y_P - y_Q}{d}, \frac{x_Q - x_P}{d}\right)
         \]
+        \pause
 
         \item Assim, o vetor posição do centro $C$ do círculo pode ser encontrado pela
             soma vetorial
         \[
             \vec{C} = \vec{P} + \frac{d}{2}\vec{u} + h\vec{n}
         \]
+        \pause
 
         \item As duas soluções possíveis diferem pelo sentido do vetor $\vec{n}$
     \end{itemize}
@@ -214,8 +238,10 @@
                 R_x^2 + R_y^2 & R_x & R_y & 1 \\
             \end{vmatrix}
         \]
+        \pause
 
         \item Este determinante também pode ser utilizado para determinar se 4 pontos são cocirculares, substituindo as coordenadas do quarto ponto nas variáveis da primeira linha
+        \pause
 
         \item Contudo, a implementação desta determinante não é trivial, uma vez que é preciso recorrer a cofatores, e o resultado final não fica na forma canônica, de onde são extraídas as informações sobre o raio e o centro
     \end{itemize}
@@ -227,6 +253,7 @@
         \item Uma outra abordagem é observar que a distância entre os três pontos e o centro do círculo são iguais, isto é, 
         \[\mathrm{dist}(P, C) = \mathrm{dist}(Q, C)\ \ \mbox{e}\ \ \mathrm{dist}(P, C) = \mathrm{dist}(R, C)
         \]
+        \pause
 
         \item A expansão dos quadrados das duas igualdades acima leva a um sistema linear em 
             relação as coordenadas do centro, pois
@@ -245,6 +272,7 @@
             \end{array}
             \right.
         \]
+        \pause
 
         \item Determinado o centro, o raio será a distância entre qualquer um dos pontos e o centro
     \end{itemize}
@@ -252,9 +280,9 @@
 \end{frame}
 
 \begin{frame}[fragile]{Construção de um círculo a partir de 3 pontos}
-    \inputsnippet{cpp}{1}{21}{from_3_points.cpp}
+    \inputsnippet{cpp}{1}{18}{codes/from_3_points.cpp}
 \end{frame}
 
 \begin{frame}[fragile]{Construção de um círculo a partir de 3 pontos}
-    \inputsnippet{cpp}{22}{42}{from_3_points.cpp}
+    \inputsnippet{cpp}{19}{42}{codes/from_3_points.cpp}
 \end{frame}

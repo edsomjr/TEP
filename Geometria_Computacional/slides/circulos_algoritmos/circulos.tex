@@ -5,16 +5,22 @@
     \begin{itemize}
         \item Dados dois círculos com centros $C_1, C_2$ e raios $r_1, r_2$, existem cinco 
         cenários possíveis para suas interseções 
+        \pause
 
         \item Seja $d = \mathrm{dist}(C_1, C_2)$. Então:
+        \pause
 
         \begin{enumerate}
             \item se $d > r_1 + r_2$, então os círculos não se interceptam
+        \pause
             \item se $d < |r_1 - r_2|$, então também não há interseção, pois um dos círculos 
                 (o de menor raio) está contido no outro (o de maior raio)
-            \item se $d = 0$ e $r1 = r2$, então os círculos são idênticos: há infinitos pontos de 
+        \pause
+            \item se $d = 0$ e $r_1 = r_2$, então os círculos são idênticos: há infinitos pontos de 
                 interseção
-            \item se $d = r1 + r2$, os círculos se interceptam em um único ponto
+        \pause
+            \item se $d = r_1 + r_2$, os círculos se interceptam em um único ponto
+        \pause
             \item nos demais casos, há dois pontos na interseção entre os círculos
         \end{enumerate}
 
@@ -26,8 +32,9 @@
 
     \begin{itemize}
         \item Seja $C_1 = (x_1, y_1)$ e $C_2 = (x_2, y_2)$
+        \pause
 
-        \item as coordenadas dos pontos de interseção $P_1$ e $P_2$ são dadas por
+        \item As coordenadas dos pontos de interseção $P_1$ e $P_2$ são dadas por
         \begin{align*}
             a &= \frac{r_1^2 - r_2^2 + d^2}{2d}\\
             h &= \sqrt{r_1^2 - a^2} \\
@@ -35,6 +42,7 @@
             P_1 &= \left(P_x + \frac{h}{d}(y_2 - y_1), P_y - \frac{h}{d}(x_2 - x_1)\right) \\
             P_2 &= \left(P_x - \frac{h}{d}(y_2 - y_1), P_y + \frac{h}{d}(x_2 - x_1)\right)
         \end{align*}
+        \pause
 
         \item A justificativa deste resultado segue de desenvolvimento semelhante ao da 
             identificação de um círculo a partir de dois pontos e um raio
@@ -44,9 +52,9 @@
 \end{frame}
 
 \begin{frame}[fragile]{Implementação da interseção entre dois círculos}
-    \inputsnippet{cpp}{1}{21}{intersection.cpp}
+    \inputsnippet{cpp}{1}{18}{codes/intersection.cpp}
 \end{frame}
 
 \begin{frame}[fragile]{Implementação da interseção entre dois círculos}
-    \inputsnippet{cpp}{22}{42}{intersection.cpp}
+    \inputsnippet{cpp}{20}{42}{codes/intersection.cpp}
 \end{frame}

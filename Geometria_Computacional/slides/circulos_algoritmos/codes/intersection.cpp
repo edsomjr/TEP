@@ -3,9 +3,6 @@
 
 const int oo { 2000000000 };
 
-// Definição das classes Point e Circle, e das função equals()
-// e distance()
-
 template<typename T> std::variant<int, std::vector<Point<T>>>
 intersection(const Circle<T>& c1, const Circle<T>& c2)
 {
@@ -35,5 +32,5 @@ intersection(const Circle<T>& c1, const Circle<T>& c2)
 
     auto P2 = Point<T> { x, y };
 
-    return std::vector<Point<T>> { P1, P2 };
+    return P1 == P2 ? std::vector<Point<T>> { P1 } : std::vector<Point<T>> { P1, P2 };
 }
