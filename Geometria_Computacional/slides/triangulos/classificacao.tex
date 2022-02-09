@@ -4,35 +4,43 @@
 
     \begin{itemize}
         \item Sejam $a, b, c$ as medidas dos três lados de um triângulo $T$
+        \pause
 
         \item $T$ é dito equilátero se $a = b = c$
+        \pause
 
         \item Se dois lados tem medidas iguais e o terceiro tem medida diferente, $T$ é dito
             isóceles
+        \pause
 
-        \item Se $a \neq b\neq c$ o triângulo $T$ é denominado escaleno
+        \item Se as três medidas são diferentes o triângulo $T$ é denominado escaleno
 
     \end{itemize}
 
 \end{frame}
 
 \begin{frame}[fragile]{Implementação da classificação por medidas dos lados}
-    \inputcode{cpp}{classification_by_sides.cpp}
+    \inputcode{cpp}{codes/classification_by_sides.cpp}
 \end{frame}
 
 \begin{frame}[fragile]{Classificação de acordo com as medidas dos ângulos internos}
 
     \begin{itemize}
         \item Sejam $\alpha, \beta, \gamma$ os ângulos internos de um triângulo $T$
+        \pause
 
         \item Se um destes três ângulos for igual a 90\textdegree, $T$ é dito retângulo
+        \pause
 
         \item Se um destes três ângulos for maior do que 90\textdegree, $T$ é denominado obtusângulo
+        \pause
 
         \item Se $\alpha, \beta, \gamma <$ 90\textdegree, $T$ é chamado acutângulo 
+        \pause
 
         \item Importante: $\alpha + \beta + \gamma =$ 180\textdegree
     \end{itemize}
+        \pause
 
     \begin{figure}
         \centering
@@ -67,14 +75,17 @@
         \[
             a^2 = b^2 + c^2 - 2bc\cos \alpha,
         \]
+        \pause
         
-        \item Esta lei permite determinar o ângulo oposto ao um lado escolhido:
+        \item Esta lei permite determinar o ângulo oposto a um lado escolhido:
         \[
             \alpha = \cos^{-1} \left(\frac{b^2 + c^2 - a^2}{2bc}\right)
         \]
+        \pause
         
         \item Observe que, se $\alpha =$ 90\textdegree, a Lei dos Cossenos se reduz ao 
             Teorema de Pitágoras
+        \pause
 
         \item A Lei dos Senos também relaciona lados e ângulos, com o bônus de permitir 
             determinar o raio $R$ do círculo que circunscreve o triângulo:
@@ -86,9 +97,9 @@
 \end{frame}
 
 \begin{frame}[fragile]{Implementação da classificação por ângulos internos}
-    \inputsnippet{cpp}{1}{21}{classification_by_angles.cpp}
+    \inputsnippet{cpp}{1}{18}{codes/classification_by_angles.cpp}
 \end{frame}
 
 \begin{frame}[fragile]{Implementação da classificação por ângulos internos}
-    \inputsnippet{cpp}{22}{42}{classification_by_angles.cpp}
+    \inputsnippet{cpp}{19}{42}{codes/classification_by_angles.cpp}
 \end{frame}

@@ -4,6 +4,7 @@
 
     \begin{itemize}
         \item O perímetro de um triângulo é dado pela soma da medidas de seus lados
+        \pause
 
         \item Em notação matemática, se o triângulo $T$ tem lados com medidas $a, b, c$, o
             perímetro $P$ é dado por
@@ -11,8 +12,9 @@
             P = a + b + c
         \]
     \end{itemize}
+        \pause
 
-    \inputcode{cpp}{perimeter.cpp}
+    \inputcode{cpp}{codes/perimeter.cpp}
 
 \end{frame}
 
@@ -20,17 +22,20 @@
 
     \begin{itemize}
         \item Há três formas de se computar a área de um triângulo
+        \pause
 
-        \item A primeira delas é usar a fórmula ensinada no ensino médio
+        \item A primeira delas é usar a fórmula ensinada no ensino médio:
             \[
                 A = \frac{bh}{2}
             \]
         onde $b$ é a medida da base do triângulo (um de seus lados) e $h$ é a altura
-        egmento de reta, perpendicular à base, com um ponto sobre a base e o outro no vértice 
-        oposto a esta)
+        do segmento de reta, perpendicular à base, com um ponto sobre a base e o outro no vértice 
+        oposto a esta
+        \pause
 
         \item Contudo, na representação por pontos ou por medidas, esta abordagem é pouco 
             prática, pois envolve o cálculo da altura
+        \pause
 
         \item A altura pode ser obtida como a distância do vértice oposto até a base
     \end{itemize}
@@ -38,7 +43,7 @@
 \end{frame}
 
 \begin{frame}[fragile]{Cálculo da área por base e altura}
-    \inputcode{cpp}{area.cpp}
+    \inputcode{cpp}{codes/area.cpp}
 \end{frame}
 
 \begin{frame}[fragile]{Fórmula de Heron}
@@ -53,30 +58,34 @@
         \[
             s = \frac{a + b + c}{2}
         \]
+        \pause
 
         \item Esta abordagem é a mais apropriada na representação do triângulo pela medida de seus 
             lados
+        \pause
 
         \item Observe que, caso exista a possibilidade de \textit{overflow} no produto dos quatro 
-            termos que estão dentro da raiz, deve-se tirar a raiz de cada fator antes de fazer o produto
+            termos que estão dentro da raiz, deve-se tirar a raiz de cada fator antes de prosseguir com o produto
 
     \end{itemize}
 
 \end{frame}
 
 \begin{frame}[fragile]{Cálculo da área usando a fórmula de Heron}
-    \inputcode{cpp}{area2.cpp}
+    \inputcode{cpp}{codes/area2.cpp}
 \end{frame}
 
 \begin{frame}[fragile]{Variantes da fórmula de Heron}
 
     \begin{itemize}
         \item Existem variantes da fórmula de Heron que permitem o cálculo da área do triângulo em termos de outras medidas, como as medianas, as alturas ou os ângulos internos
+        \pause
 
         \item Se $m_a, m_b, m_c$ são as medidas das medianas, então
         \[
             A = \frac{4}{3}\sqrt{\sigma(\sigma - m_a)(\sigma - m_b)(\sigma - m_c)}, \, \, \, \sigma = \frac{m_a + m_b + m_c}{2}
         \]
+        \pause
 
         \item Se $h_a, h_b, h_c$ são medidas as alturas, então
         \[
@@ -113,6 +122,7 @@
 
     \begin{itemize}
         \item A terceira maneira é computar a área a partir das coordenadas dos vértices
+        \pause
 
         \item Se os vértices de um triângulo são $P = (x_1, y_1), Q = (x_2, y_2), R = (x_3, y_3)$, 
             a área $A$ do triângulo é dada por
@@ -123,11 +133,14 @@
                 x_3 & y_3 & 1 \\
             \end{vmatrix}
         \]
+        \pause
 
         \item Esta área é sinalizada: logo deve se considerar o valor absoluto desta expressão
+        \pause
 
         \item Observe que não é necessário implementar uma estrutura que represente matrizes e
             a operação de determinante
+        \pause
 
         \item A expansão da expressão acima leva a três termos positivos e a três termos negativos
     \end{itemize}
@@ -135,5 +148,5 @@
 \end{frame}
 
 \begin{frame}[fragile]{Cálculo da área por determinante}
-    \inputcode{cpp}{area3.cpp}
+    \inputcode{cpp}{codes/area3.cpp}
 \end{frame}

@@ -6,9 +6,7 @@ struct Triangle {
 
     Sides classification_by_sides() const
     {
-        auto a = dist(A, B);
-        auto b = dist(B, C);
-        auto c = dist(C, A);
+        auto a = dist(A, B), b = dist(B, C), c = dist(C, A);
 
         if (equals(a, b) and equals(b, c))
             return EQUILATERAL;

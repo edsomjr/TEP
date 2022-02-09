@@ -4,12 +4,15 @@
 
     \begin{itemize}
         \item Um triângulo possui quatro lugares geométricos notáveis
+        \pause
 
         \item O primeiro deles é o baricentro (centróide ou centro de massa), que é o ponto de 
             interseção entre as três medianas (segmentos de reta que unem um vértice ao ponto médio do lado oposto)
+        \pause
 
         \item O baricentro divide uma mediana na proporção de 2:1, isto é, ele está a um terço de 
             distância do lado oposto
+        \pause
 
         \item As coordenadas do baricentro $Q$ podem ser computadas diretamente a partir das 
             coordenadas dos vértices: serão a média aritmética entre as mesmas
@@ -48,25 +51,30 @@
 \end{frame}
 
 \begin{frame}[fragile]{Implementação da identificação do baricentro}
-    \inputcode{cpp}{barycenter.cpp}
+    \inputcode{cpp}{codes/barycenter.cpp}
 \end{frame}
 
 \begin{frame}[fragile]{Ortocentro}
 
     \begin{itemize}
         \item O ortocentro de um triângulo é o ponto de encontro de suas três alturas
+        \pause
 
         \item O ortocentro pode mesmo estar fora do triângulo, no caso de um obtusângulo
+        \pause
 
         \item No caso de um triângulo retângulo, o ortocentro sempre coincide com o vértice 
             oposto à hipotenusa
+        \pause
 
         \item Para obter as coordenadas do ortocentro, é preciso determinar, inicialmente,
             as retas $r$ e $s$ que contém os segmentos $AB$ e $AC$,
-            respectivamente,
+            respectivamente
+        \pause
 
         \item Em seguida, é preciso determinar as retas $u$ e $v$ perpendiculares a 
             $r$ e $s$ que passam por $C$ e $B$, respectivamente
+        \pause
 
         \item O ortocentro $O$ será a interseção entre $u$ e $v$
     \end{itemize}
@@ -105,20 +113,24 @@
 
 
 \begin{frame}[fragile]{Implementação da identificação do ortocentro}
-    \inputsnippet{cpp}{22}{40}{orthocenter.cpp}
+    \inputsnippet{cpp}{22}{40}{codes/orthocenter.cpp}
 \end{frame}
 
 \begin{frame}[fragile]{Incentro}
 
     \begin{itemize}
         \item O incentro de um triângulo é o ponto de encontro de suas bissetrizes (retas que dividem um ângulo interno na metade)
+        \pause
 
         \item Além de ser sempre um ponto interior do triângulo, o incentro é o centro do círculo inscrito no triângulo, isto é, o maior círculo que cabe dentro do triângulo e que toca todos os seus três lados 
+        \pause
 
         \item Os lados do círculo são tangentes ao círculo inscrito
+        \pause
 
         \item O raio $r$ do círculo inscrito é dado pela razão entre o dobro da área $A$ e o 
             perímetro $P$
+        \pause
 
         \item As coordenadas do centro $I$ do círculo inscrito são obtidas pela média ponderada 
             das coordenadas $x$ e $y$ pelos comprimentos dos lados opostos:
@@ -162,21 +174,25 @@
 \end{frame}
 
 \begin{frame}[fragile]{Implementação do centro e do raio do círculo inscrito}
-    \inputcode{cpp}{incenter.cpp}
+    \inputcode{cpp}{codes/incenter.cpp}
 \end{frame}
 
 \begin{frame}[fragile]{Circuncentro}
 
     \begin{itemize}
         \item O circuncentro é o ponto de encontro entre as retas bisectoras perpendiculares (isto é, retas perpendiculares aos lados do triângulo que os interceptam nos pontos médios)
+        \pause
 
         \item O circuncentro é o centro do círculo circunscrito do triângulo, isto é, o círculo 
             que passa pelos três vértices do triângulo
+        \pause
 
         \item O circuncentro, assim como o ortocentro, pode estar localizado do lado externo do triângulo
+        \pause
 
         \item Um caso especial interessante é o do triângulo retângulo, onde o circuncentro se 
             localiza no ponto médio da hipotenusa
+        \pause
 
         \item O raio $R$ do circuncentro é dado pela razão entre o produto das medidas de seus 
             lados $a, b, c$ e o quádruplo de sua área $A$, isto é
@@ -194,6 +210,7 @@
         \[
             |P| = \sqrt{P_x^2 + P_y^2}
         \]
+        \pause
 
         \item As coordenadas do circuncentro são dadas por
         \[
@@ -215,6 +232,7 @@
                 C_x & C_y & 1 \\
             \end{vmatrix}
         \]
+        \pause
 
         \item A reta de Euler é uma reta especial associada ao triângulo, que passa pelo baricentro, ortocentro e circuncentro, que estão sempre alinhados
     \end{itemize}
@@ -254,11 +272,11 @@
 \end{frame}
 
 \begin{frame}[fragile]{Implementação do centro e raio do círculo circunscrito}
-    \inputsnippet{cpp}{1}{18}{circumcircle.cpp}
+    \inputsnippet{cpp}{1}{18}{codes/circumcircle.cpp}
 \end{frame}
 
 \begin{frame}[fragile]{Implementação do centro e raio do círculo circunscrito}
-    \inputsnippet{cpp}{19}{39}{circumcircle.cpp}
+    \inputsnippet{cpp}{19}{39}{codes/circumcircle.cpp}
 \end{frame}
 
 

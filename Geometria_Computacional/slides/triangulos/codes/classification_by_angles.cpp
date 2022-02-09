@@ -1,6 +1,3 @@
-// Definição da classe Point, da função de comparação equals() e
-// da função de distância entre pontos dist()
-
 template<typename T>
 struct Triangle {
     Point<T> A, B, C; 
@@ -19,8 +16,7 @@ struct Triangle {
 
         auto right = PI / 2.0;
 
-        if (equals(alpha, right) || equals(beta, right) 
-            || equals(gamma, right))
+        if (equals(alpha, right) || equals(beta, right) || equals(gamma, right))
             return RIGHT;
 
         if (alpha > right || beta > right || gamma > right)
