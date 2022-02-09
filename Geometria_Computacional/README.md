@@ -11,8 +11,9 @@ Geometria Computacional
     1. [Produtos vetoriais](slides/vetores_produtos/vetores_produtos.pdf)
         1. [Educational Codeforces Round 1 - Problem C: Nearest vectors](problems/CF_598C/CF_598C.pdf)
     1. [Algoritmos](slides/retas_algoritmos/retas_algoritmos.pdf) ([problemas resolvidos](problems/LN-2/LN-2.pdf))
-1. [Círculos](slides/CC-1/CC-1.pdf) ([problemas resolvidos](problems/CC-1/CC-1.pdf))
-1. [Círculos: Algoritmos](slides/CC-2/CC-2.pdf) ([problemas resolvidos](problems/CC-2/CC-2.pdf))
+1. Círculos
+    1. [Definição](slides/circulos_definicao/circulos_definicao.pdf) ([problemas resolvidos](problems/CC-1/CC-1.pdf))
+    1. [Algoritmos](slides/circulos_algoritmos/circulos_algoritmos.pdf) ([problemas resolvidos](problems/CC-2/CC-2.pdf))
 1. [Triângulos](slides/TR-1/TR-1.pdf) ([problemas resolvidos](problems/TR-1/TR-1.pdf))
 1. [Quadriláteros](slides/QL-1/QL-1.pdf) ([problemas resolvidos](problems/QL-1/QL-1.pdf))
 1. [Polígonos](slides/PL-1/PL-1.pdf) ([problemas resolvidos](problems/PL-1/PL-1.pdf))
@@ -26,9 +27,6 @@ Geometria Computacional
 <!-- Assuntos pendentes:
 Pontos:
     1. exemplo de definição de ponto tridimensional com tuplas/decomposição estruturada
-
-Retas:
-    1. Equação paramétrica da reta
 
 Produtos vetoriais
     1. Produto misto
