@@ -5,18 +5,23 @@
     \begin{itemize}
         \item Tanto o cálculo do perímetro quanto da área de um círculo envolvem o uso da 
             constante $\pi$
+        \pause
 
         \item Caso o problema não informe o valor a ser utilizado, há três maneiras de proceder 
             para determinar o valor desta constante
+        \pause
 
         \item A primeira é utilizar o valor definido na linguagem Python, que pode ser obtido com 
-            o script abaixo.
+            o script abaixo:
 
         \inputcode{py}{pi.py}
+        \pause
 
         \item O valor resultante, 3.141592653589793, está correto nas suas 15 casas decimais
+        \pause
 
         \item A segunda forma é utilizar a expressão \code{c}{acos(-1.0)} em C/C++
+        \pause
 
         \item A terceira é usar a macro \code{c}{M_PI} da biblioteca de matemática padrão do
             C/C++
@@ -27,16 +32,19 @@
 \begin{frame}[fragile]{Perímetro do círculo}
 
     \begin{itemize}
-        \item O perímetro (circunferência) $C$ de um círculo corresponde ao o comprimento do contorno do círculo 
+        \item O perímetro (circunferência) $C$ de um círculo corresponde ao comprimento do contorno do círculo 
+        \pause
 
         \item Este valor pode ser computado como o perímetro de um polígono regular de $n$ lados e
             raio circunscrito $r$ (distância do centro a um dos vértices do polígono), 
             quando $n$ tende a infinito
+        \pause
 
         \item O lado $L$ de tal polígono e o raio se relacionam de modo que
         \[
             \sin \frac{\pi}{n} = \frac{L/2}{r} 
         \]
+        \pause
 
         \item Assim,
         \[
@@ -51,7 +59,7 @@
 
 \begin{frame}[fragile]{Implementação do perímetro em C/C++}
 
-    \inputcode{cpp}{perimeter.cpp}
+    \inputcode{cpp}{codes/perimeter.cpp}
 
 \end{frame}
 
@@ -60,13 +68,16 @@
     \begin{itemize}
         \item De modo semelhante, a área $A$ de um círculo pode ser aproximada pela área de um
             polígono regular de $n$ lados e raio circunscrito $r$ quando $n$ tende ao infinito
+        \pause
 
         \item A base de cada triângulo interno é igual a $L$
+        \pause
 
         \item A altura é a apótema $a$, onde
         \[
             \cos \frac{\pi}{n} = \frac{a}{r}
         \]
+        \pause
 
         \item Assim,
         \[
@@ -84,22 +95,26 @@
 \end{frame}
 
 \begin{frame}[fragile]{Implementação da área do círculo em C++}
-    \inputcode{cpp}{area.cpp}
+    \inputcode{cpp}{codes/area.cpp}
 \end{frame}
 
 \begin{frame}[fragile]{Arcos}
 
     \begin{itemize}
         \item Um arco de um círculo corresponde a uma seção conectada da circunferência 
+        \pause
 
         \item O comprimento do arco pode ser determinado através do ângulo central $\theta$, 
             definido pelos vetores gerados pela união de cada um dos pontos extremos do arco com
             o centro do círculo
+        \pause
 
         \item Um ângulo de $2\pi$ gera um arco igual a circunferência, isto é, $2\pi r$
+        \pause
 
         \item Usando a proporcionalidade e a regra de três, um ângulo $\theta$  corresponde a um
             arco igual a $\theta r$
+        \pause
 
         \begin{figure}
             \centering
@@ -121,16 +136,18 @@
 \end{frame}
 
 \begin{frame}[fragile]{Implementação do arco de um círculo em C/C++}
-    \inputcode{cpp}{arc.cpp}
+    \inputcode{cpp}{codes/arc.cpp}
 \end{frame}
 
 \begin{frame}[fragile]{Corda de um círculo}
 
     \begin{itemize}
         \item Uma corda corresponde a qualquer segmento de reta cujos pontos extremos estão sob o círculo
+        \pause
 
         \item O diâmetro é a maior dentre todas as cordas possíveis de um círculo, e tem
             comprimento $d = 2r$
+        \pause
 
         \item Conhecidos o raio $r$ e o ângulo central $\theta$ do arco definido pela corda, 
             o comprimento $L$ da corda pode ser determinado através da Lei dos Cossenos 
@@ -164,7 +181,7 @@
 \end{frame}
 
 \begin{frame}[fragile]{Implementação do comprimento de uma corda de um círculo em C/C++}
-    \inputcode{cpp}{chord.cpp}
+    \inputcode{cpp}{codes/chord.cpp}
 \end{frame}
 
 \begin{frame}[fragile]{Setores}
@@ -172,14 +189,17 @@
     \begin{itemize}
         \item Um setor de um círculo é a área delimitada por um arco cujo ângulo central é
             $\theta$
+        \pause
 
         \item Assim como no caso do arco, a área do setor será a fração da área total 
             correspondente ao ângulo central $\theta$ do arco que delimita o setor
+        \pause
 
         \item Assim, a área $S$ do setor é dada por
         \[
             S = \frac{\theta r^2}{2}
         \]
+        \pause
 
         \begin{figure}
             \centering
@@ -206,7 +226,7 @@
 \end{frame}
 
 \begin{frame}[fragile]{Implementação do setor de um círculo em C++}
-    \inputcode{cpp}{sector.cpp}
+    \inputcode{cpp}{codes/sector.cpp}
 \end{frame}
 
 \begin{frame}[fragile]{Segmento}
@@ -216,6 +236,7 @@
             resultante da diferença entre o setor delimitado por $\theta$ e do triângulo 
             resultante do segmentos de reta que unem os extremos dos arcos ao centro do círculo e 
             os extremos entre si (a corda)
+        \pause
 
         \item A área $T$ deste triângulo pode ser determinada pela Fórmula de Heron
         \[
@@ -254,5 +275,5 @@
 \end{frame}
 
 \begin{frame}[fragile]{Implementação do segmento de um círculo em C/C++}
-    \inputcode{cpp}{segment.cpp}
+    \inputcode{cpp}{codes/segment.cpp}
 \end{frame}
