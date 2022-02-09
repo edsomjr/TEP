@@ -14,7 +14,7 @@ Geometria Computacional
 1. Círculos
     1. [Definição](slides/circulos_definicao/circulos_definicao.pdf) ([problemas resolvidos](problems/CC-1/CC-1.pdf))
     1. [Algoritmos](slides/circulos_algoritmos/circulos_algoritmos.pdf) ([problemas resolvidos](problems/CC-2/CC-2.pdf))
-1. [Triângulos](slides/TR-1/TR-1.pdf) ([problemas resolvidos](problems/TR-1/TR-1.pdf))
+1. [Triângulos](slides/triangulos/triangulos.pdf) ([problemas resolvidos](problems/TR-1/TR-1.pdf))
 1. [Quadriláteros](slides/QL-1/QL-1.pdf) ([problemas resolvidos](problems/QL-1/QL-1.pdf))
 1. [Polígonos](slides/PL-1/PL-1.pdf) ([problemas resolvidos](problems/PL-1/PL-1.pdf))
 1. [Polígonos: Treliças](slides/PL-2/PL-2.pdf) ([problemas resolvidos](problems/PL-2/PL-2.pdf))
