@@ -5,12 +5,14 @@
     \begin{itemize}
         \item O perímetro de um polígono consiste na medida de seu contorno, isto é, a soma dos 
             comprimentos de suas aresta
+        \pause
 
         \item Ele pode ser calculado diretamente a partir da representação do polígono por meio
             de seus vértices
+        \pause
     \end{itemize}
 
-    \inputsnippet{cpp}{43}{57}{polygon.cpp}
+    \inputsnippet{cpp}{43}{56}{codes/polygon.cpp}
 \end{frame}
 
 \begin{frame}[fragile]{Área}
@@ -18,6 +20,7 @@
     \begin{itemize}
         \item A área delimitada por um polígono pode ser também determinada diretamente a partir
             de seus vértices
+        \pause
 
         \item Ela corresponde à metade do valor absoluto do \lq \lq determinante\rq\rq\ abaixo (as 
             aspas significam que a notação remete a um determinante, mas não é um determinante de 
@@ -37,21 +40,26 @@
 \end{frame}
 
 \begin{frame}[fragile]{Implementação da área do polígono}
-    \inputsnippet{cpp}{58}{71}{polygon.cpp}
+    \inputsnippet{cpp}{58}{69}{codes/polygon.cpp}
 \end{frame}
 
 \begin{frame}[fragile]{Área de polígonos regulares}
 
     \begin{itemize}
-        \item Um polígono é dito regular se todos os seus lados tenham a mesma medida
+        \item Um polígono é dito regular se todos os seus lados têm a mesma medida
+        \pause
 
         \item A área também pode ser computada através do conhecimento do número de lados $n$ e um 
             dos três valores abaixo:
+        \pause
             \begin{enumerate}
                 \item o comprimento de um dos lados ($s$)
-                \item a apótema, ou raio do círculo inscrito ($r$)
+        \pause
+                \item a apótema, isto é, o raio do círculo inscrito ($r$)
+        \pause
                 \item o raio do círculo circunscrito ($R$)
             \end{enumerate}
+        \pause
 
         \item As expressões abaixo relacionam a área do polígono regular com as medidas
             supracitadas:
@@ -69,11 +77,14 @@
         \item Para se verificar se um ponto $P$ está localizado, ou não, no interior de um 
             polígono, basta computar a soma dos ângulos formados por $P$ e cada par de vértices do 
             polígono
+        \pause
 
         \item Esta soma deve adicionar o ângulo se o ponto está na mesma orientação do polígono, e
         subtrair em caso contrário
+        \pause
 
         \item Se o total for igual a $2\pi$, o ponto está no interior do polígono
+        \pause
 
         \item Esta verificação vale tanto para polígonos convexos quanto côncavos
 
@@ -82,11 +93,11 @@
 \end{frame}
 
 \begin{frame}[fragile]{Implementação da relação entre pontos e polígonos}
-    \inputsnippet{cpp}{72}{90}{polygon.cpp}
+    \inputsnippet{cpp}{72}{88}{codes/polygon.cpp}
 \end{frame}
 
 \begin{frame}[fragile]{Implementação da relação entre pontos e polígonos}
-    \inputsnippet{cpp}{91}{111}{polygon.cpp}
+    \inputsnippet{cpp}{90}{109}{codes/polygon.cpp}
 \end{frame}
 
 \begin{frame}[fragile]{Relação entre polígonos e retas}
@@ -94,15 +105,18 @@
     \begin{itemize}
         \item Considere uma reta $r$, que passa pelos pontos $A$ e $B$, e um polígono convexo $P$, 
             com $n$ vértices
+        \pause
 
         \item A reta $r$ secciona o polígono em duas regiões, esquerda e direita, que podem ser ou 
             uma vazias e outra contendo $P$ integralmente, ou serem compostas de dois polígonos 
             convexos $P_1$ e $P_2$, resultantes do corte de $P$ por $r$
+        \pause
 
         \item A rotina \code{cpp}{cut_polygon()}, apresentada a seguir e adaptada de Competitive 
             Programming 3, retorna a região a esquerda do corte, considerando que $P$ está descrito 
             no sentido anti-horário
     \end{itemize}
+        \pause
 
     \begin{figure}
         \centering
@@ -133,11 +147,11 @@
 \end{frame}
 
 \begin{frame}[fragile]{Implementação da relação entre pontos e retas}
-    \inputsnippet{cpp}{113}{133}{polygon.cpp}
+    \inputsnippet{cpp}{112}{131}{codes/polygon.cpp}
 \end{frame}
 
 \begin{frame}[fragile]{Implementação da relação entre pontos e retas}
-    \inputsnippet{cpp}{134}{151}{polygon.cpp}
+    \inputsnippet{cpp}{132}{148}{codes/polygon.cpp}
 \end{frame}
 
 \begin{frame}[fragile]{Círculo circunscrito}
@@ -146,9 +160,11 @@
         \item Um polígono regular (medidas dos lados iguais) de $n$ lados possui um círculo 
             circunscrito (cujos vértices pertencem ao círculo) e um círculo inscrito 
             (cujos lados são tangentes ao círculo)
+        \pause
 
         \item O raio $R$ do círculo circunscrito é igual ao raio do polígono: a distância entre o 
             seu centro e um de seus vértices
+        \pause
 
         \item Se $s$ é a medida do lado do polígono, então
         \[
@@ -180,7 +196,7 @@
 \end{frame}
 
 \begin{frame}[fragile]{Implementação do cálculo do raio $R$ do círculo circunscrito}
-    \inputsnippet{cpp}{152}{158}{polygon.cpp}
+    \inputsnippet{cpp}{150}{156}{codes/polygon.cpp}
 \end{frame}
 
 \begin{frame}[fragile]{Círculo inscrito}
@@ -195,8 +211,10 @@
         \[
             r = \frac{s}{2}\cot\frac{\pi}{n}
         \]
+        \pause
 
         \item O raio $r$ também é denominado apótema do polígono regular
+        \pause
 
         \item Os raios $R$ e $r$ se relacionam de modo que
         \[
@@ -223,7 +241,7 @@
 \end{frame}
 
 \begin{frame}[fragile]{Implementação do cálculo do raio $r$ do círculo inscrito}
-    \inputsnippet{cpp}{160}{167}{polygon.cpp}
+    \inputsnippet{cpp}{158}{164}{codes/polygon.cpp}
 \end{frame}
 
 

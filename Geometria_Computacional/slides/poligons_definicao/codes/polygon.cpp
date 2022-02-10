@@ -21,8 +21,7 @@ public:
 private:
     T D(const Point<T>& P, const Point<T>& Q, const Point<T>& R) const
     {
-        return (P.x * Q.y + P.y * R.x + Q.x * R.y) - 
-            (R.x * Q.y + R.y * P.x + Q.x * P.y);
+        return (P.x * Q.y + P.y * R.x + Q.x * R.y) - (R.x * Q.y + R.y * P.x + Q.x * P.y);
     }
 
 public:
@@ -92,7 +91,6 @@ private:
         static const double EPS { 1e-6 };
         return fabs(x - y) < EPS;
     }
-
 public:
     bool contains(const Point<T>& P) const
     {

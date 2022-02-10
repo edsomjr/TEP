@@ -5,13 +5,16 @@
     \begin{itemize}
         \item Polígonos são figuras planas delimitadas por caminhos fechados 
             (o vértice de partida é o vértice de chegada), compostos por segmentos de retas que 
-            une vértices consecutivos
+            unem vértices consecutivos
+        \pause
 
         \item Os segmentos que unem os vértices são denominados arestas
+        \pause
 
         \item Embora alguns polígonos especiais (triângulos, quadriláteros) possam ter tratamento
             especial, os algoritmos de polígonos podem ser aplicados igualmente a estes entes
             geométricos
+        \pause
     \end{itemize}
 
     \begin{figure}
@@ -53,18 +56,23 @@
     \begin{itemize}
         \item A representação mais comum de um polígono é a listagem de seus vértices, sendo que 
             as arestas ficam subentendidas (há sempre uma aresta unindo dois vértice consecutivos) 
+        \pause
 
         \item Para facilitar a implementação de algumas rotinas, pode ser conveniente inserir, 
             ao final da lista, o ponto de partida
+        \pause
 
         \item É preciso tomar cuidado: ao fazer isso, o 
             número de vértices do polígono passa a ser o número de elementos da lista subtraído 
             de uma unidade    
+        \pause
 
-        \inputsyntax{cpp}{poly.cpp}
+        \inputsyntax{cpp}{codes/poly.cpp}
+        \pause
 
         \item Esta implementação é a mais compacta possível, mas requer atenção a questão do 
             número de vértices, conforme já comentado
+        \pause
 
         \item Uma implementação mais extensa evita os problemas já mencionados
     \end{itemize}
@@ -72,7 +80,7 @@
 \end{frame}
 
 \begin{frame}[fragile]{Exemplo de implementação de um polígono em C++}
-    \inputsnippet{cpp}{1}{20}{polygon.cpp}
+    \inputsnippet{cpp}{1}{19}{codes/polygon.cpp}
 \end{frame}
 
 \begin{frame}[fragile]{Polígonos côncavos e convexos}
@@ -81,22 +89,24 @@
         \item Um polígono é dito convexo se, para quaisquer dois pontos $P$ e $Q$ localizados no 
             interior do polígono, o segmento de reta $PQ$ não intercepta nenhuma das arestas do 
             polígono
+        \pause
 
         \item Caso contrário, o polígono é dito côncavo
+        \pause
 
-        \item É possível determinar se um polígono é ou não convexo sem recorrer à busca completa 
+        \item É possível determinar se um polígono é ou não convexo sem recorrer à busca completa,
             isto é, testar todos os possíveis pares de pontos interiores ao polígono
+        \pause
 
-        \item A orientação $D$ entre pontos e reta pode ser utilizada para tal fim
+        \item A orientação $D$, entre pontos e reta, pode ser utilizada para tal fim
+        \pause
 
         \item Basta checar se, para quaisquer três pontos consecutivos do polígono, eles tem a 
-            mesma orientação: ou sempre a esquerda, ou sempre à direita
+            mesma orientação: ou sempre à esquerda, ou sempre à direita
     \end{itemize}
 
 \end{frame}
 
 \begin{frame}[fragile]{Implementação da rotina de verificação de convexidade}
-        \inputsnippet{cpp}{21}{41}{polygon.cpp}
+        \inputsnippet{cpp}{21}{40}{codes/polygon.cpp}
 \end{frame}
-
-
