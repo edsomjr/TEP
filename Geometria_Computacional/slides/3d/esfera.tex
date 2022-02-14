@@ -5,16 +5,20 @@
     \begin{itemize}
         \item A esfera é o conjunto de pontos do espaço tridimensional que são equidistantes
             de um ponto fixo
+        \pause
 
         \item Este ponto fixo é denominado centro $C$ da esfera
+        \pause
 
         \item A distância de um ponto da esfera a $C$ é denominada raio $r$
+        \pause
 
-        \item A esfera por ser representa, em coordenadas cartesianas, pela equação abaixo,
-onde ($x_0, y_0$) são as coordenadas do centro e $r$ é o raio
+        \item A esfera por ser representada, em coordenadas cartesianas, pela equação abaixo,
+        onde ($x_0, y_0, z_0$) são as coordenadas do centro e $r$ é o raio
         \[
             (x - x_0)^2 + (y - y_0)^2 + (z - z_0)^2 = r^2
         \]
+        \pause
 
         \item Pode ser útil, porém, utilizar a representação da esfera em coordenadas esféricas, 
             onde $r$ é o raio, $\theta$ um ângulo que varia de 0 a $2\pi$ e $\varphi$ é um ângulo 
@@ -36,11 +40,13 @@ onde ($x_0, y_0$) são as coordenadas do centro e $r$ é o raio
     \begin{itemize}
         \item A área da superfície da esfera é dada por $A = 4\pi r^2$, onde $r$ é o raio
             da esfera
+        \pause
 
         \item O seu volume é igual a 
         \[
             V = \frac{4}{3}\pi r^3
         \]
+        \pause
 
         \item Estas expressões podem ser verificadas através das integrais de área e volume 
             em coordenadas esféricas, cujo jacobiano é dado por $r^2\sin(\varphi)$:
@@ -57,5 +63,5 @@ onde ($x_0, y_0$) são as coordenadas do centro e $r$ é o raio
 \end{frame}
 
 \begin{frame}[fragile]{Implementação do cálculo da área e do volume da esfera}
-    \inputcode{cpp}{sphere.cpp}
+    \inputcode{cpp}{codes/sphere.cpp}
 \end{frame}

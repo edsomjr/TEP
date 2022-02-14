@@ -1,5 +1,3 @@
-// Definição da estrutura Vector3D
-
 template<typename T>
 struct Parallelepiped {
     Vector3D<T> u, v, w;
@@ -20,8 +18,8 @@ struct Parallelepiped {
         double n = angle(u, w);
         double p = angle(v, w);
 
-        return a*b*c*sqrt(1 + 2*cos(m)*cos(n)*cos(p) - cos(m)*cos(m)
-            - cos(n)*cos(n) - cos(p)*cos(p));
+        return a*b*c*sqrt(1 + 2*cos(m)*cos(n)*cos(p)
+            - cos(m)*cos(m) - cos(n)*cos(n) - cos(p)*cos(p));
     }
     
     double volume3() const
@@ -38,4 +36,3 @@ struct Parallelepiped {
         return 2*(uv + uw + vw);
     }
 };
-

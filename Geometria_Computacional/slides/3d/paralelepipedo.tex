@@ -4,20 +4,23 @@
 
     \begin{itemize}
         \item Um paralelepípedo é uma figura geométrica formada por seis paralelogramos
+        \pause
 
         \item Em geral, um paralelepípedo é representado por três vetores linearmente 
             independentes $\vec{u}, \vec{v}, \vec{w}$
+        \pause
 
         \item Caso estes vetores sejam linearmente dependentes, o paralelepípedo resultante
             é degenerado, tendo volume igual a zero
+        \pause
 
         \item A área é dada pelas somas das áreas de suas faces
+        \pause
 
         \item A face delimitada pelos vetores $\vec{u}$ e $\vec{v}$ tem área dada por
         \[
             A = |\vec{u} \times \vec{v}|
-        \]
-
+        \] \pause
         \item O mesmo vale para as outras faces, usando-se os vetores apropriados
     \end{itemize}
 
@@ -31,6 +34,7 @@
             V = |(\vec{u} \times \vec{v}) \cdot \vec{w}|,
         \]
         onde $x\cdot y$ é o produto interno entre os vetores $x$ e $y$
+        \pause
 
         \item Na prática, o produto misto é equivalente ao determinante 
         \[
@@ -41,6 +45,7 @@
                 w_x & w_y & w_z \\
             \end{bmatrix}
         \]
+        \pause
 
         \item Se conhecidos apenas os comprimentos $a, b, c$ das arestas e os ângulos internos
             $\alpha, \beta, \gamma$ formados entre elas, é possível computar o volume do paralelogramo
@@ -54,9 +59,9 @@
 \end{frame}
 
 \begin{frame}[fragile]{Implementação do cálculo da área e do volume}
-    \inputsnippet{cpp}{1}{21}{volume_par.cpp}
+    \inputsnippet{cpp}{1}{19}{codes/volume_par.cpp}
 \end{frame}
 
 \begin{frame}[fragile]{Implementação do cálculo da área e do volume}
-    \inputsnippet{cpp}{22}{42}{volume_par.cpp}
+    \inputsnippet{cpp}{21}{42}{codes/volume_par.cpp}
 \end{frame}

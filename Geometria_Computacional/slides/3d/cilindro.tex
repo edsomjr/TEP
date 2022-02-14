@@ -6,11 +6,14 @@
     \begin{itemize}
         \item O cilindro é uma figura geométrica formada pelos pontos equidistantes de 
             um eixo (segmento de reta) dado
+        \pause
 
-        \item Esta distância fixa recebe o nome de raio $r$.
+        \item Esta distância fixa recebe o nome de raio $r$
+        \pause
 
         \item Em geral, um cilindro é representado pelo raio e pela distância entre as 
-            duas faces circulares opostas, denominada altura $h$.
+            duas faces circulares opostas, denominada altura $h$
+        \pause
 
     \end{itemize}
 
@@ -37,8 +40,10 @@
         \]
         isto é, sua área lateral (um retângulo de base $2\pi r$, que é a circunferência
             do círculo, e altura $h$) e o dobro da área da base ($\pi r^2$)
+        \pause
 
         \item O volume, por sua vez, pode ser computado de duas formas
+        \pause
 
         \item Uma delas é a integral de área usando coordenadas cilíndricas 
         \begin{align*}
@@ -47,9 +52,11 @@
             z &= z,
         \end{align*}
         onde $0 \leq \theta \leq 2\pi$
+        \pause
 
         \item Outra é calcular a superfície de revolução de um segmento vertical de comprimento
             $h$ no ponto $x = r$ torno do eixo $y$
+        \pause
 
         \item Em ambos casos, $V = \pi r^2 h$, que é igual a área da base vezes a altura
 
@@ -58,5 +65,5 @@
 \end{frame}
 
 \begin{frame}[fragile]{Implementação de um cilindro}
-    \inputcode{cpp}{cylinder.cpp}
+    \inputcode{cpp}{codes/cylinder.cpp}
 \end{frame}

@@ -1,8 +1,5 @@
-// Definição da constante PI
 template<typename T>
-struct Point3D {
-    T x, y, z;
-};
+struct Point3D { T x, y, z; };
 
 template<typename T>
 struct Sphere {
