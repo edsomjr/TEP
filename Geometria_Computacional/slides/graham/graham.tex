@@ -1,0 +1,107 @@
+\section{Algoritmo de Graham}
+
+\begin{frame}[fragile]{Algoritmo de Graham}
+
+    \begin{itemize}
+        \item O algoritmo de Graham (\textit{Graham Scan}, no original), foi proposto por
+            Ronald Graham em 1972
+        \pause
+
+        \item Ele inicialmente ordena todos os $N$ pontos de $P$ de acordo com o ângulo que eles 
+            formam com um ponto pivô fixado previamente
+        \pause
+
+        \item A escolha padrão para o pivô é o ponto de menor coordenada $y$ 
+        \pause
+
+        \item Caso exista mais de um ponto com coordenada $y$ mínima, escolhe-se o de maior 
+            coordenada $x$ dentre eles
+        \pause
+
+        \item Se $P$ é armazenado em um vetor, o algoritmo pode ser simplificado movendo-se o pivô 
+            para a primeira posição
+    \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{Implementação da escolha do pivô}
+    \inputsnippet{cpp}{34}{48}{codes/graham.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Ordenação dos pontos de acordo com o ângulo}
+
+    \begin{itemize}
+        \item A ordem é dada, de forma crescente, pelo valor do ângulo que é formado entre um
+           ponto e o eixo $x$ positivo do pivô. Quando dois pontos formam um ângulo igual,
+           a prioridade é dada ao que está mais perto do pivô
+        \pause
+
+        \item Para realizar a ordenação dos pontos é preciso definir um operador booleano que
+        receba dois pontos $P$ e $Q$ e retorne verdadeiro se $P$ antecede $Q$ de
+        acordo com a ordenação proposta
+        \pause
+
+        \item Como é necessário o conhecimento do pivô para tal ordenação, há três possibilidades 
+            para a implementação deste operador:
+        \pause
+
+        \begin{enumerate}
+            \item implementar o operator \code{c}{<} da classe \code{c}{Point}, tornando o pivô um 
+                membro da classe para que o operador tenha acesso a ele;
+        \pause
+            \item tornar o pivô uma variável global;
+        \pause
+            \item usar uma função lambda no terceiro parâmetro da função \code{c}{sort()}, 
+                capturando o pivô por referência ou cópia
+        \pause
+        \end{enumerate}
+
+        \item O ângulo pode ser obtido através da função \code{c}{atan2()} da biblioteca \code{c}{math.h} da linguagem C/C++
+    \end{itemize}
+
+\end{frame}
+
+\input{angle}
+
+\begin{frame}[fragile]{Implementação da rotina de ordenação dos pontos}
+    \inputsnippet{cpp}{50}{64}{codes/graham.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Identificação do envoltório convexo}
+
+    \begin{itemize}
+        \item Após a ordenação dos pontos, o algoritmo procede empilhando
+            três pontos de $P$: inicialmente os pontos cujos índices são $n - 1, 0$ e $1$
+        \pause
+
+        \item  O invariante a ser mantido é que os três elementos do topo de pilha estão em 
+            sentido anti-horário ($D > 0$)
+        \pause
+
+        \item Para cada um dos demais pontos $Q_i$ de $P$, com $i = 2, 3, \ldots, n - 1$, 
+            verifica-se se este ponto mantem o sentido anti-horário com os dois elementos do topo 
+            da pilha
+        \pause
+
+        \item Em caso afirmativo, o ponto é inserido na pilha 
+        \pause
+
+        \item Caso contrário, remove-se o topo da pilha e se verifica o invariante para
+            $Q_i$ novamente
+        \pause
+
+        \item Como cada ponto é ou inserido ou removido uma única vez, este processo tem 
+            complexidade $O(N)$, e o algoritmo como um todo tem complexidade $O(N\log N)$, 
+            devido à ordenação
+    \end{itemize}
+
+\end{frame}
+
+\input{graham_ch}
+
+\begin{frame}[fragile]{Implementação da rotina de envoltório convexo}
+    \inputsnippet{cpp}{67}{83}{codes/graham.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Implementação da rotina de envoltório convexo}
+    \inputsnippet{cpp}{85}{97}{codes/graham.cpp}
+\end{frame}
