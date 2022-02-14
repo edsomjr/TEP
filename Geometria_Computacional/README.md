@@ -19,7 +19,7 @@ Geometria Computacional
 1. Polígonos
     1. [Definição](slides/poligonos_definicao/poligonos_definicao.pdf) ([problemas resolvidos](problems/PL-1/PL-1.pdf))
     1. [Treliças](slides/poligonos_trelicas/poligonos_trelicas.pdf) ([problemas resolvidos](problems/PL-2/PL-2.pdf))
-1. [Objetos Tridimensionais](slides/3D-1/3D-1.pdf) ([problemas resolvidos](problems/3D-1/3D-1.pdf))
+1. [Objetos Tridimensionais](slides/3d/3d.pdf) ([problemas resolvidos](problems/3D-1/3D-1.pdf))
 1. [Envoltório Convexo](slides/CH-1/CH-1.pdf) ([problemas resolvidos](problems/CH-1/CH-1.pdf))
 1. _Sweep line_
     1. [Definição e exemplos](slides/SL-1/SL-1.pdf)
@@ -28,9 +28,6 @@ Geometria Computacional
 <!-- Assuntos pendentes:
 Pontos:
     1. exemplo de definição de ponto tridimensional com tuplas/decomposição estruturada
-
-Produtos vetoriais
-    1. Produto misto
 
 1. Convex hull dinâmico
 2. Interseção entre dois conjuntos de segmentos
