@@ -23,6 +23,7 @@ Geometria Computacional
 1. Envoltório Convexo
     1. [Definição](slides/envoltorio_convexo/envoltorio_convexo.pdf)
     1. [Algoritmo de Graham](slides/graham/graham.pdf)
+    1. [Cadeia Monótona de Andrew](slides/andrew/andrew.pdf)
 1. _Sweep line_
     1. [Definição e exemplos](slides/SL-1/SL-1.pdf)
     1. [Algoritmos](slides/SL-2/SL-2.pdf) ([problemas resolvidos](problems/SL-2/SL-2.pdf))
