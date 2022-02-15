@@ -4,16 +4,19 @@
 
     \begin{itemize}
         \item Um problema que pode ser resolvido usando o paradigma \textit{sweep line} é o de
-            contabilizar, dentre um conjunto de intervalos $I_i = (a_i, b_i)$, o tamanho do maior 
+            contabilizar, dentre um conjunto de intervalos $I_i = [a_i, b_i)$, o tamanho do maior 
             subconjunto $S$ destes intervalos tal que $I_j \cap I_k \neq \emptyset$ para todo
             par $I_j, I_k\in S$ 
+        \pause
 
         \item Uma aplicação prática deste problema seria: cada intervalo representa o início e o
             fim de um espetáculo que acontecerá em determinado dia. Qual é o número máximo de
             espetáculos que acontecerão simultaneamete?
+        \pause
 
         \item A solução é criar, para cada intervalo, dois eventos: um evento de ínicio do 
             espetáculo $(a_i, 1)$ e um evento de final $(b_i, 0)$
+        \pause
 
         \item Uma vez ordenados estes eventos em ordem lexicográfica (primeiro por coordenada $x$,
             depois por coordenada $y$), basta processar todos eles, um por vez
@@ -27,18 +30,23 @@
     \begin{itemize}
         \item Um evento de início incrementa o número de eventos em andamento, o evento de fim
             decrementa
+        \pause
 
-        \item Com a representação de eventos escolhida, os intervalos $(a, b)$ e $(b, c)$ não tem
+        \item Com a representação de eventos escolhida, os intervalos $[a, b)$ e $[b, c)$ não tem
             interseção
+        \pause
 
         \item A complexidade deste algoritmo é $O(N\log N)$, por conta da ordenação, pois
             cada ponto será processado uma única vez
+        \pause
 
         \item A representação dos eventos pode ser modificada, de tal modo que é possível 
             identificar quais são os intervalos simultâneos
+        \pause
 
         \item Basta fazer $(a_i, i)$ e $(b_i, -i)$ e manter os índices dos intervalos em
             exibição em um conjuntos, removendo-os a cada evento de encerramento
+        \pause
 
         \item Veja que, nesta represenção, os intervalos devem ser numerados a partir de 1,
             pois o zero geraria ambiguidade
@@ -49,13 +57,9 @@
 \input{inter}
 
 \begin{frame}[fragile]{Implementação da interseção de intervalos}
-    \inputsnippet{cpp}{1}{21}{intersection.cpp}
+    \inputsnippet{cpp}{1}{18}{codes/intersection.cpp}
 \end{frame}
 
 \begin{frame}[fragile]{Implementação da interseção de intervalos}
-    \inputsnippet{cpp}{22}{42}{intersection.cpp}
-\end{frame}
-
-\begin{frame}[fragile]{Implementação da interseção de intervalos}
-    \inputsnippet{cpp}{43}{63}{intersection.cpp}
+    \inputsnippet{cpp}{20}{36}{codes/intersection.cpp}
 \end{frame}

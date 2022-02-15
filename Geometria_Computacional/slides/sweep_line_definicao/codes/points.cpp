@@ -43,13 +43,9 @@ public:
     }
 };
 
-struct Point {
-    int x, y;
-};
+struct Point { int x, y; };
 
-struct Interval {
-    Point A, B;
-};
+struct Interval { Point A, B; };
 
 int index(const vector<int>& hs, int value)
 {
@@ -86,8 +82,7 @@ int intersections(const vector<Interval>& is)
         ys.insert(I.A.y);
         ys.insert(I.B.y);
 
-        auto xmin = min(I.A.x, I.B.x);
-        auto xmax = max(I.A.x, I.B.x);
+        auto xmin = min(I.A.x, I.B.x), xmax = max(I.A.x, I.B.x);
 
         if (I.A.x == I.B.x)     // Vertical
             es.push_back( { 2, xmin, i });
