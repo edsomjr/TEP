@@ -26,7 +26,7 @@ Geometria Computacional
     1. [Cadeia Monótona de Andrew](slides/andrew/andrew.pdf)
 1. _Sweep line_
     1. [Definição e exemplos](slides/sweep_line_definicao/sweep_line_definicao.pdf)
-    1. [Algoritmos](slides/SL-2/SL-2.pdf) ([problemas resolvidos](problems/SL-2/SL-2.pdf))
+    1. [Algoritmos](slides/sweep_line_algoritmos/sweep_line_algoritmos.pdf) ([problemas resolvidos](problems/SL-2/SL-2.pdf))
 
 <!-- Assuntos pendentes:
 Pontos:
