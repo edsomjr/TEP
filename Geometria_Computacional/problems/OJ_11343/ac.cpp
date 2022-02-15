@@ -1,18 +1,13 @@
-#include <iostream>
-#include <vector>
+#include <bits/stdc++.h>
 
 using namespace std;
 using ll = long long;
 
-struct Point
-{
-    ll x, y;
-};
+struct Point { ll x, y; };
 
 ll D(const Point& P, const Point& Q, const Point& R)
 {
-    return (P.x * Q.y + P.y * R.x + Q.x * R.y) -
-           (R.x * Q.y + R.y * P.x + Q.x * P.y);
+    return (P.x * Q.y + P.y * R.x + Q.x * R.y) - (R.x * Q.y + R.y * P.x + Q.x * P.y);
 }
 
 struct Segment
@@ -51,8 +46,7 @@ int solve(const vector<Segment>& vs, int M)
 
         for (int j = 0; j < M; ++j)
         {
-            if (i == j)
-                continue;
+            if (i == j) continue;
 
             hits += vs[i].intersect(vs[j]) ? 1 : 0;
         }

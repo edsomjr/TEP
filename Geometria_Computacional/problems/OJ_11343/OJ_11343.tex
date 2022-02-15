@@ -1,4 +1,4 @@
-\section{UVA 11343 -- Isolated Segments}
+\section{OJ 11343 -- Isolated Segments}
 
 \begin{frame}[fragile]{Problema}
 
@@ -19,11 +19,12 @@ don’t collide. You are asked to find number $T$ -- how many segments are isola
 \begin{frame}[fragile]{Entrada e saída}
 
 \textbf{Input}
+
 First line of input contains number $N$ $(N \leq 50)$, then tests follow. First line of each test 
 case contains number $M$ ($M \leq 100$) — the number of segments for this test case to be 
 considered. For this particular test case $M$ lines follow each containing a description of one 
 segment. Segment is described by 2 points: start point ($X_{pi}, Y_{pi}$) and end point 
-($X_{ei}, Y_{ei}$). They are given in such order: $X_{pi}$ $Y_{pi}$ $X_{ei}$ $Y_{ei}$
+($X_{ei}, Y_{ei}$). They are given in such order: $X_{pi}$ $Y_{pi}$ $X_{ei}$ $Y_{ei}$.
 \end{frame}
 
 \begin{frame}[fragile]{Entrada e saída}
@@ -34,7 +35,7 @@ For each test case output one line containing number $T$.
 
 \begin{frame}[fragile]{Exemplo de entradas e saídas}
 
-\begin{footnotesize}
+\begin{scriptsize}
 \begin{minipage}[t]{0.5\textwidth}
 \textbf{Sample Input}
 \begin{verbatim}
@@ -71,7 +72,7 @@ For each test case output one line containing number $T$.
 0
 \end{verbatim}
 \end{minipage}
-\end{footnotesize}
+\end{scriptsize}
 
 \end{frame}
 
@@ -79,19 +80,25 @@ For each test case output one line containing number $T$.
 
     \begin{itemize}
         \item O problema consiste na identificação da interseção entre segmentos
+        \pause
 
         \item A verificação de interseção entre segmentos consiste em duas etapas
+        \pause
 
         \item A primeira etapa é checar se as retas $r$ e $s$ que contém os segmentos se
             interceptam
+        \pause
 
         \item Em caso positivo é preciso ainda ver se o ponto de interseção está contido nos 
             segmentos ou não
+        \pause
 
         \item É preciso atentar aos \textit{corner cases}
+        \pause
 
         \item Como é preciso, para cada segmento $i$,  testar todos os segmentos $j$, a
             solução tem complexidade $O(M^2)$
+        \pause
 
         \item Atenção ao produto dos discriminantes, que pode exceder a capacidade de um
             inteiro, de modo que é preciso usar o tipo \code{c}{long long} em seu retorno
@@ -100,21 +107,13 @@ For each test case output one line containing number $T$.
 \end{frame}
 
 \begin{frame}[fragile]{Solução AC com complexidade $O(N^2)$}
-    \inputsnippet{cpp}{1}{21}{ac2.cpp}
+    \inputsnippet{cpp}{4}{21}{ac.cpp}
 \end{frame}
 
 \begin{frame}[fragile]{Solução AC com complexidade $O(N^2)$}
-    \inputsnippet{cpp}{22}{42}{ac2.cpp}
+    \inputsnippet{cpp}{23}{41}{ac.cpp}
 \end{frame}
 
 \begin{frame}[fragile]{Solução AC com complexidade $O(N^2)$}
-    \inputsnippet{cpp}{44}{64}{ac2.cpp}
-\end{frame}
-
-\begin{frame}[fragile]{Solução AC com complexidade $O(N^2)$}
-    \inputsnippet{cpp}{66}{86}{ac2.cpp}
-\end{frame}
-
-\begin{frame}[fragile]{Solução AC com complexidade $O(N^2)$}
-    \inputsnippet{cpp}{87}{107}{ac2.cpp}
+    \inputsnippet{cpp}{43}{58}{ac.cpp}
 \end{frame}
