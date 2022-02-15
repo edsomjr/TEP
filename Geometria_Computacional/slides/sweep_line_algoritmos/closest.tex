@@ -9,11 +9,14 @@
             \[
                 \dist(P, Q) = \min\lbrace \dist(P_i, P_j)\rbrace,\ \ \forall P_i\in S\ \ \ \mbox{com}\ \ \ i \neq j
             \]
+        \pause
 
         \item Uma abordagem de busca completa consiste em computar as distância entre todos
             os pares de pontos possível, tendo complexidade $O(N^2)$
+        \pause
 
         \item Contudo, o problema pode ser resolvido em $O(N\log N)$ através do \textit{sweep line}
+        \pause
 
         \item Os pontos deve ser ordenados em ordem lexicográfica
     \end{itemize}
@@ -25,17 +28,21 @@
     \begin{itemize}
  
         \item Seja $d = \dist(P_1, P_2)$
+        \pause
  
         \item Agora, para todos pontos $P_3, P_4, \ldots, P_N$, deve-se computar todos os pontos
             vizinhos de $P_i = (x, y)$ tais que as coordenadas $x$ estejam no intervalo
             $[x - d, x]$ e que as coordenadas $y$ estejam no intervalo $[y - d, y + d]$
+        \pause
 
         \item Estes pontos podem ser identificados mantendo-se um conjunto de pontos cujas 
             coordenadas estejam entre $[x - d, x]$, ordenado em ordem crescente de coordenada
             $y$
+        \pause
 
         \item Caso a distância de $P_i$ para algum destes pontos seja inferior a $d$, o valor de
             $d$ é atualizado e a varredura continua com este novo valor
+        \pause
 
         \item O ponto principal é que existem, no máximo, $O(1)$ pontos neste retângulo, o que
             faz com que a complexidade do algoritmo seja $O(N\log N)$, por conta da ordenação
@@ -47,17 +54,13 @@
 \input{closest_view}
 
 \begin{frame}[fragile]{Implementação da identifacação do par mais próximo}
-    \inputsnippet{cpp}{1}{21}{closest.cpp}
+    \inputsnippet{cpp}{1}{19}{codes/closest.cpp}
 \end{frame}
 
 \begin{frame}[fragile]{Implementação da identifacação do par mais próximo}
-    \inputsnippet{cpp}{22}{41}{closest.cpp}
+    \inputsnippet{cpp}{21}{38}{codes/closest.cpp}
 \end{frame}
 
 \begin{frame}[fragile]{Implementação da identifacação do par mais próximo}
-    \inputsnippet{cpp}{42}{60}{closest.cpp}
+    \inputsnippet{cpp}{40}{60}{codes/closest.cpp}
 \end{frame}
-
-
-
-

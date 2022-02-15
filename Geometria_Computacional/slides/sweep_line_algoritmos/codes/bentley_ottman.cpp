@@ -36,8 +36,7 @@ struct Segment
     size_t idx;
 
     Segment(const Point& P, const Point& Q, size_t i)
-        : a(P.y - Q.y), b (Q.x - P.x), c(P.x*Q.y - Q.x*P.y), 
-          A(P), B(Q), idx(i) { }
+        : a(P.y - Q.y), b (Q.x - P.x), c(P.x*Q.y - Q.x*P.y), A(P), B(Q), idx(i) { }
 
     bool operator<(const Segment& s) const
     {

@@ -2,21 +2,19 @@
 
 using namespace std;
 using ii = pair<double, double>;
-using point = pair<double, double>;
 
-#define x first
-#define y second
+struct Point { double x, y; };
 
-double dist(const point& P, const point& Q)
+double dist(const Point& P, const Point& Q)
 {
     return hypot(P.x - Q.x, P.y - Q.y);
 }
 
-pair<point, point> closest_pair(int N, vector<point>& ps)
+pair<Point, Point> closest_pair(int N, vector<Point>& ps)
 {
     sort(ps.begin(), ps.end());
 
-    // Assume que N > 1
+    // Este código assume que N > 1
     auto d = dist(ps[0], ps[1]);
     auto closest = make_pair(ps[0], ps[1]);
 
@@ -27,11 +25,11 @@ pair<point, point> closest_pair(int N, vector<point>& ps)
     for (int i = 2; i < N; ++i)
     {
         auto P = ps[i];
-        auto it = S.lower_bound(point(P.y - d, 0));
+        auto it = S.lower_bound(Point(P.y - d, 0));
 
         while (it != S.end())
         {
-            auto Q = point(it->second, it->first);
+            auto Q = Point(it->second, it->first);
 
             if (Q.x < P.x - d)
             {

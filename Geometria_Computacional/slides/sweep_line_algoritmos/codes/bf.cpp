@@ -25,10 +25,7 @@ struct Point
         return x != P.x ? x < P.x : y < P.y;
     }
 
-    bool operator==(const Point& P) const
-    {
-        return x == P.x and y == P.y;
-    }
+    bool operator==(const Point& P) const { return x == P.x and y == P.y; }
 };
 
 template<typename T>
@@ -38,9 +35,7 @@ struct Segment
     Point<T> A, B;
 
     Segment(const Point<T>& P, const Point<T>& Q)
-        : a(P.y - Q.y), b (Q.x - P.x), c(P.x*Q.y - Q.x*P.y), A(P), B(Q)
-    {
-    }
+        : a(P.y - Q.y), b (Q.x - P.x), c(P.x*Q.y - Q.x*P.y), A(P), B(Q) { }
 
     optional<Point<T>> intersection(const Segment& s)
     {
@@ -76,8 +71,7 @@ set<Point<T>> intersections(int N, const vector<Segment<T>>& segments)
             auto r = segments[j];
             auto P = s.intersection(r);
 
-            if (P)
-                ans.insert(P.value());
+            if (P) ans.insert(P.value());
         }
     }
 

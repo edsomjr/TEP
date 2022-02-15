@@ -25,10 +25,7 @@ struct Point
         return x != P.x ? x < P.x : y < P.y;
     }
 
-    bool operator==(const Point& P) const
-    {
-        return x == P.x and y == P.y;
-    }
+    bool operator==(const Point& P) const { return x == P.x and y == P.y; }
 };
 
 template<typename T>
@@ -44,10 +41,7 @@ struct Segment
     Point<T> A, B;
 
     Segment(const Point<T>& P, const Point<T>& Q)
-        : a(P.y - Q.y), b (Q.x - P.x), c(P.x*Q.y - Q.x*P.y), A(P), B(Q)
-    {
-        sweep_x = -1;
-    }
+        : a(P.y - Q.y), b (Q.x - P.x), c(P.x*Q.y - Q.x*P.y), A(P), B(Q) { sweep_x = -1; }
 
     bool operator<(const Segment& line) const
     {
@@ -56,18 +50,15 @@ struct Segment
 
     bool intersect(const Segment& s) const
     {
-        auto d1 = D(A, B, s.A);
-        auto d2 = D(A, B, s.B);
+        auto d1 = D(A, B, s.A), d2 = D(A, B, s.B);
 
-        if ((equals(d1, 0LL) && contains(s.A)) || 
-           (equals(d2, 0LL) && contains(s.B)))
+        if ((equals(d1, 0LL) && contains(s.A)) || (equals(d2, 0LL) && contains(s.B)))
             return true;
 
         auto d3 = D(s.A, s.B, A);
         auto d4 = D(s.A, s.B, B);
 
-        if ((equals(d3, 0LL) && s.contains(A)) ||
-           (equals(d4, 0LL) && s.contains(B)))
+        if ((equals(d3, 0LL) && s.contains(A)) || (equals(d4, 0LL) && s.contains(B)))
             return true;
 
         return (d1 * d2 < 0) && (d3 * d4 < 0);

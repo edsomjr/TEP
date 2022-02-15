@@ -6,15 +6,19 @@
         \item O problema da interseção de segmentos de reta consiste em determinar se, em um 
             conjunto $S$ composto por $N$ segmentos de reta, existe um par de segmentos 
             $r,s \in S$ tal que $r\cap s \neq \emptyset$
+        \pause
 
         \item Uma variante comum é determinar todos os pontos de interseção entre estes
             segmentos
+        \pause
 
         \item A solução de busca completa testa cada elemento de $S$ contra todos os demais
+        \pause
 
         \item Como a interseção entre dois segmentos pode ser obtida em $O(1)$ e existem
             $N(N - 1)/2$ pares de segmentos distintos possíveis, esta abordagem tem
             complexidade $O(N^2)$
+        \pause
 
         \item Existe um algoritmo com menor complexidade para o problema apresentado, e algoritmos 
             sensíveis à entrada para a variante
@@ -28,16 +32,20 @@
         \item Shamos e Hoey propuseram, em 1976, um algoritmo capaz de determinar se existe ao
             menos uma interseção entre $N$ segmentos de reta com complexidade $O(N\log N)$ e
             memória $O(N)$
+        \pause
 
         \item A ideia é ordenar os $N$ segmentos do conjunto $S$ em ordem lexicográfica e manter
             uma árvore binária balanceada $A$ de segmentos ativos
+        \pause
 
         \item Cada segmento gera dois eventos: o ponto inicial do segmento gera um evento de 
             inclusão de intervalo (1) e o ponto final do segmento um evento de exclusão do 
             intervalo (2)
+        \pause
 
         \item A fila dos eventos deve ser ordenadas pelo ponto $P = (x_e, y_e)$ que deu origem 
             ao evento
+        \pause
 
         \item Para cada evento, a árvore de segmentos ativos $A$ deve estar ordenada pela 
             coordenada $y$ dos pontos dos segmentos com coordenada $x = x_e$ 
@@ -50,16 +58,20 @@
     \begin{itemize}
         \item Para manter esta ordenação é necessário utilizar uma árvore binária de busca
             balanceada
+        \pause
 
         \item Uma alternativa é implementar tal árvore (por exemplo, uma árvore \textit{red-black})
+        \pause
 
         \item Outra alternativa é utilizar um \code{c}{set} da linguagem C++, em conjunto com
             uma variável global que armazene o valor da coordenada $x$ do evento atual e que
             seja utilizada na rotina de comparação
+        \pause
 
         \item Observe que, uma vez que um segmento $r$ esteja abaixo de um outro segmento $s$ 
             em um ponto $x$, esta relação só mudará para valores maiores do que $x$ 
             caso exista uma interseção ambos
+        \pause
 
         \item No caso do algoritmo de Shamos-Hoey a existência de interseção é um critério
             de parada, logo não há necessidade de tratar tais casos 
@@ -70,35 +82,35 @@
 \input{shamos_view.tex}
 
 \begin{frame}[fragile]{Implementação do algoritmo de Shamos-Hoey}
-    \inputsnippet{cpp}{1}{17}{shamos_hoey.cpp}
+    \inputsnippet{cpp}{1}{16}{codes/shamos_hoey.cpp}
 \end{frame}
 
 \begin{frame}[fragile]{Implementação do algoritmo de Shamos-Hoey}
-    \inputsnippet{cpp}{18}{38}{shamos_hoey.cpp}
+    \inputsnippet{cpp}{18}{35}{codes/shamos_hoey.cpp}
 \end{frame}
 
 \begin{frame}[fragile]{Implementação do algoritmo de Shamos-Hoey}
-    \inputsnippet{cpp}{40}{60}{shamos_hoey.cpp}
+    \inputsnippet{cpp}{37}{56}{codes/shamos_hoey.cpp}
 \end{frame}
 
 \begin{frame}[fragile]{Implementação do algoritmo de Shamos-Hoey}
-    \inputsnippet{cpp}{61}{80}{shamos_hoey.cpp}
+    \inputsnippet{cpp}{58}{75}{codes/shamos_hoey.cpp}
 \end{frame}
 
 \begin{frame}[fragile]{Implementação do algoritmo de Shamos-Hoey}
-    \inputsnippet{cpp}{81}{97}{shamos_hoey.cpp}
+    \inputsnippet{cpp}{77}{95}{codes/shamos_hoey.cpp}
 \end{frame}
 
 \begin{frame}[fragile]{Implementação do algoritmo de Shamos-Hoey}
-    \inputsnippet{cpp}{98}{118}{shamos_hoey.cpp}
+    \inputsnippet{cpp}{97}{114}{codes/shamos_hoey.cpp}
 \end{frame}
 
 \begin{frame}[fragile]{Implementação do algoritmo de Shamos-Hoey}
-    \inputsnippet{cpp}{120}{140}{shamos_hoey.cpp}
+    \inputsnippet{cpp}{116}{134}{codes/shamos_hoey.cpp}
 \end{frame}
 
 \begin{frame}[fragile]{Implementação do algoritmo de Shamos-Hoey}
-    \inputsnippet{cpp}{141}{161}{shamos_hoey.cpp}
+    \inputsnippet{cpp}{135}{152}{codes/shamos_hoey.cpp}
 \end{frame}
 
 \begin{frame}[fragile]{Algoritmo de Bentley-Ottman}
@@ -106,13 +118,16 @@
     \begin{itemize}
         \item O algoritmo de Bentley-Ottman é uma extensão do algoritmo de Shamos-Hoey que
             permite identificação todos os pontos de interseção entre os segmentos
+        \pause
 
         \item A complexidade do algoritmo é $O((N + k)\log N)$, onde $k$ é o número de 
         pontos de interseção entre os segmentos
+        \pause
 
         \item Como o número máximo de intercessões $k$ entre $N$ segmentos é $O(N^2)$,
             no pior caso o algoritmo de Bentley-Ottman tem complexidade pior do que a
             busca completa
+        \pause
 
         \item Este é um algoritmo sensível à entrada, pois sua complexidade depende de $k$
 
@@ -121,19 +136,19 @@
 \end{frame}
 
 \begin{frame}[fragile]{Implementação do algoritmo de busca completa}
-    \inputsnippet{cpp}{1}{21}{bf.cpp}
+    \inputsnippet{cpp}{1}{16}{codes/bf.cpp}
 \end{frame}
 
 \begin{frame}[fragile]{Implementação do algoritmo de busca completa}
-    \inputsnippet{cpp}{23}{43}{bf.cpp}
+    \inputsnippet{cpp}{18}{35}{codes/bf.cpp}
 \end{frame}
 
 \begin{frame}[fragile]{Implementação do algoritmo de busca completa}
-    \inputsnippet{cpp}{44}{64}{bf.cpp}
+    \inputsnippet{cpp}{37}{56}{codes/bf.cpp}
 \end{frame}
 
 \begin{frame}[fragile]{Implementação do algoritmo de busca completa}
-    \inputsnippet{cpp}{65}{85}{bf.cpp}
+    \inputsnippet{cpp}{60}{79}{codes/bf.cpp}
 \end{frame}
 
 \begin{frame}[fragile]{Algoritmo de Bentley-Ottman}
@@ -141,15 +156,19 @@
     \begin{itemize}
         \item A estrutura geral do algoritmo de Bentley-Ottman é a mesma do algoritmos de
             Shamos-Hoey
+        \pause
 
         \item A principal diferença é que os pontos de interseção entre os segmentos geram
             novos eventos
+        \pause
 
         \item Em um evento de interseção, os segmentos que se interceptaram devem trocar de
             posições
+        \pause
 
         \item Esta operação pode ser implementada em uma árvore binária de busca balanceada
             aumentada, o que aumenta o tamanho e a complexidade da implementação
+        \pause
 
         \item Para usar o contêiner \code{c}{set} da STL é preciso fazer algumas adaptações 
             e assumir certas condições extras à entrada do problema
@@ -160,41 +179,41 @@
 \input{bentley_view}
 
 \begin{frame}[fragile]{Implementação do algoritmo de Bentley-Ottman}
-    \inputsnippet{cpp}{1}{20}{bentley_ottman.cpp}
+    \inputsnippet{cpp}{1}{19}{codes/bentley_ottman.cpp}
 \end{frame}
 
 \begin{frame}[fragile]{Implementação do algoritmo de Bentley-Ottman}
-    \inputsnippet{cpp}{21}{41}{bentley_ottman.cpp}
+    \inputsnippet{cpp}{21}{39}{codes/bentley_ottman.cpp}
 \end{frame}
 
 \begin{frame}[fragile]{Implementação do algoritmo de Bentley-Ottman}
-    \inputsnippet{cpp}{42}{62}{bentley_ottman.cpp}
+    \inputsnippet{cpp}{41}{60}{codes/bentley_ottman.cpp}
 \end{frame}
 
 \begin{frame}[fragile]{Implementação do algoritmo de Bentley-Ottman}
-    \inputsnippet{cpp}{63}{83}{bentley_ottman.cpp}
+    \inputsnippet{cpp}{62}{81}{codes/bentley_ottman.cpp}
 \end{frame}
 
 \begin{frame}[fragile]{Implementação do algoritmo de Bentley-Ottman}
-    \inputsnippet{cpp}{84}{102}{bentley_ottman.cpp}
+    \inputsnippet{cpp}{83}{100}{codes/bentley_ottman.cpp}
 \end{frame}
 
 \begin{frame}[fragile]{Implementação do algoritmo de Bentley-Ottman}
-    \inputsnippet{cpp}{103}{122}{bentley_ottman.cpp}
+    \inputsnippet{cpp}{102}{120}{codes/bentley_ottman.cpp}
 \end{frame}
 
 \begin{frame}[fragile]{Implementação do algoritmo de Bentley-Ottman}
-    \inputsnippet{cpp}{123}{142}{bentley_ottman.cpp}
+    \inputsnippet{cpp}{122}{140}{codes/bentley_ottman.cpp}
 \end{frame}
 
 \begin{frame}[fragile]{Implementação do algoritmo de Bentley-Ottman}
-    \inputsnippet{cpp}{143}{163}{bentley_ottman.cpp}
+    \inputsnippet{cpp}{142}{161}{codes/bentley_ottman.cpp}
 \end{frame}
 
 \begin{frame}[fragile]{Implementação do algoritmo de Bentley-Ottman}
-    \inputsnippet{cpp}{164}{184}{bentley_ottman.cpp}
+    \inputsnippet{cpp}{163}{181}{codes/bentley_ottman.cpp}
 \end{frame}
 
 \begin{frame}[fragile]{Implementação do algoritmo de Bentley-Ottman}
-    \inputsnippet{cpp}{185}{194}{bentley_ottman.cpp}
+    \inputsnippet{cpp}{183}{192}{codes/bentley_ottman.cpp}
 \end{frame}
