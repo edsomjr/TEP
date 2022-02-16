@@ -22,7 +22,8 @@ Geometria Computacional
 1. [Triângulos](slides/triangulos/triangulos.pdf)
         1. [OJ 10991 - Region](problems/OJ_10991/OJ_10991.pdf)
         1. [Educational Codeforces Round 50 - Problem A: Function Height](problems/CF_1036A/CF_1036A.pdf)
-1. [Quadriláteros](slides/quadrilateros/quadrilateros.pdf) ([problemas resolvidos](problems/QL-1/QL-1.pdf))
+1. [Quadriláteros](slides/quadrilateros/quadrilateros.pdf)
+        1. [OJ 460 - Overlapping Rectangles](problems/OJ_460/OJ_460.pdf)
 1. Polígonos
     1. [Definição](slides/poligonos_definicao/poligonos_definicao.pdf) ([problemas resolvidos](problems/PL-1/PL-1.pdf))
     1. [Treliças](slides/poligonos_trelicas/poligonos_trelicas.pdf) ([problemas resolvidos](problems/PL-2/PL-2.pdf))
