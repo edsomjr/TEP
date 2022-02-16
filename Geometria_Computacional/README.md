@@ -30,6 +30,7 @@ Geometria Computacional
         1. [Codeforces Beta Round #1 - Problem C: Ancient Berland Circus](problems/CF_1C/CF_1C.pdf)
         1. [OJ 11265 - The Sultan's Problem](problems/OJ_11265/OJ_11265.pdf)
     1. [Treliças](slides/poligonos_trelicas/poligonos_trelicas.pdf) ([problemas resolvidos](problems/PL-2/PL-2.pdf))
+        1. [OJ 10088 - Trees on My Island](problems/OJ_10088/OJ_10088.pdf)
 1. [Objetos Tridimensionais](slides/3d/3d.pdf) ([problemas resolvidos](problems/3D-1/3D-1.pdf))
 1. Envoltório Convexo
     1. [Definição](slides/envoltorio_convexo/envoltorio_convexo.pdf)
