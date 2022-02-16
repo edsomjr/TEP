@@ -1,4 +1,4 @@
-\section{UVA 10209 -- Is This Integration?}
+\section{OJ 10209 -- Is This Integration?}
 
 \begin{frame}[fragile]{Problema}
 
@@ -15,7 +15,7 @@ total area these different shaped regions.
 \end{minipage}
 \begin{minipage}{0.5\textwidth}
 \begin{center}
-\includegraphics[scale=0.75]{figure2.png}
+\includegraphics[scale=0.75]{figure.png}
 \end{center}
 \end{minipage}
 
@@ -66,6 +66,7 @@ area of the dotted regions and the third number will denote the area of the rest
         \item Observe, inicialmente, que a área tracejada é composta por um quadrado cujo lado 
             é o comprimento da corda $c$ gerada por um ângulo igual a um terço de $\pi/2$ , somado 
             a quatro segmentos $g$
+        \pause
 
         \item Assim, $A_T = c^2 - 4g$, onde
         \begin{align*}
@@ -75,6 +76,7 @@ area of the dotted regions and the third number will denote the area of the rest
             S &= \frac{\pi a^2}{12}  \\
             g &= S - T
         \end{align*}
+        \pause
 
         \item Já a área pontilhada é a metade do que resta quando subtraída, da área de um 
             semi-círculo de raio $a$, a área de um quadrado de lado $a$ e a área tracejada
@@ -90,14 +92,17 @@ area of the dotted regions and the third number will denote the area of the rest
         \[
             A_P = \frac{\pi a^2}{2} - a^2 - A_T
         \]
+        \pause
 
         \item Por fim, a área restante $A_R$ é o que sobra da diferença entre a área de um
             quadrado de lado $a$ e as duas áreas já computadas
+        \pause
 
         \item Logo,
         \[
             A_R = a^2 - A_T - A_P
         \]
+        \pause
 
         \item As expressões apresentadas permitem a implementação de uma solução $O(T)$, onde
             $T$ é o número de casos de teste
@@ -105,13 +110,13 @@ area of the dotted regions and the third number will denote the area of the rest
 
 \end{frame}
 \begin{frame}[fragile]{Solução AC com complexidade $O(T)$}
-    \inputsnippet{cpp}{1}{21}{10209.cpp}
+    \inputsnippet{cpp}{1}{19}{10209.cpp}
 \end{frame}
 
 \begin{frame}[fragile]{Solução AC com complexidade $O(T)$}
-    \inputsnippet{cpp}{22}{36}{10209.cpp}
+    \inputsnippet{cpp}{21}{34}{10209.cpp}
 \end{frame}
 
 \begin{frame}[fragile]{Solução AC com complexidade $O(T)$}
-    \inputsnippet{cpp}{37}{57}{10209.cpp}
+    \inputsnippet{cpp}{36}{57}{10209.cpp}
 \end{frame}
