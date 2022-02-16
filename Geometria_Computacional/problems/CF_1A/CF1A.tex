@@ -43,19 +43,23 @@ Write the needed number of flagstones.
 
     \begin{itemize}
         \item Observe que, se $a$ divide $n$, são necessários exatamente $n/a$ peças
+        \pause
 
         \item Se $a$ não divide $n$, será necessário uma peça extra para cobrir esta diferença
+        \pause
 
         \item Logo, o número de peças necessárias para cobrir uma linha de comprimento $n$ e 
             altura $a$ é dado por
         \[
             w = \left\lceil \frac{n}{a}\right\rceil
         \]
+        \pause
 
         \item O mesmo raciocínio para $m$, obtendo
         \[
             h = \left\lceil \frac{m}{a}\right\rceil
         \]
+        \pause
 
         \item Logo a resposta será o produto $w \times h$
 
@@ -64,5 +68,5 @@ Write the needed number of flagstones.
 \end{frame}
 
 \begin{frame}[fragile]{Solução AC com complexidade $O(1)$}
-    \inputsnippet{cpp}{1}{21}{1A.cpp}
+    \inputsnippet{cpp}{5}{11}{1A.cpp}
 \end{frame}

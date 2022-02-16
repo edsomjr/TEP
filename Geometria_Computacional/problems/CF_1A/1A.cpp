@@ -6,6 +6,7 @@ ll solve(int N, int M, int A)
 {
     ll w = (N + A - 1)/A; 
     ll h = (M + A - 1)/A; 
+
     return w * h;
 }
 
