@@ -1,4 +1,4 @@
-\section{UVA 10652 -- Board Wrapping}
+\section{OJ 10652 -- Board Wrapping}
 
 \begin{frame}[fragile]{Problema}
 
@@ -86,22 +86,29 @@ Note: The Sample Input and Sample Output corresponds to the given picture
 
     \begin{itemize}
         \item A solução consiste em três etapas
+        \pause
 
         \item A primeira é determinar a área total ocupada pelas placas
+        \pause
 
         \item Basta somar a área individual de cada placa, que é o produto da base pela altura
+        \pause
 
         \item Em seguida, é preciso determinar os vértices de cada placa
+        \pause
 
         \item Pode-se assumir que eles estão inicialmente com o centro na origem, fazer a 
             rotação em sentido horário e, em seguida, transladar os pontos para a posição
             correta
+        \pause
 
         \item Determinados estes pontos, os limites do polígono correspondem ao envoltório
             convexo
+        \pause
 
         \item A área do polígono pode ser determinada através da expressão que computa esta
             área por meio dos vértices do polígono
+        \pause
 
         \item A resposta será a diferença entre ambas áreas, em porcentagem
     \end{itemize}
@@ -109,37 +116,33 @@ Note: The Sample Input and Sample Output corresponds to the given picture
 \end{frame}
 
 \begin{frame}[fragile]{Solução com complexidade $O(TN\log N)$}
-    \inputsnippet{cpp}{1}{21}{10652.cpp}
+    \inputsnippet{cpp}{1}{19}{10652.cpp}
 \end{frame}
 
 \begin{frame}[fragile]{Solução com complexidade $O(TN\log N)$}
-    \inputsnippet{cpp}{22}{42}{10652.cpp}
+    \inputsnippet{cpp}{21}{35}{10652.cpp}
 \end{frame}
 
 \begin{frame}[fragile]{Solução com complexidade $O(TN\log N)$}
-    \inputsnippet{cpp}{43}{62}{10652.cpp}
+    \inputsnippet{cpp}{37}{55}{10652.cpp}
 \end{frame}
 
 \begin{frame}[fragile]{Solução com complexidade $O(TN\log N)$}
-    \inputsnippet{cpp}{63}{80}{10652.cpp}
+    \inputsnippet{cpp}{57}{75}{10652.cpp}
 \end{frame}
 
 \begin{frame}[fragile]{Solução com complexidade $O(TN\log N)$}
-    \inputsnippet{cpp}{81}{101}{10652.cpp}
+    \inputsnippet{cpp}{76}{95}{10652.cpp}
 \end{frame}
 
 \begin{frame}[fragile]{Solução com complexidade $O(TN\log N)$}
-    \inputsnippet{cpp}{102}{122}{10652.cpp}
+    \inputsnippet{cpp}{97}{116}{10652.cpp}
 \end{frame}
 
 \begin{frame}[fragile]{Solução com complexidade $O(TN\log N)$}
-    \inputsnippet{cpp}{123}{143}{10652.cpp}
+    \inputsnippet{cpp}{118}{137}{10652.cpp}
 \end{frame}
 
 \begin{frame}[fragile]{Solução com complexidade $O(TN\log N)$}
-    \inputsnippet{cpp}{144}{164}{10652.cpp}
-\end{frame}
-
-\begin{frame}[fragile]{Solução com complexidade $O(TN\log N)$}
-    \inputsnippet{cpp}{165}{185}{10652.cpp}
+    \inputsnippet{cpp}{139}{158}{10652.cpp}
 \end{frame}

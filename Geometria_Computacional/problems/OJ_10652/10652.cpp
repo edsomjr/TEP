@@ -2,8 +2,7 @@
 
 using namespace std;
 
-const double EPS { 1e-5 };
-const double PI { acos(-1.0) };
+const double EPS { 1e-5 }, PI { acos(-1.0) };
 
 bool equals(double a, double b)
 {
@@ -26,25 +25,20 @@ public:
 
     Point rotate(double angle) const
     {
-        return Point { x*cos(angle) - y*sin(angle), 
-            x*sin(angle) + y*cos(angle) };
+        return Point { x*cos(angle) - y*sin(angle), x*sin(angle) + y*cos(angle) };
     }
 };
 
 double D(const Point& P, const Point& Q, const Point& R)
 {
-    return (P.x * Q.y + P.y * R.x + Q.x * R.y) 
-         - (R.x * Q.y + R.y * P.x + Q.x * P.y);
+    return (P.x * Q.y + P.y * R.x + Q.x * R.y) - (R.x * Q.y + R.y * P.x + Q.x * P.y);
 }
 
 struct Polygon {
     vector<Point> vs;
     int n;
 
-    Polygon(const vector<Point>& vertices) : vs(vertices), n(vs.size())
-    {
-        vs.push_back(vs[0]);
-    }
+    Polygon(const vector<Point>& vertices) : vs(vertices), n(vs.size()) { vs.push_back(vs[0]); }
 
     double area() const 
     {
@@ -65,9 +59,8 @@ Point pivot(vector<Point>& P)
     size_t idx = 0;
 
     for (size_t i = 1; i < P.size(); ++i)
-        if (P[i].y < P[idx].y or 
-            (equals(P[i].y, P[idx].y) and P[i].x > P[idx].x))
-                idx = i;
+        if (P[i].y < P[idx].y or (equals(P[i].y, P[idx].y) and P[i].x > P[idx].x))
+            idx = i;
 
     swap(P[0], P[idx]);
 
@@ -119,7 +112,6 @@ Polygon convex_hull(const vector<Point>& points)
     }
 
     s.pop_back();
-
     return Polygon(s);
 }
 
