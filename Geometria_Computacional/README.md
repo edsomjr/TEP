@@ -37,6 +37,7 @@ Geometria Computacional
 1. Envoltório Convexo
     1. [Definição](slides/envoltorio_convexo/envoltorio_convexo.pdf)
     1. [Algoritmo de Graham](slides/graham/graham.pdf)
+        1. [OJ 10652 - Board Wrapping](problems/OJ_10652/OJ_10652.pdf)
     1. [Cadeia Monótona de Andrew](slides/andrew/andrew.pdf)
 1. _Sweep line_
     1. [Definição e exemplos](slides/sweep_line_definicao/sweep_line_definicao.pdf)
