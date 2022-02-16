@@ -1,4 +1,4 @@
-\section{UVA 11265 -- The Sultan's Problem}
+\section{OJ 11265 -- The Sultan's Problem}
 
 \begin{frame}[fragile]{Problema}
 
@@ -75,17 +75,23 @@ Case #1: 1780.000
     \begin{itemize}
         \item A área que contém a fonte $F$ deve ser obtida através de sucessivos cortes do
             polígono $P$ que representa o jardim
+        \pause
 
         \item Inicialmente $P$ é um retângulo
+        \pause
 
         \item Cada nova reta fará um corte em $P$, separando a área que contém $F$ do restante
+        \pause
 
         \item A orientação do corte é importante: se $F$ está à esquerda dos pontos $A$ e $B$ da
             reta, o corte é feito na orientação $AB$
+        \pause
 
         \item Se estiver à direita, a orientação é feita no sentido oposto $BA$ 
+        \pause
 
         \item Cada corte tem complexidade $O(n)$, onde $n$ é o número de vértices do polígono
+        \pause
 
         \item No pior caso, a solução tem complexidade $O(N^2)$, onde $N$ é o número retas
     \end{itemize}
@@ -93,21 +99,21 @@ Case #1: 1780.000
 \end{frame}
 
 \begin{frame}[fragile]{Solução AC}
-    \inputsnippet{cpp}{1}{21}{11265.cpp}
+    \inputsnippet{cpp}{1}{17}{11265.cpp}
 \end{frame}
 
 \begin{frame}[fragile]{Solução AC}
-    \inputsnippet{cpp}{23}{43}{11265.cpp}
+    \inputsnippet{cpp}{19}{38}{11265.cpp}
 \end{frame}
 
 \begin{frame}[fragile]{Solução AC}
-    \inputsnippet{cpp}{44}{61}{11265.cpp}
+    \inputsnippet{cpp}{40}{59}{11265.cpp}
 \end{frame}
 
 \begin{frame}[fragile]{Solução AC}
-    \inputsnippet{cpp}{62}{80}{11265.cpp}
+    \inputsnippet{cpp}{61}{78}{11265.cpp}
 \end{frame}
 
 \begin{frame}[fragile]{Solução AC}
-    \inputsnippet{cpp}{81}{101}{11265.cpp}
+    \inputsnippet{cpp}{80}{101}{11265.cpp}
 \end{frame}

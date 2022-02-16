@@ -9,10 +9,7 @@ struct Point {
 
     Point(double xv = 0, double yv = 0) : x(xv), y(yv) {}
 
-    double distance(const Point& P) const
-    {
-        return hypot(x - P.x, y - P.y);
-    }
+    double distance(const Point& P) const { return hypot(x - P.x, y - P.y); }
 
     bool operator==(const Point& P) const {
         return fabs(x - P.x) < EPS and fabs(y - P.y) < EPS;
@@ -23,8 +20,7 @@ struct Polygon {
     vector<Point> vs;
     int n;
 
-    Polygon(const vector<Point>& v) : vs(v), n(v.size())
-    {
+    Polygon(const vector<Point>& v) : vs(v), n(v.size()) {
         vs.push_back(v[0]);
     }
 
