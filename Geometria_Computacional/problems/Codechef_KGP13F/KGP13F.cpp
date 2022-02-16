@@ -2,14 +2,12 @@
 
 using namespace std;
 using ll = long long;
-using ii = pair<ll, ll>;
 
-#define x first
-#define y second
+struct Point { ll x, y; };
 
 ll gcd(ll a, ll b) { return b ? gcd(b, a % b) : a; }
 
-ll area(int N, const vector<ii>& ps)
+ll area(int N, const vector<Point>& ps)
 {
     ll A = 0;
 
@@ -23,7 +21,7 @@ ll area(int N, const vector<ii>& ps)
 }
 
 // Teorema de Pick: A = I + B/2 - 1
-ll solve(int N, vector<ii>& ps)
+ll solve(int N, vector<Point>& ps)
 {
     ps.push_back(ps.front());
 
@@ -56,7 +54,7 @@ int main()
 
     while (N--)
     {
-        vector<ii> ps(4);
+        vector<Point> ps(4);
 
         for (int i = 0; i < 4; ++i)
             cin >> ps[i].x >> ps[i].y;
