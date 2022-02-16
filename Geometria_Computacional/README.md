@@ -14,6 +14,7 @@ Geometria Computacional
         1. [OJ 11343 - Isolated Segments](problems/OJ_11343/OJ_11343.pdf)
 1. Círculos
     1. [Definição](slides/circulos_definicao/circulos_definicao.pdf)
+        1. [OJ 10209 - Is This Integration?](problems/OJ_10209/OJ_10209.pdf)
         1. [OJ 10221 - Satellites](problems/OJ_10221/OJ_10221.pdf)
     1. [Algoritmos](slides/circulos_algoritmos/circulos_algoritmos.pdf) ([problemas resolvidos](problems/CC-2/CC-2.pdf))
 1. [Triângulos](slides/triangulos/triangulos.pdf) ([problemas resolvidos](problems/TR-1/TR-1.pdf))
