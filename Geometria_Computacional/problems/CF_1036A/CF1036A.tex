@@ -18,7 +18,7 @@ For example, the following plot shows a function for $n=3$ (i.e. number of point
 \begin{frame}[fragile]{Problema}
     \begin{figure}
         \centering
-        \includegraphics[scale=0.6]{figure2.png}
+        \includegraphics[scale=0.6]{figure.png}
     \end{figure}
 \end{frame}
 
@@ -74,14 +74,17 @@ Print one integer -- the minimum possible height of a plot consisting of $2n+1$ 
 
     \begin{itemize}
         \item Não é necessário realizar todas as operações para a solução do problema
+        \pause
 
         \item Primeiramente observe que há $N$ triângulos cuja base tem tamanho 2 e altura
             $P_i$, com $i$ ímpar
+        \pause
 
         \item Ao adicionar uma unidade em $P_i$ a área também aumenta em uma unidade, pois
         \[
             A_{P_i + 1} = \frac{2 \times (P_i + 1)}{2} = P_i + 1 = \frac{2\times  P_i}{2} + 1 = A_{P_i} + 1
         \]
+        \pause
 
         \item Se a área total $k$ for distribuída igualmente entre os $N$ triângulos, a altura
             máxima $h$ a ser atingida é o menor inteiro maior ou igual ao quociente entre $N$ e 
@@ -94,5 +97,5 @@ Print one integer -- the minimum possible height of a plot consisting of $2n+1$ 
 \end{frame}
 
 \begin{frame}[fragile]{Solução AC com complexidade $O(1)$}
-    \inputsnippet{cpp}{1}{21}{1036A.cpp}
+    \inputsnippet{cpp}{6}{9}{1036A.cpp}
 \end{frame}
