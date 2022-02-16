@@ -26,7 +26,9 @@ Geometria Computacional
         1. [Codeforces Beta Round #1 - Problem A: Theatre Square](problems/CF_1A/CF_1A.pdf)
         1. [OJ 460 - Overlapping Rectangles](problems/OJ_460/OJ_460.pdf)
 1. Polígonos
-    1. [Definição](slides/poligonos_definicao/poligonos_definicao.pdf) ([problemas resolvidos](problems/PL-1/PL-1.pdf))
+    1. [Definição](slides/poligonos_definicao/poligonos_definicao.pdf)
+        1. [Codeforces Beta Round #1 - Problem C: Ancient Berland Circus](problems/CF_1C/CF_1C.pdf)
+        1. [OJ 11265 - The Sultan's Problem](problems/OJ_11265/OJ_11265.pdf)
     1. [Treliças](slides/poligonos_trelicas/poligonos_trelicas.pdf) ([problemas resolvidos](problems/PL-2/PL-2.pdf))
 1. [Objetos Tridimensionais](slides/3d/3d.pdf) ([problemas resolvidos](problems/3D-1/3D-1.pdf))
 1. Envoltório Convexo
