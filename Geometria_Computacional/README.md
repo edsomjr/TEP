@@ -32,7 +32,8 @@ Geometria Computacional
     1. [Treliças](slides/poligonos_trelicas/poligonos_trelicas.pdf)
         1. [Codechef - Ant Colony](problems/KGP13F/KGP13F.pdf)
         1. [OJ 10088 - Trees on My Island](problems/OJ_10088/OJ_10088.pdf)
-1. [Objetos Tridimensionais](slides/3d/3d.pdf) ([problemas resolvidos](problems/3D-1/3D-1.pdf))
+1. [Objetos Tridimensionais](slides/3d/3d.pdf)
+        1. [OJ 10297 - Beavergnaw](problems/OJ_10297/OJ_10297.pdf)
 1. Envoltório Convexo
     1. [Definição](slides/envoltorio_convexo/envoltorio_convexo.pdf)
     1. [Algoritmo de Graham](slides/graham/graham.pdf)
