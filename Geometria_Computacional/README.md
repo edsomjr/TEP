@@ -18,8 +18,10 @@ Geometria Computacional
         1. [OJ 10221 - Satellites](problems/OJ_10221/OJ_10221.pdf)
     1. [Algoritmos](slides/circulos_algoritmos/circulos_algoritmos.pdf)
         1. [Codeforces Beta Round #2 - Problem C: Commentator Problem](problems/CF_2C/CF_2C.pdf)
-        1. [Educational Codeforces Round #2 - Problem D: Area of Two Circle's Intersection](problems/CF_600D/CF_600D.pdf)
-1. [Triângulos](slides/triangulos/triangulos.pdf) ([problemas resolvidos](problems/TR-1/TR-1.pdf))
+        1. [Educational Codeforces Round 2 - Problem D: Area of Two Circle's Intersection](problems/CF_600D/CF_600D.pdf)
+1. [Triângulos](slides/triangulos/triangulos.pdf)
+        1. [OJ 10991 - Region](problems/OJ_10991/OJ_10991.pdf)
+        1. [Educational Codeforces Round 50 - Problem A: Function Height](problems/CF_1036A/CF_1036A.pdf)
 1. [Quadriláteros](slides/quadrilateros/quadrilateros.pdf) ([problemas resolvidos](problems/QL-1/QL-1.pdf))
 1. Polígonos
     1. [Definição](slides/poligonos_definicao/poligonos_definicao.pdf) ([problemas resolvidos](problems/PL-1/PL-1.pdf))
