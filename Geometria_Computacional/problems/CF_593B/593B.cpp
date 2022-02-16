@@ -14,7 +14,6 @@ struct Line
 
 bool solve(ll x1, ll x2, vector<Line>& lines)
 {
-    // Ordenação por coordenada y em x1, depois em x2
     sort(lines.begin(), lines.end(), [&](const Line& r, const Line& s) {
         if (r.eval(x1) != s.eval(x1))
             return r.eval(x1) < s.eval(x1);
