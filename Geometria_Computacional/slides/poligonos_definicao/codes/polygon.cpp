@@ -36,7 +36,7 @@ public:
             d ? (d > 0 ? ++P : ++N) : ++Z;
         }
 
-        return not ((P and N) or (P == 0 and N == 0));
+        return P == n or N == n;
     } 
 
 private:
