@@ -4,16 +4,21 @@
 
     \begin{itemize}
         \item Um alfabeto $A$ é um conjunto finito de símbolos
+        \pause
 
         \item Os elementos de um alfabeto $A$ são denominados letras, caracteres ou símbolos
+        \pause
 
-        \item Exemplos de alfabeto comumente utilizados são as letras maiúsculas e minúsculas, 
+        \item Exemplos de alfabetos comumente utilizados são as letras maiúsculas e minúsculas, 
             os dígitos decimais e a tabela ASCII
+        \pause
 
         \item Uma string $s$ (ou texto ou palavra) é uma sequência ordenada $s = \lbrace a_1, a_2, 
         \ldots, a_N\rbrace$ de caracteres $a_i$ de um alfabeto $A$
+        \pause
 
         \item O $i$-ésimo termo de $s$ também é denotado por $s_i$ ou $s[i]$
+        \pause
 
         \item O número $N$ de elementos da sequência $s$ pode ser notado como $|s|$
 
@@ -29,14 +34,18 @@
         \[
             s[i..j] = s[i]s[i+1]\ldots s[j]
         \] de elementos de $s$
+        \pause
 
         \item Observe que $|s[i..j]| = j - i + 1$ 
+        \pause
 
         \item Uma substring $b$ de $s$, com $|b| = M$, é uma string $b$ tal que $b = s[(i+1)..(i+M)]$ 
             para algum inteiro $i$
+        \pause
 
         \item Uma subsequência $a = s[i_1]s[i_2]\ldots s[i_M]$ de uma string $s$ pode ser obtida a 
             partir da remoção de zero ou mais elementos de $s$, não necessariamente consecutivos
+        \pause
 
         \item Os inteiros $i_1, i_2, ..., i_M$ formam uma sequência crescente de índices de $s$ 
             (isto é, $i_u < i_v$ para $u < v$)
@@ -48,22 +57,26 @@
 \begin{frame}[fragile]{Prefixos e sufixos}
 
     \begin{itemize}
-        \item Um prefixo de uma string $s$ é uma substring $p$, de tamanho $|p| = M$, tal que 
-            $p = s[1..M]$
+        \item Um prefixo de uma string $s$ é uma substring $x$, de tamanho $|x| = M$, tal que 
+            $x = s[1..M]$
+        \pause
 
-        \item Um sufixo $x$ de $s$, de tamanho $|x| = T$, é uma substring de $s$ tal que 
-            $x = s[(N - T + 1)..N]$, onde $|s| = N$
+        \item Um sufixo $y$ de $s$, de tamanho $|y| = T$, é uma substring de $s$ tal que 
+            $y = s[(N - T + 1)..N]$, onde $|s| = N$
+
+        \pause
 
         \item Uma borda $B$ de uma string $s$ é uma substring que é, simultaneamente, prefixo e 
             sufixo de $s$
+        \pause
 
         \item Uma vez que a string vazia (isto é, $|s| = 0$) e a própria string $s$ são sempre 
             bordas (triviais) de $s$, define-se $border(s)$ como a mais longa 
             (de maior tamanho) dentre as bordas de $s$ que são distintas da própria string $s$
+        \pause
 
-        \item Por exemplo, as strings \lq\lq\texttt{ame}", \lq\lq\texttt{rica}"\ e 
-            \lq\lq\texttt{a}"\ são exemplos 
-            de prefixo, sufixo e borda da string \lq\lq\texttt{america}", respectivamente
+        \item Por exemplo, as strings \code{c++}{"ame"}, \code{c++}{"rica"} e \code{cpp}{"a"} são exemplos 
+            de prefixo, sufixo e borda da string \code{cpp}{"america"}, respectivamente
     \end{itemize}
 
 \end{frame}
@@ -74,16 +87,20 @@
     \begin{itemize}
 
         \item Um período de uma string $s$ é um inteiro $p$, $0 < p \leq |s|$ tal que 
-            $s[i] = s[i + p]$, para todo $i = {1, \ldots, |s| - p}$
+            $s[i] = s[i + p]$, para todo $i = {0, 1, \ldots, |s| - p}$
+        \pause
 
         \item Para qualquer string, $|s|$ é um período, de modo que define-se 
             $period(s)$ como o menor período de $s$
+        \pause
 
         \item A string $s$ é dita periódica se $period(s) \leq |s|/2$
+        \pause
 
-        \item Por exemplo, para as strings $s_1$ = \lq\lq\texttt{marítima}", 
-            $s_2$ = \lq\lq\texttt{ticotico}"\ e $s_3$ = \lq\lq\texttt{Brasilia}", temos 
+        \item Por exemplo, para as strings $s_1$ = \code{cpp}{"marítima"}, 
+            $s_2$ = \code{cpp}{"ticotico"} e $s_3$ = \code{cpp}{"Brasilia"}, temos 
             $period(s_1) = 6, period(s_2) = 4$ e $period(s_3) = 8$
+        \pause
 
         \item Dentre as três, apenas $s_2$ é períodica
     \end{itemize}
@@ -94,18 +111,20 @@
 
     Os diferentes períodos de uma mesma string $s$ se relacionam de uma maneira não trivial, que 
         pode ser expressa pelos dois lemas a seguir.
+        \pause
 
     \metroset{block=fill}                                                                           
     \begin{block}{Lema da Periodicidade}
         Sejam $p$ e $q$ dois períodos de uma string $s$. Se $p + q < |s|$, então 
-            $\mbox{mdc}(p, q)$ também é período de $s$.
+            $\mathrm{mdc}(p, q)$ também é período de $s$.
     \end{block} 
 
     \vspace{0.1in}
+        \pause
 
     \metroset{block=fill}                                                                           
     \begin{block}{Lema Forte da Periodicidade}
-        Sejam $p$ e $q$ dois períodos de uma string $s$. Se $p + q - \mbox{mdc}(p, q) \leq |s|$, 
+        Sejam $p$ e $q$ dois períodos de uma string $s$. Se $p + q - \mathrm{mdc}(p, q) \leq |s|$, 
             então $\mbox{mdc}(p, q)$ também é período de $s$.
     \end{block} 
 
@@ -115,6 +134,7 @@
 
     \begin{itemize}
         \item Há uma interessante relação entre bordas e períodos
+        \pause
 
         \item A sequência
         \[
@@ -122,12 +142,13 @@
         \]
         é a sequência crescente de todos os possíveis períodos de $s$, onde $k$ é o menor inteiro 
         positivo tal que $border^k(s)$ é uma string vazia
+        \pause
 
-        \item Por exemplo, para a string $s$ = \lq\lq\texttt{teteatete}", tem-se $|s| = 9$ e
+        \item Por exemplo, para a string $s$ = \code{cpp}{"teteatete"}, tem-se $|s| = 9$ e
         \begin{align*}
-            & border(s) = ``\mbox{\texttt{tete}}" \\
-            & border^2(s) = border(``\mbox{\texttt{tete}}") = ``\mbox{\texttt{te"}} \\
-            & border^3(s) = border(``\mbox{\texttt{te}}") = ``\,"
+            & border(s) = \code{cpp}{"tete"} \\
+            & border^2(s) = border(\code{cpp}{"tete"}) = \code{cpp}{"te"} \\
+            & border^3(s) = border(\code{cpp}{"te"}) = \code{cpp}{""}
         \end{align*}
         os quais formam a sequência de períodos $9 - 4 = 5, 9 - 2 = 7$ e $9 - 0 = 9$
     \end{itemize}
@@ -138,15 +159,19 @@
 
     \begin{itemize}
         \item O problema fundamental de strings é o \textit{pattern matching}
+        \pause
 
         \item Dada uma string $P$, que representa um padrão, o \textit{pattern matching} consiste
             em determinar se $P$ ocorre ou não em $s$
+        \pause
 
         \item O \textit{pattern matching} é um problema de decisão, isto é, a resposta é booleana: 
-            o padrão ocorre ou não, embora uma variante comum é determina o índice da primeira
+            o padrão ocorre ou não, embora uma variante comum é determinar o índice da primeira
             posição onde $P$ ocorre ou um valor sentinela, caso não ocorra
+        \pause
 
         \item Em geral, $|P| \leq |s|$
+        \pause
 
         \item Uma notação possível é $match(P, s)$
 
