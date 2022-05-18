@@ -8,12 +8,12 @@ int main()
     char s[1024], line[1024];
 
     scanf("%s", s);
-    printf("s = [%s]\n", s);    // s = [Teste]
+    printf("s = [%s]\n", s);            // s = [Teste]
 
     fgets(line, 1024, stdin);
     line[strlen(line) - 1] = 0;
 
-    printf("line = [%s]\n", line); // line = [Teste de I/O em C\n]
+    printf("line = [%s]\n", line);      // line = [Teste de I/O em C\n]
 
     return 0;
 }

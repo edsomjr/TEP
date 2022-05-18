@@ -9,10 +9,10 @@ int main()
     string s, line;
 
     cin >> s;
-    cout << "s = [" << s << "]\n";  // s = [Teste]
+    cout << "s = [" << s << "]\n";              // s = [Teste]
 
     getline(cin, line);
-    cout << "line = [" << line << "]\n";  // line = [Teste de I/O em C++]
+    cout << "line = [" << line << "]\n";        // line = [Teste de I/O em C++]
 
     return 0;
 }

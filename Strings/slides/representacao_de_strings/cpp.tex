@@ -5,19 +5,25 @@
     \begin{itemize}
         \item Embora seja possível utilizar a abordagem e as bibliotecas da linguagem C em C++, 
             existe uma representação em C++ de strings baseada em classes
+        \pause
 
         \item O uso de classes para representar strings traz a vantagem de poder manter outras 
             informações sobre a string sempre atualizadas e com acesso em $O(1)$
+        \pause
 
         \item Por outro lado, esta representação demanda mais memória do que a representação em C
+        \pause
 
         \item Existem técnicas para tentar reduzir a memória utilizada, como a \textit{small string optimization}
+        \pause
 
         \item A classe fundamental dentre as várias classes que representam strings em C++ é a
             \code{cpp}{std::string}.
+        \pause
 
         \item O método \code{cpp}{c_str()} permite obter, a partir de uma string C++, uma 
             representação compatível com a utilizada em C
+        \pause
 
         \item Deste modo, é possível utilizar funções escritas para strings em C a partir de 
             instâncias da classe da linguagem C++
@@ -26,17 +32,17 @@
 \end{frame}
 
 \begin{frame}[fragile]{Exemplo de uso da classe string em C++}
-    \inputsnippet{cpp}{1}{20}{string.cpp}
+    \inputsnippet{cpp}{1}{19}{codes/string.cpp}
 \end{frame}
 
 \begin{frame}[fragile]{Exemplo de uso da classe string em C++}
-    \inputsnippet{cpp}{21}{41}{string.cpp}
+    \inputsnippet{cpp}{21}{38}{codes/string.cpp}
 \end{frame}
 
 \begin{frame}[fragile]{Exemplo de uso da classe string em C++}
-    \inputsnippet{cpp}{42}{62}{string.cpp}
+    \inputsnippet{cpp}{40}{57}{codes/string.cpp}
 \end{frame}
 
 \begin{frame}[fragile]{Exemplo de uso da classe string em C++}
-    \inputsnippet{cpp}{63}{83}{string.cpp}
+    \inputsnippet{cpp}{59}{65}{codes/string.cpp}
 \end{frame}

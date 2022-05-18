@@ -12,15 +12,11 @@ if __name__ == '__main__':
     # Comparação
     r = (a == b)        # r = False, "Test" e "TEP" são distintas
     r = (a != b)        # r = True, "Test" e "TEP" são distintas
-    r = (a < b)         # r = False, "Test" sucede "TEP" na ordem
-                        # lexicográfica
-    r = (a > b)         # r = True, "Test" sucede "TEP" na ordem
-                        # lexicográfica
+    r = (a < b)         # r = False, "Test" sucede "TEP" na ordem lexicográfica
+    r = (a > b)         # r = True, "Test" sucede "TEP" na ordem lexicográfica
 
-    s = a[:1] == b[:1]  # s = True, as strings são iguais no
-                        # primeiro caractere
-    s = a[:2] == b[:2]  # s = False, "Te" sucede "TE" na ordem
-                        # lexicográfica
+    s = a[:1] == b[:1]  # s = True, as strings são iguais no primeiro caractere
+    s = a[:2] == b[:2]  # s = False, "Te" sucede "TE" na ordem lexicográfica
 
     # Cópia
     a = b               # a = "TEP"
@@ -44,8 +40,7 @@ if __name__ == '__main__':
     # Concatenação
     b = "xyz"           # b = "xyz"
     a = "abcba"         # a = "abcba"
-
-    a +=  b             # a = "abcbaxyz"
+    a += b              # a = "abcbaxyz"
     a += a[:3]          # a = "abcbaxyzabc"
 
     # Busca de caracteres
@@ -68,7 +63,7 @@ if __name__ == '__main__':
     # Exemplo de uso do método split()
     a = "Frase com quatro palavras"
     b = a.split()       # b = ['Frase', 'com', 'quatro', 'palavras']
-        
+
     a = "abacad"
     b = a.split('a')    # b = ['', 'b', 'c', 'd']
 

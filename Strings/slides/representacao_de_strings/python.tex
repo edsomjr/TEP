@@ -5,14 +5,16 @@
     \begin{itemize}
         \item Embora as strings em Python também sejam implementadas através de classes, elas 
             podem ser vistas informalmente como listas de caracteres
+        \pause
 
         \item Em Python, constantes do tipo string podem ser representados usando-se aspas
             simples ou duplas, ou mesmo triplas (para strings com múltiplas linhas)
+        \pause
 
         \item Para maratonas de programação, o módulo \code{py}{string} da linguagem Python traz 
             constantes bastantes úteis, como listagens de caracteres comuns:
 
-            \inputsyntax{py}{constants.py}
+            \inputsyntax{py}{codes/constants.py}
     \end{itemize}
 
 \end{frame}
@@ -23,15 +25,19 @@
         \item Mesmo que a solução proposta pela equipe seja escrita em outra linguagem, estas 
             constantes podem ser facilmente acessadas via terminal, importando o módulo e usando o 
             comando (ou função, no Python 3) \code{py}{print}
+        \pause
 
         \item Outra particularidade do Python é que, ao contrário das linguagens C e C++, ele 
             suporta índices negativos para strings
+        \pause
 
         \item Por exemplo, \code{py}{s[-1]} se refere ao último caractere, \code{py}{s[-2]} ao 
             penúltimo, e assim por diante
+        \pause
 
         \item Outra notação útil é \code{py}{s[::-1]}, que indica o reverso da string 
             \code{py}{s} (isto é, \code{py}{s} lida do fim para o começo)
+        \pause
 
         \item A API para strings em Python contempla ainda muitas outras funções úteis, como 
             \code{py}{strip(), join()} e \code{py}{split()}
@@ -40,17 +46,17 @@
 \end{frame}
 
 \begin{frame}[fragile]{Exemplo de uso de strings em Python}
-    \inputsnippet{py}{1}{21}{strings.py}
+    \inputsnippet{py}{1}{19}{codes/strings.py}
 \end{frame}
 
 \begin{frame}[fragile]{Exemplo de uso de strings em Python}
-    \inputsnippet{py}{22}{42}{strings.py}
+    \inputsnippet{py}{21}{38}{codes/strings.py}
 \end{frame}
 
 \begin{frame}[fragile]{Exemplo de uso de strings em Python}
-    \inputsnippet{py}{43}{60}{strings.py}
+    \inputsnippet{py}{40}{58}{codes/strings.py}
 \end{frame}
 
 \begin{frame}[fragile]{Exemplo de uso de strings em Python}
-    \inputsnippet{py}{61}{81}{strings.py}
+    \inputsnippet{py}{60}{81}{codes/strings.py}
 \end{frame}
