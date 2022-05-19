@@ -5,17 +5,22 @@
     \begin{itemize}
         \item Uma técnica, oriunda da estatística, que permite identificar características 
         importantes de uma string é a construção de um histograma
+        \pause
 
         \item Um histograma consiste em uma mapeamento entre os caracteres do alfabeto e o número 
             de ocorrências dos mesmos em uma string $s$ dada
+        \pause
 
-        \item Por exemplo, para a string ``\texttt{abacaxi}", teríamos um histograma $h$ com
-        $h[\mlq a\mrq] = 4, h[\mlq b\mrq] = h[\mlq c\mrq] = h[\mlq x\mrq] = h[\mlq i\mrq] = 1$ e $h[y] = 0$, se $y \not \in \lbrace\mlq a\mrq, \mlq b\mrq, \mlq c\mrq, \mlq x\mrq, \mlq i\mrq\rbrace$
+        \item Por exemplo, para a string \code{cpp}{"abacaxi"}, teríamos um histograma $h$ com
+        $h[\code{cpp}{'a'}] = 4, h[\code{cpp}{'b'}] = h[\code{cpp}{'c'}] = h[\code{cpp}{'x'}] = h[\code{cpp}{'i'}] = 1$ e $h[y] = 0$, se $y \not \in \lbrace \code{cpp}{'a'}, \code{cpp}{'b'}, \code{cpp}{'c'}, \code{cpp}{'x'}, \code{cpp}{'i'}\rbrace$
+        \pause
 
         \item Há 3 técnicas para a construção de histogramas
+        \pause
 
         \item A primeira delas é utilizar a classe \code{cpp}{map} do C++, que permite uma 
             construção bastante intuitiva e fácil de histogramas
+        \pause
 
         \item Os revezes são a quantidade de memória necessária (o que, em geral, não chega a ser 
             um problema) e a complexidade dos acessos ($O(\log N)$ para leitura e escrita, onde
@@ -25,25 +30,30 @@
 \end{frame}
 
 \begin{frame}[fragile]{Construção de histogramas usando o \code{c}{map} de C++} 
-    \inputcode{cpp}{map.cpp}
+    \inputcode{cpp}{codes/map.cpp}
 \end{frame}
 
 \begin{frame}[fragile]{Construção de histogramas usando \code{c}{arrays} estáticos}
 
     \begin{itemize}
         \item Uma segunda forma de gerar o histograma é utilizar um array estático com 256 posições
+        \pause
 
         \item Estas posições cobrem todos os possíveis valores de um \code{cpp}{char} em C/C++
+        \pause
 
         \item Tal abordagem assume que a string $s$ contém apenas caracteres listados na tabela
             ASCII
+        \pause
 
         \item Também é preciso inicializar todas as posições deste \textit{array} com o valor
             zero
+        \pause
 
         \item Esta construção permite atualizar/consultar os valores em $O(1)$, mas a 
             identificação dos caracteres cujos valores associados são diferentes de zero tem
             que percorrer todas as 256 posições do histograma 
+        \pause
 
         \item A abordagem anterior traria tais caracteres diretamente, sendo eles as chaves do mapa
     \end{itemize}
@@ -51,24 +61,29 @@
 \end{frame}
 
 \begin{frame}[fragile]{Construção de histogramas usando \code{c}{arrays} estáticos}
-    \inputcode{cpp}{array.cpp}
+    \inputcode{cpp}{codes/array.cpp}
 \end{frame}
 
 \begin{frame}[fragile]{Construção de histogramas com mapeamento do alfabeto}
 
     \begin{itemize}
         \item A terceira e última abordagem é uma otimização, em espaço, da segunda
+        \pause
 
         \item Aqui o vetor $h$ deve ter o tamanho $M$ do alfabeto, e os caracteres do alfabeto 
             devem ser indexados de 0 a $M - 1$
+        \pause
 
         \item Se, por exemplo, o alfabeto for constituído das letras maiúsculas e minúsculas, 
             esta indexação é feita de forma direta, em $O(1)$
+        \pause
 
         \item Caso contrário, é preciso procurar pelo caractere no alfabeto em $O(M)$ (ou 
             $O(\log M)$, se o alfabeto estiver ordenado)
+        \pause
 
         \item Neste cenário a perda de performance é compensada pela redução da memória necessária 
+        \pause
 
         \item Esta é a abordagem mais econômica em termos de memória
 
@@ -77,5 +92,5 @@
 \end{frame}
 
 \begin{frame}[fragile]{Construção de histogramas com mapeamento do alfabeto}
-    \inputcode{cpp}{memory.cpp}
+    \inputcode{cpp}{codes/memory.cpp}
 \end{frame}

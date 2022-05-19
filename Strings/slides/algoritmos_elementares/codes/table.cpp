@@ -1,29 +1,26 @@
 // Exemplo de criptografia baseada em xor
-#include <iostream>
-#include <algorithm>
+#include <bits/stdc++.h>
 
 using namespace std;
 
 const int MAX { 256 };
-char table[MAX];
+unsigned char table[MAX];
 
 string cipher(const string& text)
 {
     string res;
 
-    transform(text.begin(), text.end(), back_inserter(res), [](char c)
-        {
-            return table[(int) c];
-        }
+    transform(text.begin(), text.end(), back_inserter(res), 
+        [](char c) { return table[(int) c]; }
     );
 
     return res;
 }
 
-void fill_table(char key)
+void fill_table(unsigned char key)
 {
     for (int i = 0; i < MAX; ++i)
-        table[i] = i ^ key;
+        table[i] = (unsigned char) i ^ key;
 }
 
 string decipher(const string& c)

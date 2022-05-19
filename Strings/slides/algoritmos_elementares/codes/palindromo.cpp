@@ -1,5 +1,4 @@
-// Observe que a função abaixo identifica s corretamente
-// mesmo nos casos onde |s| é ímpar
+// Observe que a função abaixo identifica s corretamente mesmo nos casos onde |s| é ímpar
 bool is_palindrome(const string& s)
 {
     size_t N = s.size();

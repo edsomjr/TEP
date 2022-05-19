@@ -5,15 +5,16 @@
     \begin{itemize}
         \item Palíndromos são strings que são idênticas quando lidas tanto do início para o fim 
             quanto do fim para o início
+        \pause
 
-        \item Por exemplo, ``\texttt{MUSSUM}", ``\texttt{SAIAS}" e ``\texttt{HANNAH}" são palíndromos
+        \item Por exemplo, \code{cpp}{"MUSSUM"}, \code{cpp}{"SAIAS"} e \code{cpp}{"HANNAH"} são palíndromos
+        \pause
 
         \item Mais formalmente, um palíndromo $P$ pode ser definido como
         \[
-            P[1..N] = ``\,"\ \vert\ P[1..1]\ \vert\ c + P[2..N-1] + c
+            P[1..N] = \code{cpp}{""}\ \ \vert\ \ P[1..1]\ \ \vert\ \ c + P[2..N-1] + c
         \]
         ou seja, strings vazias, strings com um único caractere ou strings resultantes da concatenação de um mesmo caractere $c$ no ínicio e no fim de um palíndromo resulta em palíndromos
-
 
     \end{itemize}
 
@@ -24,15 +25,19 @@
     \begin{itemize}
         \item Uma maneira de se verificar se uma string $s$ é ou não um palíndromo é checar se o 
             primeiro caractere coincide com o último, o segundo com o penúltimo, e assim por diante
+        \pause
 
         \item Este algoritmo tem complexidade $O(|s|)$
+        \pause
 
-        \item Embora ele identifique corretamente se s é ou não um palíndromo, é possível torná-lo 
+        \item Embora ele identifique corretamente se $s$ é ou não um palíndromo, é possível torná-lo 
             mais eficiente ao observar que só é necessário fazer tal verificação até a metade de $s$
+        \pause
 
         \item Isto ocorre pois se $i \geq |s|/2$, temos $i = N - 1 - j, j < |s|/2$ e a comparação 
             de $s[i]$ com $s[N - 1 - i]$ equivale a comparação de $s[N - 1 - j]$ com 
             $s[N - 1 - (N - 1 - j)]$, isto é, de $s[N - 1 - j]$ com $s[j], j < |s|/2$
+        \pause
 
         \item Mesmo que a complexidade permaneça em $O(|s|)$, esta segunda versão abaixo executa 
             aproximadamente duas vezes mais rápido que a anterior
@@ -41,5 +46,5 @@
 \end{frame}
 
 \begin{frame}[fragile]{Implementação da rotina de identificação de palíndromos}
-    \inputcode{cpp}{palindromo.cpp}
+    \inputcode{cpp}{codes/palindromo.cpp}
 \end{frame}

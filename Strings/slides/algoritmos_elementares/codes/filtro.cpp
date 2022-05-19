@@ -7,7 +7,6 @@ bool is_vowel(char c)
     return vowels.find(tolower(c)) != string::npos;
 }
 
-// Extrai apenas as vogais de s
 string filter_vowels(const string& s)
 {
     string v;

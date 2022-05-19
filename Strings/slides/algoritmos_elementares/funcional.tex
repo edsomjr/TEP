@@ -4,13 +4,16 @@
 
     \begin{itemize}
         \item Mapas, filtros e reduções são técnicas de programação funcional que permitem alterar os elementos de um vetor, gerar um novo vetor a partir da seleção de elementos específicos de um vetor dado ou gerar um único objeto ou elemento a partir dos elementos de um vetor
+        \pause
 
         \item Sendo uma string um vetor de caracteres, estas técnicas podem ser adaptadas para o contexto da manipulação de textos e caracteres
+        \pause
 
         \item A vantagem de tal abordagem é a redução do tamanho do código, evitando laços e
             variáveis temporárias explícitas
+        \pause
 
-        \item Outro aspecto importante é que o uso de tais conceitos permitem simplificar a
+        \item Outro aspecto importante é que o uso de tais conceitos permite simplificar a
             notação e descrição de problemas de strings
     \end{itemize}
 
@@ -22,12 +25,15 @@
         \item Um mapa (ou mapeamento) consiste em uma função $m_f: S_N \to S_N$, 
             onde $S_N$ é o conjunto de todas as strings de tamanho $N$ e $f: A \to A$ é uma função 
             cujo domínio é o alfabeto $A$ tal que se $y = m_f(s)$, então $y[i] = f(s[i])$
+        \pause
 
         \item Em termos mais simples, $m_f$ mapeia cada caractere de $s$ de acordo com a função $f$
+        \pause
 
         \item Por exemplo, se $A$ é formado pelas letras alfabéticas maiúsculas e minúsculas e 
             $f$ é a função \code{cpp}{toupper()}, o mapeamento $m_f$ tornaria maiúsculas todas as 
             letras de uma string $s$ dada
+        \pause
 
         \item A implementação do mapeamento pode ser apenas conceitual, usando uma função padrão
             do C/C++, ou utilizar a função \code{c}{transform()} da STL da linguagem C++
@@ -36,15 +42,11 @@
 \end{frame}
 
 \begin{frame}[fragile]{Exemplo de implementação de um mapa usando funções}
-    \inputsnippet{cpp}{1}{18}{map_function.cpp}
-\end{frame}
-
-\begin{frame}[fragile]{Exemplo de implementação de um mapa usando funções}
-    \inputsnippet{cpp}{19}{39}{map_function.cpp}
+    \inputsnippet{cpp}{1}{19}{codes/map_function.cpp}
 \end{frame}
 
 \begin{frame}[fragile]{Implementação da cifra de César usando a função \texttt{transform()}}
-    \inputsnippet{cpp}{1}{21}{transform.cpp}
+    \inputsnippet{cpp}{1}{21}{codes/transform.cpp}
 \end{frame}
 
 \begin{frame}[fragile]{Filtros}
@@ -53,12 +55,15 @@
         \item Um filtro $f_p : S_N \to S_M$ consiste em uma função que gera uma string de tamanho 
             $M \leq N$, a partir de uma string de tamanho $N$, através da seleção dos $M$ 
             caracteres cujo predicado $p: A \to Bool$ retorna verdadeiro
+        \pause
 
         \item Assim como os mapas, os filtros podem ser implementados de forma apenas
             conceitual, usando elementos da própria linguagem, como laços e condicionais
+        \pause
 
         \item Outra maneira de implementar o mesmo código é utilizar a função \code{cpp}{copy_if()}
             da STL, que tem sintaxe semelhante a da função \code{c}{transform()}
+        \pause
 
         \item A função \code{c}{remove_copy_if()} tem comportamento análogo, mas copia os 
             caracteres que negarem o predicado
@@ -68,10 +73,10 @@
 \end{frame}
 
 \begin{frame}[fragile]{Implementação de um filtro usando elementos de C++}
-    \inputcode{cpp}{filtro.cpp}
+    \inputcode{cpp}{codes/filtro.cpp}
 \end{frame}
 \begin{frame}[fragile]{Implementação de um filtro usando a função \code{c}{copy_if()}}
-    \inputcode{cpp}{copy_if.cpp}
+    \inputcode{cpp}{codes/copy_if.cpp}
 \end{frame}
 
 \begin{frame}[fragile]{Reduções}
@@ -80,6 +85,7 @@
         \item Uma redução $r_b : S_N \to T$ gera um elemento do tipo $T$ através da aplicação 
             sucessiva do operador binário $b$, da esquerda para a direita, em cada elemento de $s$, 
             tendo como operando esquerdo inicial um valor definido previamente
+        \pause
 
         \item Se $b(s_i, s_j) = t_k$ e $s_0$ é o valor inicial para o operando esquerdo, 
             então a redução se comporta da seguinte maneira na sequência $s = \lbrace s_1, s_2,
@@ -99,48 +105,53 @@
 \begin{frame}[fragile]{Reduções}
 
     \begin{itemize}
-        \item Reduções podem ser implementadas de maneira natural usando um laço e um valor
+        \item Reduções podem ser implementadas de maneira natural usando um laço e um 
             acumulador
+        \pause
 
         \item Uma alternativa é utilizar a função \code{c}{accumulate()} da STL, que
             abstrai o conceito de redução, parametrizando o tipo de retorno e o valor
             inicial do operando esquerdo
+        \pause
 
         \item No padrão C++17 foi introduzida a função \code{c}{reduce()}
+        \pause
 
         \item O comportamento é semelhante ao da função \code{c}{accumulate()}, mas ela
             não impõem uma ordem na aplicação do operador binário
+        \pause
 
         \item Este relaxamento permite otimizações por parte do compilador e a execução
             em paralelo
-
-        \item Contudo, nem todos os compiladores implementaram a função \code{c}{reduce()}
-            ainda
     \end{itemize}
 
 \end{frame}
 
 \begin{frame}[fragile]{Implementação de uma redução usando laço e acumulador}
-    \inputcode{cpp}{reduce_loop.cpp}
+    \inputcode{cpp}{codes/reduce_loop.cpp}
 \end{frame}
 
-\begin{frame}[fragile]{Implementação de uma redução usando a função \code{c}{accumulate()}}
-    \inputcode{cpp}{reduce.cpp}
+\begin{frame}[fragile]{Implementação de uma redução usando a função \code{c}{reduce()}}
+    \inputcode{cpp}{codes/reduce.cpp}
 \end{frame}
 
 \begin{frame}[fragile]{Tabelas de substituição}
 
     \begin{itemize}
         \item Uma tabela de substituição é uma aplicação prática de um mapeamento
+        \pause
 
         \item Ela é definida por uma função $f: A \to A$ que mapeia cada caractere do alfabeto 
             $A$ em outro caractere do mesmo alfabeto
+        \pause
 
         \item Sistemas criptográficos mais simples utilizam tabelas de substituição, como a Cifra 
             de César e a criptografia baseada em ou exclusivo (\textit{xor})
+        \pause
 
         \item Se $|A|$ não é muito grande, a função $f$ pode ser implementada em um \textit{array}
             estático, permitindo a consulta da substituição com complexidade $O(1)$
+        \pause
 
         \item Caso contrário, ou se o alfabeto não é contíguo, deve ser usado um dicionário para 
             armazenar tais substituições
@@ -150,13 +161,13 @@
 \end{frame}
 
 \begin{frame}[fragile]{Exemplo de uso de tabela de substituição}
-    \inputsnippet{cpp}{1}{21}{table.cpp}
+    \inputsnippet{cpp}{1}{18}{codes/table.cpp}
 \end{frame}
 
 \begin{frame}[fragile]{Exemplo de uso de tabela de substituição}
-    \inputsnippet{cpp}{23}{43}{table.cpp}
+    \inputsnippet{cpp}{20}{36}{codes/table.cpp}
 \end{frame}
 
 \begin{frame}[fragile]{Exemplo de uso de tabela de substituição}
-    \inputsnippet{cpp}{44}{62}{table.cpp}
+    \inputsnippet{cpp}{38}{62}{codes/table.cpp}
 \end{frame}
