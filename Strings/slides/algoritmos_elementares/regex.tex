@@ -6,15 +6,19 @@
         \item Expressão regular (\textit{regular expression} ou \textit{regex}) é uma 
             representação que utiliza símbolos especiais para marcar sequências de caracteres 
             ou repetições
+        \pause
 
         \item As \textit{regexes} são uma forma compacta e poderosa de representar textos e padrões
+        \pause
 
         \item Porém, sem o devido cuidado, pode levar a \textit{bugs} sutis relacionados a falsos 
             positivos (o texto identificado não é o desejado) e a falsos negativos 
             (textos desejados não são identificados)
+        \pause
 
         \item Algumas linguagens de programação, como Java e Python, tem suporte nativo para 
             expressões regulares
+        \pause
 
         \item A linguagem C++ incorporou suporte às \textit{regexes} a partir da versão C++11, 
             com padrão de sintaxe distinta das outras duas linguagens já citadas
@@ -25,10 +29,13 @@
 \begin{frame}[fragile]{Características de uma regex}
 
     \begin{enumerate}
-        \item cada caractere da \textit{regex} corresponde ao mesmo caractere no texto
-        \item existem combinações especiais de caracteres para corresponder à sequências de caracteres: por exemplo, \verb|\d| corresponde a qualquer um dos dez dígitos decimais, \verb|\D| a qualquer caractere, exceto os dez dígitos decimais
-        \item o caractere \lq .\rq\ é o coringa: ele representa qualquer caractere. O ponto final é representado pela sequência \verb|\.|
-        \item um conjunto de caracteres válidos para o padrão pode ser representado por meio de colchetes. Por exemplo, a notação \verb|[abc]| significa ou \texttt{a}, ou \texttt{b} ou \texttt{c}. Se os caracteres são consecutivos, esta notação pode ser abreviada com o uso do símbolo \texttt{-}. Por exemplo, \verb|[0-9]| tem o mesmo significado que \verb|\d|
+        \item Cada caractere da \textit{regex} corresponde ao mesmo caractere no texto
+        \pause
+        \item Existem combinações especiais de caracteres para corresponder à sequências de caracteres: por exemplo, \verb|\d| corresponde a qualquer um dos dez dígitos decimais, \verb|\D| a qualquer caractere, exceto os dez dígitos decimais
+        \pause
+        \item O caractere \code{cpp}{'.'} é o coringa: ele representa qualquer caractere. O ponto final é representado pela sequência \verb|\.|
+        \pause
+        \item Um conjunto de caracteres válidos para o padrão pode ser representado por meio de colchetes. Por exemplo, a notação \verb|[abc]| significa ou \texttt{a}, ou \texttt{b} ou \texttt{c}. Se os caracteres são consecutivos, esta notação pode ser abreviada com o uso do símbolo \texttt{-}. Por exemplo, \verb|[0-9]| tem o mesmo significado que \verb|\d|
     \end{enumerate}
 
 \end{frame}
@@ -38,15 +45,20 @@
     \begin{enumerate}
         \setcounter{enumi}{4}
 
-        \item a notação de colchetes pode ser usada para excluir caracteres, se usada com conjunto com o símbolo \verb|^|. Por exemplo, a notação \verb|[^abc]| significa ``todos os caracteres, exceto \texttt{a}, \texttt{b} e \texttt{c}"
-        \item a sequência \verb|\w| corresponde aos caracteres alfanuméricos \verb|[a-zA-Z0-9_]|;
+        \item A notação de colchetes pode ser usada para excluir caracteres, se usada com conjunto com o símbolo \verb|^|. Por exemplo, a notação \verb|[^abc]| significa ``todos os caracteres, exceto \texttt{a}, \texttt{b} e \texttt{c}"
+        \pause
+        \item A sequência \verb|\w| corresponde aos caracteres alfanuméricos \verb|[a-zA-Z0-9_]|;
+        \pause
         \item Sequências especiais de caracteres podem ser usadas para representar repetições de caracteres ou padrões:
+        \pause
         \begin{enumerate}
             \item um número entre chaves após o caractere/padrão indica o número de repetições ou 
                 as quantidades válidas de repetições. Por exemplo, \verb|a{5}| significa o mesmo 
                 que ``\texttt{aaaaa}"; \verb|a{1-3}| indica ``de um a três caracteres a"; 
                 \verb|[abc]{2}| indica dois caracteres seguidos dentres os indicados no colchete
+        \pause
             \item o caractere \lq \verb|*|\rq\ significa ``zero ou mais repetições"
+        \pause
             \item o caractere \lq \verb|+|\rq\ significa ``uma ou mais repetições"
 
         \end{enumerate}
@@ -61,19 +73,23 @@
         \item[] \begin{enumerate}
             \setcounter{enumii}{3}
             \item o símbolo \verb|?| significa que o caractere ou padrão é opcional, isto é, que pode ou não ocorrer no texto
-            \item O caractere \lq \verb|?|\rq\ pode ser representado pela sequência de escape 
+        \pause
+            \item O caractere \code{cpp}{'?'} pode ser representado pela sequência de escape 
                 \verb|\?|
-            \item a sequência \verb|\s| indica espaços em branco (\lq\ \rq, \lq\verb|\t|\rq, 
-                \lq\verb|\r|\rq, \lq\verb|\n|\rq)
+        \pause
+            \item a sequência \verb|\s| indica espaços em branco (\mintinline{cpp}{' ',  '\t', '\r', '\n'})
+        \pause
             \item os símbolos \verb|^| e \verb|$| representam, respectivamente, o início e o fim 
                 do texto
+        \pause
             \item parêntesis podem ser utilizados para armazenar trechos do texto que correspondem à expressão entre parêntesis para posterior uso. Eles podem ser aninhados
-            \item o símbolo \texttt{|} pode ser utilizado como ou lógico para separar grupos de padrões possíveis: a expressão \texttt{(abc|123)} significa ``ou \texttt{a, b, c} ou \texttt{1, 2, 3}"
+        \pause
+            \item o símbolo \texttt{|} pode ser utilizado como ou lógico para separar grupos de padrões possíveis: a expressão \texttt{(abc|123)} significa ou \code{cpp}{'a', 'b', 'c'} ou \code{cpp}{'1', '2', '3'}
         \end{enumerate}
     \end{enumerate}
 
 \end{frame}
 
 \begin{frame}[fragile]{Exemplo de uso de regex em Java}
-    \inputcode{java}{Main.java}
+    \inputcode{java}{codes/Main.java}
 \end{frame}

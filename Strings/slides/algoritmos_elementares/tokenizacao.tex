@@ -5,17 +5,20 @@
     \begin{itemize}
         \item Tokenização é o processo de quebra de um texto em palavras, frases, símbolos, etc, 
             denominados \textit{tokens}
+        \pause
 
         \item Para realizar a tokenização, é necessário primeiramente definir precisamente um 
             \textit{token}, e esta definição depende do contexto onde os \textit{tokens} serão 
             utilizados
+        \pause
 
         \item Uma abordagem simples é definir uma lista de caracteres delimitadores (como espaços 
             em branco, pontuações, etc) e dividir a string a cada ocorrência de um delimitador
+        \pause
 
-        \item Por exemplo, a frase ``\texttt{O rato roeu a roupa do rei de Roma}"\ seria dividida 
-            em 9 tokens: ``\texttt{O}", ``\texttt{rato}", ``\texttt{roeu}", ``\texttt{a}", 
-            ``\texttt{roupa}", ``\texttt{do}", ``\texttt{rei}", ``\texttt{de}", ``\texttt{Roma}"
+        \item Por exemplo, a frase \code{cpp}{"O rato roeu a roupa do rei de Roma"} seria dividida 
+            em 9 tokens: \code{cpp}{"O"}, \code{cpp}{"rato"}, \code{cpp}{"roeu"}, \code{cpp}{"a"}, 
+            \code{cpp}{"roupa"}, \code{cpp}{"do"}, \code{cpp}{"rei"}, \code{cpp}{"de"}, \code{cpp}{"Roma"}
     \end{itemize}
 
 \end{frame}
@@ -25,19 +28,24 @@
     \begin{itemize}
         \item A linguagem C oferece uma função para tokenização na biblioteca \code{c}{string.h}, 
             denominada \code{c}{strtok()}
+        \pause
 
-        \item Ela recebe como primeiro parâmetro um ponteiro para a string a ser tokenizada, e como 
+        \item Ela recebe como primeiro parâmetro um ponteiro para a string a ser tokenizada e como 
             segundo parâmetro uma lista de delimitadores
+        \pause
 
         \item Ela retorna um ponteiro para o início do próximo token, ou \code{c}{NULL}, caso não 
             exista mais tokens
+        \pause
 
         \item Esta função tem um comportamento incomum, devido três aspectos importantes:
             \begin{enumerate}
+        \pause
                 \item ela mantém, internamente, um ponteiro para o início do próximo \textit{token}
-                \item esta função altera o parâmetro de entrada, escrevendo o caractere \lq\verb|\0|\rq\ nas posições onde são encontrados delimitadores
-                \item a função strtok() não retorna \textit{tokens} vazios 
-                    (isto é, de tamanho zero).
+        \pause
+                \item esta função altera o parâmetro de entrada, escrevendo o caractere \code{cpp}{'\0'} nas posições onde são encontrados delimitadores
+        \pause
+                \item a função strtok() não retorna \textit{tokens} vazios (isto é, de tamanho zero)
             \end{enumerate}
     \end{itemize}
 
@@ -48,16 +56,21 @@
     \begin{itemize}
         \item Devido ao aspecto 1, para obter vários tokens de uma mesma string, as chamadas 
             subsequentes à primeira devem receber \code{c}{NULL} como primeiro parâmetro
+        \pause
 
         \item Este comportamento faz com que esta função não seja segura num contexto \textit{multithread}
+        \pause
 
         \item Já em relação ao aspecto 2, se for necessário preservar o conteúdo original da string, deve ser passada uma cópia da mesma como primeiro parâmetro
+        \pause
 
         \item Por fim, por conta do aspecto 3, a chamada de \code{c}{strtok()} na string
             ``\texttt{aaaaa}"\ com delimitador ``\texttt{a}"\ retorna \code{c}{NULL} já na 
             primeira chamada
+        \pause
 
         \item A biblioteca \code{c}{string.h} oferece uma versão \textit{thread safe} de \code{c}{strtok()}, denominada \code{c}{strtok_r()}
+        \pause
 
         \item Nesta função há um terceiro parâmetro, que é utilizado para memorizar a posição do próximo \textit{token}
     \end{itemize}
@@ -65,7 +78,7 @@
 \end{frame}
 
 \begin{frame}[fragile]{Exemplo de uso da função \code{c}{strtok()}}
-    \inputsnippet{c}{1}{21}{cpf.c}
+    \inputsnippet{c}{1}{21}{codes/cpf.c}
 \end{frame}
 
 \begin{frame}[fragile]{Tokenização em C++}
@@ -73,17 +86,23 @@
     \begin{itemize}
         \item Em C++, a função \code{c}{getline()} da biblioteca \code{c}{string} pode ser 
             utilizada para tokenização
+        \pause
 
         \item Ela recebe como primeiro parâmetro um fluxo de entrada (\code{c}{cin}, um arquivo, 
             um fluxo de caracteres, etc)
+        \pause
 
         \item O segundo parâmetro é a string que conterá o \textit{token} identificado 
+        \pause
 
         \item O terceiro parâmetro é o caractere delimitador
+        \pause
 
         \item Se omitido, o caractere \lq\verb|\n|\rq\ será considerado o delimitador
+        \pause
 
         \item Esta função é útil quando há apenas um delimitador
+        \pause
 
         \item Para processos de tokenização mais elaborados pode ser necessário escrever um \textit{parser}
 
@@ -92,7 +111,7 @@
 \end{frame}
 
 \begin{frame}[fragile]{Exemplo de uso da função \code{c}{getline()}}
-    \inputsnippet{cpp}{1}{21}{cpf.cpp}
+    \inputsnippet{cpp}{1}{21}{codes/cpf.cpp}
 \end{frame}
 
 

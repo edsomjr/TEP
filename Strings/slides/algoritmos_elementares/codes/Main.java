@@ -1,5 +1,4 @@
 public class Main {
-
     public static void main(String[] args) {
         String regex = "(\\d{3}\\.){2}\\d{3}-\\d{2}";
         String cpf = "123.456.789-10";

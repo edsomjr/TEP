@@ -4,14 +4,19 @@
 
     \begin{itemize}
         \item Anagramas são palavras formadas pelo rearranjo dos caracteres de um conjunto fixo
+        \pause
 
-        \item Por exemplo, ``\texttt{iracema}"\  e ``\texttt{america}"\  são anagramas, enquanto que ``\texttt{amora}"\  e ``\texttt{roma}"\  não são anagramas
+        \item Por exemplo, \code{cpp}{"iracema"}\  e \code{cpp}{"america"}\  são anagramas, enquanto que \code{cpp}{"amora"}\  e \code{cpp}{"roma"}\  não são anagramas
+        \pause
 
-        \item ``\texttt{roma}"\  tem os mesmo caracteres, mas não a mesma quantidade: tem um ``\texttt{a}"\ a menos que ``\texttt{amora}"
+        \item \code{cpp}{"roma"}\  tem os mesmo caracteres, mas não a mesma quantidade: tem um \code{cpp}{"a"}\ a menos que \code{cpp}{"amora"}
+        \pause
 
         \item Para se determinar se determinar se duas strings $s$ e $t$ são anagramas há duas abordagens possíveis:
+        \pause
             \begin{enumerate}
                 \item obter os histogramas de ambas strings e compará-los: caso sejam iguais, as strings serão anagramas
+        \pause
                 \item ordenar ambas strings segundo a ordem lexicográfica: se após a ordenação as strings são iguais, ambas são anagramas
             \end{enumerate}
     \end{itemize}
@@ -19,7 +24,7 @@
 \end{frame}
 
 \begin{frame}[fragile]{Implementação da verificação de anagramas}
-    \inputcode{cpp}{anagram.cpp}
+    \inputcode{cpp}{codes/anagram.cpp}
 \end{frame}
 
 \begin{frame}[fragile]{Listagem de todos os anagramas}
@@ -27,8 +32,10 @@
     \begin{itemize}
         \item Um problema comum é determinar o número de anagramas distintos que uma determinada 
             palavra tem
+        \pause
 
         \item Segundo a Análise Combinatória, este número é dado por um arranjo com repetição
+        \pause
 
         \item Se $s$ tem $n$ caracteres ($r$ deles distintos) e $n_1, n_2, \ldots, n_r$ é o número 
             de ocorrências de cada um dos $r$ caracteres em $s$, então o número de anagramas 
@@ -36,12 +43,15 @@
             \[
                 A(s) = \frac{n!}{n_1!n_2!...n_r!}
             \]
+        \pause
 
         \item Para listar todos os possíveis anagramas de uma string $s$, pode-se utilizar a 
-            função \code{cpp}{next_permutation()} da biblioteca \code{cpp}{algorithm} do C++
+            função \code{cpp}{next_permutation()} da biblioteca \code{cpp}{algorithm} da linguagem C++
+        \pause
 
         \item Ela retorna verdadeiro, e modifica a string passada, enquanto houver uma próxima 
             permutação distinta de seus caracteres
+        \pause
 
         \item Deve-se tomar o cuidado, porém, de ordenar a string $s$ antes das sucessivas 
             chamadas da função \code{cpp}{next_permutation()}
@@ -50,5 +60,5 @@
 \end{frame}
 
 \begin{frame}[fragile]{Exemplo de listagem de todos os anagramas de uma palavra}
-    \inputcode{cpp}{next_permutation.cpp}
+    \inputcode{cpp}{codes/next_permutation.cpp}
 \end{frame}

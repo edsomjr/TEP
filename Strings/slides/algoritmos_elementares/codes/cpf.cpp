@@ -1,5 +1,4 @@
-#include <iostream>
-#include <sstream>
+#include <bits/stdc++.h>
 
 int main() {
     std::istringstream is("123.456.789-10");
