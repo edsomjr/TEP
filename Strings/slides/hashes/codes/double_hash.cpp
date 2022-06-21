@@ -2,10 +2,7 @@
 
 using namespace std;
 
-int f(char c)
-{
-    return c - 'a' + 1;
-}
+int f(char c) { return c - 'a' + 1; }
 
 int hi(long long pi, long long qi, const string& s)
 {

@@ -18,12 +18,22 @@
 
     \begin{itemize}
         \item Em geral, $p$ é um número primo aproximadamente igual ao tamanho do alfabeto
+        \pause
+
         \item Para um alfabeto de 26 letras, uma escolha razoável seria $p = 31$
+        \pause
+
         \item Para maiúsculas e minúsculas pode-se adotar $p = 53$
+        \pause
+
         \item O valor de $q$ deve ser grande, pois a chance de colisão entre duas strings
             sorteadas aleatoriamente é de $1/q$
+        \pause
+
         \item Usar um número primo para $q$ também é uma boa escolha, no sentido de evitar 
             colisões
+        \pause
+
 
         \item O valor $q = 10^9 + 7$ tem a vantagem de ser fácil de lembrar e digitar, e também
             de permitir a multiplicação sem \textit{overflow} usando variáveis do tipo
@@ -37,15 +47,21 @@
     \begin{itemize}
         \item Na definição da função $h$ o valor $s_i$ corresponde ao mapeamento do caractere
         $S[i]$ da string para um inteiro
+        \pause
+
 
         \item Em termos formais, dado um alfabeto $\mathcal{A}$ e uma função
         \[
             f : \mathcal{A} \to \mathbb{N},
         \]
         então $s_i = f(S[i])$, onde $S[i]\in\mathcal{A}$ para todo $i = 0, 1, 2, \ldots, N - 1$
+        \pause
+
 
         \item Um mapeamento possível seria $f(\mathtt{a}) = 1, f(\mathtt{b}) = 2, \ldots,
         f(\mathtt{z}) = 26$
+        \pause
+
 
         \item Veja que o caractere \texttt{`a'} não é mapeado para zero, e sim para um, para
             evitar que todas as strings compostas por repetições deste caractere tenham o 
@@ -55,11 +71,11 @@
 \end{frame}
 
 \begin{frame}[fragile]{Implementação do {\it rolling hash} em Haskell}
-    \inputsnippet{haskell}{1}{19}{h.hs}
+    \inputsnippet{haskell}{1}{19}{codes/h.hs}
 \end{frame}
 
 \begin{frame}[fragile]{Implementação do {\it rolling hash} em C++}
-    \inputsnippet{cpp}{1}{21}{h.cpp}
+    \inputsnippet{cpp}{1}{21}{codes/h.cpp}
 \end{frame}
 
 \begin{frame}[fragile]{Calculo do {\it hash} das substrings de $S$}
@@ -68,11 +84,15 @@
         \item Dada uma string $S$, a definição de $h$ permite computar o valor de $h(S[i..j])$,
             para qualquer par $i\leq j$ de índices válidos, em $O(1)$, se conhecidos os valores
             de $h$ para todos os prefixos $S[0..i]$ de $S$
+        \pause
+
         
         \item A função $h$ é definida por
         \begin{align*}
         h(S) &= \left(\sum_{i=0}^{n - 1} S_ip^i\right)\ \mbox{mod}\ q
         \end{align*}
+        \pause
+
 
         \item Deste modo,
         \begin{align*}
@@ -88,12 +108,16 @@
     \begin{itemize}
         \item Para obter o valor de $S[i..j]$, é necessário multiplicar a expressão acima
             pelo inverso multiplicativo $(p^i)^{-1}$ de $p^i$ módulo $q$
+        \pause
+
 
         \item Este pode ser obtido pelo Pequeno Teorema de Fermat: se $q$ é primo e 
         $(a, q) = 1$, então
         \[
             a^{q-1}\equiv \Mod{1}{q}
         \]
+        \pause
+
 
         \item Assim, como $q \geq 2$,
         \[
@@ -103,6 +127,8 @@
         \[
             a^{-1}\equiv \Mod{a^{q-2}}{q}
         \]
+        \pause
+
 
         \item Se os inversos de $p^i$ também forem precomputados, juntamente com os 
         \textit{hashes} dos prefixos $S[0..i]$, os valores $h(S[i..j])$ podem ser calculados
@@ -112,31 +138,31 @@
 \end{frame}
 
 \begin{frame}[fragile]{Contagem das substrings distintas em Haskell}
-    \inputsnippet{haskell}{1}{21}{subs.hs}
+    \inputsnippet{haskell}{1}{17}{codes/subs.hs}
 \end{frame}
 
 \begin{frame}[fragile]{Contagem das substrings distintas em Haskell}
-    \inputsnippet{haskell}{22}{42}{subs.hs}
+    \inputsnippet{haskell}{18}{36}{codes/subs.hs}
 \end{frame}
 
 \begin{frame}[fragile]{Contagem das substrings distintas em C++}
-    \inputsnippet{cpp}{1}{21}{subs.cpp}
+    \inputsnippet{cpp}{1}{20}{codes/subs.cpp}
 \end{frame}
 
 \begin{frame}[fragile]{Contagem das substrings distintas em C++}
-    \inputsnippet{cpp}{22}{40}{subs.cpp}
+    \inputsnippet{cpp}{22}{40}{codes/subs.cpp}
 \end{frame}
 
 \begin{frame}[fragile]{Contagem das substrings distintas em C++}
-    \inputsnippet{cpp}{41}{61}{subs.cpp}
+    \inputsnippet{cpp}{41}{60}{codes/subs.cpp}
 \end{frame}
 
 \begin{frame}[fragile]{Contagem das substrings distintas em C++}
-    \inputsnippet{cpp}{62}{81}{subs.cpp}
+    \inputsnippet{cpp}{62}{81}{codes/subs.cpp}
 \end{frame}
 
 \begin{frame}[fragile]{Contagem das substrings distintas em C++}
-    \inputsnippet{cpp}{82}{102}{subs.cpp}
+    \inputsnippet{cpp}{82}{102}{codes/subs.cpp}
 \end{frame}
 
 \begin{frame}[fragile]{Redução da probabilidade de colisão}
@@ -144,20 +170,30 @@
     \begin{itemize}
         \item Dadas duas strings $S$ e $T$ escolhidas aleatoriamente, a probabilidade de
             colisão entre ambas é de $1/q$
+        \pause
+
 
         \item Assim, com $q = 10^9 + 7$, se $S$ for comparado com $n = 10^6$ strings distintas,
             a probabilidade de acontecer uma colisão é igual a $n/q = 10^3$
+        \pause
+
 
         \item Um modo de diminuir esta probabilidade é utilizar o \textit{hash} duas vezes
+        \pause
+
 
         \item Em termos mais preciso, seja $h_i$ a função de \textit{rolling hash} que utiliza
             os parâmetros $p_i$ e $q_i$
+        \pause
+
 
         \item O \textit{hash} duplo $h_{ij}$ associa uma string $S$ a um par de inteiros da 
             seguinte maneira:
             \[
                 h_{ij}(S) = (h_i(S), h_j(S))
             \]
+        \pause
+
 
         \item Se $q_i, q_j > 10^9$, a função $h_{ij}$ produz mais de $10^{18}$ pares distintos,
             de forma que a comparação de $S$ com $n = 10^6$ strings distintas passa a ter
@@ -167,13 +203,13 @@
 \end{frame}
 
 \begin{frame}[fragile]{Implementação do {\it hash} duplo em Haskell}
-    \inputsnippet{haskell}{1}{21}{double_hash.hs}
+    \inputsnippet{haskell}{1}{16}{codes/double_hash.hs}
 \end{frame}
 
 \begin{frame}[fragile]{Implementação do {\it hash} duplo em C++}
-    \inputsnippet{cpp}{1}{21}{double_hash.cpp}
+    \inputsnippet{cpp}{1}{18}{codes/double_hash.cpp}
 \end{frame}
 
 \begin{frame}[fragile]{Implementação do {\it hash} duplo em C++}
-    \inputsnippet{cpp}{22}{42}{double_hash.cpp}
+    \inputsnippet{cpp}{20}{42}{codes/double_hash.cpp}
 \end{frame}
