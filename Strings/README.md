@@ -6,7 +6,7 @@ Strings
     1. [Representação de Strings](slides/representacao_de_strings/representacao_de_strings.pdf) ([problemas resolvidos](problems/ST-2/ST-2.pdf))
     1. [Algoritmos Elementares](slides/algoritmos_elementares/algoritmos_elementares.pdf) ([problemas resolvidos](problems/ST-3/ST-3.pdf))
 1. Algoritmos de Busca
-    1. [Busca em Strings](slides/BS-1/BS-1.pdf)
+    1. [Busca em Strings](slides/busca/busca.pdf)
     1. [Strings e _Hashes_](slides/BS-2/BS-2.pdf)
     1. [Algoritmo de Rabin-Karp](slides/BS-3/BS-3.pdf)
     1. [Algoritmo de Knuth-Morris-Pratt](slides/BS-4/BS-4.pdf)
