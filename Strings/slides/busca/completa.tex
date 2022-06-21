@@ -6,9 +6,11 @@
     \begin{itemize}
         \item A busca completa compara cada uma das $n - m + 1$ substrings de tamanho $m$ de $S$ 
             com $P$, reportando cada igualdade
+        \pause
 
         \item Como a comparação tem complexidade $O(m)$ e o número de substrings é $O(n)$, o 
             algoritmo tem complexidade $O(mn)$ no pior caso
+        \pause
 
         \item É preciso ter cuidado com os limites do laço, a depender da representação de 
             strings utilizada, para que todas as substrings sejam verificadas
@@ -45,9 +47,9 @@
 \end{frame}
 
 \begin{frame}[fragile]{Implementação da busca completa em Haskell}
-    \inputsnippet{haskell}{1}{19}{search.hs}
+    \inputsnippet{haskell}{1}{19}{codes/search.hs}
 \end{frame}
 
 \begin{frame}[fragile]{Implementação da busca completa em C++}
-    \inputsnippet{cpp}{1}{19}{search.cpp}
+    \inputsnippet{cpp}{1}{19}{codes/search.cpp}
 \end{frame}
