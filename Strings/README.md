@@ -7,7 +7,7 @@ Strings
     1. [Algoritmos Elementares](slides/algoritmos_elementares/algoritmos_elementares.pdf) ([problemas resolvidos](problems/ST-3/ST-3.pdf))
 1. Algoritmos de Busca
     1. [Busca em Strings](slides/busca/busca.pdf)
-    1. [Strings e _Hashes_](slides/BS-2/BS-2.pdf)
+    1. [Strings e _Hashes_](slides/hashes/hashes.pdf)
     1. [Algoritmo de Rabin-Karp](slides/BS-3/BS-3.pdf)
     1. [Algoritmo de Knuth-Morris-Pratt](slides/BS-4/BS-4.pdf)
     1. [z-_Function_](slides/BS-5/BS-5.pdf)
