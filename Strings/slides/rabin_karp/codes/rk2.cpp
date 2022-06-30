@@ -2,7 +2,6 @@
 
 using namespace std;
 using ll = long long;
-
 const ll p { 31 }, q { 1000000007 };
 
 int f(char c) { return c - 'a' + 1; }

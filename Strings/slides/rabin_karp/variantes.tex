@@ -36,7 +36,7 @@
             h_{i+1}(S) = \left((h_{i} - S[i])p^{-1} + S_{i+m}p^{m -1}\right)\ \mbox{mod}\ q
         \]
 
-        \item Se a constante $k\equiv \Mod{p^{m-1}}{q}$ for precomputado, cada atualização do
+        \item Se a constante $k\equiv \Mod{p^{m-1}}{q}$ for precomputada, cada atualização do
             \textit{hash} tem custo $O(1)$
 
         \item O inverso $i = \Mod{p^{-1}}{q}$ também pode ser precomputado, como no caso da constante $k$
@@ -81,23 +81,23 @@
 \end{frame}
 
 \begin{frame}[fragile]{Implementação do algoritmo de Rabin-Karp em Haskell}
-    \inputsnippet{haskell}{1}{18}{rk2.hs}
+    \inputsnippet{haskell}{1}{17}{codes/rk2.hs}
 \end{frame}
 
 \begin{frame}[fragile]{Implementação do algoritmo de Rabin-Karp em Haskell}
-    \inputsnippet{haskell}{19}{39}{rk2.hs}
+    \inputsnippet{haskell}{19}{33}{codes/rk2.hs}
 \end{frame}
 
 \begin{frame}[fragile]{Implementação do algoritmo de Rabin-Karp em C++}
-    \inputsnippet{cpp}{1}{21}{rk2.cpp}
+    \inputsnippet{cpp}{1}{20}{codes/rk2.cpp}
 \end{frame}
 
 \begin{frame}[fragile]{Implementação do algoritmo de Rabin-Karp em C++}
-    \inputsnippet{cpp}{22}{42}{rk2.cpp}
+    \inputsnippet{cpp}{22}{36}{codes/rk2.cpp}
 \end{frame}
 
 \begin{frame}[fragile]{Implementação do algoritmo de Rabin-Karp em C++}
-    \inputsnippet{cpp}{43}{63}{rk2.cpp}
+    \inputsnippet{cpp}{38}{55}{codes/rk2.cpp}
 \end{frame}
 
 
@@ -114,7 +114,10 @@
         \]
 
         \item O uso de \textit{hash} duplo pode auxiliar na obtenção de uma função de
-            \textit{hash} perfeita, uma vez que $|\mathcal{P}| \leq n + 1$            
+            \textit{hash} perfeita, uma vez que
+            \[
+                |\mathcal{P}| \leq \dfrac{n(n + 1)}{2} + 1
+            \]
  
         \item A eliminação desta comparação reduz a complexidade do pior caso para 
             $O(n + m)$
@@ -153,23 +156,21 @@
 \end{frame}
 
 \begin{frame}[fragile]{Implementação do algoritmo de Rabin-Karp em Haskell}
-    \inputsnippet{haskell}{1}{18}{rk3.hs}
+    \inputsnippet{haskell}{1}{17}{codes/rk3.hs}
 \end{frame}
 
 \begin{frame}[fragile]{Implementação do algoritmo de Rabin-Karp em Haskell}
-    \inputsnippet{haskell}{19}{39}{rk3.hs}
+    \inputsnippet{haskell}{19}{32}{codes/rk3.hs}
 \end{frame}
 
 \begin{frame}[fragile]{Implementação do algoritmo de Rabin-Karp em C++}
-    \inputsnippet{cpp}{1}{21}{rk3.cpp}
+    \inputsnippet{cpp}{1}{20}{codes/rk3.cpp}
 \end{frame}
 
 \begin{frame}[fragile]{Implementação do algoritmo de Rabin-Karp em C++}
-    \inputsnippet{cpp}{22}{42}{rk3.cpp}
+    \inputsnippet{cpp}{22}{36}{codes/rk3.cpp}
 \end{frame}
 
 \begin{frame}[fragile]{Implementação do algoritmo de Rabin-Karp em C++}
-    \inputsnippet{cpp}{43}{63}{rk3.cpp}
+    \inputsnippet{cpp}{39}{56}{codes/rk3.cpp}
 \end{frame}
-
-
