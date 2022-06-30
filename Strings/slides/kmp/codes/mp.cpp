@@ -4,8 +4,7 @@ using namespace std;
 
 vector<int> borders(const string& P)
 {
-    int m = P.size();
-    int t = -1;
+    int m = P.size(), t = -1;
 
     vector<int> bs(m + 1, -1);
 
@@ -22,8 +21,7 @@ vector<int> borders(const string& P)
 
 int MP(const string& S, const string& P)
 {
-    int n = S.size(), m = P.size();
-    int i = 0, j = 0, occ = 0;
+    int n = S.size(), m = P.size(), i = 0, j = 0, occ = 0;
 
     vector<int> bords = borders(P);
 

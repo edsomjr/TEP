@@ -13,7 +13,6 @@ vector<int> strong_borders(const string& P)
             t = bs[t];
 
         ++t;
-
         bs[j] = (j == m or P[t] != P[j]) ? t : bs[t];
     }
 
@@ -22,8 +21,7 @@ vector<int> strong_borders(const string& P)
 
 int KMP(const string& S, const string& P)
 {
-    int n = S.size(), m = P.size();
-    int i = 0, j = 0, occ = 0;
+    int n = S.size(), m = P.size(), i = 0, j = 0, occ = 0;
 
     vector<int> bs = strong_borders(P);
 
