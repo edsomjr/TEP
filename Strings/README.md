@@ -10,7 +10,7 @@ Strings
     1. [Strings e _Hashes_](slides/hashes/hashes.pdf)
     1. [Algoritmo de Rabin-Karp](slides/rabin_karp/rabin_karp.pdf)
     1. [Algoritmo de Knuth-Morris-Pratt](slides/kmp/kmp.pdf)
-    1. [z-_Function_](slides/BS-5/BS-5.pdf)
+    1. [z-_Function_](slides/z_function/z_function.pdf)
     1. [String e Buscas em C++](slides/BS-6/BS-6.pdf)
 1. Strings e Programação Dinâmica
     1. [_Edit Distance_](slides/PD-1/PD-1.pdf)

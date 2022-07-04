@@ -2,8 +2,7 @@
 
 using namespace std;
 
-double benchmark(const string& S, const string& P,
-                 const function<void(string,string)>& f)
+double benchmark(const string& S, const string& P, const function<void(string,string)>& f)
 {
     auto start = chrono::high_resolution_clock::now();
     f(S, P);
@@ -25,30 +24,25 @@ int main()
 
     auto runtime = benchmark(S, P, [](auto s, auto p) { s.find(p); });
 
-    cout << "find(): \t\t" << runtime << " ms\t\tx"
-        << (int) round(runtime/base) << "\n";
+    cout << "find(): \t\t" << runtime << " ms\t\tx" << (int) round(runtime/base) << "\n";
 
     runtime = benchmark(S, P, [](auto s, auto p) 
     {
         search(s.begin(), s.end(), p.begin(), p.end());
     });
 
-    cout << "search(): \t\t" << runtime << " ms\t\tx" 
-        << (int) round(runtime/base) << "\n";
+    cout << "search(): \t\t" << runtime << " ms\t\tx" << (int) round(runtime/base) << "\n";
 
     runtime = benchmark(S, P, [](auto s, auto p) 
     {
-        search(s.begin(), s.end(),
-              boyer_moore_searcher(p.begin(), p.end()));
+        search(s.begin(), s.end(), boyer_moore_searcher(p.begin(), p.end()));
     });
 
-    cout << "boyer_moore: \t\t" << runtime << " ms\t\tx" 
-        << (int) round(runtime/base) << "\n";
+    cout << "boyer_moore: \t\t" << runtime << " ms\t\tx" << (int) round(runtime/base) << "\n";
 
     runtime = benchmark(S, P, [](auto s, auto p) 
     {
-        search(s.begin(), s.end(),
-               boyer_moore_horspool_searcher(p.begin(), p.end()));
+        search(s.begin(), s.end(), boyer_moore_horspool_searcher(p.begin(), p.end()));
     });
 
     cout << "boyer_moore_horspool: \t" << runtime << " ms\t\tx"
