@@ -70,11 +70,11 @@
 \end{frame}
 
 \begin{frame}[fragile]{Implementação do número de ocorrências de $P$ em $S$ em C++}
-    \inputsnippet{cpp}{5}{24}{search.cpp}
+    \inputsnippet{cpp}{5}{23}{codes/search.cpp}
 \end{frame}
 
 \begin{frame}[fragile]{Implementação do número de ocorrências de $P$ em $S$ em C++}
-    \inputsnippet{cpp}{25}{35}{search.cpp}
+    \inputsnippet{cpp}{25}{35}{codes/search.cpp}
 \end{frame}
 
 \begin{frame}[fragile]{Aplicação \#2 -- Busca inexata}
@@ -84,15 +84,15 @@
             de uma substring $P$, de tamanho $m$, em $S$, de tamanho $n$, permitindo que $P$
             e a substring de $S$ sejam distintas em, no máximo, um caractere
 
-        \item Sejam $A$ e $B$ duas strings de mesmo tamanho $n$. A distância de Hamming $dist(A, B)$
+        \item Sejam $A$ e $B$ duas strings de mesmo tamanho $n$. A distância de Hamming $\dist(A, B)$
             de $A$ a $B$ é dada por
         \[
-            dist(A, B) = | \lbrace i\ | \ i\in [1,n]\ \mbox{e}\ A[i] \neq B[i]\rbrace |
+            \dist(A, B) = | \lbrace i\ | \ i\in [1,n]\ \mbox{e}\ A[i] \neq B[i]\rbrace |
         \]
        
         \item Em termos mais precisos, é possível determinar o tamanho do conjunto
         \[
-            M = \lbrace S[i..j]\ | \ j - i + 1 = m\ \mbox{e}\ dist(P, S[i..j])\leq 1\rbrace
+            M = \lbrace S[i..j]\ | \ j - i + 1 = m\ \mbox{e}\ \dist(P, S[i..j])\leq 1\rbrace
         \]
             
     \end{itemize}
@@ -157,9 +157,9 @@
 \input{search_view}
 
 \begin{frame}[fragile]{Implementação da busca inexata em C++}
-    \inputsnippet{cpp}{5}{24}{search2.cpp}
+    \inputsnippet{cpp}{5}{23}{codes/search2.cpp}
 \end{frame}
 
 \begin{frame}[fragile]{Implementação da busca inexata em C++}
-    \inputsnippet{cpp}{25}{45}{search2.cpp}
+    \inputsnippet{cpp}{25}{44}{codes/search2.cpp}
 \end{frame}

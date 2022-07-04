@@ -36,8 +36,7 @@ int search(const string& S, const string& P, char delim = '#')
     auto zT = z(T), zR = z(R);
     int occ = 0, n = S.size(), m = P.size();
 
-    // Como as string estão indexadas a partir de 0, o índice de k
-    // de j em R é igual a n - i + 1
+    // Como as string estão indexadas a partir de 0, o índice de k de j em R é igual a n - i + 1
     for (int i = 0; i < n; i++)
         occ += (zT[i + m + 1] + zR[n - i + 1] >= m - 1) ? 1 : 0;
 

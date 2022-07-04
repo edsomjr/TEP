@@ -29,7 +29,7 @@
     \end{center}
 \end{frame}
 
-\begin{frame}[fragile]{Pseudocódigo da função $z$ -- \textit{Naive}}
+\begin{frame}[fragile]{Pseudocódigo da função $z$ -- {\it Naive}}
 
     \begin{algorithm}[H]
         \caption{Função $z$}
@@ -66,7 +66,7 @@
         \item É possível modificar este algoritmo de modo que seja possível computar todos os
             valores $z_S(i)$, $i = 1, 2, \ldots, n$ em $O(n)$
 
-        \item A ideia central é utilizar os valores já computados da função $z$ evitar 
+        \item A ideia central é utilizar os valores já computados da função $z$ para evitar 
             comparações já feitas
 
         \item De fato, a implementação difere da versão \textit{naive} em apenas dois pontos,
@@ -79,7 +79,7 @@
 \end{frame}
 
 \begin{frame}[fragile]{Implementação da função $z$ em C++}
-    \inputsnippet{cpp}{1}{21}{z.cpp}
+    \inputsnippet{cpp}{1}{21}{codes/z.cpp}
 \end{frame}
 
 \begin{frame}[fragile]{Detalhamento da implementação da função $z$}
@@ -155,7 +155,7 @@
         \item Nesta iteração o primeiro \code{cpp}{if} tem sua condição verdadeira: 
 
         \vspace{0.1in}
-        \inputsnippet{cpp}{8}{9}{z.cpp}
+        \inputsnippet{cpp}{8}{9}{codes/z.cpp}
         \vspace{0.1in}
 
         \item O fato de que $i$ pertence ao intervalo $[L, R]$ significa que a substring 
@@ -186,7 +186,7 @@
             $S[i..i+z[i]-1]$
 
         \vspace{0.1in}
-        \inputsnippet{cpp}{14}{15}{z.cpp}
+        \inputsnippet{cpp}{14}{15}{codes/z.cpp}
         \vspace{0.1in}
 
         \item Observe que, caso $z[i] = 0$, $S[i..i-1]$ é uma string vazia, e os valores de
