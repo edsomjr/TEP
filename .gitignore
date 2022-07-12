@@ -7,3 +7,4 @@ prog
 *.d
 *.exe
 *.class
+.vscode
