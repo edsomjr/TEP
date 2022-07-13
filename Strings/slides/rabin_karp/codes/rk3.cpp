@@ -1,27 +1,30 @@
 #include <bits/stdc++.h>
 
 using namespace std;
-using ll = long long;
-const ll p { 31 }, q { 1000000007 };
+const long long p1 { 31 }, p2 { 29 }, q1 { 1000000007 }, q2 { 1000000009 };
 
 int f(char c) { return c - 'a' + 1; }
 
-int h(const string& s, int size)
+long long hi(const string& s, long long pi, long long qi, size_t size)
 {
-    ll ans = 0;
+    long long ans = 0;
 
-    for (int i = size - 1; i >= 0; i--)
+    for (int i = (int) size - 1; i >= 0; i--)
     {
-        ans = (ans * p) % q;
-        ans = (ans + f(s[i])) % q;
+        ans = (ans * pi) % qi;
+        ans = (ans + f(s[i])) % qi;
     }
 
     return ans;
 }
 
-ll fast_mod_pow(ll a, ll n)
+using ii = pair<long long, long long>;
+
+ii h(const string& s, size_t size) { return { hi(s, p1, q1, size), hi(s, p2, q2, size) }; }
+
+long long fast_mod_pow(long long a, long long n, long long q)
 {
-    ll res = 1, base = a;
+    long long res = 1, base = a;
 
     while (n)
     {
@@ -35,20 +38,32 @@ ll fast_mod_pow(ll a, ll n)
     return res;
 }
 
-int rabin_karp(const std::string& S, const std::string& P)
+ii update(const ii& hs, const string& S, size_t i, size_t m)
 {
-    int n = S.size(), m = P.size(), occ = 0, hs = h(S, m), hp = h(P, m);
+    auto [x, y] = hs;
 
-    for (int i = 0; i < n - m + 1; ++i)
+    x = (x - f(S[i]) + q1) % q1;
+    x = (x * fast_mod_pow(p1, q1 - 2, q1)) % q1;
+    x = (x + f(S[i + m]) * fast_mod_pow(p1, m - 1, q1)) % q1;
+
+    y = (y - f(S[i]) + q2) % q2;
+    y = (y * fast_mod_pow(p2, q2 - 2, q2)) % q2;
+    y = (y + f(S[i + m]) * fast_mod_pow(p2, m - 1, q2)) % q2;
+
+    return { x, y };
+}
+
+size_t rabin_karp(const std::string& S, const std::string& P)
+{
+    size_t n = S.size(), m = P.size(), occ = 0;
+    auto hs = h(S, m), hp = h(P, m);
+
+    for (size_t i = 0; i < n - m + 1; ++i)
     {
         occ += (hs == hp) ? 1 : 0;
 
         if (i != n - m)
-        {
-            hs = (hs - f(S[i]) + q) % q;
-            hs = (hs * fast_mod_pow(p, q - 2)) % q;
-            hs = (hs + f(S[i + m]) * fast_mod_pow(p, m - 1)) % q;
-        }
+            hs = update(hs, S, i, m);
     }
 
     return occ;
