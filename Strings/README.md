@@ -13,7 +13,7 @@ Strings
     1. [z-_Function_](slides/z_function/z_function.pdf)
     1. [String e Buscas em C++](slides/cpp/cpp.pdf)
 1. Strings e Programação Dinâmica
-    1. [_Edit Distance_](slides/PD-1/PD-1.pdf)
+    1. [_Edit Distance_](slides/edit_distance/edit_distance.pdf)
     1. [Maior Subsequência Comum](slides/PD-2/PD-2.pdf)
     1. [Maior Subsequência Palíndroma](slides/PD-3/PD-3.pdf)
 1. Estruturas de Sufixos
