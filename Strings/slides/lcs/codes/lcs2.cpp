@@ -88,9 +88,8 @@ string LCS(const string& s, const string& t)
 
     for (int i = 1; i <= m; ++i)
         for (int j = 1; j <= n; ++j) {
-            int insertion = st[i][j - 1] + c_i;
-            int deletion = st[i-1][j] + c_r;
-            int change = st[i-1][j-1] + c_s*(s[i-1] == t[j-1] ? 1 : -oo);
+            int insertion = st[i][j - 1] + c_i, deletion = st[i - 1][j] + c_r;
+            int change = st[i - 1][j - 1] + c_s*(s[i - 1] == t[j - 1] ? 1 : -oo);
             st[i][j] = max({ insertion, deletion, change });
 
             ps[i][j] = (insertion >= deletion and insertion >= change) ?
@@ -100,8 +99,7 @@ string LCS(const string& s, const string& t)
     int i = m, j = n;
     string b;
 
-    while (i or j)
-    {
+    while (i or j) {
         switch (ps[i][j]) {
         case 'i':
             --j;
@@ -112,8 +110,8 @@ string LCS(const string& s, const string& t)
             break;
 
         case 's':
-            if (s[i-1] == t[j-1])
-                b.push_back(s[i-1]);
+            if (s[i - 1] == t[j - 1])
+                b.push_back(s[i - 1]);
 
             --i;
             --j;
