@@ -11,8 +11,7 @@ int dp(const string& s, int i, int j)
     if (i > j)
         return 0;
 
-    if (i == j)
-    {
+    if (i == j) {
         ps[i][j] = 'K';
         return 1;
     }
@@ -23,8 +22,7 @@ int dp(const string& s, int i, int j)
     st[i][j] = max(dp(s, i + 1, j), dp(s, i, j - 1));
     ps[i][j] = dp(s, i + 1, j) > dp(s, i, j - 1) ? 'L' : 'R';
 
-    if (s[i] == s[j])
-    {
+    if (s[i] == s[j]) {
         st[i][j] = max(st[i][j], dp(s, i + 1, j - 1) + 2);
         ps[i][j] = st[i][j] > dp(s, i + 1, j - 1) + 2 ? ps[i][j] : 'B';
     }
@@ -63,10 +61,8 @@ string lps(const string& s)
             break;
 
         default:
-            L += s[i];
-            R = s[i] + R;
-            ++i;
-            --j;
+            L += s[i]; R = s[i] + R;
+            ++i; --j;
             break;
         }
     }
