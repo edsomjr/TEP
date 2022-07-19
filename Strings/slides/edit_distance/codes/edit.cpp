@@ -19,9 +19,8 @@ int edit(const string& s, const string& t)
 
     for (int i = 1; i <= m; ++i)
         for (int j = 1; j <= n; ++j) {
-            int insertion = st[i][j - 1] + c_i;
-            int deletion = st[i-1][j] + c_r;
-            int change = st[i-1][j-1] + c_s*(s[i-1] == t[j-1] ? 0 : 1);
+            int insertion = st[i][j - 1] + c_i, deletion = st[i - 1][j] + c_r;
+            int change = st[i - 1][j - 1] + c_s*(s[i - 1] == t[j - 1] ? 0 : 1);
             st[i][j] = min({ insertion, deletion, change });
         }
 

@@ -9,8 +9,7 @@ int a[MAX], b[MAX];
 int edit(const string& s, const string& t)
 {
     const int c_i = 1, c_r = 1, c_s = 1;      // Custos iguais a um
-    int m = s.size(), n = t.size();
-    int *prev = a, *line = b;
+    int m = s.size(), n = t.size(), *prev = a, *line = b;
 
     for (int j = 1; j <= n; ++j)
         prev[j] = j*c_i;
@@ -35,7 +34,6 @@ int edit(const string& s, const string& t)
 int main()
 {
     string s { "TEP" }, t { "ACCEPTED" };
-
     cout << edit(s, t) << '\n';
 
     return 0;
