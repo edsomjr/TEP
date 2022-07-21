@@ -21,7 +21,7 @@ Introdução à Programação Competitiva
     1. [Algoritmos de Ordenação Linearítmicos](slides/algoritmos_de_ordenacao_linearitmicos/algoritmos_de_ordenacao_linearitmicos.pdf) ([problemas resolvidos](problems/algoritmos_de_ordenacao_linearitmicos/algoritmos_de_ordenacao_linearitmicos.pdf))
     1. [Ordenação em C/C++](slides/ordenacao_em_Cpp/ordenacao_em_Cpp.pdf) ([problemas resolvidos](problems/ordenacao_em_Cpp/ordenacao_em_Cpp.pdf))
 1. [Recursão](slides/RS-1/RS-1.pdf) ([problemas resolvidos](problems/RS-1/RS-1.pdf))
-1. [Leituras Recomendadas](slides/BB-1/BB-1.pdf)
+1. [Leituras Recomendadas](slides/leituras/leituras.pdf)
 
 <!-- Assuntos pendentes:
 1. Algoritmos de ordenação O(1)
