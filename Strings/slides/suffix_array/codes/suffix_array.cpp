@@ -58,8 +58,7 @@ vector<int> suffix_array(const string& S)
     for (size_t mask = 1; mask < N; mask <<= 1)
     {
         // Atualiza as permutações e gera os pares
-        for (size_t i = 0; i < N; ++i)
-        {
+        for (size_t i = 0; i < N; ++i) {
             rs[i] = (ps[i] + N - mask) % N;
             xs[i] = cs[rs[i]];
             ys[i] = ii(cs[i], cs[(i + mask) % N]);

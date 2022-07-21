@@ -59,7 +59,6 @@ vector<int> suffix_array(const string& S)
     }
 
     ps.erase(ps.begin());
-
     return ps;
 }
 
