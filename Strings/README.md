@@ -18,7 +18,7 @@ Strings
     1. [Maior Subsequência Palíndroma](slides/lcp/lcp.pdf)
 1. Estruturas de Sufixos
     1. [_Trie_: Definição e Construção](slides/trie/trie.pdf)
-    1. [Vetor de sufixos: Definição e Construção](slides/SA-1/SA-1.pdf)
+    1. [Vetor de sufixos: Definição e Construção](slides/suffix_array/suffix_array.pdf)
     1. [Vetor de sufixos: Aplicações](slides/suffix_array-aplicacoes/suffix_array-aplicacoes.pdf)
 
 <!--- Conteúdos a adicionar:
