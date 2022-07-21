@@ -157,8 +157,7 @@ size_t unique_substrings(const Trie& trie)
     queue<int> q;
     q.push(0);
     
-    while (not q.empty()) // BFS para contabilizar o número de nós
-    {
+    while (not q.empty()) {         // BFS para contabilizar o número de nós
         auto u = q.front();
         q.pop();
 

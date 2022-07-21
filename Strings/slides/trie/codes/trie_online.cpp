@@ -31,13 +31,12 @@ Trie build_online(const string& s)
                 trie.push_back({ });
                 trie[u][c] = ++next;
 
-               // valor sentinela: será corrigido na próxima iteração
+                // valor sentinela: será corrigido na próxima iteração
                 suf.push_back(0);
 
                 if (u != deepest)
-                {
                     suf[next - 1] = next;   // correção atrasada
-                } else
+                else
                     deepest = next;         // v_k é o nó recém-criado
             } else
             {

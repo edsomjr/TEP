@@ -37,7 +37,7 @@
         \item Contudo, é preciso ter cuidado quando há repetições de caracteres no padrão
 
         \item Mais precisamente, para que o salto seja seguro, deve-se identificar a maior borda 
-            possível para $P[1..j]$, de modo a aproveita as comparações bem sucedidas já
+            possível para $P[1..j]$, de modo a aproveitar as comparações bem sucedidas já
             realizadas
 
         \item O salto deve ser feito para a posição onde esta borda se inicia
@@ -139,7 +139,7 @@
 
         \item Isto porque a comparação $P[j + 1] = S[i + j]$ pode falhar, no máximo, 
             $n - m + 1$ vezes, já que o primeiro laço é executado $n - m + 1$ vezes, e pode ter 
-            sucesso, no máximo, $n$ vezes, quando o $S$ e $P$ são compostos por um mesmo
+            sucesso, no máximo, $n$ vezes, quando $S$ e $P$ são compostas por um mesmo
             caractere
 
         \item Caso a primeira comparação seja bem sucedida, ela não pode falhar no índice 0
@@ -207,16 +207,16 @@
         \item Se $P[j + 1] \neq P[b_j + 1]$, então a borda de $P[j + 1]$ deve ser reavaliada
             em termos da segunda maior borda de $P[1..j]$, isto é,
         \[
-            b_{j + 1} = 1 + |border^2(P)| = 1 + b_j^2
+            b_{j + 1} = 1 + |border^2(P[1..j])| = 1 + b_j^2
         \]
         se $P[j + 1] = P[b_j^2 + 1]$
 
         \item Caso $P[j + 1] \neq P[b_j^2 + 1]$, o raciocínio se repete até atingir a $k$-ésima
-            borda de $P$
+            borda de $P[i..j]$
 
         \item Portanto,
         \[
-            b_{j + 1} = 1 + \max \lbrace\ border^i(P)\ |\ P[j + 1] = P[b_j^i + 1], i\in [1..k]\ \rbrace
+            b_{j + 1} = 1 + \max \lbrace\ border^i(P[i..j])\ |\ P[j + 1] = P[b_j^i + 1], i\in [1..k]\ \rbrace
         \]
 
         \item O caso base acontece no prefixo vazio, isto é, $P[1..0] = $ \code{cpp}{""}, onde
