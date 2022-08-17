@@ -9,7 +9,7 @@
         \item O primeiro é que ambas strings tem mesmo tamanho, mas diferem em um ou mais símbolos
 
         \item Por exemplo, se $S = $ \code{cpp}{"banana"} e $T = $ \code{cpp}{"bacana"}, 
-            $|S|\neq |T|$, mas $S[3] \neq T[3]$
+            $|S| = |T|$, mas $S[3] \neq T[3]$
 
         \item O segundo ocorre quando a primeira string é mais longa que a segunda, e poderíam se 
             tornar iguais se removidos os caracteres excedentes
@@ -32,9 +32,9 @@
                 \code{cpp}{"ormis"} em $S$, nas devidas posições
 
         \item Na prática, é possível obter qualquer string $T$ a partir de uma string $S$ dada, 
-            usando uma sequência de operações baseado nos três motivos listas
+            usando uma sequência de operações baseado nos três motivos listados
 
-        \item Esta operações são: alterar um caractere, adicionar um caractere ou remover um caractere
+        \item Estas operações são: alterar um caractere, adicionar um caractere ou remover um caractere
     \end{itemize}
 
 \end{frame}
@@ -43,12 +43,12 @@
 
     \begin{itemize}
         \item O problema denominado \textit{edit distance} consiste em determinar o número mínimo 
-            de operações a serem feitas
+            de operações a serem feitas para transformar a string $S$ na string $T$
 
-        \item Em termos mais gerais, o custo mínimo desta transformação, se a cada operação for 
+        \item Em termos mais gerais, o problema é computar o custo mínimo desta transformação, se a cada operação for 
             associado um determinado custo
 
-        \item Este custo mínimo é denotado $edit(S, T)$, e tem as seguintes propriedades
+        \item Este custo mínimo é denotado $edit(S, T)$ e tem as seguintes propriedades:
         \begin{enumerate}
             \item $edit(S, T)\geq 0$
             \item $edit(S, T) = 0$ se, e somente se, $S = T$
