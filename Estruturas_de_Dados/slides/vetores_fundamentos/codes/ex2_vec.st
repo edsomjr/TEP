@@ -1,1 +1,1 @@
-    tipo *nome = new tipo[tamanho];
+    tipo *nome = new tipo[capacidade];

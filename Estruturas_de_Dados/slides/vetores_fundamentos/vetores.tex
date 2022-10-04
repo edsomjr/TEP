@@ -6,9 +6,9 @@
 		\item Os vetores (\textit{arrays}) tem suporte nativo na maioria das linguagens de 
         programação
 
-		\item O tamanho (número de elementos) do vetor tem que ser conhecido em tempo de compilação
+		\item Em geral, a capacidade (número de elementos) do vetor tem que ser conhecida em tempo de compilação
 
-		\item Os elementos do vetor são armazenados na memória de forma sequencial (linear)
+		\item Os elementos do vetor são armazenados em memória de forma contígua (linear)
 
 		\item O acesso aleatório é imediato: qualquer posição do vetor pode ser lida ou escrita
 		em $O(1)$
@@ -26,45 +26,48 @@
     \end{block}
 
 	\begin{itemize}
-		\item Na sintaxe acima, $N$ é o número de elementos do vetor, e deve ser 
-        uma constante
+		\item Na sintaxe acima, $N$ é o número de elementos do vetor
 
-		\item Os vetores armazenam elementos do mesmo tipo, conforme o que foi especificado em sua 
-        declaração
+		\item Os vetores armazenam elementos do mesmo tipo que foi especificado em sua declaração
 
-        \item Vale recordar que o primeiro elemento do vetor tem índice 0 (zero), e o último tem
-        índice $N - 1$
+        \item O primeiro elemento do vetor tem índice 0 (zero) e o último tem índice $N - 1$
 
-        \item Um erro comum é usar uma variável para representar o valor de $N$
+        \item Um erro comum é usar tentar acessar o elemento de índice $N$ (\textit{off-by-one})
 	\end{itemize}
 
+    \metroset{block=fill}
+    \begin{block}{Sintaxe para acesso do $i$-ésimo elemento}
+        \inputsyntax{c}{codes/acess.st}
+    \end{block}
+
+
 \end{frame}
 
 \begin{frame}[fragile]{Exemplo de uso de vetores}
-    \inputsnippet{c}{1}{21}{codes/forca.c}
+    \inputsnippet{c}{1}{20}{codes/forca.c}
 \end{frame}
 
 \begin{frame}[fragile]{Exemplo de uso de vetores}
-    \inputsnippet{c}{23}{43}{codes/forca.c}
+    \inputsnippet{c}{21}{39}{codes/forca.c}
 \end{frame}
 
 \begin{frame}[fragile]{Exemplo de uso de vetores}
-    \inputsnippet{c}{44}{64}{codes/forca.c}
+    \inputsnippet{c}{41}{58}{codes/forca.c}
 \end{frame}
 
 \begin{frame}[fragile]{Exemplo de uso de vetores}
-    \inputsnippet{c}{65}{80}{codes/forca.c}
+    \inputsnippet{c}{60}{79}{codes/forca.c}
 \end{frame}
 
 \begin{frame}[fragile]{Exemplo de uso de vetores}
-    \inputsnippet{c}{81}{101}{codes/forca.c}
+    \inputsnippet{c}{81}{100}{codes/forca.c}
 \end{frame}
 
 \begin{frame}[fragile]{Declaração de vetores dinâmicos}
 
 	\begin{itemize}
 		\item Também é possível alocar um vetor dinamicamente, 
-        postergando o conhecimento do seu tamanho para a execução
+        postergando o conhecimento da sua capacidade para o momento da execução do programa
 
 		\item Em linguagem C, um vetor pode ser alocado dinamicamente 
 		de {duas} maneiras:
@@ -84,26 +87,25 @@
 \end{frame}
 
 \begin{frame}[fragile]{Exemplo de uso de vetores dinâmicos}
-    \inputsnippet{cpp}{1}{21}{codes/megasena.cpp}
+    \inputsnippet{cpp}{1}{20}{codes/megasena.cpp}
 \end{frame}
 
 \begin{frame}[fragile]{Exemplo de uso de vetores dinâmicos}
-    \inputsnippet{cpp}{23}{43}{codes/megasena.cpp}
+    \inputsnippet{cpp}{22}{42}{codes/megasena.cpp}
 \end{frame}
 
 \begin{frame}
 
-	\frametitle{Tamanho de um vetor}
+	\frametitle{Capacidade de um vetor}
 
 	\begin{itemize}
 
 		\item Um vetor, seja alocado estaticamente, seja alocado 
-		dinamicamente, {não guarda} em si informações sobre o 
-		seu tamanho
+		dinamicamente, {não guarda} em si informações sobre sua capacidade
 
 		\item Como consequência da afirmação anterior, ao passar um 
 		vetor como parâmetro de uma função é necessário ou 
-		{informar} o tamanho ou {definir} um elemento delimitador (sentinela)
+		{informar} a capacidade ou {definir} um elemento delimitador (sentinela)
 
 		\item Uma forma de evitar este problema é criar um 
 		{novo tipo de dado} que armazene os elementos do vetor e seu tamanho
@@ -128,7 +130,7 @@
 \end{frame}
 
 \begin{frame}[fragile]{Exemplo de uma estrutura para vetores}
-    \inputsnippet{c}{1}{20}{codes/test_float_vector.c}
+    \inputsnippet{c}{1}{19}{codes/test_float_vector.c}
 \end{frame}
 
 \begin{frame}[fragile]{Exemplo de uma estrutura para vetores}

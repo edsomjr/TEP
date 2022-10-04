@@ -1,2 +1,2 @@
-    tipo *nome = (tipo *) malloc(sizeof(tipo) * tamanho);
-    tipo *nome = (tipo *) calloc(tamanho, sizeof(tipo));
+    tipo *nome = (tipo *) malloc(sizeof(tipo) * capacidade);
+    tipo *nome = (tipo *) calloc(capacidade, sizeof(tipo));

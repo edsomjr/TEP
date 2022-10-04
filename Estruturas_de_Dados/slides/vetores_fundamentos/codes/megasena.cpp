@@ -1,7 +1,6 @@
-#include <iostream>
-#include <cstdlib>
+#include <bits/stdc++.h>
 
-int* novo_jogo(int N) {
+int * novo_jogo(int N) {
     int *ns = new int[N];
 
     if (!ns) return nullptr;
@@ -31,13 +30,12 @@ int main() {
     
     auto ns = novo_jogo(N);
     
-    if (ns) {
-        std::cout << "Numeros sorteados: ";
-        for (int i = 0; i < N; i++)
-            printf("%d%c", ns[i], " \n"[i + 1 == N]);
-        
-        delete [] ns;
-    }
+    if (!ns) return -1;
 
+    std::cout << "Numeros sorteados: ";
+    for (int i = 0; i < N; i++)
+        printf("%d%c", ns[i], " \n"[i + 1 == N]);
+    
+    delete [] ns;
     return 0;
 }
