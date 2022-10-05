@@ -14,8 +14,7 @@ bool matrioska(const vector<int>& xs)
         {
             int stacked = 0;
 
-            while (not s.empty() and s.top() > 0)
-            {
+            while (not s.empty() and s.top() > 0) {
                 stacked += s.top();
                 s.pop();
             }
@@ -45,11 +44,10 @@ int main()
         istringstream is(line);
 
         vector<int> xs;
-        copy(istream_iterator<int>(is), istream_iterator<int>(), 
-             back_inserter(xs));
 
-        cout << ":-" << (matrioska(xs) ? ") Matrioshka!" : 
-            "( Try again.") << '\n';
+        copy(istream_iterator<int>(is), istream_iterator<int>(), back_inserter(xs));
+
+        cout << ":-" << (matrioska(xs) ? ") Matrioshka!" : "( Try again.") << '\n';
     }
 
     return 0;
