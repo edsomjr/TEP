@@ -12,10 +12,11 @@ Estruturas de Dados
     1. [Listas Circulares](slides/LE-3/LE-3.pdf)
     1. [Listas Auto-Organizáveis](slides/LE-4/LE-4.pdf)
 1. Pilhas e Filas
-    1. [Pilhas](slides/pilhas/pilhas.pdf) ([problemas resolvidos](problems/pilhas/pilhas.pdf))
+    1. [Pilhas](slides/pilhas/pilhas.pdf)
         1. [CF 612C - _Replace To Make Regular Bracket Sequence](problems/CF_612C/CF_612C.pdf)
         1. [OJ 11111 - Generalized Matrioshkas](problems/OJ_11111/OJ_11111.pdf)
-    1. [Filas](slides/filas/filas.pdf) ([problemas resolvidos](problems/filas/filas.pdf))
+    1. [Filas](slides/filas/filas.pdf)
+        1. [OJ 10935 - Throwing Cards Away I](problems/OJ_10935/OJ_10935.pdf)
 1. Árvores Binárias
     1. [Árvores Binárias: Definição](slides/arvore_binaria-definicao/arvore_binaria-definicao.pdf)
     1. [Árvores Binárias de Busca: Inserção e Remoção](slides/arvore_binaria_de_busca-insercao_e_remocao/arvore_binaria_de_busca-insercao_e_remocao.pdf)
