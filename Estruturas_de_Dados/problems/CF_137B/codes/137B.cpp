@@ -7,13 +7,10 @@ int solve(int N, vector<int>& as)
     vector<int> found(N + 1, 0);
 
     for (const auto& a : as)
-        if (a >= 1 and a <= N)
+        if (1 <= a and a <= N)
             found[a] = 1;
 
-    int total = 0;
-
-    for (const auto& x : found)
-        total += x;
+    int total = accumulate(found.begin(), found.end(), 0);
 
     return N - total;
 }
