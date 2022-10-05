@@ -14,7 +14,6 @@ int main()
     s.push(2.5);
 
     cout << "Top = " << s.top() << '\n';
-
     s.pop();
 
     cout << "Size = " << s.size() << '\n';

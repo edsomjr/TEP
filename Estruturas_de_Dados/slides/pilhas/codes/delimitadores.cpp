@@ -9,7 +9,7 @@ bool is_valid(const string& expression)
     static map<char, char> open { {')', '('}, {']', '['}, {'}', '{'}, };
     stack<char> s;
         
-    for (const auto& c : expression)
+    for (auto c : expression)
     {
         switch (c) {
         case '(':
@@ -36,6 +36,5 @@ int main()
     string expression;
     getline(cin, expression);
     cout << (is_valid(expression) ? "Ok" : "Invalid") << '\n';
-    
     return 0;
 }

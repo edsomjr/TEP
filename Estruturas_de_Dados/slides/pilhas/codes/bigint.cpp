@@ -14,8 +14,7 @@ string add(const string& a, const string& b)
     
     auto N = max(a.size(), b.size()), carry = 0ul;
     
-    while (N--)
-    {
+    while (N--) {
         auto c = x.empty() ? 0 : x.top();
         auto d = y.empty() ? 0 : y.top();
         auto res = c + d + carry;
@@ -32,7 +31,7 @@ string add(const string& a, const string& b)
     
     ostringstream oss;
     
-    while (!z.empty())
+    while (not z.empty())
     {
         oss << z.top();
         z.pop();
