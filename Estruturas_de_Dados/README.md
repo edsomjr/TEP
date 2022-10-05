@@ -13,6 +13,7 @@ Estruturas de Dados
     1. [Listas Auto-Organizáveis](slides/LE-4/LE-4.pdf)
 1. Pilhas e Filas
     1. [Pilhas](slides/pilhas/pilhas.pdf) ([problemas resolvidos](problems/pilhas/pilhas.pdf))
+        1.[CF 612C - _Replace To Make Regular Bracket Sequence](problems/CF_612C/CF_612C.pdf)
     1. [Filas](slides/filas/filas.pdf) ([problemas resolvidos](problems/filas/filas.pdf))
 1. Árvores Binárias
     1. [Árvores Binárias: Definição](slides/arvore_binaria-definicao/arvore_binaria-definicao.pdf)
