@@ -11,8 +11,7 @@ public:
     bool empty() const { return _size == 0; }
     size_t size() const { return _size; }
 
-    void push(const T& x)
-    {
+    void push(const T& x) {
         if (_size == N) throw "Fila cheia"; 
 
         elems[last] = x;
@@ -41,8 +40,7 @@ private:
     size_t _size;
 };
 
-int main()
-{
+int main() {
     Queue<int, 10> q;
 
     cout << "Empty? " << q.empty() << '\n';

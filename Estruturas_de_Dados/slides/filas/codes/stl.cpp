@@ -1,4 +1,4 @@
-#include <iostream>
+#include <bits/stdc++.h>
 
 int main()
 {
@@ -14,7 +14,6 @@ int main()
     std::cout << "Tamanho da fila: " << q.size() << '\n';        // 4
 
     q.pop();
-
     std::cout << "Primeiro elemento: " << q.front() << '\n';     // "dois"
 
     return 0;
