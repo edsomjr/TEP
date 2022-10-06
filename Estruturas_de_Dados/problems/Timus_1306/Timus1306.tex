@@ -1,0 +1,95 @@
+%\section{Timus 1306 -- Sequence Median}
+
+\begin{frame}[fragile]{Problema}
+
+Given a sequence of $N$ nonnegative integers. Let's define the median of such sequence. 
+If $N$ is odd the median is the element with stands in the middle of the sequence after it is 
+sorted. One may notice that in this case the median has position $(N+1)/2$ in sorted sequence if 
+sequence elements are numbered starting with 1. If $N$ is even then the median is the semi-sum of 
+the two ``middle"\ elements of sorted sequence. I.e. semi-sum of the elements in positions 
+$N/2$ and $(N/2)+1$ of sorted sequence. But original sequence might be unsorted.
+
+Your task is to write program to find the median of given sequence.
+
+\end{frame}
+
+\begin{frame}[fragile]{Entrada e saída}
+
+\textbf{Input}
+
+The first line of input contains the only integer number $N$ -- the length of the sequence. 
+Sequence itself follows in subsequent lines, one number in a line. The length of the sequence lies 
+in the range from 1 to 250000. Each element of the sequence is a positive integer not greater than 
+$2^{31}-1$ inclusive.
+
+\textbf{Output}
+
+You should print the value of the median with exactly one digit after decimal point.
+
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de entradas e saídas}
+
+\begin{minipage}[t]{0.5\textwidth}
+\textbf{Sample Input}
+\begin{verbatim}
+4
+3
+6
+4
+5
+\end{verbatim}
+\end{minipage}
+\begin{minipage}[t]{0.45\textwidth}
+\textbf{Sample Output}
+\begin{verbatim}
+4.5
+\end{verbatim}
+\end{minipage}
+\end{frame}
+
+\begin{frame}[fragile]{Soluções $O(N\log N)$ e MLE}
+
+    \begin{itemize}
+        \item Este problema é conceitualmente simples, mas traz uma dificuldade adicional:
+            o limite de memória é curto para o tamanho máximo da entrada (apenas 1 MB)
+
+        \item A solução mais simples seria ordenar os elementos da sequência em um vetor e
+            computar a média a partir dos índices indicados no problema, mas é necesssário mais
+            de um 1 MB para armazenar todos os elementos
+
+        \item Assim, soluções baseadas em \code{c}{sort()} e \code{c}{nth_element()} levam ao 
+            MLE
+
+        \item Uma alternativa seria usar uma \code{c}{priority_queue()} e armazenar apenas
+            $N/2 + 1$ elementos, descartando os demais sempre que o tamanho da \textit{heap}
+            exceder este limite
+
+        \item Esta solução ainda leva ao MLE, por conta do \code{c}{vector} subjacente
+
+        \item A solução portanto, é utilizar esta abordagem, porém utilizando uma implementação
+            customizada da \textit{max heap}, onde os elementos são armazenados em um vetor
+            estático
+   \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Solução AC com complexidade $O(N\log N)$}
+    \inputsnippet{cpp}{1}{19}{codes/1306.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Solução AC com complexidade $O(N\log N)$}
+    \inputsnippet{cpp}{21}{40}{codes/1306.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Solução AC com complexidade $O(N\log N)$}
+    \inputsnippet{cpp}{42}{61}{codes/1306.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Solução AC com complexidade $O(N\log N)$}
+    \inputsnippet{cpp}{63}{79}{codes/1306.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Solução AC com complexidade $O(N\log N)$}
+    \inputsnippet{cpp}{81}{105}{codes/1306.cpp}
+\end{frame}

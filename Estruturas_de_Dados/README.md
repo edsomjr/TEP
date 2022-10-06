@@ -31,7 +31,8 @@ Estruturas de Dados
         1. [ABC 100C - _String Transformation_](problems/ABC_100C/ABC_100C.pdf)
         1. [CF 1004C - _Sonya and Robots_](problems/CF_1004C/CF_1004C.pdf)
     1. [_Heap_ binária](slides/heaps-definicao/heaps-definicao.pdf) 
-    1. [_Heaps_ binárias na STL](slides/heaps-stl/heaps-stl.pdf) ([problemas resolvidos](problems/heaps-stl/heaps-stl.pdf))
+    1. [_Heaps_ binárias na STL](slides/heaps-stl/heaps-stl.pdf)
+        1. [Times 1306 - _Sequence Median_](problems/Times_1306/Timus_1306.pdf)
 1. Árvores _m_-árias
     1. [Árvores-B](slides/BT-1/BT-1.pdf)
     1. [_Union-Find Disjoint Sets_](slides/ufds/ufds.pdf) ([problemas resolvidos](problems/ufds/ufds.pdf))
