@@ -4,14 +4,14 @@ using namespace std;
 
 long long solve(const vector<int>& as)
 {
-    map<int, int> R;    // Histograma à direita
+    map<int, int> R;                // Histograma à direita
     set<int> processed;
     long long ans = 0;
 
-    for (const auto& a : as)
+    for (auto a : as)
         ++R[a];
 
-    for (const auto& a : as)
+    for (auto a : as)
     {
         --R[a];
 
@@ -21,7 +21,7 @@ long long solve(const vector<int>& as)
         if (processed.count(a))
             continue;
 
-        ans += R.size();    // Soma os elementos distintos à direita
+        ans += R.size();            // Soma os elementos distintos à direita
         processed.insert(a);
     }
  
