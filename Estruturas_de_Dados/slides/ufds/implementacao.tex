@@ -23,7 +23,7 @@
 \end{frame}
 
 \begin{frame}[fragile]{Implementação do construtor da UFDS}
-    \inputsnippet{cpp}{1}{18}{codes/ufds.h}
+    \inputsnippet{cpp}{1}{17}{codes/ufds.h}
 \end{frame}
 
 \begin{frame}[fragile]{Identificação dos representantes}
@@ -47,7 +47,7 @@
 \end{frame}
 
 \begin{frame}[fragile]{Implementação da identificação de representantes}
-    \inputsnippet{cpp}{19}{28}{codes/ufds.h}
+    \inputsnippet{cpp}{19}{27}{codes/ufds.h}
 \end{frame}
 
 \begin{frame}[fragile]{União de conjunto disjuntos}
@@ -57,8 +57,8 @@
 
         \item Se $x$ e $y$ já estão na mesma árvore, nada deve ser feito
 
-        \item Caso contrário considere, sem perda de generalidade, que a árvore que contém $x$ tem 
-            o mesmo número ou mais nós do que a árvore que contém $y$
+        \item Caso contrário considere, sem perda de generalidade, que a árvore que o número de nós da árvore contém $x$ seja
+            maior ou igual que o número de nós da árvore que contém $y$
 
         \item Neste caso, a raiz da árvore de $x$ passa ser o pai da raiz da árvore de $y$
 
