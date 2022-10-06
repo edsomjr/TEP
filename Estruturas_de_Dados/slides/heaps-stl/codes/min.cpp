@@ -8,7 +8,7 @@ int main()
 
     priority_queue<int> p;
 
-    for (const auto& x : xs)
+    for (auto x : xs)
         p.push(-x);
 
     while (not p.empty())

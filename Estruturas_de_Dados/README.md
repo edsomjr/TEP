@@ -29,6 +29,7 @@ Estruturas de Dados
         1. [BEE 1897 - Jogo Esperto](problems/BEE_1897/BEE_1897.pdf)
         1. [OJ 12049 - _Just Prune The List_](problems/OJ_12049/OJ_12049.pdf)
         1. [ABC 100C - _String Transformation_](problems/ABC_100C/ABC_100C.pdf)
+        1. [CF 1004C - _Sonya and Robots_](problems/CF_1004C/CF_1004C.pdf)
     1. [_Heap_ binária](slides/heaps-definicao/heaps-definicao.pdf) 
     1. [_Heaps_ binárias na STL](slides/heaps-stl/heaps-stl.pdf) ([problemas resolvidos](problems/heaps-stl/heaps-stl.pdf))
 1. Árvores _m_-árias

@@ -3,8 +3,7 @@
 using namespace std;
 
 struct Paciente {
-    string nome;
-    int idade;
+    string nome; int idade;
 
     Paciente(const string& n, int a) : nome(n), idade(a) {}
 
@@ -13,8 +12,7 @@ struct Paciente {
         if (idade >= 65) return idade < p.idade;
 
         // Depois crianças, mais novas primeiro
-        if (idade <= 6)
-            return p.idade >= 65 or (p.idade <= 6 and idade > p.idade);
+        if (idade <= 6) return p.idade >= 65 or (p.idade <= 6 and idade > p.idade);
 
         // Os demais por idade
         return p.idade >= 65 or p.idade <= 6 or p.idade > idade;
