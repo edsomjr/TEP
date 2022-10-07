@@ -1,4 +1,4 @@
-\section{OJ 1197 -- The Suspects}
+%\section{OJ 1197 -- The Suspects}
 
 \begin{frame}[fragile]{Problema}
 
@@ -81,7 +81,7 @@ For each case, output the number of suspects in one line.
                 \item Se o suspeito teve contato com uma pessoa, a pessoa teve contato com o 
                     suspeito (simétrica)
                 \item Se o suspeito teve contato com uma pessoa, e a pessoa teve contato com 
-                    fulano, é considerado que fulano também teve contato com o suspeito
+                    fulano, é considerado que fulano também teve contato com o suspeito (transitiva)
             \end{enumerate}
 
         \item Assim, para identificar o grupo de pessoas que teve contato com o suspeito,
@@ -96,17 +96,17 @@ For each case, output the number of suspects in one line.
 \end{frame}
 
 \begin{frame}[fragile]{Solução com complexidade $O(NM\log NM)$}
-    \inputsnippet{cpp}{1}{21}{codes/1197.cpp}
+    \inputsnippet{cpp}{1}{20}{codes/1197.cpp}
 \end{frame}
 
 \begin{frame}[fragile]{Solução com complexidade $O(NM\log NM)$}
-    \inputsnippet{cpp}{22}{42}{codes/1197.cpp}
+    \inputsnippet{cpp}{22}{38}{codes/1197.cpp}
 \end{frame}
 
 \begin{frame}[fragile]{Solução com complexidade $O(NM\log NM)$}
-    \inputsnippet{cpp}{44}{64}{codes/1197.cpp}
+    \inputsnippet{cpp}{40}{59}{codes/1197.cpp}
 \end{frame}
 
 \begin{frame}[fragile]{Solução com complexidade $O(NM\log NM)$}
-    \inputsnippet{cpp}{65}{85}{codes/1197.cpp}
+    \inputsnippet{cpp}{61}{85}{codes/1197.cpp}
 \end{frame}
