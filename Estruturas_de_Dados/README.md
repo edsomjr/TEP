@@ -43,7 +43,11 @@ Estruturas de Dados
     1. [Árvores de Fenwick: Definição, _RSQ_ e _update_](slides/fenwick_tree-definicao/fenwick_tree-definicao.pdf)
         1. [SPOJ FENTREE - _Fenwick Trees_](problems/SPOJ_FENTREE/SPOJ_FENTREE.pdf)
         1. [OJ 12798 - _Handball_](problems/OJ_12798/OJ_12798.pdf)
-    1. [Árvores de Fenwick: Aplicações e Variações](slides/fenwick_tree-aplicacoes/fenwick_tree-aplicacoes.pdf) ([problemas resolvidos](problems/fenwick_tree-aplicacoes/fenwick_tree-aplicacoes.pdf))
+    1. [Árvores de Fenwick: Aplicações e Variações](slides/fenwick_tree-aplicacoes/fenwick_tree-aplicacoes.pdf) 
+        1. [OJ 12532 - _Interval Product_](problems/OJ_12532/OJ_12532.pdf)
+        1. [SPOJ INVCNT - _Inversion Count_](problems/SPOJ_INVCNT/SPOJ_INVCNT.pdf)
+        1. [CF 295A - _Greg and Array_](problems/CF_295A/CF_295A.pdf)
+        1. [POJ 1195 - _Mobile Phones_](problems/POJ_1195/POJ_1195.pdf)
     1. [Árvores de segmentos: Definição e Implementação](slides/segtree/segtree.pdf) ([problemas resolvidos](problems/segtree/segtree.pdf))
 1. Hashes
     1. [Definição, endereçamento aberto e encadeamento](slides/HS-1/HS-1.pdf)
