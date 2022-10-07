@@ -1,0 +1,91 @@
+%\section{SPOJ -- Inversion Count}
+
+\begin{frame}[fragile]{Problema}
+
+Let $A[0\ldots n-1]$ be an array of $n$ distinct positive integers. If 
+$i < j$ and $A[i] > A[j]$ then the pair $(i, j)$ is called an inversion of $A$. Given 
+$n$ and an array $A$ your task is to find the number of inversions of $A$.
+
+\end{frame}
+
+\begin{frame}[fragile]{Entrada e saída}
+
+\textbf{Input}
+
+The first line contains $t$, the number of testcases followed by a blank space. Each of the $t$ 
+tests start with a number $n$ ($n \leq 200000$). Then $n + 1$ lines follow. In the $i$th line a 
+number $A[i - 1]$ is given ($A[i - 1] \leq 10^7$). The $(n + 1)$th line is a blank space.
+
+\vspace{0.3in}
+
+\textbf{Output}
+
+For every test output one line giving the number of inversions of $A$.
+
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de entradas e saídas}
+
+\begin{minipage}[t]{0.5\textwidth}
+\textbf{Sample Input}
+\begin{verbatim}
+2
+
+3
+3
+1
+2
+
+5
+2
+3
+8
+6
+1
+\end{verbatim}
+\end{minipage}
+\begin{minipage}[t]{0.45\textwidth}
+\textbf{Sample Output}
+\begin{verbatim}
+2
+5
+\end{verbatim}
+\end{minipage}
+\end{frame}
+
+\begin{frame}[fragile]{Solução}
+
+    \begin{itemize}
+        \item Uma árvore de Fenwick pode ser utilizada para manter um histograma dos
+            números já processados
+
+        \item Assim, se os $a_j$ elementos do vetor de entrada forem processados um a um, do fim
+            para o início, o número de inversões onde $j$ é o segundo elemento do par, 
+            corresponde a $RSQ(0, a_j - 1)$, isto é, ao total de números que são estritamente
+            menores que $a_j$ e que já apareceram no vetor
+
+        \item Se os elementos $a_i$ forem processados do início ao fim, o número de inversões onde
+            $i$ é o primeiro elemento do par correspondem a $RSQ(i + 1, M)$, onde $M = 10^7$
+            é o maior valor possível para um elemento do vetor
+
+        \item Esta solução tem complexidade $O(TN\log M)$, onde $T$ é o número de casos de teste
+
+   \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Solução AC com complexidade $O(TN\log M)$}
+    \inputsnippet{cpp}{1}{19}{codes/INVCNT.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Solução AC com complexidade $O(TN\log M)$}
+    \inputsnippet{cpp}{21}{40}{codes/INVCNT.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Solução AC com complexidade $O(TN\log M)$}
+    \inputsnippet{cpp}{42}{61}{codes/INVCNT.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Solução AC com complexidade $O(TN\log M)$}
+    \inputsnippet{cpp}{63}{83}{codes/INVCNT.cpp}
+\end{frame}
