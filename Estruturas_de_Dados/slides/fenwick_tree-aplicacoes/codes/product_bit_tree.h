@@ -3,7 +3,7 @@ class BITree
 {
 private:
     T N;
-    vector<T> ft, zs;                 // zi = 0 se ai = 0
+    vector<T> ft, zs;                                       // zi = 1 se ai = 0
 
     T LSB(const T& n) { return n & -n; }
  
@@ -31,8 +31,7 @@ private:
     {
         int prod = 1;
 
-        while (i)
-        {
+        while (i) {
             prod *= ft[i];
             i -= LSB(i);
         }

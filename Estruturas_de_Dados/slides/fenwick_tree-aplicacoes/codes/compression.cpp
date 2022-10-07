@@ -11,8 +11,7 @@ long long count_inversions_compression(const vector<T>& as)
     BITree<T> ft(N);
     long long inversions = 0;
 
-    for (const auto& a : as)
-    {
+    for (const auto& a : as) {
         inversions += ft.RSQ(f[a] + 1, N);
         ft.add(f[a], 1);
     }

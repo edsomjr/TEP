@@ -7,8 +7,7 @@ public:
     BITree2D(size_t n) : ft(n + 1, vector<T>(n + 1, 0)), N(n) {}
 
     // Range query
-    T RSQ(int a, int b, int c, int d)
-    {
+    T RSQ(int a, int b, int c, int d) {
         return RSQ(c, d) - RSQ(c, b-1) - RSQ(a-1, d) + RSQ(a-1, b-1);
     }
 

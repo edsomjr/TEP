@@ -23,7 +23,7 @@
 
 \end{frame}
 
-\begin{frame}[fragile]{\textit{Range product query}}
+\begin{frame}[fragile]{{\it Range product query}}
 
     \begin{itemize}
         \item É possível utilizar uma árvore de Fenwick para realizar o \textit{range product
@@ -43,19 +43,19 @@
 \end{frame}
 
 \begin{frame}[fragile]{Implementação de uma árvore de Fenwick para produtos}
-    \inputsnippet{cpp}{1}{20}{codes/product_bit_tree.h}
+    \inputsnippet{cpp}{1}{19}{codes/product_bit_tree.h}
 \end{frame}
 
 \begin{frame}[fragile]{Implementação de uma árvore de Fenwick para produtos}
-    \inputsnippet{cpp}{21}{41}{codes/product_bit_tree.h}
+    \inputsnippet{cpp}{21}{40}{codes/product_bit_tree.h}
 \end{frame}
 
 \begin{frame}[fragile]{Implementação de uma árvore de Fenwick para produtos}
-    \inputsnippet{cpp}{43}{60}{codes/product_bit_tree.h}
+    \inputsnippet{cpp}{42}{58}{codes/product_bit_tree.h}
 \end{frame}
 
 \begin{frame}[fragile]{Implementação de uma árvore de Fenwick para produtos}
-    \inputsnippet{cpp}{61}{81}{codes/product_bit_tree.h}
+    \inputsnippet{cpp}{60}{81}{codes/product_bit_tree.h}
 \end{frame}
 
 \begin{frame}[fragile]{Contagem de inversões}
@@ -93,7 +93,7 @@
         \item Contudo, se $N$ for pequeno (por exemplo, $N \leq 10^5$), apenas $N$ dentre todos
             os $M$ valores aparecerão na árvore
 
-        \item Assim, pode se construir um mapeamento $f : T \to \mathbf{N}$ entre estes $N$ 
+        \item Assim, pode se construir um mapeamento $f : T \to \mathbb{N}$ entre estes $N$ 
             valores e os $N$ primeiros números naturais de modo que $f(a) < f(b)$ se $a < b$
 
         \item Daí a árvore de Fenwick armazenaria e manipularia os representantes, e não os

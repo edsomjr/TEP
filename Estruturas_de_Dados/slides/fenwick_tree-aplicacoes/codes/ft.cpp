@@ -1,7 +1,9 @@
 template<typename T>
 class BITree {
 public:
-    BITree(size_t n) : ts(n + 1, 0), N(n) {}
+    // É preciso adicionar um elemento sentinela na última posição para evitar o 
+    // erro 'off-by-one' na implementação de range_add()
+    BITree(size_t n) : ts(n + 2, 0), N(n) {}        
 
     ll value_at(int i) { return RSQ(i); }
 
@@ -21,8 +23,7 @@ private:
     {
         ll sum = 0;
 
-        while (i >= 1)
-        {
+        while (i >= 1) {
             sum += ts[i];
             i -= LSB(i);
         }
@@ -32,8 +33,7 @@ private:
 
     void add(size_t i, ll x)
     {
-        while (i <= N)
-        {
+        while (i <= N) {
             ts[i] += x;
             i += LSB(i);
         }
