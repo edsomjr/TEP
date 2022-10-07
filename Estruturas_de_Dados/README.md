@@ -37,7 +37,9 @@ Estruturas de Dados
         1. [Codechef RRATING - _Restaurant Rating_](problems/Codechef_RRATING/Codechef_RRATING.pdf)
 1. Árvores _m_-árias
     1. [Árvores-B](slides/BT-1/BT-1.pdf)
-    1. [_Union-Find Disjoint Sets_](slides/ufds/ufds.pdf) ([problemas resolvidos](problems/ufds/ufds.pdf))
+    1. [_Union-Find Disjoint Sets_](slides/ufds/ufds.pdf)
+        1. [SPOJ HERDING - _Herding_](problems/SPOJ_HERDING/SPOJ_HERDING.pdf)
+        1. [OJ 1197 - _The Suspects_](problems/OJ_1197/OJ_1197.pdf)
     1. [Árvores de Fenwick: Definição, _RSQ_ e _update_](slides/fenwick_tree-definicao/fenwick_tree-definicao.pdf) ([problemas resolvidos](problems/fenwick_tree-definicao/fenwick_tree-definicao.pdf))
     1. [Árvores de Fenwick: Aplicações e Variações](slides/fenwick_tree-aplicacoes/fenwick_tree-aplicacoes.pdf) ([problemas resolvidos](problems/fenwick_tree-aplicacoes/fenwick_tree-aplicacoes.pdf))
     1. [Árvores de segmentos: Definição e Implementação](slides/segtree/segtree.pdf) ([problemas resolvidos](problems/segtree/segtree.pdf))
