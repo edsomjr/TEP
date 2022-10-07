@@ -14,14 +14,12 @@ public:
 
     void set_n(size_t n) { N = n; }
 
-    // Range query
-    int RSQ(int a, int b, int c, int d)
+    int RSQ(int a, int b, int c, int d)         // Range query
     {
         return RSQ(c, d) - RSQ(c, b-1) - RSQ(a-1, d) + RSQ(a-1, b-1);
     }
 
-    // Point update
-    void add(int x, int y, int v)
+    void add(int x, int y, int v)               // Point update
     {
         for (int i = x; i <= N; i += LSB(i))
             for (int j = y; j <= N; j += LSB(j))
@@ -31,8 +29,7 @@ public:
 private:
     int LSB(int n) { return n & -n; }
 
-    int RSQ(int a, int b)
-    {
+    int RSQ(int a, int b) {
         int sum = 0;
         
         for (int i = a; i > 0; i -= LSB(i))
