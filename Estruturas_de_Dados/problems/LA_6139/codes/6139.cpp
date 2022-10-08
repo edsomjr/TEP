@@ -2,8 +2,7 @@
 
 using namespace std;
 
-class SegmentTree
-{
+class SegmentTree {
     int N;
     std::vector<int> ns;
 
@@ -59,8 +58,7 @@ int main()
         SegmentTree zeroes(N), negatives(N);
 
         for (int i = 0; i < N; ++i) {
-            int x;
-            cin >> x;
+            int x; cin >> x;
     
             if (x == 0)
                 zeroes.update(i, 1);
@@ -86,7 +84,6 @@ int main()
                     zeroes.update(x, 1);
                 else if (y < 0)
                     negatives.update(x, 1);
-
                 break;
             default:
                 --x; --y;
