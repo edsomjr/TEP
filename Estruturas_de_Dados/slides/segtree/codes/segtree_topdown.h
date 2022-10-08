@@ -22,8 +22,7 @@ public:
     }
 
 private:
-    void update(int node, int L, int R, int i, T value)
-    {   
+    void update(int node, int L, int R, int i, T value) {   
         // Caso base: i não pertence ao intervalo [L, R]
         if (i > R or i < L)
             return;

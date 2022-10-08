@@ -24,8 +24,7 @@ public:
     }
 
 private:
-    void update(int node, int L, int R, int a, int b, T value)
-    {
+    void update(int node, int L, int R, int a, int b, T value) {
         // Lazy propagation
         if (lazy[node])
         {
@@ -77,8 +76,7 @@ private:
         {
             ns[node] += (R - L + 1) * lazy[node];
 
-            if (L < R)
-            {
+            if (L < R) {
                 lazy[2*node] += lazy[node];
                 lazy[2*node + 1] += lazy[node];
             }
