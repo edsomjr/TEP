@@ -5,6 +5,7 @@ Paradigmas de Resolução de Problemas
 1. Busca Completa
     1. [Definição](slides/complete_search/complete_search.pdf) ([problemas resolvidos](problems/complete_search/complete_search.pdf))
         1. [CF 742A - _Arpa's hard exam and Mehrdad's naive cheat_](problems/CF_742A/CF_742A.pdf)
+        1. [OJ 471 - _Magic Numbers_](problems/OJ_471/OJ_471.pdf)
     1. [_Backtracking_](slides/backtracking/backtracking.pdf) ([problemas resolvidos](problems/backtracking/backtracking.pdf))
     1. [_Meet in the middle_](slides/meet_in_the_middle/meet_in_the_middle.pdf) ([problemas resolvidos](problems/meet_in_the_middle/meet_in_the_middle.pdf))
 1. Algoritmos Gulosos
