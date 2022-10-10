@@ -29,8 +29,7 @@ vector<int> candidates(const vector<int>& xs, const vector<int>& as)
     return cs;
 }
 
-void backtracking(vector<int>& xs, size_t M, const vector<int>& as,
-    bool prunning = false)
+void backtracking(vector<int>& xs, size_t M, const vector<int>& as, bool prunning = false)
 {
     ++calls;
 
@@ -60,15 +59,13 @@ int main()
     calls = solutions = 0;
     backtracking(xs, 8, as, false);
 
-    cout << "Sem poda -- calls: " << calls
-         << ", solutions: " << solutions << '\n';
+    cout << "Sem poda -- calls: " << calls << ", solutions: " << solutions << '\n';
 
     calls = solutions = 0;
     xs.clear();
     backtracking(xs, 8, as, true);
 
-    cout << "Com poda -- calls: " << calls
-         << ", solutions: " << solutions << '\n';
+    cout << "Com poda -- calls: " << calls << ", solutions: " << solutions << '\n';
 
     // Saída:
     // Sem poda -- calls: 1013, solutions: 45
