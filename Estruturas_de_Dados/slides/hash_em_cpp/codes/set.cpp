@@ -32,7 +32,7 @@ int main()
 
     x = xs.count(20);           // x = 0
 
-    for (const auto& x : xs)
+    for (auto x : xs)
         cout << x << ' ';       // 10 1 34 2 13 3 8 21 55 4 
     cout << '\n';
 

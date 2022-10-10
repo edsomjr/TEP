@@ -2,8 +2,7 @@
 
 using namespace std;
 
-int main()
-{
+int main() {
     unordered_set<int> xs { 1, 1, 2, 3, 5, 8, 13, 21, 34, 55 };
     auto x = xs.bucket_count();     // x = 11 buckets
 
@@ -21,7 +20,6 @@ int main()
     y = xs.load_factor();           // y = 0.909091
     xs.insert(6);
     y = xs.load_factor();           // y = 0.478261
-
     x = xs.bucket_count();          // x = 23 buckets
 
     // 0 1 1 1 1 1 1 0 1 1 0 1 0 1 0 0 0 0 0 0 0 1 0 

@@ -48,14 +48,14 @@ Estruturas de Dados
         1. [SPOJ INVCNT - _Inversion Count_](problems/SPOJ_INVCNT/SPOJ_INVCNT.pdf)
         1. [CF 295A - _Greg and Array_](problems/CF_295A/CF_295A.pdf)
         1. [POJ 1195 - _Mobile Phones_](problems/POJ_1195/POJ_1195.pdf)
-    1. [Árvores de segmentos: Definição e Implementação](slides/segtree/segtree.pdf) ([problemas resolvidos](problems/segtree/segtree.pdf))
+    1. [Árvores de segmentos: Definição e Implementação](slides/segtree/segtree.pdf)
         1. [CF 339D - _Xenia and Bit Operations_](problems/CF_339D/CF_339D.pdf)
         1. [SPOJ KGSS - _Maximum Sum_](problems/SPOJ_KGSS/SPOJ_KGSS.pdf)
         1. [LA 6139 - _Interval Product_](problems/LA_6139/LA_6139.pdf)
 1. Hashes
     1. [Definição, endereçamento aberto e encadeamento](slides/HS-1/HS-1.pdf)
     1. [_Hash_ universal e _hash_ perfeito](slides/HS-2/HS-2.pdf)
-    1. [_Hash_ em C++](slides/HS-3/HS-3.pdf) ([problemas resolvidos](problems/HS-3/HS-3.pdf))
+    1. [_Hash_ em C++](slides/hash_em_cpp/hash_em_cpp.pdf) ([problemas resolvidos](problems/hash_em_cpp/hash_em_cpp.pdf))
 
 <!-- Assuntos pendentes:
 1. Filas monótonas: https://medium.com/algorithms-and-leetcode/monotonic-queue-explained-with-leetcode-problems-7db7c530c1d6
