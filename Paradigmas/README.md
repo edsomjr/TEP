@@ -6,7 +6,7 @@ Paradigmas de Resolução de Problemas
     1. [Definição](slides/complete_search/complete_search.pdf)
         1. [CF 742A - _Arpa's hard exam and Mehrdad's naive cheat_](problems/CF_742A/CF_742A.pdf)
         1. [OJ 471 - _Magic Numbers_](problems/OJ_471/OJ_471.pdf)
-    1. [_Backtracking_](slides/backtracking/backtracking.pdf) ([problemas resolvidos](problems/backtracking/backtracking.pdf))
+    1. [_Backtracking_](slides/backtracking/backtracking.pdf)
         1. [OJ 13004 - _At most twice_](problems/OJ_13004/OJ_13004.pdf)
         1. [SPOJ UCI2009D - _Digger Octaves_](problems/SPOJ_UCI2009D/SPOJ_UCI2009D.pdf)
     1. [_Meet in the middle_](slides/meet_in_the_middle/meet_in_the_middle.pdf) ([problemas resolvidos](problems/meet_in_the_middle/meet_in_the_middle.pdf))
