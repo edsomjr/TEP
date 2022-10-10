@@ -1,0 +1,81 @@
+%\section{Codeforces Round \# 383 (Div. 2) -- Problem A: Arpa's hard exam and Mehrdad's naive cheat}
+
+\begin{frame}[fragile]{Problema}
+
+\textit{There exists an island called Arpa’s land, some beautiful girls live there, as ugly ones 
+do.}
+
+Mehrdad wants to become minister of Arpa’s land. Arpa has prepared an exam. Exam has only one question, given $n$, print the last digit of $1378^n$.
+
+Mehrdad has become quite confused and wants you to help him. Please help, although it's a naive cheat.
+
+\end{frame}
+
+\begin{frame}[fragile]{Entrada e saída}
+
+\textbf{Input}
+
+The single line of input contains one integer $n$ ($0\leq n\leq 10^9$).
+
+\vspace{0.2in}
+
+\textbf{Output}
+
+Print single integer -- the last digit of $1378^n$.
+
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de entradas e saídas}
+
+\begin{minipage}[t]{0.45\textwidth}
+\textbf{Sample Input}
+\begin{verbatim}
+1
+
+2
+\end{verbatim}
+\end{minipage}
+\begin{minipage}[t]{0.5\textwidth}
+\textbf{Sample Output}
+\begin{verbatim}
+8
+
+4
+\end{verbatim}
+\end{minipage}
+\end{frame}
+
+\begin{frame}[fragile]{Solução com complexidade $O(1)$}
+
+    \begin{itemize}
+        \item Observe que a tentativa de se computar o valor exato de $1378^n$ leva a dois
+            problemas:
+            \begin{enumerate}
+                \item a complexidade da solução seria $O(n)$, e $n = 10^{9}$ no pior caso
+
+                \item porém esta complexidade assume que o cálculo de cada produto pode ser
+                    feito em $O(1)$, que não é o caso pois tais número crescem exponencialmente,
+                    o que leva também a problemas de memória 
+            \end{enumerate}
+
+        \item Ainda assim, computar tais valores para os primeiros valores de $n$ (por exemplo,
+            $n = 20$), pode revelar padrões na solução que não são óbvios à primeira vista
+
+        \item O primeiro padrão que surge é que os últimos dígitos dos resultados, a partir de
+            $n = 1$, formam uma sequência periódica: 
+            \[
+                8, 2, 4, 6, 8, 2, 4, 6, \ldots
+            \] 
+
+        \item Cuidado com o \textit{corner case} $n = 0$: neste caso, a resposta deve ser igual
+            a um 
+
+        \item Exceto no caso especial, uma operação de resto da divisão determina o 
+            resultado correto, de modo que a solução tem complexidade $O(1)$
+   \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Solução com complexidade $O(1)$}
+    \inputsnippet{haskell}{1}{19}{codes/CF_742A.hs}
+\end{frame}
