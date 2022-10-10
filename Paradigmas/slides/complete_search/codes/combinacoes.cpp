@@ -2,8 +2,7 @@
 
 using namespace std;
 
-void process_combinations(int n, int m,
-                          function<void(const vector<int>&)> process)
+void process_combinations(int n, int m, function<void(const vector<int>&)> process)
 {
     // ns = { 1, 1, ..., 1, 0, 0, ..., 0 }, m 1s, (n - m) zeros
     vector<int> ns(m, 1);

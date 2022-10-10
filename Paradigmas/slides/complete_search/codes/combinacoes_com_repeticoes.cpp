@@ -14,8 +14,7 @@ vector<vector<int>> combinations_with_repetition(int N, int M)
 
         xs[pos]++;
 
-        while (pos > 0 and xs[pos] > N)
-        {
+        while (pos > 0 and xs[pos] > N) {
             --pos;
             xs[pos]++;
         }
@@ -32,8 +31,7 @@ vector<vector<int>> combinations_with_repetition(int N, int M)
     return cs;
 }
 
-int main()
-{
+int main() {
     int N = 5, M = 3;
     auto cs = combinations_with_repetition(N, M);
 

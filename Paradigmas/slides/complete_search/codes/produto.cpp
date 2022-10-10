@@ -2,14 +2,14 @@
 
 using namespace std;
 
-template<typename T1, typename T2> vector<pair<T1, T2>>
-cartesian_product(const vector<T1>& A, const vector<T2>& B)
+template<typename T1, typename T2>
+vector<pair<T1, T2>> cartesian_product(const vector<T1>& A, const vector<T2>& B)
 {
     vector<pair<T1, T2>> AB;
 
     for (const auto& a : A)
         for (const auto& b : B)
-            AB.push_back(make_pair(a, b));
+            AB.emplace_back(a, b);
 
     return AB;
 }
