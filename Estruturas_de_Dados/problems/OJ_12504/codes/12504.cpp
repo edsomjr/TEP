@@ -53,8 +53,7 @@ int main()
     getline(cin, line);
     int T = stoi(line);
 
-    while (T--)
-    {
+    while (T--) {
         getline(cin, line);    
         auto x = read_dict(line);
 
