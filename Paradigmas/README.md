@@ -24,7 +24,8 @@ Paradigmas de Resolução de Problemas
         1. [Codechef COW207 - _Naruto and Rectangles_](problems/Codechef_COW207/Codechef_COW207.pdf)
 1. Divisão e Conquista
     1. [Definição](slides/dividir_e_conquistar/dividir_e_conquistar.pdf)
-    1. [Busca binária e busca ternária](slides/busca_binaria/busca_binaria.pdf) ([problemas resolvidos](problems/busca_binaria/busca_binaria.pdf))
+    1. [Busca binária e busca ternária](slides/busca_binaria/busca_binaria.pdf)
+        1. [ABC 111B - _AtCoder Beginner Contest 111_](problems/ABC_111B/ABC_111B.pdf)
     1. [Transformada de Fourier](slides/fft/fft.pdf) ([problemas resolvidos](problems/fft/fft.pdf))
 1. Programação Dinâmica
     1. [Definição](slides/dp/dp.pdf) ([problemas resolvidos](problems/dp/dp.pdf))
