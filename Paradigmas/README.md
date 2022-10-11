@@ -17,7 +17,9 @@ Paradigmas de Resolução de Problemas
         1. [OJ 10656 - _Maximum Sum (II)_](problems/OJ_10656/OJ_10656.pdf)
         1. [Codechef LEMUSIC - _Little Elephant and Music_](problems/Codechef_LEMUSIC/Codechef_LEMUSIC.pdf)
         1. [SPOJ AMR12I - _Saruman of Many Colors_](problems/SPOJ_AMR12I/SPOJ_AMR12I.pdf)
-    1. [_Two Pointers_](slides/two_pointers/two_pointers.pdf) ([problemas resolvidos](problems/two_pointers/two_pointers.pdf))
+    1. [_Two Pointers_](slides/two_pointers/two_pointers.pdf)
+        1. [CF 279B - _Books_](problems/CF_279B/CF_279B.pdf)
+        1. [ABC 098D - _Xor Sum 2_](problems/ABC098D/ABC098D.pdf)
 1. Divisão e Conquista
     1. [Definição](slides/dividir_e_conquistar/dividir_e_conquistar.pdf) ([problemas resolvidos](problems/dividir_e_conquistar/dividir_e_conquistar.pdf))
     1. [Busca binária e busca ternária](slides/busca_binaria/busca_binaria.pdf) ([problemas resolvidos](problems/busca_binaria/busca_binaria.pdf))
