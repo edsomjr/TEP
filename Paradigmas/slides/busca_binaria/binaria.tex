@@ -28,7 +28,7 @@
     \begin{itemize}
         \item A etapa de conquista acontece neste conjunto unitário
 
-        \item Caso o elemento desejado seja $m$, o algoritmo finalizada
+        \item Caso o elemento desejado seja $m$, o algoritmo termina
 
         \item Caso não seja, a busca continua em apenas um dos conjuntos $L$ ou $R$, a depender
             da relação do elemento procurado com $m$
@@ -67,7 +67,7 @@
     \begin{tikzpicture}
         \node[anchor=west] at (0, 4) {Elemento a ser encontrado: \texttt{34}};
         \node[anchor=west] at (0, 3.25) {Intervalo considerado: \texttt{[0,8]}};
-        \node[anchor=west] at (0, 2.5) {Elemento central: \texttt{\textcolor{blue}{4}}};
+        \node[anchor=west] at (0, 2.5) {Índice do elemento central: \texttt{\textcolor{blue}{4}}};
         \draw (1,0) grid (10,1);
 
         \node at (1.5,0.5) {\footnotesize \texttt{12}};
@@ -88,7 +88,7 @@
     \begin{tikzpicture}
         \node[anchor=west] at (0, 4) {Elemento a ser encontrado: \texttt{34}};
         \node[anchor=west] at (0, 3.25) {Intervalo considerado: \texttt{\textcolor{blue}{[0,3]}}};
-        \node[anchor=west] at (0, 2.5) {Elemento central: \texttt{\textcolor{blue}{1}}};
+        \node[anchor=west] at (0, 2.5) {Índice do elemento central: \texttt{\textcolor{blue}{1}}};
         \draw (1,0) grid (10,1);
 
         \node at (1.5,0.5) {\footnotesize \texttt{12}};
@@ -109,7 +109,7 @@
     \begin{tikzpicture}
         \node[anchor=west] at (0, 4) {Elemento a ser encontrado: \texttt{34}};
         \node[anchor=west] at (0, 3.25) {Intervalo considerado: \texttt{\textcolor{blue}{[2,3]}}};
-        \node[anchor=west] at (0, 2.5) {Elemento central: \texttt{\textcolor{blue}{2}}};
+        \node[anchor=west] at (0, 2.5) {Índice do elemento central: \texttt{\textcolor{blue}{2}}};
         \draw (1,0) grid (10,1);
 
         \node at (1.5,0.5) {\footnotesize \texttt{\textcolor{red}{12}}};
@@ -171,11 +171,11 @@
 
 \end{frame}
 \begin{frame}[fragile]{Exemplo de uso de busca binária em C e C++}
-    \inputsnippet{c++}{1}{21}{codes/cbs.cpp}
+    \inputsnippet{c++}{1}{19}{codes/cbs.cpp}
 \end{frame}
 
 \begin{frame}[fragile]{Exemplo de uso de busca binária em C e C++}
-    \inputsnippet{c++}{23}{43}{codes/cbs.cpp}
+    \inputsnippet{c++}{21}{43}{codes/cbs.cpp}
 \end{frame}
 
 \begin{frame}[fragile]{Método da bisecção}
@@ -225,7 +225,7 @@
 \end{frame}
 
 \begin{frame}[fragile]{Implementação da biseção com limiar}
-    \inputsnippet{cpp}{1}{21}{codes/bisection.cpp}
+    \inputsnippet{cpp}{1}{20}{codes/bisection.cpp}
 \end{frame}
 
 \begin{frame}[fragile]{Busca binária na resposta}
@@ -287,11 +287,11 @@
         \item Assim, basta realizar a busca no intervalo $[0, 64]$
 
         \item Como cada coeficiente pode ser computado em $O(N)$, a complexidade da solução será
-            $O(I\log I)$, onde $I$ é o tamanho do intervalo de busca
+            $O(N\log I)$, onde $I$ é o tamanho do intervalo de busca
     \end{itemize}
 
 \end{frame}
 
 \begin{frame}[fragile]{Implementação do exemplo em Python}
-    \inputsnippet{python}{1}{21}{codes/pascal.py}
+    \inputsnippet{python}{1}{20}{codes/pascal.py}
 \end{frame}

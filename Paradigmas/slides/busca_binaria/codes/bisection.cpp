@@ -7,8 +7,7 @@ double bisection(const function<double(double)>& f, double a, double b)
 {
     auto m = (a + b)/2.0, y = f(m);
 
-    return fabs(y) < EPS ? m :
-        (y*f(a) < 0 ? bisection(f, a, m) : bisection(f, m, b));
+    return fabs(y) < EPS ? m : (y*f(a) < 0 ? bisection(f, a, m) : bisection(f, m, b));
 }
 
 int main()

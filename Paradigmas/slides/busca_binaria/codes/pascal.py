@@ -4,7 +4,6 @@ def binom(n, m):
     return f(n) // (f(n - m) * f(m))
 
 def min_row(M):
-
     a = 0
     b = 64
     N = 64
