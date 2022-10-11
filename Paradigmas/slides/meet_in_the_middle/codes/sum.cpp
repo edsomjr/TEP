@@ -6,8 +6,7 @@ set<int> subset_sum(const vector<int>& xs)
 {
     set<int> s;
 
-    for (size_t i = 0; i < (1ul << xs.size()); ++i)
-    {
+    for (size_t i = 0; i < (1ul << xs.size()); ++i) {
         int sum = 0;
 
         for (size_t j = 0; j < xs.size(); ++j)
