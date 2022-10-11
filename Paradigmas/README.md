@@ -26,6 +26,8 @@ Paradigmas de Resolução de Problemas
     1. [Definição](slides/dividir_e_conquistar/dividir_e_conquistar.pdf)
     1. [Busca binária e busca ternária](slides/busca_binaria/busca_binaria.pdf)
         1. [ABC 111B - _AtCoder Beginner Contest 111_](problems/ABC_111B/ABC_111B.pdf)
+        1. [OJ 10341 - _Solve It_](problems/OJ_10341/OJ_10341.pdf)
+        1. [CF 439D - _Devu and his Brother_](problems/CF_439D/CF_439D.pdf)
     1. [Transformada de Fourier](slides/fft/fft.pdf) ([problemas resolvidos](problems/fft/fft.pdf))
 1. Programação Dinâmica
     1. [Definição](slides/dp/dp.pdf) ([problemas resolvidos](problems/dp/dp.pdf))

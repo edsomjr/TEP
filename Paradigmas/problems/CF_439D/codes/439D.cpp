@@ -54,9 +54,7 @@ int main()
     for (int j = 0; j < M; ++j)
         cin >> bs[j];
 
-    auto ans = solve(as, bs);
-
-    cout << ans << '\n';
+    cout << solve(as, bs) << '\n';
 
     return 0;
 }

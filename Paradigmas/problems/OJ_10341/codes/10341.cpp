@@ -25,8 +25,7 @@ int main()
             continue;
         }
 
-        while (fabs(ya - yb) > eps)
-        {
+        while (fabs(ya - yb) > eps) {
             auto c = (a + b)/2;
             auto yc = f(c, p, q, r, s, t, u);
 
