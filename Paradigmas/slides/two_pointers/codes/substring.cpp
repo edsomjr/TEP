@@ -6,8 +6,7 @@ auto max_ordered_substring(const string& s)
 {
     auto N = s.size(), L = 0ul, ans = 0ul;
 
-    while (L < N)
-    {
+    while (L < N) {
         auto R = L + 1;
 
         while (R < N and s[R - 1] <= s[R])

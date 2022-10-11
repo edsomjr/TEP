@@ -9,8 +9,7 @@ bool _2sum(int N, int S, vector<int>& xs)
     int L = 0, R = N - 1;
 
     // A solução exige dois elementos distintos de xs
-    while (L < R)
-    {
+    while (L < R) {
         while (R > L and xs[L] + xs[R] > S)
             --R;
 

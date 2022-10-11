@@ -12,8 +12,7 @@ void insert(stack<ii>& s, int x)
 
 void move(stack<ii>& out, stack<ii>& in)
 {
-    while (not in.empty())
-    {
+    while (not in.empty()) {
         auto x = in.top().first;
         in.pop();
         insert(out, x);

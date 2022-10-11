@@ -2,19 +2,16 @@
 
 using namespace std;
 
-size_t max_subarray(const vector<int>& xs, size_t K)
-{
+size_t max_subarray(const vector<int>& xs, size_t K) {
     auto N = xs.size(), L = 0ul, R = 0ul, odds = 0ul, ans = 0ul;
 
-    while (L < N)
-    {
+    while (L < N) {
         R = max(L, R);
 
         while (R < N and (xs[R] % 2 == 0 or odds < K))
             odds += (xs[R++] % 2);
 
         ans = max(ans, R - L);
-
         odds = max(odds - (xs[L] % 2), 0ul);
         ++L;
     }
