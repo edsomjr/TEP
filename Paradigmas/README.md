@@ -10,6 +10,8 @@ Paradigmas de Resolução de Problemas
         1. [OJ 13004 - _At most twice_](problems/OJ_13004/OJ_13004.pdf)
         1. [SPOJ UCI2009D - _Digger Octaves_](problems/SPOJ_UCI2009D/SPOJ_UCI2009D.pdf)
     1. [_Meet in the middle_](slides/meet_in_the_middle/meet_in_the_middle.pdf) ([problemas resolvidos](problems/meet_in_the_middle/meet_in_the_middle.pdf))
+        1. [LA 3506 - _4 values whose sum is 0_](problems/LA_3506/LA_3506.pdf)
+        1. [SPOJ SUBSUMS - _Subset Sums_](problems/SPOJ_SUBSUMS/SPOJ_SUBSUMS.pdf)
 1. Algoritmos Gulosos
     1. [Definição](slides/gulosos/gulosos.pdf) ([problemas resolvidos](problems/gulosos/gulosos.pdf))
     1. [_Two Pointers_](slides/two_pointers/two_pointers.pdf) ([problemas resolvidos](problems/two_pointers/two_pointers.pdf))

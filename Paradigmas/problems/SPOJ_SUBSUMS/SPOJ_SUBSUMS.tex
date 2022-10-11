@@ -1,4 +1,4 @@
-\section{SPOJ SUBSUMS -- Subset Sums}
+%\section{SPOJ SUBSUMS -- Subset Sums}
 
 \begin{frame}[fragile]{Problema}
 
@@ -14,6 +14,8 @@ one) have a sum between $A$ and $B$ ($-500,000,000\leq A\leq B\leq 500,000,000$)
 
 The first line of standard input contains the three integers $N, A,$ and $B$. The following $N$
 lines contain $S_1$ through $S_N$, in order.
+
+\vspace{0.2in}
 
 \textbf{Output}
 
@@ -56,7 +58,7 @@ Print a single integer to standard output representing the number of subsets sat
             tais que $A\leq s + r\leq B$
 
         \item Se $S_2$ estiver ordenado, este intervalo de valores pode ser computado por meio
-            de duas buscas binários, ou através das funções \code{cpp}{lower_bound} e
+            de duas buscas binárias, ou através das funções \code{cpp}{lower_bound} e
             \code{cpp}{upper_bound} da STL do C++
 
     \end{itemize}
@@ -64,14 +66,14 @@ Print a single integer to standard output representing the number of subsets sat
 \end{frame}
 
 \begin{frame}[fragile]{Solução $O(2^{N/2}\log N)$}
-    \inputsnippet{cpp}{1}{21}{codes/SPOJ_SUBSUMS.cpp}
+    \inputsnippet{cpp}{1}{20}{codes/SPOJ_SUBSUMS.cpp}
 \end{frame}
 
 \begin{frame}[fragile]{Solução $O(2^{N/2}\log N)$}
-    \inputsnippet{cpp}{22}{42}{codes/SPOJ_SUBSUMS.cpp}
+    \inputsnippet{cpp}{22}{40}{codes/SPOJ_SUBSUMS.cpp}
 \end{frame}
 
 \begin{frame}[fragile]{Solução $O(2^{N/2}\log N)$}
-    \inputsnippet{cpp}{43}{63}{codes/SPOJ_SUBSUMS.cpp}
+    \inputsnippet{cpp}{42}{57}{codes/SPOJ_SUBSUMS.cpp}
 \end{frame}
 

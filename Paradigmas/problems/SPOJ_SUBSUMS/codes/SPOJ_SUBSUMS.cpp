@@ -3,8 +3,7 @@
 using namespace std;
 using ll = long long;
 
-vector<ll> subset_sum(const vector<ll>& xs)
-{
+vector<ll> subset_sum(const vector<ll>& xs) {
     vector<ll> s;
 
     for (size_t i = 0; i < (1ul << xs.size()); ++i) {
