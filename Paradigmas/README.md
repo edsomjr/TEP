@@ -9,11 +9,11 @@ Paradigmas de Resolução de Problemas
     1. [_Backtracking_](slides/backtracking/backtracking.pdf)
         1. [OJ 13004 - _At most twice_](problems/OJ_13004/OJ_13004.pdf)
         1. [SPOJ UCI2009D - _Digger Octaves_](problems/SPOJ_UCI2009D/SPOJ_UCI2009D.pdf)
-    1. [_Meet in the middle_](slides/meet_in_the_middle/meet_in_the_middle.pdf) ([problemas resolvidos](problems/meet_in_the_middle/meet_in_the_middle.pdf))
+    1. [_Meet in the middle_](slides/meet_in_the_middle/meet_in_the_middle.pdf)
         1. [LA 3506 - _4 values whose sum is 0_](problems/LA_3506/LA_3506.pdf)
         1. [SPOJ SUBSUMS - _Subset Sums_](problems/SPOJ_SUBSUMS/SPOJ_SUBSUMS.pdf)
 1. Algoritmos Gulosos
-    1. [Definição](slides/gulosos/gulosos.pdf) ([problemas resolvidos](problems/gulosos/gulosos.pdf))
+    1. [Definição](slides/gulosos/gulosos.pdf)
         1. [OJ 10656 - _Maximum Sum (II)_](problems/OJ_10656/OJ_10656.pdf)
         1. [Codechef LEMUSIC - _Little Elephant and Music_](problems/Codechef_LEMUSIC/Codechef_LEMUSIC.pdf)
         1. [SPOJ AMR12I - _Saruman of Many Colors_](problems/SPOJ_AMR12I/SPOJ_AMR12I.pdf)
