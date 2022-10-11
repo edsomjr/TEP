@@ -2,7 +2,6 @@
 
 using namespace std;
 using ii = pair<int, int>;
-
 const int oo { 2000000010 };
 
 int solve(int N, const vector<int>& xs)

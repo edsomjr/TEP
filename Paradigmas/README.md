@@ -21,6 +21,7 @@ Paradigmas de Resolução de Problemas
         1. [CF 279B - _Books_](problems/CF_279B/CF_279B.pdf)
         1. [ABC 098D - _Xor Sum 2_](problems/ABC098D/ABC098D.pdf)
         1. [SPOJ ADAPLANT - _Ada and Plants_](problems/SPOJ_ADAPLANT/SPOJ_ADAPLANT.pdf)
+        1. [Codechef COW207 - _Naruto and Rectangles_](problems/Codechef_COW207/Codechef_COW207.pdf)
 1. Divisão e Conquista
     1. [Definição](slides/dividir_e_conquistar/dividir_e_conquistar.pdf) ([problemas resolvidos](problems/dividir_e_conquistar/dividir_e_conquistar.pdf))
     1. [Busca binária e busca ternária](slides/busca_binaria/busca_binaria.pdf) ([problemas resolvidos](problems/busca_binaria/busca_binaria.pdf))
