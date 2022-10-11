@@ -1,0 +1,92 @@
+%\section{LA 3506 -- 4 values whose sum is 0}
+
+\begin{frame}[fragile]{Problema}
+
+The SUM problem can be formulated as follows: given four lists $A, B, C, D$ of integer values, 
+compute how many quadruplet $(a, b, c, d)$ belongs to $A\times B\times C\times D$ are such that 
+$a + b + c + d = 0$. In the following, we assume that all lists have the same size $n$.
+
+\end{frame}
+
+\begin{frame}[fragile]{Entrada e saída}
+
+\textbf{Input}
+
+The input begins with a single positive integer on a line by itself indicating the number of the 
+cases following, each of them as described below. This line is followed by a blank line, and 
+there is also a blank line between two consecutive inputs.
+
+The first line of the input file contains the size of the lists $n$ (this value can be as large as 
+4000).  We then have $n$ lines containing four integer values (with absolute value as large as 
+$2^{28}$) that belong respectively to $A, B, C$ and $D$. 
+
+\vspace{0.1in}
+
+\textbf{Output}
+
+For each test case, your program has to write the number quadruplets whose sum is zero.
+
+The outputs of two consecutive cases will be separated by a blank line.
+
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de entradas e saídas}
+
+\begin{minipage}[t]{0.45\textwidth}
+\textbf{Sample Input}
+\begin{verbatim}
+1
+
+6
+-45 22 42 -16
+-41 -27 56 30
+-36 53 -37 77
+-36 30 -75 -46
+26 -38 -10 62
+-32 -54 -6 45
+\end{verbatim}
+\end{minipage}
+\begin{minipage}[t]{0.5\textwidth}
+\textbf{Sample Output}
+\begin{verbatim}
+5
+\end{verbatim}
+\end{minipage}
+\end{frame}
+
+\begin{frame}[fragile]{Solução com complexidade $O(N^2\log N)$}
+
+    \begin{itemize}
+        \item O produto cartesiano $A\times B\times C\times D$ tem  $4000^4 = 256 \times 10^{12}$,
+            o que inviabiliza uma solução \textit{naive} $O(N^4)$
+
+        \item É possível utilizar a técnica \textit{meet in the middle}, observando que
+            $a + b = -(c + d)$
+
+        \item Assim, é preciso computar as somas $xs$ e $ys$ dos pares $A\times B$ e $C\times D$,
+            respectivamente
+
+        \item As somas registradas em $ys$ devem ser ordenadas, de modo que seja possível 
+            utilizar a busca binária
+            
+        \item Para cada valor $x\in xs$, a resposta será incrementada em $b - a$, onde 
+            $[a, b)$ é o intervalo de índices de elementos $y_i$ em $ys$ tais que $ys_i = -x$
+
+        \item Este intervalo pode ser computado através da função \code{cpp}{equal_range()}
+            da STL da linguagem C++
+
+   \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Solução com complexidade $O(N^2\log N)$}
+    \inputsnippet{cpp}{1}{20}{codes/LA_3506.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Solução com complexidade $O(N^2\log N)$}
+    \inputsnippet{cpp}{22}{38}{codes/LA_3506.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Solução com complexidade $O(N^2\log N)$}
+    \inputsnippet{cpp}{40}{55}{codes/LA_3506.cpp}
+\end{frame}
