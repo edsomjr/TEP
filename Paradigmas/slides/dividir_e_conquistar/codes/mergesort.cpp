@@ -3,8 +3,7 @@
 using namespace std;
 
 template<typename RandIt>
-void merge(size_t N, RandIt first, RandIt middle, RandIt last)
-{
+void merge(size_t N, RandIt first, RandIt middle, RandIt last) {
     vector<typename iterator_traits<RandIt>::value_type> temp(N);
     auto it = first, jt = middle;
     auto k = 0;
