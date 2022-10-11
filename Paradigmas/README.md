@@ -15,6 +15,7 @@ Paradigmas de Resolução de Problemas
 1. Algoritmos Gulosos
     1. [Definição](slides/gulosos/gulosos.pdf) ([problemas resolvidos](problems/gulosos/gulosos.pdf))
         1. [OJ 10656 - _Maximum Sum (II)_](problems/OJ_10656/OJ_10656.pdf)
+        1. [Codechef LEMUSIC - _Little Elephant and Music_](problems/Codechef_LEMUSIC/Codechef_LEMUSIC.pdf)
     1. [_Two Pointers_](slides/two_pointers/two_pointers.pdf) ([problemas resolvidos](problems/two_pointers/two_pointers.pdf))
 1. Divisão e Conquista
     1. [Definição](slides/dividir_e_conquistar/dividir_e_conquistar.pdf) ([problemas resolvidos](problems/dividir_e_conquistar/dividir_e_conquistar.pdf))
