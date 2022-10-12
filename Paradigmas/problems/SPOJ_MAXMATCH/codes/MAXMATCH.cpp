@@ -51,7 +51,6 @@ void fft(vector<complex<double>>& xs, bool invert = false)
             for (int j = 0; j < size / 2; ++j)
             {
                 auto a { xs[i + j] }, b { xs[i + j + size/2] * S };
-
                 xs[i + j] = (a + b) / k;
                 xs[i + j + size/2] = (a - b) / k;
                 S *= S1;
@@ -96,10 +95,8 @@ pair<int, vector<int>> solve(const string& s)
             ms[i] += (int) round(xs[N - 1 + i].real());
     }
 
-    for (int i = 1; i <= N; ++i)
-    {
-        if (ms[i] > m)
-        {
+    for (int i = 1; i <= N; ++i) {
+        if (ms[i] > m) {
             m = ms[i];
             is = vector<int> { i };
         } else if (ms[i] == m)

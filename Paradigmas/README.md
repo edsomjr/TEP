@@ -30,6 +30,7 @@ Paradigmas de Resolução de Problemas
         1. [CF 439D - _Devu and his Brother_](problems/CF_439D/CF_439D.pdf)
     1. [Transformada de Fourier](slides/fft/fft.pdf)
         1. [OJ 12879 - _Golf Bot_](problems/OJ_12879/OJ_12879.pdf)
+        1. [SPOJ MAXMATCH - _Maximum Self-Matching_](problems/SPOJ_MAXMATCH/SPOJ_MAXMATCH.pdf)
 1. Programação Dinâmica
     1. [Definição](slides/dp/dp.pdf) ([problemas resolvidos](problems/dp/dp.pdf))
     1. [_Max Range Sum_](slides/max_range_sum/max_range_sum.pdf) ([problemas resolvidos](problems/max_range_sum/max_range_sum.pdf))
