@@ -16,8 +16,7 @@ int reversed(int x, int bits)
     return res;
 }
 
-template<typename T> vector<T> sortByBits(const vector<T>& xs)
-{
+template<typename T> vector<T> sortByBits(const vector<T>& xs) {
     int N = (int) xs.size(), bits = 1;
 
     while ((1 << bits) != N)

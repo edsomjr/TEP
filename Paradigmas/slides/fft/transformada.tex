@@ -7,13 +7,12 @@
             de senos e cosenos
 
         \item Isto possível porque as funções $\sin(mx)$ e $\cos(ny)$ são ortogonais para 
-            $m\neq n$ no intervalo $[-\pi, \pi]$:
+            os inteiros $m, n$ tais que $m\neq n$ no intervalo $[-\pi, \pi]$:
 
-        \begin{align*}
-            \int_{-\pi}^\pi \sin(mx)\sin(nx) dx &= 
-            \int_{-\pi}^\pi \sin(mx)\cos(nx) dx \\
-            &= \int_{-\pi}^\pi \cos(mx)\cos(nx) dx = 0
-        \end{align*}
+        \[
+            \int_{-\pi}^\pi \sin(mx)\sin(nx) dx = 
+            \int_{-\pi}^\pi \sin(mx)\cos(nx) dx = \int_{-\pi}^\pi \cos(mx)\cos(nx) dx = 0
+        \]
 
         \item Para $m = n$, segue que
         \[
@@ -568,7 +567,7 @@
 \end{frame}
 
 \begin{frame}[fragile]{Implementação da DFT e da IDFT em C++ em $O(N^2)$}
-    \inputsnippet{cpp}{1}{20}{codes/dft.cpp}
+    \inputsnippet{cpp}{1}{19}{codes/dft.cpp}
 \end{frame}
 
 \begin{frame}[fragile]{Implementação da DFT e da IDFT em C++ em $O(N^2)$}

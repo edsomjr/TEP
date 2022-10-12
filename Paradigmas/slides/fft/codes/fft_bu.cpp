@@ -51,7 +51,6 @@ void fft(vector<complex<double>>& xs, bool invert = false)
             for (int j = 0; j < size / 2; ++j)
             {
                 auto a { xs[i + j] }, b { xs[i + j + size/2] * S };
-
                 xs[i + j] = (a + b) / k;
                 xs[i + j + size/2] = (a - b) / k;
                 S *= S1;
