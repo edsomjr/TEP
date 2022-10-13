@@ -14,10 +14,9 @@ int F(int N)
     if (st[N] != -1)
         return st[N];
 
-    auto res = F(N - 1) + F(N - 2);
+    st[N] = F(N - 1) + F(N - 2);
 
-    st[N] = res;
-    return res;
+    return st[N];
 }
 
 int main()

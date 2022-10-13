@@ -3,7 +3,6 @@
 using namespace std;
 
 const int MAX { 200010 };
-
 long long fib[MAX];
 
 void precomp()

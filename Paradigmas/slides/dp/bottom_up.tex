@@ -11,7 +11,7 @@
 
         \item Inicialmente os casos-base são preenchidos
 
-        \item Em seguida, todos os estados que dependem apenas dos casos-base
+        \item Em seguida, todos os estados que dependem apenas dos casos-base são computados
 
         \item Após eles, os estados que podem ser computados a partir dos estados já computados
 
@@ -33,7 +33,7 @@
 
         \item Nos casos onde os elementos de uma linha dependem apenas da linha anterior, a
             complexidade de memória pode ser reduzida, armazenando-se apenas duas linhas por
-            vezes ($O(N)$ ao invés de $O(NM)$ da tabela completa da implementação 
+            vez ($O(N)$ ao invés de $O(NM)$ da tabela completa da implementação 
             \textit{top-down})
 
         \item Por fim, implementações \textit{bottom-up} não utilizam de recursão, em geral
@@ -43,7 +43,7 @@
 \end{frame}
 
 \begin{frame}[fragile]{Implementação {\it bottom-up} dos números de Fibonacci}
-    \inputsnippet{cpp}{1}{21}{codes/fib_bu.cpp}
+    \inputsnippet{cpp}{1}{20}{codes/fib_bu.cpp}
 \end{frame}
 
 \begin{frame}[fragile]{Redução de memória}
@@ -68,7 +68,7 @@
 \end{frame}
 
 \begin{frame}[fragile]{Implementação {\it bottom-up} dos coeficientes binomiais}
-    \inputsnippet{cpp}{1}{19}{codes/binom_bu.cpp}
+    \inputsnippet{cpp}{1}{18}{codes/binom_bu.cpp}
 \end{frame}
 
 \begin{frame}[fragile]{Implementação {\it bottom-up} dos coeficientes binomiais}

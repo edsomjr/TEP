@@ -14,10 +14,9 @@ long long binom(int n, int m)
     if (st[n][m] != -1)
         return st[n][m];
 
-    auto res = binom(n - 1, m) + binom(n - 1, m - 1);
+    st[n][m] = binom(n - 1, m) + binom(n - 1, m - 1);
 
-    st[n][m] = res;
-    return res;
+    return st[n][m];
 }
 
 int main()

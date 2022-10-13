@@ -30,7 +30,7 @@
         \begin{enumerate}
             \item subestrutura ótima (a solução do problema pode ser formada a partir das soluções
                 ótimas dos subproblemas); e
-            \item subproblemas repetidos (subproblemas compartilham subproblemas em comum).
+            \item subproblemas repetidos (problemas compartilham subproblemas em comum).
         \end{enumerate}
 
         \item Caso a segunda característica não esteja presente, não há necessidade de memorização
@@ -39,7 +39,7 @@
         \item Como a solução do problema será formada a partir da solução dos subproblemas, esta
             solução pode ser descrita por meio de uma relação de recorrência
 
-        \item Os subproblemas que podem não podem mais serem subdivididos e que são necessários para
+        \item Os subproblemas que não podem mais serem subdivididos e que são necessários para
             a solução dos demais constituem os casos-base do problema
     \end{itemize}
 
@@ -111,7 +111,7 @@
 \end{frame}
 
 \begin{frame}[fragile]{Implementação dos números de Fibonacci com PD}
-    \inputsnippet{cpp}{1}{21}{codes/fib_td.cpp}
+    \inputsnippet{cpp}{1}{20}{codes/fib_td.cpp}
 \end{frame}
 
 \begin{frame}[fragile]{Implementação dos números de Fibonacci com PD}
