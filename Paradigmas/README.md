@@ -34,6 +34,7 @@ Paradigmas de Resolução de Problemas
 1. Programação Dinâmica
     1. [Definição](slides/dp/dp.pdf)
         1. [OJ 10465 - _Hommer Simpson_](problems/OJ_10465/OJ_10465.pdf)
+        1. [SPOJ SQRBR - _Square Brackets_](problems/SPOJ_SQRBR/SPOJSQRBR.pdf)
     1. [_Max Range Sum_](slides/max_range_sum/max_range_sum.pdf) ([problemas resolvidos](problems/max_range_sum/max_range_sum.pdf))
     1. [Problema do Troco](slides/coin_change/coin_change.pdf) ([problemas resolvidos](problems/coin_change/coin_change.pdf))
     1. [Problema da Mochila Binária](slides/knapsack/knapsack.pdf) ([problemas resolvidos](problems/knapsack/knapsack.pdf))

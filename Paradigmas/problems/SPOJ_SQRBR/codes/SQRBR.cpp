@@ -26,7 +26,6 @@ int dp(int i, int open, int N, const set<int>& xs)
 int solve(int N, const set<int>& xs)
 {
     memset(st, -1, sizeof st);
-
     return dp(0, 0, 2*N, xs);
 }
 
@@ -37,8 +36,7 @@ int main()
     int T;
     cin >> T;
 
-    while (T--)
-    {
+    while (T--) {
         int N, K;
         cin >> N >> K;
 
