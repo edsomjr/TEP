@@ -17,8 +17,7 @@ int MSR(int N, int M, const vector<vector<int>>& A)
     for (int a = 0; a < N; ++a)
         for (int b = 0; b < M; ++b)
             for (int c = a; c < N; ++c)
-                for (int d = b; d < M; ++d)
-                {
+                for (int d = b; d < M; ++d) {
                     sum = p[c][d] - p[a-1][d] - p[c][b-1] + p[a-1][b-1];
                     ans = max(ans, sum);
                 }

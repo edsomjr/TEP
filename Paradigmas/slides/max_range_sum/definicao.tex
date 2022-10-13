@@ -29,7 +29,7 @@
         \item Variante comuns deste prolema é  escolher um dentre estes intervalos, ou retornar
             somente o valor da soma máxima, ignorando o intervalo que a gerou
 
-        \item Há $N(N - 1)/2$ intervalos de índices $[i, j]$, com $i\leq j$, da sequência $a$
+        \item Há $N(N - 1)/2$ intervalos definidos pelos índices $[i, j]$, com $i\leq j$, da sequência $a$
 
         \item Uma solução de busca completa que computa a soma de cada intervalo em $O(N)$
             solucionaria o problema \textit{max range sum} com complexidade $O(N^3)$
@@ -50,7 +50,7 @@
 
         \item Assim a complexidade seria reduzida de $O(N^3)$ para $O(N^2)$
 
-        \item Esta soma em $O(1)$ pode ser feita precomputando a a soma de todos os prefixos
+        \item Esta soma em $O(1)$ pode ser feita precomputando a soma de todos os prefixos
             de $a$
 
         \item Um prefixo $p_j$ de $a$ é uma subsequência que tem início no primeiro elemento $a_1$
@@ -92,7 +92,7 @@
 \end{frame}
 
 \begin{frame}[fragile]{Implementação do MRS em $O(N^2)$}
-    \inputsnippet{cpp}{7}{22}{codes/max-range-sum_prefix-sum.cpp}
+    \inputsnippet{cpp}{7}{23}{codes/max-range-sum_prefix-sum.cpp}
 \end{frame}
 
 \begin{frame}[fragile]{Algoritmo de Kadane}
@@ -114,7 +114,7 @@
         \item Para $k > 1$ há duas transições possíveis:
         \begin{enumerate}
             \item estender o intervalo anterior, adicionando $a_k$
-            \item desprezar o intervalo anterior, e retornar $a_k$
+            \item desprezar o intervalo anterior e retornar $a_k$
         \end{enumerate}
     \end{itemize}
 
@@ -146,7 +146,7 @@
 \end{frame}
 
 \begin{frame}[fragile]{Implementação do algoritmo de Kadane}
-    \inputsnippet{cpp}{5}{15}{codes/kadane.cpp}
+    \inputsnippet{cpp}{5}{14}{codes/kadane.cpp}
 \end{frame}
 
 \begin{frame}[fragile]{Implementação ``gulosa'' do algoritmo de Kadane}

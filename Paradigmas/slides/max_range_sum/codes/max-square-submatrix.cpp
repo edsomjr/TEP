@@ -19,8 +19,7 @@ int MSS(int N, int M)
     for (int i = 1; i < N; ++i)
         for (int j = 1; j < M; ++j)
         {
-            S[i][j] = A[i][j] == 0 ? 0 :
-                min({ S[i-1][j], S[i][j-1], S[i-1][j-1] }) + 1;
+            S[i][j] = A[i][j] == 0 ? 0 : min({ S[i-1][j], S[i][j-1], S[i-1][j-1] }) + 1;
 
             ans = max(ans, S[i][j]);
         }
