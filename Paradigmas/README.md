@@ -37,6 +37,7 @@ Paradigmas de Resolução de Problemas
         1. [SPOJ SQRBR - _Square Brackets_](problems/SPOJ_SQRBR/SPOJSQRBR.pdf)
     1. [_Max Range Sum_](slides/max_range_sum/max_range_sum.pdf)
         1. [Timus 1146 - _Maximum Sum_](problems/Timus_1146/Timus_1146.pdf)
+        1. [OJ 13095 - _Tobby and Query_](problems/OJ_13095/OJ_13095.pdf)
     1. [Problema do Troco](slides/coin_change/coin_change.pdf) ([problemas resolvidos](problems/coin_change/coin_change.pdf))
     1. [Problema da Mochila Binária](slides/knapsack/knapsack.pdf) ([problemas resolvidos](problems/knapsack/knapsack.pdf))
     1. [Maior Subsequência Crescente](slides/lis/lis.pdf) ([problemas resolvidos](problems/lis/lis.pdf))

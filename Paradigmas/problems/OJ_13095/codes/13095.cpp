@@ -34,11 +34,9 @@ solve(int N, const vector<int>& xs, vector<ii>& qs)
 int main()
 {
     ios::sync_with_stdio(false);
-
     int N;
     
-    while (cin >> N)
-    {
+    while (cin >> N) {
         vector<int> xs(N + 1);
 
         for (int i = 1; i <= N; ++i)
