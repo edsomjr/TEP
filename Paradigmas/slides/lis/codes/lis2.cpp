@@ -10,8 +10,7 @@ vector<int> LIS(int N, const vector<int>& xs)
     {
         for (int j = i - 1; j >= 0; --j)
         {
-            if (xs[i] > xs[j] and lis[j] + 1 > lis[i])
-            {
+            if (xs[i] > xs[j] and lis[j] + 1 > lis[i]) {
                 lis[i] = lis[j] + 1;
                 ps[i] = j;
             }

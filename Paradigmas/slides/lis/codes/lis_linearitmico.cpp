@@ -7,7 +7,7 @@ const int oo { 2000000010 };
 int LIS(int N, const vector<int>& as)
 {
     vector<int> lis(N + 1, oo);
-    lis[0] = 0;
+    lis[0] = -oo;
 
     auto ans = 0;
 
