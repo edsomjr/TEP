@@ -39,6 +39,7 @@ Paradigmas de Resolução de Problemas
         1. [Timus 1146 - _Maximum Sum_](problems/Timus_1146/Timus_1146.pdf)
         1. [OJ 13095 - _Tobby and Query_](problems/OJ_13095/OJ_13095.pdf)
     1. [Problema do Troco](slides/coin_change/coin_change.pdf)
+        1. [OJ 147 - _Dollars_](problems/OJ_147/OJ_147.pdf)
         1. [OJ 166 - _Making Change_](problems/OJ_166/OJ_166.pdf)
     1. [Problema da Mochila Binária](slides/knapsack/knapsack.pdf) ([problemas resolvidos](problems/knapsack/knapsack.pdf))
     1. [Maior Subsequência Crescente](slides/lis/lis.pdf) ([problemas resolvidos](problems/lis/lis.pdf))
