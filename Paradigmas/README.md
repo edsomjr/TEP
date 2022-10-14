@@ -47,6 +47,7 @@ Paradigmas de Resolução de Problemas
         1. [OJ 990 - _Diving for Gold_](problems/OJ_990/OJ_990.pdf)
     1. [Maior Subsequência Crescente](slides/lis/lis.pdf)
         1. [SPOJ ELIS - _Easy Longest Increasing Subsequence_](problems/SPOJ_ELIS/SPOJ_ELIS.pdf)
+        1. [OJ 10051 - _Tower of Cubes_](problems/OJ_10051/OJ_10051.pdf)
     1. [Problema do Caixeiro Viajante](slides/tsp/tsp.pdf) ([problemas resolvidos](problems/tsp/tsp.pdf))
 
 <!---
