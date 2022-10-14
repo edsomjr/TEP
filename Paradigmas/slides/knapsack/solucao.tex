@@ -14,7 +14,7 @@
         \item Seja $v(i, m)$ a soma máxima dos valores que pode ser obtida a partir dos
             primeiros $i$ elementos de $C$ e uma mochila com capacidade $m$
 
-        \item São dois casos-base: o primeiro deles acontece quando não resta mais nenhum
+        \item São dois casos-base: o primeiro deles acontece quando não há nenhum
             elemento a ser considerado
 
         \item Neste casos, temos $v(0, m) = 0$
@@ -25,10 +25,10 @@
 \begin{frame}[fragile]{Solução do problema da mochila binária}
 
     \begin{itemize}
-        \item O segundo caso-base acontece quando não há mais espaço disponível na mochila:
+        \item O segundo caso-base acontece quando não há espaço disponível na mochila:
             $v(i, 0) = 0$
 
-        \item Também são duas as transições possíveis:
+        \item São duas as transições possíveis:
         \begin{enumerate}
             \item ignorar o $i$-ésimo elemento e considerar apenas os $i - 1$ primeiros; ou
             \item caso possar ser transportado, pegar o $i$-ésimo elemento e colocá-lo na
@@ -56,7 +56,7 @@
         \item A segunda transição só é possível se $w_i \leq m$
 
         \item Caso esta condição seja atendida, a capacidade da mochila é reduzida em $w_i$
-            unidades, e o total dos valores transportados é acrescido em $v_i$
+            unidades e o total dos valores transportados é acrescido em $v_i$
 
         \item Assim, deve-se optar pela transição que produz o maior valor:
         \[
@@ -74,11 +74,11 @@
 \end{frame}
 
 \begin{frame}[fragile]{Implementação {\it top-down} da mochila binária}
-    \inputsnippet{cpp}{1}{21}{codes/knapsack.cpp}
+    \inputsnippet{cpp}{1}{20}{codes/knapsack.cpp}
 \end{frame}
 
 \begin{frame}[fragile]{Implementação {\it top-down} da mochila binária}
-    \inputsnippet{cpp}{22}{35}{codes/knapsack.cpp}
+    \inputsnippet{cpp}{22}{34}{codes/knapsack.cpp}
 \end{frame}
 
 \begin{frame}[fragile]{Recuperação dos elementos selecionados}
@@ -102,13 +102,13 @@
 \end{frame}
 
 \begin{frame}[fragile]{Implementação {\it bottom-up} da mochila binária}
-    \inputsnippet{cpp}{1}{21}{codes/knapsack_bu.cpp}
+    \inputsnippet{cpp}{1}{20}{codes/knapsack_bu.cpp}
 \end{frame}
 
 \begin{frame}[fragile]{Implementação {\it bottom-up} da mochila binária}
-    \inputsnippet{cpp}{22}{40}{codes/knapsack_bu.cpp}
+    \inputsnippet{cpp}{22}{37}{codes/knapsack_bu.cpp}
 \end{frame}
 
 \begin{frame}[fragile]{Implementação {\it bottom-up} da mochila binária}
-    \inputsnippet{cpp}{41}{57}{codes/knapsack_bu.cpp}
+    \inputsnippet{cpp}{39}{55}{codes/knapsack_bu.cpp}
 \end{frame}

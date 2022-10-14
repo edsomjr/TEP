@@ -5,7 +5,6 @@ using ii = pair<int, int>;
 using ll = long long;
 
 const int MAXN { 2010 }, MAXM { 2010 };
-
 ll st[MAXN][MAXM];
 char ps[MAXN][MAXM];
 
@@ -27,7 +26,6 @@ pair<ll, vector<int>> knapsack(int M, const vector<ii>& cs)
         {
             st[i][m] = st[i - 1][m];
             ps[i][m] = 0;
-
             auto [w, v] = cs[i];
 
             if (w <= m and st[i - 1][m - w] + v > st[i][m])
