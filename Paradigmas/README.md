@@ -48,6 +48,7 @@ Paradigmas de Resolução de Problemas
     1. [Maior Subsequência Crescente](slides/lis/lis.pdf)
         1. [SPOJ ELIS - _Easy Longest Increasing Subsequence_](problems/SPOJ_ELIS/SPOJ_ELIS.pdf)
         1. [OJ 10051 - _Tower of Cubes_](problems/OJ_10051/OJ_10051.pdf)
+        1. [CF 340D - _Bubble Sort Graph_](problems/CF_340D/CF_340D.pdf)
     1. [Problema do Caixeiro Viajante](slides/tsp/tsp.pdf) ([problemas resolvidos](problems/tsp/tsp.pdf))
 
 <!---

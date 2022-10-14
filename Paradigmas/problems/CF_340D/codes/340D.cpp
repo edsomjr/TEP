@@ -8,7 +8,6 @@ int solve(int N, const vector<int>& as)
 {
     vector<int> lis(N + 1, oo);
     lis[0] = 0;
-
     auto ans = 0;
 
     for (int i = 0; i < N; ++i)
@@ -35,9 +34,7 @@ int main()
     for (int i = 0; i < N; ++i)
         cin >> as[i];
 
-    auto ans = solve(N, as);
-
-    cout << ans << '\n';
+    cout <<  solve(N, as) << '\n';
 
     return 0;
 }
