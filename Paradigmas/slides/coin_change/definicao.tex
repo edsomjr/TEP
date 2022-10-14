@@ -13,7 +13,7 @@
         \]
         e que a soma
         \[
-            \sum_{i = 1}^N x_i
+            S = \sum_{i = 1}^N x_i
         \] seja mínima.
     \end{block}
 
@@ -41,7 +41,7 @@
 
     \begin{itemize}
         \item O algoritmo guloso para o problema do troco escolhe, dentre as moedas, a maior delas
-            ($c_k$) que é menor ou igual a $M$
+            que é menor ou igual a $M$ (assuma que esta seja a moeda $c_k$)
 
         \item Em seguida, ele atribui a $x_k$ o valor $M/c_k$ e subtrai de $M$ o valor $x_kc_k$
 
@@ -56,7 +56,7 @@
 \input{greedy_view}
 
 \begin{frame}[fragile]{Implementação do algoritmo guloso para o problema do troco}
-    \inputsnippet{cpp}{1}{18}{codes/greedy.cpp}
+    \inputsnippet{cpp}{1}{17}{codes/greedy.cpp}
 \end{frame}
 
 \begin{frame}[fragile]{Implementação do algoritmo guloso para o problema do troco}
@@ -107,7 +107,7 @@
 \end{frame}
 
 \begin{frame}[fragile]{Algoritmo de programação dinâmica para o problema do troco}
-    \inputsnippet{cpp}{1}{21}{codes/cc.cpp}
+    \inputsnippet{cpp}{1}{20}{codes/cc.cpp}
 \end{frame}
 
 \begin{frame}[fragile]{Algoritmo de programação dinâmica para o problema do troco}
@@ -134,7 +134,7 @@
 \end{frame}
 
 \begin{frame}[fragile]{Implementação {\it bottom-up} para o problema do troco}
-    \inputsnippet{cpp}{1}{21}{codes/cc_bu.cpp}
+    \inputsnippet{cpp}{1}{20}{codes/cc_bu.cpp}
 \end{frame}
 
 \begin{frame}[fragile]{Implementação {\it bottom-up} para o problema do troco}

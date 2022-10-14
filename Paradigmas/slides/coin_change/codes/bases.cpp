@@ -36,8 +36,7 @@ int min_counterexample(int N, const vector<int>& xs)
 
     int ans = oo;
 
-    for (int i = N - 2; i >= 0; --i)
-    {
+    for (int i = N - 2; i >= 0; --i) {
         auto g = greedy(xs[i] - 1, N, xs);
         vector<int> M(N, 0);
 
