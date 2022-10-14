@@ -1,0 +1,117 @@
+%\section{OJ 166 -- Making Change}
+
+\begin{frame}[fragile]{Problema}
+
+Given an amount of money and unlimited (almost) numbers of coins (we will ignore notes for this
+problem) we know that an amount of money may be made up in a variety of ways. A more interesting
+problem arises when goods are bought and need to be paid for, with the possibility that change may
+need to be given. Given the finite resources of most wallets nowadays, we are constrained in the number
+of ways in which we can make up an amount to pay for our purchases -- assuming that we can make
+up the amount in the first place, but that is another story.
+
+\end{frame}
+
+\begin{frame}[fragile]{Problema}
+
+The problem we will be concerned with will be to minimise the number of coins that change hands
+at such a transaction, given that the shopkeeper has an adequate supply of all coins. (The set of
+New Zealand coins comprises $5c, 10c, 20c, 50c, \$1$ and $\$2$.) Thus if we need to pay $55c$, and
+we do not hold a $50c$ coin, we could pay this as $2\times 20c + 10c + 5c$ to make a total of $4$
+coins. If we tender $\$1$ we will receive $45c$ in change which also involves $4$ coins, but if we
+tender $\$1.05 (\$1 + 5c)$, we get $50c$ change and the total number of coins that changes hands is
+only $3$.
+
+Write a program that will read in the resources available to you and the amount of the purchase
+and will determine the minimum number of coins that change hands.
+
+\end{frame}
+
+\begin{frame}[fragile]{Entrada e saída}
+
+\textbf{Input}
+
+Input will consist of a series of lines, each line defining a different situation. Each line will
+consist of $6$ integers representing the numbers of coins available to you in the order given
+above, followed by a real number representing the value of the transaction, which will always be
+less than $\$5.00$. The file will be terminated by six zeroes $(0\ 0\ 0\ 0\ 0\ 0)$. The total value
+of the coins will always be sufficient to make up the amount and the amount will always be
+achievable, that is it will always be a multiple of $5c$.
+
+\vspace{0.1in}
+
+\textbf{Output}
+
+Output will consist of a series of lines, one for each situation defined in the input. Each line
+will consist of the minimum number of coins that change hands right justified in a field $3$
+characters wide.
+
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de entradas e saídas}
+
+\begin{minipage}[t]{0.45\textwidth}
+\textbf{Sample Input}
+\begin{verbatim}
+2 4 2 2 1 0 0.95
+2 4 2 0 1 0 0.55
+0 0 0 0 0 0
+\end{verbatim}
+\end{minipage}
+\begin{minipage}[t]{0.5\textwidth}
+\textbf{Sample Output}
+\begin{verbatim}
+  2
+  3
+\end{verbatim}
+\end{minipage}
+\end{frame}
+
+\begin{frame}[fragile]{Solução $O(NM)$}
+
+   \begin{itemize}
+        \item Seja $m \geq C$ a quantidade paga ao caixa, onde $C$ é o valor da conta, em centavos
+
+        \item Defina $G(m, xs)$ como o número mínimo de moedas utilizadas para pagar $m$ usando
+            $xs$, onde
+        \[
+            xs = \{ x_1, x_2, \ldots, x_N \}
+        \]
+        e $x_i$ é o número de moedas disponíveis do tipo $c_i$
+    
+        \item Para o cidadão $xs$ é dado na entrada
+
+        \item Para o caixa, $xs = ys$, com $y_i = \infty$ para todo $i\in [1, N]$
+
+        \item Caso não seja possível dar um troco para $m$ usando $xs$, faça $G(m, xs) = \infty$
+   \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Solução $O(NM)$}
+
+    \begin{itemize}
+        \item Quando o cidadão paga $m$ ao caixa, ele recebe $C - m$ de troco
+
+        \item Utilizando a notação descrita, a solução $S$ do problema é dada por
+        \[
+            S = \min_i\{ G(C + 5i, xs) + G(5i, ys) \},
+        \]
+        onde $i\in [0, (M - C)/5]$ e $M$ é o maior valor possível para a conta
+
+        \item Como $G(m, xs)$ tem complexidade $O(N)$, a solução proposta tem complexidade 
+            $O(NM)$ por caso de teste
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Solução $O(NM)$}
+    \inputsnippet{cpp}{1}{20}{codes/166.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Solução $O(NM)$}
+    \inputsnippet{cpp}{22}{41}{codes/166.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Solução $O(NM)$}
+    \inputsnippet{cpp}{43}{63}{codes/166.cpp}
+\end{frame}
