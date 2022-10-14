@@ -45,7 +45,8 @@ Paradigmas de Resolução de Problemas
     1. [Problema da Mochila Binária](slides/knapsack/knapsack.pdf)
         1. [SPOJ WACHOVIA - _Wachovia Bank_](problems/SPOJ_WACHOVIA/SPOJ_WACHOVIA.pdf)
         1. [OJ 990 - _Diving for Gold_](problems/OJ_990/OJ_990.pdf)
-    1. [Maior Subsequência Crescente](slides/lis/lis.pdf) ([problemas resolvidos](problems/lis/lis.pdf))
+    1. [Maior Subsequência Crescente](slides/lis/lis.pdf)
+        1. [SPOJ ELIS - _Easy Longest Increasing Subsequence_](problems/SPOJ_ELIS/SPOJ_ELIS.pdf)
     1. [Problema do Caixeiro Viajante](slides/tsp/tsp.pdf) ([problemas resolvidos](problems/tsp/tsp.pdf))
 
 <!---

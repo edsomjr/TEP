@@ -1,0 +1,81 @@
+%\section{SPOJ ELIS -- Easy Longest Increasing Subsequence}
+
+\begin{frame}[fragile]{Problema}
+
+Given a list of numbers $A$ output the length of the longest increasing subsequence. An 
+increasing subsequence is defined as a set $\{i_0, i_1, i_2, i_3, \ldots, i_k\}$ such that 
+$0 \leq i_0 < i_1 < i_2 < i_3 < \ldots < i_k < N$ and $A[i_0] < A[i_1] < A[i_2] < \ldots < 
+A[i_k]$. A longest increasing subsequence is a subsequence with the maximum $k$ (length).
+
+I.e. in the list $\{33 , 11 , 22 , 44\}$ the subsequence $\{33 , 44\}$ and $\{11\}$ are
+increasing subsequences while $\{11 , 22 , 44\}$ is the longest increasing subsequence.
+
+\end{frame}
+
+\begin{frame}[fragile]{Entrada e saída}
+
+\textbf{Input}
+
+First line contain one number $N$ ($1\leq N\leq 10$) the length of the list $A$.
+
+Second line contains $N$ numbers ($1 \leq$ each number $\leq 20$), the numbers in the list $A$
+separated by spaces.
+
+\vspace{0.2in}
+
+\textbf{Output}
+
+One line containing the lenght of the longest increasing subsequence in $A$.
+
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de entradas e saídas}
+
+\begin{minipage}[t]{0.45\textwidth}
+\textbf{Sample Input}
+\begin{verbatim}
+5
+1 4 2 4 3
+\end{verbatim}
+\end{minipage}
+\begin{minipage}[t]{0.5\textwidth}
+\textbf{Sample Output}
+\begin{verbatim}
+3
+\end{verbatim}
+\end{minipage}
+
+\end{frame}
+
+\begin{frame}[fragile]{Solução $O(N^2)$}
+
+    \begin{itemize}
+        \item O título do problema não é um engodo: os limites do problema são tão pequenos
+            que permitem mesmo uma solução de busca completa, avaliando todas as $2^N$
+            subsequências de $A$ possíveis
+
+        \item Uma solução de fácil codificação é a implementação $O(N^2)$ da LIS
+
+        \item Nela, o estado $lis(i)$ corresponde ao tamanho da maior subsequência crescente
+            que termina no elemento $a_i$
+
+        \item O caso baso acontece quando $i = 1$ ($lis(1) = 1$)
+
+        \item A transição é linear: todos os elementos $a_j$ anteriores ($j < i$) devem
+            ser avaliados
+
+        \item Assim,
+        \[
+            lis(i) = \max\{ lis(j) + 1, 1 \}, \ \ \ \mbox{para todos}\ j < i\ \mbox{tais que}\  a_j < a_i
+        \]
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Solução $O(N^2)$}
+    \inputsnippet{cpp}{1}{19}{codes/ELIS.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Solução $O(N^2)$}
+    \inputsnippet{cpp}{21}{41}{codes/ELIS.cpp}
+\end{frame}
