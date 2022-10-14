@@ -17,7 +17,6 @@ pair<int, vector<int>> solve(int T, int W, int N, vector<ii>& cs)
         {
             st[i][t] = st[i - 1][t];
             ps[i][t] = 0;
-
             auto [d, v] = cs[i];
 
             if (d <= t and st[i - 1][t - d] + v > st[i][t])
@@ -33,8 +32,7 @@ pair<int, vector<int>> solve(int T, int W, int N, vector<ii>& cs)
 
     for (int i = N; i >= 1; --i)
     {
-        if (ps[i][t])
-        {
+        if (ps[i][t]) {
             is.push_back(i);
             t -= cs[i].first;
         }
