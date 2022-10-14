@@ -42,7 +42,8 @@ Paradigmas de Resolução de Problemas
         1. [OJ 147 - _Dollars_](problems/OJ_147/OJ_147.pdf)
         1. [OJ 166 - _Making Change_](problems/OJ_166/OJ_166.pdf)
         1. [CF 10E - _Greedy Change_](problems/CF_10E/CF_10E.pdf)
-    1. [Problema da Mochila Binária](slides/knapsack/knapsack.pdf) ([problemas resolvidos](problems/knapsack/knapsack.pdf))
+    1. [Problema da Mochila Binária](slides/knapsack/knapsack.pdf)
+        1. [SPOJ WACHOVIA - _Wachovia Bank_](problems/SPOJ_WACHOVIA/SPOJ_WACHOVIA.pdf)
     1. [Maior Subsequência Crescente](slides/lis/lis.pdf) ([problemas resolvidos](problems/lis/lis.pdf))
     1. [Problema do Caixeiro Viajante](slides/tsp/tsp.pdf) ([problemas resolvidos](problems/tsp/tsp.pdf))
 
