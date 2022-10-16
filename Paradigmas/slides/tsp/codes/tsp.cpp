@@ -25,8 +25,7 @@ int tsp(int i, int mask, int N)
         res = min(res, tsp(j, mask | (1 << j), N) + dist[i][j]);
     }
 
-    st[i][mask] = res;
-    return res;
+    return (st[i][mask] = res);
 }
 
 int main()

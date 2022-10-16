@@ -9,7 +9,7 @@
 
         \item Pode-se observar que o TSP tem subproblemas repetidos: as permutações 
             $v_1v_2v_3\ldots v_N$ e $v_2v_1v_3\ldots v_N$, por exemplo, compartilham um caminho
-            composto por $N - 2$ vértices (a saber, $v_3v_4\ldots v_N$
+            composto por $N - 2$ vértices (a saber, $v_3v_4\ldots v_N$)
 
         \item Ele também tem subestrutura ótima, de modo que é um candidato natural a uma solução
             de programação dinâmica
@@ -63,5 +63,5 @@
 \end{frame}
 
 \begin{frame}[fragile]{Implementação {\it top-down} do TSP}
-    \inputsnippet{cpp}{10}{30}{codes/tsp.cpp}
+    \inputsnippet{cpp}{10}{29}{codes/tsp.cpp}
 \end{frame}

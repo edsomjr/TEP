@@ -8,10 +8,10 @@
         todos $i\neq j$, o problema do caixeiro viajante (\textit{travelling salesman problem} --
         TSP) é determinar uma travessia
         \[
-            s = v_{i_1}, v_{i_2}, \ldots, v_{i_N}, s
+            t = s, v_{i_2}, v_{i_3}, \ldots, v_{i_{N}}, s
         \]
-        que tenha início no vértice $s$ qualquer, passe por todos os demais uma única vez e retorne
-        a $s$ com custo 
+        que tenha início em um vértice $v_{i_1} = s$ qualquer, passe por todos os demais uma única vez e retorne
+        a $v_{i_{N +1}} = s$ com custo 
         \[
             C = \sum_{k = 1}^N w(v_{i_k}, v_{i_{k + 1}})
         \]
@@ -33,7 +33,7 @@
             $w(v_i, v_j) = \infty$
 
         \item A travessia corresponde a uma permutação dos $N$ vértices de $G$, sendo a única
-            diferença a duplicação do primeiro vértice ao final da travessia
+            diferença a duplicação do primeiro vértice no final da travessia
 
         \item Na teoria dos grafos, tal travessia é denonimada um ciclo hamiltoniano, ou seja,
             um caminho cíclico que passa por todos os vértices uma única vez
