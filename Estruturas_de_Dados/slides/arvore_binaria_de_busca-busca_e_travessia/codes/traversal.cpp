@@ -12,8 +12,7 @@ private:
 
     void preorder(Node *node, function<void(Node *)>& visit)
     {
-        if (node)
-        {
+        if (node) {
             visit(node);
             preorder(node->left, visit);
             preorder(node->right, visit);
