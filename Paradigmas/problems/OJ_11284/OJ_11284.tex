@@ -1,0 +1,158 @@
+%\section{OJ 11284 -- Shopping Trip}
+
+\begin{frame}[fragile]{Problema}
+
+For some reason, Daniel loves to collect and watch operas on DVD. He can find and order all the 
+operas he wants from Amazon, and they will even deliver them right to his door, but he can usually 
+find a better price at one of his favourite stores. However, with the cost of gas nowadays, it is 
+hard to tell whether or not one would actually save money by driving to the stores to purchase the 
+DVDs.
+
+Daniel would like to buy some operas today. For each of the operas he wants, he knows exactly
+one store that is selling it for a lower cost than the Amazon price. He would like to know if it 
+would actually be worth it to go out and buy the operas from the stores.
+
+Daniel only knows the road system connecting his favourite stores, and will only use those roads to
+get around. He knows at least one route, if only an indirect one, to every store.
+
+\end{frame}
+
+\begin{frame}[fragile]{Problema}
+
+In his shopping trip, Daniel begins at his house, drives from store to store in any order to 
+purchase his operas, then drives back to his house. For any particular opera, he can opt not to 
+drive to the store to buy it, since he can just order it from Amazon.
+
+For convenience, Daniel assigned his house the integer 0, and numbered each of his favourite stores
+with integers starting at 1. You are given a description of the road system and the exact amount it
+would cost for Daniel to drive each road. For each opera Daniel wants, you are given the number of 
+the store it is available at, and the amount he would save if he bought that particular opera at 
+that store.  Your task is to determine the greatest amount of money Daniel can save by making the 
+shopping trip.
+
+\end{frame}
+
+\begin{frame}[fragile]{Entrada e saída}
+
+\textbf{Input}
+
+The first line of input contains a single number indicating the number of scenarios to process. A 
+blank line precedes each scenario.
+
+Each scenario begins with line containing two numbers: $N$ ($1\leq N\leq 50$), the number of 
+stores, and $M$ ($1\leq M\leq 1000$), the number of roads. The following $M$ lines each contain a 
+description of a road.  Each road is described by two integers indicating the house or stores it 
+connects, and a real number with two decimal digits indicating the cost in dollars to drive that 
+road. All roads are two-way.
+
+The next line in the scenario contains a number $P$ ($1\leq P\leq 12$), the number of opera DVDs 
+Daniel wants to buy. For each of the $P$ operas, a line follows containing an integer indicating 
+the store number at which the opera is available, and a real number with two decimal digits 
+indicating the difference between the Amazon price and the price at that store in dollars.
+
+\end{frame}
+
+\begin{frame}[fragile]{Entrada e saída}
+
+\textbf{Output}
+
+For each scenario in the input, write one line of output indicating the largest amount of money, in
+dollars and cents, that Daniel can save by making his shopping trip. Follow the format of the 
+sample output; there should always be two digits after the decimal point to indicate the number of 
+cents. If Daniel cannot save any money by going to the stores, output a single line saying 
+`\texttt{Don’t leave the house}'.
+
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de entradas e saídas}
+
+\begin{footnotesize}
+\begin{minipage}[t]{0.45\textwidth}
+\textbf{Sample Input}
+\begin{verbatim}
+2
+
+4 5
+0 1 1.00
+1 2 3.00
+1 3 2.00
+2 4 4.00
+3 4 3.25
+3
+2 1.50
+3 7.00
+4 9.00
+
+1 1
+0 1 1.50
+1
+1 2.99
+\end{verbatim}
+\end{minipage}
+\begin{minipage}[t]{0.5\textwidth}
+\textbf{Sample Output}
+\begin{verbatim}
+Daniel can save $3.50
+Don’t leave the house
+\end{verbatim}
+\end{minipage}
+\end{footnotesize}
+\end{frame}
+
+\begin{frame}[fragile]{Solução}
+
+    \begin{itemize}
+        \item O problema pode ser modelado como um TSP
+
+        \item A travessia deve ser formada pelas lojas que vendem os DVDs desejados
+
+        \item Como o grafo da entrada não é completo, as distâncias mínimas entre quaisquer duas
+            lojas podem ser computada por meio do algoritmo de Floyd-Warshall
+
+        \item Dois pontos importantes: primeiramente, existe a possibilidade de se adquirir
+            apenas alguns, ou até mesmo nenhum DVD
+
+        \item O custo de viagem entre as lojas e o ganho na compra dos DVDs devem ter sinais
+            opostos, e a escolha destes sinais pode modificar a atualização dos estados
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Solução}
+
+    \begin{itemize}
+        \item Há uma série de cuidados a serem tomados para obter uma solução AC
+
+        \item Embora não fique claro na descrição da entrada, o grafo do problema não é 
+            simples, podendo acontecer \textit{loops} e multiarestas
+
+        \item Assim, para cada par de vértices deve ser mantida apenas o menor custo possível
+
+        \item Os \textit{loops} devem ser eliminados, isto é, $dist(u, u) = 0$ para todo 
+            $u\in [0, N]$
+        
+        \item Para evitar erros de precisão, o ideal é trabalhar com múltiplos de centavos,
+            postergando a conversão para dólares para o momento da impressão
+   \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Solução $O(N^3 + P^22^P)$}
+    \inputsnippet{cpp}{1}{20}{codes/11284.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Solução $O(N^3 + P^22^P)$}
+    \inputsnippet{cpp}{22}{41}{codes/11284.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Solução $O(N^3 + P^22^P)$}
+    \inputsnippet{cpp}{43}{62}{codes/11284.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Solução $O(N^3 + P^22^P)$}
+    \inputsnippet{cpp}{64}{82}{codes/11284.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Solução $O(N^3 + P^22^P)$}
+    \inputsnippet{cpp}{84}{105}{codes/11284.cpp}
+\end{frame}
