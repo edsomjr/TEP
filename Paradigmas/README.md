@@ -51,6 +51,7 @@ Paradigmas de Resolução de Problemas
         1. [CF 340D - _Bubble Sort Graph_](problems/CF_340D/CF_340D.pdf)
     1. [Problema do Caixeiro Viajante](slides/tsp/tsp.pdf)
         1. [OJ 11284 - _Shopping Trip_](problems/OJ_11284/OJ_11284.pdf)
+        1. [SPOJ COURIER - _The Courier_](problems/SPOJ_COURIER/SPOJ_COURIER.pdf)
 
 <!---
 Busca completa:

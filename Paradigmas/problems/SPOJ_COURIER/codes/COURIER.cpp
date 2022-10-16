@@ -52,8 +52,7 @@ void floyd_warshall(int N, const vector<vector<ii>>& adj)
                 dist[u][v] = min(dist[u][v], dist[u][k] + dist[k][v]);
 }
 
-int
-solve(int N, int B, const vector<vector<ii>>& adj, const vector<ii>& xs)
+int solve(int N, int B, const vector<vector<ii>>& adj, const vector<ii>& xs)
 {
     floyd_warshall(N, adj);
 
@@ -68,15 +67,13 @@ int main()
     int T;
     cin >> T;
 
-    while (T--)
-    {
+    while (T--) {
         int N, M, B;
         cin >> N >> M >> B;
 
         vector<vector<ii>> adj(N + 1);
 
-        while (M--)
-        {
+        while (M--) {
             int u, v, d;
             cin >> u >> v >> d;
 
