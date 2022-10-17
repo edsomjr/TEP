@@ -17,7 +17,6 @@ ll gcd(ll a, ll b)
 string stern_brocot(const ii& n)
 {
     ii m(1, 1), L(0, 1), R(1, 0);
-
     ostringstream os;
 
     while (m != n)
@@ -33,7 +32,6 @@ string stern_brocot(const ii& n)
         }
 
         m = ii(L.first + R.first, L.second + R.second);
-
         ll d = gcd(m.first, m.second);
         m.first /= d;
         m.second /= d;
