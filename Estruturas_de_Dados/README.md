@@ -23,6 +23,7 @@ Estruturas de Dados
     1. [Árvores Binárias de Busca: Inserção e Remoção](slides/arvore_binaria_de_busca-insercao_e_remocao/arvore_binaria_de_busca-insercao_e_remocao.pdf)
     1. [Árvores Binárias de Busca: Busca e Travessia](slides/arvore_binaria_de_busca-busca_e_travessia/arvore_binaria_de_busca-busca_e_travessia.pdf)
         1. [BEE 1195 - Árvore Binária de Busca](problems/BEE_1195/BEE_1195.pdf)
+        1. [BEE 1466 - Percurso em Árvore por Nível](problems/BEE_1466/BEE_1466.pdf)
     1. [Árvores Binárias de Busca: Balanceamento](slides/TR-4/TR-4.pdf)
     1. [Árvores _Red-Black_: Definição e Inserção](slides/TR-5/TR-5.pdf)
     1. [Árvores _Red-Black_: Remoção](slides/TR-6/TR-6.pdf)
