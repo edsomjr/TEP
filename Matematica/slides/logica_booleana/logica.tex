@@ -1,0 +1,140 @@
+\section*{Lógica Proposicional Booleana}
+
+\begin{frame}[fragile]{Termos primitivos e axiomas}
+
+A Lógica Proposicional Booleana é construída a partir de dois axiomas fundamentais, que relaciona os termos primitivos \textbf{proposição},
+\textbf{verdadeiro} e \textbf{falso}:
+
+\begin{enumerate}
+    \item \textbf{Princípio do Terceiro Excluído}: toda proposição ou é verdadeira ou é falsa;
+    \item \textbf{Princípio da Não Contradição}: uma proposição não poder ser, simultaneamente, verdadeira e falsa.
+\end{enumerate}
+
+\end{frame}
+
+\begin{frame}[fragile]{Proposições simples e compostas}
+
+    \begin{itemize}
+        \item As proposições são representadas por letras minúsculas (por exemplo, $p, q, r, \ldots$)
+
+        \item Duas ou mais proposições simples podem ser combinadas por meio de conectivos lógicos para formar proposições compostas 
+
+        \item Proposições compostas são representadas por letras maiúsculas (por exemplo, $P, Q, R, \ldots$)
+
+        \item Proposições compostas também podem ser combinadas por meio de conectivos lógicos, formando novas proposições compostas
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Conectivos lógicos}
+
+    \begin{table}[h]
+    \centering
+
+    \begin{tabularx}{0.9\textwidth}{lcX}
+        \toprule
+        \textbf{Conectivo} & \textbf{Notação} & \textbf{Valor lógico} \\
+        \midrule
+        Conjunção (e) & $p \land q$ & verdadeira apenas quando ambas $p$ e $q$ são verdadeiras\\
+        \rowcolor[gray]{0.9}
+        Disjunção (ou) & $p \lor q$ & falsa apenas quando ambas $p$ e $q$ são falsas\\
+        Disjunção exclusiva (\textit{xor}) & $p \veebar q$ & verdadeira apenas quando $p$ e $q$ tem valores lógicos opostos \\
+        \rowcolor[gray]{0.9}
+        Condicional (se, então) & $p \to q$ & falsa apenas quando $p$ é verdadeira e $q$ é falsa\\
+        Bicondicional (se, e somente se) & $p \leftrightarrow q$ & verdadeira apenas quando $p$ e $q$ tem mesmo valor lógico\\
+        \rowcolor[gray]{0.9}
+        Negação (não) & $\lnot p$ & inverte o valor lógico de $p$\\
+        \bottomrule
+    \end{tabularx}
+    \end{table}
+
+\end{frame}
+
+\begin{frame}[fragile]{Leis de Morgan}
+
+    \metroset{block=fill}
+    \begin{block}{Teorema}
+        Sejam $p$ e $q$ duas proposições. Vale que
+        $$
+            \lnot (p \land q) = \lnot p\ \lor \lnot q
+        $$
+        e que
+        $$
+            \lnot (p \lor q) = \lnot p\ \land \lnot q
+        $$
+    \end{block}
+
+\end{frame}
+
+\begin{frame}[fragile]{Lógica Booleana em C e C++}
+
+    \begin{itemize}
+        \item As linguagens C e C++ tem, em sua sintaxe, operadores lógicos relacionais, que representam os conectivos lógicos
+
+        \item Também há suporte para operadores lógicos \textit{bit}-a-\textit{bit}, que aplicam cada operação lógica aos pares de \textit{bits} correspondentes 
+
+        \item Importante notar que, embora a linguagem C++ tenha um tipo de dado booleano, ambas linguagens interpretam como verdadeiro qualquer valor inteiro 
+            diferente de zero, e o zero como falso
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Operadores lógicos em C/C++}
+
+    \begin{table}[h]
+    \centering
+
+    \begin{tabular}{lccc}
+        \toprule
+        \textbf{Operador} & \textbf{Aridade} & \textbf{Símbolo em C} & \textbf{Palavra reservada em C++} \\
+        \midrule
+            e      &    binário   &   \code{c}{&&}       &         \code{cpp}{and} \\
+        \rowcolor[gray]{0.9}
+            ou     &    binário   &   \code{c}{||}     &         \code{cpp}{or}\\
+           não     &    unário    &   \code{c}{!}        &         \code{cpp}{not} \\
+       \bottomrule
+    \end{tabular}
+    \end{table}
+
+\end{frame}
+
+\begin{frame}[fragile]{Operadores lógicos em C/C++}
+
+    \begin{itemize}
+        \item Observe que apenas 3 dos conectivos lógicos tem símbolos ou palavras reservadas equivalentes em C e C++
+
+        \item Isto se dá porque é possível, a partir destes três, definir quaisquer um dos demais conectivos
+
+        \item Por exemplo, $p \to q$ é logicamente equivalente a $\lnot p \lor q$
+
+        \item Os operadores binários são curto-circuito: se o valor lógico da primeira proposição é suficiente para definir o valor da expressão, a segunda proposição não é avaliada
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Operadores {\it bit}-a-{\it bit} em C/C++}
+
+    \begin{table}
+        \centering
+
+    \begin{tabular}{lcc}
+        \toprule
+        \textbf{Operador} & \textbf{Aridade} & \textbf{Símbolo} \\
+        \midrule
+    e               &  binário  &    \code{c}{&}  \\
+        \rowcolor[gray]{0.9}
+    ou              &  binário  &    \code{c}{|} \\
+    ou exclusivo    &  binário  &    \code{c}{^}  \\
+        \rowcolor[gray]{0.9}
+    não             &  unário   &    \code{c}{~}  \\
+       \bottomrule
+    \end{tabular}
+    \end{table}
+
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de operadores {\it bit}-a-{\it bit} em C/C++}
+
+    \inputcode{cpp}{codes/example.cpp}
+
+\end{frame}
