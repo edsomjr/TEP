@@ -1,0 +1,236 @@
+\section*{Teoria dos Conjuntos}
+
+\begin{frame}[fragile]{Axioma Fundamental}
+
+O principal axioma da Teoria dos Conjuntos, que relaciona os termos primitivos \textbf{elemento} e \textbf{conjunto}, diz que a afirmação ``um elemento pertence a um conjunto'' é uma proposição.
+
+\vspace{0.2in}
+
+A simplicidade aparente deste axioma esconde dois importante fatos:
+\begin{enumerate}
+    \item a pertinência estabelece a relação entre elementos e conjuntos: dado um elemento e um conjunto quaisquer, este elemento pertence (ou não) ao conjunto
+    \item a Teoria dos Conjuntos fica edificada sobre a Lógica Proposicional Booleana, uma vez que o que vale para proposições valerá para este axioma também
+\end{enumerate}
+
+\end{frame}
+
+\begin{frame}[fragile]{Notação}
+
+    \begin{itemize}
+        \item Em geral, elementos são representados por letras minúsculas ou símbolos (por exemplo, $a, b, x, \pi, \ldots$)
+
+        \item Os conjuntos são representados, em geral, por letras maiúsculas, possivelmente cursivas ou estilizadas (por exemplo, $A, B, \mathbb{N}, \mathcal{F}, \ldots$)
+
+        \item A notação $x\in A$ indica que o elemento $x$ pertence ao conjunto $A$
+
+        \item Caso $x$ não pertença ao conjunto $A$, a notação é $x\not\in A$
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Subconjuntos}
+
+    \begin{itemize}
+        \item Um conjunto $B$ é \textbf{subconjunto} do conjunto $A$ se, para qualquer elemento $b\in B$, vale que $b\in A$
+
+        \item A notação para subconjuntos é $B\subset A$, a qual também pode ser lida como ``$B$ está contido em $A$''
+
+        \item Dizer que ``o elemento $x$ está contido no conjunto $A$'' ou que ``o conjunto $A$ pertence ao conjunto $B$'' não só é impreciso como é logicamente falso
+
+        \item A relação de pertinência se dá entre conjuntos e elementos
+
+        \item A relação de subconjunto, associada ao termo ``contido'', se dá entre conjuntos
+
+        \item Elementos se relacionam entre si por relação de igualdade
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{O Conjunto Vazio}
+
+    \begin{itemize}
+        \item O axioma fundamental permite definir precisamente um conjunto especial, denominado \textbf{conjunto vazio}
+
+        \item $\emptyset$ é o conjunto vazio se, para qualquer elemento $x$, $x\not\in \emptyset$
+
+        \item Veja que esta definição não é baseada na ideia de cardinalidade (número de elementos de um conjunto)
+
+        \item Ainda assim, ela permite provar fatos importantes, como o fato de que o conjunto vazio é único ou que qualquer conjunto contém o conjunto vazio
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Caracterização de Conjuntos}
+
+Duas possíveis formas de se caracterizar um conjunto são:
+
+\begin{enumerate}
+    \item a enumeração de todos os seus elementos
+    \item descrição das propriedades comuns a todos os elementos do conjunto
+\end{enumerate}
+
+
+\vspace{0.2in}
+Formalmente, se $P(x)$ é uma sentença aberta em $x$ (isto é, uma sentença tal que, uma vez atribuído um valor específico para a variável $x$, tal sentença se torna uma proposição), então
+\[
+    \{\ x\in X\ |\ P(x)\ \mbox{é verdadeira}\ \}
+\]
+é um conjunto, onde $X$ é o conjunto de  todos os possíveis valores de $x$.
+
+\end{frame}
+
+\begin{frame}[fragile]{Exemplos de conjuntos}
+
+    \begin{enumerate}
+        \item Conjunto de constantes notáveis
+$$
+    C = \{\ e, \pi, 0, -1\ \}
+$$
+
+        \item Conjunto dos números ímpares
+$$
+    I = \{\ 2x + 1 \ |\ x\in \mathbb{Z}\ \}
+$$
+
+        \item Conjunto dos números primos
+$$
+    P = \{\ p\in \mathbb{N}\ |\ p\ \mbox{é primo}\ \}
+$$
+    \end{enumerate}
+
+\end{frame}
+
+\begin{frame}[fragile]{Operações em Conjuntos}
+
+Dados dois conjuntos $A$ e $B$, é possível definir três novos conjuntos:
+
+    \begin{enumerate}
+        \item conjunto \textbf{união} $A \cup B = \{\ x\ |\ x \in A\  \lor\  x\in B\ \}$
+        \item conjunto \textbf{interseção} $A \cap B = \{\ x \ |\ x \in A\  \land\  x \in B\ \}$
+        \item conjunto \textbf{diferença} $A - B = \{\ x \in A \ |\ x \not\in B\ \}$
+    \end{enumerate}
+
+\end{frame}
+
+\begin{frame}[fragile]{Operações em Conjuntos}
+
+Observe que as três operações em conjuntos são definidas em termos dos conectivos lógicos fundamentais: 
+
+    \begin{itemize}
+        \item disjunção (união),
+        \item conjunção (interseção), e
+        \item negação (diferença).
+    \end{itemize}
+
+\vspace{0.2in}
+
+Esta relação permite a verificação das propriedades destes operadores e a relação entre eles (como o equivalente das Leis de Morgan para união e interseção).
+
+\end{frame}
+
+\begin{frame}[fragile]{Conjuntos em C/C++}
+
+    \begin{itemize}
+        \item Há três maneiras de se representar conjuntos em C e C++: as classes \code{c}{set}, \code{c}{multiset} e \code{c}{bitset}, e o tipo primitivo 
+            \code{c}{int}, sendo que a última representação também é válida em C
+
+        \item A biblioteca padrão do C++ traz a implementação da classe \code{c}{set} (\mintinline{cpp}{#include <set>}), que abstrai a ideia de conjuntos
+
+        \item Esta classe provê operações elementares como inserção e remoção de elementos, através dos métodos \code{cpp}{insert()} e \code{cpp}{erase()}, ou
+            relações de pertinência, com o método \code{cpp}{count()}
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Conjuntos em C/C++}
+
+    \begin{itemize}
+        \item Na classe \code{cpp}{set} os elementos são únicos e armazenados ordenadamente (uma travessia padrão é feita do menor para o maior elemento)
+
+        \item A classe \code{cpp}{multiset} permite a repetição de um mesmo elemento, porém o processo de remoção deve ser feito de forma mais cuidadosa
+
+        \item As operações de união, interseção e diferença de conjuntos podem ser feitas em qualquer contêiner ordenado, através das funções
+            \code{cpp}{set_union()}, \code{cpp}{set_intersection()} e \code{cpp}{set_difference()}, disponíveis na biblioteca de algoritmos
+            (\mintinline{cpp}{#include <algorithm>})
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de uso da classe \code{cpp}{set}}
+    \inputsnippet{cpp}{1}{19}{codes/set.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de uso da classe \code{cpp}{set}}
+    \inputsnippet{cpp}{21}{38}{codes/set.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Conjuntos e inteiros}
+
+    \begin{itemize}
+        \item O tipo de dados primitivo \code{cpp}{int} (ou sua variante \code{cpp}{long long}, com maior capacidade de armazenamento) também pode ser usado para
+            uma representação compacta e eficiente de conjuntos
+
+        \item Em geral o tipo \code{cpp}{int} tem 32 \textit{bits} de tamanho
+
+        \item É possível associar cada elemento do conjunto universo (que contém todos os elementos possíveis, numa quantidade menor ou igual a 32) a cada 
+            \textit{bit}, de modo que, se o \textit{bit} está ligado, o elemento pertence ao conjunto; se está desligado, o elemento não pertence ao conjunto
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Conjuntos e inteiros}
+
+        A principal restrição da representação de conjuntos por meio de inteiros é o número de elementos do conjunto universo (limitado pelo número de
+            \textit{bits} do tipo escolhido).
+
+\vspace{0.1in}
+
+        Contudo esta representação tem várias vantagens, dentre elas:
+
+\begin{enumerate}
+    \item ocupa pouco espaço em memória (4 \textit{bytes} a cada 32 elementos);
+    \item permite responder relações de pertinência em complexidade $O(1)$;
+    \item permite operações de união, interseção e diferença também em $O(1)$.
+\end{enumerate}
+
+\end{frame}
+
+\begin{frame}[fragile]{Conjuntos e inteiros}
+
+    \begin{itemize}
+        \item A última vantagem listada se dá por conta da definição de tais operações em termos dos conectivos lógicos
+
+        \item Lembre que as linguagens C e C++ disponibilizarem tais conectivos tanto em relação à variáveis booelanas quanto em versões \textit{bit} a 
+            \textit{bit}
+
+        \item A seguir o exemplo anterior é reescrito em termos desta nova representação
+
+        \item No código, considere o conjunto universo $U = \{1, 2, 3, \ldots, 32\}$
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de representação de conjuntos por meio de inteiros}
+    \inputsnippet{cpp}{1}{19}{codes/int.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de representação de conjuntos por meio de inteiros}
+    \inputsnippet{cpp}{19}{38}{codes/int.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Classe \code{cpp}{bitset}}
+
+    \begin{itemize}
+        \item Para conjuntos universos com mais de 32 elementos (ou 64, no caso de variáveis \code{cpp}{long long}), as alternativas são o uso ou de um vetor de
+            inteiros, ou da classe \code{cpp}{bitset} (\mintinline{cpp}{#include <bitset>})
+
+        \item Esta classe pode armazenar uma quantidade arbitrária de \textit{bits} (que deve ser conhecida em tempo de compilação)
+
+        \item Ela traz em sua interface as operações básicas dos conjuntos e suporte para os operadores lógicos \textit{bit} a \textit{bit}
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de uso da classe \code{cpp}{bitset}}
+    \inputsnippet{cpp}{1}{20}{codes/bitset.cpp}
+\end{frame}
