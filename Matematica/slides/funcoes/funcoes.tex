@@ -1,0 +1,179 @@
+\section*{Funções}
+
+\begin{frame}[fragile]{Produtos Cartesianos}
+
+    \metroset{block=fill}
+    \begin{block}{Definição}
+        Sejam $A$ e $B$ dois conjuntos.  O \textbf{produto cartesiano} de $A$ por $B$ é dado por
+$$
+A\times B = \{(a, b)\ |\ a \in A, b\in B\}
+$$
+    \end{block}
+
+    \vspace{0.2in}
+
+    \begin{itemize}
+        \item Em outras palavras, o produto cartesiano é o conjunto de todos os possíveis pares ordenados cujo primeiro elemento pertence a $A$ e o segundo pertence a $B$
+
+        \item Se $A$ tem $n$ elementos e $B$ tem $m$ elementos, o produto cartesiano terá $nm$ elementos distintos
+
+        \item Observe que se $A \neq B$ então $A\times B \neq B\times A$
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Relações}
+
+    \metroset{block=fill}
+    \begin{block}{Definição}
+        Sejam $A$ e $B$ dois conjuntos. Dizemos que $R$ é uma \textbf{relação} de $A$ em $B$ se $R \subset A\times B$, isto é, se $R$ é um subconjunto do
+            produto cartesiano de $A$ por $B$.
+    \end{block}
+
+    \vspace{0.2in}
+
+    \begin{itemize}
+        \item Se $|A| = n$ e $|B| = m$, existem $2^{nm}$ relações de $A$ em $B$
+
+        \item Se $(a,b) \in R$, dizemos que $a$ se relaciona com $b$
+
+        \item Observe que $(a, b)\in R$ não implica $(b, a)\in R$
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Funções}
+
+    \metroset{block=fill}
+    \begin{block}{Definição}
+
+        Uma relação $f\subset A\times B$ é uma \textbf{função} de $A$ em $B$ (e escrevemos $f: A \to B$) se os dois critérios abaixo forem atendidos:
+
+        \vspace{0.1in}
+
+        \begin{enumerate}
+            \item todo elemento $a$ de $A$ se relaciona com algum elemento $b$ de $B$;
+            \item cada elemento $a$ de $A$ está relacionado com um único elemento $b$ de $B$.
+        \end{enumerate}
+    \end{block}
+
+\end{frame}
+
+\begin{frame}[fragile]{Injeção, sobrejeção e bijeção}
+
+    \metroset{block=fill}
+    \begin{block}{Definição}
+        Uma função $f: A\to B$ é dita \textbf{injetora} se $f(a) = f(b)$ implica em $a = b$, isto é, cada elemento do conjunto $B$ está relacionado com um único elemento do conjunto $A$.
+
+        \vspace{0.1in}
+
+        Uma função $f$ é dita \textbf{sobrejetora} se, para qualquer elemento $b \in B$, existe um elemento $a \in A$ tal que $f(a) = b$, ou seja, cada elemento de $B$ está relacionado a pelo menos um elemento de $A$.
+
+        \vspace{0.1in}
+
+        Uma função que é, ao mesmo tempo, injetora e sobrejetora, é dita \textbf{bijetora}.
+    \end{block}
+
+\end{frame}
+
+\begin{frame}[fragile]{Função inversa}
+
+    \begin{itemize}
+        \item A classificação de uma função como injetora ou sobrejetora está relacionada diretamente aos dois critérios da definição de funções
+
+        \item Considere uma função $f: A\to B$ e seja $R\subset B\times A$ uma relação de $B$ em $A$ dada por 
+$$
+R = \{(b, a)\ |\ a\in A, b\in B, f(a) = b \}
+$$
+
+        \item Se a relação $R$ atender ao primeiro critério, então a função $f$ é sobrejetora; se atender o segundo critério, $f$ é injetora
+
+        \item Se a relação $R$ atende a ambos critérios, $R$ é uma função, denominada função \textbf{inversa} da função $f$
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Funções invertíveis}
+
+    \begin{itemize}
+        \item Uma função $f$ é invertível se ela for bijetora
+
+        \item A função inversa de $f: A\to B$, se existir, é grafada como $f^{-1}: B\to A$
+
+        \item Se for invertível, $f$ estabelece uma relação um-a-um entre os elementos de $A$ e $B$
+
+        \item Se $A$ e $B$ forem conjuntos finitos, então ambos terão o mesmo número de elementos
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Variáveis dependentes e independentes}
+
+    \begin{itemize}
+        \item Na notação $y = f(x)$, $x$ é a variável \textbf{independente} e $y$ é a variável \textbf{dependente}
+
+        \item Esta notação indica que $y$ é função de $x$, ou que $y$ depende de $x$
+
+        \item Isto significa que, conhecido o valor de $x$, é possível determinar o valor de $y$
+
+        \item Uma variável pode ser dependente de mais de uma variável
+
+        \item Por exemplo, área $A$ de um retângulo depende dos valores das medidas da base $b$ e da altura $h$ do retângulo, ou seja, $A = A(b, h)$
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Zeros de funções}
+
+    \begin{itemize}
+        \item Seja $f: A \to B$, onde $0$ (zero) pertence a $B$
+
+        \item Dizemos que $x\in A$ é um \textbf{zero} de $f$ em $A$ se $f(x) = 0$
+
+        \item Uma função pode não ter, ter finitos ou ter infinitos zeros
+
+        \item Exemplos:
+        \begin{enumerate}[(a)]
+            \item a função $f(x) = 1/x$ não tem zeros nos reais
+            \item o Teorema Fundamental da Álgebra diz que todo polinômio de grau $n$ tem $n$ raízes complexas
+            \item a função $f(x) = \mathrm{sen}(x)$ tem infinitos zeros nos reais: qualquer múltiplo inteiro de $2\pi$ é zero de $f$
+        \end{enumerate}
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Método da bisseção}
+
+    \begin{itemize}
+        \item Seja $f: \mathbb{R}\to \mathbb{R}$ é uma função contínua em um intervalo $I$ dos reais, isto é, para qualquer elemento $a\in I$, o limite de $f(x)$ quanto $x$ tende a $a$ existe e é igual a $f(a)$
+
+        \item Suponha que existam dois valores $a, b\in I$ tais que $f(a)f(b) < 0$, isto é, $f(a)$ e $f(b)$ tem sinais opostos
+
+        \item Nestas condições, o Teorema de Valor Intermediário garante que existe ao menos um valor $c \in (a,b)$ tal que $f(c) = 0$
+
+        \item O método da bisseção consiste em aproximar o valor de $c$ por meio de uma busca binária
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Implementação do método da bisseção em C++}
+    \inputcode{cpp}{codes/bisection.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Convergência}
+
+    \begin{itemize}
+        \item Por conta de possíveis erros de precisão, o método da bisseção pode não convergir ou não melhorar sua precisão após um determinado número de iterações 
+        \item Implementações alternativas usam um número de passos $N$, pré-determinado, como critério de parada
+
+        \item Há outros métodos com melhor convergência, como o método de Newton
+
+        \item Porém o método da bisseção é notável por sua simplicidade e aplicabilidade
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Variante da implementação do método da bisseção em C++}
+    \inputcode{cpp}{codes/root.cpp}
+\end{frame}
+
