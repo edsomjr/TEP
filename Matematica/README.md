@@ -31,7 +31,6 @@
     1. [Exponenciais](slides/exponenciais/exponenciais.pdf)
     1. [Logaritmos](slides/logaritmos/logaritmos.pdf)
     1. [Função logaritmo e função exponecial](slides/exp_e_log/exp_e_log.pdf)
-1. Aritmética Estendida
 1. Teoria dos Números
     1. [Divisibilidade](slides/divisibilidade/divisibilidade.pdf)
     1. [Números Primos](slides/numeros_primos/numeros_primos.pdf)
@@ -54,10 +53,15 @@
 <!-- Separar a parte das equações diofantinas e inserir a parte soluções naturais (conjunto das lacunas) -->
 <!-- Adicionar o texto sobre o as equiações de congurência lineares e o Teorema Chinês dos restos -->
 <!-- Adicionar o texto sobre o as equiações de congurência quadráticas, reciprocidade quadrática e o extração de raizes quadradas módulo m-->
+
+<!--
 1. Avaliação de Expressões
+1. Aritmética Estendida
 1. Detecção de ciclos
 1. Probabilidade
 1. Teoria dos Jogos
+-->
+
 <!-- DP em Matemática:
     ABC114D
     CF837D
