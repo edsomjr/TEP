@@ -1,0 +1,3 @@
+
+    using polynomial = vector<int>;
+

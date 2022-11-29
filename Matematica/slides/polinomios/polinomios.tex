@@ -1,0 +1,258 @@
+\section*{Polinômios}
+
+\begin{frame}[fragile]{Definição de polinômios}
+
+    \metroset{block=fill}
+    \begin{block}{Definição}
+Seja $A$ o conjuntos dos coeficientes e $V$ o conjuntos das variáveis. Um polinômio é definido por meio de elementos de $A$ e de um subconjunto de variáveis de $V$ através de adições e multiplicações.
+    \end{block}
+
+\end{frame}
+
+\begin{frame}[fragile]{Polinômios univariados}
+
+    \begin{itemize}
+        \item Um polinômio univariado, isto é, definido em uma única variável $x$, pode ser escrito como
+$$
+a_0 + a_1x + a_2x^2 + \ldots + a_Nx^N,
+$$
+        com $a_0, a_1, \ldots, a_N\in A$
+
+        \item Em forma de somatório,
+$$
+\sum_{i = 0}^N a_ix^i
+$$
+
+        \item O maior expoente da variável $x$ na expressão que define o polinômio ($N$ nas notações acima, se $a_N\neq 0$) é denominado grau do polinômio.
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Polinômios em C/C++}
+
+    \begin{itemize}
+        \item Polinômios podem ser representados em C/C++ através de \textit{arrays} ou de vetores:
+
+        \inputsyntax{cpp}{codes/using.cpp}
+
+        \item Observe que um polinômio de grau $N$ tem $N + 1$ coeficientes:
+
+        \inputsyntax{cpp}{codes/degree.cpp}
+
+        \item Em geral, os coeficientes são armazenados do termo constante ao termo que determina o grau do polinômio.
+
+        \inputsyntax{cpp}{codes/p.cpp}
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Função polinomial}
+
+    \begin{itemize}
+        \item Todo polinômio está associado a uma função $p(x)$ dada por
+$$
+p(x) = a_0 + a_1x + a_2x^2 + \ldots + a_Nx^N
+$$
+
+        \item Para computar o valor $y_0$ associado ao valor $x_0$ por $p(x)$, basta substituir todas as ocorrências de $x$ no polinômio por $x_0$, isto é,
+$$
+y_0 = a_0 + a_1x_0 + a_2x_0^2 + \ldots + a_Nx_0^N
+$$
+
+        \item O cálculo de $y_0$ tem complexidade $O(N^2)$, se cada termo $x^i$ for computado por meio de multiplicações repetidas
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Algoritmo de Horner}
+
+    \begin{itemize}
+        \item O algoritmo de Horner computa $y_0 = p(x_0)$ com complexidade $O(N)$
+
+        \item Este algoritmo é baseado na regra de Horner:
+$$
+a_0 + a_1x + a_2x^2 + \ldots + a_Nx^N = a_0 + x(a_1 + x(a_2 + \ldots + x(a_N) \ldots ))
+$$
+
+        \item O algoritmo inicia fazendo $y_0 \leftarrow 0$ e $i \leftarrow N$
+
+        \item Para cada $i \geq 0$ ele atualiza o valor de $y$ por meio de duas operações:
+        \begin{enumerate}
+            \item $y_0 \leftarrow y_0 \times x_0$
+            \item $y_0 \leftarrow y_0 + a_i$
+        \end{enumerate}
+
+        \item Em seguida, o valor de $i$ é decrementado
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Implementação do algoritmo de Horner}
+
+    \inputcode{cpp}{codes/evaluate.cpp}
+
+\end{frame}
+
+\begin{frame}[fragile]{Zeros de polinômios}
+
+    \begin{itemize}
+        \item Se $p(x_0) = 0$, dizemos que $x_0$ é um zero (ou raiz) de $p(x)$
+
+        \item O Teorema Fundamental da Álgebra afirma que um polinômio de grau $N$ tem $N$ raízes complexas (não necessariamente distintas)
+
+        \item O polinômio $p(x) = a_0 + a_1x$, com $a_1\neq 0$, tem um único zero, a saber:
+$$
+    x = - \frac{a_0}{a_1}
+$$
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Zeros de polinômios}
+
+    \begin{itemize}
+        \item O polinômio $p(x) = a_0 + a_1x + a_2x^2$, com $a_2\neq 0$, tem duas raízes complexas, que podem ser obtidas por meio da fórmula de Bhaskara:
+$$
+    x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}
+$$
+
+        \item Há expressões semelhantes para polinômios de grau 3 (Formula de Cardano/Tartaglia) e 4 (Fórmula de Ferrari), porém não são de fácil memorização
+
+        \item Para polinômios de grau 5 ou maior, Galois mostrou, usando a Teoria dos Grupos, que não há expressão racional para computar as raízes de tais
+            polinômios
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Adição de polinômios}
+
+    \metroset{block=fill}
+    \begin{block}{Definição}
+    A adição de dois polinômios $p(x) = a_0 + a_1x + \ldots + a_Nx^N$ e $q(x) = b_0 + b_1x + \ldots + b_Mx^M$ resulta em um polinômio
+    $$
+    r(x) = p(x) + q(x) = (a_0 + b_0) + (a_1 + b_1)x + \ldots + (a_R + b_R)x^R,
+    $$
+    onde $R \leq \max\{N, M\}$, $a_i = 0$, se $i > N$ e $b_j = 0$, se $j > M$.
+    \end{block}
+
+\end{frame}
+
+\begin{frame}[fragile]{Implementação da adição de polinômios}
+    \inputcode{cpp}{codes/add.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Multiplicação de polinômios}
+
+    \begin{itemize}
+        \item A multiplicação de polinômios é feita por meio da aplicação da distributividade
+
+        \item Se $\mathrm{grau}(p(x)) = N$, $\mathrm{grau}(q(x)) = M$ e $r(x) = p(x)q(x)$, então $\mathrm{grau}(r(x)) = N + M$ 
+
+        \item Se $p(x)$ em coeficientes $a_0, a_1, \ldots, a_N$ e $q(x)$ tem coeficientes $b_1, b_2, \ldots, b_M$, então os coeficientes $c_i$ de $r(x)$ são dados por
+$$
+    c_i = \sum_{k = 0}^i a_kb_{i - k}
+$$
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Implementação da multiplicação de polinômios}
+    \inputcode{cpp}{codes/mul.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Divisão de polinômios}
+
+    \begin{itemize}
+        \item A divisão de polinômios é idêntica à divisão de Euclides nos inteiros
+
+        \item Dados dois polinômios $a(x)$ e $b(x)$, onde $b(x)\neq 0$, existem dois polinômios $q(x)$ e $r(x)$ tais que
+$$
+    a(x) = b(x)q(x) + r(x),
+$$
+tais que $0\leq \mathrm{grau}(r(x)) < \mathrm{grau}(b(x))$
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Divisão de polinômios e zeros}
+
+    \begin{itemize}
+        \item Observe que, se $x_0$ é uma raiz de $p(x)$, então $(x - x_0)$ divide $p(x)$
+
+        \item De fato, pela divisão de polinômios existem $q(x)$ e $r(x)$ tais que
+$$
+    p(x) = (x - x_0)q(x) + r(x),
+$$
+        com $\mathrm{grau}(r(x)) < \mathrm{grau}(x - x_0) = 1$, ou seja, o resto é constante
+
+        \item Daí, como $x_0$ é raiz de $p(x)$, vale que
+$$
+    0 = p(x_0) = (x_0 - x_0)q(x_0) + r(x_0) = r(x_0),
+$$
+        logo $(x - x_0)$ divide $p(x)$
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Fatoração de polinômios}
+
+    \begin{itemize}
+        \item Pelo Teorema Fundamental da Álgebra, um polinômio $p(x)$ de grau $N$ tem $N$ raízes complexas
+
+        \item Para cada raiz $x_i$, o polinômio $(x - x_i)$ divide $p(x)$
+
+        \item Portanto, $p(x)$ pode ser escrito na forma
+$$
+    p(x) = a(x - x_1)(x - x_2)\ldots (x - x_N)
+$$
+
+        \item Esta fatoração remete à ideia de decomposição de um inteiro em fatores primos
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Polinômios irredutíveis}
+
+    \begin{itemize}
+        \item Considere que os coeficientes de um polinômio $p(x)$ e os valores que a variável $x$ pode assumir pertencem a um conjunto $A$
+
+        \item Se $i(x)$ não pode ser fatorado em $A$, isto é, não existem dois polinômios com coeficientes em $A$ com grau maior do que zero tais que $i(x) = a(x)b(x)$, ele é denominado polinômio irredutível em $A$
+
+        \item Não ter zeros em $A$ é necessário, mas não suficiente, para que $p(x)$ seja irredutível
+
+        \item Por exemplo, $p(x) = (x^2 + 1)(x^2 + 1)$ é redutível mas não tem zeros nos inteiros
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Relações de Girard}
+
+    \begin{itemize}
+        \item As relações de Girard são consequentes da igualdade entre a representação de um polinômio e sua fatoração, isto é
+$$
+    c_0 + c_1x + c_2x^2 + \ldots + a_Nx^N = a(x - x_1)(x - x_2) \ldots (x - x_N)
+$$
+
+        \item As duas relações mais importantes são:
+$$
+    x_1x_2\ldots x_N = \frac{c_0}{a}
+$$
+e
+$$
+    x_1 + x_2 + \ldots + x_N = - \frac{c_{N - 1}}{a}
+$$
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Polinômios nos inteiros}
+
+    \begin{itemize}
+        \item Se $p(x)$ é um polinômio definido no conjunto dos números inteiros, suas raízes tem relações de divisibilidade com o coeficiente constante, de acordo com as relações de Girard
+
+        \item Se $x_0$ é uma raiz inteira de $p(x)$, então $x_0$ é um divisor de $c_0/a$
+
+        \item Assim, o conjunto de candidatos à raiz inteira de $p(x)$ tem tamanho $O(\sqrt{c_0/a})$
+    \end{itemize}
+
+\end{frame}

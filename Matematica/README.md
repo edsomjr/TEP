@@ -39,6 +39,11 @@
         1. [OJ 10620 - _A Flea on a Chessboard_](https://onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&category=24&page=show_problem&problem=1561)
         1. [OJ 10964 - _Strange Planet_](https://onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&category=24&page=show_problem&problem=1905)
     1. [Polinômios](slides/polinomios/polinomios.pdf)
+        1. [CF 20B - _Equation_](https://codeforces.com/problemset/problem/20/B)
+        1. [OJ 498 - _Polly the Polynomial_](http://onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&category=24&page=show_problem&problem=439)
+        1. [OJ 10268 - _498-bits_](http://onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&category=24&page=show_problem&problem=1209)
+        1. [OJ 10302 - _Summation of Polynomials_](http://onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&category=24&page=show_problem&problem=1243)
+        1. [OJ 10586 - _Polynomial Remains_](http://onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&category=24&page=show_problem&problem=1527) 
 1. Bases Numéricas
     1. [Representação Binária](slides/representacao_binaria/representacao_binaria.pdf)
     1. [Operações Binárias](slides/operacoes_binarias/operacoes_binarias.pdf)
