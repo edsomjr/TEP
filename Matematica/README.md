@@ -33,6 +33,11 @@
         1. [CF 567C - _Geometric Progression_](https://codeforces.com/problemset/problem/567/C)
         1. [CF 789B - _Masha and Geometric Depression_](https://codeforces.com/problemset/problem/789/B)
     1. [Malhas](slides/malhas/malhas.pdf)
+        1. [OJ 264 - C_ount on Cantor_](https://onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&category=24&page=show_problem&problem=200)
+        1. [OJ 10182 - _Bee Maja_](https://onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&category=24&page=show_problem&problem=1123)
+        1. [OJ 10233 - _Dermuba Triangle_](https://onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&category=24&page=show_problem&problem=1174)
+        1. [OJ 10620 - _A Flea on a Chessboard_](https://onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&category=24&page=show_problem&problem=1561)
+        1. [OJ 10964 - _Strange Planet_](https://onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&category=24&page=show_problem&problem=1905)
     1. [Polinômios](slides/polinomios/polinomios.pdf)
 1. Bases Numéricas
     1. [Representação Binária](slides/representacao_binaria/representacao_binaria.pdf)

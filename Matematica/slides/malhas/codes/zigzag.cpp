@@ -2,17 +2,19 @@
 
 using namespace std;
 
-int position(int x, int y, int W, int)
+int position(int x, int y, int W)
 {
-    int pos = (x - 1)*W + (x % 2 ? y : W - y + 1);
+    int pos = (y - 1)*W + (y % 2 ? x : W - x + 1);
 
     return pos; 
 }
 
-void coordinates(int n, int& x, int& y, int W, int)
+pair<int, int> coordinates(int n, int W)
 {
-    x = ((n - 1) / W) + 1;
-    y = x % 2 ? ((n - 1) % W) + 1 : W - ((n - 1) % W);
+    auto y = ((n - 1) / W) + 1;
+    auto x = y % 2 ? ((n - 1) % W) + 1 : W - ((n - 1) % W);
+
+    return { x, y };
 }
 
 int main()
@@ -23,16 +25,16 @@ int main()
     switch (op) {
     case 1:
         cin >> x >> y;
-        cout << "(" << x << ", " << y << ") = point " << position(x, y, W, H) << '\n';
+        cout << "(" << x << ", " << y << ") = point " << position(x, y, W) << '\n';
 
         break;
 
     default:
         cin >> n;
 
-        coordinates(n, x, y, W, H);
+        auto [a, b] = coordinates(n, W);
 
-        cout << "point " << x << " = (" << x << ", " << y << ")\n";
+        cout << "point " << n << " = (" << a << ", " << b << ")\n";
     }
 
     return 0;
