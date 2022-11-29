@@ -27,6 +27,11 @@
         1. [OJ 10346 - _Peter's Smokes_](https://onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&category=24&page=show_problem&problem=1287)
         1. [OJ 11254 - _Consecutive Integers_](https://onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&category=24&page=show_problem&problem=2221) 
     1. [Sequências e Séries](slides/sequencias/sequencias.pdf)
+        1. [CF 51D - _Geometrical Problem_](https://codeforces.com/problemset/problem/51/D)
+        1. [CF 255C - _Almost Arithmetic Progression_](https://codeforces.com/problemset/problem/255/C)
+        1. [CF 382C - _Arithmetic Progression_](https://codeforces.com/problemset/problem/382/C)
+        1. [CF 567C - _Geometric Progression_](https://codeforces.com/problemset/problem/567/C)
+        1. [CF 789B - _Masha and Geometric Depression_](https://codeforces.com/problemset/problem/789/B)
     1. [Malhas](slides/malhas/malhas.pdf)
     1. [Polinômios](slides/polinomios/polinomios.pdf)
 1. Bases Numéricas
