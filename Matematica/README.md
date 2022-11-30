@@ -53,6 +53,11 @@
         1. [OJ 355 - _The Bases are Loaded_](http://onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&category=24&page=show_problem&problem=291)
         1. [OJ 11185 - _Ternary_](http://onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&category=24&page=show_problem&problem=2126)
     1. [Operações Binárias](slides/operacoes_binarias/operacoes_binarias.pdf)
+        1. [ABC 091D - _Two Sequences_](https://atcoder.jp/contests/abc091/tasks/arc092_b)
+        1. [ABC 121D - _XOR World_](https://atcoder.jp/contests/abc121/tasks/abc121_d)
+        1. [ABC 147D - _Xor Sum 4_](https://atcoder.jp/contests/abc147/tasks/abc147_d)
+        1. [CF 1152B - _Neko Performs Cat Furrier Transform_](https://codeforces.com/problemset/problem/1152/B)
+        1. [OJ 377 - _Cowculations_](http://onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&category=24&page=show_problem&problem=313)
 1. Exponenciais e Logaritmos
     1. [Exponenciais](slides/exponenciais/exponenciais.pdf)
     1. [Logaritmos](slides/logaritmos/logaritmos.pdf)

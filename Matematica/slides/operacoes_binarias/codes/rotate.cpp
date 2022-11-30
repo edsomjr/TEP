@@ -1,16 +1,15 @@
 #include <bits/stdc++.h>
 
-using namespace std;
-
 unsigned long rotate_right(unsigned long n, int k)
 {
     unsigned long R = (n >> k);
-    unsigned L = n & ((1 << k) - 1);
+    unsigned long L = n & ((1 << k) - 1);
 
     return L << (8*sizeof(unsigned long) - k) | R;
 }
 
-int main() {
+int main()
+{
     unsigned long n = 0x12345678;
 
     printf("0x%08lx\n", rotate_right(n, 8));  // 0x78123456
