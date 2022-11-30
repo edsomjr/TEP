@@ -60,6 +60,10 @@
         1. [OJ 377 - _Cowculations_](http://onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&category=24&page=show_problem&problem=313)
 1. Exponenciais e Logaritmos
     1. [Exponenciais](slides/exponenciais/exponenciais.pdf)
+        - [ABC 097B - _Exponential_](https://atcoder.jp/contests/abc097/tasks/abc097_b)
+        - [CF 284A - _Cows and Primitive Roots_](https://codeforces.com/problemset/problem/284/A)
+        - [OJ 107 - _The Cat in The Hat_](http://onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&category=24&page=show_problem&problem=43)
+        - [OJ 11556 - _Best Compression Ever_](http://onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&category=24&page=show_problem&problem=2592)
     1. [Logaritmos](slides/logaritmos/logaritmos.pdf)
     1. [Função logaritmo e função exponecial](slides/exp_e_log/exp_e_log.pdf)
 1. Teoria dos Números

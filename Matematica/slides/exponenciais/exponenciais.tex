@@ -1,0 +1,185 @@
+\section*{Exponenciação}
+
+\begin{frame}[fragile]{Exponenciação nos naturais}
+
+    \metroset{block=fill}
+    \begin{block}{Definição}
+        Sejam $a, n$ dois números naturais. A exponenciação $a^n$ (lê-se ``$a$ elevado a $n$'') é definida pela relação de recorrência, onde 
+        \begin{enumerate}[(i)]
+            \item $a^1 = a$, e
+            \item $a^n = a \times a^{n - 1}$,
+        \end{enumerate}
+
+        onde $a$ é denominada \textbf{base} e $n$ é denominado \textbf{expoente}.
+    \end{block}
+
+    \vspace{0.2in}
+
+    Em termos mais simples, a exponenciação nos naturais é uma multiplicação repetida: basta multiplicar $a$ por ele mesmo $n$ vezes. 
+
+\end{frame}
+
+\begin{frame}[fragile]{Propriedades da exponenciação}
+
+    \begin{itemize}
+        \item Como a multiplicação nos naturais é associativa, vale que
+$$
+a^{n + m} = a^{n} \times a^{m}
+$$
+
+        \item Também são decorrentes da multiplicação nos naturais as propriedades
+$$
+(a^{n})^{m} = a^{nm}
+$$
+e
+$$
+(ab)^n = a^n \times b^n
+$$
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Expoente zero}
+
+    \begin{itemize}
+        \item Na exponenciação nos naturais é definido que, para qualquer $a$ natural, $a^0 = 1$ 
+
+        \item De fato, esta definição é consistente com a exponenciação nos inteiros e nos demais conjuntos numéricos, como se verá a seguir
+
+        \item $0^0$ é uma indeterminação (para qualquer natural $n$, $0^n = 0$)
+
+        \item A exponenciação nos naturais é ensinada no ensino fundamental e médio, e serve para observar e aprender as propriedades fundamentais da exponenciação
+
+        \item Porém é útil, na prática, conhecer as definições de exponenciação para outros conjuntos numéricos
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Expoentes inteiros}
+
+    \metroset{block=fill}
+    \begin{block}{Definição}
+        Sejam $a, n$ dois números inteiros, com $a > 0$. Vale que
+
+        \begin{enumerate}[(i)]
+            \item $a^1 = a$, e 
+            \item $a^{n - 1} = a^n / a$
+        \end{enumerate}
+    \end{block}
+
+    \vspace{0.3in}
+
+    A partir da definição acima, observe que:
+
+        \begin{enumerate}[(a)]
+            \item $a^0 = a^1 / a = 1$
+            \item $a^{-1} = a^0 / a  = 1 / a$
+            \item $a^{-n} = (a^{-1})^n = 1 / a^n$
+        \end{enumerate}
+
+\end{frame}
+
+\begin{frame}[fragile]{Expoentes inteiros}
+
+    \begin{itemize}
+        \item As propriedades da exponenciação nos naturais permanecem todas verdadeiras para a exponenciação nos inteiros
+
+        \item A reescrita da relação de recorrência permite expoentes negativos
+
+        \item Esta recorrência justifica a notação $a^{-1}$ para o inverso multiplicativo de $a$, uma vez que 
+$$
+a^{-1} \times a = \left(\frac{1}{a}\right) \times a = 1
+$$
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Raízes $n$-ésimas}
+
+    \begin{itemize}
+        \item Sejam $a, n$ dois números inteiros, com $a > 0$. Qual seria o significado de $a^{1/n}$? 
+
+        \item Segundo as propriedades já descritas, seria um número $x$ tal que $x^n = a$
+
+        \item Cada solução desta equação recebe o nome de raiz $n$-ésima de $a$
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Exponenciação nos racionais}
+
+    \metroset{block=fill}
+    \begin{block}{Definição}
+Sejam $n, m$ números inteiros com $m$ diferente de zero e $a$ um número racional positivo. Então
+$$
+a^{n/m} = (a^{1/m})^n,
+$$
+onde $a^{1/m}$ é uma raiz $m$-ésima de $a$.
+    \end{block}
+
+\end{frame}
+
+\begin{frame}[fragile]{Bases negativas}
+
+    \begin{itemize}
+        \item A definição de exponenciação nos racionais pode ser estendida para bases negativas, desde que o radical (o fator $1/m$ do expoente) seja ímpar
+
+        \item Isto porque não há soluções, nos racionais, para $x^n = -1$ quando $n$ e par
+
+        \item Por exemplo, $x^3 = -1$ tem solução nos racionais, mas $x^2 = -1$ não
+
+        \item Bases negativas, em geral, podem violar propriedades da exponenciação 
+
+        \item Por exemplo, calcule $((-2)^{3/4})^{4/3}$ usando e não usando as propriedades e veja o resultado!
+
+        \item Tais exemplos justificam a restrição comum às bases positivas
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Exponenciação rápida}
+
+    \begin{itemize}
+        \item A implementação direta da definição de exponenciação nos naturais leva a uma rotina com complexidade $O(n)$
+
+        \item Contudo, é possível implementar um algoritmo $O(\log n)$ para computar $a^n$, por meio da divisão e conquista, denominado exponenciação rápida
+
+        \item Para tal, basta observar que, se $n$ é par, então
+$$
+    a^n = a^{n/2}\times a^{n/2}
+$$
+
+        \item Se $n$ é impar, vale que
+$$
+    a^n = a\times a^{\lfloor n/2\rfloor}\times a^{\lfloor n/2\rfloor}
+$$
+
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Implementação recursiva da exponenciação rápida em C++}
+    \inputsnippet{cpp}{5}{13}{codes/fast_exp.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Implementação iterativa da exponenciação rápida em C++}
+    \inputsnippet{cpp}{15}{29}{codes/fast_exp.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Exponenciação em C/C++}
+
+    \begin{itemize}
+        \item A biblioteca \code{cpp}{math.h} de C ou a biblioteca \code{cpp}{cmath} de C++ implementam funções relacionadas a exponenciação
+
+        \item A função \code{cpp}{pow(a, n)} computa o valor de $a^n$
+
+        \item A função \code{cpp}{exp(x)} computa o valor de $e^x$
+
+        \item A função \code{cpp}{sqrt(x)} computa a raiz quadrada de $x$
+
+        \item A função \code{cpp}{cbrt(x)} computa a raiz cúbica de $x$
+
+        \item Todas essas funções recebem e retornam variáveis do tipo \code{cpp}{double}
+    \end{itemize}
+
+\end{frame}
