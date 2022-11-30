@@ -46,6 +46,12 @@
         1. [OJ 10586 - _Polynomial Remains_](http://onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&category=24&page=show_problem&problem=1527) 
 1. Bases Numéricas
     1. [Representação Binária](slides/representacao_binaria/representacao_binaria.pdf)
+        1. [ABC 044D - _Digit Sum_](https://atcoder.jp/contests/abc044/tasks/arc060_b)
+        1. [CF 258A - _Little Elephant and Bits_](https://codeforces.com/problemset/problem/258/A)
+        1. [CF 1338B - _Captain Flint and a Long Voyage_](https://codeforces.com/problemset/problem/1388/B)
+        1. [OJ 343 - _What Base is This?_](http://onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&category=24&page=show_problem&problem=279)
+        1. [OJ 355 - _The Bases are Loaded_](http://onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&category=24&page=show_problem&problem=291)
+        1. [OJ 11185 - _Ternary_](http://onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&category=24&page=show_problem&problem=2126)
     1. [Operações Binárias](slides/operacoes_binarias/operacoes_binarias.pdf)
 1. Exponenciais e Logaritmos
     1. [Exponenciais](slides/exponenciais/exponenciais.pdf)
