@@ -10,7 +10,7 @@ class SegmentTree
     std::vector<T> ns;
 
 public:
-    SegmentTree(const std::vector<int>& xs) : N(xs.size()), ns(4*N)
+    SegmentTree(const std::vector<int>& xs) : N(xs.size()), ns(4*N, 0)
     {
         for (size_t i = 0; i < xs.size(); ++i)
             update(i, xs[i]);
