@@ -12,7 +12,7 @@ private:
 
 public:
     SegmentTree(const std::vector<int>& xs)
-        : N(xs.size()), ns(4*N), lazy(4*N, 0)
+        : N(xs.size()), ns(4*N, 0), lazy(4*N, 0)
     {
         for (size_t i = 0; i < xs.size(); ++i)
             update(i, i, xs[i]);
