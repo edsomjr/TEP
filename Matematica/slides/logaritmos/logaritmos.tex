@@ -1,0 +1,92 @@
+\section*{Logaritmos}
+
+\begin{frame}[fragile]{Definição de logaritmo}
+
+    \metroset{block=fill}
+    \begin{block}{Definição}
+        Sejam $a, x$ dois números reais tais que $a > 1$. Dizemos que $y$ é o logaritmo de $x$ na base $a$ se $a^y = x$.
+
+        \textbf{Notação}: $y = \log_a x$.
+    \end{block}
+
+    \vspace{0.2in}
+
+    Duas importantes propriedades decorrente diretamente desta definição:
+
+    \begin{enumerate}[(i)]
+        \item Como a base $a$ é estritamente maior do que 1, o logaritmo não está definido para valores de $x$ menores ou iguais a zero;
+        \item $\log_a 1 = 0$, qualquer que seja a base $a > 1$.
+    \end{enumerate}
+
+\end{frame}
+
+\begin{frame}[fragile]{Propriedades dos logaritmos}
+
+    Sejam $a, x, y$ três números reais tais que $a > 1$. Vale que
+
+    \begin{enumerate}
+        \item $\log_a xy = \log_a x + \log_a y$
+        \item $\log_a \left(\dfrac{x}{y}\right) = \log_a x - \log_a y$
+        \item $\log_a x^y = y\log_a x$
+    \end{enumerate}
+
+    Essas três propriedades são consequências diretas das propriedades da exponenciação.
+\end{frame}
+
+\begin{frame}[fragile]{Mudança de base}
+
+    \metroset{block=fill}
+    \begin{block}{Proposição}
+        Sejam $a, b$ dois números reais maiores do que 1. Então, para qualquer $x$ real, vale que
+        $$
+            \log_a x = \frac{\log_b x}{\log_b a}
+        $$
+    \end{block}
+
+    \vspace{0.2in}
+
+    Em outras palavras, os logaritmos de um real $x$ em duas bases distintas são proporcionais a uma constante definida por ambas bases.
+\end{frame}
+
+\begin{frame}[fragile]{Logaritmos e representações numéricas}
+
+    Seja $n, b$ dois inteiros positivos com $b > 1$. A representação de $n$ na base $b$ é dada por
+    $$
+        n = d_0 + d_1b + d_2b^2 + \ldots + d_kb^k
+    $$
+
+    \vspace{0.2in}
+
+    A aplicação das propriedades dos logaritmos levam as seguintes desigualdades:
+    $$
+        \log_b n \geq \log_b d_kb^k \geq \log_b b^k = k
+    $$
+\end{frame}
+
+\begin{frame}[fragile]{Logaritmos e representações numéricas}
+
+    Por outro lado,
+    $$
+    \log_b n < \log_b b^{k + 1} = k + 1
+    $$
+
+    \vspace{0.2in}
+
+    Seja $D(n, b)$ o número de dígitos de $n$ na base $b$. Assim
+    $$
+        D(n, b) = k + 1 = \lfloor \log_b n\rfloor + 1,
+    $$
+    onde $\lfloor x \rfloor$ é o maior inteiro menor ou igual a $x$.
+\end{frame}
+
+\begin{frame}[fragile]{Logaritmos em C/C++}
+
+    \begin{itemize}
+        \item A biblioteca \code{cpp}{math.h} de C ou a biblioteca \code{cpp}{cmath} do C++ oferecem funções para o cálculo de logaritmos
+        \item A função \code{cpp}{log(x)} computa o valor do logaritmo de $x$ na base $e$ ($\ln x$)
+        \item A função \code{cpp}{log2(x)} computa o valor do logaritmo de $x$ na base 2
+        \item A função \code{cpp}{log10(x)} computa o valor do logaritmo de $x$ na base 10
+        \item Essas funções recebem e retornam valores do tipo \code{cpp}{double}
+    \end{itemize}
+
+\end{frame}
