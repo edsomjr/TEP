@@ -68,7 +68,7 @@
         - [OJ 113 - _The Power of Cryptography_](http://onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&category=24&page=show_problem&problem=49)
         - [OJ 701 - _The Archeologists' Dilemma_](http://onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&category=24&page=show_problem&problem=642)
         - [OJ 1185 - _Big Number_](http://onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&category=24&page=show_problem&problem=3626)
-        - [OJ 11384 - _Help is needed for Dexter]_(http://onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&category=24&page=show_problem&problem=2379)
+        - [OJ 11384 - _Help is needed for Dexter_](http://onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&category=24&page=show_problem&problem=2379)
         - [OJ 11847 - _Cut the Silver Bar_](http://onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&category=24&page=show_problem&problem=2947)
     1. [Função logaritmo e função exponecial](slides/exp_e_log/exp_e_log.pdf)
         - [LiveArchive 3024 - _Powers_](https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&page=show_problem&problem=1025)
