@@ -71,6 +71,11 @@
         - [OJ 11384 - _Help is needed for Dexter]_(http://onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&category=24&page=show_problem&problem=2379)
         - [OJ 11847 - _Cut the Silver Bar_](http://onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&category=24&page=show_problem&problem=2947)
     1. [Função logaritmo e função exponecial](slides/exp_e_log/exp_e_log.pdf)
+        - [LiveArchive 3024 - _Powers_](https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&page=show_problem&problem=1025)
+        - [OJ 545 - _Heads_](http://onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&category=24&page=show_problem&problem=486)
+        - [OJ 11666 - _Logarithms_](http://onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&category=24&page=show_problem&problem=2713)
+
+
 1. Teoria dos Números
     1. [Divisibilidade](slides/divisibilidade/divisibilidade.pdf)
     1. [Números Primos](slides/numeros_primos/numeros_primos.pdf)

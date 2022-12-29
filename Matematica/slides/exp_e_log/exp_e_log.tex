@@ -1,0 +1,262 @@
+\section*{Função exponencial e função logaritmo}
+
+\begin{frame}[fragile]{Número de Euler}
+
+    \metroset{block=fill}
+    \begin{block}{Definição}
+        O número de Euler é a constante $e$, dada por
+        $$
+            e = \lim_{n\to \infty} \left(1 + \frac{1}{n}\right)^n = 2,71828\ldots
+        $$
+
+    \end{block}
+
+    \vspace{0.2in}
+
+    Este limite corresponde a uma taxa de juros com capitalização instantânea.
+
+\end{frame}
+
+\begin{frame}[fragile]{Função exponencial}
+
+    \metroset{block=fill}
+    \begin{block}{Definição}
+        A função exponencial $\exp(x)$ é definida, para qualquer $x$ real, por
+        $$
+            \exp(x) = \lim_{n\to \infty} \left(1 + \frac{x}{n}\right)^n = e^x
+        $$
+    \end{block}
+
+    \vspace{0.2in}
+
+    Observe que imagem de $\exp(x)$ é o conjunto dos números reais positivos.
+\end{frame}
+
+\begin{frame}[fragile]{Gráfico da função exponencial}
+
+    \begin{figure}
+        \centering
+
+        \begin{tikzpicture}
+
+        \draw[->] (-3.5, 0) -- (4,0) node[right] {$x$};
+        \draw[->] (0, -0.5) -- (0,5) node[left] {$y$};
+
+        \draw[smooth, domain=-3.5:2.3, thick] 
+            plot (\x,{2^(\x)}) node [right] {\footnotesize $f(x)=e^x$};
+
+        \fill (0, 1) circle (1.5pt) node at (0,1.2) [left] {\scriptsize $(0,1)$};
+
+        \end{tikzpicture}
+    \end{figure}
+
+\end{frame}
+
+\begin{frame}[fragile]{Função logaritmo}
+
+    \metroset{block=fill}
+    \begin{block}{Definição}
+        A função logaritmo $\ln(x)$ é definida, para qualquer $x$ real positivo, por
+        $$
+            \ln(x) = \log_e(x) = \int_1^x \frac{1}{t}dt
+        $$
+    \end{block}
+
+    \vspace{0.2in}
+
+    Observe que, se $0 < x < 1$, então $\ln x < 0$, por conta da inversão dos limites de integração.
+
+\end{frame}
+
+\begin{frame}[fragile]{Gráfico da função logaritmo}
+
+    \begin{figure}
+        \centering
+
+        \begin{tikzpicture}
+
+            \draw[->] (-0.5, 0) -- (5,0) node[right] {$x$};
+            \draw[->] (0, -3.5) -- (0,3) node[left] {$y$};
+
+            \draw[smooth, domain = 0.1:5, thick] plot (\x,{log2(\x)});
+
+            \fill (1, 0) circle (1.5pt) node at (1.4, 0)[below] {\scriptsize $(1,0)$};
+
+            \node at (4.6,2.4)[above] {\footnotesize$y=\ln(x)$};
+
+        \end{tikzpicture}
+
+
+    \end{figure}
+
+\end{frame}
+
+\begin{frame}[fragile]{Relação entre as funções exponencial e logaritmo}
+
+    \begin{itemize}
+        \item Embora sejam definidas em contextos distintos (limite no caso da exponencial, integral no caso do logaritmo), ambas funções estão profundamente relacionadas
+
+        \item De fato, ambas são mutuamente inversas, isto é, $\ln e^x = x$ e $e^{\ln x} = x$
+
+        \item Esta relação permite manipular expressões envolvendo expoentes, por meio das propriedades das exponenciais e dos logaritmos
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Aplicação: Derivada da função exponencial}
+
+    \begin{itemize}
+        \item Considere a seguinte equação diferencial: $y'(x) = y(x)$, com $y(0) = 1$
+
+        \item Uma solução desta equação é uma função que coincide com sua derivada
+
+        \item Esta equação pode ser reescrita como
+            $$
+                \frac{y'(x)}{y(x)} = 1
+            $$
+
+        \item Integrando em ambos lados segue que
+            $$
+                \ln y(x) = x + C
+            $$
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Aplicação: Derivada da função exponencial}
+
+    \begin{itemize}
+        \item Aplicando a exponencial em ambos lados obtém-se
+            $$
+                y(x) = e^{\ln y(x)} = e^{x + C} = e^Ce^x
+            $$
+
+        \item Do fato que $y(0) = 1$ segue que $e^C = 1$ e, portanto, que $y(x) = e^x$
+
+        \item Ou seja, a derivada da função exponencial é a própria exponencial
+
+        \item Uma consequência imediata deste fato é que
+            $$
+            \int e^u du = e^u + C
+            $$
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Aplicação: Primeiros dígitos de uma exponenciação}
+
+    \begin{itemize}
+        \item É possível determinar os primeiros dígitos do resultado de uma exponencial da forma $a^k$ em uma base $b$ dada, com $a > 0$ e $b > 1$
+
+        \item Observe que 
+            $$
+                a^k = b^{\log_b a^k} = b^{k\log_b a}
+            $$
+
+        \item Seja $r = \lfloor k\log_b a\rfloor$ e $s = k(\log_b a) - r$. Daí
+            $$
+            a^k = b^{k\log_b a} = b^{r + s}
+            $$
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Aplicação: Primeiros dígitos de uma exponenciação}
+
+    \begin{itemize}
+        \item Como $r$ é inteiro positivo, $b^r$ adiciona $r$ zeros ao final da representação de $a^k$ em base $b$
+
+        \item Assim, os dígitos não-nulos de $a^k$ provém de $a^s$
+
+        \item Por exemplo, $2^{80} = 1208925819614629174706176$ e $80\log_{10} 2 = 24.082399653118497$
+
+        \item Daí, $s = 0.082399653118497$ e 
+            $$
+                10^{0.082399653118497} = 1.2089258196146322
+            $$
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Aplicação: Meia-vida}
+
+    \begin{itemize}
+        \item A meia-vida é o tempo necessário para desintegrar metade da massa de um radioisótopo
+
+        \item Se a massa inicial é $M_0$ e o decaimento é exponencial, a massa no instante $t$ é dada por
+            $$
+                M(t) = M_0e^{kt},
+            $$
+        onde $k$ é uma constante que depende do material
+
+        \item Assim, a meia-vida seria o instante $t_{1/2}$ tal que
+            $$
+                M(t_{1/2}) = \frac{M_0}{2} = M_0e^{kt_{1/2}}
+            $$
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Aplicação: Meia-vida}
+
+    \begin{itemize}
+        \item Aplicando o logaritmo em ambas expressões obtém-se
+            $$
+                \ln M_0 - \ln 2 = \ln M_0 + kt_{1/2}
+            $$
+
+        \item Assim,
+            $$
+                t_{1/2} = - \frac{\ln 2}{k}
+            $$
+
+        \item Veja que esta expressão permite computar a constante $k$ se a meia-vida for conhecida
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Série da função exponencial}
+
+    \metroset{block=fill}
+    \begin{block}{Proposição}
+        A função exponencial pode ser expandida na série de potências
+        $$
+            e^x = \sum_{i = 0}^\infty \frac{x^i}{i!} = 1 + x + \frac{x^2}{2!} + \frac{x^3}{3!} + \ldots
+        $$
+
+        Esta série converge para qualquer $x$ real.
+    \end{block}
+
+\end{frame}
+
+
+\begin{frame}[fragile]{Série da função logaritmo}
+
+    \metroset{block=fill}
+    \begin{block}{Proposição}
+        A função logaritmo deslocada pode ser expandida na série de potências
+        $$
+            \ln (x + 1) = \sum_{i = 1}^\infty (-1)^{i - 1}\frac{x^i}{i} = x - \frac{x^2}{2} + \frac{x^3}{3} - \frac{x^4}{4} + \ldots
+        $$
+
+        Esta série converge apenas no intervalo $-1 < x < 1$.
+    \end{block}
+
+\end{frame}
+
+\begin{frame}[fragile]{Exponenciais complexas}
+
+    \begin{itemize}
+        \item Por meio da manipulação das séries de potência de $e^x, \cos x$ e $\sin x$ é possível mostrar que, para um número complexo $a + bi$, que
+            $$
+            e^{a + bi} = e^ae^{bi} = e^a(\cos b + i\sin b)
+            $$
+
+        \item Desta igualdade surge a identidade de Euler, considerada a mais bela de toda matemática:
+            $$
+                e^{i\pi} + 1 = 0
+            $$
+    \end{itemize}
+
+\end{frame}
+
