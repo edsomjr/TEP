@@ -74,8 +74,6 @@
         - [LiveArchive 3024 - _Powers_](https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&page=show_problem&problem=1025)
         - [OJ 545 - _Heads_](http://onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&category=24&page=show_problem&problem=486)
         - [OJ 11666 - _Logarithms_](http://onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&category=24&page=show_problem&problem=2713)
-
-
 1. Teoria dos Números
     1. [Divisibilidade](slides/divisibilidade/divisibilidade.pdf)
     1. [Números Primos](slides/numeros_primos/numeros_primos.pdf)
