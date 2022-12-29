@@ -1,17 +1,6 @@
-#include <bits/stdc++.h>
 
-using namespace std;
-
-int main()
-{
-    int a = 11;
-    int b = 7;
-
-    cout << (a % b) << '\n';       // 4
-    cout << (a % -b) << '\n';      // 4
-    cout << (-a % b) << '\n';      // -4
-    cout << (-a % -b) << '\n';     // -4
-
-    return 0;
-}
+        11 = 7 x 1 + 4                // q = 1, r = 4
+        11 = (-7) x (-1) + 4          // q = -1, r = 4
+       -11 = 7 x (-2) + 3             // q = -2, r = 3
+       -11 = (-7) x 2 + 3             // q = 2, r = 3
 

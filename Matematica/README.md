@@ -76,6 +76,11 @@
         - [OJ 11666 - _Logarithms_](http://onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&category=24&page=show_problem&problem=2713)
 1. Teoria dos Números
     1. [Divisibilidade](slides/divisibilidade/divisibilidade.pdf)
+        1. [AtCoder ABC 046C - _AtCoDeer and Election Report_](https://atcoder.jp/contests/abc046/tasks/arc062_a)
+        1. [AtCoder ABC 048B - _Between a and b..._](https://atcoder.jp/contests/abc048/tasks/abc048_b)
+        1. [OJ 10407 - _Simple division_](https://onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&category=24&page=show_problem&problem=1348)
+        1. [OJ 10892 - _LCM Cardinality_](https://onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&category=24&page=show_problem&problem=1833)
+        1. [OJ 11827 - _Maximum GCD_](https://onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&category=24&page=show_problem&problem=2927)
     1. [Números Primos](slides/numeros_primos/numeros_primos.pdf)
     1. [Funções Multiplicativas](slides/funcoes_multiplicativas/funcoes_multiplicativas.pdf)
     1. [Teorema Fundamental da Aritmética](slides/teorema_fundamental_da_aritmetica/teorema_fundamental_da_aritmetica.pdf)

@@ -1,0 +1,257 @@
+\section*{Divisibilidade}
+
+\begin{frame}[fragile]{Número de Euler}
+
+    \metroset{block=fill}
+    \begin{block}{Definição}
+        Sejam $a$ e $b$ dois números inteiros. Dizemos que $a$ \textbf{divide} $b$ (ou que $b$ é divisível por $a$) se existe um $k$ inteiro tal que $b$ = $ak$. Caso não exista tal inteiro, dizemos que $a$ não divide $b$. Dizemos também que $b$ é um \textbf{múltiplo} de $a$.  
+
+        \vspace{0.1in}
+        \textbf{Notação:} $a|b$ (lê-se ``$a$ divide $b$'')
+    \end{block}
+
+\end{frame}
+
+\begin{frame}[fragile]{Relações triviais}
+
+    \begin{itemize}
+        \item Qualquer número $a$ divide a si mesmo, pois $a = a\times 1$
+
+        \item Observe que $1$ divide qualquer inteiro $m$, pois $m =  1 \times m$
+
+        \item Segundo a definição de divisibilidade, zero divide zero, pois $0 = k \times 0$ para qualquer $k$ inteiro  
+
+        \item De fato, qualquer inteiro $a$ divide zero, pois $0 = a\times 0$
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Unicidade de $k$}
+
+    \begin{itemize}
+        \item Se $a$ é diferente de zero e $a$ divide $b$, então o inteiro $k$ tal que $b = ak$ é único
+
+        \item Suponha que exista um $t$ tal que $b = ak = at$. Como $a$ é diferente de zero, vale o cancelamento da multiplicação, de modo que $k = t$
+
+        \item Observe que se $s \neq r$, ainda vale que $0 = 0 \times r = 0 \times s$
+
+        \item Assim, $k$ não fica determinado (por isso que $0/0$ é uma indeterminação)
+
+        \item Para todos os demais valores $a \neq 0$, o \textbf{quociente} $k$ de $b$ por $a$ é o inteiro $k$ tal que $b = ak$
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Propriedades da divisibilidade}
+
+    Para quaisquer inteiros $a, b$ e $c$ vale que:
+
+    \begin{enumerate}
+        \item se $a|b$ e $b|c$ então $a|c$ (propriedade transitiva)
+        \item $a|a$ (propriedade reflexiva)
+        \item se $a|b$ e $b|a$, então $a = b$ ou $a = -b$
+        \item se $a|b$ então $|a|\leq |b|$
+        \item se $a|b$ e $a|c$ então $a|(bx + cy)$, para quaisquer $x,y$ inteiros
+    \end{enumerate}
+
+\end{frame}
+
+\begin{frame}[fragile]{Divisão de Euclides}
+
+    \metroset{block=fill}
+    \begin{block}{Definição}
+        Sejam $a,b$ inteiros, com $b \neq 0$. Segundo a \textbf{divisão de Euclides} existem dois inteiros $q,r$, únicos, com $0 \leq r < |b|$, tais que $a = bq + r$. O número $q$ é o \textbf{quociente} da divisão e $r$ é o \textbf{resto}.
+
+    \end{block}
+
+    \vspace{0.2in}
+
+    Observe que, se $r = 0$, então $b$ divide $a$.
+\end{frame}
+
+\begin{frame}[fragile]{Resto da divisão em C++}
+
+    O operador \mintinline{cpp}{%} (resto da divisão) em C/C++ não corresponde ao resto da divisão euclidiana em todos os casos:
+
+    \inputcode{cpp}{codes/op.cpp}
+
+\end{frame}
+
+\begin{frame}[fragile]{Resto da divisão em C++}
+
+    \begin{itemize}
+        \item Segundo a divisão euclidiana, os quocientes e restos seriam
+
+            \inputsyntax{cpp}{codes/r.cpp}
+
+        \item Nos casos em que $a < 0$, o operador \mintinline{cpp}{%} retorna um resto negativo, o que viola a condição $0 \leq r < |b|$ da divisão de Euclides
+
+        \item Para determinar o resto euclidiano nestes casos, basta somar o valor absoluto de $b$ ao resto negativo
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Maior Divisor Comum}
+
+    \metroset{block=fill}
+    \begin{block}{Definição}
+        Dados dois inteiros $a$ e $b$, o \textbf{maior divisor comum} (MDC) de $a$ e $b$ é o inteiro não-negativo $d$ tal que
+
+        \begin{enumerate}
+            \item $d$ divide $a$ e $d$ divide $b$;
+            \item se $c$ divide $a$ e $c$ divide $b$, então $c$ divide $d$.
+        \end{enumerate}
+
+        \vspace{0.1in}
+
+        \textbf{Notação:} $d = (a, b)$
+    \end{block}
+
+\end{frame}
+
+\begin{frame}[fragile]{Observações sobre a definição do MDC}
+
+    \begin{itemize}
+        \item A primeira condição apresentada garante que $d$ é divisor comum de $a$ e $b$
+
+        \item A segunda garante que ele é o maior dentre os divisores comuns de $a$ e $b$
+
+        \item Pode-se observar que
+
+        \begin{enumerate}
+            \item $d = 0$ se, e somente se, $a = b = 0$;
+            \item $(a, 0) = |a|$, para todo inteiro $a$.
+        \end{enumerate}
+
+        \item Como $(a, b) = (-a, b) = (a, -b) = (-a,-b)$, o problema de se determinar o MDC pode ser restrito aos números não-negativos
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Cálculo do MDC}
+
+    \begin{itemize}
+        \item Se $a$ e $b$ são dois inteiros não-negativos, com $a \geq b > 0$, por Euclides existem únicos $q$ e $r$ tais que $a = bq + r$, com $0 \leq r < b$
+
+        \item Escrevendo $r = a - bq$, é possível mostrar que $(a, b) = (b, r)$
+
+        \item Lembrando que $(a, 0) = a$, o MDC pode ser computado com complexidade $O(\log a)$
+
+            \vspace{0.1in}
+            \inputsnippet{cpp}{5}{8}{codes/gcd.cpp}
+
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Algoritmo de Euclides Estendido}
+
+    \begin{itemize}
+        \item É possível mostrar também que o MDC entre $a$ é $b$ é o menor número não-negativo que pode ser escrito como uma combinação linear $ax + by$ 
+
+        \item Esta interpretação é fundamental para a demonstração de várias propriedades associadas ao MDC
+
+        \item Para se determinar tais inteiros $x$ e $y$ (os quais não são únicos) pode-se usar uma versão estendida do algoritmo do MDC, denominada Algoritmo de Euclides Estendido
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Implementação do Algoritmo de Euclides Estendido em C++}
+    \inputsnippet{cpp}{10}{26}{codes/gcd.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Equações Diofantinas Lineares}
+
+    \begin{itemize}
+        \item Uma importante aplicação do MDC e do algoritmo de Euclides estendido é a solução de equações diofantinas lineares
+
+        \item Para $a, b, c, x, y$ inteiros, as equações diofantinas lineares são da forma
+            $$
+            ax + by = c
+            $$
+
+        \item Tais equações tem solução se, e somente se, $(a, b)$ divide $c$
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Solução particular}
+
+    Uma solução \textbf{particular} $(x_0, y_0)$ de uma equação diofantina linear pode ser determinada da seguinte maneira:
+
+    \begin{enumerate}
+        \item Determine $x'$ e $y'$ tais que $ax' + by' = d$ (Algoritmo de Euclides estendido)
+        \item Faça $k = c / d$
+        \item Compute $x_0 = k \times x'$ e  $y_0 = k \times y'$
+    \end{enumerate}
+
+    \vspace{0.2in}
+
+    Observe que $$ax_0 + by_0 = a(kx') + b(ky') = k(ax' + by') = kd = c$$
+
+\end{frame}
+
+\begin{frame}[fragile]{Solução geral das Equações Diofantinas Lineares}
+
+    \begin{itemize}
+        \item A solução particular não é única
+
+        \item A solução geral de uma equação diofantina linear é dada por, para qualquer inteiro $t$, por
+            $$
+            \begin{matrix}
+                x = x_0 + (a/d)t\\
+                y = y_0 - (b/d)t
+            \end{matrix}
+            $$
+
+        \item Estas expressões nos permitem determinar, por exemplo, soluções específicas, como a de menor $x$ (ou $y$), menor diferença entre $x$ e $y$, menor solução com $x$ e $y$ positivos, e assim por diante (se existirem)
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Números coprimos}
+
+    \metroset{block=fill}
+    \begin{block}{Definição}
+        Dois números $a$ e $b$ são dito \textbf{coprimos}, ou primos entre si, se $(a, b)$ = 1.
+    \end{block}
+
+    \vspace{0.2in}
+
+    Observe que, para dois inteiros $a$ e $b$ quaisquer, se $d$ = $(a, b)$, então 
+    $$
+    \left(\frac{a}{d}, \frac{b}{d}\right) = 1
+    $$
+
+\end{frame}
+
+\begin{frame}[fragile]{Menor Múltiplo Comum}
+
+    \metroset{block=fill}
+    \begin{block}{Definição}
+        Sejam $a$ e $b$ dois inteiros. O \textbf{menor múltiplo comum} (MMC) de $a$ e $b$ é o inteiro $m$ tal que
+
+        \begin{enumerate}
+            \item $a$ divide $m$ e $b$ divide $m$;
+            \item se $a$ divide $n$ e $b$ divide $n$, então $m$ divide $n$.
+        \end{enumerate}
+
+        \vspace{0.2in}
+        \textbf{Notação}: $m = [a, b]$
+    \end{block}
+
+\end{frame}
+
+\begin{frame}[fragile]{Cálculo do MMC}
+
+    \begin{itemize}
+        \item De forma similar ao MDC, a primeira propriedade torna $m$ um múltiplo comum de $a$ e $b$; a segunda o torna o menor dentre os múltiplos comuns
+
+        \item Uma importante relação entre o MDC e o MMC é que $ab = (a,b)[a,b]$
+
+            \inputsyntax{cpp}{codes/mmc.cpp}
+
+        \item Veja que, na implementação acima, a divisão é feita antes do produto: esta ordem pode evitar \textit{overflow} em alguns casos
+    \end{itemize}
+
+\end{frame}
