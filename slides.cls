@@ -33,6 +33,7 @@
 
 % Setup
 \usetikzlibrary{calc}
+\usetikzlibrary{math}
 \usefonttheme{professionalfonts}
 
 \hypersetup{

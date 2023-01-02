@@ -6,10 +6,11 @@
         \item Na prática, para se verificar se um ou poucos números são primos,
             \code{cpp}{is_prime3()} é suficiente
 
-        \item Para verificar um conjunto de inteiros $n$, pode ser útil gerar uma lista de primos de
-            antemão, a qual permitirá a identificação imediata de números presentes nesta listagem
+        \item Para verificar um conjunto de inteiros $C = \{ a_1, a_2, \ldots, a_k \}$ tal que $a_i\leq N$, $\forall i = 1, 2, \ldots, k$, 
+            poder ser mais eficiente gerar uma lista dos primos menores ou iguais a $N$,
+            a qual permitirá a identificação imediata de números presentes nesta listagem
 
-        \item Uma maneira de se listar os $N$ primeiros primos seria iterar sobre os inteiros do
+        \item Uma maneira de se gerar esta primos seria iterar sobre os inteiros do
             intervalo $[1, N]$ e, para cada um deles, invocar a rotina \code{cpp}{is_prime3()}
 
         \item A complexidade deste algoritmo seria $O(N\times \sqrt{N})$.
@@ -49,7 +50,7 @@
 
         \item Os números não crivados formam a relação de todos os primos menores ou iguais a $N$
 
-        \item Uma implementação do crivo de Erastótenes em C++ pode o vetor de \textit{bits} 
+        \item Uma implementação do crivo de Erastótenes em C++ pode usar o vetor de \textit{bits} 
             \code{cpp}{sieve} para marcar os números
 
         \item Zero ou falso indica que o número não é primo
@@ -207,16 +208,4 @@ número de primos gerados, segundo a tabela abaixo:
     primes5(10000000) = 664579 (0.059135050000000 ms)
     \end{verbatim}
     \end{footnotesize}
-\end{frame}
-
-\begin{frame}[fragile]{Problemas propostos}
-
-    \begin{enumerate}
-        \item \href{https://atcoder.jp/contests/abc096/tasks/abc096_d}{AtCoder Beginner Contest 096D -- Five, Five Everywhere}
-        \item \href{https://atcoder.jp/contests/abc149/tasks/abc149_c}{AtCoder Beginner Contest 149C -- Next Prime}
-        \item \href{https://codeforces.com/problemset/problem/327/B}{Codeforces 327B -- Hungry Sequence}
-        \item \href{http://onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&category=24&page=show_problem&problem=484}{OJ 543 -- Goldbach}
-        \item \href{https://onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&category=24&page=show_problem&problem=2852}{OJ 11752 -- The Super Powers}
-    \end{enumerate}
-
 \end{frame}

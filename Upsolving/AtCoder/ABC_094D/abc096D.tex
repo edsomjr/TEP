@@ -1,0 +1,102 @@
+\begin{frame}[fragile]{Problema}
+
+Print a sequence $a_1, a_2, \ldots, a_N$ whose length is $N$ that satisfies the following conditions:
+\begin{itemize}
+    \item $a_i (1\leq a_i\leq N)$ is a prime number at most $55 555$.
+    \item The values of $a_i, a_2, \ldots, a_N$ are all different.
+    \item In every choice of five different integers from $a_1, a_2, \ldots, a_N$, the sum of those integers is a composite number.
+\end{itemize}
+ 
+If there are multiple such sequences, printing any of them is accepted.
+
+\vspace{0.2in}
+
+\textbf{Notes}
+
+An integer $N$ not less than $2$ is called a prime number if it cannot be divided evenly by any integers except $1$ and $N$, and called a composite number otherwise.
+
+\end{frame}
+
+\begin{frame}[fragile]{Entrada e saída}
+
+\textbf{Constraints}
+
+\begin{itemize}
+    \item $N$ is an integer between $5$ and $55$ (inclusive).
+\end{itemize}
+
+\vspace{0.1in}
+
+\textbf{Input}
+
+Input is given from Standard Input in the following format:
+\begin{atcoderio}{lll}
+$N$ \\
+\end{atcoderio}
+
+\textbf{Output}
+
+Print $N$ numbers $a_1, a_2, \ldots, a_N$ in a line, with spaces in between.
+
+\end{frame}
+
+\begin{frame}[fragile]{Exemplos de entradas e saídas}
+
+\begin{minipage}[t]{0.45\textwidth}
+\textbf{Entrada}
+\begin{verbatim}
+5
+
+
+6
+
+
+8
+\end{verbatim}
+\end{minipage}
+\begin{minipage}[t]{0.5\textwidth}
+\textbf{Saída}
+\begin{verbatim}
+3 5 7 11 31
+
+
+2 3 5 7 11 13
+
+
+2 5 7 13 19 37 67 79
+\end{verbatim}
+\end{minipage}
+\end{frame}
+
+
+\begin{frame}[fragile]{Solução com complexidade $O(M\log \log M)$}
+
+    \begin{itemize}
+        \item A solução consiste em identificar um subconjuntos de primos que atendam a primeira
+            e a terceira condições
+
+        \item Os $\pi(55555) = 5637$ primos podem se gerados pelo crivo de Erastótenes
+
+        \item Devem ser selecionados dentre os primos aqueles cujo resto da divisão por 5 seja
+            $k$, com $k > 0$
+
+        \item Qualquer $k$ no intervalo $[1, 4]$ gera uma lista de mais de $1.400$ primos
+
+        \item Assim, após o filtro todos os elementos selecionados serão da forma $5m + k$, e 
+            daí
+        $$
+            (5m_1 + k) + (5m_2 + k) + \ldots + (5m_5 + k) = 5(m_1 + m_2 + \ldots + m_5 + k)
+        $$
+
+        \item Ou seja, a soma de quaisquer $N$ elementos dentre os filtrados é 
+            divisível por 5, e portanto é um número composto
+
+        \item A complexidade será igual a complexidade do crivo usado para gerar os primos até
+            $M$, onde $M = 55555$
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Solução com complexidade $O(M\log \log M)$}
+    \inputsnippet{cpp}{1}{21}{codes/abc096D.cpp}
+\end{frame}
