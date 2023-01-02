@@ -86,7 +86,7 @@
         1. [ABC 149C - _Next Prime_](https://atcoder.jp/contests/abc149/tasks/abc149_c)
         1. [CF 327B - _Hungry Sequence_](https://codeforces.com/problemset/problem/327/B)
         1. [OJ 543 - _Goldbach_](http://onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&category=24&page=show_problem&problem=484)
-        1. [OJ 11752 -- The Super Powers_](https://onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&category=24&page=show_problem&problem=2852) [(_upsolving_)](../Upsolving/OJ/11752/11752.pdf)
+        1. [OJ 11752 - _The Super Powers_](https://onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&category=24&page=show_problem&problem=2852) [(_upsolving_)](../Upsolving/OJ/11752/11752.pdf)
     1. [Funções Multiplicativas](slides/funcoes_multiplicativas/funcoes_multiplicativas.pdf)
     1. [Teorema Fundamental da Aritmética](slides/teorema_fundamental_da_aritmetica/teorema_fundamental_da_aritmetica.pdf)
     1. [Aritmética Modular](slides/aritmetica_modular/aritmetica_modular.pdf)
