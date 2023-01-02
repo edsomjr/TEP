@@ -82,7 +82,7 @@
         1. [OJ 10892 - _LCM Cardinality_](https://onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&category=24&page=show_problem&problem=1833)
         1. [OJ 11827 - _Maximum GCD_](https://onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&category=24&page=show_problem&problem=2927)
     1. [Números Primos](slides/numeros_primos/numeros_primos.pdf)
-        1. [ABC 096D - _Five, Five Everywhere_](https://atcoder.jp/contests/abc096/tasks/abc096_d) [(_upsolving_)](Upsolving/AtCoder/ABC_094D/ABC_094D.pdf)
+        1. [ABC 096D - _Five, Five Everywhere_](https://atcoder.jp/contests/abc096/tasks/abc096_d) [(_upsolving_)](../Upsolving/AtCoder/ABC_094D/ABC_094D.pdf)
         1. [ABC 149C - _Next Prime_](https://atcoder.jp/contests/abc149/tasks/abc149_c)
         1. [CF 327B - _Hungry Sequence_](https://codeforces.com/problemset/problem/327/B)
         1. [OJ 543 - _Goldbach_](http://onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&category=24&page=show_problem&problem=484)
