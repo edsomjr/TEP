@@ -9,7 +9,7 @@
         \item Ela parte de uma solução, inicialmente vazia, e tenta construir uma nova solução
             estendendo a solução parcial um elemento por vez
 
-        \item A cada passo são avaliados todos os possíveis elementos que podem vir a integrar
+        \item A cada passo são avaliados todos os possíveis elementos que podem integrar
             uma nova solução, a depender dos elementos já inseridos na solução parcial
 
         \item Quando uma solução é encontrada, ela é processada
@@ -74,7 +74,7 @@
         \item Assim, não é necessário fazer novas cópias de $xs$ a cada chamada: basta passar este
             vetor por referência
 
-        \item A inserção de um candidato em $xs$ pode vir a modificar os parâmetros $P$: esta
+        \item A inserção de um candidato em $xs$ pode modificar os parâmetros $P$: esta
             atualização também deve ser desfeita após a chamada recursiva
     \end{itemize}
 
