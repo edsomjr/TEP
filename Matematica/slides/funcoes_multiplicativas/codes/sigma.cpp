@@ -15,4 +15,3 @@ long long sum_of_divisors(int n, const vector<int>& primes)
 
     return res;
 }
-

@@ -10,4 +10,3 @@ long long number_of_divisors(long long n)
 
     return res;
 }
-
