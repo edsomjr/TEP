@@ -89,10 +89,10 @@
         1. [OJ 11752 - _The Super Powers_](https://onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&category=24&page=show_problem&problem=2852) [(_upsolving_)](../Upsolving/OJ/11752/11752.pdf)
     1. [Funções Multiplicativas](slides/funcoes_multiplicativas/funcoes_multiplicativas.pdf)
         1. [ABC 170D - _Not Divisible_](https://atcoder.jp/contests/abc170/tasks/abc170_d)
-        1. [ABC 172D - _Sum of Divisors_](https://atcoder.jp/contests/abc172/tasks/abc172_d) [(_upsolving_)](../Upsolving/AtCoder/ABC_172D)
-        1. [CF 1033D - _Divisors_](https://codeforces.com/problemset/problem/1033/D) [(_upsolving_)](../Upsolving/CF/1033D)  
+        1. [ABC 172D - _Sum of Divisors_](https://atcoder.jp/contests/abc172/tasks/abc172_d) [(_upsolving_)](../Upsolving/AtCoder/ABC_172D/ABC_172D.pdf)
+        1. [CF 1033D - _Divisors_](https://codeforces.com/problemset/problem/1033/D) [(_upsolving_)](../Upsolving/CF/1033D/1033D.pdf)  
         1. [OJ 10299 - _Relatives_](http://onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&category=24&page=show_problem&problem=1240)
-        1. [OJ 12043 - _Divisors_](http://onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&category=24&page=show_problem&problem=3194) [(_upsolving_)](../Upsolving/OJ/12043)
+        1. [OJ 12043 - _Divisors_](http://onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&category=24&page=show_problem&problem=3194) [(_upsolving_)](../Upsolving/OJ/12043/12043.pdf)
     1. [Teorema Fundamental da Aritmética](slides/teorema_fundamental_da_aritmetica/teorema_fundamental_da_aritmetica.pdf)
     1. [Aritmética Modular](slides/aritmetica_modular/aritmetica_modular.pdf)
 1. Análise Combinatória
