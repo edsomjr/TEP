@@ -96,7 +96,7 @@
     1. [Teorema Fundamental da Aritmética](slides/teorema_fundamental_da_aritmetica/teorema_fundamental_da_aritmetica.pdf)
         1. [ABC 120B - _K-th Common Divisor_](https://atcoder.jp/contests/abc120/tasks/abc120_b)
         1. [ABC 148E - _Double Factorial_](https://atcoder.jp/contests/abc148/tasks/abc148_e) [(_upsolving_)](../Upsolving/AtCoder/ABC_148E/ABC_148E.pdf)
-        1. [CF 515C - _Drazil and Factorial_](https://codeforces.com/problemset/problem/515/C)
+        1. [CF 515C - _Drazil and Factorial_](https://codeforces.com/problemset/problem/515/C) [(_upsolving_)](../Upsolving/CF/515C/515C.pdf)  
         1. [OJ 10061 - _How many zero's and how many digits?_](https://onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&category=24&page=show_problem&problem=1002)
         1. [OJ 10527 - _Persistent Numbers_](https://onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&category=24&page=show_problem&problem=1468)
     1. [Aritmética Modular](slides/aritmetica_modular/aritmetica_modular.pdf)

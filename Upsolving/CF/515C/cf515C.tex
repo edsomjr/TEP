@@ -1,13 +1,69 @@
 \begin{frame}[fragile]{Codeforces 515C -- Drazil and Factorial}
 
-    \textbf{Versão resumida do problema}: determinar o maior positivo $x$ tal que $x$ não
-        contenha nem zeros nem uns em sua representação, e que $F(x) = F(a)$, onde
-        $F(n)$ é o produto dos fatoriais dos dígitos de $n$.
+{\it
+Drazil is playing a math game with Varda.
 
-    \vspace{0.1in}
-    \textbf{Restrição}: o número $a$ tem entre 1 e 15 dígitos decimais.
+Let's define $F(x)$ or positive integer $x$ as a product of factorials of its digits. For example, $F(135) = 1! \times 3!\times 5! = 720$.
+
+First, they choose a decimal number $a$ consisting of $n$ digits that contains at least one digit larger than 1. This number may possibly start with leading zeroes. Then they should find maximum positive number $x$ satisfying following two conditions:
+
+\begin{enumerate}
+    \item $x$ doesn't contain neither digit 0 nor digit 1.
+    \item $F(x) = F(a)$.
+\end{enumerate}
+
+Help friends find such number.
+}
 
 \end{frame}
+
+\begin{frame}[fragile]{Entrada e saída}
+
+\textbf{Input}
+
+{\it
+The first line contains an integer $n$ $(1 \leq n \leq 15)$ -- the number of digits in $a$.
+
+The second line contains $n$ digits of $a$. There is at least one digit in $a$ that is larger than 1. Number $a$ may possibly contain leading zeroes.
+}
+
+\vspace{0.2in}
+
+\textbf{Output}
+
+{\it
+Output a maximum possible integer satisfying the conditions above. There should be no zeroes and ones in this number decimal representation.
+}
+
+\end{frame}
+
+\begin{frame}[fragile]{Exemplos de entrada e saída}
+
+\begin{minipage}[t]{0.45\textwidth}
+\textbf{Entrada}
+\begin{verbatim}
+4
+1234
+
+
+3
+555
+\end{verbatim}
+\end{minipage}
+\begin{minipage}[t]{0.5\textwidth}
+\textbf{Saída}
+\begin{verbatim}
+33222
+
+
+
+555
+\end{verbatim}
+\end{minipage}
+
+\end{frame}
+
+
 
 \begin{frame}[fragile]{Solução $O(n\log n)$}
 
