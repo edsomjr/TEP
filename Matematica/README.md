@@ -100,6 +100,12 @@
         1. [OJ 10061 - _How many zero's and how many digits?_](https://onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&category=24&page=show_problem&problem=1002)
         1. [OJ 10527 - _Persistent Numbers_](https://onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&category=24&page=show_problem&problem=1468) [(_upsolving_)](../Upsolving/OJ/10527/10527.pdf)
     1. [Aritmética Modular](slides/aritmetica_modular/aritmetica_modular.pdf)
+        1. [ABC 088A - _Infinite Coins_](https://atcoder.jp/contests/abc088/tasks/abc088_a)
+        1. [CF 450B - _Jzzhu and Sequences_](https://codeforces.com/problemset/problem/450/B)
+        1. [OJ 374 - _Big Mod_](https://onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&category=24&page=show_problem&problem=310)
+        1. [OJ 10127 - _Ones_](https://onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&category=24&page=show_problem&problem=1068)
+        1. [OJ 10212 - _The Last Non-zero Digit_](https://onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&category=24&page=show_problem&problem=1153)
+        1. [OJ 11029 - _Leading and Trailing_](https://onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&category=24&page=show_problem&problem=1970)
 1. Análise Combinatória
     1. [Permutações](slides/permutacoes/permutacoes.pdf)
     1. [Arranjos](slides/arranjos/arranjos.pdf)
