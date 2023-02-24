@@ -1,15 +1,67 @@
 \begin{frame}[fragile]{AtCoder Beginner Contest 148E -- Double Factorial}
 
-    \textbf{Versão resumida do problema}: Determine o número de zeros à direita na representação
-    decimal de $f(N)$, onde $f(1) = 1$ e
-    $$
-        f(n) = nf(n - 2), \ \ \mbox{se}\ n\geq 2
-    $$
+For an integer $n$ not less than 0, let us define $f(n)$ as follows:
+\begin{itemize}
+    \item $f(n)=1\ (\mbox{if}\ n<2)$
+    \item $f(n)=nf(n-2)\ (\mbox{if}\ n\leq 2)$
+\end{itemize}
 
-    \vspace{0.1in}
-    \textbf{Restrição}: $0 \leq N \leq 10^{18}$
+Given is an integer $N$. Find the number of trailing zeros in the decimal notation of $f(N)$.
 
 \end{frame}
+
+\begin{frame}[fragile]{Entrada e saída}
+
+\textbf{Constraints}
+
+\begin{itemize}
+    \item $0 \leq N\leq 10^{18}$
+\end{itemize}
+
+\vspace{0.1in}
+
+\textbf{Input}
+
+Input is given from Standard Input in the following format:
+\begin{atcoderio}{lll}
+$N$ \\
+\end{atcoderio}
+
+\textbf{Output}
+
+
+Print the number of trailing zeros in the decimal notation of $f(N)$.
+
+\end{frame}
+
+\begin{frame}[fragile]{Exemplos de entradas e saídas}
+
+\begin{minipage}[t]{0.45\textwidth}
+\textbf{Entrada}
+\begin{verbatim}
+12
+
+
+5
+
+
+1000000000000000000
+\end{verbatim}
+\end{minipage}
+\begin{minipage}[t]{0.5\textwidth}
+\textbf{Saída}
+\begin{verbatim}
+1
+
+
+0
+
+
+124999999999999995
+\end{verbatim}
+\end{minipage}
+\end{frame}
+
 
 \begin{frame}[fragile]{Solução com complexidade $O(\log N)$}
 

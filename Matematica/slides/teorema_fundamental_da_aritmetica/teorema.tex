@@ -5,8 +5,8 @@
     \begin{itemize}
         \item Uma função $f$ é multiplicativa se $f(1) = 1$ e $f(ab) = f(a)f(b)$ se $(a, b) = 1$
 
-        \item Uma consequência destas propriedades é que $f$ pode ser determinada se conhecidos
-            os valores que ela assume nas potências $p^k$ de qualquer primo $p$
+        \item Uma consequência destas propriedades é que $f$ pode ser determinada a partir
+            dos valores que ela assume nas potências $p^k$ de qualquer primo $p$
 
         \item Isto porque, se o inteiro positivo $n$ é um produto de potências de primos, isto é
         $$
@@ -60,7 +60,7 @@
 
     \begin{itemize}
         \item Uma maneira de se representar a fatoração de um inteiro positivo $n > 1$ é por meio
-            de um dicionário, onde chave é um primo $p$ divisor de $n$, e o valor $k$ é o maior
+            de um dicionário, onde chave é um primo $p$ divisor de $n$ e o valor $k$ é o maior
             expoente tal que $p^k$ divide $n$
 
         \item É possível implementar a fatoração de duas formas
@@ -85,9 +85,9 @@
 
 
         \item A fatoração pode ser implementada em $O(\pi(\sqrt{n}))$, se forem conhecida a
-            lista dos primeiros primos 
+            lista dos números primos menores ou iguais a $\sqrt{n}$
 
-        \item O algoritmo será o mesmo, com a diferença de que os candidatos à divisores serão
+        \item O algoritmo será o mesmo, com a diferença de que os candidatos a divisores serão
             todos primos
     \end{itemize}
 
