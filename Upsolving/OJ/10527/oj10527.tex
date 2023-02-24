@@ -1,11 +1,72 @@
 \begin{frame}[fragile]{OJ 10527 -- Persistent Numbers}
 
-    \textbf{Versão resumida do problema}: compute o menor número $x$ tal que $n$ é igual ao 
-        produto de seus dígitos
-    \vspace{0.1in}
+{\it
+The multiplicative persistence of a number is defined by Neil Sloane (Neil J.A. Sloane in `The
+Persistence of a Number' published in Journal of Recreational Mathematics 6, 1973, pp. 97-98., 1973)
+as the number of steps to reach a one-digit number when repeatedly multiplying the digits. Example:
+\[
+679 \to 378 \to 168 \to 48 \to 32 \to 6.
+\]
 
-    \textbf{Restrições}: o número $n$ tem até 1000 dígitos decimais.
+That is, the persistence of 679 is 5. The persistence of a single digit number is 0. At the time of
+this writing it is known that there are numbers with the persistence of 11. It is not known whether
+there are numbers with the persistence of 12 but it is known that if they exists then the smallest of
+them would have more than 3000 digits.
+
+The problem that you are to solve here is: what is the smallest number such that the first step of
+computing its persistence results in the given number?
+}
 \end{frame}
+
+\begin{frame}[fragile]{Entrada e saída}
+
+\textbf{Input}
+
+{\it For each test case there is a single line of input containing a decimal number with up to 1000 digits. A
+line containing \texttt{-1} follows the last test case.}
+
+\vspace{0.3in}
+
+
+\textbf{Output}
+
+{\it For each test case you are to output one line containing one integer number satisfying the condition
+stated above or a statement saying that there is no such number in the format shown below.}
+
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de entrada e saída}
+
+\begin{minipage}[t]{0.45\textwidth}
+\textbf{Entrada}
+\begin{verbatim}
+0
+1
+4
+7
+18
+49
+51
+768
+-1
+\end{verbatim}
+\end{minipage}
+\begin{minipage}[t]{0.5\textwidth}
+\textbf{Saída}
+\begin{verbatim}
+10
+11
+14
+17
+29
+77
+There is no such number.
+2688
+\end{verbatim}
+\end{minipage}
+
+\end{frame}
+
 
 \begin{frame}[fragile]{Solução $O(\log n)$}
 
