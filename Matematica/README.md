@@ -103,7 +103,7 @@
         1. [ABC 088A - _Infinite Coins_](https://atcoder.jp/contests/abc088/tasks/abc088_a)
         1. [CF 450B - _Jzzhu and Sequences_](https://codeforces.com/problemset/problem/450/B) [(_upsolving_)](../Upsolving/CF/450B/450B.pdf)  
         1. [OJ 374 - _Big Mod_](https://onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&category=24&page=show_problem&problem=310)
-        1. [OJ 10127 - _Ones_](https://onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&category=24&page=show_problem&problem=1068)
+        1. [OJ 10127 - _Ones_](https://onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&category=24&page=show_problem&problem=1068) [(_upsolving_)](../Upsolving/OJ/10127/10127.pdf)
         1. [OJ 10212 - _The Last Non-zero Digit_](https://onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&category=24&page=show_problem&problem=1153)
         1. [OJ 11029 - _Leading and Trailing_](https://onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&category=24&page=show_problem&problem=1970)
 1. Análise Combinatória

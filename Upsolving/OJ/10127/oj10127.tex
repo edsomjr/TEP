@@ -1,0 +1,74 @@
+\begin{frame}[fragile]{OJ 10127 -- Ones}
+
+{\it
+Given any integer $0 \leq n \leq 10000$ not divisible by $2$
+or $5$, some multiple of $n$ is a number which in decimal
+notation is a sequence of $1$’s. How many digits are in
+the smallest such a multiple of $n$?
+}
+
+\end{frame}
+
+\begin{frame}[fragile]{Entrada e saída}
+
+\textbf{Input}
+
+{\it A file of integers at one integer per line.}
+
+\vspace{0.3in}
+
+
+\textbf{Output}
+
+{\it Each output line gives the smallest integer $x > 0$ such that $$p = \sum_{i = 0}^{x-1} 1 \times 10^i = a \times b,$$
+where $a$ is the corresponding input integer, and $b$ is an integer greater than zero.}
+
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de entrada e saída}
+
+\begin{minipage}[t]{0.45\textwidth}
+\textbf{Entrada}
+\begin{verbatim}
+3
+7
+9901
+\end{verbatim}
+\end{minipage}
+\begin{minipage}[t]{0.5\textwidth}
+\textbf{Saída}
+\begin{verbatim}
+3
+6
+12
+\end{verbatim}
+\end{minipage}
+
+\end{frame}
+
+
+
+\begin{frame}[fragile]{Solução com complexidade $O(\log n)$}
+
+    \begin{itemize}
+        \item A solução do problema consiste na construção iterativa do valor de $x$
+
+        \item Inicialmente $x = 1$
+
+        \item Enquanto $\Mod{x}{n} > 0$, $x$ deve ir para o próximo número $x'$ cujos dígitos são
+            todos iguais a 1
+
+        \item Temos que $x' = 10x + 1$
+
+        \item A cada atualização a resposta, que deve ser iniciada em 1, deve ser incrementada
+
+        \item A complexidade da solução depende do número de dígitos de $x$, o qual será sempre
+            menor ou igual a $n$
+
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Solução com complexidade $O(\log n)$}
+    \inputsnippet{cpp}{5}{16}{codes/10127.cpp}
+\end{frame}
