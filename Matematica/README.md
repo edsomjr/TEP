@@ -101,7 +101,7 @@
         1. [OJ 10527 - _Persistent Numbers_](https://onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&category=24&page=show_problem&problem=1468) [(_upsolving_)](../Upsolving/OJ/10527/10527.pdf)
     1. [Aritmética Modular](slides/aritmetica_modular/aritmetica_modular.pdf)
         1. [ABC 088A - _Infinite Coins_](https://atcoder.jp/contests/abc088/tasks/abc088_a)
-        1. [CF 450B - _Jzzhu and Sequences_](https://codeforces.com/problemset/problem/450/B)
+        1. [CF 450B - _Jzzhu and Sequences_](https://codeforces.com/problemset/problem/450/B) [(_upsolving_)](../Upsolving/CF/450B/450B.pdf)  
         1. [OJ 374 - _Big Mod_](https://onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&category=24&page=show_problem&problem=310)
         1. [OJ 10127 - _Ones_](https://onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&category=24&page=show_problem&problem=1068)
         1. [OJ 10212 - _The Last Non-zero Digit_](https://onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&category=24&page=show_problem&problem=1153)
