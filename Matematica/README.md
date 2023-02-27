@@ -108,6 +108,11 @@
         1. [OJ 11029 - _Leading and Trailing_](https://onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&category=24&page=show_problem&problem=1970)
 1. Análise Combinatória
     1. [Permutações](slides/permutacoes/permutacoes.pdf)
+        1. [ABC 103A - _Task Scheduling Problem_](https://atcoder.jp/contests/abc103/tasks/abc103_a)
+        1. [ABC 123B - _Five Dishes_](https://atcoder.jp/contests/abc123/tasks/abc123_b)
+        1. [CF 222B - _Cosmic Tables_](https://codeforces.com/problemset/problem/222/B)
+        1. [CF 961C - _Chessboard_](https://codeforces.com/problemset/problem/961/C)
+        1. [OJ 216 - _Getting in Line_](https://onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&page=show_problem&category=0&problem=152&mosmsg=Submission+received+with+ID+26304411)
     1. [Arranjos](slides/arranjos/arranjos.pdf)
     1. [Combinações](slides/combinacoes/combinacoes.pdf)
     1. [Números de Fibonacci e Catalan](slides/fibonacci_e_catalan/fibonacci_e_catalan.pdf)
