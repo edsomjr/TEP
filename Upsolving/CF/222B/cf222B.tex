@@ -1,0 +1,127 @@
+\begin{frame}[fragile]{Codeforces 222B -- Cosmic Tables}
+
+{\it
+The Free Meteor Association (FMA) has got a problem: as meteors are moving, the Universal Cosmic Descriptive Humorous Program (UCDHP) needs to add a special module that would analyze this movement.
+
+UCDHP stores some secret information about meteors as an $n \times m$ table with integers in its cells. The order of meteors in the Universe is changing. That's why the main UCDHP module receives the following queries:
+
+\begin{itemize}
+    \item The query to swap two table rows;
+    \item The query to swap two table columns;
+    \item The query to obtain a secret number in a particular table cell.
+\end{itemize}
+
+As the main UCDHP module is critical, writing the functional of working with the table has been commissioned to you.
+}
+
+\end{frame}
+
+\begin{frame}[fragile]{Entrada e saída}
+
+\textbf{Input}
+
+{\it
+The first line contains three space-separated integers $n, m$ and $k$ $(1 \leq n, m \leq 1000, 1 \leq k \leq 500000)$ -- the number of table columns and rows and the number of queries, correspondingly.
+
+Next $n$ lines contain $m$ space-separated numbers each -- the initial state of the table. Each number $p$ in the table is an integer and satisfies the inequality $0 \leq p \leq 10^6$.
+
+Next $k$ lines contain queries in the format ``$s_i x_i y_i$'', where $s_i$ is one of the characters ``\texttt{с}'', ``\texttt{r}'' or ``\texttt{g}'', and $x_i, y_i$ are two integers.
+
+\begin{itemize}
+    \item If $s_i =$ ``\texttt{c}'', then the current query is the query to swap columns with indexes $x_i$ and $y_i$ $(1 \leq x, y \leq m, x \neq y)$;
+    \item If $s_i =$ ``\texttt{r}'', then the current query is the query to swap rows with indexes $x_i$ and $y_i$ $(1 \leq x, y \leq n, x \neq y)$;
+    \item If $s_i =$ ``\texttt{g}'', then the current query is the query to obtain the number that located in the $x_i$-th row and in the $y_i$-th column $(1 \leq x \leq n, 1 \leq y \leq m)$.
+\end{itemize}
+}
+
+\end{frame}
+
+\begin{frame}[fragile]{Entrada e saída}
+
+{\it The table rows are considered to be indexed from top to bottom from $1$ to $n$, and the table columns -- from left to right from $1$ to $m$.}
+
+\vspace{0.2in}
+
+\textbf{Output}
+
+{\it
+For each query to obtain a number ($s_i =$ ``\texttt{g}'') print the required number. Print the answers to the queries in the order of the queries in the input.
+}
+
+\end{frame}
+
+\begin{frame}[fragile]{Exemplos de entrada e saída}
+
+\begin{minipage}[t]{0.45\textwidth}
+\textbf{Entrada}
+\begin{verbatim}
+3 3 5
+1 2 3
+4 5 6
+7 8 9
+g 3 2
+r 3 2
+c 2 3
+g 2 2
+g 3 2
+\end{verbatim}
+\end{minipage}
+\begin{minipage}[t]{0.5\textwidth}
+\textbf{Saída}
+\begin{verbatim}
+8
+9
+6
+\end{verbatim}
+\end{minipage}
+
+\end{frame}
+
+
+\begin{frame}[fragile]{Solução com complexidade $O(k)$}
+
+    \begin{itemize}
+        \item Trocar efetivamente os elementos de duas linhas de lugar tem complexidade $O(m)$
+
+        \item De forma equivalente, a troca de duas colunas tem complexidade $O(n)$
+
+        \item Assim, no pior caso o algoritmo teria complexidade $O(k\times \max(n, m))$, o que 
+            extrapolaria o limite de tempo, dadas as restrições do problema
+
+        \item A solução do problema depende, portanto, de um processamento mais eficiente das
+            consultas que envolvem trocas de linhas e de colunas
+
+        \item De fato, estas consultas podem ser respondidas em $O(1)$
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Solução com complexidade $O(k)$}
+
+    \begin{itemize}
+        \item A cada troca de linhas ou de colunas, a nova matriz obtida tem as mesmas linhas e
+            colunas da matriz $A$, porém em ordem distinta
+
+        \item A ideia, portanto, é utilizar duas permutações, denominadas \code{cpp}{rs} e 
+            \code{cpp}{cs}, que registrem a ordem em que as linhas e as colunas da matriz $A$
+            foram rearranjadas até uma consulta de elemento
+
+        \item Inicialmente, ambas permutações são identidades, isto é, \code{cpp}{rs[i] = i} e
+            \code{cpp}{cs[j] = j} para $i\in [1, n]$ e $j\in [1, m]$
+
+        \item Com estas permutações, a troca de linhas ou de colunas é feita apenas pela troca
+            dos elementos nas respectivas permutações, mantendo a matriz $A$ inalterada
+
+        \item Nas consultas de elementos, basta utilizar os índices registrados nas permutações
+            para localizar o elemento correto na matriz $A$
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Solução com complexidade $O(k)$}
+    \inputsnippet{cpp}{7}{20}{codes/222B.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Solução com complexidade $O(k)$}
+    \inputsnippet{cpp}{22}{32}{codes/222B.cpp}
+\end{frame}
