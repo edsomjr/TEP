@@ -1,0 +1,115 @@
+\begin{frame}[fragile]{AtCoder Beginner Contest 123B -- Five Dishes}
+
+The restaurant AtCoder serves the following five dishes:
+
+\begin{itemize}
+    \item ABC Don (rice bowl): takes $A$ minutes to serve.
+    \item ARC Curry: takes $B$ minutes to serve.
+    \item AGC Pasta: takes $C$ minutes to serve.
+    \item APC Ramen: takes $D$ minutes to serve.
+    \item ATC Hanbagu (hamburger patty): takes $E$ minutes to serve.
+\end{itemize}
+
+Here, the time to serve a dish is the time between when an order is placed and when the dish is delivered.
+\end{frame}
+
+\begin{frame}[fragile]{AtCoder Beginner Contest 123B -- Five Dishes}
+This restaurant has the following rules on orders:
+
+\begin{itemize}
+    \item An order can only be placed at a time that is a multiple of $10$ (time $0, 10, 20, \ldots$).
+    \item Only one dish can be ordered at a time.
+    \item No new order can be placed when an order is already placed and the dish is still not delivered, but a new order can be placed at the exact time when the dish is delivered.
+\end{itemize}
+
+E869120 arrives at this restaurant at time $0$. He will order all five dishes. Find the earliest possible time for the last dish to be delivered.
+
+Here, he can order the dishes in any order he likes, and he can place an order already at time $0$.
+\end{frame}
+
+\begin{frame}[fragile]{Entrada e saída}
+
+\textbf{Constraints}
+
+\begin{itemize}
+    \item $A,B,C,D$ and $E$ are integers between $1$ and $123$ (inclusive).
+\end{itemize}
+
+\vspace{0.1in}
+
+\textbf{Input}
+
+Input is given from Standard Input in the following format:
+\begin{atcoderio}{lll}
+$A$ \\
+$B$ \\
+$C$ \\
+$D$ \\
+$E$ \\
+\end{atcoderio}
+
+\textbf{Output}
+
+Print the earliest possible time for the last dish to be delivered, as an integer.
+
+\end{frame}
+
+\begin{frame}[fragile]{Exemplos de entradas e saídas}
+
+\begin{minipage}[t]{0.45\textwidth}
+\textbf{Entrada}
+\begin{verbatim}
+29
+20
+7
+35
+120
+
+
+101
+86
+119
+108
+57
+\end{verbatim}
+\end{minipage}
+\begin{minipage}[t]{0.5\textwidth}
+\textbf{Saída}
+\begin{verbatim}
+215
+
+
+
+
+
+
+481
+\end{verbatim}
+\end{minipage}
+\end{frame}
+
+
+\begin{frame}[fragile]{Solução com complexidade $O(1)$}
+
+    \begin{itemize}
+        \item A solução consiste em determinar uma permutação dos pratos A, B, C, D e E que 
+            minimize o tempo para serví-los
+
+        \item Se não houvesse a restrição de que os pratos só podem ser pedidos em instantes de
+            tempo que são múltiplos de 10, qualquer permutação levaria ao mesmo resultado
+
+        \item Há $5! = 120$ permutações possíveis, as quais podem ser geradas por meio da 
+            função \code{cpp}{next_permutation()}
+
+        \item O $i$-ésimo prato requer $t_i$ minutos para ser servido após ser pedido e, exceto
+            pelo último, é preciso esperar o próximo múltiplo de 10 para ser pedido
+
+        \item Uma forma de tratar esta espera é substituir $t_i$ pelo menor múltiplo de 10 maior
+            ou igual a $t_i$ para todos os pratos, exceto o último
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Solução com complexidade $O(1)$}
+    \inputsnippet{cpp}{7}{22}{codes/B123B.cpp}
+\end{frame}
