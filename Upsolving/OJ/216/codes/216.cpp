@@ -10,7 +10,8 @@ struct Answer {
     vector<vector<double>> dist;
 };
 
-Answer solve(int N, const vector<Point>& ps) {
+Answer solve(int N, const vector<Point>& ps)
+{
     vector<vector<double>> dist(N, vector<double>(N));
     
     for (int i = 0; i < N; ++i)
