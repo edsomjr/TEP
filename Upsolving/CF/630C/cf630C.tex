@@ -1,0 +1,69 @@
+\begin{frame}[fragile]{Codeforces 630C -- Lucky Numbers}
+
+{\it
+The numbers of all offices in the new building of the Tax Office of IT City will have lucky numbers.
+
+Lucky number is a number that consists of digits $7$ and $8$ only. Find the maximum number of offices in the new building of the Tax Office given that a door-plate can hold a number not longer than $n$ digits.
+}
+
+\end{frame}
+
+\begin{frame}[fragile]{Entrada e saída}
+
+\textbf{Input}
+
+{\it
+The only line of input contains one integer $n$ $(1 \leq n \leq 55)$ -- the maximum length of a number that a door-plate can hold.}
+
+\vspace{0.2in}
+
+\textbf{Output}
+
+{\it
+Output one integer -- the maximum number of offices, than can have unique lucky numbers not longer than $n$ digits.
+}
+
+\end{frame}
+
+\begin{frame}[fragile]{Exemplos de entrada e saída}
+
+\begin{minipage}[t]{0.45\textwidth}
+\textbf{Entrada}
+\begin{verbatim}
+2
+\end{verbatim}
+\end{minipage}
+\begin{minipage}[t]{0.5\textwidth}
+\textbf{Saída}
+\begin{verbatim}
+6
+\end{verbatim}
+\end{minipage}
+
+\end{frame}
+
+\begin{frame}[fragile]{Solução com complexidade $O(1)$}
+
+    \begin{itemize}
+        \item Para um $M$ fixo, há $2^M$ números distintos que podem ser formados usando
+            os dígitos 7 e 8, pois, para cada posição há duas escolhas: 7 ou 8
+
+        \item Assim, a resposta $S$ do problema é dada por
+        $$
+            S = \sum_{i = 1}^N 2^i = 2^1 + 2^2 + \ldots + 2^N
+        $$
+
+        \item Observe que
+        $$
+            S + 1 = 1 + 2^1 + 2^2 + \ldots + 2^N = 2^{N + 1} - 1
+        $$
+
+        \item Assim $S = 2^{N + 1} - 2$ e esta expressão pode ser computada em $O(1)$ por meio
+            de um deslocamento binário
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Solução com complexidade $O(1)$}
+    \inputsnippet{cpp}{1}{17}{codes/630C.cpp}
+\end{frame}

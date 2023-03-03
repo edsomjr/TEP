@@ -116,7 +116,7 @@
     1. [Arranjos](slides/arranjos/arranjos.pdf)
         1. [ABC 046B - _Painting Balls with AtCoDeer_](https://atcoder.jp/contests/abc046/tasks/abc046_b)
         1. [ABC 159A - _The Number of Even Pairs_](https://atcoder.jp/contests/abc159/tasks/abc159_a) [(_upsolving_)](../Upsolving/AtCoder/ABC_159A/ABC_159A.pdf)
-        1. [CF 630C - _Lucky Numbers_](https://codeforces.com/problemset/problem/630/C)
+        1. [CF 630C - _Lucky Numbers_](https://codeforces.com/problemset/problem/630/C) [(_upsolving_)](../Upsolving/CF/630C/630C.pdf)  
         1. [OJ 11115 - _Uncle Jack_](https://onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&category=24&page=show_problem&problem=2056)
     1. [Combinações](slides/combinacoes/combinacoes.pdf)
     1. [Números de Fibonacci e Catalan](slides/fibonacci_e_catalan/fibonacci_e_catalan.pdf)
