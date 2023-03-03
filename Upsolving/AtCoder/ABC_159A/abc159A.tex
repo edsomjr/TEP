@@ -1,0 +1,98 @@
+\begin{frame}[fragile]{Problema}
+
+We have $N+M$ balls, each of which has an integer written on it.
+
+It is known that:
+\begin{itemize}
+    \item The numbers written on $N$ of the balls are even.
+    \item The numbers written on $M$ of the balls are odd.
+\end{itemize}
+
+Find the number of ways to choose two of the $N+M$ balls (disregarding order) so that the sum of the numbers written on them is even.
+
+It can be shown that this count does not depend on the actual values written on the balls.
+
+\end{frame}
+
+\begin{frame}[fragile]{Entrada e saída}
+
+\textbf{Constraints}
+
+\begin{itemize}
+    \item $0\leq N, M\leq 100$
+    \item $2\leq N + M$
+    \item All values in input are integers.
+\end{itemize}
+
+\vspace{0.1in}
+
+\textbf{Input}
+
+Input is given from Standard Input in the following format:
+\begin{atcoderio}{lll}
+$N$\ \ \ \ $M$ \\
+\end{atcoderio}
+
+\textbf{Output}
+
+Print the answer.
+
+\end{frame}
+
+\begin{frame}[fragile]{Exemplos de entradas e saídas}
+
+\begin{minipage}[t]{0.45\textwidth}
+\textbf{Entrada}
+\begin{verbatim}
+2 1
+
+
+4 3
+
+
+1 1
+\end{verbatim}
+\end{minipage}
+\begin{minipage}[t]{0.5\textwidth}
+\textbf{Saída}
+\begin{verbatim}
+1
+
+
+9
+
+
+0
+\end{verbatim}
+\end{minipage}
+\end{frame}
+
+
+
+\begin{frame}[fragile]{Solução com complexidade $O(1)$}
+
+    \begin{itemize}
+        \item Para que a soma dos números escritos nas bolas seja par há apenas duas
+            possibilidades:
+        \begin{itemize}
+            \item escolher duas bolas com números pares, ou
+            \item escolher duas bolas com números ímpares
+        \end{itemize}
+
+        \item No primeiro caso, há $A(N, 2)$ formas de se escolhar duas bolas com números
+            pares, mas como a ordem de retirada não importa no problema e o arranjo contabiliza
+            ordens distintas, é preciso dividir este resultado por 2
+
+        \item O mesmo vale para as $M$ bolas ímpares
+
+        \item Assim, a solução $S$ será dada por
+        $$
+            S = \frac{A(N, 2) + A(M, 2)}{2} = \frac{N(N - 1) + M(M - 1)}{2}
+        $$
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Solução com complexidade $O(1)$}
+    \inputsnippet{cpp}{1}{22}{codes/B159A.cpp}
+\end{frame}
