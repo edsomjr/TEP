@@ -1,0 +1,98 @@
+\begin{frame}[fragile]{Codeforces 478B -- Random Teams}
+
+{\it
+$n$ participants of the competition were split into $m$ teams in some manner so that each team has at least one participant. After the competition each pair of participants from the same team became friends.
+
+Your task is to write a program that will find the minimum and the maximum number of pairs of friends that could have formed by the end of the competition.
+}
+
+\end{frame}
+
+\begin{frame}[fragile]{Entrada e saída}
+\textbf{Input}
+
+{\it
+The only line of input contains two integers $n$ and $m$, separated by a single space $(1 \leq m \leq n \leq 10^9)$ -- the number of participants and the number of teams respectively.
+}
+
+\vspace{0.2in}
+
+\textbf{Output}
+
+{\it
+The only line of the output should contain two integers $k_{\min}$ and $k_{\max}$ -- the minimum possible number of pairs of friends and the maximum possible number of pairs of friends respectively.
+}
+
+\end{frame}
+
+\begin{frame}[fragile]{Exemplos de entrada e saída}
+
+\begin{minipage}[t]{0.45\textwidth}
+\textbf{Entrada}
+\begin{verbatim}
+5 1
+
+
+3 2
+
+
+6 3
+\end{verbatim}
+\end{minipage}
+\begin{minipage}[t]{0.5\textwidth}
+\textbf{Saída}
+\begin{verbatim}
+10 10
+
+
+1 1
+
+
+3 6
+\end{verbatim}
+\end{minipage}
+
+\end{frame}
+
+
+\begin{frame}[fragile]{Solução com complexidade $O(1)$}
+
+    \begin{itemize}
+        \item Para maximizar o número de pares de amigos é preciso formar o maior grupo possível
+
+        \item Isto significa que devem ser formados $m - 1$ grupos com um
+            único participante e um grande grupo com o $A = n - (m - 1)$ restantes
+
+        \item Assim,
+        $$
+            k_{\max} = \binom{A}{2} = \frac{A(A - 1)}{2}
+        $$
+
+        \item Já para minimizar o número de amigos os participantes devem ser distribuídos da
+            maneira mais uniforme possível
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Solução com complexidade $O(1)$}
+
+    \begin{itemize}
+        \item Pela divisão de Euclides, $n = mq + r$, com $0\leq r < m$
+
+        \item Logo devem ser formados $m - r$ grupos com $B = q$ membros, e os $r$ grupos
+            restantes terão um membro a mais, isto é, $B + 1$ membros
+
+        \item Deste modo,
+        $$
+            k_{\min} = (m - r)\binom{B}{2} + r\binom{B + 1}{2} = (m - r)\frac{B(B - 1)}{2} +
+                r\frac{(B + 1)B}{2}
+        $$
+
+        \item Esta solução tem complexidade $O(1)$
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Solução com complexidade $O(1)$}
+    \inputsnippet{cpp}{6}{15}{codes/478B.cpp}
+\end{frame}

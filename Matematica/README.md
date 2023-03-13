@@ -121,7 +121,7 @@
     1. [Combinações](slides/combinacoes/combinacoes.pdf)
         1. [ABC 094D - _Binomial Coefficients_](https://atcoder.jp/contests/abc094/tasks/arc095_b) [(_upsolving_)](../Upsolving/AtCoder/ABC_094D/ABC_094D.pdf)
         1. [ABC 132D - _Blue and Red Balls_](https://atcoder.jp/contests/abc132/tasks/abc132_d)
-        1. [CF 478B 0 _Random Teams_](https://codeforces.com/problemset/problem/478/B)
+        1. [CF 478B 0 _Random Teams_](https://codeforces.com/problemset/problem/478/B) [(_upsolving_)](../Upsolving/CF/478B/478B.pdf)  
         1. [OJ 10219 - _Find the ways!_](https://onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&category=24&page=show_problem&problem=1160)
         1. [OJ 11955 - _Binomial Theorem_](https://onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&category=24&page=show_problem&problem=3106)
     1. [Números de Fibonacci e Catalan](slides/fibonacci_e_catalan/fibonacci_e_catalan.pdf)
