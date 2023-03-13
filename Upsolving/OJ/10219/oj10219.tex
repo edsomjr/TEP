@@ -1,0 +1,104 @@
+\begin{frame}[fragile]{OJ 10219 -- Find the ways!}
+
+{\it
+An American, a Frenchman and an Englishwoman had been to Dhaka, the capital of Bangladesh. They
+went sight-seeing in a taxi. The three tourists were talking about the sites in the city. The American
+was very proud of tall buildings in New York. He boasted to his friends, ``Do you know that the Empire
+State Building was built in three months?''.
+
+``Really?'' replied the Frenchman. ``The Eiffel Tower in Paris was built in only one month!''
+(However, The truth is, the construction of the Tower began in January 1887. Forty Engineers and
+designers under Eiffel’s direction worked for two years. The tower was completed in March 1889.).
+
+``How interesting!'' said the Englishwoman. ``Buckingham Palace in London was built in only two
+weeks!!''.
+}
+
+\end{frame}
+
+\begin{frame}[fragile]{OJ 10219 -- Find the ways!}
+
+{\it
+At that moment the taxi passed a big slum (However, in Bangladesh we call it ``Bostii''). ``What
+was that? When it was built?'' The Englishwomen asked the driver who was a Bangladeshi.
+
+``I don’t know!'', answered the driver. ``It wasn’t there yesterday!''.
+
+However in Bangladesh, illegal establishment of slums is a big time problem. Government is trying
+to destroy these slums and remove the peoples living there to a far place, formally in a planned village
+outside the city. But they can’t find any ways, how to destroy all these slums!
+
+Now, can you imagine yourself as a slum destroyer? In how many ways you can destroy k slums out
+of n slums! Suppose there are 10 slums and you are given the permission of destroying 5 slums, surly
+you can do it in 252 ways, which is only a 3 digit number, Your task is to find out the digits in ways
+you can destroy the slums!
+}
+
+\end{frame}
+
+\begin{frame}[fragile]{Entrada e saída}
+
+\textbf{Input}
+
+{\it The input file will contain one or more test cases.
+
+Each test case consists of one line containing two integers $n$ $(n \geq 1)$ and $k$ $(1 \leq k \leq n)$.}
+
+\vspace{0.3in}
+
+
+\textbf{Output}
+
+{\it For each test case, print one line containing the required number. This number will always fit into an
+integer, i.e. it will be less than $2^{31} - 1$.}
+
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de entrada e saída}
+
+\begin{minipage}[t]{0.45\textwidth}
+\textbf{Entrada}
+\begin{verbatim}
+20 5
+100 10
+200 15
+\end{verbatim}
+\end{minipage}
+\begin{minipage}[t]{0.5\textwidth}
+\textbf{Saída}
+\begin{verbatim}
+5
+14
+23
+\end{verbatim}
+\end{minipage}
+
+\end{frame}
+
+
+
+\begin{frame}[fragile]{Solução em $O(n)$}
+
+    \begin{itemize}
+        \item O número de dígitos $D$ de um inteiro $x$ em uma base $b > 1$ é dado por
+        $$
+            D = \lfloor 1 + \log_b x\rfloor
+        $$
+
+        \item O coeficiente binomial pode ser escrito como
+        $$
+            \binom{n}{k} = \frac{n!}{(n - k)!k!} = \frac{n\times (n - 1)\times \ldots \times
+                (n - k + 1)}{k\times (k - 1)\times \ldots 2 \times 1}
+        $$
+
+        \item Combinando ambas expressões, com $m = n - k + 1$, obtemos
+        $$
+            D = \left\lfloor 1 + \sum_{i = m}^n \log_{10} i - \sum_{i = 1}^k \log_{10} i \right\rfloor
+        $$
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Solução em $O(n)$}
+    \inputsnippet{cpp}{5}{18}{codes/10219.cpp}
+\end{frame}
