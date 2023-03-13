@@ -1,0 +1,76 @@
+\begin{frame}[fragile]{OJ 10303 -- How Many Trees?}
+
+{\it
+A binary search tree is a binary tree with root $k$ such that any node $v$ reachable from its left has
+$\mathrm{label}(v) < \mathrm{label}(k)$ and any node $w$ reachable from its right has $\mathrm{label}(w) > \mathrm{label}(k)$. It is a search
+structure which can find a node with label $x$ in $O(n\log n)$ average time, where n is the size of the tree
+(number of vertices).
+
+Given a number $n$, can you tell how many different binary search trees may be constructed with a
+set of numbers of size $n$ such that each element of the set will be associated to the label of exactly one
+node in a binary search tree?
+}
+
+\end{frame}
+
+\begin{frame}[fragile]{Entrada e saída}
+
+\textbf{Input}
+
+{\it The input will contain a number $1 \leq i \leq 1000$ per line representing the number of elements of the set.}
+
+
+\vspace{0.3in}
+
+
+\textbf{Output}
+
+{\it You have to print a line in the output for each entry with the answer to the previous question.}
+
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de entrada e saída}
+
+\begin{minipage}[t]{0.45\textwidth}
+\textbf{Entrada}
+\begin{verbatim}
+1
+2
+3
+\end{verbatim}
+\end{minipage}
+\begin{minipage}[t]{0.5\textwidth}
+\textbf{Saída}
+\begin{verbatim}
+1
+2
+5
+\end{verbatim}
+\end{minipage}
+
+\end{frame}
+
+
+\begin{frame}[fragile]{Solução em $O(N)$}
+
+    \begin{itemize}
+        \item Este é o tipo de problema que fica simplificado se o competidor conhecer os
+            números de Catalan
+
+        \item Os três exemplos dados correspondem as valores $N = 1, 2, 3$ e as respostas
+            correspondentes são os três primeiros números de Catalan
+
+        \item É possível resolver manualmente ainda o caso $N = 4$, e a resposta associada, 14,
+            confirma a suspeita da contagem corresponder aos números de Catalan
+
+        \item Como o $N$-ésimo número de Catalan pode ser computado diretamenta a partir de $N$
+            por meio do cálculo de dois fatoriais, a complexidade da solução é $O(N)$ para cada
+            caso de teste
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Solução em $O(N)$}
+    \inputsnippet{py}{1}{18}{codes/10303.py}
+\end{frame}
+
