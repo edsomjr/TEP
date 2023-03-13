@@ -1,0 +1,35 @@
+\section*{Aplicações do Princípio da Inclusão/Exclusão}
+
+\begin{frame}[fragile]{Permutações caóticas}
+
+    \metroset{block=fill}
+    \begin{block}{Definição}
+        Uma permutação de $N$ elementos é dita caótica se nenhum dos $N$ elementos ocupa, na 
+        permutação, a mesma posição que ocupava na posicionamento original, isto é, o elemento $i$ não
+        ocupa a $i$-ésima posição.
+    \end{block}
+
+\end{frame}
+
+\begin{frame}[fragile]{Contando permutações caóticas}
+
+    Podemos contar o total de permutações caóticas $D(N)$ (D de \textit{derangement}, em inglês) da
+seguinte forma: seja $A_k$ o conjunto das permutações nas quais o elemento $k$ ocupa a $k$-ésima
+posição. Assim
+\[
+        D(N) = P(N) - \sum_{i} | A_i | + \sum_{i<j}| A_i \cap  A_j | - \sum_{i<j<k}| A_i \cap  A_j \cap  A_k | 
+             + ... + (-1)^N | A_1 \cap  A_2 \cap  ... \cap  A_N |
+\]
+onde $P(N)$ é o total de permutações de $N$ elementos. 
+
+Observe que $|A_i| = (N - 1)!$ (pois o elemento $i$ está fixo), $|A_i \cap A_j| = (N - 2)!$ (dois elementos fixos), e assim por diante.
+Logo
+\[
+        D(N) = N! - \binom{N}{1}(N - 1)! + \binom{N}{2}(N - 2)! - ... + (-1)^N \binom{N}{N}
+\]
+o que nos dá
+\[
+        D(N) = N!\left(1 - \frac{1}{1!} + \frac{1}{2!} - \frac{1}{3!} + ... + (-1)^N\frac{1}{N!}\right)
+\]
+
+\end{frame}

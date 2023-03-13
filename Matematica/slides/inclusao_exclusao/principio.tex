@@ -1,0 +1,75 @@
+\section*{Princípio da Inclusão/Exclusão}
+
+\begin{frame}[fragile]{Cardinalidade da união de dois conjuntos}
+
+    \begin{itemize}
+        \item Sejam $A$ e $B$ dois conjuntos com interseção $A\cap B$ não-vazia. Quantos são os elementos do 
+    conjunto união $A\cup B$?
+
+        \item A princípio a expressão $|A\cup B| = |A| + |B|$ pode parecer correta, mas há um problema
+
+        \item Quando somamos todos os elementos do conjunto $A$, somamos também os elementos da interseção $A\cup B$; ao somarmos os elementos de $B$, os elementos da interseção são novamente somados, de modo que a expressão proposta conta elementos duplicados
+
+        \item Esta contagem pode ser corrigida descontado uma vez cada elemento dobrado
+
+        \item Assim
+        \[
+            | A \cup B | = | A | + | B | - | A \cap B |
+        \]
+
+        \item A expressão acima é o Princípio da Inclusão/Exclusão para dois conjuntos.
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Cardinalidade da união de três conjuntos}
+
+    \begin{itemize}
+        \item Para o caso de 3 conjuntos, devemos atentar as possíveis interseções entre os conjuntos e os efeitos colaterais da soma e subtração de cada uma
+
+        \item Na soma
+        \[
+            | A \cup B \cup C | = | A | + | B | + | C |
+        \]
+        as interseções $A\cap B$, $A\cap C$ e $B\cap C$ são contadas duas vezes, e a interseção $A\cap B\cap C$ três vezes
+
+        \item Ao remover as duplicatas, ficamos com
+        \[
+            | A \cup B \cup C | = | A | + | B | + | C | - | A \cap B | - | A \cap C | - | B \cap C |
+        \]
+
+        \item As duplicatas foram removidas, mas a interseção $A\cap B\cap C$ foi removida completamente (três vezes), de modo que não está mais sendo contada
+
+        \item A última correção necessária, portanto, é incluir a interseção ausente:
+        \[
+            | A \cup B \cup C | = | A | + | B | + | C | - | A \cap B | - | A \cap C | - | B \cap C | + | A \cap B \cap C |
+        \]
+
+        \item Este é o Princípio da Inclusão/Exclusão para três conjuntos
+
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Princípio da Inclusão/Exclusão}
+
+    \metroset{block=fill}
+    \begin{block}{Definição}
+        Sejam $A_1, A_2, \ldots, A_N$ conjuntos finitos. Então
+        \[
+            | A_1 \cup A_2 \cup ... \cup A_N | = \sum_i | A_i | - \sum_{i<j} | A_i \cap A_j | + \sum_{i<j<k}| A_i \cap A_j \cap A_k | 
+                               + \ldots + (-1)^N | A_1 \cap A_2 \cap \ldots \cap A_N |
+        \]
+    \end{block}
+
+    \vspace{0.2in}
+
+    \begin{itemize}
+        \item O Princípio da Inclusão/Exclusão é a generalização do Princípio Aditivo, para os casos onde 2 ou mais conjuntos tem interseção não-vazia
+
+        \item Observe que o número de elementos dos próprios conjuntos, e de suas interseções em quantidade par, são somados ao total
+
+        \item Já as interseções em quantidade ímpar são subtraídas da contagem
+    \end{itemize}
+
+\end{frame}
