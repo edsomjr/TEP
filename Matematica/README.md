@@ -125,7 +125,7 @@
         1. [OJ 10219 - _Find the ways!_](https://onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&category=24&page=show_problem&problem=1160) [(_upsolving_)](../Upsolving/OJ/10219/10219.pdf)
         1. [OJ 11955 - _Binomial Theorem_](https://onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&category=24&page=show_problem&problem=3106)
     1. [Números de Fibonacci e Catalan](slides/fibonacci_e_catalan/fibonacci_e_catalan.pdf)
-        1. [OJ 763 - _Fibinary Numbers_](https://onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&category=24&page=show_problem&problem=704)
+        1. [OJ 763 - _Fibinary Numbers_](https://onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&category=24&page=show_problem&problem=704) [(_upsolving_)](../Upsolving/OJ/763/763.pdf)
         1. [OJ 948 - _Fibonaccimal Base_](https://onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&category=24&page=show_problem&problem=889)
         1. [OJ 10303 - _How Many Trees?_](https://onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&category=24&page=show_problem&problem=1244)
         1. [OJ 10312 - _Expression Bracketing_](https://onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&category=24&page=show_problem&problem=1253)

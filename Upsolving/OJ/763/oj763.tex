@@ -1,0 +1,106 @@
+\begin{frame}[fragile]{OJ 763 -- Fibinary Numbers}
+
+{\it
+The standard interpretation of the binary number $1010$ is $8 + 2 = 10$. An alternate way to view the
+sequence ``\texttt{1010}'' is to use Fibonacci numbers as bases instead of powers of two. For this problem, the
+terms of the Fibonacci sequence are:
+\[
+1, 2, 3, 5, 8, 13, 21, \ldots
+\]
+
+Where each term is the sum of the two preceding terms (note that there is only one $1$ in the sequence
+as defined here). Using this scheme, the sequence ``\texttt{1010}'' could be interpreted as $1\times 5+0\times 3+1\times 2+0\times 1 = 7$.
+This representation is called a Fibinary number.
+
+Note that there is not always a unique Fibinary representation of every number. For example the
+number 10 could be represented as either $8 + 2$ $(10010)$ or as $5 + 3 + 2$ $(1110)$. To make the Fibinary
+representations unique, larger Fibonacci terms must always be used whenever possible (i.e. disallow
+$2$ adjacent $1$’s). Applying this rule to the number $10$, means that 10 would be represented as $8+2$
+$(10010)$.
+
+Write a program that takes two valid Fibinary numbers and prints the sum in Fibinary form.
+}
+
+\end{frame}
+
+\begin{frame}[fragile]{Entrada e saída}
+
+\textbf{Input}
+
+{\it The input file contains several test cases with a blank line between two consecutive.
+
+Each test case consists in two lines with Fibinary numbers. These numbers will have at most $100$ digits.}
+
+\vspace{0.3in}
+
+
+\textbf{Output}
+
+{\it For each test case, print the sum of the two input numbers in Fibinary form.
+
+It must be a blank line between two consecutive outputs.}
+
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de entrada e saída}
+
+\begin{minipage}[t]{0.45\textwidth}
+\textbf{Entrada}
+\begin{verbatim}
+10010
+1
+
+10000
+1000
+
+10000
+10000
+\end{verbatim}
+\end{minipage}
+\begin{minipage}[t]{0.5\textwidth}
+\textbf{Saída}
+\begin{verbatim}
+10100
+
+
+100000
+
+
+100100
+\end{verbatim}
+\end{minipage}
+
+\end{frame}
+
+
+\begin{frame}[fragile]{Solução em $O(N)$}
+
+    \begin{itemize}
+        \item Primeiramente é preciso observar que não é possível somar diretamente os números em
+            base de Fibonacci
+
+        \item Por exemplo, em base de Fibonacci o número 5 é representado por \texttt{1000} e a
+            soma $5 + 5 = 10$ teria representação \code{cpp}{10010}
+
+        \item Veja que ao somar os dois dígitos \texttt{1} correspondentes, o dígito que o ocupa
+            a segunda posição da representação, o qual já teria sido processado, foi modificado
+
+        \item Assim, a solução consiste em converter $a$ e $b$ para a base decimal, obter a soma
+            $c = a + b$ e converter $c$ para a base de Fibonacci
+
+        \item Se $N = \max\{|a|, |b|\}$, então esta solução tem complexidade $O(N)$
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Solução em $O(N)$}
+    \inputsnippet{py}{1}{16}{codes/763.py}
+\end{frame}
+
+\begin{frame}[fragile]{Solução em $O(N)$}
+    \inputsnippet{py}{17}{33}{codes/763.py}
+\end{frame}
+
+\begin{frame}[fragile]{Solução em $O(N)$}
+    \inputsnippet{py}{34}{50}{codes/763.py}
+\end{frame}
