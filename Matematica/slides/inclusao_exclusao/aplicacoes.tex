@@ -33,3 +33,147 @@ o que nos dá
 \]
 
 \end{frame}
+
+\begin{frame}[fragile]{Permutações caóticas e programação dinâmica}
+
+Na prática, para computar $D(N)$ é melhor utilizar a seguinte recorrência. Para $N = 1$, não 
+há permutações caóticas entre as $1!$ possíveis. Para o caso $N = 2$, há uma permutação caótica
+entre as 2 possíveis (a saber, a permutação $(2\ 1)$). Assim os casos base da recorrência são:
+\[
+\begin{array}{l}
+        D(1) = 0 \\
+        D(2) = 1
+\end{array}
+\]
+
+Para computar $D(N)$ devemos decidir o que fazer com o elemento que ocupa a posição $1$. Temos duas situações
+possíveis
+\begin{enumerate}
+    \item trocar os elementos das posições $1$ e $j$;
+    \item colocar o elemento da posição $j$ na posição 1, mas não colocar o elemento da posição $1$ na posição $j$.
+\end{enumerate}
+
+\end{frame}
+
+\begin{frame}[fragile]{Permutações caóticas e programação dinâmica}
+
+Tanto no primeiro quanto no segundo cenário temos $(N - 1)$ valores possíveis para $j$. No primeiro
+caso, após a troca de ambos, restam $N - 2$ elementos a serem posicionados, o que pode ser 
+feito de $D(N - 2)$ maneiras; no segundo caso, como $1$ não pode ocupar a posição $j$, ficamos
+na situação de posicionar $N - 1$ elementos, pois o $1$ fará o papel do $j$, o que pode ser
+feito de $D(N - 1)$ maneiras. Assim
+\[
+        D(N) = (N - 1)(D(N - 1) + D(N - 2))
+\]
+
+Os primeiros valores para esta sequência são
+\[
+1, 0, 1, 2, 9, 44, 265, 1854, 14833, 133496, 1334961, 14684570, 176214841, 2290792932, \ldots
+\]
+
+Uma notação alternativa para $D(N)$ é $!n$, que faz referência as permutações (que seriam $n!$).
+
+\end{frame}
+
+\begin{frame}[fragile]{Número de funções}
+
+Sejam $A$ e $B$ dois conjuntos com $n$ e $m$ elementos, respectivamente. {\it Quantas são as funções $f: A \to B$?}
+
+Esta é uma pergunta relativamente fácil de responder. Seja 
+\[
+\mathcal{F} = \{\ f\ |\  f: A \to B\ \}
+\]
+
+Cada um dos elementos de $A$ devem estar
+associados a um único elemento de $B$. Assim temos, para cada um dos $n$ elementos, $m$ escolhas
+possíveis. Pelo Princípio Multiplicativo temos que
+\[
+        |\mathcal{F}| = m^n
+\]
+
+\end{frame}
+
+
+\begin{frame}[fragile]{Número de funções bijetoras}
+
+A pergunta se torna mais interessante, porém, se adicionarmos algumas restrições. A primeira
+variante seria: {\it quantas são as funções bijetoras de $A$ em $B$?}
+
+Para que existam funções bijetoras de $A$ em $B$, é necessário que $n = m$. Neste caso, seja 
+\[
+\mathcal{B} = \{\ g\ |\ g: A \to B \ \mbox{e}\ g\ \mbox{é bijetora}\ \}
+\]
+Agora, cada um elemento de $A$ tem que estar associado a um
+único elemento de $B$, cada elemento de $B$ deve estar associado a um único elemento de $A$,
+e todos os elementos de $B$ devem estar associados a algum elemento de $A$.
+Assim, o primeiro elemento de $A$ tem $n$ escolhas, o segundo tem $(n - 1)$, o terceiro $(n - 2)$,
+e assim por diante. Portanto,
+\[
+        |\mathcal{B}| = n \times (n - 1) \times (n - 2) \times ... \times 2 \times 1 = P(n) = n!
+\]
+
+\end{frame}
+
+\begin{frame}[fragile]{Número de funções injetoras}
+
+A segunda variante da pergunta é: {\it quantas são as funções injetoras de $A$ em $B$}?
+
+Para que existam funções injetoras de $A$ em $B$, é necessário que $n \leq m$. Neste caso, seja 
+\[
+\mathcal{I} = \{\ h\ |\ h: A \to B\ \mbox{e}\ h\ \mbox{é injetora}\ \}
+\]
+
+ Agora, cada um elemento de $A$ tem que estar associado a um
+único elemento de $B$ e cada elemento de $B$ deve estar associado a um único elemento de $A$.
+Assim, o primeiro elemento de $A$ tem $m$ escolhas, o segundo tem $(m - 1)$, o terceiro $(m - 2)$,
+e assim por diante. Portanto,
+\[
+        |\mathcal{I}| = m \times (m - 1) \times (m - 2) \times ... \times (m - n + 1) = A(m, n) = \frac{m!}{(m - n)!}
+\]
+
+\end{frame}
+
+\begin{frame}[fragile]{Número de funções sobrejetoras}
+
+Por fim, a mais interessante variação da pergunta: {\it quantas são as funções sobrejetoras de $A$ em $B$?}
+
+Precisamos, neste cenário, que $n \geq m$. Seja
+\[
+    \mathcal{S} = \{\ f: A \to B\ |\ f\ \mbox{é sobrejetora}\ \}
+\]
+e defina 
+\[
+\mathcal{C}_k = \{\ f: A \to B\ |\ f(a_i) \neq b_k, \forall a_i\in A\ \}
+\]
+
+Veja que uma função deixa de ser sobrejetora se pertencer a pelo menos um
+dos conjuntos $C_k$. Pelo Princípio da Inclusão/Exclusão temos que
+\[
+        |\mathcal{S}| = |\mathcal{F} | - \sum_{i} | \mathcal{C}_i | + \sum_{i<j}| \mathcal{C}_i \cap \mathcal{C}_j | - \sum_{i<j<k}| \mathcal{C}_i \cap
+            \mathcal{C}_j \cap \mathcal{C}_k | + \ldots + (-1)^N | \mathcal{C}_1 \cap \mathcal{C}_2 \cap \ldots \cap \mathcal{C}_N |
+\]
+
+\end{frame}
+
+\begin{frame}[fragile]{Número de funções sobrejetoras}
+
+Observe que $|\mathcal{C}_i| = (m - 1)^n$, $|\mathcal{C}_i \cap \mathcal{C}_j| = (m - 2)^n$, e assim por diante, de modo que
+\[
+        | \mathcal{S} | = m^n - \binom{m}{1} (m - 1)^n + \binom{m}{2} (m - 2)^n 
+              + ... + (-1)^m \binom{m}{m} (m - m)^n
+\]
+o que nos dá
+\[
+        | \mathcal{S} | = \sum_{i} (-1)^i \binom{m}{i} (m - i)^n,
+\]
+para $i$ variando de 0 a $m$.
+
+Este valor coincide com o número de maneiras de se distribuir $n$ bolas distintas em $m$ 
+caixas distintas, sem que nenhuma caixa fique vazia.
+
+Deste mesmo resultado pode-se deduzir este outro importante resultado: há $T = |\mathcal{S} | / m!$ maneiras
+de se distribuir $n$ bolas distintas em $m$ caixas iguais, sem que nenhuma caixa fique vazia.
+
+
+\end{frame}
+

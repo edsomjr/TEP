@@ -129,7 +129,7 @@
         1. [OJ 948 - _Fibonaccimal Base_](https://onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&category=24&page=show_problem&problem=889)
         1. [OJ 10303 - _How Many Trees?_](https://onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&category=24&page=show_problem&problem=1244) [(_upsolving_)](../Upsolving/OJ/10303/10303.pdf)
         1. [OJ 10312 - _Expression Bracketing_](https://onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&category=24&page=show_problem&problem=1253)
-    1. [Princípio da Inclusão/Exclusão](text/Inclusao_Exclusao.md)
+    1. [Princípio da Inclusão/Exclusão](slides/inclusao_exclusao/inclusao_exclusao.pdf)
     1. [Funções Geradoras](text/Funcoes_Geradoras.md)
     1. [Partições](text/Particoes.md)
 <!-- Adicionar a função de Möbius -->
