@@ -1,0 +1,159 @@
+\section*{Funções Geradoras}
+
+\begin{frame}[fragile]{Motivação}
+
+Carlos quer comprar 6 camisetas de um mesmo modelo e há 3 opções de cores a disposição: amarelo,
+branco, e celeste. De quantas maneiras ele pode adquirir as 6 camisetas, se ele deseja comprar ao
+menos uma de cada cor, e no máximo 3 brancas, 2 amarelas e 2 celestes?
+
+Sejam $x_a, x_b$ e $x_c$ as quantidades de camisetas de cada cor que serão adquiridas. O problema se
+trata de encontrar todas as soluções da equação
+\[
+        x_a + x_b + x_c = 6
+\]
+com $1 \leq x_a \leq 3, 1 \leq x_b, x_c \leq 2$.
+
+Observe que, se tivéssemos apenas as restrições inferiores,
+o problema seria o problema das soluções de equações lineares com coeficientes unitários, com
+$x_i > 0$, já apresentado anteriormente, cuja solução é $\binom{6 - 1}{3 - 1} = \binom{5}{2} = 10$.
+Como tratar, porém, as restrições do lado direito das desigualdades que envolvem as variáveis
+$x_i$?
+
+\end{frame}
+
+\begin{frame}[fragile]{Solução usando o Princípio da Inclusão/Exclusão}
+
+Defina os conjuntos
+\[
+\begin{array}{l}
+        A = \{\  \mbox{solução de}\ x_a + x_b + x_c = 6\ \mbox{com}\ x_a > 3\ \}\\
+        B = \{\  \mbox{solução de}\ x_a + x_b + x_c = 6\ \mbox{com}\ x_b > 2\ \}\\
+        C = \{\  \mbox{solução de}\ x_a + x_b + x_c = 6\ \mbox{com}\ x_c > 2\ \}
+\end{array}
+\]
+
+O número de soluções $S$ do problema com as restrições apresentadas seria igual a
+\[
+        S = \binom{5}{2} - | A | - | B | - | C | 
+          + | A \cap B | + | A \cap C | + | B \cap C | - | A \cap B \cap C |
+\]
+
+Resolvendo cada problema usando mudança de variáveis teríamos
+\[
+        S = 10 - 1 - 3 - 3 + 0 + 0 + 0 - 0 = 3
+\]
+
+A título de curiosidade, as soluções seriam
+\[
+\begin{array}{l}
+        x_a = 2, x_b = 2, x_c = 2\\
+        x_a = 3, x_b = 1, x_c = 2\\
+        x_a = 3, x_b = 2, x_c = 1
+\end{array}
+\]
+
+
+\end{frame}
+
+\begin{frame}[fragile]{Solução utilizando multiplicação polinomial}
+
+Esta abordagem, porém, é demasiadamente trabalhosa, uma vez que passamos de um problema para 8
+deles, antes de se determinar a solução. E o número de problemas sobe exponencialmente a 
+medida que o número de variáveis aumenta.
+
+Uma abordagem diferente seria usar polinômios para representar as possíveis escolhas para
+cada variável. Para as camisetas amarelas, usaríamos o polinômio
+\[
+        ax + a^2x^2 + a^3x^3
+\]
+
+onde o grau do termo $x$ ou da constante $a$ indicam o número de camisetas amarelas. Para as
+demais cores teríamos
+\[
+        bx + b^2x^2
+\]
+e
+\[
+        cx + c^2x^2
+\]
+\end{frame}
+
+\begin{frame}[fragile]{Solução utilizando multiplicação polinomial}
+
+O produto deste polinômios seria, de acordo com a propriedade distributiva,
+\[
+\begin{split}
+        (ax + a^2x^2 + a^3x^3)(bx + b^2x^2)(cx + c^2x^2) & =(abc)x^3 + (abc^2 + ab^2c + a^2bc)x^4 \\
+    &+ (ab^2c^2 + a^2bc^2 + a^2b^2c + a^3bc)x^5\\
+    &+ (a^2b^2c^2 + a^3bc^2+ a^3b^2c)x^6 + (a^3b^2c^2)x^7
+\end{split}
+\]
+
+Veja que o coeficiente do termo $x^6$ nos fornece justamente as três soluções desejadas, onde
+os expoentes das constantes $a, b, c$ indicam o número de itens da referida cor que foram
+escolhidos. Veja que se fizéssemos $a = b = c = 1$, teríamos
+\[ 
+        (x + x^2 + x^3)(x + x^2)(x + x^2) = x^3 + 3x^4 + 4x^5 + 3x^6 + x^7
+\]
+
+O coeficiente de $x^5$ agora informa a quantidade de maneiras, mas não discrimina as maneiras em
+si. De fato, os coeficientes de cada um dos termos do polinômio são as soluções do problema para
+3, 4, 5, 6 e 7 camisas no total. O problema não tem solução para 2 ou menos ou 8 ou mais camisas.
+Por conta desta propriedade, o polinômio $x³ + 3x^4 + 4x^5 + 3x^6 + x^7$ é chamado função 
+geradora $f(x)$ do problema.
+
+\end{frame}
+
+\begin{frame}[fragile]{Série de potências}
+
+    \metroset{block=fill}
+    \begin{block}{Definição}
+        Uma série de potências $S(x)$ é definida por uma sequência de coeficientes ($a_i$) de modo que
+        \[
+        S(x) = \sum_{i=0}^\infty a_ix^i
+        \]
+
+    \end{block}
+
+    \vspace{0.2in}
+
+Este definição permite observar que qualquer polinômio $p(x)$ é uma série de potência.
+
+\end{frame}
+
+\begin{frame}[fragile]{Funções geradoras}
+
+    \metroset{block=fill}
+    \begin{block}{Definição}
+        Considere um problema de combinatório $P(i)$ que dependa de um parâmetro $i$. Se a série de 
+potências $S(x)$ é tal que a sequência de seus coeficientes ($a_i$) são as soluções do problema
+para o valor $i$, dizemos que $S(x)$ é a função geradora $f(x)$ do problema $P(i)$.
+    \end{block}
+
+\end{frame}
+
+\begin{frame}[fragile]{Exemplos de funções geradoras}
+
+    \begin{itemize}
+        \item Por exemplo, considere o problema de se escolher $i$ elementos distintos dentre $n$ elementos,
+        todos distintos. A função geradora deste problema é a função
+        \[
+        f(x) = \binom{n}{0} + \binom{n}{1}x + \binom{n}{2}x^2 + \ldots + \binom{n}{n}x^n
+        \]
+
+        \item Na prática, desejamos encontrar para $f(x)$ a expressão o mais sucinta possível. Das propriedades dos números binomiais temos que
+        \[
+        f(x) = (1 + x)^n
+        \]
+
+        \item Uma função geradora fundamental é a função associada a sequência de uns $(1, 1, 1, ....)$:
+        \[
+        g(x) = 1 + x + x^2 + \ldots = \frac{1}{1 - x}
+        \]
+
+        \item A soma infinita é igual a $1/(1 - x)$ nos casos em que $|x| < 1$. Porém, no estudo de funções
+geradoras, não se atribui valores à variável $x$, de modo que não há preocupação com questões
+de convergência. Tais séries são denominadas séries formais.
+    \end{itemize}
+
+\end{frame}
