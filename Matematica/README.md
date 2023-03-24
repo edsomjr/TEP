@@ -131,7 +131,7 @@
         1. [OJ 10312 - _Expression Bracketing_](https://onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&category=24&page=show_problem&problem=1253)
     1. [Princípio da Inclusão/Exclusão](slides/inclusao_exclusao/inclusao_exclusao.pdf)
     1. [Funções Geradoras](slides/funcoes_geradoras/funcoes_geradoras.pdf)
-    1. [Partições](text/Particoes.md)
+    1. [Partições](slides/particoes/particoes.pdf)
 <!-- Adicionar a função de Möbius -->
 <!-- Adicionar texto sobre decomposição de permutações, ciclos, paridade de permutação, composição de permutações 
     1. CF 612E - Square Root of Permutation
