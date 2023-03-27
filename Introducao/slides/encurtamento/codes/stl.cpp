@@ -4,8 +4,7 @@
 int main() {
     std::string text { "Exemplo de uso da STL" }, vowels { "aeiou" }, ans;
 
-    std::transform(text.begin(), text.end(), text.begin(),
-        [](char c) { return tolower(c); });
+    std::transform(text.begin(), text.end(), text.begin(), [](char c) { return tolower(c); });
 
     std::copy_if(text.begin(), text.end(), back_inserter(ans),
         [&](char c) { return vowels.find(c) != std::string::npos; }); 

@@ -1,5 +1,4 @@
 #define LOG(var, sep) (cerr << #var << " = " << (var) << (sep))
-
 #define LOGM(msg) (cerr << (msg))
 
 #define LOGV(vec, sep) {                                        \
