@@ -8,6 +8,7 @@ Introdução à Programação Competitiva
         1. [OJ 100 - _The 3n+1 problem_](http://onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&category=24&page=show_problem&problem=36) [(_upsolving_)](../Upsolving/OJ/100/100.pdf)
     1. [Tipos Primitivos de Dados](slides/tipos_primitivos/tipos_primitivos.pdf) ([problemas resolvidos](problems/tipos_primitivos/tipos_primitivos.pdf))
         1. [ABC 106C - _To Infinity_](https://atcoder.jp/contests/abc106/tasks/abc106_c)  [(_upsolving_)](../Upsolving/AtCoder/ABC_106C/ABC_106C.pdf)
+        1. [OJ 11879 - _Multiple of 17_](http://uva.onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&category=24&page=show_problem&problem=3001) [(_upsolving_)](../Upsolving/OJ/11879/11879.pdf)
     1. [Encurtamento de Código](slides/encurtamento/encurtamento.pdf)
     1. [Estratégias de Treinamento](slides/PI-5/PI-5.pdf)
 1. Fundamentos de C/C++
