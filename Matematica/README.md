@@ -152,4 +152,8 @@
 <!-- DP em Matemática:
     ABC114D
     CF837D
+-- Período de Pisano:
+
+https://www.spoj.com/problems/PISANO/cstart=10
+https://en.wikipedia.org/wiki/Pisano_period
 -->
