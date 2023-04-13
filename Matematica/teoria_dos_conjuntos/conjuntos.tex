@@ -107,7 +107,7 @@ Dados dois conjuntos $A$ e $B$, é possível definir três novos conjuntos:
     \begin{enumerate}
         \item conjunto \textbf{união} $A \cup B = \{\ x\ |\ x \in A\  \lor\  x\in B\ \}$
         \item conjunto \textbf{interseção} $A \cap B = \{\ x \ |\ x \in A\  \land\  x \in B\ \}$
-        \item conjunto \textbf{diferença} $A - B = \{\ x \in A \ |\ x \not\in B\ \}$
+        \item conjunto \textbf{diferença} $A - B = \{\ x\ |\ x \in A\ \land\ x \not\in B\ \}$
     \end{enumerate}
 
 \end{frame}
@@ -131,7 +131,7 @@ Esta relação permite a verificação das propriedades destes operadores e a re
 \begin{frame}[fragile]{Conjuntos em C/C++}
 
     \begin{itemize}
-        \item Há três maneiras de se representar conjuntos em C e C++: as classes \code{c}{set}, \code{c}{multiset} e \code{c}{bitset}, e o tipo primitivo 
+        \item Há quatro maneiras de se representar conjuntos em C e C++: as classes \code{cpp}{set}, \code{cpp}{multiset}, \code{cpp}{bitset} e o tipo primitivo 
             \code{c}{int}, sendo que a última representação também é válida em C
 
         \item A biblioteca padrão do C++ traz a implementação da classe \code{c}{set} (\mintinline{cpp}{#include <set>}), que abstrai a ideia de conjuntos
