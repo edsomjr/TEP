@@ -132,6 +132,8 @@
     1. [Princípio da Inclusão/Exclusão](inclusao_exclusao/inclusao_exclusao.pdf)
     1. [Funções Geradoras](funcoes_geradoras/funcoes_geradoras.pdf)
     1. [Partições](particoes/particoes.pdf)
+
+<!-- Adicionar a implementação de set do GCC que tem operações extra: https://www.geeksforgeeks.org/ordered-set-gnu-c-pbds/ -->
 <!-- Adicionar a função de Möbius -->
 <!-- Adicionar texto sobre decomposição de permutações, ciclos, paridade de permutação, composição de permutações 
     1. CF 612E - Square Root of Permutation
