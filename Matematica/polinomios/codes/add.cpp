@@ -13,7 +13,7 @@ polynomial operator+(const polynomial& p, const polynomial& q)
         r.pop_back();
 
     if (r.empty())
-        r.pop_back(0);
+        r.push_back(0);
 
     return r;
 }
