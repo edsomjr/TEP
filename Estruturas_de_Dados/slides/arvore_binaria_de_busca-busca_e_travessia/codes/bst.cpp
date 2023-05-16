@@ -127,8 +127,8 @@ std::cout << "Info = " << node->info << ", temp = " << (*temp)->info << '\n';
         if (node)
         {
             f(node->info);
-            inorder(node->left, f);
-            inorder(node->right, f);
+            preorder(node->left, f);
+            preorder(node->right, f);
         }
     }
 
@@ -136,8 +136,8 @@ std::cout << "Info = " << node->info << ", temp = " << (*temp)->info << '\n';
     {
         if (node)
         {
-            inorder(node->left, f);
-            inorder(node->right, f);
+            postorder(node->left, f);
+            postorder(node->right, f);
             f(node->info);
         }
     }
