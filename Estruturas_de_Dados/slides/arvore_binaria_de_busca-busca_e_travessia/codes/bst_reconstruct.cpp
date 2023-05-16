@@ -1,5 +1,8 @@
 #include <iostream>
 #include <queue>
+#include <vector>
+#include <algorithm>
+#include <unordered_map>
 #include <functional>
 
 template<typename T>
@@ -145,7 +148,47 @@ std::cout << "Info = " << node->info << ", temp = " << (*temp)->info << '\n';
 
 public:
     BST() : root(nullptr) {}
+    BST(const std::vector<T> &preorder, const std::vector<T> &inorder) : root(nullptr)
+    {
+        insert(preorder[0]);
+        int n = preorder.size();
+        std::unordered_map<T, int> pos;
+        for(int i = 0; i < n; ++i)
+          pos[inorder[i]] = i;
+        for(int i = 1; i < n; ++i)
+        {
+            T toinsert = preorder[i];
+            int toinsert_pos = pos[preorder[i]];
+            Node *node = root;
+            Node *prev = nullptr;
+            bool left = false;
+            std::cerr << "Pra  inserir : " << toinsert << '\n';
+            while(node)
+            { 
+                std::cerr << "    Atual : " << node->info << '\n';
+                prev = node;
+                int node_pos = pos[node->info];
+                std::cerr << "    nodepos: " << node_pos << " toinsertpos: " << toinsert_pos << '\n';
+                if(toinsert_pos < node_pos)
+                {
+                    std::cerr << "    indo esquerda \n";
+                    node = node->left, left=true;
+                }
+                else
+                {
+                    std::cerr << "    indo direita\n";
+                    node = node->right, left=false;;
+                }
 
+            }
+
+            Node *newnode = new Node { toinsert, nullptr, nullptr };
+            if(left)
+                prev->left = newnode;
+            else 
+                prev->right = newnode;
+        }
+    }
     int size() const { return size(root); }
 
     void insert(const T& info)
@@ -202,24 +245,27 @@ std::cout << "Erase node on address " << node << " (" << *node << ")\n";
         delete_by_copying(node);
     }
 
+    void preorder(const std::function<void(T)> &f) { preorder(root, f); }
+    void postorder(const std::function<void(T)> &f) { postorder(root, f); }
+    void inorder(const std::function<void(T)> &f) { inorder(root, f); }
+
 };
 
+
+void foo(char c) {
+  std::cout << c << ' ';
+}
 int main()
 {
-    BST<int> tree;
 
-    tree.insert(4);
-    tree.insert(2);
-    tree.insert(6);
-    tree.insert(3);
-    tree.insert(5);
-    tree.insert(7);
+    // exemplo do slide.
+    std::vector<char> preorder {'A', 'B', 'C', 'D', 'E', 'F'};
+    std::vector<char> inorder {'B', 'C', 'A', 'E', 'D', 'F'};
+    BST<char> tree (preorder, inorder);
 
-    std::cout << tree << '\n';
-    std::cout << tree.size() << '\n';
-    tree.erase(4);
+    std::cout << "Preorder:";  tree.preorder(foo); std::cout << '\n';
+    std::cout<< "Inorder: ";   tree.inorder(foo); std::cout << '\n';
+    std::cout << "Postorder:"; tree.postorder(foo); std::cout << '\n';
 
-    std::cout << tree << '\n';
-    std::cout << tree.size() << '\n';
     return 0;
 }
