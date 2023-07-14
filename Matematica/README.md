@@ -8,7 +8,7 @@
         1. [ABC 148A - _Round One_](https://atcoder.jp/contests/abc148/tasks/abc148_a)
         1. [CF 276D - _Little Girl and Maximum_ XOR](http://codeforces.com/problemset/problem/276/D)
         1. [OJ 10718 - _Bit Mask_](https://onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&category=24&page=show_problem&problem=1659)
-    1. [Teoria dos Conjuntos](teoria_dos_conjutos/teoria_dos_conjuntos.pdf)
+    1. [Teoria dos Conjuntos](teoria_dos_conjuntos/teoria_dos_conjuntos.pdf)
         1. [ABC 128E - _Roadwork_](https://atcoder.jp/contests/abc128/tasks/abc128_e)
         1. [CF 228A - _Is your horseshoe on the other hoof?_](http://codeforces.com/problemset/problem/228/A)
         1. [CF 236A - _Boy or Girl_](http://codeforces.com/problemset/problem/236/A)
