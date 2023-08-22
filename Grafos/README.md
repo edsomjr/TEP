@@ -68,7 +68,27 @@ Teoria dos Grafos
     1. [Grafos de sucessores](slides/grafos_de_sucessores/grafos_de_sucessores.pdf)
         1. [CSES 1750 - Planets Queries I](https://cses.fi/problemset/task/1750) ([_upsolving_](problems/CSES_1750/CSES_1750.pdf))
         1. [USACO 764 - The Bovine Shuffle](http://www.usaco.org/index.php?page=viewproblem2&cpid=764) ([_upsolving_](problems/USACO_764/USACO_764.pdf)) 
-
+    1. Detecção de ciclos
+1. Componentes fortemente conectados
+    1. Definição
+    1. Algoritmo de Kosaraju
+    1. 2SAT
+1. Consultas em árvores
+    1. Ancestrais
+    1. Subárvores e caminhos
+    1. Menor ancestral comum
+    1. Algoritmos _offline_
+1. Caminhos e circuitos
+    1. Caminhos eulerianos
+    1. Caminhos hamiltonianos
+    1. Sequêncies de Bruijn
+    1. Travessia do cavalo
+1. Fluxo
+    1. Fluxos e cortes
+    1. Algoritmo de Ford-Fulkerson
+    1. Caminhos disjuntos
+    1. Pareamentos máximos
+    1. Cobertura de caminhos
 <!---
 Pendências
     - Raio de uma árvore
