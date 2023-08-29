@@ -76,7 +76,7 @@ Teoria dos Grafos
 1. Consultas em árvores
     1. Ancestrais
     1. Subárvores e caminhos
-    1. Menor ancestral comum
+    1. ancestral comum mais próximo
     1. Algoritmos _offline_
 1. Caminhos e circuitos
     1. Caminhos eulerianos

@@ -242,7 +242,7 @@
 
 ## Scene
 + \node[anchor=west] at (1, 6) { \Large \bbbold{Caminhos} };
-+ \node[anchor=west] at (2, 5) { \bbtext{Um caminho é uma sequência não-nula de vértices da forma} };
++ \node[anchor=west] at (2, 5) { \bbtext{Um caminho é uma sequência não-nula de arestas da forma} };
 + \node[anchor=west] at (3, 4) { $ (u, w_1), (w_1, w_2), (w_2, w_3), \ldots, (w_{n-1}, w_n), (w_n, v) $ };
 + \node[anchor=west] at (1, 3) { \bbtext{onde $u$ é o ponto de partida e $v$ o ponto de chegada} };
 
