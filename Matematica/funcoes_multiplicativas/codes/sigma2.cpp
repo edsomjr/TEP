@@ -1,4 +1,4 @@
-long long number_of_divisors(long long n)
+long long sum_of_divisors(long long n)
 {
     long long res = 0;
 
