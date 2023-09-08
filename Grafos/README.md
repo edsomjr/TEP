@@ -68,7 +68,7 @@ Teoria dos Grafos
     1. [Grafos de sucessores](slides/grafos_de_sucessores/grafos_de_sucessores.pdf)
         1. [CSES 1750 - Planets Queries I](https://cses.fi/problemset/task/1750) ([_upsolving_](problems/CSES_1750/CSES_1750.pdf))
         1. [USACO 764 - The Bovine Shuffle](http://www.usaco.org/index.php?page=viewproblem2&cpid=764) ([_upsolving_](problems/USACO_764/USACO_764.pdf)) 
-    1. Detecção de ciclos
+    1. [Ciclos em grafos de sucessores](slides/ciclos_em_grafos_de_sucessores/ciclos_em_grafos_de_sucessores.pdf)
 1. Componentes fortemente conectados
     1. Definição
     1. Algoritmo de Kosaraju
