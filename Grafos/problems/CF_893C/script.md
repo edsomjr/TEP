@@ -141,7 +141,7 @@
 + \node[draw,circle,very thick,color=BBOrange] (C) at (12, 6) { \bbtext{3}$^{\bbcomment{3}}$ };
 
 + \draw[-latex,very thick] (1.4, 2.7) to (1.4, 2.0);
-+ \node at (1.4, 1.7) { \bbinfo{2 + 5 + 3 = 8} };
++ \node at (1.4, 1.7) { \bbinfo{2 + 5 + 3 = 10} };
 
 ## Scene
 + \node[anchor=west] at (0, 7) { \Large \bbbold{Solução} };
