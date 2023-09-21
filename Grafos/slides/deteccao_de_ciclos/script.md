@@ -13,12 +13,12 @@
 + \node[circle,draw,very thick] (D) at (7, 1) {\bbtext{4}};
 + \node[circle,draw,very thick] (E) at (10, 2) {\bbtext{5}};
 + \node[circle,draw,very thick] (F) at (13, 2) {\bbtext{6}};
-+ \draw[-latex,very thick] (A) -- (B);
-+ \draw[-latex,very thick,color=BBOrange] (B) -- (C);
-+ \draw[-latex,very thick,color=BBOrange] (C) -- (E);
-+ \draw[-latex,very thick,color=BBOrange] (E) -- (D);
-+ \draw[-latex,very thick,color=BBOrange] (D) -- (B);
-+ \draw[-latex,very thick] (E) -- (F);
++ \draw[very thick] (A) -- (B);
++ \draw[very thick,color=BBOrange] (B) -- (C);
++ \draw[very thick,color=BBOrange] (C) -- (E);
++ \draw[very thick,color=BBOrange] (E) -- (D);
++ \draw[very thick,color=BBOrange] (D) -- (B);
++ \draw[very thick] (E) -- (F);
 
 ## Scene
 + \node[anchor=west] at (0, 7) { \Large \bbbold{Grafos acíclicos} };
