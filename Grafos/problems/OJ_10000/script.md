@@ -295,7 +295,7 @@
 
 + \node[anchor=west] at (0.5, 4) { $\star$ \bbtext{Isto porque um mesmo nó pode entrar até $N - 1$ vezes na fila } };
 
-+ \node[anchor=west] at (0.5, 3) { $\star$ \bbtext{Assim complexidade no pior caso será $O(N^2)$} };
++ \node[anchor=west] at (0.5, 3) { $\star$ \bbtext{Assim complexidade no pior caso será $O(N(N + E))$} };
 
 + \node[anchor=west] at (0.5, 2) { $\star$ \bbtext{Se o grafo tiver ciclos, esta travessia modificada entrará em um laço infinito! } };
 
