@@ -179,7 +179,7 @@ b => Node
 b1 => Node
     @b1.x = 1.5
     @b1.y = 3.75
-    @b1.text = \bbtext{$(a)$ Insera $u$ em $s$}
+    @b1.text = \bbtext{$(a)$ Insira $u$ em $s$}
     @b1.anchor = west
 
 ---
