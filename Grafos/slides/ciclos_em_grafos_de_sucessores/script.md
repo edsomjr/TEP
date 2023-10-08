@@ -395,7 +395,7 @@ H => Node
     @H.text = \includegraphics[scale=0.03]{figs/rabbit.png}
 
 ---
-    @info.text = \bbtext{$(b)$ A lebre dá dois passos, a tartagura um, até se reencontrarem}
+    @info.text = \bbtext{$(b)$ A lebre dá dois passos, a tartaruga um, até se reencontrarem}
 
 ---
     @H.x = 7
@@ -434,7 +434,7 @@ H => Node
     @node7.fill = green!60!black
 
 ---
-    @info.text = \bbtext{A tartagura andou $k$ passos e a lebre andou $2k$ passos}
+    @info.text = \bbtext{A tartaruga andou $k$ passos e a lebre andou $2k$ passos}
 
 ---
     @info.text = \bbtext{Logo, $\lambda$ divide $k$}
