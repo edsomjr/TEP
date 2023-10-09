@@ -9,7 +9,7 @@
 + \bbenglish{You will be given a list of streets (all two-way) of the city. Each street connects two intersections, and does not go through an intersection. At most four streets meet at each intersection, and there is at most one street connecting any pair of intersections. It is possible for an intersection to be the end point of only one street. You may assume that it is possible for a motorist to drive from each destination to any other destination when every street is a two-way street.}
 
 ## Text
-+ \bbtext{De acordo com o Automobile Collision Monitor (ACM), a maioria dos acidentes fatais de transito acontecem em vias de mão dupla. Para reduzir o número de fatalidades causadas por acidentes de trânsito, o prefeito quer tornar tantas vias quanto possíveis em vias de mão única. Você foi contratado para esta tarefa, de modo que, para cada interseção entre vias, os motoristas serão capazes de chegar a todas demais interseções por alguma rota.}
++ \bbtext{De acordo com o Automobile Collision Monitor (ACM), a maioria dos acidentes fatais de trânsito acontecem em vias de mão dupla. Para reduzir o número de fatalidades causadas por acidentes de trânsito, o prefeito quer tornar tantas vias quanto possíveis em vias de mão única. Você foi contratado para esta tarefa, de modo que, para cada interseção entre vias, os motoristas serão capazes de chegar a todas demais interseções por alguma rota.}
 +
 + \vspace{0.2in}
 + 
@@ -27,7 +27,7 @@
 +
 + \vspace{0.1in}
 +
-+ \bbtext{A entrada é composta por uma série de casos de teste. A primeira linha de cada caso de teste contém dois inteiros $n$ e $m$. O número de interseções é $n$ $(2\leq n\leq 1000)$, e o número de vias é $m$. As próximas $m$ linhas contém as interseções conectadas por cada uma das $m$ vias. As interseções são numeradas de $1$ a $n$, e cada via é lista uma única vez. Se o par $i$ $j$ está presente, $j$ $i$ não estará. O fim da entrada é indicado por $n = m = 0$.}
++ \bbtext{A entrada é composta por uma série de casos de teste. A primeira linha de cada caso de teste contém dois inteiros $n$ e $m$. O número de interseções é $n$ $(2\leq n\leq 1000)$, e o número de vias é $m$. As próximas $m$ linhas contém as interseções conectadas por cada uma das $m$ vias. As interseções são numeradas de $1$ a $n$, e cada via é listada uma única vez. Se o par $i$ $j$ está presente, $j$ $i$ não estará. O fim da entrada é indicado por $n = m = 0$.}
 
 ## Text
 + \bbbold{Output}
