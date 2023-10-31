@@ -204,7 +204,7 @@ a => Node
 b => Node
     @b.x = 0.5
     @b.y = 5.25
-    @b.text = \bbtext{caminho de $u$ a $v$ é o nó que ocupa o nível baixo em $T$.}
+    @b.text = \bbtext{caminho de $u$ a $v$ é o nó que ocupa o nível mais baixo em $T$.}
     @b.anchor = west
 
 ---
@@ -860,8 +860,8 @@ info2 => Node
 ---
 +info2
 
-    @info.text = \bbtext{Sendo $T$ conectada, existe ao menos um caminho de $r$ no caminho de $u$ a $v$}
-    @info2.text = \bbtext{para um $s$ no caminho de $p$ a $q$}
+    @info.text = \bbtext{Sendo $T$ conectada, existe ao menos um caminho de um vértice $r$}
+    @info2.text = \bbtext{no caminho de $u$ a $v$ para um vértice $s$ no caminho de $p$ a $q$}
 
 ---
     &eBF.-latex
