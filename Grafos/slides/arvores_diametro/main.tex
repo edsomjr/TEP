@@ -1186,7 +1186,7 @@
 \node[draw,opacity=0] at (14, 8) {x};
 
 	\node[anchor=west] (title) at (0.0, 7.0) { \Large \bbbold{Possível simplificação da DFS} };
-  \node[anchor=west] (a) at (0.1, 6.0) { $\star$ \bbtext{Partindo da idéia anterior é possível guardar apenas os dois melhores valores } };
+  \node[anchor=west] (a) at (0.1, 6.0) { $\star$ \bbtext{Partindo da idéia anterior é possível guardar apenas os dois melhores valores. } };
 
 \end{tikzpicture}
 \end{frame}
@@ -1198,8 +1198,8 @@
 \node[draw,opacity=0] at (14, 8) {x};
 
 	\node[anchor=west] (title) at (0.0, 7.0) { \Large \bbbold{Possível simplificação da DFS} };
-  \node[anchor=west] (a) at (0.1, 6.0) { $\star$ \bbtext{Partindo da idéia anterior é possível guardar apenas os dois melhores valores } };
-  \node[anchor=west] (a) at (0.1, 5.0) { $\star$ \bbtext{Guardaremos em $\displaystyle \mathrm{ds1}$ e $\displaystyle \mathrm{ds2}$, o maior e segundo maior valor para $\displaystyle \mathrm{to\_leaf}[v]$.} };
+  \node[anchor=west] (a) at (0.1, 6.0) { $\star$ \bbtext{Partindo da idéia anterior é possível guardar apenas os dois melhores valores. } };
+  \node[anchor=west] (a) at (0.1, 5.0) { $\star$ \bbtext{Guardaremos em $\displaystyle \mathrm{d1}$ e $\displaystyle \mathrm{d2}$, o maior e segundo maior valor para $\displaystyle \mathrm{to\_leaf}[v]$.} };
 
 \end{tikzpicture}
 \end{frame}
@@ -1210,7 +1210,7 @@
 \node[draw,opacity=0] at (14, 8) {x};
 	\node[anchor=west] (title) at (0.0, 7.0) { \Large \bbbold{Possível simplificação da DFS} };
 
-  \node[anchor=west] (a) at (0.1, 6.0) { $\star$ \bbtext{ Fazendo com que  $\displaystyle \mathrm{to\_leaf}[u] = max(\displaystyle \mathrm{ds1}, \displaystyle \mathrm{ds2}) + 1$ tem-se que :}  };
+  \node[anchor=west] (a) at (0.1, 6.0) { $\star$ \bbtext{ Fazendo com que  $\displaystyle \mathrm{to\_leaf}[u] = max(\displaystyle \mathrm{d1}, \displaystyle \mathrm{d2}) + 1$ tem-se que :}  };
 
 \end{tikzpicture}
 \end{frame}
@@ -1221,8 +1221,8 @@
 \node[draw,opacity=0] at (14, 8) {x};
 	\node[anchor=west] (title) at (0.0, 7.0) { \Large \bbbold{Possível simplificação da DFS} };
 
-  \node[anchor=west] (a) at (0.1, 6.0) { $\star$ \bbtext{ Fazendo com que  $\displaystyle \mathrm{to\_leaf}[u] = max(\displaystyle \mathrm{ds1}, \displaystyle \mathrm{ds2}) + 1$ tem-se que :}  };
-  \node[anchor=west] (a) at (0.5, 5.5) { $\star$ \bbtext{Se $u$ for uma folha:  $\displaystyle \mathrm{to\_leaf}[u] = max(\displaystyle \mathrm{ds1}, \displaystyle \mathrm{ds2}) + 1 = -1 + 1= 0$}  };
+  \node[anchor=west] (a) at (0.1, 6.0) { $\star$ \bbtext{ Fazendo com que  $\displaystyle \mathrm{to\_leaf}[u] = max(\displaystyle \mathrm{d1}, \displaystyle \mathrm{d2}) + 1$ tem-se que :}  };
+  \node[anchor=west] (a) at (0.5, 5.5) { $\star$ \bbtext{Se $u$ for uma folha:  $\displaystyle \mathrm{to\_leaf}[u] = max(\displaystyle \mathrm{d1}, \displaystyle \mathrm{d2}) + 1 = -1 + 1= 0$}  };
 
 \end{tikzpicture}
 \end{frame}
@@ -1233,9 +1233,9 @@
 \node[draw,opacity=0] at (14, 8) {x};
 	\node[anchor=west] (title) at (0.0, 7.0) { \Large \bbbold{Possível simplificação da DFS} };
 
-  \node[anchor=west] (a) at (0.1, 6.0) { $\star$ \bbtext{ Fazendo com que  $\displaystyle \mathrm{to\_leaf}[u] = max(\displaystyle \mathrm{ds1}, \displaystyle \mathrm{ds2}) + 1$ tem-se que :}  };
-  \node[anchor=west] (a) at (0.5, 5.5) { $\star$ \bbtext{Se $u$ for uma folha:  $\displaystyle \mathrm{to\_leaf}[u] = max(\displaystyle \mathrm{ds1}, \displaystyle \mathrm{ds2}) + 1 = -1 + 1= 0$}  };
-  \node[anchor=west] (a) at (0.5, 5.0) { $\star$ \bbtext{Caso contrário o maior valor será somado assim como antes.}  };
+  \node[anchor=west] (a) at (0.1, 6.0) { $\star$ \bbtext{ Fazendo com que  $\displaystyle \mathrm{to\_leaf}[u] = max(\displaystyle \mathrm{d1}, \displaystyle \mathrm{d2}) + 1$ tem-se que :}  };
+  \node[anchor=west] (a) at (0.5, 5.5) { $\star$ \bbtext{Se $u$ for uma folha:  $\displaystyle \mathrm{to\_leaf}[u] = max(\displaystyle \mathrm{d1}, \displaystyle \mathrm{d2}) + 1 = -1 + 1= 0$}  };
+  \node[anchor=west] (a) at (0.5, 5.0) { $\star$ \bbtext{Caso contrário o maior valor será somado.}  };
 
 \end{tikzpicture}
 \end{frame}
@@ -1246,12 +1246,12 @@
 \node[draw,opacity=0] at (14, 8) {x};
 	\node[anchor=west] (title) at (0.0, 7.0) { \Large \bbbold{Possível simplificação da DFS} };
 
-  \node[anchor=west] (a) at (0.1, 6.0) { $\star$ \bbtext{ Fazendo com que  $\displaystyle \mathrm{to\_leaf}[u] = max(\displaystyle \mathrm{ds1}, \displaystyle \mathrm{ds2}) + 1$ tem-se que :}  };
-  \node[anchor=west] (a) at (0.5, 5.5) { $\star$ \bbtext{Se $u$ for uma folha:  $\displaystyle \mathrm{to\_leaf}[u] = max(\displaystyle \mathrm{ds1}, \displaystyle \mathrm{ds2}) + 1 = -1 + 1= 0$}  };
-  \node[anchor=west] (a) at (0.5, 5.0) { $\star$ \bbtext{Caso contrário o maior valor será somado assim como antes.}  };
+  \node[anchor=west] (a) at (0.1, 6.0) { $\star$ \bbtext{ Fazendo com que  $\displaystyle \mathrm{to\_leaf}[u] = max(\displaystyle \mathrm{d1}, \displaystyle \mathrm{d2}) + 1$ tem-se que :}  };
+  \node[anchor=west] (a) at (0.5, 5.5) { $\star$ \bbtext{Se $u$ for uma folha:  $\displaystyle \mathrm{to\_leaf}[u] = max(\displaystyle \mathrm{d1}, \displaystyle \mathrm{d2}) + 1 = -1 + 1= 0$}  };
+  \node[anchor=west] (a) at (0.5, 5.0) { $\star$ \bbtext{Caso contrário o maior valor será somado.}  };
 
 
-  \node[anchor=west] (a) at (0.1, 4.0) { $\star$ \bbtext{ Fazendo com que  $\displaystyle \mathrm{max\_lenght}[u] = 2 + \displaystyle \mathrm{ds1} + \displaystyle \mathrm{ds2}$ tem-se que :}  };
+  \node[anchor=west] (a) at (0.1, 4.0) { $\star$ \bbtext{ Fazendo com que  $\displaystyle \mathrm{max\_lenght}[u] = 2 + \displaystyle \mathrm{d1} + \displaystyle \mathrm{d2}$ tem-se que :}  };
 
 \end{tikzpicture}
 \end{frame}
@@ -1262,13 +1262,13 @@
 \node[draw,opacity=0] at (14, 8) {x};
 	\node[anchor=west] (title) at (0.0, 7.0) { \Large \bbbold{Possível simplificação da DFS} };
 
-  \node[anchor=west] (a) at (0.1, 6.0) { $\star$ \bbtext{ Fazendo com que  $\displaystyle \mathrm{to\_leaf}[u] = max(\displaystyle \mathrm{ds1}, \displaystyle \mathrm{ds2}) + 1$ tem-se que :}  };
-  \node[anchor=west] (a) at (0.5, 5.5) { $\star$ \bbtext{Se $u$ for uma folha:  $\displaystyle \mathrm{to\_leaf}[u] = max(\displaystyle \mathrm{ds1}, \displaystyle \mathrm{ds2}) + 1 = -1 + 1= 0$}  };
-  \node[anchor=west] (a) at (0.5, 5.0) { $\star$ \bbtext{Caso contrário o maior valor será somado assim como antes.}  };
+  \node[anchor=west] (a) at (0.1, 6.0) { $\star$ \bbtext{ Fazendo com que  $\displaystyle \mathrm{to\_leaf}[u] = max(\displaystyle \mathrm{d1}, \displaystyle \mathrm{d2}) + 1$ tem-se que :}  };
+  \node[anchor=west] (a) at (0.5, 5.5) { $\star$ \bbtext{Se $u$ for uma folha:  $\displaystyle \mathrm{to\_leaf}[u] = max(\displaystyle \mathrm{d1}, \displaystyle \mathrm{d2}) + 1 = -1 + 1= 0$}  };
+  \node[anchor=west] (a) at (0.5, 5.0) { $\star$ \bbtext{Caso contrário o maior valor será somado.}  };
 
 
-  \node[anchor=west] (a) at (0.1, 4.0) { $\star$ \bbtext{ Fazendo com que  $\displaystyle \mathrm{max\_lenght}[u] = 2 + \displaystyle \mathrm{ds1} + \displaystyle \mathrm{ds2}$ tem-se que :}  };
-  \node[anchor=west] (a) at (0.5, 3.5) { $\star$ \bbtext{Se $u$ tiver pelo menos dois filhos somará os dois maiores como antes.}  };
+  \node[anchor=west] (a) at (0.1, 4.0) { $\star$ \bbtext{ Fazendo com que  $\displaystyle \mathrm{max\_lenght}[u] = 2 + \displaystyle \mathrm{d1} + \displaystyle \mathrm{d2}$ tem-se que :}  };
+  \node[anchor=west] (a) at (0.5, 3.5) { $\star$ \bbtext{Se $u$ tiver pelo menos dois filhos somará os dois maiores valores.}  };
 
   \end{tikzpicture}
 \end{frame}
@@ -1279,15 +1279,15 @@
 \node[draw,opacity=0] at (14, 8) {x};
 	\node[anchor=west] (title) at (0.0, 7.0) { \Large \bbbold{Possível simplificação da DFS} };
 
-  \node[anchor=west] (a) at (0.1, 6.0) { $\star$ \bbtext{ Fazendo com que  $\displaystyle \mathrm{to\_leaf}[u] = max(\displaystyle \mathrm{ds1}, \displaystyle \mathrm{ds2}) + 1$ tem-se que :}  };
-  \node[anchor=west] (a) at (0.5, 5.5) { $\star$ \bbtext{Se $u$ for uma folha:  $\displaystyle \mathrm{to\_leaf}[u] = max(\displaystyle \mathrm{ds1}, \displaystyle \mathrm{ds2}) + 1 = -1 + 1= 0$}  };
-  \node[anchor=west] (a) at (0.5, 5.0) { $\star$ \bbtext{Caso contrário o maior valor será somado assim como antes.}  };
+  \node[anchor=west] (a) at (0.1, 6.0) { $\star$ \bbtext{ Fazendo com que  $\displaystyle \mathrm{to\_leaf}[u] = max(\displaystyle \mathrm{d1}, \displaystyle \mathrm{d2}) + 1$ tem-se que :}  };
+  \node[anchor=west] (a) at (0.5, 5.5) { $\star$ \bbtext{Se $u$ for uma folha:  $\displaystyle \mathrm{to\_leaf}[u] = max(\displaystyle \mathrm{d1}, \displaystyle \mathrm{d2}) + 1 = -1 + 1= 0$}  };
+  \node[anchor=west] (a) at (0.5, 5.0) { $\star$ \bbtext{Caso contrário o maior valor será somado.}  };
 
 
-  \node[anchor=west] (a) at (0.1, 4.0) { $\star$ \bbtext{ Fazendo com que  $\displaystyle \mathrm{max\_lenght}[u] = 2 + \displaystyle \mathrm{ds1} + \displaystyle \mathrm{ds2}$ tem-se que :}  };
+  \node[anchor=west] (a) at (0.1, 4.0) { $\star$ \bbtext{ Fazendo com que  $\displaystyle \mathrm{max\_lenght}[u] = 2 + \displaystyle \mathrm{d1} + \displaystyle \mathrm{d2}$ tem-se que :}  };
 
-  \node[anchor=west] (a) at (0.5, 3.5) { $\star$ \bbtext{Se $u$ tiver pelo menos dois filhos somará os dois maiores como antes.}  };
-  \node[anchor=west] (a) at (0.5, 3.0) { $\star$ \bbtext{Se $u$ apenas 1 filho: $\displaystyle \mathrm{max\_lenght}[u] = 2 + \displaystyle \mathrm{ds1} + \displaystyle \mathrm{ds2} = 2  + -1 + ds2 = ds2 + 1$}  };
+  \node[anchor=west] (a) at (0.5, 3.5) { $\star$ \bbtext{Se $u$ tiver pelo menos dois filhos somará os dois maiores valores.}  };
+  \node[anchor=west] (a) at (0.5, 3.0) { $\star$ \bbtext{Se $u$ apenas um filho: $\displaystyle \mathrm{max\_lenght}[u] = 2 + \displaystyle \mathrm{d1} + \displaystyle \mathrm{d2} = 2  + d1 + (-1) = 1 + d1$}  };
 
 \end{tikzpicture}
 \end{frame}
@@ -1298,16 +1298,16 @@
 \node[draw,opacity=0] at (14, 8) {x};
 	\node[anchor=west] (title) at (0.0, 7.0) { \Large \bbbold{Possível simplificação da DFS} };
 
-  \node[anchor=west] (a) at (0.1, 6.0) { $\star$ \bbtext{ Fazendo com que  $\displaystyle \mathrm{to\_leaf}[u] = max(\displaystyle \mathrm{ds1}, \displaystyle \mathrm{ds2}) + 1$ tem-se que :}  };
-  \node[anchor=west] (a) at (0.5, 5.5) { $\star$ \bbtext{Se $u$ for uma folha:  $\displaystyle \mathrm{to\_leaf}[u] = max(\displaystyle \mathrm{ds1}, \displaystyle \mathrm{ds2}) + 1 = -1 + 1= 0$}  };
-  \node[anchor=west] (a) at (0.5, 5.0) { $\star$ \bbtext{Caso contrário o maior valor será somado assim como antes.}  };
+  \node[anchor=west] (a) at (0.1, 6.0) { $\star$ \bbtext{ Fazendo com que  $\displaystyle \mathrm{to\_leaf}[u] = max(\displaystyle \mathrm{d1}, \displaystyle \mathrm{d2}) + 1$ tem-se que :}  };
+  \node[anchor=west] (a) at (0.5, 5.5) { $\star$ \bbtext{Se $u$ for uma folha:  $\displaystyle \mathrm{to\_leaf}[u] = max(\displaystyle \mathrm{d1}, \displaystyle \mathrm{d2}) + 1 = -1 + 1= 0$}  };
+  \node[anchor=west] (a) at (0.5, 5.0) { $\star$ \bbtext{Caso contrário o maior valor será somado.}  };
 
 
-  \node[anchor=west] (a) at (0.1, 4.0) { $\star$ \bbtext{ Fazendo com que  $\displaystyle \mathrm{max\_lenght}[u] = 2 + \displaystyle \mathrm{ds1} + \displaystyle \mathrm{ds2}$ tem-se que :}  };
+  \node[anchor=west] (a) at (0.1, 4.0) { $\star$ \bbtext{ Fazendo com que  $\displaystyle \mathrm{max\_lenght}[u] = 2 + \displaystyle \mathrm{d1} + \displaystyle \mathrm{d2}$ tem-se que :}  };
 
-  \node[anchor=west] (a) at (0.5, 3.5) { $\star$ \bbtext{Se $u$ tiver pelo menos dois filhos somará os dois maiores como antes.}  };
-  \node[anchor=west] (a) at (0.5, 3.0) { $\star$ \bbtext{Se $u$ apenas 1 filho: $\displaystyle \mathrm{max\_lenght}[u] = 2 + \displaystyle \mathrm{ds1} + \displaystyle \mathrm{ds2} = 2  + -1 + ds2 = ds2 + 1$}  };
-  \node[anchor=west] (a) at (0.5, 2.5) { $\star$ \bbtext{Se $u$ for uma folha: $\displaystyle \mathrm{max\_lenght}[u] = 2 + \displaystyle \mathrm{ds1} + \displaystyle \mathrm{ds2} = 2  + -1 + -1 = 0$}  };
+  \node[anchor=west] (a) at (0.5, 3.5) { $\star$ \bbtext{Se $u$ tiver pelo menos dois filhos somará os dois maiores.}  };
+  \node[anchor=west] (a) at (0.5, 3.0) { $\star$ \bbtext{Se $u$ apenas um filho: $\displaystyle \mathrm{max\_lenght}[u] = 2 + \displaystyle \mathrm{d1} + \displaystyle \mathrm{d2} = 2  + d1 + -1 = 1 +  d1$}  };
+  \node[anchor=west] (a) at (0.5, 2.5) { $\star$ \bbtext{Se $u$ for uma folha: $\displaystyle \mathrm{max\_lenght}[u] = 2 + \displaystyle \mathrm{d1} + \displaystyle \mathrm{d2} = 2  + -1 + -1 = 0$}  };
 
 \end{tikzpicture}
 \end{frame}

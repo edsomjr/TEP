@@ -21,7 +21,7 @@ void dfs(int u, int p)
 
         dfs(v, u);
 
-        ds1 = max(ds2, to_leaf[v]);
+        ds2 = max(ds2, to_leaf[v]);
     }
 
 
@@ -43,14 +43,8 @@ int diameter(int root, int N)
 
 int main()
 {
-    vector<ii> edges;
-    int N;
-    cin >> N;
-    for (int i = 1; i <= N-1; i++) {
-        int u, v;
-        cin >> u >> v; 
-        edges.emplace_back(u, v);
-    }
+    vector<ii> edges { ii(1, 7), ii(3, 7), ii(7, 4), ii(4, 2), 
+        ii(4, 5), ii(5, 6) };
 
     for (const auto& [u, v] : edges) {
         adj[u].push_back(v);
@@ -58,7 +52,15 @@ int main()
     }
 
     // 4
-    cout << diameter(1, N) << endl;
+    cout << diameter(4, 7) << endl;
+
+    // 0 0 0 2 1 0 1
+    for (int u = 1; u <= 7; ++u)
+        cout << to_leaf[u] << (u == 7 ? '\n' : ' ');
+
+    // 0 0 0 4 1 0 2
+    for (int u = 1; u <= 7; ++u)
+        cout << max_length[u] << (u == 7 ? '\n' : ' ');
 
     return 0;
 } 
