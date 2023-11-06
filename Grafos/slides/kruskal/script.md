@@ -60,7 +60,7 @@ c => Node
 d => Node
     @d.x = 1
     @d.y = 3
-    @d.text = $\star$ \bbtext{Na ordem estipulada, cada aresta que una dois componentes conectados}
+    @d.text = $\star$ \bbtext{Na ordem estipulada, cada aresta que una dois componentes disjuntos}
     @d.anchor = west
 
 d1 => Node
