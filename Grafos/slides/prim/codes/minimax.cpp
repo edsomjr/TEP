@@ -8,32 +8,32 @@ const int MAX { 100010 }, oo { 1000000010 };
 
 vector<ii> adj[MAX];
 
-int minimax(int u, int N)
+int minimax(int u, size_t N)
 {
     set<int> C;
-    C.insert(u);
+    C.emplace(u);
 
     priority_queue<ii, vector<ii>, greater<ii>> pq;
 
     for (auto [v, w] : adj[u])
-        pq.push(ii(w, v));
+        pq.emplace(w, v);
 
     int minmax = -oo;
 
-    while ((int) C.size() < N)
+    while (C.size() < N)
     {
         int v, w;
 
         do {
-            w = pq.top().first, v = pq.top().second;
+            tie(w, v) = pq.top();
             pq.pop();
         } while (C.count(v));
 
         minmax = max(minmax, w);
-        C.insert(v);
+        C.emplace(v);
 
         for (auto [s, p] : adj[v])
-            pq.push(ii(p, s));
+            pq.emplace(p, s);
     }
 
     return minmax;

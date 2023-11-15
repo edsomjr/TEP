@@ -8,7 +8,7 @@ const int MAX { 100010 };
 
 vector<ii> adj[MAX];
 
-int msg(int N, const vector<edge>& es)
+int msg(size_t N, const vector<edge>& es)
 {
     set<int> C;
     priority_queue<ii, vector<ii>, greater<ii>> pq;
@@ -18,30 +18,30 @@ int msg(int N, const vector<edge>& es)
     {
         cost += w;
 
-        C.insert(u);
-        C.insert(v);
+        C.emplace(u);
+        C.emplace(v);
 
         for (auto [r, s] : adj[u])
-            pq.push(ii(s, r));
+            pq.emplace(s, r);
 
         for (auto [r, s] : adj[v])
-            pq.push(ii(s, r));
+            pq.emplace(s, r);
     }
 
-    while ((int) C.size() < N)
+    while (C.size() < N)
     {
         int v, w;
 
         do {
-            w = pq.top().first, v = pq.top().second;
+            tie(w, v) = pq.top();
             pq.pop();
         } while (C.count(v));
 
         cost += w;
-        C.insert(v);
+        C.emplace(v);
 
         for (auto [s, p] : adj[v])
-            pq.push(ii(p, s));
+            pq.emplace(p, s);
     }
 
     return cost;
