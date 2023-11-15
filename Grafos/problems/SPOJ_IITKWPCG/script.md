@@ -19,7 +19,7 @@
 
 \vspace{0.1in}
 
-\bbtext{O reino é bem planejado, e por bem planejado entenda que é possível ir de qualquer povoado a qualquer outro povoado. Mas como os povooados foram destruídas por inimigos, todas as estradas estão em ruínas, e o rei irá reconstruir as estradas de modo que o reino se torne novamente um reino bem planejado.}
+\bbtext{O reino é bem planejado, e por bem planejado entenda que é possível ir de qualquer povoado a qualquer outro povoado. Mas como os povoados foram destruídos por inimigos, todas as estradas estão em ruínas, e o rei irá reconstruir as estradas de modo que o reino se torne novamente um reino bem planejado.}
     
 \vspace{0.1in}
 
