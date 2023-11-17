@@ -114,7 +114,7 @@ title => Node
 input => Node
     @input.x = 0.5
     @input.y = 6
-    @input.text = \bbemph{Entrada:} \bbtext{um grafo ponderado $G(V, E)$}
+    @input.text = \bbemph{Entrada:} \bbtext{um grafo conectado ponderado $G(V, E)$}
     @input.anchor = west
 
 output => Node
