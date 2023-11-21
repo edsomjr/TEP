@@ -70,7 +70,7 @@ Teoria dos Grafos
         1. [USACO 764 - The Bovine Shuffle](http://www.usaco.org/index.php?page=viewproblem2&cpid=764) ([_upsolving_](problems/USACO_764/USACO_764.pdf)) 
     1. [Ciclos em grafos de sucessores](slides/ciclos_em_grafos_de_sucessores/ciclos_em_grafos_de_sucessores.pdf)
 1. Componentes fortemente conectados
-    1. Definição
+    1. [Definição](slides/componentes_fortemente_conectados/componentes_fortemente_conectados.pdf)
     1. Algoritmo de Kosaraju
     1. 2SAT
 1. Consultas em árvores
