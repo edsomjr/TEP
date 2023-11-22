@@ -71,7 +71,7 @@ Teoria dos Grafos
     1. [Ciclos em grafos de sucessores](slides/ciclos_em_grafos_de_sucessores/ciclos_em_grafos_de_sucessores.pdf)
 1. Componentes fortemente conectados
     1. [Definição](slides/componentes_fortemente_conectados/componentes_fortemente_conectados.pdf)
-    1. Algoritmo de Kosaraju
+    1. [Algoritmo de Kosarajus](slides/kosaraju/kosaraju.pdf)
     1. 2SAT
 1. Consultas em árvores
     1. Ancestrais
