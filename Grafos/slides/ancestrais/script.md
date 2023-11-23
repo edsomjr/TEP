@@ -482,7 +482,6 @@ k3 => Node
     @k3.y = 7.6
     @k3.text = \footnotesize $2^2$
 
----
 x1 => Node
     @x1.x = 10.7
     @x1.y = 6.95
@@ -533,6 +532,326 @@ succ => Node
     @succ.y = 0.5
     @succ.text = \footnotesize $\mathrm{succ}(u, 2^k)$
 
+---
+    @node1.fill = BBCyan
+
+---
+    @node2.fill = BBGreen
+
+---
+
+m11 => Node
+    @m11.x = 11.35
+    @m11.y = 6.95
+    @m11.text = \footnotesize $\mathtt{2}$
+
+---
+    @node1.fill = BBWhite
+    @node2.fill = BBCyan
+
+---
+    @node3.fill = BBGreen
+
+---
+
+m21 => Node
+    @m21.x = 11.35
+    @m21.y = 6.25
+    @m21.text = \footnotesize $\mathtt{3}$
+
+---
+    @node2.fill = BBWhite
+    @node3.fill = BBCyan
+---
+
+m31 => Node
+    @m31.x = 11.35
+    @m31.y = 5.55
+    @m31.text = \footnotesize -
+
+---
+    @node3.fill = BBWhite
+    @node4.fill = BBCyan
+
+---
+    @node3.fill = BBGreen
+
+---
+
+m41 => Node
+    @m41.x = 11.35
+    @m41.y = 4.85
+    @m41.text = \footnotesize $\mathtt{3}$
+
+---
+    @node4.fill = BBWhite
+    @node3.fill = BBWhite
+    @node5.fill = BBCyan
+
+---
+    @node1.fill = BBGreen
+
+---
+
+m51 => Node
+    @m51.x = 11.35
+    @m51.y = 4.15
+    @m51.text = \footnotesize $\mathtt{1}$
+
+---
+    @node5.fill = BBWhite
+    @node1.fill = BBWhite
+    @node6.fill = BBCyan
+
+---
+    @node2.fill = BBGreen
+
+---
+
+m61 => Node
+    @m61.x = 11.35
+    @m61.y = 3.45
+    @m61.text = \footnotesize $\mathtt{2}$
+
+---
+    @node6.fill = BBWhite
+    @node2.fill = BBWhite
+    @node7.fill = BBCyan
+
+---
+    @node3.fill = BBGreen
+
+---
+
+m71 => Node
+    @m71.x = 11.35
+    @m71.y = 2.75
+    @m71.text = \footnotesize $\mathtt{3}$
+
+---
+    @node7.fill = BBWhite
+    @node3.fill = BBWhite
+    @node8.fill = BBCyan
+
+---
+    @node2.fill = BBGreen
+
+---
+
+m81 => Node
+    @m81.x = 11.35
+    @m81.y = 2.05
+    @m81.text = \footnotesize $\mathtt{2}$
+
+---
+    @node8.fill = BBWhite
+    @node2.fill = BBWhite
+    @node9.fill = BBCyan
+
+---
+    @node7.fill = BBGreen
+
+---
+
+m91 => Node
+    @m91.x = 11.35
+    @m91.y = 1.35
+    @m91.text = \footnotesize $\mathtt{7}$
+
+---
+    @node9.fill = BBWhite
+    @node7.fill = BBWhite
+    @node1.fill = BBCyan
+
+---
+    @node2.fill = BBOrange
+---
+    @node3.fill = BBGreen
+
+---
+
+m12 => Node
+    @m12.x = 12.05
+    @m12.y = 6.95
+    @m12.text = \footnotesize $\mathtt{3}$
+
+
+---
+    @node1.fill = BBWhite
+    @node3.fill = BBWhite
+    @node2.fill = BBCyan
+
+---
+
+m22 => Node
+    @m22.x = 12.05
+    @m22.y = 6.25
+    @m22.text = \footnotesize -
+
+---
+    @node2.fill = BBWhite
+    @node3.fill = BBCyan
+
+---
+
+m32 => Node
+    @m32.x = 12.05
+    @m32.y = 5.55
+    @m32.text = \footnotesize -
+
+---
+    @node3.fill = BBWhite
+    @node4.fill = BBCyan
+
+---
+
+m42 => Node
+    @m42.x = 12.05
+    @m42.y = 4.85
+    @m42.text = \footnotesize -
+
+---
+    @node4.fill = BBWhite
+    @node5.fill = BBCyan
+
+---
+    @node1.fill = BBOrange
+---
+    @node2.fill = BBGreen
+
+---
+
+m52 => Node
+    @m52.x = 12.05
+    @m52.y = 4.15
+    @m52.text = \footnotesize $\mathtt{2}$
+
+---
+    @node5.fill = BBWhite
+    @node1.fill = BBWhite
+    @node2.fill = BBWhite
+    @node6.fill = BBCyan
+
+---
+    @node2.fill = BBOrange
+---
+    @node3.fill = BBGreen
+
+---
+
+m62 => Node
+    @m62.x = 12.05
+    @m62.y = 3.45
+    @m62.text = \footnotesize $\mathtt{3}$
+
+---
+    @node6.fill = BBWhite
+    @node2.fill = BBWhite
+    @node3.fill = BBWhite
+    @node7.fill = BBCyan
+
+---
+
+m72 => Node
+    @m72.x = 12.05
+    @m72.y = 2.75
+    @m72.text = \footnotesize -
+
+---
+    @node7.fill = BBWhite
+    @node8.fill = BBCyan
+
+---
+    @node2.fill = BBOrange
+---
+    @node3.fill = BBGreen
+
+---
+
+m82 => Node
+    @m82.x = 12.05
+    @m82.y = 2.05
+    @m82.text = \footnotesize $\mathtt{3}$
+
+---
+    @node8.fill = BBWhite
+    @node3.fill = BBWhite
+    @node2.fill = BBWhite
+    @node9.fill = BBCyan
+
+---
+    @node7.fill = BBOrange
+---
+    @node3.fill = BBGreen
+
+---
+
+m92 => Node
+    @m92.x = 12.05
+    @m92.y = 1.35
+    @m92.text = \footnotesize $\mathtt{3}$
+
+---
+    @node9.fill = BBWhite
+    @node7.fill = BBWhite
+    @node3.fill = BBWhite
+
+m13 => Node
+    @m13.x = 12.75
+    @m13.y = 6.95
+    @m13.text = \footnotesize -
+
+m23 => Node
+    @m23.x = 12.75
+    @m23.y = 6.25
+    @m23.text = \footnotesize -
+
+m33 => Node
+    @m33.x = 12.75
+    @m33.y = 5.55
+    @m33.text = \footnotesize -
+
+m43 => Node
+    @m43.x = 12.75
+    @m43.y = 4.85
+    @m43.text = \footnotesize -
+
+m53 => Node
+    @m53.x = 12.75
+    @m53.y = 4.15
+    @m53.text = \footnotesize -
+
+m63 => Node
+    @m63.x = 12.75
+    @m63.y = 3.45
+    @m63.text = \footnotesize -
+
+m73 => Node
+    @m73.x = 12.75
+    @m73.y = 2.75
+    @m73.text = \footnotesize -
+
+m83 => Node
+    @m83.x = 12.75
+    @m83.y = 2.05
+    @m83.text = \footnotesize -
+
+m93 => Node
+    @m93.x = 12.75
+    @m93.y = 1.35
+    @m93.text = \footnotesize -
+
+## Frame
+
+\inputsnippet{cpp}{41}{58}{codes/ancestor.cpp}
+
+## Frame
+
+\inputsnippet{cpp}{19}{39}{codes/ancestor.cpp}
+
+## Frame
+
+\inputsnippet{cpp}{10}{17}{codes/ancestor.cpp}
 
 ## Scene
 
