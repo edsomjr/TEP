@@ -2,13 +2,11 @@
 
 template<typename T>
 struct Point {
-    T x, y;
-
-    Point(T xv = 0, T yv = 0) : x(xv), y(yv) {}
+    T x = 0, y = 0;
 };
 
 int main() {
-    Point<int> p(1, 2), q;      // Declaração
+    Point<int> p { 1, 2 }, q;   // Declaração
     p = q;                      // Atribuição
 
     if (p == q) {               // Erro de compilação: o operador == não está definido!

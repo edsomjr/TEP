@@ -59,7 +59,7 @@
 \begin{frame}[fragile]{Representação de pontos como pares e tuplas}
 
     \begin{itemize}
-        \item A biblioteca padrão do C++ possui o tipo paramêtrico \code{c++}{pair} (par), que pode
+        \item A biblioteca padrão do C++ possui o tipo paramétrico \code{c++}{pair} (par), que pode
             ser usado para representar pontos
         \pause
 
@@ -72,16 +72,10 @@
 estruturas 
         \pause
 
-        \item Esta desvantagem pode ser contornada usando as seguintes definições de 
-            pré-processador:
-        \pause
+        \item Esta desvantagem pode ser contornada com o uso da decomposição estruturada (C++17 em diante):
 
-        \inputcode{c++}{codes/macros.cpp}
-        \pause
+        \inputcode{c++}{codes/structured_binding.cpp}
         \vspace{0.05in}
-
-        \item Esta solução deve ser utilizada com cuidado, pois pode gerar efeitos colaterias
-            indesejados
         \pause
 
         \item Além disso, tuplas (\code{cpp}{tuple}) podem ser utilizados diretamente para representar pontos tridimensionais
