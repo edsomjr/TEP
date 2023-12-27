@@ -2,9 +2,7 @@
 
 template<typename T>
 struct Point {
-    T x, y;
-
-    Point(T xv = 0, T yv = 0) : x(xv), y(yv) {}
+    T x = 0, y = 0;
 };
 
 template<typename T>
@@ -38,7 +36,7 @@ T max_norm(const Point<T>& P, const Point<T>& Q) {
 
 int main()
 {
-    Point<int> P, Q(2, 3);
+    Point<int> P, Q { 2, 3 };
 
     std::cout << "Euclidiana: " << dist(P, Q) << '\n';
     std::cout << "Quadrado: " << dist2(P, Q) << '\n';

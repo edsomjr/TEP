@@ -42,8 +42,8 @@
         onde $m$ é o coeficiente angular da reta e $b$ é o coeficiente linear da reta
         \pause
 
-        \item O primeiro coeficiente representa a taxa de variação da reta: consiste no número de 
-        unidades que $y$ varia para cada unidade de variação de $x$ no sentido positivo do eixo horizontal
+        \item O primeiro coeficiente representa a taxa de variação da reta: o quanto
+        $y$ varia para cada unidade de variação de $x$ no sentido positivo do eixo horizontal
         \pause
 
         \item O coeficiente linear $b$ é o valor no qual a reta intercepta o eixo $y$
@@ -171,7 +171,7 @@
         \item Isto ocorre quando os pontos $P$ e $Q$ são idênticos: neste caso, a reta se reduz a um único ponto 
         \pause
 
-        \item O tratamento deste caso especiais nos demais algoritmos aumenta o tamanho e a sofisticação dos códigos
+        \item O tratamento deste caso especial nos demais algoritmos aumenta o tamanho e a sofisticação dos códigos
         \pause
 
         \item Porém o não tratamento de casos especiais pode levar ao WA
@@ -241,7 +241,7 @@
         \]
         \pause
 
-        \item Segunda a norma do máximo, a distância entre $A$ e $B$ é dada por
+        \item Segundo a norma do máximo, a distância entre $A$ e $B$ é dada por
         \[
             d(A, B) = \max\lbrace |x_a - x_b|, |y_a - y_b|\rbrace
         \]
@@ -257,7 +257,7 @@
         \pause
 
         \item Por este motivo, em geral é implementada a função que computa o quadrado da
-            distância, o que elimina a raiz quadrada e permite a aritmética de inteiros
+            distância, o que elimina a raiz quadrada e permite a aritmética com números inteiros
         \pause
 
         \item O quadrado da distância pode ser usado para comparar os pontos por distância, pois
@@ -275,13 +275,13 @@
 \end{frame}
 
 \begin{frame}[fragile]{Exemplo de implementação das distâncias}
-    \inputsnippet{cpp}{1}{18}{codes/dist.cpp}
+    \inputsnippet{cpp}{1}{16}{codes/dist.cpp}
 \end{frame}
 
 \begin{frame}[fragile]{Exemplo de implementação das distâncias}
-    \inputsnippet{cpp}{19}{37}{codes/dist.cpp}
+    \inputsnippet{cpp}{17}{35}{codes/dist.cpp}
 \end{frame}
 
 \begin{frame}[fragile]{Exemplo de implementação das distâncias}
-    \inputsnippet{cpp}{39}{61}{codes/dist.cpp}
+    \inputsnippet{cpp}{37}{61}{codes/dist.cpp}
 \end{frame}

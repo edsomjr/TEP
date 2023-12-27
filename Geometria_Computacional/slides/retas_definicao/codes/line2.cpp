@@ -1,7 +1,7 @@
 template<typename T>
 struct Line {
-    T m, b;
     bool vertical;
+    T m, b;
 
     Line(const Point<T>& P, const Point<T>& Q) : vertical(false)
     {

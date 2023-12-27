@@ -52,5 +52,102 @@ Pontos:
 1. Convex hull dinâmico
 2. Interseção entre dois conjuntos de segmentos
 3. Operações binárias em polígonos: união, subtração e interseção
--->
 
+Problemas:
+
+CF até 1000 de dificuldade
+
+## Pontos e vetores
+    1. [Robert Hood](https://www.beecrowd.com.br/judge/pt/problems/view/3260) - distância entre pontos (sweep line)
+    1. [Counterclockwise Rotation](https://atcoder.jp/contests/abc259/tasks/abc259_b) - rotação de pontos
+    1. [Following Directions](https://codeforces.com/problemset/problem/1791/B) - orientação
+    1. [Travelling Salesman Problem](https://codeforces.com/problemset/problem/1713/A) - orientação
+    1. [Come Together](https://codeforces.com/problemset/problem/1845/B) - orientação
+    1. [Takahashikun, The Strider](https://atcoder.jp/contests/agc046/tasks/agc046_a) - rotações
+    1. [Archery Training](https://www.spoj.com/problems/BLMIRINA/) - distância entre pontos
+    
+## Retas
+    1. [Invasão Alienígena](https://www.beecrowd.com.br/judge/pt/problems/view/2362) - reta que contém o maior número de pontos
+    1. [Curo Railroad](https://www.beecrowd.com.br/judge/pt/problems/view/1504) - reta que divide duas regiões com distâncias mínimas
+    1. [Billiards](https://atcoder.jp/contests/abc183/tasks/abc183_b) - sinuca
+    1. [Collinearity](https://atcoder.jp/contests/abc181/tasks/abc181_c) - colinearidade
+    1. [K-colinear Line](https://atcoder.jp/contests/abc248/tasks/abc248_e) - colinearidade
+    1. [Ideal Point](https://codeforces.com/problemset/problem/1795/B) - interseção de segmentos
+    1. [Wasted Time](https://codeforces.com/problemset/problem/127/A) - comprimento de segmentos
+    1. [Contest Start](https://codeforces.com/problemset/problem/1539/A) - interseção de intervalos
+    1. [Point Location Test](https://cses.fi/problemset/task/2189) - orientação
+    1. [Line Segment Intersection](https://cses.fi/problemset/task/2190) - interseção entre segmentos de reta
+    1. [Ada and Kohlrabi](https://www.spoj.com/problems/ADAKOHL) - cobertura de reta
+    1. [Ada and Cucumber](https://www.spoj.com/problems/ADAPICK/) - cobertura de reta
+    1. [The Ant](https://www.spoj.com/problems/ANTTT/) - interseção de intervalos
+    1. [Mayonnaise Arrow](https://www.spoj.com/problems/BLMIRANA/) - cobertura de reta
+
+## Triângulos
+    1. [Samuel, o Cafeicultor](https://www.beecrowd.com.br/judge/pt/problems/view/3152) - área de triângulos/polígonos
+    1. [Medianas](https://www.beecrowd.com.br/judge/pt/problems/view/1296) - área baseada nas medianas
+    1. [Bovine Dilemman](https://codeforces.com/problemset/problem/1466/A) - área 
+    1. [Make a triangle!](https://codeforces.com/problemset/problem/1064/A) - desigualdade triangular
+    1. [Cover Points](https://codeforces.com/problemset/problem/1047/B) - triângulos isóceles
+    1. [Phoenix and Puzzle](https://codeforces.com/problemset/problem/1515/B) - triãngulos e quadrados
+    1. [Water Lily](https://codeforces.com/problemset/problem/1199/B) - triângulos
+    1. [Triangles on a Rectangle](https://codeforces.com/problemset/problem/1620/B) - triângulos e retângulos
+    1. [Triangle Partitioning](https://lightoj.com/problem/triangle-partitioning) - semelhança, área
+    1. [Crossed Ladders](https://lightoj.com/problem/crossed-ladders) - semelhança
+
+
+##  Quadriláteros
+    1. [Problema com um Pentágono](https://www.beecrowd.com.br/judge/pt/problems/view/1292) - quadrados e pentágonos
+    1. [Convex Quadrilateral](https://atcoder.jp/contests/abc266/tasks/abc266_c) - orientação
+    1. [Rectangle Cutting](https://atcoder.jp/contests/abc130/tasks/abc130_c) - cortes de retângulos
+    1. [Placing Rectangles](https://atcoder.jp/contests/abc223/tasks/abc223_e) - retângulos
+    1. [Real roots](https://www.spoj.com/problems/RROOT/) - quadrados, probabilidade
+    1. [Parallelogram Couting](https://lightoj.com/problem/parallelogram-counting) - paralelogramos
+    1. [How Cow](https://lightoj.com/problem/how-cow) - retângulos e pontos
+    1. [Trapezium](https://lightoj.com/problem/trapezium) - trapézios
+    1. [Guarding Bananas](https://lightoj.com/problem/guarding-bananas) - retângulos e retas
+
+## Polígonos
+    1. [Diagrama de Venn?](https://www.beecrowd.com.br/judge/pt/problems/view/1446) - Interseção de polígonos
+    1. [Sum of Interior Angles](https://atcoder.jp/contests/m-solutions2019/tasks/m_solutions2019_a) - soma dos ãngulos internos
+    1. [FashionabLee](https://codeforces.com/problemset/problem/1369/A) - polígonos regulares
+    1. [Two Regular Polygons](https://codeforces.com/problemset/problem/1312/A) - polígonos regulares
+    1. [Polygon Area](https://cses.fi/problemset/task/2191) - área de polígonos
+    1. [Point in Polygon](https://cses.fi/problemset/task/2192) - pontos em polígonos
+    1. [One Geometry Problem](https://www.spoj.com/problems/GEOPROB/) - geometria plana
+    1. [Inside or outside?](https://www.spoj.com/problems/INOROUT/) - pontos em polígonos
+    1. [Projections Of a Polygon](https://www.spoj.com/problems/KPPOLY/) - projeções e rotações
+    1. [Sleepwalking](https://lightoj.com/problem/sleepwalking) - pontos em polígonos
+
+## Círculos
+    1. [Ih, Ferrou, um Buraco Negro!](https://www.beecrowd.com.br/judge/pt/problems/view/1783) - centro do círculo
+    1. [Robot Arm](https://atcoder.jp/contests/mujin-pc-2016/tasks/mujin_pc_2016_b) - círculos e retas
+    1. [Enclose All](https://atcoder.jp/contests/abc151/tasks/abc151_f) - circle cover
+    1. [Euler Puzzle](https://www.spoj.com/problems/CIRCLEDIV/) - seções de um círculo
+    1. [Goal for Raúl](https://www.spoj.com/problems/GOALFR/) - círculos e retas
+    1. [Leaf](https://www.spoj.com/problems/LEAF/) - área de segmentos
+    1. [Circle in Square](https://lightoj.com/problem/circle-in-square) - área
+    1. [Olympics](https://lightoj.com/problem/olympics) - area
+    1. [Calm Down](https://lightoj.com/problem/calm-down)
+    1. [Incredible Molecules](https://lightoj.com/problem/incredible-molecules) - interseção de círculos
+    1. [Intersection between Circle and Rectangle](https://lightoj.com/problem/intersection-between-circle-a) - círculos e retângulos, interseção
+    1. [Expanding Rods](https://lightoj.com/problem/expanding-rods) - segmentos
+
+## Treliças
+    1. [Circle Lattice Points](https://atcoder.jp/contests/abc191/tasks/abc191_d) - pontos internos do círculo
+    1. [Polygon Lattice Points](https://cses.fi/problemset/task/2193) - Teorema de Pick
+
+## Objetos 3D
+    1. [Balão++](https://www.beecrowd.com.br/judge/pt/problems/view/2840) - Volume da esfera
+    1. [Pergunte à Geógrafa](https://www.beecrowd.com.br/judge/pt/problems/view/2521) - latitude/longitude
+    1. [Points on a Sphere](https://www.spoj.com/problems/PSPHERE/) - esfera
+
+## Convex Hull
+    1. [Centro de Convenções](https://www.beecrowd.com.br/judge/pt/problems/view/1818)
+    1. [Convex Hull](https://cses.fi/problemset/task/2195) 
+    1. [Polygon](https://www.spoj.com/problems/MPOLY/)
+
+## Sweep line
+    1. [Minimum Euclidean Distance](https://cses.fi/problemset/task/2194) - distância mínima entre pontos
+    1. [Closest Point Pair](https://www.spoj.com/problems/CLOPPAIR/) - distância mínima entre pontos
+
+-->
