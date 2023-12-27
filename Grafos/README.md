@@ -74,7 +74,7 @@ Teoria dos Grafos
     1. [Algoritmo de Kosaraju](slides/kosaraju/kosaraju.pdf)
     1. 2SAT
 1. Consultas em árvores
-    1. Ancestrais
+    1. [Ancestrais](slides/ancestor/ancestor.pdf)
     1. Subárvores e caminhos
     1. ancestral comum mais próximo
     1. Algoritmos _offline_
