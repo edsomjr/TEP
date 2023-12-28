@@ -47,9 +47,6 @@ Geometria Computacional
         1. [OJ 10245 - The Closest Pair Problem](problems/OJ_10245/OJ_10245.pdf)
 
 <!-- Assuntos pendentes:
-Pontos:
-    1. exemplo de definição de ponto tridimensional com tuplas/decomposição estruturada
-
 1. Convex hull dinâmico
 2. Interseção entre dois conjuntos de segmentos
 3. Operações binárias em polígonos: união, subtração e interseção
