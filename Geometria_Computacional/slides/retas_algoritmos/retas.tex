@@ -57,8 +57,8 @@
         \]
         \pause
 
-        \item Para achar o ângulo, basta computar a função inversa do cosseno (\code{c}{acos()}, na
-            biblioteca de matemática padrão do C/C++) no lado direito da expressão acima
+        \item Para achar o ângulo, usar a função inversa do cosseno (\code{c}{acos()} da
+            biblioteca de matemática padrão do C/C++) 
     \end{itemize}
 
 \end{frame}
@@ -67,32 +67,3 @@
     \inputcode{cpp}{codes/angle.cpp}
 \end{frame}
 
-\begin{frame}[fragile]{Interseção entre segmentos de reta}
-
-    \begin{itemize}
-        \item Para determinar a interseção entre dois segmentos de reta é preciso resolver o
-            problema para as duas retas que contém os respectivos segmentos e verificar se a interseção, se existir, pertence a ambos intervalos
-        \pause
-
-        \item Embora esta abordagem permita conhecer as coordenadas das possíveis interseções, ela              traz alguns problemas em potencial:
-        \pause
-
-        \begin{enumerate}
-            \item mesmo que as retas sejam coincidentes, não há garantias que os segmentos
-                tenham interseção
-        \pause
-
-            \item a concorrência também não garante interseção: ainda é preciso verificar se o ponto pertence a ambos intervalos
-        \end{enumerate}
-        \pause
-
-        \item Para identificar apenas se há interseção entre ambos segmentos, sem determinar
-            as coordenadas de tal interseção, o problema fica simplificado, e será abordado
-            mais adiante
-    \end{itemize}
-
-\end{frame}
-
-\begin{frame}[fragile]{Rotina que verifica se um ponto $P$ pertence ao segmento $AB$}
-    \inputcode{cpp}{codes/contains.cpp}
-\end{frame}

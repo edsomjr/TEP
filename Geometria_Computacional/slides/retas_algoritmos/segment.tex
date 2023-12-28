@@ -1,4 +1,88 @@
+\section{Relação entre ponto e segmento}
+
+\begin{frame}[fragile]{Interseção entre ponto e segmento}
+    \begin{itemize}
+        \item É possível verificar se um ponto $P$ pertence ao segmento de reta definido pelos pontos $A$ e $B$ em duas etapas
+        \pause
+        \begin{enumerate}
+            \item Verificar se $P$ pertente à reta que passa pelos pontos $A$ e $B$
+            \pause
+
+            \item Verificar se a coordenada $x$ de $P$ está dentro do intervalo $[r, s]$, onde $r = \min(x_A, x_B)$ e $s = \max(x_A, x_B)$
+        \end{enumerate}
+            \pause
+
+        \item Há uma abordagem alternativa, também em dois passos, que dispensa o conhecimento dos coeficientes da reta que passa por $A$ e $B$
+        \pause
+
+
+        \item O primeiro passo é verificar se $P$ está dentro da região regular cujos vértices opostos são $A$ e $B$, respectivamente
+        \pause
+
+        \item O segundo passo é verificar se $P$ está no segmento $AB$, usando semelhança de triângulos
+    \end{itemize} 
+
+\end{frame}
+
+\begin{frame}[fragile]{Rotina que verifica se um ponto $P$ pertence ao segmento $AB$}
+    \inputcode{cpp}{codes/contains.cpp}
+\end{frame}
+
+
+\begin{frame}[fragile]{Ponto mais próximo de um segmento de reta}
+
+    \begin{itemize}
+        \item Para determinar o ponto do segmento $AB$ mais próximo de um ponto $P$ dado, é
+            preciso, inicialmente, determinar o ponto $Q$ da reta $r$ que contém $A$ e $B$ mais
+            próximo de $P$
+        \pause
+
+        \item Em seguida, é preciso avaliar também os extremos $A$ e $B$ do segmento, pois o ponto
+            $Q$ pode estar fora do segmento
+        \pause
+
+        \item Assim, o ponto mais próximo (e a respectiva distância) será, dentre $A$, $B$ e $Q$,
+            o mais próximo de $P$ que pertença ao intervalo
+
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Implementação do ponto mais próximo de $P$ em $AB$}
+    \inputsnippet{cpp}{1}{18}{codes/closest_segment.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Implementação do ponto mais próximo de $P$ em $AB$}
+    \inputsnippet{cpp}{20}{42}{codes/closest_segment.cpp}
+\end{frame}
+
 \section{Relação entre segmentos}
+
+\begin{frame}[fragile]{Interseção entre segmentos de reta}
+
+    \begin{itemize}
+        \item Para determinar a interseção entre dois segmentos de reta é preciso resolver o
+            problema para as duas retas que contém os respectivos segmentos e verificar se a interseção, se existir, pertence a ambos intervalos
+        \pause
+
+        \item Embora esta abordagem permita conhecer as coordenadas das possíveis interseções, ela              traz alguns problemas em potencial:
+        \pause
+
+        \begin{enumerate}
+            \item mesmo que as retas sejam coincidentes, não há garantias que os segmentos
+                tenham interseção
+        \pause
+
+            \item a concorrência também não garante interseção: ainda é preciso verificar se o ponto pertence a ambos intervalos
+        \end{enumerate}
+        \pause
+
+        \item Para identificar apenas se há interseção entre ambos segmentos, sem determinar
+            as coordenadas de tal interseção, o problema fica simplificado, e será abordado
+            mais adiante
+    \end{itemize}
+
+\end{frame}
 
 \begin{frame}[fragile]{Interseção entre segmentos}
 

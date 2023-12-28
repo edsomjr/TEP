@@ -145,29 +145,3 @@
     \inputcode{cpp}{codes/D.cpp}
 \end{frame}
 
-\begin{frame}[fragile]{Ponto mais próximo a um segmento de reta}
-
-    \begin{itemize}
-        \item Para determinar o ponto do segmento $AB$ mais próximo de um ponto $P$ dado, é
-            preciso, inicialmente, determinar o ponto $Q$ da reta $r$ que contém $A$ e $B$ mais
-            próximo de $P$
-        \pause
-
-        \item Em seguida, é preciso avaliar também os extremos $A$ e $B$ do segmento, pois o ponto
-            $Q$ pode estar fora do segmento
-        \pause
-
-        \item Assim, o ponto mais próximo (e a respectiva distância) será, dentre $A$, $B$ e $Q$,
-            o mais próximo de $P$ que pertença ao intervalo
-
-    \end{itemize}
-
-\end{frame}
-
-\begin{frame}[fragile]{Implementação do ponto mais próximo de $P$ em $AB$}
-    \inputsnippet{cpp}{1}{18}{codes/closest_segment.cpp}
-\end{frame}
-
-\begin{frame}[fragile]{Implementação do ponto mais próximo de $P$ em $AB$}
-    \inputsnippet{cpp}{20}{42}{codes/closest_segment.cpp}
-\end{frame}

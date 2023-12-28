@@ -7,5 +7,5 @@ Line<T> perpendicular_bisector(const Point<T>& P, const  Point<T>& Q)
     auto b = 2*(Q.y - P.y);
     auto c = (P.x * P.x + P.y * P.y) - (Q.x * Q.x + Q.y * Q.y);
 
-    return Line<T>(a, b, c);
+    return { a, b, c };
 }

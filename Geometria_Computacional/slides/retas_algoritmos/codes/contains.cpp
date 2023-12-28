@@ -2,9 +2,7 @@
 template<typename T>
 bool contains(const Point<T>& A, const Point<T>& B, const Point<T>& P)
 {
-    if (P == A || P == B)
-        return true;
-
+    // Verifica se P está na região retangular
     auto xmin = min(A.x, B.x);
     auto xmax = max(A.x, B.x);
     auto ymin = min(A.y, B.y);

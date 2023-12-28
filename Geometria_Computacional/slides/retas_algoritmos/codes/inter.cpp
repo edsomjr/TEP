@@ -1,4 +1,4 @@
-const int INF { -1 };
+const int oo { -1 };
 
 template<typename T>
 std::pair<int, Point<T>> intersections(const Line<T>& r, const Line<T>& s)
@@ -7,7 +7,7 @@ std::pair<int, Point<T>> intersections(const Line<T>& r, const Line<T>& s)
 
     if (equals(det, 0))     // Coincidentes ou paralelas
     {
-        return { (r == s) ? INF : 0, {} };
+        return { (r == s) ? oo : 0, {} };
     }
     else                    // Concorrentes
     {
