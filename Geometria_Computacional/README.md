@@ -8,6 +8,7 @@ Geometria Computacional
     1. [Definição](slides/retas_definicao/retas_definicao.pdf) 
         1. [Codeforces Beta Round #7 - Problem C: Line](problems/CF_7C/CF_7C.pdf)
     1. [Vetores](slides/vetores_definicao/vetores_definicao.pdf)
+        1. [AtCoder Beginner Contest 259 - Problem B: Counterclockwise Rotation](https://atcoder.jp/contests/abc259/tasks/abc259_b)
     1. [Produtos vetoriais](slides/vetores_produtos/vetores_produtos.pdf)
         1. [Educational Codeforces Round 1 - Problem C: Nearest vectors](problems/CF_598C/CF_598C.pdf)
     1. [Algoritmos](slides/retas_algoritmos/retas_algoritmos.pdf)
@@ -58,7 +59,6 @@ Problemas:
 CF até 1000 de dificuldade
 
 ## Pontos e vetores
-    1. [Robert Hood](https://www.beecrowd.com.br/judge/pt/problems/view/3260) - distância entre pontos (sweep line)
     1. [Counterclockwise Rotation](https://atcoder.jp/contests/abc259/tasks/abc259_b) - rotação de pontos
     1. [Following Directions](https://codeforces.com/problemset/problem/1791/B) - orientação
     1. [Travelling Salesman Problem](https://codeforces.com/problemset/problem/1713/A) - orientação
@@ -149,5 +149,6 @@ CF até 1000 de dificuldade
 ## Sweep line
     1. [Minimum Euclidean Distance](https://cses.fi/problemset/task/2194) - distância mínima entre pontos
     1. [Closest Point Pair](https://www.spoj.com/problems/CLOPPAIR/) - distância mínima entre pontos
+    1. [Robert Hood](https://www.beecrowd.com.br/judge/pt/problems/view/3260) - distância entre pontos (sweep line)
 
 -->
