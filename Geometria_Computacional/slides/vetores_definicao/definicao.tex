@@ -9,10 +9,10 @@
         \item Os vetores são caracterizados pela sua 
 
         \begin{enumerate}
-            \item direção, isto é, a inclinação da reta que contém o segmento,
+            \item direção, isto é, a inclinação da reta que contém o segmento;
             \pause
 
-            \item orientação, a partir da indicação do ponto de partida e do ponto de chegada, e
+            \item orientação, a partir da indicação do ponto de partida e do ponto de chegada; e
             \pause
         
             \item tamanho, ou seja, a distância entre os dois pontos
@@ -45,10 +45,10 @@
         \item Deste modo, embora seja possível definir um tipo de dado para representar vetores, é possível utilizar pontos para representar vetores
         \pause
 
-        \item Esta estratégia pode dificultar a leitura das rotinas, pois embora usem a mesma memória a semântica é diferente 
+        \item Esta estratégia pode dificultar a leitura das rotinas, pois embora usem a mesma estrutura, a semântica é diferente 
         \pause
 
-        \item Há porém a vantagem da velocidade de codificação, devido a eliminação de código redundante
+        \item Há, porém, a vantagem da velocidade de codificação, devido a eliminação de código redundante
     \end{itemize}
 
 \end{frame}
@@ -64,7 +64,7 @@
             equivalente faz com o eixo-$x$ positivo
         \pause
 
-        \item Este ângulo pode ser computado pela função \code{c}{atan2} da biblioteca 
+        \item Este ângulo pode ser computado pela função \code{c}{atan2()} da biblioteca 
             \code{c}{cmath}
         \pause
 
@@ -72,10 +72,10 @@
             vetor posição
         \pause
 
-        \item Esta função não lança exceções nem erros e tem retorno no intervalo $[-\pi, \pi]$
+        \item Esta função não lança exceções e nem erros, e tem retorno no intervalo $[-\pi, \pi]$
         \pause
 
-        \item A função \code{c}{atan} difere no número de argumentos (um único) e no intervalo do 
+        \item A função \code{c}{atan()} difere no número de argumentos (um único) e no intervalo do 
             retorno ($[-\pi/2, \pi/2]$, ou $-\infty$, ou $\infty$, ou \code{cpp}{NaN})
     \end{itemize}
 
