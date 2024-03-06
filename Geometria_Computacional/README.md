@@ -56,19 +56,17 @@ Problemas:
 CF até 1000 de dificuldade
 
 ## Pontos e vetores
-    1. [Counterclockwise Rotation](https://atcoder.jp/contests/abc259/tasks/abc259_b) - rotação de pontos
-    1. [Following Directions](https://codeforces.com/problemset/problem/1791/B) - orientação
-    1. [Travelling Salesman Problem](https://codeforces.com/problemset/problem/1713/A) - orientação
-    1. [Come Together](https://codeforces.com/problemset/problem/1845/B) - orientação
-    1. [Takahashikun, The Strider](https://atcoder.jp/contests/agc046/tasks/agc046_a) - rotações
-    1. [Archery Training](https://www.spoj.com/problems/BLMIRINA/) - distância entre pontos
+    [x] [Counterclockwise Rotation](https://atcoder.jp/contests/abc259/tasks/abc259_b) - rotação de pontos
+    [x] [Following Directions](https://codeforces.com/problemset/problem/1791/B) - orientação
+    [x] [Travelling Salesman Problem](https://codeforces.com/problemset/problem/1713/A) - orientação
+    [x] [Come Together](https://codeforces.com/problemset/problem/1845/B) - orientação
+    [x] [Takahashikun, The Strider](https://atcoder.jp/contests/agc046/tasks/agc046_a) - rotações, polígonos regulares
     
 ## Retas
+    [x] [Collinearity](https://atcoder.jp/contests/abc181/tasks/abc181_c) - colinearidade
+    [x] [K-colinear Line](https://atcoder.jp/contests/abc248/tasks/abc248_e) - equação geral da reta
     1. [Invasão Alienígena](https://www.beecrowd.com.br/judge/pt/problems/view/2362) - reta que contém o maior número de pontos
     1. [Curo Railroad](https://www.beecrowd.com.br/judge/pt/problems/view/1504) - reta que divide duas regiões com distâncias mínimas
-    1. [Billiards](https://atcoder.jp/contests/abc183/tasks/abc183_b) - sinuca
-    1. [Collinearity](https://atcoder.jp/contests/abc181/tasks/abc181_c) - colinearidade
-    1. [K-colinear Line](https://atcoder.jp/contests/abc248/tasks/abc248_e) - colinearidade
     1. [Ideal Point](https://codeforces.com/problemset/problem/1795/B) - interseção de segmentos
     1. [Wasted Time](https://codeforces.com/problemset/problem/127/A) - comprimento de segmentos
     1. [Contest Start](https://codeforces.com/problemset/problem/1539/A) - interseção de intervalos
@@ -80,6 +78,7 @@ CF até 1000 de dificuldade
     1. [Mayonnaise Arrow](https://www.spoj.com/problems/BLMIRANA/) - cobertura de reta
 
 ## Triângulos
+    [x] [Billiards](https://atcoder.jp/contests/abc183/tasks/abc183_b) - sinuca, semelhança de triângulos
     1. [Samuel, o Cafeicultor](https://www.beecrowd.com.br/judge/pt/problems/view/3152) - área de triângulos/polígonos
     1. [Medianas](https://www.beecrowd.com.br/judge/pt/problems/view/1296) - área baseada nas medianas
     1. [Bovine Dilemman](https://codeforces.com/problemset/problem/1466/A) - área 
@@ -116,6 +115,7 @@ CF até 1000 de dificuldade
     1. [Sleepwalking](https://lightoj.com/problem/sleepwalking) - pontos em polígonos
 
 ## Círculos
+    [x] [Archery Training](https://www.spoj.com/problems/BLMIRINA/) - interseção entre círculos
     1. [Ih, Ferrou, um Buraco Negro!](https://www.beecrowd.com.br/judge/pt/problems/view/1783) - centro do círculo
     1. [Robot Arm](https://atcoder.jp/contests/mujin-pc-2016/tasks/mujin_pc_2016_b) - círculos e retas
     1. [Enclose All](https://atcoder.jp/contests/abc151/tasks/abc151_f) - circle cover
