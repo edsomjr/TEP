@@ -65,11 +65,11 @@ CF até 1000 de dificuldade
 ## Retas
     [x] [Collinearity](https://atcoder.jp/contests/abc181/tasks/abc181_c) - colinearidade
     [x] [K-colinear Line](https://atcoder.jp/contests/abc248/tasks/abc248_e) - equação geral da reta
+    [x] [Ideal Point](https://codeforces.com/problemset/problem/1795/B) - interseção de segmentos
+    [x] [Wasted Time](https://codeforces.com/problemset/problem/127/A) - comprimento de segmentos
+    [x] [Contest Start](https://codeforces.com/problemset/problem/1539/A) - interseção de intervalos, padrão ou fórmula
     1. [Invasão Alienígena](https://www.beecrowd.com.br/judge/pt/problems/view/2362) - reta que contém o maior número de pontos
     1. [Curo Railroad](https://www.beecrowd.com.br/judge/pt/problems/view/1504) - reta que divide duas regiões com distâncias mínimas
-    1. [Ideal Point](https://codeforces.com/problemset/problem/1795/B) - interseção de segmentos
-    1. [Wasted Time](https://codeforces.com/problemset/problem/127/A) - comprimento de segmentos
-    1. [Contest Start](https://codeforces.com/problemset/problem/1539/A) - interseção de intervalos
     1. [Point Location Test](https://cses.fi/problemset/task/2189) - orientação
     1. [Line Segment Intersection](https://cses.fi/problemset/task/2190) - interseção entre segmentos de reta
     1. [Ada and Kohlrabi](https://www.spoj.com/problems/ADAKOHL) - cobertura de reta
