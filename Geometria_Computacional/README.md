@@ -68,13 +68,13 @@ CF até 1000 de dificuldade
     [x] [Ideal Point](https://codeforces.com/problemset/problem/1795/B) - interseção de segmentos
     [x] [Wasted Time](https://codeforces.com/problemset/problem/127/A) - comprimento de segmentos
     [x] [Contest Start](https://codeforces.com/problemset/problem/1539/A) - interseção de intervalos, padrão ou fórmula
+    [x] [Point Location Test](https://cses.fi/problemset/task/2189) - orientação
+    [x] [Line Segment Intersection](https://cses.fi/problemset/task/2190) - interseção entre segmentos de reta
+    [x] [The Ant](https://www.spoj.com/problems/ANTTT/) - interseção de intervalos
+    [x] [Ada and Kohlrabi](https://www.spoj.com/problems/ADAKOHL) - cobertura de reta
     1. [Invasão Alienígena](https://www.beecrowd.com.br/judge/pt/problems/view/2362) - reta que contém o maior número de pontos
     1. [Curo Railroad](https://www.beecrowd.com.br/judge/pt/problems/view/1504) - reta que divide duas regiões com distâncias mínimas
-    1. [Point Location Test](https://cses.fi/problemset/task/2189) - orientação
-    1. [Line Segment Intersection](https://cses.fi/problemset/task/2190) - interseção entre segmentos de reta
-    1. [Ada and Kohlrabi](https://www.spoj.com/problems/ADAKOHL) - cobertura de reta
     1. [Ada and Cucumber](https://www.spoj.com/problems/ADAPICK/) - cobertura de reta
-    1. [The Ant](https://www.spoj.com/problems/ANTTT/) - interseção de intervalos
     1. [Mayonnaise Arrow](https://www.spoj.com/problems/BLMIRANA/) - cobertura de reta
 
 ## Triângulos
