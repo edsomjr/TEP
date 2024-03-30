@@ -72,34 +72,26 @@ CF até 1000 de dificuldade
     [x] [Line Segment Intersection](https://cses.fi/problemset/task/2190) - interseção entre segmentos de reta
     [x] [The Ant](https://www.spoj.com/problems/ANTTT/) - interseção de intervalos
     [x] [Ada and Kohlrabi](https://www.spoj.com/problems/ADAKOHL) - cobertura de reta
-    1. [Invasão Alienígena](https://www.beecrowd.com.br/judge/pt/problems/view/2362) - reta que contém o maior número de pontos
-    1. [Curo Railroad](https://www.beecrowd.com.br/judge/pt/problems/view/1504) - reta que divide duas regiões com distâncias mínimas
-    1. [Ada and Cucumber](https://www.spoj.com/problems/ADAPICK/) - cobertura de reta
-    1. [Mayonnaise Arrow](https://www.spoj.com/problems/BLMIRANA/) - cobertura de reta
 
 ## Triângulos
     [x] [Billiards](https://atcoder.jp/contests/abc183/tasks/abc183_b) - sinuca, semelhança de triângulos
-    1. [Samuel, o Cafeicultor](https://www.beecrowd.com.br/judge/pt/problems/view/3152) - área de triângulos/polígonos
-    1. [Medianas](https://www.beecrowd.com.br/judge/pt/problems/view/1296) - área baseada nas medianas
-    1. [Bovine Dilemman](https://codeforces.com/problemset/problem/1466/A) - área 
-    1. [Make a triangle!](https://codeforces.com/problemset/problem/1064/A) - desigualdade triangular
-    1. [Cover Points](https://codeforces.com/problemset/problem/1047/B) - triângulos isóceles
-    1. [Phoenix and Puzzle](https://codeforces.com/problemset/problem/1515/B) - triãngulos e quadrados
-    1. [Water Lily](https://codeforces.com/problemset/problem/1199/B) - triângulos
-    1. [Triangles on a Rectangle](https://codeforces.com/problemset/problem/1620/B) - triângulos e retângulos
-    1. [Triangle Partitioning](https://lightoj.com/problem/triangle-partitioning) - semelhança, área
-    1. [Crossed Ladders](https://lightoj.com/problem/crossed-ladders) - semelhança
+    [x] [Bovine Dilemman](https://codeforces.com/problemset/problem/1466/A) - área 
+    [x] [Make a triangle!](https://codeforces.com/problemset/problem/1064/A) - desigualdade triangular
+    [x] [Cover Points](https://codeforces.com/problemset/problem/1047/B) - triângulos isóceles
+    [x] [Phoenix and Puzzle](https://codeforces.com/problemset/problem/1515/B) - triãngulos e quadrados
+    [x] [Water Lily](https://codeforces.com/problemset/problem/1199/B) - triângulos
+    [x] [Triangles on a Rectangle](https://codeforces.com/problemset/problem/1620/B) - triângulos e retângulos
+    [x] [Triangle Partitioning](https://lightoj.com/problem/triangle-partitioning) - semelhança, área
+    [x] [Crossed Ladders](https://lightoj.com/problem/crossed-ladders) - semelhança
 
 
 ##  Quadriláteros
-    1. [Problema com um Pentágono](https://www.beecrowd.com.br/judge/pt/problems/view/1292) - quadrados e pentágonos
-    1. [Convex Quadrilateral](https://atcoder.jp/contests/abc266/tasks/abc266_c) - orientação
-    1. [Rectangle Cutting](https://atcoder.jp/contests/abc130/tasks/abc130_c) - cortes de retângulos
+    [x] [Convex Quadrilateral](https://atcoder.jp/contests/abc266/tasks/abc266_c) - orientação
+    [x] [Rectangle Cutting](https://atcoder.jp/contests/abc130/tasks/abc130_c) - cortes de retângulos
+    [x] [Parallelogram Counting](https://lightoj.com/problem/parallelogram-counting) - paralelogramos
     1. [Placing Rectangles](https://atcoder.jp/contests/abc223/tasks/abc223_e) - retângulos
-    1. [Real roots](https://www.spoj.com/problems/RROOT/) - quadrados, probabilidade
-    1. [Parallelogram Couting](https://lightoj.com/problem/parallelogram-counting) - paralelogramos
-    1. [How Cow](https://lightoj.com/problem/how-cow) - retângulos e pontos
-    1. [Trapezium](https://lightoj.com/problem/trapezium) - trapézios
+    [x] [How Cow](https://lightoj.com/problem/how-cow) - retângulos e pontos
+    [x] [Trapezium](https://lightoj.com/problem/trapezium) - trapézios
     1. [Guarding Bananas](https://lightoj.com/problem/guarding-bananas) - retângulos e retas
 
 ## Polígonos
@@ -147,5 +139,7 @@ CF até 1000 de dificuldade
     1. [Minimum Euclidean Distance](https://cses.fi/problemset/task/2194) - distância mínima entre pontos
     1. [Closest Point Pair](https://www.spoj.com/problems/CLOPPAIR/) - distância mínima entre pontos
     1. [Robert Hood](https://www.beecrowd.com.br/judge/pt/problems/view/3260) - distância entre pontos (sweep line)
+    1. [Ada and Cucumber](https://www.spoj.com/problems/ADAPICK/) - graham scan
+    1. [Mayonnaise Arrow](https://www.spoj.com/problems/BLMIRANA/) - cobertura de reta
 
 -->
