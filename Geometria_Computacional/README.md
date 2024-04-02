@@ -92,15 +92,14 @@ CF até 1000 de dificuldade
     1. [Placing Rectangles](https://atcoder.jp/contests/abc223/tasks/abc223_e) - retângulos
     [x] [How Cow](https://lightoj.com/problem/how-cow) - retângulos e pontos
     [x] [Trapezium](https://lightoj.com/problem/trapezium) - trapézios
-    1. [Guarding Bananas](https://lightoj.com/problem/guarding-bananas) - retângulos e retas
+    [x] [Real Roots](https://www.spoj.com/problems/RROOT/) - quadrados, integrais, probabilidade
 
 ## Polígonos
-    1. [Diagrama de Venn?](https://www.beecrowd.com.br/judge/pt/problems/view/1446) - Interseção de polígonos
-    1. [Sum of Interior Angles](https://atcoder.jp/contests/m-solutions2019/tasks/m_solutions2019_a) - soma dos ãngulos internos
-    1. [FashionabLee](https://codeforces.com/problemset/problem/1369/A) - polígonos regulares
-    1. [Two Regular Polygons](https://codeforces.com/problemset/problem/1312/A) - polígonos regulares
-    1. [Polygon Area](https://cses.fi/problemset/task/2191) - área de polígonos
-    1. [Point in Polygon](https://cses.fi/problemset/task/2192) - pontos em polígonos
+    [x] [Sum of Interior Angles](https://atcoder.jp/contests/m-solutions2019/tasks/m_solutions2019_a) - soma dos ãngulos internos
+    [x] [FashionabLee](https://codeforces.com/problemset/problem/1369/A) - polígonos regulares
+    [x] [Two Regular Polygons](https://codeforces.com/problemset/problem/1312/A) - polígonos regulares
+    [x] [Polygon Area](https://cses.fi/problemset/task/2191) - área de polígonos
+    [x] [Point in Polygon](https://cses.fi/problemset/task/2192) - pontos em polígonos
     1. [One Geometry Problem](https://www.spoj.com/problems/GEOPROB/) - geometria plana
     1. [Inside or outside?](https://www.spoj.com/problems/INOROUT/) - pontos em polígonos
     1. [Projections Of a Polygon](https://www.spoj.com/problems/KPPOLY/) - projeções e rotações
@@ -131,6 +130,7 @@ CF até 1000 de dificuldade
     1. [Points on a Sphere](https://www.spoj.com/problems/PSPHERE/) - esfera
 
 ## Convex Hull
+    [x] [Guarding Bananas](https://lightoj.com/problem/guarding-bananas) - retângulos e retas
     1. [Centro de Convenções](https://www.beecrowd.com.br/judge/pt/problems/view/1818)
     1. [Convex Hull](https://cses.fi/problemset/task/2195) 
     1. [Polygon](https://www.spoj.com/problems/MPOLY/)

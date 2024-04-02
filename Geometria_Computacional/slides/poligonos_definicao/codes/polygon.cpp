@@ -101,7 +101,7 @@ public:
         for (int i = 0; i < n - 1; ++i) {
             auto d = D(P, vs[i], vs[i + 1]);
             auto a = angle(P, vs[i], vs[i + 1]);
-            sum += d > 0 ? a : -a;
+            sum += d > 0 ? a : (d < 0 ? -a : 0);
         }
 
         static const double PI = acos(-1.0);
