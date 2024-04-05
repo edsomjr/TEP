@@ -89,7 +89,7 @@ CF até 1000 de dificuldade
     [x] [Convex Quadrilateral](https://atcoder.jp/contests/abc266/tasks/abc266_c) - orientação
     [x] [Rectangle Cutting](https://atcoder.jp/contests/abc130/tasks/abc130_c) - cortes de retângulos
     [x] [Parallelogram Counting](https://lightoj.com/problem/parallelogram-counting) - paralelogramos
-    1. [Placing Rectangles](https://atcoder.jp/contests/abc223/tasks/abc223_e) - retângulos
+    [ ] [Placing Rectangles](https://atcoder.jp/contests/abc223/tasks/abc223_e) - retângulos
     [x] [How Cow](https://lightoj.com/problem/how-cow) - retângulos e pontos
     [x] [Trapezium](https://lightoj.com/problem/trapezium) - trapézios
     [x] [Real Roots](https://www.spoj.com/problems/RROOT/) - quadrados, integrais, probabilidade
@@ -100,21 +100,20 @@ CF até 1000 de dificuldade
     [x] [Two Regular Polygons](https://codeforces.com/problemset/problem/1312/A) - polígonos regulares
     [x] [Polygon Area](https://cses.fi/problemset/task/2191) - área de polígonos
     [x] [Point in Polygon](https://cses.fi/problemset/task/2192) - pontos em polígonos
-    1. [One Geometry Problem](https://www.spoj.com/problems/GEOPROB/) - geometria plana
-    1. [Inside or outside?](https://www.spoj.com/problems/INOROUT/) - pontos em polígonos
-    1. [Projections Of a Polygon](https://www.spoj.com/problems/KPPOLY/) - projeções e rotações
-    1. [Sleepwalking](https://lightoj.com/problem/sleepwalking) - pontos em polígonos
+    [x] [One Geometry Problem](https://www.spoj.com/problems/GEOPROB/) - geometria plana
+    [x] [Inside or outside?](https://www.spoj.com/problems/INOROUT/) - pontos em polígonos
+    [ ] [Projections Of a Polygon](https://www.spoj.com/problems/KPPOLY/) - projeções e rotações
+    [x] [Sleepwalking](https://lightoj.com/problem/sleepwalking) - pontos em polígonos
 
 ## Círculos
-    [x] [Archery Training](https://www.spoj.com/problems/BLMIRINA/) - interseção entre círculos
-    1. [Ih, Ferrou, um Buraco Negro!](https://www.beecrowd.com.br/judge/pt/problems/view/1783) - centro do círculo
     1. [Robot Arm](https://atcoder.jp/contests/mujin-pc-2016/tasks/mujin_pc_2016_b) - círculos e retas
     1. [Enclose All](https://atcoder.jp/contests/abc151/tasks/abc151_f) - circle cover
+    [x] [Archery Training](https://www.spoj.com/problems/BLMIRINA/) - interseção entre círculos
     1. [Euler Puzzle](https://www.spoj.com/problems/CIRCLEDIV/) - seções de um círculo
     1. [Goal for Raúl](https://www.spoj.com/problems/GOALFR/) - círculos e retas
     1. [Leaf](https://www.spoj.com/problems/LEAF/) - área de segmentos
-    1. [Circle in Square](https://lightoj.com/problem/circle-in-square) - área
-    1. [Olympics](https://lightoj.com/problem/olympics) - area
+    [x] [Circle in Square](https://lightoj.com/problem/circle-in-square) - área, círculo, quadrado
+    [x] [Olympics](https://lightoj.com/problem/olympics) - area
     1. [Calm Down](https://lightoj.com/problem/calm-down)
     1. [Incredible Molecules](https://lightoj.com/problem/incredible-molecules) - interseção de círculos
     1. [Intersection between Circle and Rectangle](https://lightoj.com/problem/intersection-between-circle-a) - círculos e retângulos, interseção
