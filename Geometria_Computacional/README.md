@@ -111,33 +111,28 @@ CF até 1000 de dificuldade
     [x] [Archery Training](https://www.spoj.com/problems/BLMIRINA/) - interseção entre círculos
     1. [Euler Puzzle](https://www.spoj.com/problems/CIRCLEDIV/) - seções de um círculo
     1. [Goal for Raúl](https://www.spoj.com/problems/GOALFR/) - círculos e retas
-    1. [Leaf](https://www.spoj.com/problems/LEAF/) - área de segmentos
     [x] [Circle in Square](https://lightoj.com/problem/circle-in-square) - área, círculo, quadrado
     [x] [Olympics](https://lightoj.com/problem/olympics) - area
     1. [Calm Down](https://lightoj.com/problem/calm-down)
-    1. [Incredible Molecules](https://lightoj.com/problem/incredible-molecules) - interseção de círculos
+    [x] [Incredible Molecules](https://lightoj.com/problem/incredible-molecules) - interseção de círculos
     1. [Intersection between Circle and Rectangle](https://lightoj.com/problem/intersection-between-circle-a) - círculos e retângulos, interseção
     1. [Expanding Rods](https://lightoj.com/problem/expanding-rods) - segmentos
 
 ## Treliças
     1. [Circle Lattice Points](https://atcoder.jp/contests/abc191/tasks/abc191_d) - pontos internos do círculo
-    1. [Polygon Lattice Points](https://cses.fi/problemset/task/2193) - Teorema de Pick
+    [x] [Polygon Lattice Points](https://cses.fi/problemset/task/2193) - Teorema de Pick
 
 ## Objetos 3D
-    1. [Balão++](https://www.beecrowd.com.br/judge/pt/problems/view/2840) - Volume da esfera
-    1. [Pergunte à Geógrafa](https://www.beecrowd.com.br/judge/pt/problems/view/2521) - latitude/longitude
     1. [Points on a Sphere](https://www.spoj.com/problems/PSPHERE/) - esfera
 
 ## Convex Hull
-    [x] [Guarding Bananas](https://lightoj.com/problem/guarding-bananas) - retângulos e retas
-    1. [Centro de Convenções](https://www.beecrowd.com.br/judge/pt/problems/view/1818)
-    1. [Convex Hull](https://cses.fi/problemset/task/2195) 
+    [x] [Guarding Bananas](https://lightoj.com/problem/guarding-bananas) - convex hull, ângulos entre segmentos
+    [x] [Convex Hull](https://cses.fi/problemset/task/2195) - convex hull
     1. [Polygon](https://www.spoj.com/problems/MPOLY/)
 
 ## Sweep line
     1. [Minimum Euclidean Distance](https://cses.fi/problemset/task/2194) - distância mínima entre pontos
     1. [Closest Point Pair](https://www.spoj.com/problems/CLOPPAIR/) - distância mínima entre pontos
-    1. [Robert Hood](https://www.beecrowd.com.br/judge/pt/problems/view/3260) - distância entre pontos (sweep line)
     1. [Ada and Cucumber](https://www.spoj.com/problems/ADAPICK/) - graham scan
     1. [Mayonnaise Arrow](https://www.spoj.com/problems/BLMIRANA/) - cobertura de reta
 
