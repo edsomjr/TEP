@@ -7,7 +7,7 @@ public:
 
     // Definição do método contains()
 
-    bool intersect(const Segment& s) const
+    bool intersect(const Segment<T>& s) const
     {
         auto d1 = D(A, B, s.A);
         auto d2 = D(A, B, s.B);
