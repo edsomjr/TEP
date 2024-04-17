@@ -12,11 +12,11 @@ template<typename T>
 struct Point {
     T x = 0, y = 0;
 
-    bool operator==(const Point& p) const noexcept {
+    bool operator==(const Point<T>& p) const noexcept {
         return equals(x, p.x) && equals(y, p.y);
     }
 
-    bool operator!=(const Point& p) const noexcept {
+    bool operator!=(const Point<T>& p) const noexcept {
         return not (*this == p);
     }
 };
