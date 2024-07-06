@@ -53,8 +53,6 @@ Geometria Computacional
 
 Problemas:
 
-CF até 1000 de dificuldade
-
 ## Pontos e vetores
     [x] [Counterclockwise Rotation](https://atcoder.jp/contests/abc259/tasks/abc259_b) - rotação de pontos
     [x] [Following Directions](https://codeforces.com/problemset/problem/1791/B) - orientação
@@ -84,12 +82,11 @@ CF até 1000 de dificuldade
     [x] [Triangle Partitioning](https://lightoj.com/problem/triangle-partitioning) - semelhança, área
     [x] [Crossed Ladders](https://lightoj.com/problem/crossed-ladders) - semelhança
 
-
 ##  Quadriláteros
     [x] [Convex Quadrilateral](https://atcoder.jp/contests/abc266/tasks/abc266_c) - orientação
     [x] [Rectangle Cutting](https://atcoder.jp/contests/abc130/tasks/abc130_c) - cortes de retângulos
     [x] [Parallelogram Counting](https://lightoj.com/problem/parallelogram-counting) - paralelogramos
-    [ ] [Placing Rectangles](https://atcoder.jp/contests/abc223/tasks/abc223_e) - retângulos
+    [x] [Placing Rectangles](https://atcoder.jp/contests/abc223/tasks/abc223_e) - retângulos
     [x] [How Cow](https://lightoj.com/problem/how-cow) - retângulos e pontos
     [x] [Trapezium](https://lightoj.com/problem/trapezium) - trapézios
     [x] [Real Roots](https://www.spoj.com/problems/RROOT/) - quadrados, integrais, probabilidade
@@ -106,34 +103,33 @@ CF até 1000 de dificuldade
     [x] [Sleepwalking](https://lightoj.com/problem/sleepwalking) - pontos em polígonos
 
 ## Círculos
-    1. [Robot Arm](https://atcoder.jp/contests/mujin-pc-2016/tasks/mujin_pc_2016_b) - círculos e retas
-    1. [Enclose All](https://atcoder.jp/contests/abc151/tasks/abc151_f) - circle cover
+    [ ] [Robot Arm](https://atcoder.jp/contests/mujin-pc-2016/tasks/mujin_pc_2016_b) - círculos e retas
+    [ ] [Enclose All](https://atcoder.jp/contests/abc151/tasks/abc151_f) - circle cover
     [x] [Archery Training](https://www.spoj.com/problems/BLMIRINA/) - interseção entre círculos
-    1. [Euler Puzzle](https://www.spoj.com/problems/CIRCLEDIV/) - seções de um círculo
-    1. [Goal for Raúl](https://www.spoj.com/problems/GOALFR/) - círculos e retas
+    [ ] [Euler Puzzle](https://www.spoj.com/problems/CIRCLEDIV/) - seções de um círculo
+    [ ] [Goal for Raúl](https://www.spoj.com/problems/GOALFR/) - círculos e retas
     [x] [Circle in Square](https://lightoj.com/problem/circle-in-square) - área, círculo, quadrado
     [x] [Olympics](https://lightoj.com/problem/olympics) - area
-    1. [Calm Down](https://lightoj.com/problem/calm-down)
+    [ ] [Calm Down](https://lightoj.com/problem/calm-down)
     [x] [Incredible Molecules](https://lightoj.com/problem/incredible-molecules) - interseção de círculos
-    1. [Intersection between Circle and Rectangle](https://lightoj.com/problem/intersection-between-circle-a) - círculos e retângulos, interseção
-    1. [Expanding Rods](https://lightoj.com/problem/expanding-rods) - segmentos
+    [ ] [Intersection between Circle and Rectangle](https://lightoj.com/problem/intersection-between-circle-a) - círculos e retângulos, interseção
+    [ ] [Expanding Rods](https://lightoj.com/problem/expanding-rods) - segmentos
 
 ## Treliças
-    1. [Circle Lattice Points](https://atcoder.jp/contests/abc191/tasks/abc191_d) - pontos internos do círculo
+    [ ] [Circle Lattice Points](https://atcoder.jp/contests/abc191/tasks/abc191_d) - pontos internos do círculo
     [x] [Polygon Lattice Points](https://cses.fi/problemset/task/2193) - Teorema de Pick
 
 ## Objetos 3D
-    1. [Points on a Sphere](https://www.spoj.com/problems/PSPHERE/) - esfera
+    [ ] [Points on a Sphere](https://www.spoj.com/problems/PSPHERE/) - esfera
 
 ## Convex Hull
     [x] [Guarding Bananas](https://lightoj.com/problem/guarding-bananas) - convex hull, ângulos entre segmentos
     [x] [Convex Hull](https://cses.fi/problemset/task/2195) - convex hull
-    1. [Polygon](https://www.spoj.com/problems/MPOLY/)
+    [ ] [Polygon](https://www.spoj.com/problems/MPOLY/)
 
 ## Sweep line
-    1. [Minimum Euclidean Distance](https://cses.fi/problemset/task/2194) - distância mínima entre pontos
-    1. [Closest Point Pair](https://www.spoj.com/problems/CLOPPAIR/) - distância mínima entre pontos
-    1. [Ada and Cucumber](https://www.spoj.com/problems/ADAPICK/) - graham scan
-    1. [Mayonnaise Arrow](https://www.spoj.com/problems/BLMIRANA/) - cobertura de reta
-
+    [ ] [Minimum Euclidean Distance](https://cses.fi/problemset/task/2194) - distância mínima entre pontos
+    [ ] [Closest Point Pair](https://www.spoj.com/problems/CLOPPAIR/) - distância mínima entre pontos
+    [ ] [Ada and Cucumber](https://www.spoj.com/problems/ADAPICK/) - graham scan
+    [ ] [Mayonnaise Arrow](https://www.spoj.com/problems/BLMIRANA/) - cobertura de reta
 -->
