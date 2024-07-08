@@ -134,3 +134,107 @@ caccacaa
 \begin{frame}[fragile]{Solução $O(N\log N)$}
     \inputsnippet{cpp}{118}{126}{codes/MAXMATCH.cpp}
 \end{frame}
+
+\begin{frame}[fragile]{Bônus: redução da constante por meio de bijeção}
+    \begin{itemize}
+        \item É possível reduzir a constante da solução por meio do uso de uma bijeção
+
+        \item Seja $T$ o texto principal e $P$ o padrão a ser identificado em substrings de tamanho $P$ de $T$
+
+        \item Define, para cada caractere $\alpha$ do alfabeto $\Sigma$, o vetor binário $v_{T_\alpha}$, onde
+            $v_{T_\alpha}(i) = 1$ se $T[i] = \alpha$, ou zero, caso contrário
+
+        \item Defina, de forma semelhante, o vetor $v_{P_\alpha}$
+
+        \item A solução anterior realizada a operação
+        \[
+            \mathrm{IFFT}(\mathrm{FFT}(v_{T_\alpha})\otimes\mathrm{FFT}(v_{P_\alpha}))
+        \]
+        $|\Sigma|$ vezes, onde $\otimes$ é a multiplicação termo-a-termo
+
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Bônus: redução da constante por meio de bijeção}
+
+    \begin{itemize}
+        \item É possível reduzir o número de operações para $|\Sigma|/2$ por meio de uma bijeção entre os caracteres de $\Sigma$ e números complexos
+
+        \item Neste mapeamento, cada letra deve estar associada a um ângulo do círculo trigonométrico
+
+        \item Para que as operações preservem as propriedades desejadas, os ângulo escolhidos devem ser as raízes $|\Sigma|$-ésimas da unidade
+
+        \item Por exemplo, para $N = 3$, os caracteres devem ser mapeados aos ângulos $0, \frac{2\pi}{3}$ e $\frac{4\pi}{3}$
+
+        \item As raízes $|\Sigma|$-ésimas da unidade são dadas por
+        \[
+            w_k = \cos\left(\frac{2\pi k}{|\Sigma|}\right) + i\sin\left(\frac{2\pi k}{|\Sigma|}\right), \ \ \ \ k = 0, 1, \ldots, |\Sigma| - 1
+        \]
+
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Bônus: redução da constante por meio de bijeção}
+    \begin{itemize}
+        \item Além da relação com as raízes da unidade, o mapeamento deve atender o seguinte critério: no produto termo-a-termo das transformadas de 
+            $v_{T_\alpha}$ e $v_{P_\alpha}$, o produto entre caracteres iguais deve resultar em 1; entre caracteres diferentes, deve resultar em um número
+            complexo com parte real igual a $\cos(\frac{2\pi}{|\Sigma|})$
+
+        \item Isto pode ser alcançado mantendo-se os índices de 0 a $|\Sigma| - 1$ para o alfabeto do texto $T$, e usar os complementares $j = |\Sigma| - i$ para
+            os índices do alfabeto para o padrão $P$
+
+        \item Por exemplo, para $\Sigma = \{\ a, b, c\ \}$, os índices para $T$ seriam $a = 0, b = 1, c = 2$, e para $P$ teríamos $a = 0, b = 2, c = 1$
+
+        \item Observe que
+        \begin{align*}
+            a\cdot a = w_0\cdot w_0 = 1\\
+            b\cdot b = w_1\cdot w_2 = 1\\
+            c\cdot c = w_2\cdot w_1 = 1\\
+        \end{align*}
+    \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{Bônus: redução da constante por meio de bijeção}
+    \begin{itemize}
+        \item Ainda no caso $N = 3$, dado o número de comparações $t$ de $P$ sobre $T$ e a parte real da convolução para cada índice $p$, vale que
+        \[
+            D(T, P, t) = \mathrm{round}\left(\frac{t + 2\mathrm{Re}(v(p))}{|\Sigma|}\right),
+        \]
+        onde $D(T, P, t)$ é a distância de Hamming entre $T$ e $P$ numa substring de tamanho $t$
+
+        \item Usando o caso de teste do problema, no cenário abaixo
+        \begin{mdframed}
+        \begin{minted}{c}
+            caccacaa
+               caccacca
+        \end{minted}
+        \end{mdframed}
+         temos $T =  caccacaa, P = caccacaa, |\Sigma| = 3$.
+
+        \item São 4 posições corretas e 1 incorreta, de modo que a soma dos $\mathrm{Re}(v(p))$ seria igual a $4\cdot 1 - 1\cdot \frac{1}{2} = 3.5$, e como $t = 5$, vale que
+        $\mathrm{round}((5 + 2\cdot 3.5)/3) = 4$
+ 
+    \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{Solução $O(N\log N)$}
+    \inputsnippet{cpp}{1}{18}{codes/MAXMATCH-BIJECTIVE.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Solução $O(N\log N)$}
+    \inputsnippet{cpp}{20}{34}{codes/MAXMATCH-BIJECTIVE.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Solução $O(N\log N)$}
+    \inputsnippet{cpp}{34}{52}{codes/MAXMATCH-BIJECTIVE.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Solução $O(N\log N)$}
+    \inputsnippet{cpp}{54}{72}{codes/MAXMATCH-BIJECTIVE.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Solução $O(N\log N)$}
+    \inputsnippet{cpp}{74}{93}{codes/MAXMATCH-BIJECTIVE.cpp}
+\end{frame}
