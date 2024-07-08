@@ -19,8 +19,8 @@ long long fast_exp_mod(long long a, long long n, long long m) {
         if (n & 1)
             res = mul(res, base, m);
 
-        base = mul(base, base);
-        n >= 1;
+        base = mul(base, base, m);
+        n >>= 1;
     }
 
     return res;
