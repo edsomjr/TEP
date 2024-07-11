@@ -73,7 +73,7 @@ Problemas:
 
 ## Triângulos
     [x] [Billiards](https://atcoder.jp/contests/abc183/tasks/abc183_b) - sinuca, semelhança de triângulos
-    [x] [Bovine Dilemman](https://codeforces.com/problemset/problem/1466/A) - área 
+    [x] [Bovine Dilemma](https://codeforces.com/problemset/problem/1466/A) - área 
     [x] [Make a triangle!](https://codeforces.com/problemset/problem/1064/A) - desigualdade triangular
     [x] [Cover Points](https://codeforces.com/problemset/problem/1047/B) - triângulos isóceles
     [x] [Phoenix and Puzzle](https://codeforces.com/problemset/problem/1515/B) - triãngulos e quadrados

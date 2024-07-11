@@ -22,6 +22,8 @@
 \usefonttheme{serif}
 \setmainfont{BloggerSans}
 \RecustomVerbatimEnvironment{Verbatim}{BVerbatim}{}
+\setmonofont{Fantasque Sans Mono}
+
 
 % Colors
 
@@ -48,10 +50,10 @@
 % Novos comandos
 
 \newcommand{\bbbold}[1]{\textbf{\textcolor{black}{#1}}}
-\newcommand{\bbtext}[1]{\textbf{\textcolor{BBBlue}{#1}}}
+\newcommand{\bbtext}[1]{{\textcolor{BBBlue}{#1}}}
 \newcommand{\bbinfo}[1]{\textbf{\textcolor{BBOrange}{#1}}}
 \newcommand{\bbalert}[1]{\textbf{\textcolor{BBRed}{#1}}}
-\newcommand{\bbenglish}[1]{\textbf{\textit{\textcolor{BBGreen}{#1}}}}
+\newcommand{\bbenglish}[1]{{\textit{\textcolor{BBGreen}{#1}}}}
 \newcommand{\bbcomment}[1]{\textit{\textcolor{BBViolet}{#1}}}
 \newcommand{\bbemph}[1]{\textbf{\textcolor{BBEmerald}{#1}}}
 \newcommand{\bbupdate}[1]{\textbf{\textcolor{BBCyan}{#1}}}
