@@ -110,7 +110,7 @@ Problemas:
     [ ] [Goal for Raúl](https://www.spoj.com/problems/GOALFR/) - círculos e retas
     [x] [Circle in Square](https://lightoj.com/problem/circle-in-square) - área, círculo, quadrado
     [x] [Olympics](https://lightoj.com/problem/olympics) - area
-    [ ] [Calm Down](https://lightoj.com/problem/calm-down)
+    [x] [Calm Down](https://lightoj.com/problem/calm-down)
     [x] [Incredible Molecules](https://lightoj.com/problem/incredible-molecules) - interseção de círculos
     [ ] [Intersection between Circle and Rectangle](https://lightoj.com/problem/intersection-between-circle-a) - círculos e retângulos, interseção
     [ ] [Expanding Rods](https://lightoj.com/problem/expanding-rods) - segmentos
@@ -123,6 +123,11 @@ Problemas:
     [ ] [Points on a Sphere](https://www.spoj.com/problems/PSPHERE/) - esfera
 
 ## Convex Hull
+    [ ] [Ghost Ants](https://atcoder.jp/contests/abc360/tasks/abc360_d)
+    [ ] [Intersecting Intervals](https://atcoder.jp/contests/abc355/tasks/abc355_d)
+    [x] [Online Games](https://atcoder.jp/contests/abc221/tasks/abc221_d)
+    [x] [Destroyer Takahashi](https://atcoder.jp/contests/abc230/tasks/abc230_d)
+    [x] [Leaping Tak](https://atcoder.jp/contests/abc179/tasks/abc179_d)
     [x] [Guarding Bananas](https://lightoj.com/problem/guarding-bananas) - convex hull, ângulos entre segmentos
     [x] [Convex Hull](https://cses.fi/problemset/task/2195) - convex hull
     [ ] [Polygon](https://www.spoj.com/problems/MPOLY/)
