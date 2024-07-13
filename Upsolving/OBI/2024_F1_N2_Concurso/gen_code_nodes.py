@@ -1,21 +1,45 @@
-a = 0
-b = 8
+import sys
 
-start = 8
-end = 28
-N = end - start + 1
 
-code = 'codes/sub3.c'
+if __name__ == '__main__':
 
-step = (b - a)/(N - 1)
+    if len(sys.argv) < 4:
+        print(f'Usage: {sys.argv[0]} start end code')
+        sys.exit(-1)
 
-for i in range(N):
-    print(f'line{start} => Node')
-    print(f'\t@line{start}.x = 1')
-    print(f'\t@line{start}.y = {b:.2f}')
-    print('\t@line%d.text = \\inputline{c}{%d}{%s}' % (start, start, code))
-    print(f'\t@line{start}.anchor = west')
-    print()
+    a = 0
+    b = 8
 
-    b -= step
-    start += 1
+    start = int(sys.argv[1])
+    end = int(sys.argv[2])
+    code = sys.argv[3]
+
+    N = end - start + 1
+
+    step = (b - a)/min(N - 1, 21)
+
+    x = 1
+    y = b
+    count = 0
+
+    for i in range(N):
+
+        if count == 22:
+            y = b
+            x = 8
+
+            print('vbar => Path')
+            print('@vbar.path = (7, 8) -- (7, 0) -- cycle')
+            print('@vbar.color = gray')
+            print('&vbar.dashed')
+
+        print(f'line{start} => Node')
+        print(f'\t@line{start}.x = {x}')
+        print(f'\t@line{start}.y = {y:.2f}')
+        print('\t@line%d.text = \\inputline{c}{%d}{%s}' % (start, start, code))
+        print(f'\t@line{start}.anchor = west')
+        print()
+
+        y -= step
+        start += 1
+        count += 1
