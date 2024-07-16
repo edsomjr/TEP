@@ -237,41 +237,53 @@
             resultante da diferença entre o setor delimitado por $\theta$ e do triângulo 
             resultante do segmentos de reta que unem os extremos dos arcos ao centro do círculo e 
             os extremos entre si (a corda)
-        \pause
 
-        \item A área $T$ deste triângulo pode ser determinada pela Fórmula de Heron
-        \[
-            T = \sqrt{s(s - r)(s - r)(s - c)},
-        \] onde $s$ é o semiperímetro, dado por
-        \[
-            s = \frac{2r + c}{2}
-        \] e $c$ o comprimento da corda, isto é
-        \[
-            c = 2r\sin(\theta/2)
-        \]
+        \item A área $T$ deste triângulo pode ser obtida pela fórmula ensinada no ensino médio
+            $T = \frac{bh}{2}$. A base $b$ é o cordão que pode ser obtido por
+            $b = 2*r*\sin(\theta/2)$, já a altura $h$ é o cateto do triangulo retângulo
+            $h = r*\cos(\theta/2)$
+
+        \begin{figure}
+            \centering
+            \begin{tikzpicture}
+                \draw[fill,blue!30] ({2*cos(230)}, {2*sin(230)}) arc (230:310:2);
+    
+                \draw[fill] (0, 0) circle (0.03cm);
+    
+                \draw (0, 0) circle (2);
+                \draw[dashed] (0, 0) -- ({2*cos(310)}, {2*sin(310)});
+                \draw[dashed] (0, 0) -- ({2*cos(230)}, {2*sin(230)});
+                \draw[fill, red] (0, 0) -- ({2*cos(270)}, {2*cos((310-230)/2)*sin(270)});
+    
+                \draw({0.3*cos(230)}, {0.3*sin(230)}) arc (230:310:0.3);
+    
+                \node[anchor=south] at ({1*cos(270)}, {1*sin(270)}) {$\theta$};
+    
+            \end{tikzpicture}
+        \end{figure}
+ 
     \end{itemize}
 
 \end{frame}
 
-\begin{frame}[fragile]{Visualização do segmento de um círculo}
+\begin{frame}[fragile]{Segmento}
 
-    \begin{figure}
-        \centering
-        \begin{tikzpicture}
-            \draw[fill,blue!30] ({3.7*cos(36)}, {3.7*sin(36)}) arc (36:75:3.7);
-
-            \draw[fill] (0, 0) circle (0.03cm);
-
-            \draw (0, 0) circle (3.7);
-            \draw[dashed] (0, 0) -- ({3.7*cos(75)}, {3.7*sin(75)});
-            \draw[dashed] (0, 0) -- ({3.7*cos(36)}, {3.7*sin(36)});
-
-            \draw({0.3*cos(36)}, {0.3*sin(36)}) arc (36:75:0.3);
-
-            \node[anchor=south] at ({0.5*cos(42)}, {0.5*sin(42)}) {$\theta$};
-
-        \end{tikzpicture}
-    \end{figure}
+    \begin{itemize}
+        \item Já que o segmento é a diferença entre a área do setor e área do triangulo, temos que
+        \[
+            S = \frac{\theta*r^2}{2} - \frac{2*r*\sin(\theta/2)*\cos(\theta/2)*r}{2}
+        \]
+        \[
+            S = \frac{\theta*r^2}{2} - r^2*\sin(\theta/2)*\cos(\theta/2)
+        \]
+        \[
+            S = \frac{\theta*r^2}{2} - \frac{r^2*\sin(\theta)}{2}
+        \]
+        \[
+            S = \frac{r^2(\theta - \sin(\theta))}{2}
+        \]
+ 
+    \end{itemize}
 
 \end{frame}
 
