@@ -238,10 +238,12 @@
             resultante do segmentos de reta que unem os extremos dos arcos ao centro do círculo e 
             os extremos entre si (a corda)
 
-        \item A área $T$ deste triângulo pode ser obtida pela fórmula ensinada no ensino médio
-            $T = \frac{bh}{2}$. A base $b$ é o cordão que pode ser obtido por
-            $b = 2*r*\sin(\theta/2)$, já a altura $h$ é o cateto do triangulo retângulo
-            $h = r*\cos(\theta/2)$
+        \item A área $T$ deste triângulo pode ser obtida pela fórmula ensinada no ensino médio,
+            $T = bh/2$
+
+        \item A base $b$ é a corda, que pode ser obtido por
+            $b = 2r\sin(\theta/2)$; já a altura $h$ é o cateto do triangulo retângulo, ou seja,
+            $h = r\cos(\theta/2)$
 
         \begin{figure}
             \centering
@@ -257,7 +259,7 @@
     
                 \draw({0.3*cos(230)}, {0.3*sin(230)}) arc (230:310:0.3);
     
-                \node[anchor=south] at ({1*cos(270)}, {1*sin(270)}) {$\theta$};
+                \node[anchor=south] at ({1*cos(260)}, {0.8*sin(260)}) {$\theta$};
     
             \end{tikzpicture}
         \end{figure}
@@ -270,18 +272,12 @@
 
     \begin{itemize}
         \item Já que o segmento é a diferença entre a área do setor e área do triangulo, temos que
-        \[
-            S = \frac{\theta*r^2}{2} - \frac{2*r*\sin(\theta/2)*\cos(\theta/2)*r}{2}
-        \]
-        \[
-            S = \frac{\theta*r^2}{2} - r^2*\sin(\theta/2)*\cos(\theta/2)
-        \]
-        \[
-            S = \frac{\theta*r^2}{2} - \frac{r^2*\sin(\theta)}{2}
-        \]
-        \[
-            S = \frac{r^2(\theta - \sin(\theta))}{2}
-        \]
+        \begin{align*}
+            S &= \frac{\theta r^2}{2} - \frac{(2r\sin(\theta/2))(r\cos(\theta/2))}{2} \\
+            &= \frac{\theta r^2}{2} - r^2\sin(\theta/2)\cos(\theta/2)\\
+            &= \frac{\theta r^2}{2} - \frac{r^2\sin(\theta)}{2}\\
+            &= \frac{r^2(\theta - \sin(\theta))}{2}
+        \end{align*}
  
     \end{itemize}
 
