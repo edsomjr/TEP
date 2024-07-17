@@ -1,5 +1,5 @@
 \ProvidesClass{whiteboard}
-\LoadClass[18pt,aspectratio=169]{beamer}
+\LoadClass[18pt,aspectratio=168]{beamer}
 
 % packages
 \usepackage[utf8]{inputenc}

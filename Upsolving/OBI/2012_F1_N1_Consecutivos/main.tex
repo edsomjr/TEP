@@ -1,25 +1,30 @@
 \documentclass{whiteboard}
 \begin{document}
 \begin{frame}[plain,t]
-\bbcover{OBI 2024 - Nível 2: Fase 1}{Concurso}{Prof. Edson Alves}{Faculdade UnB Gama}
+\bbcover{OBI 2012 - Nível 1: Fase 1}{Consecutivos}{Prof. Edson Alves}{Faculdade UnB Gama}
 
 \end{frame}
 \begin{frame}[plain,t]
 \vspace*{\fill}
 
-\bbtext{Cláudia trabalha na OBI (Organização dos Bons Informáticos), que recentemente realizou um concurso para contratar novos funcionários. Agora, Cláudia tem a tarefa de determinar a \bbenglish{nota de corte} para o concurso. Chamamos de nota de corte a nota mínima necessária para ser aprovado no concurso. Ou seja, se a nota de corte do concurso for $C$, então todos os participantes com uma nota maior ou igual a $C$ serão aprovados no concurso e todos com nota menor que $C$ serão reprovados.}
+\bbtext{Num sorteio que distribui prêmios, um participante inicialmente sorteia um inteiro $N$ e depois $N$ valores. O
+número de pontos do participante é o tamanho da maior sequência de valores consecutivos iguais. Por exemplo,
+suponhamos que um participante sorteia $N = 11$ e, nesta ordem, os valores}
+
+\vspace{0.1in}
+\bbtext{$$
+30, 30, 30, 30, 40, 40, 40, 40, 40, 30, 30
+$$}
+
+\vspace{0.1in}
+
+\bbtext{Então, o participante ganha 5 pontos, correspondentes aos 5 valores 40 consecutivos. Note que o participante
+sorteou 6 valores iguais a 30, mas nem todos são consecutivos.}
 
 \vspace{0.2in}
 
-\bbtext{Seu chefe pediu para que Cláudia aprove no mínimo $K$ candidatos do concurso para a próxima fase,
-mas ela também não quer que a nota de corte seja muito baixa. Por isso, Cláudia decidiu que a
-nota de corte deverá ser a maior nota $C$ que faz com que no mínimo $K$ candidatos sejam aprovados.}
-
-\vspace{0.2in}
-
-\bbtext{Sua tarefa é: dados o número $N$ de candidatos, as notas $A_1, A_2, \ldots, A_N$ dos candidatos e a quantidade
-mínima de aprovados $K$, diga qual deve ser a maior nota de corte $C$ para que pelo menos $K$
-candidatos sejam aprovados.}
+\bbtext{Sua tarefa é ajudar a organização do evento, escrevendo um programa que determina o número de pontos de
+um participante.}
 
 \vspace*{\fill}
 \end{frame}
@@ -30,12 +35,8 @@ candidatos sejam aprovados.}
 
 \vspace{0.2in}
 
-\bbtext{A primeira linha da entrada contém dois inteiros, $N$ e $K$, representando, respectivamente, o número
-de participantes e o número mínimo de candidatos que devem ser aprovados.}
-
-\vspace{0.1in}
-
-\bbtext{A segunda linha da entrada contém $N$ inteiros $A_i$, representando as notas dos participantes.}
+\bbtext{A primeira linha da entrada contém um inteiro $N$, o número de valores sorteados. A segunda linha contém $N$
+valores, $V_1, V_2, \ldots, V_N$, na ordem de sorteio, separados por um espaço em branco.}
 
 \vspace{0.2in}
 
@@ -43,7 +44,8 @@ de participantes e o número mínimo de candidatos que devem ser aprovados.}
 
 \vspace{0.2in}
 
-\bbtext{Seu programa deve imprimir uma linha contendo um único inteiro $C$, a nota de corte que deve ser escolhida por Cláudia.}
+\bbtext{Seu programa deve imprimir apenas uma linha, contendo apenas um inteiro, indicando o número de pontos do
+participante.}
 
 \vspace{0.2in}
 
@@ -52,35 +54,13 @@ de participantes e o número mínimo de candidatos que devem ser aprovados.}
 
 \bbtext{
 \begin{itemize}
-\item $1\leq K\leq N\leq 500$
-\item $1\leq A_i\leq 100$ para todo $1\leq i\leq N$
+\item $1\leq N\leq 10^4$
+\item $-2^{31}\leq V_i\leq 2^{31} - 1$\bbtext{, para} $i = 1, 2, \ldots, N$
 \end{itemize}
 }
 \vspace*{\fill}
 \end{frame}
 \begin{frame}[plain,t]
-\vspace*{\fill}
-
-\bbbold{Informações sobre a pontuação}
-
-\vspace{0.2in}
-
-\bbtext{A tarefa vale 100 pontos. Estes pontos estão distribuídos em subtarefas, cada uma com suas
-\bbbold{restrições adicionais} às definidas acima.}
-
-\vspace{0.2in}
-
-\begin{itemize}
-\item \bbbold{Subtarefa 1 (0 pontos):} \bbtext{Esta subtarefa é composta apenas pelos exemplos mostrados abaixo. Ela não vale pontos, serve apenas para que você verifique se o seu programa imprime o resultado correto para os exemplos.}
-\item \bbbold{Subtarefa 2 (20 pontos):} $K = 1$\bbtext{.}
-\item \bbbold{Subtarefa 3 (20 pontos):} $K = 3$\bbtext{.}
-\item \bbbold{Subtarefa 4 (20 pontos):} $A_i \leq 2$\bbtext{.}
-\item \bbbold{Subtarefa 5 (40 pontos):} \bbtext{Sem restrições adicionais.}
-\end{itemize}
-
-\vspace*{\fill}
-\end{frame}
-\begin{frame}[plain,t]
 \begin{tikzpicture}
 \node[draw,opacity=0] at (0, 0) {x};
 \node[draw,opacity=0] at (14, 8) {x};
@@ -97,7 +77,7 @@ de participantes e o número mínimo de candidatos que devem ser aprovados.}
 	\node[anchor=west] (header) at (0, 7.0) { \bbbold{Exemplo de entrada e saída} };
 
 
-	\node[anchor=west] (line1) at (1.0, 6.0) { \bbtext{\texttt{3 1} } };
+	\node[anchor=west] (line1) at (1.0, 6.0) { \bbtext{\texttt{11} } };
 
 \end{tikzpicture}
 \end{frame}
@@ -109,31 +89,12 @@ de participantes e o número mínimo de candidatos que devem ser aprovados.}
 	\node[anchor=west] (header) at (0, 7.0) { \bbbold{Exemplo de entrada e saída} };
 
 
-	\node[anchor=west] (line1) at (1.0, 6.0) { \bbtext{\texttt{3 1} } };
+	\node[anchor=west] (line1) at (1.0, 6.0) { \bbtext{\texttt{11} } };
 
 
-	\draw[->,color=BBViolet] (1.25, 5.0) to  (1.25, 5.75);
+	\draw[->,color=BBViolet] (1.35, 5.0) to  (1.35, 5.75);
 
-	\node[anchor=west] (r) at (0.5, 4.75) { \footnotesize \bbcomment{\# de candidatos} };
-
-\end{tikzpicture}
-\end{frame}
-\begin{frame}[plain,t]
-\begin{tikzpicture}
-\node[draw,opacity=0] at (0, 0) {x};
-\node[draw,opacity=0] at (14, 8) {x};
-
-	\node[anchor=west] (header) at (0, 7.0) { \bbbold{Exemplo de entrada e saída} };
-
-
-	\node[anchor=west] (line1) at (1.0, 6.0) { \bbtext{\texttt{3 1} } };
-
-
-	\draw[->,color=BBViolet] (1.65, 5.0) to  (1.65, 5.75);
-
-	\node[] (r) at (1.65, 4.75) { \footnotesize \bbcomment{\# de aprovados} };
-
-
+	\node[anchor=west] (r) at (0.5, 4.75) { \footnotesize \bbcomment{\# de valores sorteados} };
 
 \end{tikzpicture}
 \end{frame}
@@ -145,16 +106,13 @@ de participantes e o número mínimo de candidatos que devem ser aprovados.}
 	\node[anchor=west] (header) at (0, 7.0) { \bbbold{Exemplo de entrada e saída} };
 
 
-	\node[anchor=west] (line1) at (1.0, 6.0) { \bbtext{\texttt{3 1} } };
+	\node[anchor=west] (line1) at (1.0, 6.0) { \bbtext{\texttt{11} } };
 
 
 
 
 
-
-
-
-	\node[anchor=west] (line2) at (1.0, 5.5) { \bbtext{\texttt{92 83 98}} };
+	\node[anchor=west] (line2) at (1.0, 5.5) { \bbtext{\texttt{30 30 30 40 40 40 40 40 30 30 30}} };
 
 \end{tikzpicture}
 \end{frame}
@@ -166,18 +124,15 @@ de participantes e o número mínimo de candidatos que devem ser aprovados.}
 	\node[anchor=west] (header) at (0, 7.0) { \bbbold{Exemplo de entrada e saída} };
 
 
-	\node[anchor=west] (line1) at (1.0, 6.0) { \bbtext{\texttt{3 1} } };
+	\node[anchor=west] (line1) at (1.0, 6.0) { \bbtext{\texttt{11} } };
 
 
-	\draw[->,color=BBViolet] (1.25, 4.5) to  (1.25, 5.25);
+	\draw[->,color=BBViolet] (3.75, 5.0) to  (3.75, 3.75);
 
-	\node[] (r) at (1.25, 4.25) { \footnotesize \bbcomment{Nota do candidato 1} };
-
-
+	\node[anchor=west] (r) at (3.25, 3.25) { \footnotesize \bbcomment{Números sorteados} };
 
 
-
-	\node[anchor=west] (line2) at (1.0, 5.5) { \bbtext{\texttt{92 83 98}} };
+	\node[anchor=west] (line2) at (1.0, 5.5) { \bbtext{\texttt{30 30 30 40 40 40 40 40 30 30 30}} };
 
 
 
@@ -193,85 +148,13 @@ de participantes e o número mínimo de candidatos que devem ser aprovados.}
 	\node[anchor=west] (header) at (0, 7.0) { \bbbold{Exemplo de entrada e saída} };
 
 
-	\node[anchor=west] (line1) at (1.0, 6.0) { \bbtext{\texttt{3 1} } };
-
-
-	\draw[->,color=BBViolet] (1.85, 4.5) to  (1.85, 5.25);
-
-	\node[] (r) at (1.85, 4.25) { \footnotesize \bbcomment{Nota do candidato 2} };
+	\node[anchor=west] (line1) at (1.0, 6.0) { \bbtext{\texttt{11} } };
 
 
 
 
 
-	\node[anchor=west] (line2) at (1.0, 5.5) { \bbtext{\texttt{92 83 98}} };
-
-
-
-
-
-
-
-
-\end{tikzpicture}
-\end{frame}
-\begin{frame}[plain,t]
-\begin{tikzpicture}
-\node[draw,opacity=0] at (0, 0) {x};
-\node[draw,opacity=0] at (14, 8) {x};
-
-	\node[anchor=west] (header) at (0, 7.0) { \bbbold{Exemplo de entrada e saída} };
-
-
-	\node[anchor=west] (line1) at (1.0, 6.0) { \bbtext{\texttt{3 1} } };
-
-
-	\draw[->,color=BBViolet] (2.45, 4.5) to  (2.45, 5.25);
-
-	\node[] (r) at (2.45, 4.25) { \footnotesize \bbcomment{Nota do candidato 3} };
-
-
-
-
-
-	\node[anchor=west] (line2) at (1.0, 5.5) { \bbtext{\texttt{92 83 98}} };
-
-
-
-
-
-
-
-
-
-
-
-\end{tikzpicture}
-\end{frame}
-\begin{frame}[plain,t]
-\begin{tikzpicture}
-\node[draw,opacity=0] at (0, 0) {x};
-\node[draw,opacity=0] at (14, 8) {x};
-
-	\node[anchor=west] (header) at (0, 7.0) { \bbbold{Exemplo de entrada e saída} };
-
-
-	\node[anchor=west] (line1) at (1.0, 6.0) { \bbtext{\texttt{3 1} } };
-
-
-
-
-
-
-
-
-	\node[anchor=west] (line2) at (1.0, 5.5) { \bbtext{\texttt{92 83 98}} };
-
-
-
-
-
-
+	\node[anchor=west] (line2) at (1.0, 5.5) { \bbtext{\texttt{30 30 30 40 40 40 40 40 30 30 30}} };
 
 
 
@@ -295,22 +178,13 @@ de participantes e o número mínimo de candidatos que devem ser aprovados.}
 	\node[anchor=west] (header) at (0, 7.0) { \bbbold{Exemplo de entrada e saída} };
 
 
-	\node[anchor=west] (line1) at (1.0, 6.0) { \bbtext{\texttt{3 1} } };
+	\node[anchor=west] (line1) at (1.0, 6.0) { \bbtext{\texttt{11} } };
 
 
 
 
 
-
-
-
-	\node[anchor=west] (line2) at (1.0, 5.5) { \bbtext{\texttt{92 83 98}} };
-
-
-
-
-
-
+	\node[anchor=west] (line2) at (1.0, 5.5) { \bbtext{\texttt{30 30 30 40 40 40 40 40 30 30 30}} };
 
 
 
@@ -337,22 +211,13 @@ de participantes e o número mínimo de candidatos que devem ser aprovados.}
 	\node[anchor=west] (header) at (0, 7.0) { \bbbold{Exemplo de entrada e saída} };
 
 
-	\node[anchor=west] (line1) at (1.0, 6.0) { \bbtext{\texttt{3 1} } };
+	\node[anchor=west] (line1) at (1.0, 6.0) { \bbtext{\texttt{11} } };
 
 
 
 
 
-
-
-
-	\node[anchor=west] (line2) at (1.0, 5.5) { \bbtext{\texttt{92 83 98}} };
-
-
-
-
-
-
+	\node[anchor=west] (line2) at (1.0, 5.5) { \bbtext{\texttt{30 30 30 40 40 40 40 40 30 30 30}} };
 
 
 
@@ -380,22 +245,13 @@ de participantes e o número mínimo de candidatos que devem ser aprovados.}
 	\node[anchor=west] (header) at (0, 7.0) { \bbbold{Exemplo de entrada e saída} };
 
 
-	\node[anchor=west] (line1) at (1.0, 6.0) { \bbtext{\texttt{3 1} } };
+	\node[anchor=west] (line1) at (1.0, 6.0) { \bbtext{\texttt{11} } };
 
 
 
 
 
-
-
-
-	\node[anchor=west] (line2) at (1.0, 5.5) { \bbtext{\texttt{92 83 98}} };
-
-
-
-
-
-
+	\node[anchor=west] (line2) at (1.0, 5.5) { \bbtext{\texttt{30 30 30 40 40 40 40 40 30 30 30}} };
 
 
 
@@ -425,22 +281,13 @@ de participantes e o número mínimo de candidatos que devem ser aprovados.}
 	\node[anchor=west] (header) at (0, 7.0) { \bbbold{Exemplo de entrada e saída} };
 
 
-	\node[anchor=west] (line1) at (1.0, 6.0) { \bbtext{\texttt{3 1} } };
+	\node[anchor=west] (line1) at (1.0, 6.0) { \bbtext{\texttt{11} } };
 
 
 
 
 
-
-
-
-	\node[anchor=west] (line2) at (1.0, 5.5) { \bbtext{\texttt{92 83 98}} };
-
-
-
-
-
-
+	\node[anchor=west] (line2) at (1.0, 5.5) { \bbtext{\texttt{30 30 30 40 40 40 40 40 30 30 30}} };
 
 
 
@@ -471,22 +318,13 @@ de participantes e o número mínimo de candidatos que devem ser aprovados.}
 	\node[anchor=west] (header) at (0, 7.0) { \bbbold{Exemplo de entrada e saída} };
 
 
-	\node[anchor=west] (line1) at (1.0, 6.0) { \bbtext{\texttt{3 1} } };
+	\node[anchor=west] (line1) at (1.0, 6.0) { \bbtext{\texttt{11} } };
 
 
 
 
 
-
-
-
-	\node[anchor=west] (line2) at (1.0, 5.5) { \bbtext{\texttt{92 83 98}} };
-
-
-
-
-
-
+	\node[anchor=west] (line2) at (1.0, 5.5) { \bbtext{\texttt{30 30 30 40 40 40 40 40 30 30 30}} };
 
 
 
@@ -519,22 +357,13 @@ de participantes e o número mínimo de candidatos que devem ser aprovados.}
 	\node[anchor=west] (header) at (0, 7.0) { \bbbold{Exemplo de entrada e saída} };
 
 
-	\node[anchor=west] (line1) at (1.0, 6.0) { \bbtext{\texttt{3 1} } };
+	\node[anchor=west] (line1) at (1.0, 6.0) { \bbtext{\texttt{11} } };
 
 
 
 
 
-
-
-
-	\node[anchor=west] (line2) at (1.0, 5.5) { \bbtext{\texttt{92 83 98}} };
-
-
-
-
-
-
+	\node[anchor=west] (line2) at (1.0, 5.5) { \bbtext{\texttt{30 30 30 40 40 40 40 40 30 30 30}} };
 
 
 
@@ -568,22 +397,13 @@ de participantes e o número mínimo de candidatos que devem ser aprovados.}
 	\node[anchor=west] (header) at (0, 7.0) { \bbbold{Exemplo de entrada e saída} };
 
 
-	\node[anchor=west] (line1) at (1.0, 6.0) { \bbtext{\texttt{3 1} } };
+	\node[anchor=west] (line1) at (1.0, 6.0) { \bbtext{\texttt{11} } };
 
 
 
 
 
-
-
-
-	\node[anchor=west] (line2) at (1.0, 5.5) { \bbtext{\texttt{92 83 98}} };
-
-
-
-
-
-
+	\node[anchor=west] (line2) at (1.0, 5.5) { \bbtext{\texttt{30 30 30 40 40 40 40 40 30 30 30}} };
 
 
 
@@ -619,22 +439,13 @@ de participantes e o número mínimo de candidatos que devem ser aprovados.}
 	\node[anchor=west] (header) at (0, 7.0) { \bbbold{Exemplo de entrada e saída} };
 
 
-	\node[anchor=west] (line1) at (1.0, 6.0) { \bbtext{\texttt{3 1} } };
+	\node[anchor=west] (line1) at (1.0, 6.0) { \bbtext{\texttt{11} } };
 
 
 
 
 
-
-
-
-	\node[anchor=west] (line2) at (1.0, 5.5) { \bbtext{\texttt{92 83 98}} };
-
-
-
-
-
-
+	\node[anchor=west] (line2) at (1.0, 5.5) { \bbtext{\texttt{30 30 30 40 40 40 40 40 30 30 30}} };
 
 
 
@@ -671,24 +482,15 @@ de participantes e o número mínimo de candidatos que devem ser aprovados.}
 	\node[anchor=west] (header) at (0, 7.0) { \bbbold{Exemplo de entrada e saída} };
 
 
-	\node[anchor=west] (line1) at (1.0, 6.0) { \bbtext{\texttt{3 1} } };
+	\node[anchor=west] (line1) at (1.0, 6.0) { \bbtext{\texttt{11} } };
 
 
 	\draw[->,color=BBBlack,-latex,thick] (1.85, 4.75) to  (1.85, 3.75);
 
-	\node[] (r) at (1.85, 3.5) { \footnotesize \bboutput{98} };
+	\node[anchor=west] (r) at (1.85, 3.5) { \footnotesize \bboutput{98} };
 
 
-
-
-
-	\node[anchor=west] (line2) at (1.0, 5.5) { \bbtext{\texttt{92 83 98}} };
-
-
-
-
-
-
+	\node[anchor=west] (line2) at (1.0, 5.5) { \bbtext{\texttt{30 30 30 40 40 40 40 40 30 30 30}} };
 
 
 
@@ -835,341 +637,6 @@ de participantes e o número mínimo de candidatos que devem ser aprovados.}
 \node[draw,opacity=0] at (0, 0) {x};
 \node[draw,opacity=0] at (14, 8) {x};
 
-	\node[anchor=west] (line1) at (1.0, 8.0) { \inputline{c}{1}{codes/sub2.c} };
-
-	\node[anchor=west] (line2) at (1.0, 7.62) { \inputline{c}{2}{codes/sub2.c} };
-
-	\node[anchor=west] (line3) at (1.0, 7.24) { \inputline{c}{3}{codes/sub2.c} };
-
-	\node[anchor=west] (line4) at (1.0, 6.86) { \inputline{c}{4}{codes/sub2.c} };
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-	\node[anchor=west] (line20) at (1.0, 0.76) { \inputline{c}{20}{codes/sub2.c} };
-
-	\node[anchor=west] (line21) at (1.0, 0.38) { \inputline{c}{21}{codes/sub2.c} };
-
-	\node[anchor=west] (line22) at (1.0, -0.0) { \inputline{c}{22}{codes/sub2.c} };
-
-
-\end{tikzpicture}
-\end{frame}
-\begin{frame}[plain,t]
-\begin{tikzpicture}
-\node[draw,opacity=0] at (0, 0) {x};
-\node[draw,opacity=0] at (14, 8) {x};
-
-	\node[anchor=west] (line1) at (1.0, 8.0) { \inputline{c}{1}{codes/sub2.c} };
-
-	\node[anchor=west] (line2) at (1.0, 7.62) { \inputline{c}{2}{codes/sub2.c} };
-
-	\node[anchor=west] (line3) at (1.0, 7.24) { \inputline{c}{3}{codes/sub2.c} };
-
-	\node[anchor=west] (line4) at (1.0, 6.86) { \inputline{c}{4}{codes/sub2.c} };
-
-	\node[anchor=west] (line5) at (1.0, 6.48) { \inputline{c}{5}{codes/sub2.c} };
-
-	\node[anchor=west] (line6) at (1.0, 6.1) { \inputline{c}{6}{codes/sub2.c} };
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-	\node[anchor=west] (line20) at (1.0, 0.76) { \inputline{c}{20}{codes/sub2.c} };
-
-	\node[anchor=west] (line21) at (1.0, 0.38) { \inputline{c}{21}{codes/sub2.c} };
-
-	\node[anchor=west] (line22) at (1.0, -0.0) { \inputline{c}{22}{codes/sub2.c} };
-
-
-
-
-\end{tikzpicture}
-\end{frame}
-\begin{frame}[plain,t]
-\begin{tikzpicture}
-\node[draw,opacity=0] at (0, 0) {x};
-\node[draw,opacity=0] at (14, 8) {x};
-
-	\node[anchor=west] (line1) at (1.0, 8.0) { \inputline{c}{1}{codes/sub2.c} };
-
-	\node[anchor=west] (line2) at (1.0, 7.62) { \inputline{c}{2}{codes/sub2.c} };
-
-	\node[anchor=west] (line3) at (1.0, 7.24) { \inputline{c}{3}{codes/sub2.c} };
-
-	\node[anchor=west] (line4) at (1.0, 6.86) { \inputline{c}{4}{codes/sub2.c} };
-
-	\node[anchor=west] (line5) at (1.0, 6.48) { \inputline{c}{5}{codes/sub2.c} };
-
-	\node[anchor=west] (line6) at (1.0, 6.1) { \inputline{c}{6}{codes/sub2.c} };
-
-
-	\node[anchor=west] (line8) at (1.0, 5.33) { \inputline{c}{8}{codes/sub2.c} };
-
-
-
-
-
-
-
-
-
-
-
-
-	\node[anchor=west] (line20) at (1.0, 0.76) { \inputline{c}{20}{codes/sub2.c} };
-
-	\node[anchor=west] (line21) at (1.0, 0.38) { \inputline{c}{21}{codes/sub2.c} };
-
-	\node[anchor=west] (line22) at (1.0, -0.0) { \inputline{c}{22}{codes/sub2.c} };
-
-
-
-
-
-
-\end{tikzpicture}
-\end{frame}
-\begin{frame}[plain,t]
-\begin{tikzpicture}
-\node[draw,opacity=0] at (0, 0) {x};
-\node[draw,opacity=0] at (14, 8) {x};
-
-	\node[anchor=west] (line1) at (1.0, 8.0) { \inputline{c}{1}{codes/sub2.c} };
-
-	\node[anchor=west] (line2) at (1.0, 7.62) { \inputline{c}{2}{codes/sub2.c} };
-
-	\node[anchor=west] (line3) at (1.0, 7.24) { \inputline{c}{3}{codes/sub2.c} };
-
-	\node[anchor=west] (line4) at (1.0, 6.86) { \inputline{c}{4}{codes/sub2.c} };
-
-	\node[anchor=west] (line5) at (1.0, 6.48) { \inputline{c}{5}{codes/sub2.c} };
-
-	\node[anchor=west] (line6) at (1.0, 6.1) { \inputline{c}{6}{codes/sub2.c} };
-
-
-	\node[anchor=west] (line8) at (1.0, 5.33) { \inputline{c}{8}{codes/sub2.c} };
-
-
-	\node[anchor=west] (line10) at (1.0, 4.57) { \inputline{c}{10}{codes/sub2.c} };
-
-	\node[anchor=west] (line11) at (1.0, 4.19) { \inputline{c}{11}{codes/sub2.c} };
-
-
-
-
-
-
-	\node[anchor=west] (line17) at (1.0, 1.9) { \inputline{c}{17}{codes/sub2.c} };
-
-
-
-	\node[anchor=west] (line20) at (1.0, 0.76) { \inputline{c}{20}{codes/sub2.c} };
-
-	\node[anchor=west] (line21) at (1.0, 0.38) { \inputline{c}{21}{codes/sub2.c} };
-
-	\node[anchor=west] (line22) at (1.0, -0.0) { \inputline{c}{22}{codes/sub2.c} };
-
-
-
-
-
-
-
-
-\end{tikzpicture}
-\end{frame}
-\begin{frame}[plain,t]
-\begin{tikzpicture}
-\node[draw,opacity=0] at (0, 0) {x};
-\node[draw,opacity=0] at (14, 8) {x};
-
-	\node[anchor=west] (line1) at (1.0, 8.0) { \inputline{c}{1}{codes/sub2.c} };
-
-	\node[anchor=west] (line2) at (1.0, 7.62) { \inputline{c}{2}{codes/sub2.c} };
-
-	\node[anchor=west] (line3) at (1.0, 7.24) { \inputline{c}{3}{codes/sub2.c} };
-
-	\node[anchor=west] (line4) at (1.0, 6.86) { \inputline{c}{4}{codes/sub2.c} };
-
-	\node[anchor=west] (line5) at (1.0, 6.48) { \inputline{c}{5}{codes/sub2.c} };
-
-	\node[anchor=west] (line6) at (1.0, 6.1) { \inputline{c}{6}{codes/sub2.c} };
-
-
-	\node[anchor=west] (line8) at (1.0, 5.33) { \inputline{c}{8}{codes/sub2.c} };
-
-
-	\node[anchor=west] (line10) at (1.0, 4.57) { \inputline{c}{10}{codes/sub2.c} };
-
-	\node[anchor=west] (line11) at (1.0, 4.19) { \inputline{c}{11}{codes/sub2.c} };
-
-	\node[anchor=west] (line12) at (1.0, 3.81) { \inputline{c}{12}{codes/sub2.c} };
-
-	\node[anchor=west] (line13) at (1.0, 3.43) { \inputline{c}{13}{codes/sub2.c} };
-
-
-
-
-	\node[anchor=west] (line17) at (1.0, 1.9) { \inputline{c}{17}{codes/sub2.c} };
-
-
-
-	\node[anchor=west] (line20) at (1.0, 0.76) { \inputline{c}{20}{codes/sub2.c} };
-
-	\node[anchor=west] (line21) at (1.0, 0.38) { \inputline{c}{21}{codes/sub2.c} };
-
-	\node[anchor=west] (line22) at (1.0, -0.0) { \inputline{c}{22}{codes/sub2.c} };
-
-
-
-
-
-
-
-
-
-\end{tikzpicture}
-\end{frame}
-\begin{frame}[plain,t]
-\begin{tikzpicture}
-\node[draw,opacity=0] at (0, 0) {x};
-\node[draw,opacity=0] at (14, 8) {x};
-
-	\node[anchor=west] (line1) at (1.0, 8.0) { \inputline{c}{1}{codes/sub2.c} };
-
-	\node[anchor=west] (line2) at (1.0, 7.62) { \inputline{c}{2}{codes/sub2.c} };
-
-	\node[anchor=west] (line3) at (1.0, 7.24) { \inputline{c}{3}{codes/sub2.c} };
-
-	\node[anchor=west] (line4) at (1.0, 6.86) { \inputline{c}{4}{codes/sub2.c} };
-
-	\node[anchor=west] (line5) at (1.0, 6.48) { \inputline{c}{5}{codes/sub2.c} };
-
-	\node[anchor=west] (line6) at (1.0, 6.1) { \inputline{c}{6}{codes/sub2.c} };
-
-
-	\node[anchor=west] (line8) at (1.0, 5.33) { \inputline{c}{8}{codes/sub2.c} };
-
-
-	\node[anchor=west] (line10) at (1.0, 4.57) { \inputline{c}{10}{codes/sub2.c} };
-
-	\node[anchor=west] (line11) at (1.0, 4.19) { \inputline{c}{11}{codes/sub2.c} };
-
-	\node[anchor=west] (line12) at (1.0, 3.81) { \inputline{c}{12}{codes/sub2.c} };
-
-	\node[anchor=west] (line13) at (1.0, 3.43) { \inputline{c}{13}{codes/sub2.c} };
-
-
-	\node[anchor=west] (line15) at (1.0, 2.67) { \inputline{c}{15}{codes/sub2.c} };
-
-	\node[anchor=west] (line16) at (1.0, 2.29) { \inputline{c}{16}{codes/sub2.c} };
-
-	\node[anchor=west] (line17) at (1.0, 1.9) { \inputline{c}{17}{codes/sub2.c} };
-
-
-
-	\node[anchor=west] (line20) at (1.0, 0.76) { \inputline{c}{20}{codes/sub2.c} };
-
-	\node[anchor=west] (line21) at (1.0, 0.38) { \inputline{c}{21}{codes/sub2.c} };
-
-	\node[anchor=west] (line22) at (1.0, -0.0) { \inputline{c}{22}{codes/sub2.c} };
-
-
-
-
-
-
-
-
-
-
-\end{tikzpicture}
-\end{frame}
-\begin{frame}[plain,t]
-\begin{tikzpicture}
-\node[draw,opacity=0] at (0, 0) {x};
-\node[draw,opacity=0] at (14, 8) {x};
-
-	\node[anchor=west] (line1) at (1.0, 8.0) { \inputline{c}{1}{codes/sub2.c} };
-
-	\node[anchor=west] (line2) at (1.0, 7.62) { \inputline{c}{2}{codes/sub2.c} };
-
-	\node[anchor=west] (line3) at (1.0, 7.24) { \inputline{c}{3}{codes/sub2.c} };
-
-	\node[anchor=west] (line4) at (1.0, 6.86) { \inputline{c}{4}{codes/sub2.c} };
-
-	\node[anchor=west] (line5) at (1.0, 6.48) { \inputline{c}{5}{codes/sub2.c} };
-
-	\node[anchor=west] (line6) at (1.0, 6.1) { \inputline{c}{6}{codes/sub2.c} };
-
-
-	\node[anchor=west] (line8) at (1.0, 5.33) { \inputline{c}{8}{codes/sub2.c} };
-
-
-	\node[anchor=west] (line10) at (1.0, 4.57) { \inputline{c}{10}{codes/sub2.c} };
-
-	\node[anchor=west] (line11) at (1.0, 4.19) { \inputline{c}{11}{codes/sub2.c} };
-
-	\node[anchor=west] (line12) at (1.0, 3.81) { \inputline{c}{12}{codes/sub2.c} };
-
-	\node[anchor=west] (line13) at (1.0, 3.43) { \inputline{c}{13}{codes/sub2.c} };
-
-
-	\node[anchor=west] (line15) at (1.0, 2.67) { \inputline{c}{15}{codes/sub2.c} };
-
-	\node[anchor=west] (line16) at (1.0, 2.29) { \inputline{c}{16}{codes/sub2.c} };
-
-	\node[anchor=west] (line17) at (1.0, 1.9) { \inputline{c}{17}{codes/sub2.c} };
-
-
-	\node[anchor=west] (line19) at (1.0, 1.14) { \inputline{c}{19}{codes/sub2.c} };
-
-	\node[anchor=west] (line20) at (1.0, 0.76) { \inputline{c}{20}{codes/sub2.c} };
-
-	\node[anchor=west] (line21) at (1.0, 0.38) { \inputline{c}{21}{codes/sub2.c} };
-
-	\node[anchor=west] (line22) at (1.0, -0.0) { \inputline{c}{22}{codes/sub2.c} };
-
-
-
-
-
-
-
-
-
-
-
-\end{tikzpicture}
-\end{frame}
-\begin{frame}[plain,t]
-\begin{tikzpicture}
-\node[draw,opacity=0] at (0, 0) {x};
-\node[draw,opacity=0] at (14, 8) {x};
-
 	\node[anchor=west] (title) at (0.0, 7.0) { \Large \bbbold{Solução: Subtarefa 4 ($A_i \leq 2$)} };
 
 \end{tikzpicture}
@@ -1272,341 +739,6 @@ de participantes e o número mínimo de candidatos que devem ser aprovados.}
 \node[draw,opacity=0] at (0, 0) {x};
 \node[draw,opacity=0] at (14, 8) {x};
 
-	\node[anchor=west] (line1) at (1.0, 8.0) { \inputline{c}{1}{codes/sub4.c} };
-
-	\node[anchor=west] (line2) at (1.0, 7.62) { \inputline{c}{2}{codes/sub4.c} };
-
-	\node[anchor=west] (line3) at (1.0, 7.24) { \inputline{c}{3}{codes/sub4.c} };
-
-	\node[anchor=west] (line4) at (1.0, 6.86) { \inputline{c}{4}{codes/sub4.c} };
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-	\node[anchor=west] (line20) at (1.0, 0.76) { \inputline{c}{20}{codes/sub4.c} };
-
-	\node[anchor=west] (line21) at (1.0, 0.38) { \inputline{c}{21}{codes/sub4.c} };
-
-	\node[anchor=west] (line22) at (1.0, -0.0) { \inputline{c}{22}{codes/sub4.c} };
-
-
-\end{tikzpicture}
-\end{frame}
-\begin{frame}[plain,t]
-\begin{tikzpicture}
-\node[draw,opacity=0] at (0, 0) {x};
-\node[draw,opacity=0] at (14, 8) {x};
-
-	\node[anchor=west] (line1) at (1.0, 8.0) { \inputline{c}{1}{codes/sub4.c} };
-
-	\node[anchor=west] (line2) at (1.0, 7.62) { \inputline{c}{2}{codes/sub4.c} };
-
-	\node[anchor=west] (line3) at (1.0, 7.24) { \inputline{c}{3}{codes/sub4.c} };
-
-	\node[anchor=west] (line4) at (1.0, 6.86) { \inputline{c}{4}{codes/sub4.c} };
-
-	\node[anchor=west] (line5) at (1.0, 6.48) { \inputline{c}{5}{codes/sub4.c} };
-
-	\node[anchor=west] (line6) at (1.0, 6.1) { \inputline{c}{6}{codes/sub4.c} };
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-	\node[anchor=west] (line20) at (1.0, 0.76) { \inputline{c}{20}{codes/sub4.c} };
-
-	\node[anchor=west] (line21) at (1.0, 0.38) { \inputline{c}{21}{codes/sub4.c} };
-
-	\node[anchor=west] (line22) at (1.0, -0.0) { \inputline{c}{22}{codes/sub4.c} };
-
-
-
-
-\end{tikzpicture}
-\end{frame}
-\begin{frame}[plain,t]
-\begin{tikzpicture}
-\node[draw,opacity=0] at (0, 0) {x};
-\node[draw,opacity=0] at (14, 8) {x};
-
-	\node[anchor=west] (line1) at (1.0, 8.0) { \inputline{c}{1}{codes/sub4.c} };
-
-	\node[anchor=west] (line2) at (1.0, 7.62) { \inputline{c}{2}{codes/sub4.c} };
-
-	\node[anchor=west] (line3) at (1.0, 7.24) { \inputline{c}{3}{codes/sub4.c} };
-
-	\node[anchor=west] (line4) at (1.0, 6.86) { \inputline{c}{4}{codes/sub4.c} };
-
-	\node[anchor=west] (line5) at (1.0, 6.48) { \inputline{c}{5}{codes/sub4.c} };
-
-	\node[anchor=west] (line6) at (1.0, 6.1) { \inputline{c}{6}{codes/sub4.c} };
-
-
-	\node[anchor=west] (line8) at (1.0, 5.33) { \inputline{c}{8}{codes/sub4.c} };
-
-
-
-
-
-
-
-
-
-
-
-
-	\node[anchor=west] (line20) at (1.0, 0.76) { \inputline{c}{20}{codes/sub4.c} };
-
-	\node[anchor=west] (line21) at (1.0, 0.38) { \inputline{c}{21}{codes/sub4.c} };
-
-	\node[anchor=west] (line22) at (1.0, -0.0) { \inputline{c}{22}{codes/sub4.c} };
-
-
-
-
-
-
-\end{tikzpicture}
-\end{frame}
-\begin{frame}[plain,t]
-\begin{tikzpicture}
-\node[draw,opacity=0] at (0, 0) {x};
-\node[draw,opacity=0] at (14, 8) {x};
-
-	\node[anchor=west] (line1) at (1.0, 8.0) { \inputline{c}{1}{codes/sub4.c} };
-
-	\node[anchor=west] (line2) at (1.0, 7.62) { \inputline{c}{2}{codes/sub4.c} };
-
-	\node[anchor=west] (line3) at (1.0, 7.24) { \inputline{c}{3}{codes/sub4.c} };
-
-	\node[anchor=west] (line4) at (1.0, 6.86) { \inputline{c}{4}{codes/sub4.c} };
-
-	\node[anchor=west] (line5) at (1.0, 6.48) { \inputline{c}{5}{codes/sub4.c} };
-
-	\node[anchor=west] (line6) at (1.0, 6.1) { \inputline{c}{6}{codes/sub4.c} };
-
-
-	\node[anchor=west] (line8) at (1.0, 5.33) { \inputline{c}{8}{codes/sub4.c} };
-
-
-	\node[anchor=west] (line10) at (1.0, 4.57) { \inputline{c}{10}{codes/sub4.c} };
-
-	\node[anchor=west] (line11) at (1.0, 4.19) { \inputline{c}{11}{codes/sub4.c} };
-
-
-
-
-
-
-	\node[anchor=west] (line17) at (1.0, 1.9) { \inputline{c}{17}{codes/sub4.c} };
-
-
-
-	\node[anchor=west] (line20) at (1.0, 0.76) { \inputline{c}{20}{codes/sub4.c} };
-
-	\node[anchor=west] (line21) at (1.0, 0.38) { \inputline{c}{21}{codes/sub4.c} };
-
-	\node[anchor=west] (line22) at (1.0, -0.0) { \inputline{c}{22}{codes/sub4.c} };
-
-
-
-
-
-
-
-
-\end{tikzpicture}
-\end{frame}
-\begin{frame}[plain,t]
-\begin{tikzpicture}
-\node[draw,opacity=0] at (0, 0) {x};
-\node[draw,opacity=0] at (14, 8) {x};
-
-	\node[anchor=west] (line1) at (1.0, 8.0) { \inputline{c}{1}{codes/sub4.c} };
-
-	\node[anchor=west] (line2) at (1.0, 7.62) { \inputline{c}{2}{codes/sub4.c} };
-
-	\node[anchor=west] (line3) at (1.0, 7.24) { \inputline{c}{3}{codes/sub4.c} };
-
-	\node[anchor=west] (line4) at (1.0, 6.86) { \inputline{c}{4}{codes/sub4.c} };
-
-	\node[anchor=west] (line5) at (1.0, 6.48) { \inputline{c}{5}{codes/sub4.c} };
-
-	\node[anchor=west] (line6) at (1.0, 6.1) { \inputline{c}{6}{codes/sub4.c} };
-
-
-	\node[anchor=west] (line8) at (1.0, 5.33) { \inputline{c}{8}{codes/sub4.c} };
-
-
-	\node[anchor=west] (line10) at (1.0, 4.57) { \inputline{c}{10}{codes/sub4.c} };
-
-	\node[anchor=west] (line11) at (1.0, 4.19) { \inputline{c}{11}{codes/sub4.c} };
-
-	\node[anchor=west] (line12) at (1.0, 3.81) { \inputline{c}{12}{codes/sub4.c} };
-
-	\node[anchor=west] (line13) at (1.0, 3.43) { \inputline{c}{13}{codes/sub4.c} };
-
-
-
-
-	\node[anchor=west] (line17) at (1.0, 1.9) { \inputline{c}{17}{codes/sub4.c} };
-
-
-
-	\node[anchor=west] (line20) at (1.0, 0.76) { \inputline{c}{20}{codes/sub4.c} };
-
-	\node[anchor=west] (line21) at (1.0, 0.38) { \inputline{c}{21}{codes/sub4.c} };
-
-	\node[anchor=west] (line22) at (1.0, -0.0) { \inputline{c}{22}{codes/sub4.c} };
-
-
-
-
-
-
-
-
-
-\end{tikzpicture}
-\end{frame}
-\begin{frame}[plain,t]
-\begin{tikzpicture}
-\node[draw,opacity=0] at (0, 0) {x};
-\node[draw,opacity=0] at (14, 8) {x};
-
-	\node[anchor=west] (line1) at (1.0, 8.0) { \inputline{c}{1}{codes/sub4.c} };
-
-	\node[anchor=west] (line2) at (1.0, 7.62) { \inputline{c}{2}{codes/sub4.c} };
-
-	\node[anchor=west] (line3) at (1.0, 7.24) { \inputline{c}{3}{codes/sub4.c} };
-
-	\node[anchor=west] (line4) at (1.0, 6.86) { \inputline{c}{4}{codes/sub4.c} };
-
-	\node[anchor=west] (line5) at (1.0, 6.48) { \inputline{c}{5}{codes/sub4.c} };
-
-	\node[anchor=west] (line6) at (1.0, 6.1) { \inputline{c}{6}{codes/sub4.c} };
-
-
-	\node[anchor=west] (line8) at (1.0, 5.33) { \inputline{c}{8}{codes/sub4.c} };
-
-
-	\node[anchor=west] (line10) at (1.0, 4.57) { \inputline{c}{10}{codes/sub4.c} };
-
-	\node[anchor=west] (line11) at (1.0, 4.19) { \inputline{c}{11}{codes/sub4.c} };
-
-	\node[anchor=west] (line12) at (1.0, 3.81) { \inputline{c}{12}{codes/sub4.c} };
-
-	\node[anchor=west] (line13) at (1.0, 3.43) { \inputline{c}{13}{codes/sub4.c} };
-
-
-	\node[anchor=west] (line15) at (1.0, 2.67) { \inputline{c}{15}{codes/sub4.c} };
-
-	\node[anchor=west] (line16) at (1.0, 2.29) { \inputline{c}{16}{codes/sub4.c} };
-
-	\node[anchor=west] (line17) at (1.0, 1.9) { \inputline{c}{17}{codes/sub4.c} };
-
-
-
-	\node[anchor=west] (line20) at (1.0, 0.76) { \inputline{c}{20}{codes/sub4.c} };
-
-	\node[anchor=west] (line21) at (1.0, 0.38) { \inputline{c}{21}{codes/sub4.c} };
-
-	\node[anchor=west] (line22) at (1.0, -0.0) { \inputline{c}{22}{codes/sub4.c} };
-
-
-
-
-
-
-
-
-
-
-\end{tikzpicture}
-\end{frame}
-\begin{frame}[plain,t]
-\begin{tikzpicture}
-\node[draw,opacity=0] at (0, 0) {x};
-\node[draw,opacity=0] at (14, 8) {x};
-
-	\node[anchor=west] (line1) at (1.0, 8.0) { \inputline{c}{1}{codes/sub4.c} };
-
-	\node[anchor=west] (line2) at (1.0, 7.62) { \inputline{c}{2}{codes/sub4.c} };
-
-	\node[anchor=west] (line3) at (1.0, 7.24) { \inputline{c}{3}{codes/sub4.c} };
-
-	\node[anchor=west] (line4) at (1.0, 6.86) { \inputline{c}{4}{codes/sub4.c} };
-
-	\node[anchor=west] (line5) at (1.0, 6.48) { \inputline{c}{5}{codes/sub4.c} };
-
-	\node[anchor=west] (line6) at (1.0, 6.1) { \inputline{c}{6}{codes/sub4.c} };
-
-
-	\node[anchor=west] (line8) at (1.0, 5.33) { \inputline{c}{8}{codes/sub4.c} };
-
-
-	\node[anchor=west] (line10) at (1.0, 4.57) { \inputline{c}{10}{codes/sub4.c} };
-
-	\node[anchor=west] (line11) at (1.0, 4.19) { \inputline{c}{11}{codes/sub4.c} };
-
-	\node[anchor=west] (line12) at (1.0, 3.81) { \inputline{c}{12}{codes/sub4.c} };
-
-	\node[anchor=west] (line13) at (1.0, 3.43) { \inputline{c}{13}{codes/sub4.c} };
-
-
-	\node[anchor=west] (line15) at (1.0, 2.67) { \inputline{c}{15}{codes/sub4.c} };
-
-	\node[anchor=west] (line16) at (1.0, 2.29) { \inputline{c}{16}{codes/sub4.c} };
-
-	\node[anchor=west] (line17) at (1.0, 1.9) { \inputline{c}{17}{codes/sub4.c} };
-
-
-	\node[anchor=west] (line19) at (1.0, 1.14) { \inputline{c}{19}{codes/sub4.c} };
-
-	\node[anchor=west] (line20) at (1.0, 0.76) { \inputline{c}{20}{codes/sub4.c} };
-
-	\node[anchor=west] (line21) at (1.0, 0.38) { \inputline{c}{21}{codes/sub4.c} };
-
-	\node[anchor=west] (line22) at (1.0, -0.0) { \inputline{c}{22}{codes/sub4.c} };
-
-
-
-
-
-
-
-
-
-
-
-\end{tikzpicture}
-\end{frame}
-\begin{frame}[plain,t]
-\begin{tikzpicture}
-\node[draw,opacity=0] at (0, 0) {x};
-\node[draw,opacity=0] at (14, 8) {x};
-
 	\node[anchor=west] (title) at (0.0, 7.0) { \Large \bbbold{Solução: Subtarefa 3 ($K = 3$)} };
 
 \end{tikzpicture}
@@ -1701,520 +833,6 @@ de participantes e o número mínimo de candidatos que devem ser aprovados.}
 	\node[anchor=west] (e) at (1.0, 1.5) { $\star$ \bbtext{A cada iteração do laço, as variáveis $x, y$ e $z$ serão atualizadas para que representem } };
 
 	\node[anchor=west] (e1) at (0.5, 1.0) { \bbtext{a terceira, a segunda e a primeira melhor nota, respectivamente} };
-
-\end{tikzpicture}
-\end{frame}
-\begin{frame}[plain,t]
-\begin{tikzpicture}
-\node[draw,opacity=0] at (0, 0) {x};
-\node[draw,opacity=0] at (14, 8) {x};
-
-	\node[anchor=west] (line1) at (1.0, 8.0) { \inputline{c}{1}{codes/sub3.c} };
-
-	\node[anchor=west] (line2) at (1.0, 7.62) { \inputline{c}{2}{codes/sub3.c} };
-
-	\node[anchor=west] (line3) at (1.0, 7.24) { \inputline{c}{3}{codes/sub3.c} };
-
-	\node[anchor=west] (line4) at (1.0, 6.86) { \inputline{c}{4}{codes/sub3.c} };
-
-	\node[anchor=west] (line5) at (1.0, 6.48) { \inputline{c}{5}{codes/sub3.c} };
-
-	\node[anchor=west] (line6) at (1.0, 6.1) { \inputline{c}{6}{codes/sub3.c} };
-
-	\node[anchor=west] (line7) at (1.0, 5.71) { \inputline{c}{7}{codes/sub3.c} };
-
-
-	\node[anchor=west] (line9) at (1.0, 4.95) { \inputline{c}{9}{codes/sub3.c} };
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-	\node[anchor=west] (line29) at (8.0, 5.71) { \inputline{c}{29}{codes/sub3.c} };
-
-	\node[anchor=west] (line30) at (8.0, 5.33) { \inputline{c}{30}{codes/sub3.c} };
-
-	\node[anchor=west] (line31) at (8.0, 4.95) { \inputline{c}{31}{codes/sub3.c} };
-
-	\draw[color=gray,dashed] (7, 8) -- (7, 0) -- cycle;
-
-
-\end{tikzpicture}
-\end{frame}
-\begin{frame}[plain,t]
-\begin{tikzpicture}
-\node[draw,opacity=0] at (0, 0) {x};
-\node[draw,opacity=0] at (14, 8) {x};
-
-	\node[anchor=west] (line1) at (1.0, 8.0) { \inputline{c}{1}{codes/sub3.c} };
-
-	\node[anchor=west] (line2) at (1.0, 7.62) { \inputline{c}{2}{codes/sub3.c} };
-
-	\node[anchor=west] (line3) at (1.0, 7.24) { \inputline{c}{3}{codes/sub3.c} };
-
-	\node[anchor=west] (line4) at (1.0, 6.86) { \inputline{c}{4}{codes/sub3.c} };
-
-	\node[anchor=west] (line5) at (1.0, 6.48) { \inputline{c}{5}{codes/sub3.c} };
-
-	\node[anchor=west] (line6) at (1.0, 6.1) { \inputline{c}{6}{codes/sub3.c} };
-
-	\node[anchor=west] (line7) at (1.0, 5.71) { \inputline{c}{7}{codes/sub3.c} };
-
-	\node[anchor=west] (line8) at (1.0, 5.33) { \inputline{c}{8}{codes/sub3.c} };
-
-	\node[anchor=west] (line9) at (1.0, 4.95) { \inputline{c}{9}{codes/sub3.c} };
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-	\node[anchor=west] (line29) at (8.0, 5.71) { \inputline{c}{29}{codes/sub3.c} };
-
-	\node[anchor=west] (line30) at (8.0, 5.33) { \inputline{c}{30}{codes/sub3.c} };
-
-	\node[anchor=west] (line31) at (8.0, 4.95) { \inputline{c}{31}{codes/sub3.c} };
-
-	\draw[color=gray,dashed] (7, 8) -- (7, 0) -- cycle;
-
-
-
-\end{tikzpicture}
-\end{frame}
-\begin{frame}[plain,t]
-\begin{tikzpicture}
-\node[draw,opacity=0] at (0, 0) {x};
-\node[draw,opacity=0] at (14, 8) {x};
-
-	\node[anchor=west] (line1) at (1.0, 8.0) { \inputline{c}{1}{codes/sub3.c} };
-
-	\node[anchor=west] (line2) at (1.0, 7.62) { \inputline{c}{2}{codes/sub3.c} };
-
-	\node[anchor=west] (line3) at (1.0, 7.24) { \inputline{c}{3}{codes/sub3.c} };
-
-	\node[anchor=west] (line4) at (1.0, 6.86) { \inputline{c}{4}{codes/sub3.c} };
-
-	\node[anchor=west] (line5) at (1.0, 6.48) { \inputline{c}{5}{codes/sub3.c} };
-
-	\node[anchor=west] (line6) at (1.0, 6.1) { \inputline{c}{6}{codes/sub3.c} };
-
-	\node[anchor=west] (line7) at (1.0, 5.71) { \inputline{c}{7}{codes/sub3.c} };
-
-	\node[anchor=west] (line8) at (1.0, 5.33) { \inputline{c}{8}{codes/sub3.c} };
-
-	\node[anchor=west] (line9) at (1.0, 4.95) { \inputline{c}{9}{codes/sub3.c} };
-
-	\node[anchor=west] (line10) at (1.0, 4.57) { \inputline{c}{10}{codes/sub3.c} };
-
-	\node[anchor=west] (line11) at (1.0, 4.19) { \inputline{c}{11}{codes/sub3.c} };
-
-	\node[anchor=west] (line12) at (1.0, 3.81) { \inputline{c}{12}{codes/sub3.c} };
-
-	\node[anchor=west] (line13) at (1.0, 3.43) { \inputline{c}{13}{codes/sub3.c} };
-
-
-
-
-
-
-
-
-
-
-
-
-
-	\node[anchor=west] (line26) at (8.0, 6.86) { \inputline{c}{26}{codes/sub3.c} };
-
-
-
-	\node[anchor=west] (line29) at (8.0, 5.71) { \inputline{c}{29}{codes/sub3.c} };
-
-	\node[anchor=west] (line30) at (8.0, 5.33) { \inputline{c}{30}{codes/sub3.c} };
-
-	\node[anchor=west] (line31) at (8.0, 4.95) { \inputline{c}{31}{codes/sub3.c} };
-
-	\draw[color=gray,dashed] (7, 8) -- (7, 0) -- cycle;
-
-
-
-
-
-\end{tikzpicture}
-\end{frame}
-\begin{frame}[plain,t]
-\begin{tikzpicture}
-\node[draw,opacity=0] at (0, 0) {x};
-\node[draw,opacity=0] at (14, 8) {x};
-
-	\node[anchor=west] (line1) at (1.0, 8.0) { \inputline{c}{1}{codes/sub3.c} };
-
-	\node[anchor=west] (line2) at (1.0, 7.62) { \inputline{c}{2}{codes/sub3.c} };
-
-	\node[anchor=west] (line3) at (1.0, 7.24) { \inputline{c}{3}{codes/sub3.c} };
-
-	\node[anchor=west] (line4) at (1.0, 6.86) { \inputline{c}{4}{codes/sub3.c} };
-
-	\node[anchor=west] (line5) at (1.0, 6.48) { \inputline{c}{5}{codes/sub3.c} };
-
-	\node[anchor=west] (line6) at (1.0, 6.1) { \inputline{c}{6}{codes/sub3.c} };
-
-	\node[anchor=west] (line7) at (1.0, 5.71) { \inputline{c}{7}{codes/sub3.c} };
-
-	\node[anchor=west] (line8) at (1.0, 5.33) { \inputline{c}{8}{codes/sub3.c} };
-
-	\node[anchor=west] (line9) at (1.0, 4.95) { \inputline{c}{9}{codes/sub3.c} };
-
-	\node[anchor=west] (line10) at (1.0, 4.57) { \inputline{c}{10}{codes/sub3.c} };
-
-	\node[anchor=west] (line11) at (1.0, 4.19) { \inputline{c}{11}{codes/sub3.c} };
-
-	\node[anchor=west] (line12) at (1.0, 3.81) { \inputline{c}{12}{codes/sub3.c} };
-
-	\node[anchor=west] (line13) at (1.0, 3.43) { \inputline{c}{13}{codes/sub3.c} };
-
-
-	\node[anchor=west] (line15) at (1.0, 2.67) { \inputline{c}{15}{codes/sub3.c} };
-
-
-
-
-
-
-
-
-
-
-
-	\node[anchor=west] (line26) at (8.0, 6.86) { \inputline{c}{26}{codes/sub3.c} };
-
-
-
-	\node[anchor=west] (line29) at (8.0, 5.71) { \inputline{c}{29}{codes/sub3.c} };
-
-	\node[anchor=west] (line30) at (8.0, 5.33) { \inputline{c}{30}{codes/sub3.c} };
-
-	\node[anchor=west] (line31) at (8.0, 4.95) { \inputline{c}{31}{codes/sub3.c} };
-
-	\draw[color=gray,dashed] (7, 8) -- (7, 0) -- cycle;
-
-
-
-
-
-
-\end{tikzpicture}
-\end{frame}
-\begin{frame}[plain,t]
-\begin{tikzpicture}
-\node[draw,opacity=0] at (0, 0) {x};
-\node[draw,opacity=0] at (14, 8) {x};
-
-	\node[anchor=west] (line1) at (1.0, 8.0) { \inputline{c}{1}{codes/sub3.c} };
-
-	\node[anchor=west] (line2) at (1.0, 7.62) { \inputline{c}{2}{codes/sub3.c} };
-
-	\node[anchor=west] (line3) at (1.0, 7.24) { \inputline{c}{3}{codes/sub3.c} };
-
-	\node[anchor=west] (line4) at (1.0, 6.86) { \inputline{c}{4}{codes/sub3.c} };
-
-	\node[anchor=west] (line5) at (1.0, 6.48) { \inputline{c}{5}{codes/sub3.c} };
-
-	\node[anchor=west] (line6) at (1.0, 6.1) { \inputline{c}{6}{codes/sub3.c} };
-
-	\node[anchor=west] (line7) at (1.0, 5.71) { \inputline{c}{7}{codes/sub3.c} };
-
-	\node[anchor=west] (line8) at (1.0, 5.33) { \inputline{c}{8}{codes/sub3.c} };
-
-	\node[anchor=west] (line9) at (1.0, 4.95) { \inputline{c}{9}{codes/sub3.c} };
-
-	\node[anchor=west] (line10) at (1.0, 4.57) { \inputline{c}{10}{codes/sub3.c} };
-
-	\node[anchor=west] (line11) at (1.0, 4.19) { \inputline{c}{11}{codes/sub3.c} };
-
-	\node[anchor=west] (line12) at (1.0, 3.81) { \inputline{c}{12}{codes/sub3.c} };
-
-	\node[anchor=west] (line13) at (1.0, 3.43) { \inputline{c}{13}{codes/sub3.c} };
-
-
-	\node[anchor=west] (line15) at (1.0, 2.67) { \inputline{c}{15}{codes/sub3.c} };
-
-
-	\node[anchor=west] (line17) at (1.0, 1.9) { \inputline{c}{17}{codes/sub3.c} };
-
-	\node[anchor=west] (line18) at (1.0, 1.52) { \inputline{c}{18}{codes/sub3.c} };
-
-
-
-
-
-
-
-
-	\node[anchor=west] (line26) at (8.0, 6.86) { \inputline{c}{26}{codes/sub3.c} };
-
-
-
-	\node[anchor=west] (line29) at (8.0, 5.71) { \inputline{c}{29}{codes/sub3.c} };
-
-	\node[anchor=west] (line30) at (8.0, 5.33) { \inputline{c}{30}{codes/sub3.c} };
-
-	\node[anchor=west] (line31) at (8.0, 4.95) { \inputline{c}{31}{codes/sub3.c} };
-
-	\draw[color=gray,dashed] (7, 8) -- (7, 0) -- cycle;
-
-
-
-
-
-
-
-\end{tikzpicture}
-\end{frame}
-\begin{frame}[plain,t]
-\begin{tikzpicture}
-\node[draw,opacity=0] at (0, 0) {x};
-\node[draw,opacity=0] at (14, 8) {x};
-
-	\node[anchor=west] (line1) at (1.0, 8.0) { \inputline{c}{1}{codes/sub3.c} };
-
-	\node[anchor=west] (line2) at (1.0, 7.62) { \inputline{c}{2}{codes/sub3.c} };
-
-	\node[anchor=west] (line3) at (1.0, 7.24) { \inputline{c}{3}{codes/sub3.c} };
-
-	\node[anchor=west] (line4) at (1.0, 6.86) { \inputline{c}{4}{codes/sub3.c} };
-
-	\node[anchor=west] (line5) at (1.0, 6.48) { \inputline{c}{5}{codes/sub3.c} };
-
-	\node[anchor=west] (line6) at (1.0, 6.1) { \inputline{c}{6}{codes/sub3.c} };
-
-	\node[anchor=west] (line7) at (1.0, 5.71) { \inputline{c}{7}{codes/sub3.c} };
-
-	\node[anchor=west] (line8) at (1.0, 5.33) { \inputline{c}{8}{codes/sub3.c} };
-
-	\node[anchor=west] (line9) at (1.0, 4.95) { \inputline{c}{9}{codes/sub3.c} };
-
-	\node[anchor=west] (line10) at (1.0, 4.57) { \inputline{c}{10}{codes/sub3.c} };
-
-	\node[anchor=west] (line11) at (1.0, 4.19) { \inputline{c}{11}{codes/sub3.c} };
-
-	\node[anchor=west] (line12) at (1.0, 3.81) { \inputline{c}{12}{codes/sub3.c} };
-
-	\node[anchor=west] (line13) at (1.0, 3.43) { \inputline{c}{13}{codes/sub3.c} };
-
-
-	\node[anchor=west] (line15) at (1.0, 2.67) { \inputline{c}{15}{codes/sub3.c} };
-
-
-	\node[anchor=west] (line17) at (1.0, 1.9) { \inputline{c}{17}{codes/sub3.c} };
-
-	\node[anchor=west] (line18) at (1.0, 1.52) { \inputline{c}{18}{codes/sub3.c} };
-
-
-	\node[anchor=west] (line20) at (1.0, 0.76) { \inputline{c}{20}{codes/sub3.c} };
-
-	\node[anchor=west] (line21) at (1.0, 0.38) { \inputline{c}{21}{codes/sub3.c} };
-
-	\node[anchor=west] (line22) at (1.0, -0.0) { \inputline{c}{22}{codes/sub3.c} };
-
-
-
-
-	\node[anchor=west] (line26) at (8.0, 6.86) { \inputline{c}{26}{codes/sub3.c} };
-
-
-
-	\node[anchor=west] (line29) at (8.0, 5.71) { \inputline{c}{29}{codes/sub3.c} };
-
-	\node[anchor=west] (line30) at (8.0, 5.33) { \inputline{c}{30}{codes/sub3.c} };
-
-	\node[anchor=west] (line31) at (8.0, 4.95) { \inputline{c}{31}{codes/sub3.c} };
-
-	\draw[color=gray,dashed] (7, 8) -- (7, 0) -- cycle;
-
-
-
-
-
-
-
-
-\end{tikzpicture}
-\end{frame}
-\begin{frame}[plain,t]
-\begin{tikzpicture}
-\node[draw,opacity=0] at (0, 0) {x};
-\node[draw,opacity=0] at (14, 8) {x};
-
-	\node[anchor=west] (line1) at (1.0, 8.0) { \inputline{c}{1}{codes/sub3.c} };
-
-	\node[anchor=west] (line2) at (1.0, 7.62) { \inputline{c}{2}{codes/sub3.c} };
-
-	\node[anchor=west] (line3) at (1.0, 7.24) { \inputline{c}{3}{codes/sub3.c} };
-
-	\node[anchor=west] (line4) at (1.0, 6.86) { \inputline{c}{4}{codes/sub3.c} };
-
-	\node[anchor=west] (line5) at (1.0, 6.48) { \inputline{c}{5}{codes/sub3.c} };
-
-	\node[anchor=west] (line6) at (1.0, 6.1) { \inputline{c}{6}{codes/sub3.c} };
-
-	\node[anchor=west] (line7) at (1.0, 5.71) { \inputline{c}{7}{codes/sub3.c} };
-
-	\node[anchor=west] (line8) at (1.0, 5.33) { \inputline{c}{8}{codes/sub3.c} };
-
-	\node[anchor=west] (line9) at (1.0, 4.95) { \inputline{c}{9}{codes/sub3.c} };
-
-	\node[anchor=west] (line10) at (1.0, 4.57) { \inputline{c}{10}{codes/sub3.c} };
-
-	\node[anchor=west] (line11) at (1.0, 4.19) { \inputline{c}{11}{codes/sub3.c} };
-
-	\node[anchor=west] (line12) at (1.0, 3.81) { \inputline{c}{12}{codes/sub3.c} };
-
-	\node[anchor=west] (line13) at (1.0, 3.43) { \inputline{c}{13}{codes/sub3.c} };
-
-
-	\node[anchor=west] (line15) at (1.0, 2.67) { \inputline{c}{15}{codes/sub3.c} };
-
-
-	\node[anchor=west] (line17) at (1.0, 1.9) { \inputline{c}{17}{codes/sub3.c} };
-
-	\node[anchor=west] (line18) at (1.0, 1.52) { \inputline{c}{18}{codes/sub3.c} };
-
-
-	\node[anchor=west] (line20) at (1.0, 0.76) { \inputline{c}{20}{codes/sub3.c} };
-
-	\node[anchor=west] (line21) at (1.0, 0.38) { \inputline{c}{21}{codes/sub3.c} };
-
-	\node[anchor=west] (line22) at (1.0, -0.0) { \inputline{c}{22}{codes/sub3.c} };
-
-
-	\node[anchor=west] (line24) at (8.0, 7.62) { \inputline{c}{24}{codes/sub3.c} };
-
-	\node[anchor=west] (line25) at (8.0, 7.24) { \inputline{c}{25}{codes/sub3.c} };
-
-	\node[anchor=west] (line26) at (8.0, 6.86) { \inputline{c}{26}{codes/sub3.c} };
-
-
-
-	\node[anchor=west] (line29) at (8.0, 5.71) { \inputline{c}{29}{codes/sub3.c} };
-
-	\node[anchor=west] (line30) at (8.0, 5.33) { \inputline{c}{30}{codes/sub3.c} };
-
-	\node[anchor=west] (line31) at (8.0, 4.95) { \inputline{c}{31}{codes/sub3.c} };
-
-	\draw[color=gray,dashed] (7, 8) -- (7, 0) -- cycle;
-
-
-
-
-
-
-
-
-
-\end{tikzpicture}
-\end{frame}
-\begin{frame}[plain,t]
-\begin{tikzpicture}
-\node[draw,opacity=0] at (0, 0) {x};
-\node[draw,opacity=0] at (14, 8) {x};
-
-	\node[anchor=west] (line1) at (1.0, 8.0) { \inputline{c}{1}{codes/sub3.c} };
-
-	\node[anchor=west] (line2) at (1.0, 7.62) { \inputline{c}{2}{codes/sub3.c} };
-
-	\node[anchor=west] (line3) at (1.0, 7.24) { \inputline{c}{3}{codes/sub3.c} };
-
-	\node[anchor=west] (line4) at (1.0, 6.86) { \inputline{c}{4}{codes/sub3.c} };
-
-	\node[anchor=west] (line5) at (1.0, 6.48) { \inputline{c}{5}{codes/sub3.c} };
-
-	\node[anchor=west] (line6) at (1.0, 6.1) { \inputline{c}{6}{codes/sub3.c} };
-
-	\node[anchor=west] (line7) at (1.0, 5.71) { \inputline{c}{7}{codes/sub3.c} };
-
-	\node[anchor=west] (line8) at (1.0, 5.33) { \inputline{c}{8}{codes/sub3.c} };
-
-	\node[anchor=west] (line9) at (1.0, 4.95) { \inputline{c}{9}{codes/sub3.c} };
-
-	\node[anchor=west] (line10) at (1.0, 4.57) { \inputline{c}{10}{codes/sub3.c} };
-
-	\node[anchor=west] (line11) at (1.0, 4.19) { \inputline{c}{11}{codes/sub3.c} };
-
-	\node[anchor=west] (line12) at (1.0, 3.81) { \inputline{c}{12}{codes/sub3.c} };
-
-	\node[anchor=west] (line13) at (1.0, 3.43) { \inputline{c}{13}{codes/sub3.c} };
-
-
-	\node[anchor=west] (line15) at (1.0, 2.67) { \inputline{c}{15}{codes/sub3.c} };
-
-
-	\node[anchor=west] (line17) at (1.0, 1.9) { \inputline{c}{17}{codes/sub3.c} };
-
-	\node[anchor=west] (line18) at (1.0, 1.52) { \inputline{c}{18}{codes/sub3.c} };
-
-
-	\node[anchor=west] (line20) at (1.0, 0.76) { \inputline{c}{20}{codes/sub3.c} };
-
-	\node[anchor=west] (line21) at (1.0, 0.38) { \inputline{c}{21}{codes/sub3.c} };
-
-	\node[anchor=west] (line22) at (1.0, -0.0) { \inputline{c}{22}{codes/sub3.c} };
-
-
-	\node[anchor=west] (line24) at (8.0, 7.62) { \inputline{c}{24}{codes/sub3.c} };
-
-	\node[anchor=west] (line25) at (8.0, 7.24) { \inputline{c}{25}{codes/sub3.c} };
-
-	\node[anchor=west] (line26) at (8.0, 6.86) { \inputline{c}{26}{codes/sub3.c} };
-
-
-	\node[anchor=west] (line28) at (8.0, 6.1) { \inputline{c}{28}{codes/sub3.c} };
-
-	\node[anchor=west] (line29) at (8.0, 5.71) { \inputline{c}{29}{codes/sub3.c} };
-
-	\node[anchor=west] (line30) at (8.0, 5.33) { \inputline{c}{30}{codes/sub3.c} };
-
-	\node[anchor=west] (line31) at (8.0, 4.95) { \inputline{c}{31}{codes/sub3.c} };
-
-	\draw[color=gray,dashed] (7, 8) -- (7, 0) -- cycle;
-
-
-
-
-
-
-
-
-
 
 \end{tikzpicture}
 \end{frame}
@@ -3127,254 +1745,6 @@ de participantes e o número mínimo de candidatos que devem ser aprovados.}
 
 
 	\node[anchor=west] (e) at (1.0, 1.5) { $\star$ \bbtext{Este solução tem complexidade $O(N\log N)$} };
-
-\end{tikzpicture}
-\end{frame}
-\begin{frame}[plain,t]
-\begin{tikzpicture}
-\node[draw,opacity=0] at (0, 0) {x};
-\node[draw,opacity=0] at (14, 8) {x};
-
-	\node[anchor=west] (line1) at (1.0, 8.0) { \inputline{c}{1}{codes/solution.cpp} };
-
-
-	\node[anchor=west] (line3) at (1.0, 7.11) { \inputline{c}{3}{codes/solution.cpp} };
-
-	\node[anchor=west] (line4) at (1.0, 6.67) { \inputline{c}{4}{codes/solution.cpp} };
-
-	\node[anchor=west] (line5) at (1.0, 6.22) { \inputline{c}{5}{codes/solution.cpp} };
-
-
-
-
-
-
-
-
-
-
-
-
-	\node[anchor=west] (line17) at (1.0, 0.89) { \inputline{c}{17}{codes/solution.cpp} };
-
-	\node[anchor=west] (line18) at (1.0, 0.44) { \inputline{c}{18}{codes/solution.cpp} };
-
-	\node[anchor=west] (line19) at (1.0, -0.0) { \inputline{c}{19}{codes/solution.cpp} };
-
-
-\end{tikzpicture}
-\end{frame}
-\begin{frame}[plain,t]
-\begin{tikzpicture}
-\node[draw,opacity=0] at (0, 0) {x};
-\node[draw,opacity=0] at (14, 8) {x};
-
-	\node[anchor=west] (line1) at (1.0, 8.0) { \inputline{c}{1}{codes/solution.cpp} };
-
-
-	\node[anchor=west] (line3) at (1.0, 7.11) { \inputline{c}{3}{codes/solution.cpp} };
-
-	\node[anchor=west] (line4) at (1.0, 6.67) { \inputline{c}{4}{codes/solution.cpp} };
-
-	\node[anchor=west] (line5) at (1.0, 6.22) { \inputline{c}{5}{codes/solution.cpp} };
-
-	\node[anchor=west] (line6) at (1.0, 5.78) { \inputline{c}{6}{codes/solution.cpp} };
-
-	\node[anchor=west] (line7) at (1.0, 5.33) { \inputline{c}{7}{codes/solution.cpp} };
-
-
-
-
-
-
-
-
-
-
-	\node[anchor=west] (line17) at (1.0, 0.89) { \inputline{c}{17}{codes/solution.cpp} };
-
-	\node[anchor=west] (line18) at (1.0, 0.44) { \inputline{c}{18}{codes/solution.cpp} };
-
-	\node[anchor=west] (line19) at (1.0, -0.0) { \inputline{c}{19}{codes/solution.cpp} };
-
-
-
-\end{tikzpicture}
-\end{frame}
-\begin{frame}[plain,t]
-\begin{tikzpicture}
-\node[draw,opacity=0] at (0, 0) {x};
-\node[draw,opacity=0] at (14, 8) {x};
-
-	\node[anchor=west] (line1) at (1.0, 8.0) { \inputline{c}{1}{codes/solution.cpp} };
-
-
-	\node[anchor=west] (line3) at (1.0, 7.11) { \inputline{c}{3}{codes/solution.cpp} };
-
-	\node[anchor=west] (line4) at (1.0, 6.67) { \inputline{c}{4}{codes/solution.cpp} };
-
-	\node[anchor=west] (line5) at (1.0, 6.22) { \inputline{c}{5}{codes/solution.cpp} };
-
-	\node[anchor=west] (line6) at (1.0, 5.78) { \inputline{c}{6}{codes/solution.cpp} };
-
-	\node[anchor=west] (line7) at (1.0, 5.33) { \inputline{c}{7}{codes/solution.cpp} };
-
-
-	\node[anchor=west] (line9) at (1.0, 4.44) { \inputline{c}{9}{codes/solution.cpp} };
-
-
-	\node[anchor=west] (line11) at (1.0, 3.56) { \inputline{c}{11}{codes/solution.cpp} };
-
-	\node[anchor=west] (line12) at (1.0, 3.11) { \inputline{c}{12}{codes/solution.cpp} };
-
-
-
-
-
-	\node[anchor=west] (line17) at (1.0, 0.89) { \inputline{c}{17}{codes/solution.cpp} };
-
-	\node[anchor=west] (line18) at (1.0, 0.44) { \inputline{c}{18}{codes/solution.cpp} };
-
-	\node[anchor=west] (line19) at (1.0, -0.0) { \inputline{c}{19}{codes/solution.cpp} };
-
-
-
-
-\end{tikzpicture}
-\end{frame}
-\begin{frame}[plain,t]
-\begin{tikzpicture}
-\node[draw,opacity=0] at (0, 0) {x};
-\node[draw,opacity=0] at (14, 8) {x};
-
-	\node[anchor=west] (line1) at (1.0, 8.0) { \inputline{c}{1}{codes/solution.cpp} };
-
-
-	\node[anchor=west] (line3) at (1.0, 7.11) { \inputline{c}{3}{codes/solution.cpp} };
-
-	\node[anchor=west] (line4) at (1.0, 6.67) { \inputline{c}{4}{codes/solution.cpp} };
-
-	\node[anchor=west] (line5) at (1.0, 6.22) { \inputline{c}{5}{codes/solution.cpp} };
-
-	\node[anchor=west] (line6) at (1.0, 5.78) { \inputline{c}{6}{codes/solution.cpp} };
-
-	\node[anchor=west] (line7) at (1.0, 5.33) { \inputline{c}{7}{codes/solution.cpp} };
-
-
-	\node[anchor=west] (line9) at (1.0, 4.44) { \inputline{c}{9}{codes/solution.cpp} };
-
-
-	\node[anchor=west] (line11) at (1.0, 3.56) { \inputline{c}{11}{codes/solution.cpp} };
-
-	\node[anchor=west] (line12) at (1.0, 3.11) { \inputline{c}{12}{codes/solution.cpp} };
-
-
-	\node[anchor=west] (line14) at (1.0, 2.22) { \inputline{c}{14}{codes/solution.cpp} };
-
-
-
-	\node[anchor=west] (line17) at (1.0, 0.89) { \inputline{c}{17}{codes/solution.cpp} };
-
-	\node[anchor=west] (line18) at (1.0, 0.44) { \inputline{c}{18}{codes/solution.cpp} };
-
-	\node[anchor=west] (line19) at (1.0, -0.0) { \inputline{c}{19}{codes/solution.cpp} };
-
-
-
-
-
-\end{tikzpicture}
-\end{frame}
-\begin{frame}[plain,t]
-\begin{tikzpicture}
-\node[draw,opacity=0] at (0, 0) {x};
-\node[draw,opacity=0] at (14, 8) {x};
-
-	\node[anchor=west] (line1) at (1.0, 8.0) { \inputline{c}{1}{codes/solution.cpp} };
-
-	\node[anchor=west] (line2) at (1.0, 7.56) { \inputline{c}{2}{codes/solution.cpp} };
-
-	\node[anchor=west] (line3) at (1.0, 7.11) { \inputline{c}{3}{codes/solution.cpp} };
-
-	\node[anchor=west] (line4) at (1.0, 6.67) { \inputline{c}{4}{codes/solution.cpp} };
-
-	\node[anchor=west] (line5) at (1.0, 6.22) { \inputline{c}{5}{codes/solution.cpp} };
-
-	\node[anchor=west] (line6) at (1.0, 5.78) { \inputline{c}{6}{codes/solution.cpp} };
-
-	\node[anchor=west] (line7) at (1.0, 5.33) { \inputline{c}{7}{codes/solution.cpp} };
-
-
-	\node[anchor=west] (line9) at (1.0, 4.44) { \inputline{c}{9}{codes/solution.cpp} };
-
-
-	\node[anchor=west] (line11) at (1.0, 3.56) { \inputline{c}{11}{codes/solution.cpp} };
-
-	\node[anchor=west] (line12) at (1.0, 3.11) { \inputline{c}{12}{codes/solution.cpp} };
-
-
-	\node[anchor=west] (line14) at (1.0, 2.22) { \inputline{c}{14}{codes/solution.cpp} };
-
-
-
-	\node[anchor=west] (line17) at (1.0, 0.89) { \inputline{c}{17}{codes/solution.cpp} };
-
-	\node[anchor=west] (line18) at (1.0, 0.44) { \inputline{c}{18}{codes/solution.cpp} };
-
-	\node[anchor=west] (line19) at (1.0, -0.0) { \inputline{c}{19}{codes/solution.cpp} };
-
-
-
-
-
-
-\end{tikzpicture}
-\end{frame}
-\begin{frame}[plain,t]
-\begin{tikzpicture}
-\node[draw,opacity=0] at (0, 0) {x};
-\node[draw,opacity=0] at (14, 8) {x};
-
-	\node[anchor=west] (line1) at (1.0, 8.0) { \inputline{c}{1}{codes/solution.cpp} };
-
-	\node[anchor=west] (line2) at (1.0, 7.56) { \inputline{c}{2}{codes/solution.cpp} };
-
-	\node[anchor=west] (line3) at (1.0, 7.11) { \inputline{c}{3}{codes/solution.cpp} };
-
-	\node[anchor=west] (line4) at (1.0, 6.67) { \inputline{c}{4}{codes/solution.cpp} };
-
-	\node[anchor=west] (line5) at (1.0, 6.22) { \inputline{c}{5}{codes/solution.cpp} };
-
-	\node[anchor=west] (line6) at (1.0, 5.78) { \inputline{c}{6}{codes/solution.cpp} };
-
-	\node[anchor=west] (line7) at (1.0, 5.33) { \inputline{c}{7}{codes/solution.cpp} };
-
-
-	\node[anchor=west] (line9) at (1.0, 4.44) { \inputline{c}{9}{codes/solution.cpp} };
-
-
-	\node[anchor=west] (line11) at (1.0, 3.56) { \inputline{c}{11}{codes/solution.cpp} };
-
-	\node[anchor=west] (line12) at (1.0, 3.11) { \inputline{c}{12}{codes/solution.cpp} };
-
-
-	\node[anchor=west] (line14) at (1.0, 2.22) { \inputline{c}{14}{codes/solution.cpp} };
-
-
-	\node[anchor=west] (line16) at (1.0, 1.33) { \inputline{c}{16}{codes/solution.cpp} };
-
-	\node[anchor=west] (line17) at (1.0, 0.89) { \inputline{c}{17}{codes/solution.cpp} };
-
-	\node[anchor=west] (line18) at (1.0, 0.44) { \inputline{c}{18}{codes/solution.cpp} };
-
-	\node[anchor=west] (line19) at (1.0, -0.0) { \inputline{c}{19}{codes/solution.cpp} };
-
-
-
-
-
-
-
 
 \end{tikzpicture}
 \end{frame}
