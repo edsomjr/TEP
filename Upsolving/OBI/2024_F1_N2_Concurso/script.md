@@ -737,7 +737,7 @@ a => Node
 b => Node
     @b.x = 1
     @b.y = 5
-    @b.text = $\star$ \bbtext{Na Subtarefa 1 a resposta era a nota do primeiro classificado}
+    @b.text = $\star$ \bbtext{Na Subtarefa 2 a resposta era a nota do primeiro classificado}
     @b.anchor = west
 
 ---
