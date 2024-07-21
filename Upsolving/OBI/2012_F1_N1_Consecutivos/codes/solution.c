@@ -5,23 +5,24 @@ int main()
     int N;
     scanf("%d", &N);
 
-    int V[N];
+    int anterior;
+    scanf("%d", &anterior);
 
-    for (int i = 0; i < N; ++i)
-        scanf("%d", &V[i]);
-
-    int v = V[0], consecutivos = 1, resposta = 1;
+    int consecutivos = 1, resposta = 1;
 
     for (int i = 1; i < N; ++i)
     {
-        if (V[i] == v)
+        int proximo;
+        scanf("%d", &proximo);
+
+        if (proximo == anterior)
             ++consecutivos;
         else
         {
             if (consecutivos > resposta)
                 resposta = consecutivos;
 
-            v = V[i];
+            anterior = proximo;
             consecutivos = 1;
         }
     }
