@@ -89,7 +89,7 @@ r => Node
 line2 => Node
     @line2.x = 1
     @line2.y = 5.5
-    @line2.text = \bbtext{\texttt{30 30 30 40 40 40 40 40 30 30 30}}
+    @line2.text = \bbtext{\texttt{30 30 30 30 40 40 40 40 40 30 30}}
     @line2.anchor = west
 
 ---
@@ -138,7 +138,7 @@ node3 => Node
 node4 => Node
     @node4.x = 5
     @node4.y = 3
-    @node4.text = \bbtext{\texttt{40}}
+    @node4.text = \bbtext{\texttt{30}}
     &node4.draw
     &node4.very thick
     &node4.circle
@@ -178,7 +178,7 @@ node8 => Node
 node9 => Node
     @node9.x = 10
     @node9.y = 3
-    @node9.text = \bbtext{\texttt{30}}
+    @node9.text = \bbtext{\texttt{40}}
     &node9.draw
     &node9.very thick
     &node9.circle
@@ -204,18 +204,20 @@ node11 => Node
     @node1.fill = BBGreen
     @node2.fill = BBGreen
     @node3.fill = BBGreen
+    @node4.fill = BBGreen
 
 ---
 
     @node1.fill = BBWhite
     @node2.fill = BBWhite
     @node3.fill = BBWhite
+    @node4.fill = BBWhite
 
-    @node4.fill = BBCyan
     @node5.fill = BBCyan
     @node6.fill = BBCyan
     @node7.fill = BBCyan
     @node8.fill = BBCyan
+    @node9.fill = BBCyan
 
 ---
 
@@ -224,10 +226,10 @@ node11 => Node
     @node6.fill = BBWhite
     @node7.fill = BBWhite
     @node8.fill = BBWhite
+    @node9.fill = BBWhite
 
-    @node9.fill = BBGreen
-    @node10.fill = BBGreen
-    @node11.fill = BBGreen
+    @node10.fill = BBOrange
+    @node11.fill = BBOrange
 
 ---
 
@@ -520,7 +522,7 @@ line35 => Node
 
 line36 => Node
 	@line36.x = 8
-	@line36.y = 3.05
+	@line36.y = 2.67
 	@line36.text = \inputline{c}{36}{codes/solution.c}
 	@line36.anchor = west
 
@@ -653,13 +655,13 @@ c1 => Node
 d => Node
     @d.x = 1
     @d.y = 2.25
-    @d.text = $\star$ \bbtext{Como ambas variável apenas avançam, sem retroceder, a eficiência é mesma}
+    @d.text = $\star$ \bbtext{Como ambas variáveis apontam para cada elemento no máximo uma única vez, }
     @d.anchor = west
 
 d1 => Node
     @d1.x = 0.5
     @d1.y = 1.5
-    @d1.text = \bbtext{da solução anterior}
+    @d1.text = \bbtext{a eficiência é a mesma da solução anterior}
     @d1.anchor = west
 
 ---
