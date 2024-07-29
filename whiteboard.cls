@@ -81,9 +81,12 @@
 \newcommand{\code}[2]{\mintinline{#1}{#2}}
 \newcommand{\inputcode}[2]{\begin{mdframed}[shadow=true,shadowsize=3pt,shadowcolor=gray]\inputminted[fontsize=\footnotesize,linenos,numbersep=4pt]{#1}{#2}\end{mdframed}}
 
+\newcommand{\inputsmallcode}[2]{\begin{mdframed}[shadow=true,shadowsize=3pt,shadowcolor=gray]\inputminted[fontsize=\scriptsize,linenos,numbersep=4pt]{#1}{#2}\end{mdframed}}
+
 \newcommand{\inputsnippet}[4]{\begin{mdframed}[shadow=true,shadowsize=3pt,shadowcolor=gray]\inputminted[fontsize=\footnotesize,linenos,firstline=#2,lastline=#3,numbersep=2pt]{#1}{#4}\end{mdframed}}
 
 \newcommand{\inputline}[3]{\inputminted[fontsize=\footnotesize,firstline=#2,lastline=#2]{#1}{#3}}
+\newcommand{\inputsmallline}[3]{\inputminted[fontsize=\scriptsize,firstline=#2,lastline=#2]{#1}{#3}}
 
 \newcommand{\inputsyntax}[2]{\inputminted[fontsize=\footnotesize]{#1}{#2}}
 

@@ -45,8 +45,10 @@
 
 \vspace{0.2in}
 
-\bbtext{A primeira linha da entrada contém um inteiro $N$, o número de valores sorteados. A segunda linha contém $N$
-valores, $V_1, V_2, \ldots, V_N$, na ordem de sorteio, separados por um espaço em branco.}
+\bbtext{A entrada contém um único conjunto de testes, que deve ser lido do \textit{dispositivo de entrada padrão} (normalmente
+o teclado). A entrada é composta de apenas uma linha, contendo o número de telefone que deve ser traduzido.
+O número de telefone contém entre 1 e 15 caracteres, que podem ser dígitos e `\texttt{0}' a `\texttt{9}', letras de `\texttt{A}' a `\texttt{Y}' e hífens
+(`\texttt{-}').}
 
 \vspace{0.2in}
 
@@ -54,20 +56,9 @@ valores, $V_1, V_2, \ldots, V_N$, na ordem de sorteio, separados por um espaço 
 
 \vspace{0.2in}
 
-\bbtext{Seu programa deve imprimir apenas uma linha, contendo apenas um inteiro, indicando o número de pontos do
-participante.}
+\bbtext{Seu programa deve imprimir, na saída padrão, uma única linha, contendo o número de telefone com as letras
+convertidas para dígitos. Hífens no número telefone devem ser mantidos no número de telefone de saída.}
 
-\vspace{0.2in}
-
-\bbbold{Restrições}
-\vspace{-0.1in}
-
-\bbtext{
-\begin{itemize}
-\item $1\leq N\leq 10^4$
-\item $-2^{31}\leq V_i\leq 2^{31} - 1$\bbtext{, para} $i = 1, 2, \ldots, N$
-\end{itemize}
-}
 \vspace*{\fill}
 \end{frame}
 \begin{frame}[plain,t]
@@ -87,7 +78,7 @@ participante.}
 	\node[anchor=west] (header) at (0, 7.0) { \bbbold{Exemplo de entrada e saída} };
 
 
-	\node[anchor=west] (line1) at (1.0, 6.0) { \bbtext{\texttt{11} } };
+	\node[anchor=west] (line1) at (1.0, 6.0) { \bbtext{\texttt{M1S-TU-R4} } };
 
 \end{tikzpicture}
 \end{frame}
@@ -99,30 +90,12 @@ participante.}
 	\node[anchor=west] (header) at (0, 7.0) { \bbbold{Exemplo de entrada e saída} };
 
 
-	\node[anchor=west] (line1) at (1.0, 6.0) { \bbtext{\texttt{11} } };
+	\node[anchor=west] (line1) at (1.0, 6.0) { \bbtext{\texttt{M1S-TU-R4} } };
 
 
-	\draw[->,color=BBViolet] (1.35, 5.0) to  (1.35, 5.75);
+	\draw[->,color=BBViolet] (2.15, 5.0) to  (2.15, 5.75);
 
-	\node[anchor=west] (r) at (0.5, 4.75) { \footnotesize \bbcomment{\# de valores sorteados} };
-
-\end{tikzpicture}
-\end{frame}
-\begin{frame}[plain,t]
-\begin{tikzpicture}
-\node[draw,opacity=0] at (0, 0) {x};
-\node[draw,opacity=0] at (14, 8) {x};
-
-	\node[anchor=west] (header) at (0, 7.0) { \bbbold{Exemplo de entrada e saída} };
-
-
-	\node[anchor=west] (line1) at (1.0, 6.0) { \bbtext{\texttt{11} } };
-
-
-
-
-
-	\node[anchor=west] (line2) at (1.0, 5.5) { \bbtext{\texttt{30 30 30 30 40 40 40 40 40 30 30}} };
+	\node[] (r) at (2.75, 4.75) { \footnotesize \bbcomment{Telefone com letras, números e hífens} };
 
 \end{tikzpicture}
 \end{frame}
@@ -134,19 +107,13 @@ participante.}
 	\node[anchor=west] (header) at (0, 7.0) { \bbbold{Exemplo de entrada e saída} };
 
 
-	\node[anchor=west] (line1) at (1.0, 6.0) { \bbtext{\texttt{11} } };
-
-
-	\draw[->,color=BBViolet] (4.35, 5.0) to  (4.35, 3.75);
-
-	\node[anchor=west] (r) at (3.25, 3.25) { \footnotesize \bbcomment{Números sorteados} };
-
-
-	\node[anchor=west] (line2) at (1.0, 5.5) { \bbtext{\texttt{30 30 30 30 40 40 40 40 40 30 30}} };
+	\node[anchor=west] (line1) at (1.0, 6.0) { \bbtext{\texttt{M1S-TU-R4} } };
 
 
 
 
+
+	\node[] (line2) at (7.0, 4.0) { \bbtext{\Huge \texttt{M1S-TU-R4}} };
 
 \end{tikzpicture}
 \end{frame}
@@ -158,87 +125,16 @@ participante.}
 	\node[anchor=west] (header) at (0, 7.0) { \bbbold{Exemplo de entrada e saída} };
 
 
-	\node[anchor=west] (line1) at (1.0, 6.0) { \bbtext{\texttt{11} } };
+	\node[anchor=west] (line1) at (1.0, 6.0) { \bbtext{\texttt{M1S-TU-R4} } };
 
 
+	\draw[->,color=BBBlack,-latex,thick] (5.15, 3.6) to  (5.15, 2.85);
+
+	\node[] (r) at (5.15, 2.5) { \bboutput{6} };
 
 
+	\node[] (line2) at (7.0, 4.0) { \bbtext{\Huge \texttt{M1S-TU-R4}} };
 
-	\node[anchor=west] (line2) at (1.0, 5.5) { \bbtext{\texttt{30 30 30 30 40 40 40 40 40 30 30}} };
-
-
-
-
-
-
-
-	\node[draw,very thick,circle] (node1) at (2.0, 3.0) { \bbtext{\texttt{30}} };
-
-	\node[draw,very thick,circle] (node2) at (3.0, 3.0) { \bbtext{\texttt{30}} };
-
-	\node[draw,very thick,circle] (node3) at (4.0, 3.0) { \bbtext{\texttt{30}} };
-
-	\node[draw,very thick,circle] (node4) at (5.0, 3.0) { \bbtext{\texttt{30}} };
-
-	\node[draw,very thick,circle] (node5) at (6.0, 3.0) { \bbtext{\texttt{40}} };
-
-	\node[draw,very thick,circle] (node6) at (7.0, 3.0) { \bbtext{\texttt{40}} };
-
-	\node[draw,very thick,circle] (node7) at (8.0, 3.0) { \bbtext{\texttt{40}} };
-
-	\node[draw,very thick,circle] (node8) at (9.0, 3.0) { \bbtext{\texttt{40}} };
-
-	\node[draw,very thick,circle] (node9) at (10.0, 3.0) { \bbtext{\texttt{40}} };
-
-	\node[draw,very thick,circle] (node10) at (11.0, 3.0) { \bbtext{\texttt{30}} };
-
-	\node[draw,very thick,circle] (node11) at (12.0, 3.0) { \bbtext{\texttt{30}} };
-
-\end{tikzpicture}
-\end{frame}
-\begin{frame}[plain,t]
-\begin{tikzpicture}
-\node[draw,opacity=0] at (0, 0) {x};
-\node[draw,opacity=0] at (14, 8) {x};
-
-	\node[anchor=west] (header) at (0, 7.0) { \bbbold{Exemplo de entrada e saída} };
-
-
-	\node[anchor=west] (line1) at (1.0, 6.0) { \bbtext{\texttt{11} } };
-
-
-
-
-
-	\node[anchor=west] (line2) at (1.0, 5.5) { \bbtext{\texttt{30 30 30 30 40 40 40 40 40 30 30}} };
-
-
-
-
-
-
-
-	\node[draw,very thick,circle,fill=BBGreen] (node1) at (2.0, 3.0) { \bbtext{\texttt{30}} };
-
-	\node[draw,very thick,circle,fill=BBGreen] (node2) at (3.0, 3.0) { \bbtext{\texttt{30}} };
-
-	\node[draw,very thick,circle,fill=BBGreen] (node3) at (4.0, 3.0) { \bbtext{\texttt{30}} };
-
-	\node[draw,very thick,circle,fill=BBGreen] (node4) at (5.0, 3.0) { \bbtext{\texttt{30}} };
-
-	\node[draw,very thick,circle] (node5) at (6.0, 3.0) { \bbtext{\texttt{40}} };
-
-	\node[draw,very thick,circle] (node6) at (7.0, 3.0) { \bbtext{\texttt{40}} };
-
-	\node[draw,very thick,circle] (node7) at (8.0, 3.0) { \bbtext{\texttt{40}} };
-
-	\node[draw,very thick,circle] (node8) at (9.0, 3.0) { \bbtext{\texttt{40}} };
-
-	\node[draw,very thick,circle] (node9) at (10.0, 3.0) { \bbtext{\texttt{40}} };
-
-	\node[draw,very thick,circle] (node10) at (11.0, 3.0) { \bbtext{\texttt{30}} };
-
-	\node[draw,very thick,circle] (node11) at (12.0, 3.0) { \bbtext{\texttt{30}} };
 
 
 
@@ -252,41 +148,39 @@ participante.}
 	\node[anchor=west] (header) at (0, 7.0) { \bbbold{Exemplo de entrada e saída} };
 
 
-	\node[anchor=west] (line1) at (1.0, 6.0) { \bbtext{\texttt{11} } };
+	\node[anchor=west] (line1) at (1.0, 6.0) { \bbtext{\texttt{M1S-TU-R4} } };
+
+
+	\draw[->,color=BBBlack,-latex,thick] (6.05, 3.6) to  (6.05, 2.85);
+
+	\node[] (r) at (6.05, 2.5) { \bboutput{7} };
+
+
+	\node[] (line2) at (7.0, 4.0) { \bbtext{\Huge \texttt{M1S-TU-R4}} };
 
 
 
 
 
-	\node[anchor=west] (line2) at (1.0, 5.5) { \bbtext{\texttt{30 30 30 30 40 40 40 40 40 30 30}} };
+\end{tikzpicture}
+\end{frame}
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+
+	\node[anchor=west] (header) at (0, 7.0) { \bbbold{Exemplo de entrada e saída} };
 
 
+	\node[anchor=west] (line1) at (1.0, 6.0) { \bbtext{\texttt{M1S-TU-R4} } };
 
 
+	\draw[->,color=BBBlack,-latex,thick] (6.975, 3.6) to  (6.975, 2.85);
+
+	\node[] (r) at (6.975, 2.5) { \bboutput{8} };
 
 
-
-	\node[draw,very thick,circle,fill=BBWhite] (node1) at (2.0, 3.0) { \bbtext{\texttt{30}} };
-
-	\node[draw,very thick,circle,fill=BBWhite] (node2) at (3.0, 3.0) { \bbtext{\texttt{30}} };
-
-	\node[draw,very thick,circle,fill=BBWhite] (node3) at (4.0, 3.0) { \bbtext{\texttt{30}} };
-
-	\node[draw,very thick,circle,fill=BBWhite] (node4) at (5.0, 3.0) { \bbtext{\texttt{30}} };
-
-	\node[draw,very thick,circle,fill=BBCyan] (node5) at (6.0, 3.0) { \bbtext{\texttt{40}} };
-
-	\node[draw,very thick,circle,fill=BBCyan] (node6) at (7.0, 3.0) { \bbtext{\texttt{40}} };
-
-	\node[draw,very thick,circle,fill=BBCyan] (node7) at (8.0, 3.0) { \bbtext{\texttt{40}} };
-
-	\node[draw,very thick,circle,fill=BBCyan] (node8) at (9.0, 3.0) { \bbtext{\texttt{40}} };
-
-	\node[draw,very thick,circle,fill=BBCyan] (node9) at (10.0, 3.0) { \bbtext{\texttt{40}} };
-
-	\node[draw,very thick,circle] (node10) at (11.0, 3.0) { \bbtext{\texttt{30}} };
-
-	\node[draw,very thick,circle] (node11) at (12.0, 3.0) { \bbtext{\texttt{30}} };
+	\node[] (line2) at (7.0, 4.0) { \bbtext{\Huge \texttt{M1S-TU-R4}} };
 
 
 
@@ -303,43 +197,15 @@ participante.}
 	\node[anchor=west] (header) at (0, 7.0) { \bbbold{Exemplo de entrada e saída} };
 
 
-	\node[anchor=west] (line1) at (1.0, 6.0) { \bbtext{\texttt{11} } };
+	\node[anchor=west] (line1) at (1.0, 6.0) { \bbtext{\texttt{M1S-TU-R4} } };
 
 
+	\draw[->,color=BBBlack,-latex,thick] (7.425, 3.6) to  (7.425, 2.85);
+
+	\node[] (r) at (7.425, 2.5) { \bboutput{8} };
 
 
-
-	\node[anchor=west] (line2) at (1.0, 5.5) { \bbtext{\texttt{30 30 30 30 40 40 40 40 40 30 30}} };
-
-
-
-
-
-
-
-	\node[draw,very thick,circle,fill=BBWhite] (node1) at (2.0, 3.0) { \bbtext{\texttt{30}} };
-
-	\node[draw,very thick,circle,fill=BBWhite] (node2) at (3.0, 3.0) { \bbtext{\texttt{30}} };
-
-	\node[draw,very thick,circle,fill=BBWhite] (node3) at (4.0, 3.0) { \bbtext{\texttt{30}} };
-
-	\node[draw,very thick,circle,fill=BBWhite] (node4) at (5.0, 3.0) { \bbtext{\texttt{30}} };
-
-	\node[draw,very thick,circle,fill=BBWhite] (node5) at (6.0, 3.0) { \bbtext{\texttt{40}} };
-
-	\node[draw,very thick,circle,fill=BBWhite] (node6) at (7.0, 3.0) { \bbtext{\texttt{40}} };
-
-	\node[draw,very thick,circle,fill=BBWhite] (node7) at (8.0, 3.0) { \bbtext{\texttt{40}} };
-
-	\node[draw,very thick,circle,fill=BBWhite] (node8) at (9.0, 3.0) { \bbtext{\texttt{40}} };
-
-	\node[draw,very thick,circle,fill=BBWhite] (node9) at (10.0, 3.0) { \bbtext{\texttt{40}} };
-
-	\node[draw,very thick,circle,fill=BBOrange] (node10) at (11.0, 3.0) { \bbtext{\texttt{30}} };
-
-	\node[draw,very thick,circle,fill=BBOrange] (node11) at (12.0, 3.0) { \bbtext{\texttt{30}} };
-
-
+	\node[] (line2) at (7.0, 4.0) { \bbtext{\Huge \texttt{M1S-TU-R4}} };
 
 
 
@@ -357,43 +223,563 @@ participante.}
 	\node[anchor=west] (header) at (0, 7.0) { \bbbold{Exemplo de entrada e saída} };
 
 
-	\node[anchor=west] (line1) at (1.0, 6.0) { \bbtext{\texttt{11} } };
+	\node[anchor=west] (line1) at (1.0, 6.0) { \bbtext{\texttt{M1S-TU-R4} } };
 
 
-	\draw[->,color=BBBlack,-latex,thick] (8.0, 5.5) to  (10.0, 5.5);
+	\draw[->,color=BBBlack,-latex,thick] (8.35, 3.6) to  (8.35, 2.85);
 
-	\node[anchor=west] (r) at (10.25, 5.5) { \footnotesize \bboutput{5} };
-
-
-	\node[anchor=west] (line2) at (1.0, 5.5) { \bbtext{\texttt{30 30 30 30 40 40 40 40 40 30 30}} };
+	\node[] (r) at (8.35, 2.5) { \bboutput{7} };
 
 
-
+	\node[] (line2) at (7.0, 4.0) { \bbtext{\Huge \texttt{M1S-TU-R4}} };
 
 
 
 
-	\node[draw,very thick,circle,fill=BBWhite] (node1) at (2.0, 3.0) { \bbtext{\texttt{30}} };
 
-	\node[draw,very thick,circle,fill=BBWhite] (node2) at (3.0, 3.0) { \bbtext{\texttt{30}} };
 
-	\node[draw,very thick,circle,fill=BBWhite] (node3) at (4.0, 3.0) { \bbtext{\texttt{30}} };
 
-	\node[draw,very thick,circle,fill=BBWhite] (node4) at (5.0, 3.0) { \bbtext{\texttt{30}} };
 
-	\node[draw,very thick,circle,fill=BBWhite] (node5) at (6.0, 3.0) { \bbtext{\texttt{40}} };
+\end{tikzpicture}
+\end{frame}
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
 
-	\node[draw,very thick,circle,fill=BBWhite] (node6) at (7.0, 3.0) { \bbtext{\texttt{40}} };
+	\node[anchor=west] (title) at (0.0, 7.5) { \Large \bbbold{Solução} };
 
-	\node[draw,very thick,circle,fill=BBWhite] (node7) at (8.0, 3.0) { \bbtext{\texttt{40}} };
+\end{tikzpicture}
+\end{frame}
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
 
-	\node[draw,very thick,circle,fill=BBWhite] (node8) at (9.0, 3.0) { \bbtext{\texttt{40}} };
+	\node[anchor=west] (title) at (0.0, 7.5) { \Large \bbbold{Solução} };
 
-	\node[draw,very thick,circle,fill=BBWhite] (node9) at (10.0, 3.0) { \bbtext{\texttt{40}} };
 
-	\node[draw,very thick,circle,fill=BBOrange] (node10) at (11.0, 3.0) { \bbtext{\texttt{30}} };
+	\node[anchor=west] (a) at (1.0, 6.5) { $\star$ \bbtext{Como o número de caracteres $N$ não é dado na entrada, o telefone deve ser} };
 
-	\node[draw,very thick,circle,fill=BBOrange] (node11) at (12.0, 3.0) { \bbtext{\texttt{30}} };
+	\node[anchor=west] (a1) at (0.5, 6.0) { \bbtext{lido como uma string} };
+
+\end{tikzpicture}
+\end{frame}
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+
+	\node[anchor=west] (title) at (0.0, 7.5) { \Large \bbbold{Solução} };
+
+
+	\node[anchor=west] (a) at (1.0, 6.5) { $\star$ \bbtext{Como o número de caracteres $N$ não é dado na entrada, o telefone deve ser} };
+
+	\node[anchor=west] (a1) at (0.5, 6.0) { \bbtext{lido como uma string} };
+
+
+	\node[anchor=west] (b) at (1.0, 5.0) { $\star$ \bbtext{A função \code{c}{strlen()} pode ser usada para computar o valor de $N$} };
+
+\end{tikzpicture}
+\end{frame}
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+
+	\node[anchor=west] (title) at (0.0, 7.5) { \Large \bbbold{Solução} };
+
+
+	\node[anchor=west] (a) at (1.0, 6.5) { $\star$ \bbtext{Como o número de caracteres $N$ não é dado na entrada, o telefone deve ser} };
+
+	\node[anchor=west] (a1) at (0.5, 6.0) { \bbtext{lido como uma string} };
+
+
+	\node[anchor=west] (b) at (1.0, 5.0) { $\star$ \bbtext{A função \code{c}{strlen()} pode ser usada para computar o valor de $N$} };
+
+
+	\node[anchor=west] (c) at (1.0, 4.0) { $\star$ \bbtext{O problema consiste em substituir os caracteres alfabéticos pelos equivalentes} };
+
+	\node[anchor=west] (c1) at (0.5, 3.5) { \bbtext{numéricos} };
+
+
+\end{tikzpicture}
+\end{frame}
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+
+	\node[anchor=west] (title) at (0.0, 7.5) { \Large \bbbold{Solução} };
+
+
+	\node[anchor=west] (a) at (1.0, 6.5) { $\star$ \bbtext{Como o número de caracteres $N$ não é dado na entrada, o telefone deve ser} };
+
+	\node[anchor=west] (a1) at (0.5, 6.0) { \bbtext{lido como uma string} };
+
+
+	\node[anchor=west] (b) at (1.0, 5.0) { $\star$ \bbtext{A função \code{c}{strlen()} pode ser usada para computar o valor de $N$} };
+
+
+	\node[anchor=west] (c) at (1.0, 4.0) { $\star$ \bbtext{O problema consiste em substituir os caracteres alfabéticos pelos equivalentes} };
+
+	\node[anchor=west] (c1) at (0.5, 3.5) { \bbtext{numéricos} };
+
+
+
+	\node[anchor=west] (d) at (1.0, 2.5) { $\star$ \bbtext{Os demais caracteres devem permanecer inalterados} };
+
+\end{tikzpicture}
+\end{frame}
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+
+	\node[anchor=west] (title) at (0.0, 7.5) { \Large \bbbold{Solução} };
+
+
+	\node[anchor=west] (a) at (1.0, 6.5) { $\star$ \bbtext{Como o número de caracteres $N$ não é dado na entrada, o telefone deve ser} };
+
+	\node[anchor=west] (a1) at (0.5, 6.0) { \bbtext{lido como uma string} };
+
+
+	\node[anchor=west] (b) at (1.0, 5.0) { $\star$ \bbtext{A função \code{c}{strlen()} pode ser usada para computar o valor de $N$} };
+
+
+	\node[anchor=west] (c) at (1.0, 4.0) { $\star$ \bbtext{O problema consiste em substituir os caracteres alfabéticos pelos equivalentes} };
+
+	\node[anchor=west] (c1) at (0.5, 3.5) { \bbtext{numéricos} };
+
+
+
+	\node[anchor=west] (d) at (1.0, 2.5) { $\star$ \bbtext{Os demais caracteres devem permanecer inalterados} };
+
+
+	\node[anchor=west] (e) at (1.0, 1.5) { $\star$ \bbtext{Os equivalentes numéricos podem ser determinados por uma série de \code{c}{if}/\code{c}{else}} };
+
+	\node[anchor=west] (e1) at (0.5, 1.0) { \bbtext{em cascata} };
+
+\end{tikzpicture}
+\end{frame}
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+
+	\node[anchor=west] (line1) at (1.0, 8.0) { \inputsmallline{c}{1}{codes/solution.c} };
+
+
+
+	\node[anchor=west] (line4) at (1.0, 6.86) { \inputsmallline{c}{4}{codes/solution.c} };
+
+	\node[anchor=west] (line5) at (1.0, 6.48) { \inputsmallline{c}{5}{codes/solution.c} };
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	\draw[color=gray,dashed] (7.5, 8) -- (7.5, 0) -- cycle;
+
+
+
+
+
+
+
+
+
+
+	\node[anchor=west] (line33) at (8.0, 3.81) { \inputsmallline{c}{33}{codes/solution.c} };
+
+	\node[anchor=west] (line34) at (8.0, 3.43) { \inputsmallline{c}{34}{codes/solution.c} };
+
+
+\end{tikzpicture}
+\end{frame}
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+
+	\node[anchor=west] (line1) at (1.0, 8.0) { \inputsmallline{c}{1}{codes/solution.c} };
+
+
+
+	\node[anchor=west] (line4) at (1.0, 6.86) { \inputsmallline{c}{4}{codes/solution.c} };
+
+	\node[anchor=west] (line5) at (1.0, 6.48) { \inputsmallline{c}{5}{codes/solution.c} };
+
+	\node[anchor=west] (line6) at (1.0, 6.1) { \inputsmallline{c}{6}{codes/solution.c} };
+
+	\node[anchor=west] (line7) at (1.0, 5.71) { \inputsmallline{c}{7}{codes/solution.c} };
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	\draw[color=gray,dashed] (7.5, 8) -- (7.5, 0) -- cycle;
+
+
+
+
+
+
+
+
+
+
+	\node[anchor=west] (line33) at (8.0, 3.81) { \inputsmallline{c}{33}{codes/solution.c} };
+
+	\node[anchor=west] (line34) at (8.0, 3.43) { \inputsmallline{c}{34}{codes/solution.c} };
+
+
+
+
+\end{tikzpicture}
+\end{frame}
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+
+	\node[anchor=west] (line1) at (1.0, 8.0) { \inputsmallline{c}{1}{codes/solution.c} };
+
+	\node[anchor=west] (line2) at (1.0, 7.62) { \inputsmallline{c}{2}{codes/solution.c} };
+
+
+	\node[anchor=west] (line4) at (1.0, 6.86) { \inputsmallline{c}{4}{codes/solution.c} };
+
+	\node[anchor=west] (line5) at (1.0, 6.48) { \inputsmallline{c}{5}{codes/solution.c} };
+
+	\node[anchor=west] (line6) at (1.0, 6.1) { \inputsmallline{c}{6}{codes/solution.c} };
+
+	\node[anchor=west] (line7) at (1.0, 5.71) { \inputsmallline{c}{7}{codes/solution.c} };
+
+
+	\node[anchor=west] (line9) at (1.0, 4.95) { \inputsmallline{c}{9}{codes/solution.c} };
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	\draw[color=gray,dashed] (7.5, 8) -- (7.5, 0) -- cycle;
+
+
+
+
+
+
+
+
+
+
+	\node[anchor=west] (line33) at (8.0, 3.81) { \inputsmallline{c}{33}{codes/solution.c} };
+
+	\node[anchor=west] (line34) at (8.0, 3.43) { \inputsmallline{c}{34}{codes/solution.c} };
+
+
+
+
+
+
+\end{tikzpicture}
+\end{frame}
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+
+	\node[anchor=west] (line1) at (1.0, 8.0) { \inputsmallline{c}{1}{codes/solution.c} };
+
+	\node[anchor=west] (line2) at (1.0, 7.62) { \inputsmallline{c}{2}{codes/solution.c} };
+
+
+	\node[anchor=west] (line4) at (1.0, 6.86) { \inputsmallline{c}{4}{codes/solution.c} };
+
+	\node[anchor=west] (line5) at (1.0, 6.48) { \inputsmallline{c}{5}{codes/solution.c} };
+
+	\node[anchor=west] (line6) at (1.0, 6.1) { \inputsmallline{c}{6}{codes/solution.c} };
+
+	\node[anchor=west] (line7) at (1.0, 5.71) { \inputsmallline{c}{7}{codes/solution.c} };
+
+
+	\node[anchor=west] (line9) at (1.0, 4.95) { \inputsmallline{c}{9}{codes/solution.c} };
+
+
+	\node[anchor=west] (line11) at (1.0, 4.19) { \inputsmallline{c}{11}{codes/solution.c} };
+
+	\node[anchor=west] (line12) at (1.0, 3.81) { \inputsmallline{c}{12}{codes/solution.c} };
+
+
+
+
+
+
+
+
+
+
+
+	\draw[color=gray,dashed] (7.5, 8) -- (7.5, 0) -- cycle;
+
+
+
+
+
+
+	\node[anchor=west] (line29) at (8.0, 5.33) { \inputsmallline{c}{29}{codes/solution.c} };
+
+
+
+
+	\node[anchor=west] (line33) at (8.0, 3.81) { \inputsmallline{c}{33}{codes/solution.c} };
+
+	\node[anchor=west] (line34) at (8.0, 3.43) { \inputsmallline{c}{34}{codes/solution.c} };
+
+
+
+
+
+
+
+
+\end{tikzpicture}
+\end{frame}
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+
+	\node[anchor=west] (line1) at (1.0, 8.0) { \inputsmallline{c}{1}{codes/solution.c} };
+
+	\node[anchor=west] (line2) at (1.0, 7.62) { \inputsmallline{c}{2}{codes/solution.c} };
+
+
+	\node[anchor=west] (line4) at (1.0, 6.86) { \inputsmallline{c}{4}{codes/solution.c} };
+
+	\node[anchor=west] (line5) at (1.0, 6.48) { \inputsmallline{c}{5}{codes/solution.c} };
+
+	\node[anchor=west] (line6) at (1.0, 6.1) { \inputsmallline{c}{6}{codes/solution.c} };
+
+	\node[anchor=west] (line7) at (1.0, 5.71) { \inputsmallline{c}{7}{codes/solution.c} };
+
+
+	\node[anchor=west] (line9) at (1.0, 4.95) { \inputsmallline{c}{9}{codes/solution.c} };
+
+
+	\node[anchor=west] (line11) at (1.0, 4.19) { \inputsmallline{c}{11}{codes/solution.c} };
+
+	\node[anchor=west] (line12) at (1.0, 3.81) { \inputsmallline{c}{12}{codes/solution.c} };
+
+	\node[anchor=west] (line13) at (1.0, 3.43) { \inputsmallline{c}{13}{codes/solution.c} };
+
+	\node[anchor=west] (line14) at (1.0, 3.05) { \inputsmallline{c}{14}{codes/solution.c} };
+
+
+
+
+
+
+
+
+
+	\draw[color=gray,dashed] (7.5, 8) -- (7.5, 0) -- cycle;
+
+
+
+
+
+
+	\node[anchor=west] (line29) at (8.0, 5.33) { \inputsmallline{c}{29}{codes/solution.c} };
+
+
+
+
+	\node[anchor=west] (line33) at (8.0, 3.81) { \inputsmallline{c}{33}{codes/solution.c} };
+
+	\node[anchor=west] (line34) at (8.0, 3.43) { \inputsmallline{c}{34}{codes/solution.c} };
+
+
+
+
+
+
+
+
+
+
+\end{tikzpicture}
+\end{frame}
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+
+	\node[anchor=west] (line1) at (1.0, 8.0) { \inputsmallline{c}{1}{codes/solution.c} };
+
+	\node[anchor=west] (line2) at (1.0, 7.62) { \inputsmallline{c}{2}{codes/solution.c} };
+
+
+	\node[anchor=west] (line4) at (1.0, 6.86) { \inputsmallline{c}{4}{codes/solution.c} };
+
+	\node[anchor=west] (line5) at (1.0, 6.48) { \inputsmallline{c}{5}{codes/solution.c} };
+
+	\node[anchor=west] (line6) at (1.0, 6.1) { \inputsmallline{c}{6}{codes/solution.c} };
+
+	\node[anchor=west] (line7) at (1.0, 5.71) { \inputsmallline{c}{7}{codes/solution.c} };
+
+
+	\node[anchor=west] (line9) at (1.0, 4.95) { \inputsmallline{c}{9}{codes/solution.c} };
+
+
+	\node[anchor=west] (line11) at (1.0, 4.19) { \inputsmallline{c}{11}{codes/solution.c} };
+
+	\node[anchor=west] (line12) at (1.0, 3.81) { \inputsmallline{c}{12}{codes/solution.c} };
+
+	\node[anchor=west] (line13) at (1.0, 3.43) { \inputsmallline{c}{13}{codes/solution.c} };
+
+	\node[anchor=west] (line14) at (1.0, 3.05) { \inputsmallline{c}{14}{codes/solution.c} };
+
+	\node[anchor=west] (line15) at (1.0, 2.67) { \inputsmallline{c}{15}{codes/solution.c} };
+
+	\node[anchor=west] (line16) at (1.0, 2.29) { \inputsmallline{c}{16}{codes/solution.c} };
+
+
+
+
+
+
+
+	\draw[color=gray,dashed] (7.5, 8) -- (7.5, 0) -- cycle;
+
+
+
+
+
+
+	\node[anchor=west] (line29) at (8.0, 5.33) { \inputsmallline{c}{29}{codes/solution.c} };
+
+
+
+
+	\node[anchor=west] (line33) at (8.0, 3.81) { \inputsmallline{c}{33}{codes/solution.c} };
+
+	\node[anchor=west] (line34) at (8.0, 3.43) { \inputsmallline{c}{34}{codes/solution.c} };
+
+
+
+
+
+
+
+
+
+
+
+
+\end{tikzpicture}
+\end{frame}
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+
+	\node[anchor=west] (line1) at (1.0, 8.0) { \inputsmallline{c}{1}{codes/solution.c} };
+
+	\node[anchor=west] (line2) at (1.0, 7.62) { \inputsmallline{c}{2}{codes/solution.c} };
+
+
+	\node[anchor=west] (line4) at (1.0, 6.86) { \inputsmallline{c}{4}{codes/solution.c} };
+
+	\node[anchor=west] (line5) at (1.0, 6.48) { \inputsmallline{c}{5}{codes/solution.c} };
+
+	\node[anchor=west] (line6) at (1.0, 6.1) { \inputsmallline{c}{6}{codes/solution.c} };
+
+	\node[anchor=west] (line7) at (1.0, 5.71) { \inputsmallline{c}{7}{codes/solution.c} };
+
+
+	\node[anchor=west] (line9) at (1.0, 4.95) { \inputsmallline{c}{9}{codes/solution.c} };
+
+
+	\node[anchor=west] (line11) at (1.0, 4.19) { \inputsmallline{c}{11}{codes/solution.c} };
+
+	\node[anchor=west] (line12) at (1.0, 3.81) { \inputsmallline{c}{12}{codes/solution.c} };
+
+	\node[anchor=west] (line13) at (1.0, 3.43) { \inputsmallline{c}{13}{codes/solution.c} };
+
+	\node[anchor=west] (line14) at (1.0, 3.05) { \inputsmallline{c}{14}{codes/solution.c} };
+
+	\node[anchor=west] (line15) at (1.0, 2.67) { \inputsmallline{c}{15}{codes/solution.c} };
+
+	\node[anchor=west] (line16) at (1.0, 2.29) { \inputsmallline{c}{16}{codes/solution.c} };
+
+	\node[anchor=west] (line17) at (1.0, 1.9) { \inputsmallline{c}{17}{codes/solution.c} };
+
+	\node[anchor=west] (line18) at (1.0, 1.52) { \inputsmallline{c}{18}{codes/solution.c} };
+
+	\node[anchor=west] (line19) at (1.0, 1.14) { \inputsmallline{c}{19}{codes/solution.c} };
+
+	\node[anchor=west] (line20) at (1.0, 0.76) { \inputsmallline{c}{20}{codes/solution.c} };
+
+	\node[anchor=west] (line21) at (1.0, 0.38) { \inputsmallline{c}{21}{codes/solution.c} };
+
+	\node[anchor=west] (line22) at (1.0, -0.0) { \inputsmallline{c}{22}{codes/solution.c} };
+
+	\draw[color=gray,dashed] (7.5, 8) -- (7.5, 0) -- cycle;
+	\node[anchor=west] (line23) at (8.0, 7.62) { \inputsmallline{c}{23}{codes/solution.c} };
+
+	\node[anchor=west] (line24) at (8.0, 7.24) { \inputsmallline{c}{24}{codes/solution.c} };
+
+	\node[anchor=west] (line25) at (8.0, 6.86) { \inputsmallline{c}{25}{codes/solution.c} };
+
+	\node[anchor=west] (line26) at (8.0, 6.48) { \inputsmallline{c}{26}{codes/solution.c} };
+
+	\node[anchor=west] (line27) at (8.0, 6.1) { \inputsmallline{c}{27}{codes/solution.c} };
+
+	\node[anchor=west] (line28) at (8.0, 5.71) { \inputsmallline{c}{28}{codes/solution.c} };
+
+	\node[anchor=west] (line29) at (8.0, 5.33) { \inputsmallline{c}{29}{codes/solution.c} };
+
+
+
+
+	\node[anchor=west] (line33) at (8.0, 3.81) { \inputsmallline{c}{33}{codes/solution.c} };
+
+	\node[anchor=west] (line34) at (8.0, 3.43) { \inputsmallline{c}{34}{codes/solution.c} };
 
 
 
@@ -415,99 +801,85 @@ participante.}
 \node[draw,opacity=0] at (0, 0) {x};
 \node[draw,opacity=0] at (14, 8) {x};
 
-	\node[anchor=west] (title) at (0.0, 7.0) { \Large \bbbold{Solução} };
+	\node[anchor=west] (line1) at (1.0, 8.0) { \inputsmallline{c}{1}{codes/solution.c} };
 
-\end{tikzpicture}
-\end{frame}
-\begin{frame}[plain,t]
-\begin{tikzpicture}
-\node[draw,opacity=0] at (0, 0) {x};
-\node[draw,opacity=0] at (14, 8) {x};
-
-	\node[anchor=west] (title) at (0.0, 7.0) { \Large \bbbold{Solução} };
+	\node[anchor=west] (line2) at (1.0, 7.62) { \inputsmallline{c}{2}{codes/solution.c} };
 
 
-	\node[anchor=west] (a) at (1.0, 6.0) { $\star$ \bbtext{O problema consiste em identificar as sequências de números consecutivos} };
+	\node[anchor=west] (line4) at (1.0, 6.86) { \inputsmallline{c}{4}{codes/solution.c} };
 
-\end{tikzpicture}
-\end{frame}
-\begin{frame}[plain,t]
-\begin{tikzpicture}
-\node[draw,opacity=0] at (0, 0) {x};
-\node[draw,opacity=0] at (14, 8) {x};
+	\node[anchor=west] (line5) at (1.0, 6.48) { \inputsmallline{c}{5}{codes/solution.c} };
 
-	\node[anchor=west] (title) at (0.0, 7.0) { \Large \bbbold{Solução} };
+	\node[anchor=west] (line6) at (1.0, 6.1) { \inputsmallline{c}{6}{codes/solution.c} };
+
+	\node[anchor=west] (line7) at (1.0, 5.71) { \inputsmallline{c}{7}{codes/solution.c} };
 
 
-	\node[anchor=west] (a) at (1.0, 6.0) { $\star$ \bbtext{O problema consiste em identificar as sequências de números consecutivos} };
+	\node[anchor=west] (line9) at (1.0, 4.95) { \inputsmallline{c}{9}{codes/solution.c} };
 
 
-	\node[anchor=west] (b) at (1.0, 5.0) { $\star$ \bbtext{Uma vez identificadas, a resposta será o tamanho da maior delas} };
+	\node[anchor=west] (line11) at (1.0, 4.19) { \inputsmallline{c}{11}{codes/solution.c} };
 
-\end{tikzpicture}
-\end{frame}
-\begin{frame}[plain,t]
-\begin{tikzpicture}
-\node[draw,opacity=0] at (0, 0) {x};
-\node[draw,opacity=0] at (14, 8) {x};
+	\node[anchor=west] (line12) at (1.0, 3.81) { \inputsmallline{c}{12}{codes/solution.c} };
 
-	\node[anchor=west] (title) at (0.0, 7.0) { \Large \bbbold{Solução} };
+	\node[anchor=west] (line13) at (1.0, 3.43) { \inputsmallline{c}{13}{codes/solution.c} };
 
+	\node[anchor=west] (line14) at (1.0, 3.05) { \inputsmallline{c}{14}{codes/solution.c} };
 
-	\node[anchor=west] (a) at (1.0, 6.0) { $\star$ \bbtext{O problema consiste em identificar as sequências de números consecutivos} };
+	\node[anchor=west] (line15) at (1.0, 2.67) { \inputsmallline{c}{15}{codes/solution.c} };
 
+	\node[anchor=west] (line16) at (1.0, 2.29) { \inputsmallline{c}{16}{codes/solution.c} };
 
-	\node[anchor=west] (b) at (1.0, 5.0) { $\star$ \bbtext{Uma vez identificadas, a resposta será o tamanho da maior delas} };
+	\node[anchor=west] (line17) at (1.0, 1.9) { \inputsmallline{c}{17}{codes/solution.c} };
 
+	\node[anchor=west] (line18) at (1.0, 1.52) { \inputsmallline{c}{18}{codes/solution.c} };
 
-	\node[anchor=west] (c) at (1.0, 4.0) { $\star$ \bbtext{Uma possível solução usa um laço e mantém o registro do último elemento visto} };
+	\node[anchor=west] (line19) at (1.0, 1.14) { \inputsmallline{c}{19}{codes/solution.c} };
 
-\end{tikzpicture}
-\end{frame}
-\begin{frame}[plain,t]
-\begin{tikzpicture}
-\node[draw,opacity=0] at (0, 0) {x};
-\node[draw,opacity=0] at (14, 8) {x};
+	\node[anchor=west] (line20) at (1.0, 0.76) { \inputsmallline{c}{20}{codes/solution.c} };
 
-	\node[anchor=west] (title) at (0.0, 7.0) { \Large \bbbold{Solução} };
+	\node[anchor=west] (line21) at (1.0, 0.38) { \inputsmallline{c}{21}{codes/solution.c} };
 
+	\node[anchor=west] (line22) at (1.0, -0.0) { \inputsmallline{c}{22}{codes/solution.c} };
 
-	\node[anchor=west] (a) at (1.0, 6.0) { $\star$ \bbtext{O problema consiste em identificar as sequências de números consecutivos} };
+	\draw[color=gray,dashed] (7.5, 8) -- (7.5, 0) -- cycle;
+	\node[anchor=west] (line23) at (8.0, 7.62) { \inputsmallline{c}{23}{codes/solution.c} };
 
+	\node[anchor=west] (line24) at (8.0, 7.24) { \inputsmallline{c}{24}{codes/solution.c} };
 
-	\node[anchor=west] (b) at (1.0, 5.0) { $\star$ \bbtext{Uma vez identificadas, a resposta será o tamanho da maior delas} };
+	\node[anchor=west] (line25) at (8.0, 6.86) { \inputsmallline{c}{25}{codes/solution.c} };
 
+	\node[anchor=west] (line26) at (8.0, 6.48) { \inputsmallline{c}{26}{codes/solution.c} };
 
-	\node[anchor=west] (c) at (1.0, 4.0) { $\star$ \bbtext{Uma possível solução usa um laço e mantém o registro do último elemento visto} };
+	\node[anchor=west] (line27) at (8.0, 6.1) { \inputsmallline{c}{27}{codes/solution.c} };
 
+	\node[anchor=west] (line28) at (8.0, 5.71) { \inputsmallline{c}{28}{codes/solution.c} };
 
-	\node[anchor=west] (d) at (1.0, 3.0) { $\star$ \bbtext{Este registro deve ser inicializado com o primeiro elemento do vetor} };
-
-\end{tikzpicture}
-\end{frame}
-\begin{frame}[plain,t]
-\begin{tikzpicture}
-\node[draw,opacity=0] at (0, 0) {x};
-\node[draw,opacity=0] at (14, 8) {x};
-
-	\node[anchor=west] (title) at (0.0, 7.0) { \Large \bbbold{Solução} };
+	\node[anchor=west] (line29) at (8.0, 5.33) { \inputsmallline{c}{29}{codes/solution.c} };
 
 
-	\node[anchor=west] (a) at (1.0, 6.0) { $\star$ \bbtext{O problema consiste em identificar as sequências de números consecutivos} };
+	\node[anchor=west] (line31) at (8.0, 4.57) { \inputsmallline{c}{31}{codes/solution.c} };
 
 
-	\node[anchor=west] (b) at (1.0, 5.0) { $\star$ \bbtext{Uma vez identificadas, a resposta será o tamanho da maior delas} };
+	\node[anchor=west] (line33) at (8.0, 3.81) { \inputsmallline{c}{33}{codes/solution.c} };
+
+	\node[anchor=west] (line34) at (8.0, 3.43) { \inputsmallline{c}{34}{codes/solution.c} };
 
 
-	\node[anchor=west] (c) at (1.0, 4.0) { $\star$ \bbtext{Uma possível solução usa um laço e mantém o registro do último elemento visto} };
 
 
-	\node[anchor=west] (d) at (1.0, 3.0) { $\star$ \bbtext{Este registro deve ser inicializado com o primeiro elemento do vetor} };
 
 
-	\node[anchor=west] (e) at (1.0, 2.0) { $\star$ \bbtext{É preciso fazer uma última verificação, após o encerramento do laço, para verificar} };
 
-	\node[anchor=west] (e1) at (0.5, 1.25) { \bbtext{a última sequência de números consecutivos} };
+
+
+
+
+
+
+
+
+
 
 \end{tikzpicture}
 \end{frame}
@@ -543,7 +915,9 @@ participante.}
 	\node[anchor=west] (a) at (1.0, 6.0) { $\star$ \bbtext{Há uma solução alternativa para este problema} };
 
 
-	\node[anchor=west] (b) at (1.0, 5.0) { $\star$ \bbtext{Ela é baseada em uma técnica denominada \bbbold{dois ponteiros}} };
+	\node[anchor=west] (b) at (1.0, 5.0) { $\star$ \bbtext{Ela é baseada no código que um caractere ocupa na tabela ASCII e um vetor} };
+
+	\node[anchor=west] (b1) at (0.5, 4.5) { \bbtext{auxiliar} };
 
 \end{tikzpicture}
 \end{frame}
@@ -558,37 +932,12 @@ participante.}
 	\node[anchor=west] (a) at (1.0, 6.0) { $\star$ \bbtext{Há uma solução alternativa para este problema} };
 
 
-	\node[anchor=west] (b) at (1.0, 5.0) { $\star$ \bbtext{Ela é baseada em uma técnica denominada \bbbold{dois ponteiros}} };
+	\node[anchor=west] (b) at (1.0, 5.0) { $\star$ \bbtext{Ela é baseada no código que um caractere ocupa na tabela ASCII e um vetor} };
+
+	\node[anchor=west] (b1) at (0.5, 4.5) { \bbtext{auxiliar} };
 
 
-	\node[anchor=west] (c) at (1.0, 4.0) { $\star$ \bbtext{Esta técnica usa duas variáveis inteiras (\code{c}{L} e \code{c}{R}) para identificar subintervalos} };
-
-	\node[anchor=west] (c1) at (0.5, 3.25) { \bbtext{\code{c}{[L, R)} de elementos com características comuns} };
-
-\end{tikzpicture}
-\end{frame}
-\begin{frame}[plain,t]
-\begin{tikzpicture}
-\node[draw,opacity=0] at (0, 0) {x};
-\node[draw,opacity=0] at (14, 8) {x};
-
-	\node[anchor=west] (title) at (0.0, 7.0) { \Large \bbbold{Bônus} };
-
-
-	\node[anchor=west] (a) at (1.0, 6.0) { $\star$ \bbtext{Há uma solução alternativa para este problema} };
-
-
-	\node[anchor=west] (b) at (1.0, 5.0) { $\star$ \bbtext{Ela é baseada em uma técnica denominada \bbbold{dois ponteiros}} };
-
-
-	\node[anchor=west] (c) at (1.0, 4.0) { $\star$ \bbtext{Esta técnica usa duas variáveis inteiras (\code{c}{L} e \code{c}{R}) para identificar subintervalos} };
-
-	\node[anchor=west] (c1) at (0.5, 3.25) { \bbtext{\code{c}{[L, R)} de elementos com características comuns} };
-
-
-	\node[anchor=west] (d) at (1.0, 2.25) { $\star$ \bbtext{Como ambas variáveis apontam para cada elemento no máximo uma única vez, } };
-
-	\node[anchor=west] (d1) at (0.5, 1.5) { \bbtext{a eficiência é a mesma da solução anterior} };
+	\node[anchor=west] (c) at (1.0, 3.5) { $\star$ \bbtext{As letras estão em ordem crescente na tabela ASCII} };
 
 \end{tikzpicture}
 \end{frame}
@@ -603,20 +952,268 @@ participante.}
 	\node[anchor=west] (a) at (1.0, 6.0) { $\star$ \bbtext{Há uma solução alternativa para este problema} };
 
 
-	\node[anchor=west] (b) at (1.0, 5.0) { $\star$ \bbtext{Ela é baseada em uma técnica denominada \bbbold{dois ponteiros}} };
+	\node[anchor=west] (b) at (1.0, 5.0) { $\star$ \bbtext{Ela é baseada no código que um caractere ocupa na tabela ASCII e um vetor} };
+
+	\node[anchor=west] (b1) at (0.5, 4.5) { \bbtext{auxiliar} };
 
 
-	\node[anchor=west] (c) at (1.0, 4.0) { $\star$ \bbtext{Esta técnica usa duas variáveis inteiras (\code{c}{L} e \code{c}{R}) para identificar subintervalos} };
-
-	\node[anchor=west] (c1) at (0.5, 3.25) { \bbtext{\code{c}{[L, R)} de elementos com características comuns} };
+	\node[anchor=west] (c) at (1.0, 3.5) { $\star$ \bbtext{As letras estão em ordem crescente na tabela ASCII} };
 
 
-	\node[anchor=west] (d) at (1.0, 2.25) { $\star$ \bbtext{Como ambas variáveis apontam para cada elemento no máximo uma única vez, } };
+	\node[anchor=west] (d) at (1.0, 2.5) { $\star$ \bbtext{Assim a posição da letra \code{c}{c} no alfabeto pode ser obtida pela diferença \code{c}{(c - 'A')}} };
 
-	\node[anchor=west] (d1) at (0.5, 1.5) { \bbtext{a eficiência é a mesma da solução anterior} };
+\end{tikzpicture}
+\end{frame}
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+
+	\node[anchor=west] (title) at (0.0, 7.0) { \Large \bbbold{Bônus} };
 
 
-	\node[anchor=west] (e) at (1.0, 0.5) { $\star$ \bbtext{Esta abordagem dispensa o último teste} };
+	\node[anchor=west] (a) at (1.0, 6.0) { $\star$ \bbtext{Há uma solução alternativa para este problema} };
+
+
+	\node[anchor=west] (b) at (1.0, 5.0) { $\star$ \bbtext{Ela é baseada no código que um caractere ocupa na tabela ASCII e um vetor} };
+
+	\node[anchor=west] (b1) at (0.5, 4.5) { \bbtext{auxiliar} };
+
+
+	\node[anchor=west] (c) at (1.0, 3.5) { $\star$ \bbtext{As letras estão em ordem crescente na tabela ASCII} };
+
+
+	\node[anchor=west] (d) at (1.0, 2.5) { $\star$ \bbtext{Assim a posição da letra \code{c}{c} no alfabeto pode ser obtida pela diferença \code{c}{(c - 'A')}} };
+
+
+	\node[anchor=west] (e) at (1.0, 1.5) { $\star$ \bbtext{O vetor auxiliar \code{c}{keyboard} guarda, na $i$-ésima posição, o número correspondente} };
+
+	\node[anchor=west] (e1) at (0.5, 1.0) { \bbtext{à $i$-ésima letra maiúscula no teclado do telefone.} };
+
+\end{tikzpicture}
+\end{frame}
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+
+	\node[anchor=west] (line1) at (1.0, 8.0) { \inputline{c}{1}{codes/solution2.c} };
+
+
+	\node[anchor=west] (line3) at (1.0, 7.2) { \inputline{c}{3}{codes/solution2.c} };
+
+
+	\node[anchor=west] (line5) at (1.0, 6.4) { \inputline{c}{5}{codes/solution2.c} };
+
+	\node[anchor=west] (line6) at (1.0, 6.0) { \inputline{c}{6}{codes/solution2.c} };
+
+	\node[anchor=west] (line7) at (1.0, 5.6) { \inputline{c}{7}{codes/solution2.c} };
+
+	\node[anchor=west] (line8) at (1.0, 5.2) { \inputline{c}{8}{codes/solution2.c} };
+
+
+	\node[anchor=west] (line10) at (1.0, 4.4) { \inputline{c}{10}{codes/solution2.c} };
+
+
+
+
+
+
+
+
+
+
+	\node[anchor=west] (line20) at (1.0, 0.4) { \inputline{c}{20}{codes/solution2.c} };
+
+	\node[anchor=west] (line21) at (1.0, -0.0) { \inputline{c}{21}{codes/solution2.c} };
+
+
+\end{tikzpicture}
+\end{frame}
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+
+	\node[anchor=west] (line1) at (1.0, 8.0) { \inputline{c}{1}{codes/solution2.c} };
+
+
+	\node[anchor=west] (line3) at (1.0, 7.2) { \inputline{c}{3}{codes/solution2.c} };
+
+
+	\node[anchor=west] (line5) at (1.0, 6.4) { \inputline{c}{5}{codes/solution2.c} };
+
+	\node[anchor=west] (line6) at (1.0, 6.0) { \inputline{c}{6}{codes/solution2.c} };
+
+	\node[anchor=west] (line7) at (1.0, 5.6) { \inputline{c}{7}{codes/solution2.c} };
+
+	\node[anchor=west] (line8) at (1.0, 5.2) { \inputline{c}{8}{codes/solution2.c} };
+
+
+	\node[anchor=west] (line10) at (1.0, 4.4) { \inputline{c}{10}{codes/solution2.c} };
+
+
+	\node[anchor=west] (line12) at (1.0, 3.6) { \inputline{c}{12}{codes/solution2.c} };
+
+
+
+
+
+
+
+
+	\node[anchor=west] (line20) at (1.0, 0.4) { \inputline{c}{20}{codes/solution2.c} };
+
+	\node[anchor=west] (line21) at (1.0, -0.0) { \inputline{c}{21}{codes/solution2.c} };
+
+
+
+
+\end{tikzpicture}
+\end{frame}
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+
+	\node[anchor=west] (line1) at (1.0, 8.0) { \inputline{c}{1}{codes/solution2.c} };
+
+
+	\node[anchor=west] (line3) at (1.0, 7.2) { \inputline{c}{3}{codes/solution2.c} };
+
+
+	\node[anchor=west] (line5) at (1.0, 6.4) { \inputline{c}{5}{codes/solution2.c} };
+
+	\node[anchor=west] (line6) at (1.0, 6.0) { \inputline{c}{6}{codes/solution2.c} };
+
+	\node[anchor=west] (line7) at (1.0, 5.6) { \inputline{c}{7}{codes/solution2.c} };
+
+	\node[anchor=west] (line8) at (1.0, 5.2) { \inputline{c}{8}{codes/solution2.c} };
+
+
+	\node[anchor=west] (line10) at (1.0, 4.4) { \inputline{c}{10}{codes/solution2.c} };
+
+
+	\node[anchor=west] (line12) at (1.0, 3.6) { \inputline{c}{12}{codes/solution2.c} };
+
+
+	\node[anchor=west] (line14) at (1.0, 2.8) { \inputline{c}{14}{codes/solution2.c} };
+
+
+
+
+
+
+	\node[anchor=west] (line20) at (1.0, 0.4) { \inputline{c}{20}{codes/solution2.c} };
+
+	\node[anchor=west] (line21) at (1.0, -0.0) { \inputline{c}{21}{codes/solution2.c} };
+
+
+
+
+
+
+\end{tikzpicture}
+\end{frame}
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+
+	\node[anchor=west] (line1) at (1.0, 8.0) { \inputline{c}{1}{codes/solution2.c} };
+
+	\node[anchor=west] (line2) at (1.0, 7.6) { \inputline{c}{2}{codes/solution2.c} };
+
+	\node[anchor=west] (line3) at (1.0, 7.2) { \inputline{c}{3}{codes/solution2.c} };
+
+
+	\node[anchor=west] (line5) at (1.0, 6.4) { \inputline{c}{5}{codes/solution2.c} };
+
+	\node[anchor=west] (line6) at (1.0, 6.0) { \inputline{c}{6}{codes/solution2.c} };
+
+	\node[anchor=west] (line7) at (1.0, 5.6) { \inputline{c}{7}{codes/solution2.c} };
+
+	\node[anchor=west] (line8) at (1.0, 5.2) { \inputline{c}{8}{codes/solution2.c} };
+
+
+	\node[anchor=west] (line10) at (1.0, 4.4) { \inputline{c}{10}{codes/solution2.c} };
+
+
+	\node[anchor=west] (line12) at (1.0, 3.6) { \inputline{c}{12}{codes/solution2.c} };
+
+
+	\node[anchor=west] (line14) at (1.0, 2.8) { \inputline{c}{14}{codes/solution2.c} };
+
+	\node[anchor=west] (line15) at (1.0, 2.4) { \inputline{c}{15}{codes/solution2.c} };
+
+	\node[anchor=west] (line16) at (1.0, 2.0) { \inputline{c}{16}{codes/solution2.c} };
+
+
+
+
+	\node[anchor=west] (line20) at (1.0, 0.4) { \inputline{c}{20}{codes/solution2.c} };
+
+	\node[anchor=west] (line21) at (1.0, -0.0) { \inputline{c}{21}{codes/solution2.c} };
+
+
+
+
+
+
+
+
+\end{tikzpicture}
+\end{frame}
+\begin{frame}[plain,t]
+\begin{tikzpicture}
+\node[draw,opacity=0] at (0, 0) {x};
+\node[draw,opacity=0] at (14, 8) {x};
+
+	\node[anchor=west] (line1) at (1.0, 8.0) { \inputline{c}{1}{codes/solution2.c} };
+
+	\node[anchor=west] (line2) at (1.0, 7.6) { \inputline{c}{2}{codes/solution2.c} };
+
+	\node[anchor=west] (line3) at (1.0, 7.2) { \inputline{c}{3}{codes/solution2.c} };
+
+
+	\node[anchor=west] (line5) at (1.0, 6.4) { \inputline{c}{5}{codes/solution2.c} };
+
+	\node[anchor=west] (line6) at (1.0, 6.0) { \inputline{c}{6}{codes/solution2.c} };
+
+	\node[anchor=west] (line7) at (1.0, 5.6) { \inputline{c}{7}{codes/solution2.c} };
+
+	\node[anchor=west] (line8) at (1.0, 5.2) { \inputline{c}{8}{codes/solution2.c} };
+
+
+	\node[anchor=west] (line10) at (1.0, 4.4) { \inputline{c}{10}{codes/solution2.c} };
+
+
+	\node[anchor=west] (line12) at (1.0, 3.6) { \inputline{c}{12}{codes/solution2.c} };
+
+
+	\node[anchor=west] (line14) at (1.0, 2.8) { \inputline{c}{14}{codes/solution2.c} };
+
+	\node[anchor=west] (line15) at (1.0, 2.4) { \inputline{c}{15}{codes/solution2.c} };
+
+	\node[anchor=west] (line16) at (1.0, 2.0) { \inputline{c}{16}{codes/solution2.c} };
+
+
+	\node[anchor=west] (line18) at (1.0, 1.2) { \inputline{c}{18}{codes/solution2.c} };
+
+
+	\node[anchor=west] (line20) at (1.0, 0.4) { \inputline{c}{20}{codes/solution2.c} };
+
+	\node[anchor=west] (line21) at (1.0, -0.0) { \inputline{c}{21}{codes/solution2.c} };
+
+
+
+
+
+
+
+
+
+
 
 \end{tikzpicture}
 \end{frame}

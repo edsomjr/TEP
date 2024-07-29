@@ -1,23 +1,21 @@
-// NEPS 235 - Telefone (P1) (https://neps.academy/br/exercise/235)
-#include <bits/stdc++.h>
+#include <stdio.h>
+#include <ctype.h>
+#include <string.h>
 
-using namespace std;
-
-auto solve(string& s)
-{
-    auto keyboard = "22233344455566677778889999";
-
-    transform(s.begin(), s.end(), s.begin(), [&](char c) { return isalpha(c) ? keyboard[c - 'A'] : c; });
-
-    return s;
-}
-    
 int main()
 {
-    string s;
-    cin >> s;
+    char s[16];
+    scanf("%s", s);
 
-    cout << solve(s) << '\n';
+    int N = strlen(s);
+
+    char keyboard [26] = "22233344455566677778889999";
+
+    for (int i = 0; i < N; ++i)
+        if (isalpha(s[i]))
+            s[i] = keyboard[s[i] - 'A'];
+
+    printf("%s\n", s);
 
     return 0;
 }
