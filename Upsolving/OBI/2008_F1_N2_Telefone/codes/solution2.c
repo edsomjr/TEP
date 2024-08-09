@@ -9,7 +9,7 @@ int main()
 
     int N = strlen(s);
 
-    char keyboard [26] = "22233344455566677778889999";
+    char keyboard [27] = "22233344455566677778889999";
 
     for (int i = 0; i < N; ++i)
         if (isalpha(s[i]))
