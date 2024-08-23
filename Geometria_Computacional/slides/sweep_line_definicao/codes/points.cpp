@@ -79,17 +79,17 @@ int intersections(const vector<Interval>& is)
     {
         auto I = is[i];
 
-        ys.insert(I.A.y);
-        ys.insert(I.B.y);
+        ys.emplace(I.A.y);
+        ys.emplace(I.B.y);
 
         auto xmin = min(I.A.x, I.B.x), xmax = max(I.A.x, I.B.x);
 
         if (I.A.x == I.B.x)     // Vertical
-            es.push_back( { 2, xmin, i });
+            es.emplace_back(2, xmin, i);
         else                    // Horizontal
         {
-            es.push_back( { 1, xmin, i });
-            es.push_back( { 3, xmax, i });
+            es.emplace_back(1, xmin, i);
+            es.emplace_back(3, xmax, i);
         }
     }
 

@@ -11,28 +11,28 @@ vector<int> max_intersection(const vector<interval>& is)
 
     for (size_t i = 0; i < is.size(); ++i)
     {
-        auto a = is[i].first, b = is[i].second;
+        auto [a, b] = is[i];
 
-        es.push_back({ a, i + 1});      // Evento de início
-        es.push_back({ b, -(i + 1)});   // Evento de fim
+        es.emplace_back(a, i + 1);      // Evento de início
+        es.emplace_back(b, -(i + 1));   // Evento de fim
     }
 
     sort(es.begin(), es.end());
 
     set<int> active, max_set;
 
-    for (const auto& e : es)
+    for (const auto& [_, i] : es)
     {
         if (active.size() >= max_set.size())
             max_set = active;
 
-        if (e.second > 0)
-            active.insert(e.second);
+        if (i > 0)
+            active.emplace(i);
         else
-            active.erase(-e.second);
+            active.erase(-i);
     }
 
-    return vector<int>(max_set.begin(), max_set.end());
+    return { max_set.begin(), max_set.end() };
 }
 
 int main()
