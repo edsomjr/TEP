@@ -23,13 +23,13 @@ vector<int> max_intersection(const vector<interval>& is)
 
     for (const auto& [_, i] : es)
     {
-        if (active.size() >= max_set.size())
-            max_set = active;
-
         if (i > 0)
             active.emplace(i);
         else
             active.erase(-i);
+
+        if (active.size() >= max_set.size())
+            max_set = active;
     }
 
     return { max_set.begin(), max_set.end() };

@@ -137,4 +137,5 @@ Problemas:
     [ ] [Closest Point Pair](https://www.spoj.com/problems/CLOPPAIR/) - distância mínima entre pontos
     [ ] [Ada and Cucumber](https://www.spoj.com/problems/ADAPICK/) - graham scan
     [ ] [Mayonnaise Arrow](https://www.spoj.com/problems/BLMIRANA/) - cobertura de reta
+    [ ] [Manhattan Multifocal Ellipse](https://atcoder.jp/contests/abc366/tasks/abc366_e)
 -->
