@@ -5,9 +5,9 @@
     \begin{itemize}
         \item As strings de Fibonacci $F_n$, com $n \geq 0$, são definidas como
         \begin{align*}
-            F_0 &= \code{cpp}{""} \\
-            F_1 &= \code{cpp}{"b"} \\
-            F_2 &=  \code{cpp}{"a"} \\
+            F_0 &= \mbox{\code{cpp}{""}} \\
+            F_1 &= \mbox{\code{cpp}{"b"}} \\
+            F_2 &=  \mbox{\code{cpp}{"a"}} \\
             F_n &= F_{(n-1)}F_{(n-2)}, n > 2
             \end{align*}
         onde a expressão $F_{(n-1)}F_{(n-2)}$ significa a concatenação das últimas duas strings de 
@@ -38,8 +38,8 @@
         \item Considere a string infinita $T_\infty$, definida da seguinte maneira, onde $g(k)$ é 
             o número dígitos 1 (um) na representação binária do inteiro não-negativo $k$:
         \[
-            T_\infty(k) = \left\lbrace \begin{array}{ll} \code{cpp}{'a'}, & \mbox{se}\ g(k)\ \mbox{é par} \\
-            \code{cpp}{'b'},& \mbox{caso contrário} \end{array} \right.
+            T_\infty(k) = \left\lbrace \begin{array}{ll} \mbox{\code{cpp}{'a'}}, & \mbox{se}\ g(k)\ \mbox{é par} \\
+            \mbox{\code{cpp}{'b'}},& \mbox{caso contrário} \end{array} \right.
         \]
         \pause
 
@@ -71,13 +71,13 @@
             \]
         \pause
 
-        \item As primeias 5 palavras binárias $P_n$ são
+        \item As primeiras 5 palavras binárias $P_n$ são
         \begin{align*}
-            P_0 &= \code{cpp}{"1"} \\
-            P_1 &= \code{cpp}{"11"} \\
-            P_2 &= \code{cpp}{"101"} \\
-            P_3 &= \code{cpp}{"1111"} \\
-            P_4 &= \code{cpp}{"10001"}
+            P_0 &= \mbox{\code{cpp}{"1"}} \\
+            P_1 &= \mbox{\code{cpp}{"11"}} \\
+            P_2 &= \mbox{\code{cpp}{"101"}} \\
+            P_3 &= \mbox{\code{cpp}{"1111"}} \\
+            P_4 &= \mbox{\code{cpp}{"10001"}}
         \end{align*}
         \pause
 
@@ -93,7 +93,7 @@
         \item Considere a string infinita $W$ composta pela representação decimal dos números 
             naturais consecutivos, isto é,
         \[
-            W = \code{cpp}{"012345678910111213141516171819202122232425..."}
+            W = \mbox{\code{cpp}{"012345678910111213141516171819202122232425..."}}
         \]
         \pause
 
@@ -118,8 +118,8 @@
 \begin{frame}[fragile]{Strings de Bruijin}
 
     \begin{itemize}
-        \item Seja $A = \lbrace a, b\rbrace$. Existem $2^k$ strings de tamanho $k$ formadas por 
-            elementos de A
+        \item Seja $\Sigma = \lbrace a, b\rbrace$. Existem $2^k$ strings de tamanho $k$ formadas por 
+            elementos de $\Sigma$
         \pause
 
         \item Uma pergunta natural que surge é: qual é o comprimento mínimo $\gamma(k)$ de uma 
@@ -134,7 +134,7 @@
         \pause
 
         \item Uma string com este tamanho, contendo todas as substrings de tamanho $k$ formadas 
-            por elementos de $A$, é denominada string de Bruijin
+            por elementos de $\Sigma$, é denominada string de Bruijin
 
     \end{itemize}
 
@@ -146,7 +146,7 @@
         \item Há uma relação entre strings de Bruijin e ciclos de Euler
         \pause
 
-        \item Seja $G_k$ um grafo cujos vértices são todas as strings de elementos de $A$ de 
+        \item Seja $G_k$ um grafo cujos vértices são todas as strings de elementos de $\Sigma$ de 
             tamanho $k - 1$
         \pause
 
@@ -160,14 +160,14 @@
         \item Este grafo tem um ciclo de Euler direcionado, que contém cada aresta uma única vez
         \pause
 
-        \item Seja $a_1a_2\ldots a_N$ a sequência de arestas do ciclo de Euler
+        \item Seja $e_1e_2\ldots e_N$ a sequência de arestas do ciclo de Euler
         \pause
 
-        \item Segue que $N = 2^k$, e que a sequência abaixo forma uma string de Bruijin:
+        \item Segue que $N = 2^k$ e que a sequência 
         \[
             a_1a_2\ldots a_Na_1a_2\ldots a_{k-1}
         \]
- 
+        forma uma string de Bruijin, onde $a_i$ é o rótulo da aresta $e_i$, $i = 1, 2, \ldots, N$ 
    \end{itemize}
 
 \end{frame}

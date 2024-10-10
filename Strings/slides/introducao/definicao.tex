@@ -3,10 +3,10 @@
 \begin{frame}[fragile]{Definição de string}
 
     \begin{itemize}
-        \item Um alfabeto $A$ é um conjunto finito de símbolos
+        \item Um alfabeto $\Sigma$ é um conjunto finito de símbolos
         \pause
 
-        \item Os elementos de um alfabeto $A$ são denominados letras, caracteres ou símbolos
+        \item Os elementos de um alfabeto $\Sigma$ são denominados letras, caracteres ou símbolos
         \pause
 
         \item Exemplos de alfabetos comumente utilizados são as letras maiúsculas e minúsculas, 
@@ -14,7 +14,7 @@
         \pause
 
         \item Uma string $s$ (ou texto ou palavra) é uma sequência ordenada $s = \lbrace a_1, a_2, 
-        \ldots, a_N\rbrace$ de caracteres $a_i$ de um alfabeto $A$
+        \ldots, a_N\rbrace$ de caracteres $a_i$ de um alfabeto $\Sigma$
         \pause
 
         \item O $i$-ésimo termo de $s$ também é denotado por $s_i$ ou $s[i]$
@@ -25,7 +25,6 @@
     \end{itemize}
 
 \end{frame}
-
 
 \begin{frame}[fragile]{Substrings}
 
@@ -102,7 +101,7 @@
             $period(s_1) = 6, period(s_2) = 4$ e $period(s_3) = 8$
         \pause
 
-        \item Dentre as três, apenas $s_2$ é períodica
+        \item Dentre as três, apenas $s_2$ é periódica
     \end{itemize}
 
 \end{frame}
@@ -146,9 +145,9 @@
 
         \item Por exemplo, para a string $s$ = \code{cpp}{"teteatete"}, tem-se $|s| = 9$ e
         \begin{align*}
-            & border(s) = \code{cpp}{"tete"} \\
-            & border^2(s) = border(\code{cpp}{"tete"}) = \code{cpp}{"te"} \\
-            & border^3(s) = border(\code{cpp}{"te"}) = \code{cpp}{""}
+            & border(s) = \mbox{\code{cpp}{"tete"}} \\
+            & border^2(s) = border(\mbox{\code{cpp}{"tete"}}) = \mbox{\code{cpp}{"te"}} \\
+            & border^3(s) = border(\mbox{\code{cpp}{"te"}}) = \mbox{\code{cpp}{""}}
         \end{align*}
         os quais formam a sequência de períodos $9 - 4 = 5, 9 - 2 = 7$ e $9 - 0 = 9$
     \end{itemize}
