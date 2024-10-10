@@ -27,5 +27,9 @@ Strings
     1. Algoritmo de Manacher
     1. Automatos finitos
     1. Fatorização de Lyndon
+
+Exercícios:
+
+
 -->
 

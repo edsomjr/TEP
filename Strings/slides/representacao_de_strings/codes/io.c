@@ -13,7 +13,7 @@ int main()
     fgets(line, 1024, stdin);
     line[strlen(line) - 1] = 0;
 
-    printf("line = [%s]\n", line);      // line = [Teste de I/O em C\n]
+    printf("line = [%s]\n", line);      // line = [ de I/O em C]
 
     return 0;
 }
