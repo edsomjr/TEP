@@ -34,11 +34,10 @@ Exercícios:
 
     - [x] [133A - HQ9+](http://codeforces.com/problemset/problem/133/A)
     - [x] [266A - Stones on the Table](http://codeforces.com/problemset/problem/266/A)
-    - [ ] [153 - Permalex](https://onlinejudge.org/index.php?option=onlinejudge&Itemid=8&page=show_problem&problem=89)
-https://onlinejudge.org/index.php?option=onlinejudge&Itemid=8&page=show_problem&problem=89
-    - [ ] [263 - Number Chains](https://uva.onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&category=24&page=show_problem&problem=199)
-    - [ ] [11483 - Code Creator](https://uva.onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&category=24&page=show_problem&problem=2478)
-    - [ ] [12243 - Flowers Flourish from France](https://uva.onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&category=24&page=show_problem&problem=3395)
+    - [x] [153 - Permalex](https://onlinejudge.org/index.php?option=onlinejudge&Itemid=8&page=show_problem&problem=89)
+    - [x] [263 - Number Chains](https://onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&page=show_problem&problem=199)
+    - [x] [11483 - Code Creator](https://onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&page=show_problem&problem=2478)
+    - [x] [12243 - Flowers Flourish from France](https://onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&page=show_problem&problem=3395)
     - [ ] [177G1 - Fibonacci Strings](http://codeforces.com/problemset/problem/177/G1)
 
 -->
