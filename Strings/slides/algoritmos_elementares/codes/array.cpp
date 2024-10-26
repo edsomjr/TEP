@@ -1,6 +1,6 @@
 #include <cstring>
 
-void histogram(int h[256], const string& s)
+void histogram(int h[256], const std::string& s)
 {
     memset(h, 0, sizeof h);
 

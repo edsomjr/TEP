@@ -8,13 +8,13 @@ int main() {
     std::cout << token << '\n';      // token = "123";
 
     getline(is, token, '.');
-    cout << token << '\n';      // token = "456";
+    std::cout << token << '\n';      // token = "456";
 
     getline(is, token, '-');
-    cout << token << '\n';      // token = "789";
+    std::cout << token << '\n';      // token = "789";
 
     getline(is, token);
-    cout << token << '\n';      // token = "10";
+    std::cout << token << '\n';      // token = "10";
 
     return 0;
 }

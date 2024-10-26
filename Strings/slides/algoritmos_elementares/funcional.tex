@@ -23,8 +23,8 @@
 
     \begin{itemize}
         \item Um mapa (ou mapeamento) consiste em uma função $m_f: S_N \to S_N$, 
-            onde $S_N$ é o conjunto de todas as strings de tamanho $N$ e $f: A \to A$ é uma função 
-            cujo domínio é o alfabeto $A$ tal que se $y = m_f(s)$, então $y[i] = f(s[i])$
+            onde $S_N$ é o conjunto de todas as strings de tamanho $N$ e $f: \Sigma \to \Sigma$ é uma função 
+            cujo domínio é o alfabeto $\Sigma$ tal que se $y = m_f(s)$, então $y[i] = f(s[i])$
         \pause
 
         \item Em termos mais simples, $m_f$ mapeia cada caractere de $s$ de acordo com a função $f$
@@ -83,15 +83,15 @@
 
     \begin{itemize}
         \item Uma redução $r_b : S_N \to T$ gera um elemento do tipo $T$ através da aplicação 
-            sucessiva do operador binário $b$, da esquerda para a direita, em cada elemento de $s$, 
+            sucessiva do operador binário $b: T\times \Sigma \to T$, da esquerda para a direita, em cada elemento de $s$, 
             tendo como operando esquerdo inicial um valor definido previamente
         \pause
 
-        \item Se $b(s_i, s_j) = t_k$ e $s_0$ é o valor inicial para o operando esquerdo, 
+        \item Se $b(t_i, s_j) = t_j$ e $t_0$ é o valor inicial para o operando esquerdo, 
             então a redução se comporta da seguinte maneira na sequência $s = \lbrace s_1, s_2,
                 \ldots, s_N\rbrace$:
         \begin{align*}
-            r_b(s) &= \lbrace b(s_0, s_1), s_2, \ldots, s_N\rbrace \\ 
+            r_b(s) &= \lbrace b(t_0, s_1), s_2, \ldots, s_N\rbrace \\ 
             &= \lbrace b(t_1, s_2), \ldots, s_N\rbrace \\
             &= \lbrace b(t_2, s_3), \ldots, s_N\rbrace \\
             &= \ldots \\
@@ -141,8 +141,8 @@
         \item Uma tabela de substituição é uma aplicação prática de um mapeamento
         \pause
 
-        \item Ela é definida por uma função $f: A \to A$ que mapeia cada caractere do alfabeto 
-            $A$ em outro caractere do mesmo alfabeto
+        \item Ela é definida por uma função $f: \Sigma \to \Sigma$ que mapeia cada caractere do alfabeto 
+            $\Sigma$ em outro caractere do mesmo alfabeto
         \pause
 
         \item Sistemas criptográficos mais simples utilizam tabelas de substituição, como a Cifra 

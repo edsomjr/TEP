@@ -1,6 +1,6 @@
 #include <map>
 
-std::map<char, int> histogram(const string& s)
+std::map<char, int> histogram(const std::string& s)
 {
     std::map<char, int> h;
 

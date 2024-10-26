@@ -1,11 +1,11 @@
 #include <algorithm>
 
-bool is_anagram(const string& s, const string& t)
+bool is_anagram(const std::string& s, const std::string& t)
 {
-    string a(s), b(t);
+    std::string a(s), b(t);
 
-    sort(a.begin(), a.end());
-    sort(b.begin(), b.end());
+    std::sort(a.begin(), a.end());
+    std::sort(b.begin(), b.end());
 
     return a == b;
 }

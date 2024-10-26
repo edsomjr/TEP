@@ -1,5 +1,5 @@
 // Soma todos os dígitos da strings de dígitos s
-int sum(const string& s)
+int sum(const std::string& s)
 {
     int s = 0;
 

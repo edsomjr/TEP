@@ -54,12 +54,12 @@
         \begin{enumerate}
             \item um número entre chaves após o caractere/padrão indica o número de repetições ou 
                 as quantidades válidas de repetições. Por exemplo, \verb|a{5}| significa o mesmo 
-                que ``\texttt{aaaaa}"; \verb|a{1-3}| indica ``de um a três caracteres a"; 
-                \verb|[abc]{2}| indica dois caracteres seguidos dentres os indicados no colchete
+                que \code{cpp}{"aaaaa"}; \verb|a{1-3}| indica ``de um a três caracteres a"; 
+                \verb|[abc]{2}| indica dois caracteres seguidos dentre os indicados no colchete
         \pause
-            \item o caractere \lq \verb|*|\rq\ significa ``zero ou mais repetições"
+            \item o caractere \code{cpp}{'*'} significa ``zero ou mais repetições"
         \pause
-            \item o caractere \lq \verb|+|\rq\ significa ``uma ou mais repetições"
+            \item o caractere \code{cpp}{'+'} significa ``uma ou mais repetições"
 
         \end{enumerate}
     \end{enumerate}
@@ -90,6 +90,6 @@
 
 \end{frame}
 
-\begin{frame}[fragile]{Exemplo de uso de regex em Java}
-    \inputcode{java}{codes/Main.java}
+\begin{frame}[fragile]{Exemplo de uso de regex em C++}
+    \inputcode{cpp}{codes/regex.cpp}
 \end{frame}

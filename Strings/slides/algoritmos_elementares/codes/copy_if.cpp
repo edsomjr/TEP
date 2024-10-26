@@ -2,14 +2,14 @@
 #include <algorithm>
 
 // Extrai apenas as vogais de s
-string filter_vowels(const string& s)
+std::string filter_vowels(const std::string& s)
 {
     string v;
 
-    copy_if(s.begin(), s.end(), back_inserter(v),
+    std::copy_if(s.begin(), s.end(), back_inserter(v),
         [](char c)
         {
-            const string vowels { "aeiou" };
+            const std::string vowels { "aeiou" };
 
             return vowels.find(c) != string::npos;
         }
