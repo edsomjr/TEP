@@ -6,7 +6,8 @@ Strings
     1. [Representação de Strings](slides/representacao_de_strings/representacao_de_strings.pdf)
         1. [Codeforces Round #163 (Div. 2) - Problem A: Stones on t he Table](https://codeforces.com/problemset/problem/266/A) ([_upsolving_](../Upsolving/CF/266A/266A.pdf))
         1. [AtCoder Beginner Contest 109 - Problem B: Shiritori](https://atcoder.jp/contests/abc109/tasks/abc109_b) ([_upsolving_](../Upsolving/AtCoder/ABC_109B/ABC_109B.pdf))
-    1. [Algoritmos Elementares](slides/algoritmos_elementares/algoritmos_elementares.pdf) ([problemas resolvidos](problems/ST-3/ST-3.pdf))
+    1. [Algoritmos Elementares](slides/algoritmos_elementares/algoritmos_elementares.pdf)
+        1. [OJ 10252 - Common Permutation](http://onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&page=show_problem&problem=1193) ([_upsolving_](../Upsolving/OJ/10252/10252.pdf))
 1. Algoritmos de Busca
     1. [Busca em Strings](slides/busca/busca.pdf)
     1. [Strings e _Hashes_](slides/hashes/hashes.pdf)
