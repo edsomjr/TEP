@@ -9,7 +9,7 @@ Strings
     1. [Algoritmos Elementares](slides/algoritmos_elementares/algoritmos_elementares.pdf)
         1. [OJ 10252 - Common Permutation](http://onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&page=show_problem&problem=1193) ([_upsolving_](../Upsolving/OJ/10252/10252.pdf))
         1. [Codeforces Beta Round #5 - Problem B: Center Alignment](https://codeforces.com/problemset/problem/5/B) ([_upsolving_](../Upsolving/CF/5B/5B.pdf))
-        1. [AtCoder Beginner Contest 103 - Problem C: /\/\/\/](https://atcoder.jp/contests/abc103/tasks/abc103_c) ([_upsolving_](../Upsolving/AtCoder/ABC_103C/ABC_103C.pdf))
+        1. [AtCoder Beginner Contest 103 - Problem C: /\\/\\/\\/](https://atcoder.jp/contests/abc103/tasks/abc103_c) ([_upsolving_](../Upsolving/AtCoder/ABC_103C/ABC_103C.pdf))
 1. Algoritmos de Busca
     1. [Busca em Strings](slides/busca/busca.pdf)
     1. [Strings e _Hashes_](slides/hashes/hashes.pdf)
