@@ -8,10 +8,10 @@ int hi(long long pi, long long qi, const string& s)
 {
     long long ans = 0;
 
-    for (auto it = s.rbegin(); it != s.rend(); ++it)
+    for (auto c : s)
     {
         ans = (ans * pi) % qi;
-        ans = (ans + f(*it)) % qi;
+        ans = (ans + f(c)) % qi;
     }
 
     return ans;
@@ -19,10 +19,10 @@ int hi(long long pi, long long qi, const string& s)
 
 pair<int, int> h(const string& s)
 {
-    const long long p1 = 31, q1 = 1000000007;
-    const long long p2 = 29, q2 = 1000000009;
+    constexpr long long p1 = 31, q1 = 1'000'000'007;
+    constexpr long long p2 = 29, q2 = 1'000'000'009;
 
-    return make_pair(hi(p1, q1, s), hi(p2, q2, s));
+    return { hi(p1, q1, s), hi(p2, q2, s) };
 }
 
 int main()
@@ -30,9 +30,9 @@ int main()
     string s;
     cin >> s;
 
-    auto hs = h(s);
+    auto [h1, h2] = h(s);
 
-    cout << "(" << hs.first << ", " << hs.second << ")\n";
+    cout << "(" << h1 << ", " << h2 << ")\n";
 
     return 0;
 }

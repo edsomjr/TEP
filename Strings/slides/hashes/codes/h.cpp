@@ -5,12 +5,12 @@ int f(char c)
 
 int h(const string& s)
 {
-    long long ans = 0, p = 31, q = 1000000007;
+    long long ans = 0, p = 31, q = 1'000'000'007;
 
-    for (auto it = s.rbegin(); it != s.rend(); ++it)
+    for (auto c : s)
     {
         ans = (ans * p) % q;
-        ans = (ans + f(*it)) % q;
+        ans = (ans + f(c)) % q;
     }
 
     return ans;

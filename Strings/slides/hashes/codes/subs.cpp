@@ -2,7 +2,7 @@
 
 using namespace std;
 using ll = long long;
-const ll p = 31, q = 1000000007;
+constexpr ll p = 31, q = 1'000'000'007;
 
 int f(char c)
 {
@@ -13,10 +13,10 @@ int h(const string& s)
 {
     ll ans = 0;
 
-    for (auto it = s.rbegin(); it != s.rend(); ++it)
+    for (auto c : s)
     {
         ans = (ans * p) % q;
-        ans = (ans + f(*it)) % q;
+        ans = (ans + f(c)) % q;
     }
 
     return ans;

@@ -46,4 +46,3 @@ Exercícios:
     - [ ] [177G1 - Fibonacci Strings](http://codeforces.com/problemset/problem/177/G1)
 
 -->
-

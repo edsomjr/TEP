@@ -50,29 +50,28 @@
         \pause
 
 
-        \item Em termos formais, dado um alfabeto $\mathcal{A}$ e uma função
+        \item Em termos formais, dado um alfabeto $\Sigma$ e uma função
         \[
-            f : \mathcal{A} \to \mathbb{N},
+            f : \Sigma \to \mathbb{N},
         \]
-        então $s_i = f(S[i])$, onde $S[i]\in\mathcal{A}$ para todo $i = 0, 1, 2, \ldots, N - 1$
+        então $s_i = f(S[i])$, onde $S[i]\in\Sigma$ para todo $i = 0, 1, 2, \ldots, N - 1$
         \pause
 
 
-        \item Um mapeamento possível seria $f(\mathtt{a}) = 1, f(\mathtt{b}) = 2, \ldots,
-        f(\mathtt{z}) = 26$
+        \item Um mapeamento possível seria $f(\mbox{\code{cpp}{'a'}}) = 1, f(\mbox{\code{cpp}{'b'}}) = 2, \ldots,
+        f(\mbox{\code{cpp}{'z'}}) = 26$
         \pause
 
-
-        \item Veja que o caractere \texttt{`a'} não é mapeado para zero, e sim para um, para
+        \item Veja que o caractere \code{cpp}{'a'} não é mapeado para zero, e sim para um, para
             evitar que todas as strings compostas por repetições deste caractere tenham o 
             mesmo \textit{hash} $h$
     \end{itemize}
 
 \end{frame}
 
-\begin{frame}[fragile]{Implementação do {\it rolling hash} em Haskell}
-    \inputsnippet{haskell}{1}{19}{codes/h.hs}
-\end{frame}
+%\begin{frame}[fragile]{Implementação do {\it rolling hash} em Haskell}
+%    \inputsnippet{haskell}{1}{19}{codes/h.hs}
+%\end{frame}
 
 \begin{frame}[fragile]{Implementação do {\it rolling hash} em C++}
     \inputsnippet{cpp}{1}{21}{codes/h.cpp}
@@ -137,13 +136,13 @@
 
 \end{frame}
 
-\begin{frame}[fragile]{Contagem das substrings distintas em Haskell}
-    \inputsnippet{haskell}{1}{17}{codes/subs.hs}
-\end{frame}
+%\begin{frame}[fragile]{Contagem das substrings distintas em Haskell}
+%    \inputsnippet{haskell}{1}{17}{codes/subs.hs}
+%\end{frame}
 
-\begin{frame}[fragile]{Contagem das substrings distintas em Haskell}
-    \inputsnippet{haskell}{18}{36}{codes/subs.hs}
-\end{frame}
+%\begin{frame}[fragile]{Contagem das substrings distintas em Haskell}
+%    \inputsnippet{haskell}{18}{36}{codes/subs.hs}
+%\end{frame}
 
 \begin{frame}[fragile]{Contagem das substrings distintas em C++}
     \inputsnippet{cpp}{1}{20}{codes/subs.cpp}
@@ -202,9 +201,9 @@
 
 \end{frame}
 
-\begin{frame}[fragile]{Implementação do {\it hash} duplo em Haskell}
-    \inputsnippet{haskell}{1}{16}{codes/double_hash.hs}
-\end{frame}
+%\begin{frame}[fragile]{Implementação do {\it hash} duplo em Haskell}
+%    \inputsnippet{haskell}{1}{16}{codes/double_hash.hs}
+%\end{frame}
 
 \begin{frame}[fragile]{Implementação do {\it hash} duplo em C++}
     \inputsnippet{cpp}{1}{18}{codes/double_hash.cpp}
