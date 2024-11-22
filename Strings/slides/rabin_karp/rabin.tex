@@ -5,18 +5,24 @@
     \begin{itemize}
         \item O algoritmo de Rabin-Karp é um algoritmo que contabiliza o número de ocorrências
             da string $P$, de tamanho $m$, na string $S$, de tamanho $n$
+        \pause
 
         \item Ele foi proposto por Michael O. Rabin e Richard M. Karp em 1987
+        \pause
 
         \item A ideia principal do algoritmo é computar o \textit{hash} $h_P = h(P)$ e compará-lo
             com todas as substrings $h_{ij} = S[i..j]$ de $S$ de tamanho $m$
+        \pause
 
         \item Caso $h_P \neq h_{ij}$, segue que $P\neq S[i..j]$ e o algoritmo pode prosseguir
+        \pause
 
         \item Se $h_P = h_{ij}$, as strings ou são iguais ou houve uma colisão
+        \pause
 
         \item Esta dúvida pode ser sanada através da comparação direta, enquanto strings, entre
             $S[i..j]$ e $P$
+        \pause
 
         \item O algoritmo tem complexidade $O(mn)$ no pior caso, por conta do custo do cálculo
             dos {\it hashes} e das possíveis comparações diretas entre as strings

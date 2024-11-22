@@ -6,9 +6,11 @@
         \item  Da maneira como foi apresentada, o algoritmo de Rabin-Karp tem complexidade 
             $O(mn)$ no pior caso, o mesmo da busca completa, e com \textit{runtime} maior,
             por conta do cálculo dos \textit{hashes}
+        \pause
 
         \item Uma primeira melhoria que pode ser feita é usar o \textit{rolling hash}, e computar
             $h(S[(i+1)..(i+m)])$ a partir de $h(S[i..(i + m -1)])$ com custo $O(1)$
+        \pause
 
         \item Isto é possível, pois se $h_i(S) = h(S[i..(i + m - 1)]$, então
         \begin{small}
@@ -30,16 +32,20 @@
     \begin{itemize}
         \item Observe que a divisão deve ser feita por meio da multiplicação pelo inverso
             multiplicativo de $p$ módulo $q$
+        \pause
 
         \item Assim,
         \[
             h_{i+1}(S) = \left((h_{i} - S[i])p^{-1} + S_{i+m}p^{m -1}\right)\ \mbox{mod}\ q
         \]
+        \pause
 
         \item Se a constante $k\equiv \Mod{p^{m-1}}{q}$ for precomputada, cada atualização do
             \textit{hash} tem custo $O(1)$
+        \pause
 
         \item O inverso $i = \Mod{p^{-1}}{q}$ também pode ser precomputado, como no caso da constante $k$
+        \pause
 
         \item O pior caso ainda tem complexidade $O(nm)$, mas o caso médio passa a ter
             complexidade $O(n + m)$
@@ -106,18 +112,21 @@
     \begin{itemize}
         \item A complexidade do pior caso não se alterou por conta da comparação direta das
             substrings $S[i..j]$ com o padrão $P$ no caso de colisão
+        \pause
 
         \item Esta comparação pode ser eliminada se a função de hash $h$ for perfeita para 
             o conjunto $\mathcal{P}$ tal que
         \[
             \mathcal{P} = \lbrace P \rbrace \cup \lbrace S[i..j]\ |\ i\in [1,n], j\in [i,n]\rbrace
         \]
+        \pause
 
         \item O uso de \textit{hash} duplo pode auxiliar na obtenção de uma função de
             \textit{hash} perfeita, uma vez que
             \[
                 |\mathcal{P}| \leq \dfrac{n(n + 1)}{2} + 1
             \]
+        \pause
  
         \item A eliminação desta comparação reduz a complexidade do pior caso para 
             $O(n + m)$
