@@ -80,9 +80,9 @@ Exercícios:
     - [ ] [Codeforces Round 527 (Div. 3) - Problem C: Prefixes and Suffixes](https://codeforces.com/contest/1092/problem/C)
     - [ ] [AtCoder Beginner Contest 141 - Problem E: Who Says a Pun?](https://atcoder.jp/contests/abc141/tasks/abc141_e)
     - [ ] [AtCoder Beginner Contest 043 - Problem D: Unbalanced](https://atcoder.jp/contests/abc043/tasks/arc059_b) 
-    - [ ] [AtCoder Beginner Contest 049 -- Problem C: Daydream](https://atcoder.jp/contests/abc049/tasks/arc065_a)
-    - [ ] [ABC 076C]
-    - [ ] [ABC 097C]
+    - [ ] [AtCoder Beginner Contest 049 - Problem C: Daydream](https://atcoder.jp/contests/abc049/tasks/arc065_a)
+    - [ ] [AtCoder Beginner Contest 076 - Problem C: Dubious Document 2](https://atcoder.jp/contests/abc076/tasks/abc076_c)
+    - [ ] [AtCoder Beginner Contest 077 - Problem C: K-th Substrings](https://atcoder.jp/contests/abc097/tasks/arc097_a)
     - [ ] [AtCoder Beginner Contest 221 - Problem C: Select Mul](https://atcoder.jp/contests/abc221/tasks/abc221_c)
     - [ ] [OJ 10391 - Compound Words](https://onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&page=show_problem&problem=1332) 
     - [ ] [OJ 10679 - I Love Strings!](https://onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&page=show_problem&problem=1620)

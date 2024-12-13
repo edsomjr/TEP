@@ -7,7 +7,7 @@
         busca completa, as comparações feitas entre as substrings $S[i..j]$ e o padrão $P$ 
         são independentes
 
-        \item Isto resulta em várias comparações sendo feitas mais de uma vez e desnecessariamente
+        \item Isto resulta em várias comparações sendo feitas, desnecessariamente, mais de uma vez
 
         \item Por exemplo, se $S$ = \code{cpp}{"xyzabcdfgh"} e $P$ = \code{cpp}{"abcde"}, a 
             comparação entre a $S[4..8]$ = \code{cpp}{"abcdf"} e o $P$ falha apenas no último 
@@ -27,7 +27,7 @@
 \begin{frame}[fragile]{Conceitos preliminares}
 
     \begin{itemize}
-        \item Um salto seguro $s$ é um inteiro positivo tal que há garantias de que o padrão $P$
+        \item Um salto seguro $s$ é um inteiro positivo tal que é garantido que o padrão $P$
             não pode ocorrer entre as posições $i$ e $i + s$ de $S$, mas que pode iniciar-se 
             da posição $i+s$ em diante
 
@@ -52,7 +52,7 @@
         \item Considere que $S[i..(i + j - 1)] = P[1..j]$ e que $S[i + j] \neq P[j + 1]$
 
         \item Assim, o salto seguro $shift(P[1..j])$ de Morris-Pratt para o padrão 
-        $P[1..j], j = 1, 2, \ldots, m$ é dado por
+        $P[1..j]$, com $j = 1, 2, \ldots, m$, é dado por
         \[
             shift(P[1..j]) = j - |border(P[1..j])|
         \]
@@ -145,7 +145,7 @@
         \item Caso a primeira comparação seja bem sucedida, ela não pode falhar no índice 0
 
         \item O pior caso, em termos de número de comparações, acontece quando $P$ é formado
-            por  apenas duas letras distinas e $S$ é uma repetição de $n - 1$ vezes a primeira 
+            por  apenas duas letras distintas e $S$ é uma repetição de $n - 1$ vezes a primeira 
             letra de $P$ e a última letra é igual a segunda letra de $P$
     \end{itemize}
 

@@ -16,10 +16,10 @@
             inv2(i, j) = (P[1..j] = S[i + 1, i + j + 1])\ \mathbf{and}\ (P[j + 1] \neq S[i + j + 1])
         \]
 
-        \item Para entender o porque da melhora, considere o seguinte exemplo: seja 
+        \item Para entender o porquê da melhora, considere o seguinte exemplo: seja 
             $P$ = \code{cpp}{"abcabc"} e $S$ = \code{cpp}{"abcabdabc"}
 
-        \item Os 5 primeiros caracteres de ambos coincidem, e a diferença ocorre no sexto 
+        \item Os 5 primeiros caracteres de ambos coincidem e a diferença ocorre no sexto 
             caractere: $P[6]$ = \code{cpp}{'c'} $\neq S[6]$ = \code{cpp}{'d'}
 
     \end{itemize}
@@ -62,7 +62,7 @@
             complexidade assintótica permaneça a mesma: $O(n + m)$
 
         \item A implementação é quase idêntica a do algoritmo de Morris-Pratt, residindo a 
-            diferença a substituição de $border(P)$ por $sborder(P)$
+            diferença na substituição de $border(P)$ por $sborder(P)$
 
     \end{itemize}
 
