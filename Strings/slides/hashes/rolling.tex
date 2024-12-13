@@ -105,10 +105,9 @@
 \begin{frame}[fragile]{Calculo do {\it hash} das substrings de $S$}
 
     \begin{itemize}
-        \item Para obter o valor de $S[i..j]$, é necessário multiplicar a expressão acima
+        \item Para obter o valor do \textit{hash} para $S[i..j]$ é necessário multiplicar a expressão acima
             pelo inverso multiplicativo $(p^i)^{-1}$ de $p^i$ módulo $q$
         \pause
-
 
         \item Este pode ser obtido pelo Pequeno Teorema de Fermat: se $q$ é primo e 
         $(a, q) = 1$, então
@@ -122,7 +121,7 @@
         \[
             a\cdot a^{q-2}\equiv \Mod{1}{q},
         \]
-        de modo que 
+        vale que 
         \[
             a^{-1}\equiv \Mod{a^{q-2}}{q}
         \]
