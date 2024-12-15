@@ -108,7 +108,7 @@
                 \State $m \gets |P|, n \gets |S|, occ \gets 0, i \gets 1, j \gets 0$
                 \State $bs \gets \Call{borders}{P}$
 
-                \While {$|S[i..n]| \leq m$}
+                \While {$|S[i..n]| \geq m$}
                     \While {$j < m$\algand $P[j + 1] = S[i + j]$}
                         \State $j \gets j + 1$
                     \EndWhile
