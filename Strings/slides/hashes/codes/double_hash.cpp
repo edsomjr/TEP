@@ -6,9 +6,10 @@ int f(char c) { return c - 'a' + 1; }
 
 int hi(long long pi, long long qi, const string& s)
 {
+    int N = s.size();
     long long ans = 0;
 
-    for (auto c : s)
+    for (int i = N - 1; i >= 0; --i)
     {
         ans = (ans * pi) % qi;
         ans = (ans + f(c)) % qi;

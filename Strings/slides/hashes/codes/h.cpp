@@ -5,9 +5,10 @@ int f(char c)
 
 int h(const string& s)
 {
+    int N = s.size();
     long long ans = 0, p = 31, q = 1'000'000'007;
 
-    for (auto c : s)
+    for (int i = N - 1; i >= 0; --i)
     {
         ans = (ans * p) % q;
         ans = (ans + f(c)) % q;

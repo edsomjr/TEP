@@ -11,9 +11,10 @@ int f(char c)
 
 int h(const string& s)
 {
+    int N = s.size();
     ll ans = 0;
 
-    for (auto c : s)
+    for (int i = N - 1; i >= 0; --i)
     {
         ans = (ans * p) % q;
         ans = (ans + f(c)) % q;
@@ -72,8 +73,8 @@ int h(int i, int j, const vector<ll>& ps, const vector<ll>& is)
 
 int unique_substrings(const string& s)
 {
-    set<ll> hs;
     int N = s.size();
+    set<ll> hs;
 
     auto ps = prefixes(s);
     auto is = inverses(s.size());
