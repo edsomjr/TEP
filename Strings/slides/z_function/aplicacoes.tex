@@ -5,21 +5,26 @@
     \begin{itemize}
         \item A função $z$ também pode ser utilizada para determinar o número de ocorrências de 
             uma string $P$, de tamanho $m$, em uma string $S$, de tamanho $n$
+        \pause
 
         \item Defina a string $T$ como
         \[
             T = P + \mbox{\textcolor{red!80!black}{\texttt{`\#'}}} + S
+        \pause
         \]
 
         \item Assim, $T$ é a concatenação da string $P$, o caractere separador
         \textcolor{red!80!black}{\texttt{`\#'}} e a string $S$
+        \pause
 
         \item O separador pode ser qualquer caractere que não apareça nem em $S$ e nem em $T$ 
+        \pause
 
         \item A string $P$ ocorre na posição $i$ de $S$ se, e somente se, 
         \[
             z_T(i + m + 1) = m
         \]
+        \pause
 
         \item Esta abordagem tem complexidade $O(n + m)$
 
@@ -83,12 +88,14 @@
         \item A função $z$ também pode ser utilizada para localizar o número de ocorrências
             de uma substring $P$, de tamanho $m$, em $S$, de tamanho $n$, permitindo que $P$
             e a substring de $S$ sejam distintas em, no máximo, um caractere
+        \pause
 
         \item Sejam $A$ e $B$ duas strings de mesmo tamanho $n$. A distância de Hamming $\dist(A, B)$
             de $A$ a $B$ é dada por
         \[
             \dist(A, B) = | \lbrace i\ | \ i\in [1,n]\ \mbox{e}\ A[i] \neq B[i]\rbrace |
         \]
+        \pause
        
         \item Em termos mais precisos, é possível determinar o tamanho do conjunto
         \[
@@ -103,24 +110,30 @@
 
     \begin{itemize}
         \item Para computar o tamanho de $M$ é preciso montar duas strings
+        \pause
 
         \item A primeira delas é a string $T$, definida na primeira aplicação, onde
          \[
             T = P + \mbox{\textcolor{red!80!black}{\texttt{`\#'}}} + S
         \]
+        \pause
 
         \item Deste modo, o caractere $S[i]$ corresponde ao caractere $T[i + m + 1]$
+        \pause
 
         \item Seja $S'$ a string reversa de $S$, isto é, $S'[i] = S[n - i + 1]$, para todo
             $i\in [1,n]$
+        \pause
 
         \item A segunda string $R$ é definida por
          \[
             R = P' + \mbox{\textcolor{red!80!black}{\texttt{`\#'}}} + S'
         \]
+        \pause
 
         \item O caractere $S[i]$ corresponde ao caractere $S'[i']$ da string 
             reversa, com $i' = n - i + 1$
+        \pause
 
         \item Como $j = i + m - 1$, segue que $j' = i' - m + 1$ 
 
@@ -139,15 +152,18 @@
               &= (n - i + 1) + 2 \\
               &= n - i + 3
         \end{align*}
+        \pause
 
         \item Portanto, $S[i..j]\in M$ se, e somente se
         \[
             z_T[i + m + 1] + z_R[n - i + 3] \geq m - 1
         \]
+        \pause
 
         \item Outras palavras, se o tamanhos do prefixo comum entre $S[i..j]$ e $P$, somado ao
             tamanho do sufixo comum entre $S[i..j]$ e $P$, resultar em $m - 1$, há apenas um
             caractere de diferença entre ambos
+        \pause
 
         \item Se a soma for maior ou igual a $m$ (de fato, igual a $2m$),  então $S[i..j] = P$
     \end{itemize}
