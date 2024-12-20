@@ -4,18 +4,14 @@ using namespace std;
 using ll = long long;
 constexpr ll p = 31, q = 1'000'000'007;
 
-int f(char c)
-{
-    return c - 'a' + 1;
-}
+int f(char c) { return c - 'a' + 1; }
 
 int h(const string& s)
 {
     int N = s.size();
     ll ans = 0;
 
-    for (int i = N - 1; i >= 0; --i)
-    {
+    for (int i = N - 1; i >= 0; --i) {
         ans = (ans * p) % q;
         ans = (ans + f(s[i])) % q;
     }
@@ -38,7 +34,8 @@ ll fast_exp_mod(ll a, ll n)
 {
     ll res = 1, base = a;
 
-    while (n) {
+    while (n)
+    {
         if (n & 1)
             res = (res * base) % q;
 
@@ -54,8 +51,7 @@ vector<ll> inverses(ll N)
     vector<ll> is(N);
     ll base = 1;
 
-    for (int i = 0; i < N; ++i)
-    {
+    for (int i = 0; i < N; ++i) {
         is[i] = fast_exp_mod(base, q - 2);
         base = (base * p) % q;
     }
@@ -67,7 +63,6 @@ int h(int i, int j, const vector<ll>& ps, const vector<ll>& is)
 {
     auto diff = i ? ps[j] - ps[i - 1] : ps[j];
     diff = (diff * is[i]) % q;
-
     return (diff + q) % q;
 }
 
@@ -75,14 +70,11 @@ int unique_substrings(const string& s)
 {
     int N = s.size();
     set<ll> hs;
-
     auto ps = prefixes(s);
     auto is = inverses(s.size());
 
-    for (int i = 0; i < N; ++i)
-    {
-        for (int j = i; j < N; ++j)
-        {
+    for (int i = 0; i < N; ++i) {
+        for (int j = i; j < N; ++j) {
             auto hij = h(i, j, ps, is);
             hs.insert(hij);
         }
