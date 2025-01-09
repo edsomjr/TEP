@@ -5,15 +5,20 @@
     \begin{itemize}
         \item Assim como nas implementações \textit{top-down}, uma implementação \textit{bottom-up}
             também se baseia na relação de recorrência e nos casos-base do problema
+        \pause
 
         \item A primeira diferença é que na implementação \textit{bottom-up} todos os estados
             intermediários, necessários ou não, são computados
+        \pause
 
         \item Inicialmente os casos-base são preenchidos
+        \pause
 
         \item Em seguida, todos os estados que dependem apenas dos casos-base são computados
+        \pause
 
         \item Após eles, os estados que podem ser computados a partir dos estados já computados
+        \pause
 
         \item A ordem de preenchimento dos estados correspondem à uma ordenação topológica do
             grafo cujos vértices são os estados e as arestas são as transições
@@ -25,16 +30,20 @@
 
     \begin{itemize}
         \item Em geral, esta ordem corresponde ao preenchimento das linhas, uma por vez
+        \pause
 
         \item Em outros problemas, porém, a ordem pode não ser óbvia à primeira vista
+        \pause
 
         \item Esta forma de preenchimento da tabela de memorização dispensa uma inicialização
             prévia
+        \pause
 
         \item Nos casos onde os elementos de uma linha dependem apenas da linha anterior, a
             complexidade de memória pode ser reduzida, armazenando-se apenas duas linhas por
             vez ($O(N)$ ao invés de $O(NM)$ da tabela completa da implementação 
             \textit{top-down})
+        \pause
 
         \item Por fim, implementações \textit{bottom-up} não utilizam de recursão, em geral
             sendo baseadas em laços aninhados
@@ -53,13 +62,17 @@
             linha seguinte dependem apenas da linha anterior, e não é preciso manter o registro
             do caminho ótimo, é possível reduzir a complexidade em memória de implementações
            \textit{bottom-up}
+        \pause
 
         \item Basta manter duas referências para dois vetores, uma para a linha atual
             (\texttt{next}) e outra para a linha anterior (\texttt{prev})
+        \pause
 
         \item Os valores de \texttt{prev} são usados para computar os valores de \texttt{next}
+        \pause
 
         \item Em seguida, as referências são trocadas, e o processamento continua
+        \pause
 
         \item Também é comum usar uma matriz bidimensional, e trocar entre as linhas por meio
             do valor associado à segunda dimensão

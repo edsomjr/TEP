@@ -5,13 +5,17 @@
     \begin{itemize}
         \item Uma implementação \textit{top-down} de um algoritmo de programação dinâmica parte
             da relação de recorrência para produzir uma função recursiva
+        \pause
 
         \item Após a verificação dos casos-base, a tabela é consultada para se determinar se o 
             estado já foi computado ou não
+        \pause
 
         \item Em caso afirmativo, o valor armazenado na tabela é retornado
+        \pause
 
         \item Caso contrário, o subproblema associado ao estado é solucionado por meio de recursão
+        \pause
 
         \item Em seguida, a solução obtida é armazenada na tabela e então retornado
     \end{itemize}
@@ -23,12 +27,15 @@
     \begin{itemize}
         \item A tabela de memorização deve ter tamanho suficiente para armazenar todos os estados
             possíveis (dentro dos limites das variáveis que compõem o estado)
+        \pause
 
         \item Além disso, esta tabela deve ser iniciada com um valor que sinalize que o estado
             associado não foi computado ainda
+        \pause
 
         \item Este valor sentinela deve corresponder a um valor que não pode ser uma solução de
             nenhum estado (-1, $\infty$, etc)
+        \pause
 
         \item Assim, a complexidade em memória do algoritmo será, no mínimo, $O(S)$, onde $S$
             é o total de estados possíveis
@@ -41,12 +48,16 @@
     \begin{itemize}
         \item A principal vantagem da implementação \textit{top-down} é a simplicidade: em geral,
             é uma tradução literal da relação de recorrência que representa a solução do problema
+        \pause
 
         \item Outra vantagem é que apenas os estados necessários à solução são computados
+        \pause
 
         \item Por outro lado, a tabela deve ter dimensões que comportem todos os estados possíveis
+        \pause
 
         \item Também há um custo de execução associado às chamadas recursivas 
+        \pause
 
         \item A ordem em que os subproblemas associados aos estados são resolvidos corresponde
             a uma DFS no grafo cujos vértices são os estados e as arestas as transições
@@ -63,6 +74,7 @@
             \binom{n}{m} = \frac{n!}{(n - m)!m!},
         \]
         se $n \geq m$, e $\binom{n}{m} = 0$, caso contrário
+        \pause
 
         \item Os coeficientes $\binom{i}{j}$, com $0\leq j\leq i$, formam a $i$-ésima linha do
             Triângulo de Pascal:
@@ -78,17 +90,21 @@
     \begin{itemize}
         \item O Triângulo de Pascal permite a visualização de uma importante relação dos
             coeficientes binomiais
+        \pause
 
         \item Se $m > 0$ e $m < n$, então o coeficiente $\binom{n}{m}$ é dado pela soma de
             dois coeficientes da linha anterior: o imediatamente acima e seu antecessor
+        \pause
 
         \item Em notação matemática,
         \[
             \binom{n}{m} = \binom{n - 1}{m} + \binom{n - 1}{m - 1},
         \]
         se $0 < m < n$
+        \pause
 
         \item Se $m = 0$ ou $m = n$, então $\binom{n}{m} = 1$
+        \pause
 
         \item Estas relações caracterizam a recorrência e os casos bases que permitem uma
             implementação que usa programação dinâmica para os coeficientes binomiais
@@ -105,17 +121,21 @@
     \begin{itemize}
         \item A implementação anterior pode ser melhorada em um ponto, e também corrigida,
             uma vez que não produz a saída correta para todas as entradas
+        \pause
 
         \item Cada linha do Triângulo de Pascal é simétrica: assim
         \[
             \binom{n}{m} = \binom{n}{n - m}
         \]
+        \pause
 
         \item Este fato permite computa apenas a metade das colunas, e este espaço extra pode
             ser repassado para as linhas
+        \pause
 
         \item Os valores dos coeficientes crescem muito rapidamente, de modo que estouram a
             capacidade de armazenamento de um \code{cpp}{long long}
+        \pause
 
         \item Uma forma de tratar isso é computar os restos destes coeficientes para um módulo
             $M$ dado (em competições, é comum o valor $M = 10^9 + 7$)
