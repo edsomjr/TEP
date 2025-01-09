@@ -9,9 +9,11 @@
             \vspace{.1in}
             \inputsyntax{cpp}{codes/search1.st}
             \vspace{.1in}
+        \pause
 
         \item Sendo uma função paramétrica, ela pode ser aplicada no contexto de busca em
             strings
+        \pause
 
         \item Por exemplo, para procurar a primeira ocorrência do padrão $P$ em $S$ a chamada
             seria
@@ -19,6 +21,7 @@
             \vspace{.1in}
             \inputcode{cpp}{codes/search1.cpp}
             \vspace{.1in}
+        \pause
 
         \item A string $S$ tem tamanho $n$ e o padrão $P$ tem tamanho $m$, a complexidade será
             $O(nm)$
@@ -30,16 +33,18 @@
 \begin{frame}[fragile]{Função {\tt search()} da STL}
 
     \begin{itemize}
-        \item A versão $C++17$ da STL trouxe uma assinatura adicional para a função 
+        \item A versão C++17 da STL trouxe uma assinatura adicional para a função 
             \code{cpp}{search()}:
 
             \vspace{.1in}
             \inputsyntax{cpp}{codes/search2.st}
             \vspace{.1in}
+        \pause
 
         \item Deste modo, é possível especificar o algoritmo de busca a ser utilizado para
             o localizar o padrão indicado no construtor de \code{cpp}{search} na string
             delimitada pelo intervalo $[\mathtt{begin}, \mathtt{last})$
+        \pause
 
         \item A biblioteca padrão fornece três algoritmos:
         \begin{enumerate}
@@ -47,6 +52,7 @@
             \item \code{cpp}{boyer_moore_searcher}
             \item \code{cpp}{boyer_moore_horspool_searcher}
         \end{enumerate}
+        \pause
 
         \item É possível implementar um \code{cpp}{Searcher} customizado
     \end{itemize}
@@ -58,14 +64,18 @@
     \begin{itemize}
 
         \item O primeiro é o algoritmo utilizado nas demais versões da função \code{cpp}{search()}
+        \pause
 
         \item O segundo implementa o algoritmo de Boyer-Moore, cuja complexidade assintótica é
             $O(n + m)$ no pior caso
+        \pause
 
         \item O terceiro algoritmo é uma versão simplificado do algoritmo de Boyer-Moore, que 
             exige menos memória
+        \pause
 
         \item Esta redução de memória, porém, implica em uma complexidade $O(nm)$ no pior caso
+        \pause
 
         \item Embora o algoritmo de Boyer-Moore tenha sido proposto inicialmente como um algoritmo
             de busca em strings, no caso da STL ele pode ser utilizado em um contêiner que

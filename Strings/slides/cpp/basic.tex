@@ -4,18 +4,22 @@
 
     \begin{itemize}
         \item A classe string da linguagem C++ oferece dois métodos de busca em strings
+        \pause
 
         \item O método \code{cpp}{find()} procura pela substring \code{cpp}{str} na 
             substring $S[\mathtt{pos}..(n - 1)]$
         \vspace{.1in}
         \inputsyntax{cpp}{codes/find.st}
         \vspace{.1in}
+        \pause
 
         \item O retorno é o índice da primeira ocorrência de \code{cpp}{str} na substring em
             questão, ou \code{cpp}{string::npos}, caso \code{cpp}{str} não ocorra em
             em nenhuma posição do intervalo especificado
+        \pause
 
         \item A complexidade assintótica é $O(nm)$, onde $n = |S|$ e $m = |\mathtt{str}|$
+        \pause
 
         \item O método \code{cpp}{rfind()} tem o mesmo comportamento e retorno, porém busca
             a última ocorrência de \code{cpp}{str} em $S[0..\mathtt{pos}]$
@@ -40,15 +44,19 @@
         \vspace{.1in}
         \inputsyntax{cpp}{codes/find_first_of.st}
         \vspace{.1in}
+        \pause
         
         \item Ele retorna a primeira posição $i$ em $S$ tal que $S[i]$ é igual a um dos 
             caracteres de \code{cpp}{str}, ou \code{cpp}{string::npos}, caso não encontre
             nenhum correspondente de \code{cpp}{str} em $S$
+        \pause
 
         \item A complexidade é a mesma do método \code{cpp}{find()}: $O(nm)$ 
+        \pause
 
         \item O método \code{cpp}{find_first_not_of()} é semelhante, porém retorna o primeiro
             caractere de $S$ que é diferente de todos os caracteres de \code{cpp}{str}
+        \pause
 
         \item Os métodos \code{cpp}{find_last_of()} e \code{cpp}{find_last_not_of()} são
             equivalentes a ambos, porém iniciando sua busca no sentido oposto
