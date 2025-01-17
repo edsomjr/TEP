@@ -5,14 +5,18 @@
     \begin{itemize}
         \item  Sejam $S$ e $T$ duas strings, com $S \neq T$. Quando comparadas no que diz respeito
             a igualdade, há três motivos comuns que levam ao veredito falso 
+        \pause
 
         \item O primeiro é que ambas strings tem mesmo tamanho, mas diferem em um ou mais símbolos
+        \pause
 
         \item Por exemplo, se $S = $ \code{cpp}{"banana"} e $T = $ \code{cpp}{"bacana"}, 
             $|S| = |T|$, mas $S[3] \neq T[3]$
+        \pause
 
         \item O segundo ocorre quando a primeira string é mais longa que a segunda, e poderíam se 
             tornar iguais se removidos os caracteres excedentes
+        \pause
 
         \item Por exemplo, se $S = $ \code{cpp}{"aspectos"} e $T = $ \code{cpp}{"seco"}, segue que
             $|S| > |T|$, mas teríamos $S = T$ se removidos os caracteres das posições 
@@ -26,13 +30,16 @@
     \begin{itemize}
         \item O terceiro motivo é o fato da primeira string é mais curta do que a segunda, e 
             poderiam se igualar se adicionados os caracateres ausentes
+        \pause
 
         \item Por exemplo, se $S = $ \code{cpp}{"fga"} e $T = $ \code{cpp}{"formigas"}, temos
             $|S| < |T|$, e ambas se tornariam iguais com a adição dos caracteres 
                 \code{cpp}{"ormis"} em $S$, nas devidas posições
+        \pause
 
         \item Na prática, é possível obter qualquer string $T$ a partir de uma string $S$ dada, 
             usando uma sequência de operações baseado nos três motivos listados
+        \pause
 
         \item Estas operações são: alterar um caractere, adicionar um caractere ou remover um caractere
     \end{itemize}
@@ -44,9 +51,11 @@
     \begin{itemize}
         \item O problema denominado \textit{edit distance} consiste em determinar o número mínimo 
             de operações a serem feitas para transformar a string $S$ na string $T$
+        \pause
 
         \item Em termos mais gerais, o problema é computar o custo mínimo desta transformação, se a cada operação for 
             associado um determinado custo
+        \pause
 
         \item Este custo mínimo é denotado $edit(S, T)$ e tem as seguintes propriedades:
         \begin{enumerate}
@@ -65,20 +74,22 @@
         \item Considere que $|S| = m, |T| = n$. Para determinar $edit(S, T)$ deve-se construir uma 
         tabela auxiliar de estados $st$, onde $st(i, j) = edit(S[1..i], T[1..j])$, com 
         $0 < i \leq m, 0 < j \leq n$
+        \pause
 
         \item O casos bases acontecem quando uma das duas strings é vazia: nestes casos, o mínimo 
-            de operações a serem feitas é igual um número de inserções correspondente ao tamanho 
+            de operações a serem feitas é igual  ao tamanho 
             da string não vazia
+        \pause
 
         \item Em notação simbólica,
         \begin{align*}
             st(0, j) &= j \\
             st(i, 0) &= i
         \end{align*}
+        \pause
 
         \item Se os custos de inserção, de remoção e de alteração forem $c_i, c_r, c_s$, 
             respectivamente, então os casos bases devem ser
-
         \begin{align*}
             st(0, j) &= j\times c_i \ \ \ \ \ \ \ \ \textcolor{gray}{\mbox{\tt \#\ } j\ \mbox{\tt inserções}}\\
             st(i, 0) &= i\times c_r \ \ \ \ \ \ \ \ \textcolor{gray}{\mbox{\tt \#\ } i\ \mbox{\tt remoções}}
@@ -91,15 +102,20 @@
 
     \begin{itemize}
         \item A transição entre os estados será, dentre as três operações, a de menor custo
+        \pause
 
         \item Uma transição por inserção seria dada por
         \[
             st(i, j) = st(i, j - 1) + c_i,\ \ \ \ \ \ \ \ \textcolor{gray}{\mbox{\tt \# adicionar}\ T[j]}
         \]
+        \pause
+
         \item Uma transição por remoção seria igual a
         \[
             st(i, j) = c_r + st(i - 1, j),\ \ \ \ \ \ \ \ \textcolor{gray}{\mbox{\tt \# remover}\ S[i]}
         \]
+        \pause
+
         \item Uma transição por alteração corresponde a
         \begin{align*}
             &\textcolor{gray}{\mbox{\tt \# Mantém}\ S[i]\ \mbox{\tt ou substitui}\ S[i]\ \mbox{\tt por}\ T[j]} \\
@@ -119,8 +135,11 @@
             st(i, j) &= \min\lbrace st(i, j - 1) + c_i, st(i - 1, j) + c_r, st(i - 1, j - 1) + k \rbrace
         \end{align*}
         onde $k = 0$ se $S[i] = T[j]$, ou $k = c_s$, caso contrário
+        \pause
 
         \item Portanto, $edit(S, T) = st(m, n)$
+        \pause
+
         \item Como a tabela tem $(m + 1)(n + 1)$ estados, e cada transição é feita em $O(1)$, o algoritmo tem 
             complexidade $O(mn)$
     \end{itemize}
