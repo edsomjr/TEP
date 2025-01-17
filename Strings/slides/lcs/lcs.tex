@@ -8,19 +8,21 @@
         \[
             1\leq i_k\leq |S|, 1\leq j_k\leq |T| \ \ \ \ \mbox{e}\ \ \ \ S[i_k] = T[j_k],
         \]para todo $k = 1, 2, \ldots, |b|$ onde $i_1 < i_2 < \ldots < i_{|b|}$ e $j_1 < j_2 < \ldots < j_{|b|}$
+        \pause
 
         \item  Por exemplo, se $S = $ \code{cpp}{"casa"} e $T = $ \code{cpp}{"nevasca"}, então
         \[
             b_1 = \lbrace (3, 5)\rbrace, \ \ b_2 = \lbrace (1, 6), (2, 7)\rbrace\ \ \mbox{e}\ \ b_3 = \lbrace (2, 4), (3, 5), (4, 7)\rbrace
         \] são subsequências comuns de $S$ e $T$
+        \pause
 
         \item O problema de se determinar a maior subsequência comum entre $S$ e $T$
             (\textit{Longest Common Subsequence -- LCS}) consiste em determinar o maior
-            elemento do conjunto dos tamanhos substrings comuns, isto é,
+            elemento do conjunto
         \[
             LCS(S, T) = \max \lbrace |b|\ | \ b = sc(S, T)\rbrace
         \]
-
+        \pause
         \item Observe que pode existir duas (ou mais)
             subsequências comuns $b_1$ e $b_2$ de $S$ e $T$ tais que $|b_1| = |b_2| = LCS(S, T)$
 
@@ -32,17 +34,21 @@
 
     \begin{itemize}
         \item O LCS pode ser interpretado como uma variante do \textit{edit distance}
+        \pause
 
         \item Basta notar que uma sequência $b$ de índices tal que $|b| = LCS(S, T)$ é
             formada por caracteres comuns às duas strings
+        \pause
 
         \item Se atribuídos pesos iguais a zero às operações de inserção e remoção, peso 
             infinitamente negativo à substituição e peso 1 para a opção de manter os caracteres iguais, 
             a LCS surge como o caminho com maior custo na tabela da $edit(S, T)$
+        \pause
 
         \item Isto porque, com a atribuição de pesos descrita, será mantido o maior número de
             caracteres comuns entre ambas possível, e as inserções e remoções, de custo zero,
             completarão a transformação
+        \pause
 
         \item Esta abordagem tem complexidade $O(nm)$
     \end{itemize}

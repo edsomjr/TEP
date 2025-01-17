@@ -5,13 +5,16 @@
     \begin{itemize}
         \item Assim como o problema de \textit{edit distance}, uma variante comum do LCS é
             determinar a sequência de operações que leva à maior subsequência comum
+        \pause
 
         \item A implementação é idêntica à proposta para $edit(S, T)$, uma vez aplicada a 
             modificação dos pesos e a alteração da operação \code{cpp}{min()} por 
             \code{cpp}{max()}, de modo que a complexidade permanece sendo $O(nm)$
+        \pause
 
         \item A maior subsequência comum corresponde aos índices onde os caracteres foram
             mantidos
+        \pause
 
         \item Assim esta rotina pode ser modificada para exibir a sequência, e não as operações
             que levaram a ela
@@ -38,16 +41,21 @@
             $S[i] \neq S[j]$ se $i \neq j$, o mesmo para $T$), o problema de se determinar a LCS 
             pode ser reduzido ao problema de se determinar a maior sequência crescente 
             (\textit{Longest Increasing Subsequence -- LIS})
+        \pause
 
         \item Para tal, seja $\lbrace a_i\rbrace$ a sequência crescente de índices de $S$ tais que
             $S[a_i] = T[j]$ para algum $j\in [1,m]$
+        \pause
 
         \item Em outras palavras, $\lbrace a_i\rbrace$ é sequência crescente de índices de 
             caracteres de $S$ que coincidem com algum dos caracteres de $T$
+        \pause
 
         \item Seja $\lbrace b_k\rbrace$ a sequência tal que $b_k = j_k$, onde $S[a_k] = T[j_k$] 
+        \pause
 
         \item A LIS de $\lbrace b_k\rbrace$ corresponderá a LCS entre as duas strings
+        \pause
 
         \item A vantagem desta abordagem é que, enquanto a LCS tem implementação $O(nm)$, a LIS 
             pode ser implementada em $O(n \log n)$
