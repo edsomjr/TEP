@@ -6,13 +6,16 @@
         \item Uma variante da maior sequência comum é o problema de se encontrar a maior 
             subsequência de uma string $S$ que forma um palíndromo (\textit{Longest Palindrome 
             Subsequence} -- $LPS$)
+        \pause
 
         \item Uma maneira de se enunciar este problema é a seguinte: qual é o maior palíndromo que 
             pode ser formado removendo $m$ ($0 \leq m \leq n$) caracteres, de quaisquer posições, 
             de uma string $S$ de tamanho $n$?
+        \pause
 
         \item Este problema sempre tem solução, pois uma string com apenas um caractere é um 
             palíndromo (o mesmo vale para strings vazias)
+        \pause
 
         \item O tamanho do maior palíndromo, ou o palíndromo em si, pode ser determinado por
             meio de programação dinâmica
@@ -22,25 +25,28 @@
 \begin{frame}[fragile]{Formulação em programação dinâmica da LPS}
 
     \begin{itemize}
-        \item O fato de uma string vazia ou com um único caractere serem palíndromos fornecem os
-            casos bases
+        \item Os casos bases ocorrem strings vazias ou com um único caractere 
+        \pause
 
         \item Se $LPS[i,j]$ é o tamanho da maior subsequência palíndroma da substring 
             $S[i..j]$, então
             \[
                 LPS[i,i] = 1, \ \ \ \ \ \ LPS[i,j] = 0, \ \ \ \ \mbox{se}\ i > j
             \]
+        \pause
 
         \item São três transições possíveis:
-        a primeira é remover o caractere mais à esquerda de $S[i..j]$, isto é,
+        a primeira é remover o caractere mais à esquerda de $S[i..j]$:
         \[
              LPS[i,j] = LPS[i+1,j]
         \]
+        \pause
 
         \item A segunda transição remove o caractere mais à direita $S[i..j]$:
         \[
             LPS[i, j] = LPS[i, j - 1]
         \] 
+        \pause
 
         \item No último caso, casos os caracteres que estão nos extremos da strings sejam iguais, 
             eles podem ser parte do palíndromo: 
@@ -65,6 +71,7 @@
     \begin{itemize}
         \item O algoritmo proposto para a LPS tem complexidade $O(n^2)$ tanto para a execução 
             quanto para a memória
+        \pause
 
         \item Para recuperar a string que corresponde à LPS, é preciso manter o registro das
             operações utilizadas em cada transição:
@@ -74,6 +81,7 @@
                 \item \code{cpp}{'L'}: remover o primeiro caractere 
                 \item \code{cpp}{'R'}: remover o último caractere 
             \end{itemize}
+        \pause
 
         \item Usando um valor sentinela (zero) para estados que não forem atingidos, é possível
             remontar o palíndromo em $O(n^2)$
