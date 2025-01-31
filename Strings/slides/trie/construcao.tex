@@ -4,24 +4,32 @@
 
     \begin{itemize}
         \item Seja $s$ uma string de tamanho $N$
+        \pause
 
         \item Cada nó da {\it trie} de $s$ pode ter até $|A|$ filhos, onde $A$ é o alfabeto
+        \pause
 
         \item Assim, cada nó pode ser implementado como um vetor de pares ou como um mapa,
             onde o par $(c, n)$, indicando que há uma aresta de rótulo $c$ que aponta para o
             nó $n$
+        \pause
 
         \item A raiz da árvore será o nó identificado por $n = 0$
+        \pause
 
         \item Para cada caractere $c$ do sufixo $s[i..N]$, e iniciando na raiz,
             verifica-se se existe a aresta $(c, n)$
+        \pause
 
         \item Em caso, afirmativo, segue-se esta aresta e se processa o caractere que sucede $c$
+        \pause
 
         \item Caso não exista, cria-se um novo nó $m$, adiciona-se ao nó atual a aresta
             $(c, m)$, e segue o processamento para $m$ e para o próximo caractere
+        \pause
     
         \item Esta construção tem complexidade $O(N^2)$
+        \pause
 
         \item A memória necessária também é $O(N^2)$
     \end{itemize}
@@ -41,20 +49,26 @@
     \begin{itemize}
         \item A \textit{trie} da string $s$ pode ser utilizada para identificar se uma string 
             $p$ é ou não substring de $s$
+        \pause
 
-        \item O algoritmo é semelhante à busca binária, e tem complexidade $O(m)$, onde $m = |p|$
+        \item O algoritmo é semelhante à busca em uma árvore binária, e tem complexidade $O(m)$, onde $m = |p|$
+        \pause
 
         \item Por exemplo, se $s = $ \code{cpp}{"BANANA"} e $p = $ \code{cpp}{"NAN"}, partindo da 
             raiz, tem-se \code{cpp}{"N"} na aresta à direita, \code{cpp}{"A"} na única 
             aresta e \code{cpp}{"N"} na aresta seguinte: logo $p$ é substring de $s$
+        \pause
 
         \item Como o nó de chegada é branco, $p$ não é sufixo de $s$
+        \pause
 
         \item Para $p =$ \code{cpp}{"NAS"}, o último caractere (\code{cpp}{"S"}) não seria 
             encontrado
+        \pause
 
         \item O mesmo vale para $p = $ \code{cpp}{"MAS"}, porém a falha acontece logo no primeiro 
             caractere
+        \pause
 
         \item Para $p = $ \code{cpp}{"NANAN"} a busca se encerraria ao atingir um nó nulo
 
@@ -71,20 +85,25 @@
     \begin{itemize}
         \item A construção proposta para a \textit{trie} permite ao algoritmo de busca descrito 
             apenas determinar se a substring $p$ ocorre ou não em $s$
+        \pause
 
         \item Se for preciso determinar a posição (ou posições) desta ocorrência, é preciso 
             modificar a construção da \textit{trie}, de modo que seja possível discriminar os nós 
                 essenciais dos demais
+        \pause
 
         \item Uma maneira de fazê-lo é adicionar um caractere terminador (em geral, o caractere
             `\texttt{\#}'), que não pertença a string original
+        \pause
 
         \item A este caractere estará associado o índice $i$ da string tal que o sufixo terminado 
             no marcador é igual a $S[i..N]$
+        \pause
 
         \item Importante notar que o segundo elemento do par terá dois significados distintos: ou
             será um ponteiro para o próximo nó, ou o índice do sufixo caso o rótulo da aresta
             seja o terminador
+        \pause
 
         \item É preciso atentar a esta diferença na implementação das rotinas de construção e
             busca
@@ -194,12 +213,15 @@
     \begin{itemize}
         \item Outra informação que pode ser obtida a partir da \textit{trie} é o número de 
             substring distintas de $s$
+        \pause
 
         \item Se $s$ tem $n$ caracteres, ela terá $n(n + 1)/2$ substrings não vazias, não 
             necessariamente distintas
+        \pause
 
         \item Estas substrings correspondem a todos os pares de índices $(i, j)$, com 
             $i \leq j$, onde $i, j = 1, 2, \ldots, n$
+        \pause
 
         \item Em uma \textit{trie}, qualquer nó, exceto a raiz, representa uma substring 
             distinta, formada pela concatenação dos rótulos do caminho da raiz até o nó em
@@ -217,15 +239,19 @@
     \begin{itemize}
         \item Embora as buscas apresentadas satisfaçam o terceiro critério para uma boa árvore de 
             sufixo, os outros dois critérios não são satisfeitos
+        \pause
 
         \item Se a string $s$ inicial tem $N$ caracteres, a construção e o espaço em memória são 
             $O(N^2)$.
+        \pause
 
         \item É possível melhorar a complexidade da construção da {\it trie}, por meio de um
             algoritmo \textit{online}
+        \pause
 
         \item O espaço em memória, contudo, permanecerá $O(N^2)$, por conta da representação de
             cada caractere por meio de uma aresta
+        \pause
 
         \item Assim, a redução de memória só é possível por meio de uma mudança na representação
             dos caracteres e dos sufixos, o que leva a uma outra estrutura, a \textit{suffix trie}

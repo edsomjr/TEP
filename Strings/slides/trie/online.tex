@@ -4,22 +4,28 @@
 
     \begin{itemize}
         \item A construção pode ser melhorada por meio de um algoritmo \textit{online}
+        \pause
 
         \item A ideia principal é, ao invés de construir toda a \textit{trie} de $s$ de uma só 
             vez, construí-la a partir da \textit{trie} de $s[1..(N-1)]$ 
+        \pause
 
         \item Seja $T_j$ a \textit{trie} do prefixo $s[1..j]$ de $s$ 
+        \pause
 
         \item A principal observação a ser feita é que $T_j$ pode ser construída a partir da 
             inserção do caractere $s[j]$ em $T_{j - 1}$, nas arestas dos novos nós a serem 
             adicionados aos nós essenciais de $T_{j - 1}$, quando for o caso
+        \pause
 
         \item Isto acontecerá quando o nó essencial não tem um filho ligado a ele por meio de 
             uma aresta cujo rótulo é $s[j]$
+        \pause
 
         \item O ponto principal, portanto, se torna determinar a sequência dos nós essenciais 
             $v_k, v_{k-1}, \ldots, v_2, v_1, v_0$, onde $v_i$ corresponde ao prefixo 
             $s[1..i]$ de $T_k$
+        \pause
 
         \item Esta tarefa pode ser feita por meio do uso de \textit{links} de sufixos
     \end{itemize}
@@ -30,16 +36,20 @@
 
     \begin{itemize}
         \item Seja $u$ um nó de $T_k$
+        \pause
 
         \item Defina o \textit{link} de sufixo $suf(u) = v$, onde $v$ é um nó cujo caminho 
             $p(v)$ da raiz até $v$ é igual 
             ao caminho de $[2..p(u)]$, isto é, o caminho $p(u)$ sem o seu primeiro caractere
+        \pause
 
         \item Por definição, se a raiz de $T_k$ corresponde ao vértice $v_0$, então 
             $suf(v_0) = v_0$
+        \pause
 
         \item Contudo, interpretar $suf(v_0)$ como \code{cpp}{nullptr} pode ser mais 
             interessante na implementação do algoritmo
+        \pause
 
         \item Esta definição leva a igualdade
         \[
@@ -129,16 +139,20 @@
 
     A construção \textit{online} de $T_k$ a partir de $T_{k-1}$ pode ser feita por meio dos 
     seguintes passos:
+        \pause
 
     \begin{enumerate}
         \item identifique os nós essenciais $v_{k-1}, v_{k-2}, \ldots, v_1, v_0$ de $T_{k-1}$,
         em ordem decrescente em relação ao tamanho do sufixo relacionado
+        \pause
 
         \item escolha os nós $v_i$ consecutivos até que se atinja um nó $v_t$ tal que exista um 
             filho de $v_t$ unido por uma aresta cujo rótulo é $s[k]$
+        \pause
 
         \item para cada um dos nós escolhidos, crie novos nós filhos ligados por arestas 
             cujos rótulos sejam $s[k]$
+        \pause
 
         \item atualize os \textit{links} de sufixos para os novos nós recém-criados
     \end{enumerate}
@@ -163,16 +177,20 @@
 
     \begin{itemize}
         \item Observe que, na implementação proposta, os valores $v_k$ são usandos implicitamente
+        \pause
 
         \item Para uma string $s$ de tamanho $n$, a construção \textit{online} da \textit{trie}
             tem complexidade $O(|T_n|)$
+        \pause
 
         \item Embora ainda não seja a complexidade desejada ($O(n)$), esta estratégia será 
             pode ser utilizada, com alguns ajustes, para atingir tal complexidade
+        \pause
 
         \item Para reduzir o tamanho em memória da \textit{trie} uma estratégia possível é 
             compactar as cadeias, onde uma cadeia é o maior caminho possível composto por nós 
             não-essenciais com grau de saída um 
+        \pause
 
         \item Esta compactação resulta em uma nova estrutura, denominada \textit{suffix tree}
     \end{itemize}

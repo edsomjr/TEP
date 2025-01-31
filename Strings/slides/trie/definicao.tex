@@ -5,15 +5,20 @@
     \begin{itemize}
         \item Árvores de sufixos são estruturas de dados que representam o conjunto 
             $B(s)$ de todas as substrings de uma string $s$ dada
+        \pause
 
         \item A relação de pertinência ($r \in B(s)$?) é o mais básico problema associado a esta 
             estrutura
+        \pause
 
         \item Uma ``boa''\ árvore de sufixos tem três características fundamentais:
+        \pause
 
         \begin{enumerate}
             \item pode ser construída com tamanho linear
+        \pause
             \item pode ser construída em tempo linear
+        \pause
             \item pode responder questão de pertinência em complexidade linear em relação ao tamanho de $s$
         \end{enumerate}
 
@@ -26,22 +31,28 @@
     \begin{itemize}
         \item Seja $G$ um grafo acíclico direcionado, com raiz, cujas arestas recebem, como 
             rótulos, caracateres ou palavras de um alfabeto $A$ de tamanho constante
+        \pause
 
         \item Seja $label(e)$ o rótulo da aresta $e$
+        \pause
 
         \item O rótulo de um caminho $p$ é a concatenação dos rótulos de todas as arestas do 
             caminho
+        \pause
 
         \item Tal grafo representa um conjunto de strings, que são definidas pelos rótulos de 
             todos os caminhos possíveis em $G$
+        \pause
 
         \item Seja
         \[
-            \mathcal{L}(G) = \lbrace label(p)\ |\ p \ \mbox{é caminho em}\ G \ \mbox{com início na raiz}
+            \mathcal{L}(G) = \lbrace\ label(p)\ |\ p \ \mbox{é caminho em}\ G \ \mbox{com início na raiz\ }
             \rbrace
         \]
+        \pause
 
         \item $G$ representa todas as substrings de $s$ se $\mathcal{L}(G) = B(s)$
+        \pause
 
         \item Um nó $n$ cujo caminho da raiz até $n$ tem como rótulo um sufixo de $s$ é 
             denominado nó essencial
@@ -56,16 +67,21 @@
         \item Uma {\it trie} de substrings de $s$, ou simplesmente {\it trie}, é o grafo $G$ que 
             representa todas as substrings de $s$, cujos rótulos consistem apenas de um único 
             caractere
+        \pause
 
         \item O nome foi cunhado em 1961 por Edward Fredkin, a partir da sílaba central da palavra
             \textit{retrieval}
+        \pause
 
-        \item A pronúncia é idêntica a palavra \textit{tree}, mas a grafia é diferente para 
+        \item A pronúncia é semelhante a palavra \textit{tree}, mas a grafia é diferente para 
             diferenciar esta estrutura das árvores em geral
+        \pause
 
         \item A próxima figura ilustra a \textit{trie} da palavra \code{cpp}{"BANANA"}
+        \pause
 
         \item Os nós pretos são nós essenciais
+        \pause
 
         \item Os números ao lado dos nós essenciais são os índices do caractere inicial do sufixo
 
