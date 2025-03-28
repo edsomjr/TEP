@@ -12,7 +12,7 @@ string candidates(const string& x)
 
     for (int i = 9; i >= 0; --i)
         if (hist[i] < 2)
-            cs.push_back(i + '0');
+            cs.push_back((char) i + '0');
 
     return cs;
 }
