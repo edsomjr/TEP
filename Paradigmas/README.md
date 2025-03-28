@@ -76,4 +76,14 @@ Programação dinâmica:
     - Paths in a grid
     - TSP
     - Tilings (Geometry)?
+
+## Problemas
+
+A. Busca completa
+    1. AtCoder Beginner Contest 057 - Problem B: Checkpoints (https://atcoder.jp/contests/abc057/tasks/abc057_b)
+    2. AtCoder Beginner Contest 051 - Problem B: Sum of Three Integers (https://atcoder.jp/contests/abc051/tasks/abc051_b)
+    3. AtCoder Beginnet Contest 045 - Problem C: Many Formulas (https://atcoder.jp/contests/abc045/tasks/arc061_a) 
+    4. AtCoder Beginner Contest 067 - Problem C: Splitting Pile (https://atcoder.jp/contests/abc067/tasks/arc078_a)
+    5. AtCoder Beginner Contest 085 - Problem D: Katana Thrower (https://atcoder.jp/contests/abc085/tasks/abc085_d)
+
 -->

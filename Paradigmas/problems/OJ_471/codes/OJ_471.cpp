@@ -24,7 +24,7 @@ bool has_repeated_digits(ll x)
 
     while (x)
     {
-        int d = x % 10;
+        auto d = x % 10;
         x /= 10;
 
         if (used[d])
@@ -43,7 +43,7 @@ vector<ii> solve(ll N)
     for (ll d = 1; digits_count(d*N) <= 10; ++d)
     {
         if (not has_repeated_digits(d) and not has_repeated_digits(d*N))
-            ans.push_back(ii(d*N, d));
+            ans.emplace_back(d*N, d);
     }
 
     return ans;
@@ -66,8 +66,8 @@ int main()
         if (test > 1)
             cout << '\n';
 
-        for (auto p : ans)
-            cout << p.first << " / " << p.second << " = " << N << '\n';
+        for (auto [s1, s2] : ans)
+            cout << s1 << " / " << s2 << " = " << N << '\n';
     } 
 
     return 0;
