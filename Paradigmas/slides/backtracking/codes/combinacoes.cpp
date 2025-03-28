@@ -25,7 +25,7 @@ vector<int> candidates(const vector<int>& xs, const vector<int>& as)
         iota(cs.begin(), cs.end(), 0);
     } else
         for (size_t i = xs.back() + 1; i < as.size(); ++i)
-            cs.push_back(i);
+            cs.emplace_back(i);
 
     return cs;
 }
@@ -40,7 +40,7 @@ void backtracking(vector<int>& xs, size_t M, const vector<int>& as)
 
         for (auto c : cs)
         {
-            xs.push_back(c);
+            xs.emplace_back(c);
             backtracking(xs, M, as);
             xs.pop_back();
         }

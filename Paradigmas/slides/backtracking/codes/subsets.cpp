@@ -44,7 +44,7 @@ int main()
 {
     vector<int> as { 2, 3, 5, 7, 11 }, xs;
 
-    backtracking(xs, 0, as.size(), as);
+    backtracking(xs, 0, (int) as.size(), as);
 
     return 0;
 } 

@@ -27,7 +27,7 @@ vector<int> candidates(const vector<int>& xs, const vector<int>& as)
 
     for (size_t i = 0; i < as.size(); ++i)
         if (not used[i])
-            cs.push_back(i);
+            cs.emplace_back((int) i);
 
     return cs;
 }
@@ -42,7 +42,7 @@ void backtracking(vector<int>& xs, const vector<int>& as)
 
         for (auto c : cs)
         {
-            xs.push_back(c);
+            xs.emplace_back(c);
             backtracking(xs, as);
             xs.pop_back();
         }
