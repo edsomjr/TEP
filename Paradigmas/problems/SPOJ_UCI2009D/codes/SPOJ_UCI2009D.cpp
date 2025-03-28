@@ -14,7 +14,7 @@ bool is_solution(const vector<ii>& xs)
 void process_solution(const vector<ii>& xs)
 {
     set<ii> s(xs.begin(), xs.end());
-    solutions.insert(s);
+    solutions.emplace(s);
 }
 
 vector<ii> candidates(const vector<ii>& xs)
@@ -54,7 +54,7 @@ void backtracking(vector<ii>& xs)
     }
 }
 
-int solve(int N)
+size_t solve(int N)
 {
     solutions.clear();
     vector<ii> xs;
