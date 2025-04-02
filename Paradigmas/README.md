@@ -86,4 +86,10 @@ A. Busca completa
     4. AtCoder Beginner Contest 067 - Problem C: Splitting Pile (https://atcoder.jp/contests/abc067/tasks/arc078_a)
     5. AtCoder Beginner Contest 085 - Problem D: Katana Thrower (https://atcoder.jp/contests/abc085/tasks/abc085_d)
 
+B. Backtracking
+    1. Codeforces Round 460 (Div. 2) - Problem B: Perfect Number (https://codeforces.com/problemset/problem/919/B)
+    2. OJ 208 - Firetruck (https://onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&page=show_problem&problem=144)
+    3. OJ 628 - Passwords (https://onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&page=show_problem&problem=569)
+    4. AtCoder Beginner Contest 114 - Problem C: 755 (https://atcoder.jp/contests/abc114/tasks/abc114_c)
+    5. AtCoder Beginner Contest 199 - Problem D: RGB Coloring 2 (https://atcoder.jp/contests/abc199/tasks/abc199_d)
 -->
