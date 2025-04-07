@@ -69,8 +69,8 @@ The outputs of two consecutive cases will be separated by a blank line.
         \item As somas registradas em $ys$ devem ser ordenadas, de modo que seja possível 
             utilizar a busca binária
             
-        \item Para cada valor $x\in xs$, a resposta será incrementada em $b - a$, onde 
-            $[a, b)$ é o intervalo de índices de elementos $y_i$ em $ys$ tais que $ys_i = -x$
+        \item Para cada valor $x\in xs$, a resposta será incrementada em $L - R$, onde 
+            $[L, R)$ é o intervalo de índices de elementos $y_i$ em $ys$ tais que $y_i = -x$
 
         \item Este intervalo pode ser computado através da função \code{cpp}{equal_range()}
             da STL da linguagem C++
