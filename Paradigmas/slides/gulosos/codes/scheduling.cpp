@@ -22,7 +22,7 @@ vector<int> solve(int N, const vector<Event>& events)
         if (es[i].a < last)
             continue; 
 
-        ans.push_back(es[i].i);
+        ans.emplace_back(es[i].i);
         last = es[i].b;
     }
 
