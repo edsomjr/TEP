@@ -1,0 +1,70 @@
+line17 => Node
+	@line17.x = 1
+	@line17.y = 5.50
+	@line17.text = \inputline{cpp}{17}{codes/solution.cpp}
+	@line17.anchor = west
+
+line18 => Node
+	@line18.x = 1
+	@line18.y = 5.11
+	@line18.text = \inputline{cpp}{18}{codes/solution.cpp}
+	@line18.anchor = west
+
+line19 => Node
+	@line19.x = 1
+	@line19.y = 4.72
+	@line19.text = \inputline{cpp}{19}{codes/solution.cpp}
+	@line19.anchor = west
+
+line20 => Node
+	@line20.x = 1
+	@line20.y = 4.33
+	@line20.text = \inputline{cpp}{20}{codes/solution.cpp}
+	@line20.anchor = west
+
+line21 => Node
+	@line21.x = 1
+	@line21.y = 3.94
+	@line21.text = \inputline{cpp}{21}{codes/solution.cpp}
+	@line21.anchor = west
+
+line22 => Node
+	@line22.x = 1
+	@line22.y = 3.56
+	@line22.text = \inputline{cpp}{22}{codes/solution.cpp}
+	@line22.anchor = west
+
+line23 => Node
+	@line23.x = 1
+	@line23.y = 3.17
+	@line23.text = \inputline{cpp}{23}{codes/solution.cpp}
+	@line23.anchor = west
+
+line24 => Node
+	@line24.x = 1
+	@line24.y = 2.78
+	@line24.text = \inputline{cpp}{24}{codes/solution.cpp}
+	@line24.anchor = west
+
+line25 => Node
+	@line25.x = 1
+	@line25.y = 2.39
+	@line25.text = \inputline{cpp}{25}{codes/solution.cpp}
+	@line25.anchor = west
+
+line26 => Node
+	@line26.x = 1
+	@line26.y = 2.00
+	@line26.text = \inputline{cpp}{26}{codes/solution.cpp}
+	@line26.anchor = west
+
+-line17
+-line18
+-line19
+-line20
+-line21
+-line22
+-line23
+-line24
+-line25
+-line26
