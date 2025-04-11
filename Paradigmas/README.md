@@ -92,4 +92,19 @@ B. Backtracking
     3. OJ 628 - Passwords (https://onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&page=show_problem&problem=569)
     4. AtCoder Beginner Contest 114 - Problem C: 755 (https://atcoder.jp/contests/abc114/tasks/abc114_c)
     5. AtCoder Beginner Contest 199 - Problem D: RGB Coloring 2 (https://atcoder.jp/contests/abc199/tasks/abc199_d)
+
+C. _Meet in the meet_
+    1. AtCoder Beginner Contest 184 - Problem F: Programming Contest (https://atcoder.jp/contests/abc184/tasks/abc184_f)
+    2. Educational Codeforces Round 32 - Problem E: Maximum Subsequence (https://codeforces.com/contest/888/problem/E)
+
+D. Algoritmos Gulosos
+    1. AtCoder Beginner Contest 067 - Problem B: Snake Toy (https://atcoder.jp/contests/abc067/tasks/abc067_b)
+    2. AtCoder Beginner Contest 048 - Problem C: Boxes and Candies (https://atcoder.jp/contests/abc048/tasks/arc064_a)
+    3. AtCoder Beginner Contest 046 - Problem C: AtCoDeer and Election Report (https://atcoder.jp/contests/abc046/tasks/arc062_a)
+    4. AtCoder Beginner Contest 052 - Problem D: Walk and Teleport (https://atcoder.jp/contests/abc052/tasks/abc052_d)
+    5. AtCoder Beginner Contest 068 - Problem D: Decrease (Contestant ver.) (https://atcoder.jp/contests/abc068/tasks/arc079_b)
+
+
+
+
 -->
