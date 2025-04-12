@@ -271,7 +271,7 @@ line7 => Node
 -r
 -arrow
 
-    @cash.text = \Large \bbtext{800}
+    @cash.text = \Large \bbtext{750}
  
 ## Scene
 
