@@ -487,6 +487,11 @@ line26 => Node
 	@line26.text = \inputline{cpp}{26}{codes/solution.cpp}
 	@line26.anchor = west
 
+vbar => Path
+@vbar.path = (6.5, 6) -- (6.5, 0) -- cycle
+@vbar.color = gray!50
+&vbar.dashed
+
 -line7
 -line8
 -line10
@@ -541,6 +546,28 @@ line26 => Node
 
 ---
 +line23
+
+## Scene
+
+title => Node
+    @title.x = 0
+    @title.y = 6
+    @title.text = \Large \bbbold{Referências}
+    @title.anchor = west
+
+a => Node
+    @a.x = 1
+    @a.y = 4.5
+    @a.text = $\star$ \bbtext{Grandpa icon created by Freepik - Flaticon:}
+    @a.anchor = west
+
+a1 => Node
+    @a1.x = 0.5
+    @a1.y = 4
+    @a1.text = \url{https://www.flaticon.com/free-icons/grandpa}
+    @a1.anchor = west
+
+
 
 ## End
 
