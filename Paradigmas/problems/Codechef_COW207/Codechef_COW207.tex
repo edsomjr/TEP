@@ -83,8 +83,8 @@ For each testcase, output in a single line, the maximum area.
     \begin{itemize}
         \item Inicialize os ponteiros $L = \infty$ e $R = -\infty$, e a resposta com zero
 
-        \item Para cada par do vetor ordenado, processe o par $(L, i)$, se $L < i$, e o par
-            $(i, R)$, se $R > i$
+        \item Para cada par do vetor ordenado, processe o pares $(a, i)$ e $(a_L, L)$, se $L < i$, e os pares
+            $(a, i)$ e $(a_R, R)$, se $R > i$
 
         \item Após uma possível atualização da resposta, ajuste os ponteiros: $L = \min(L, i)$,
             $R = \max(R, i)$

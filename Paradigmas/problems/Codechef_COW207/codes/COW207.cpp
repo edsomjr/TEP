@@ -2,7 +2,7 @@
 
 using namespace std;
 using ii = pair<int, int>;
-const int oo { 2000000010 };
+const int oo { 2'000'000'010 };
 
 int solve(int N, const vector<int>& xs)
 {
@@ -17,7 +17,7 @@ int solve(int N, const vector<int>& xs)
 
     for (auto p : ps)
     {
-        auto x = p.first, i = p.second;
+        auto [x, i] = p;
 
         if (L < i)
             ans = max(ans, (i - L)*min(x, xs[L]));
