@@ -2,18 +2,18 @@
 
 using namespace std;
 using ii = pair<int, int>;
-const int oo { 1000000010 };
+const int oo { 1'000'000'010 };
 
 void insert(stack<ii>& s, int x)
 {
     int m = s.empty() ? x : min(s.top().second, x);
-    s.push(ii(x, m));
+    s.emplace(x, m);
 }
 
 void move(stack<ii>& out, stack<ii>& in)
 {
     while (not in.empty()) {
-        auto x = in.top().first;
+        auto [x, _] = in.top();
         in.pop();
         insert(out, x);
     }

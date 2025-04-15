@@ -11,7 +11,7 @@
         \item Em outras palavras, o problema é determinar a maior substring $b=b[1..M]$ de
             $S$ tal que $b_{i - 1} \leq b_i, \forall i\in[2, M]$
 
-        \item A string $S$ tem $O(N^2)$ substrings, e a verificação se uma substring está em
+        \item A string $S$ tem $O(N^2)$ substrings e a verificação se uma substring está em
             ordem lexicográfica ou não é feita em $O(N)$
 
         \item Assim um algoritmo de busca completa tem complexidade $O(N^3)$
@@ -49,9 +49,9 @@
     \inputsnippet{cpp}{1}{20}{codes/substring.cpp}
 \end{frame}
 
-\begin{frame}[fragile]{Tamanho da maior substring ordenada}
-    \inputsnippet{cpp}{22}{42}{codes/substring.cpp}
-\end{frame}
+%\begin{frame}[fragile]{Tamanho da maior substring ordenada}
+%    \inputsnippet{cpp}{22}{42}{codes/substring.cpp}
+%\end{frame}
 
 \begin{frame}[fragile]{Maior subvetor com, no máximo, $K$ números ímpares}
 
@@ -68,7 +68,7 @@
             $[L, R)$ tais que os subvetores $\vec{v}[L..(R - 1)]$ tenham, no máximo, $K$ números
             ímpares
 
-        \item Observe que $|\vec{v}[L..(R-1)| = R - L$
+        \item Observe que $|\vec{v}[L..(R-1)]| = R - L$
  
         \item O ponteiro $L$ observará, um a um, os elementos de $\vec{v}$, do primeiro para o 
             último
@@ -90,8 +90,8 @@
         \item Enquanto $R$ apontar para um elemento par, ou apontar para um ímpar com o contador
             $c < K$, o contador é atualizado com o valor de $\vec{v}[R]$ e $R$ é incrementado
 
-        \item Ao final deste processo, a resposta é atualizada em relação ao tamanho do subvetor
-            válido ($R - L$)
+        \item Ao final deste processo, a resposta é atualizada em relação ao tamanho $R - L$ do subvetor
+            válido
 
         \item Por fim, o contador é ajustado, caso o valor de $\vec{v}[L]$ tenha sido
             considerado, e $L$ é incrementado
@@ -107,9 +107,9 @@
     \inputsnippet{cpp}{1}{20}{codes/subarray.cpp}
 \end{frame}
 
-\begin{frame}[fragile]{Implementação do maior subvetor com, no máximo, $K$ ímpares}
-    \inputsnippet{cpp}{22}{42}{codes/subarray.cpp}
-\end{frame}
+%\begin{frame}[fragile]{Implementação do maior subvetor com, no máximo, $K$ ímpares}
+%    \inputsnippet{cpp}{22}{42}{codes/subarray.cpp}
+%\end{frame}
 
 \begin{frame}[fragile]{Menor elemento em um subvetor de tamanho $K$}
 
@@ -124,7 +124,7 @@
             $P_{out}$
 
         \item As pilhas armazenarão pares de valores $(x, m)$, onde $x$ é o elemento do vetor a
-            ser inserido, e $m$ é o menor dentre os valores contidos na pilha e o próprio $x$
+            ser inserido e $m$ é o menor dentre os valores contidos na pilha e o próprio $x$
     \end{itemize}
 
 \end{frame}
@@ -137,7 +137,7 @@
         \item Nos demais casos, $m = \min\{ x, M \}$, onde $M$ é o segundo elemento do par que
             está no topo da pilha
 
-        \item Inicialmente, insera os primeiros $K$ elementos de $\vec{v}$ na pilha $P_{in}$
+        \item Inicialmente, insira os primeiros $K$ elementos de $\vec{v}$ na pilha $P_{in}$
 
         \item O segundo elemento do par do topo de $P_{in}$ será a resposta para o primeiro 
             intervalo
@@ -186,9 +186,9 @@
     \inputsnippet{cpp}{42}{55}{codes/minimum.cpp}
 \end{frame}
 
-\begin{frame}[fragile]{Implementação}
-    \inputsnippet{cpp}{57}{84}{codes/minimum.cpp}
-\end{frame}
+%\begin{frame}[fragile]{Implementação}
+%    \inputsnippet{cpp}{57}{84}{codes/minimum.cpp}
+%\end{frame}
 
 \begin{frame}[fragile]{2SUM}
 
