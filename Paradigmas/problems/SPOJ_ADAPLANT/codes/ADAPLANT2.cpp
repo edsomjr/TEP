@@ -3,7 +3,7 @@
 using namespace std;
 using ii = pair<int, int>;
 
-const int oo { 1000000010 };
+const int oo { 1'000'000'010 };
 
 struct StackM {
 
@@ -43,7 +43,7 @@ struct StackM {
     void add(int x, stack<ii>& s)
     {
         int m = s.empty() ? x : op(s.top().second, x);
-        s.push(ii(x, m));
+        s.emplace(x, m);
     }
 };
 
@@ -102,7 +102,7 @@ int main()
 
         auto ans = solve(N, K, xs);
 
-        cout << ans << endl;
+        cout << ans << '\n';
     }
 
     return 0;
