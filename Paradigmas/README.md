@@ -104,7 +104,16 @@ D. Algoritmos Gulosos
     4. AtCoder Beginner Contest 052 - Problem D: Walk and Teleport (https://atcoder.jp/contests/abc052/tasks/abc052_d)
     5. AtCoder Beginner Contest 068 - Problem D: Decrease (Contestant ver.) (https://atcoder.jp/contests/abc068/tasks/arc079_b)
 
+E. _Two Pointers_
+    1. AtCoder Beginner Contest 053 - Problem B: A to Z String (https://atcoder.jp/contests/abc053/tasks/abc053_b)
+    2. AtCoder Beginner Contest 047 - Problem C: 1D Reversi (https://atcoder.jp/contests/abc047/tasks/arc063_a)
+    3. AtCoder Beginner Contest 053 - Problem D: Card Eater (https://atcoder.jp/contests/abc053/tasks/arc068_b)
+    4. AtCoder Beginner Contest 116 - Problem C: Grand Garden (https://atcoder.jp/contests/abc116/tasks/abc116_c)
+    5. AtCoder Beginner Contest 102 - Problem D: Equal cut (https://beta.atcoder.jp/contests/arc100/tasks/arc100_b)
 
+
+
+ 
 
 
 -->
