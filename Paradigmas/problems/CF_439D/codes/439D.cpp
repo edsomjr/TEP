@@ -3,16 +3,16 @@
 using namespace std;
 using ll = long long;
 
-const ll oo { 1000000010LL };
+const ll oo { 1'000'000'010LL };
 
 ll h(ll x, const vector<ll>& as, const vector<ll>& bs)
 {
     ll y = 0;
 
-    for (const auto& a : as)
+    for (auto a : as)
         y += (a < x ? x - a : 0);
 
-    for (const auto& b : bs)
+    for (auto b : bs)
         y += (b > x ? b - x : 0);
 
     return y;
@@ -21,7 +21,7 @@ ll h(ll x, const vector<ll>& as, const vector<ll>& bs)
 ll solve(const vector<ll>& as, const vector<ll>& bs)
 {
     // f(x) é convexa: busca ternária
-    ll a = 0, b = oo, ans = 2000000000000000010LL;
+    ll a = 0, b = oo, ans = 2'000'000'000'000'000'010LL;
     
     while (a <= b)
     {
