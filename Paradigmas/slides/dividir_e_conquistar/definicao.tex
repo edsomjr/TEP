@@ -14,7 +14,7 @@
         \begin{enumerate}
             \item dividir o problema em subproblemas menores (divisão);
 
-            \item resolver os subproblemas recursivamente, se ainda forem grande o suficiente,
+            \item resolver os subproblemas recursivamente, se ainda forem grandes o suficiente,
                 ou diretamente, se forem pequenos o bastante (conquista);
 
             \item combinar as soluções dos subproblemas para formar a solução do problema
@@ -56,12 +56,12 @@
 
         Se
         \begin{enumerate} 
-            \item $f(n) = O(n^{\log_b a - \varepsilon})$ para alguma constante $\varepsilon > 0$,
+            \item $f(n) = \Theta(n^{\log_b a - \varepsilon})$ para alguma constante $\varepsilon > 0$,
                 então $T(n) = \Theta(n^{\log_b a})$
 
             \item $f(n) = \Theta(n^{\log_b a})$ então $T(n) = \Theta(n^{\log_b a}\log n)$
 
-            \item $f(n) = O(n^{\log_b a + \varepsilon})$ para alguma constante $\varepsilon > 0$,
+            \item $f(n) = \Theta(n^{\log_b a + \varepsilon})$ para alguma constante $\varepsilon > 0$,
                 e se $af(n/b) \leq cf(n)$ para alguma constante $c > 1$ e $n$ grande o suficiente,
                 então $T(n) = \Theta(f(n))$
         \end{enumerate} 
