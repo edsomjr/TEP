@@ -1,6 +1,6 @@
 int binary_search(int x, const vector<int>& xs)
 {
-    int a = 0, b = xs.size() - 1;
+    auto a = 0ul, b = xs.size() - 1;
 
     while (a <= b)
     {
