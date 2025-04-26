@@ -111,6 +111,17 @@ E. _Two Pointers_
     4. AtCoder Beginner Contest 116 - Problem C: Grand Garden (https://atcoder.jp/contests/abc116/tasks/abc116_c)
     5. AtCoder Beginner Contest 102 - Problem D: Equal cut (https://beta.atcoder.jp/contests/arc100/tasks/arc100_b)
 
+F. _Busca Binária_
+    1. Codeforces Beta Round #9 (Div. 2 Only) - Problem C: Hexadecimal's Numbers (https://codeforces.com/contest/9/problem/C)
+    2. Codeforces Round #112 (Div. 2) - Problem B: Burning Midnight Oil (https://codeforces.com/problemset/problem/165/B) 
+    3. Codeforces Round #113 - Problem A: Rank List (http://codeforces.com/problemset/problem/166/A)
+    4. Codeforces Round #202 - Problem C: Mafia (http://codeforces.com/problemset/problem/349/C)
+    5. Codeforces Round #577 (Div. 2) - Problem C: Maximum Median (https://codeforces.com/problemset/problem/1201/C)
+
+G. _Busca Ternária_
+    1. Educational Codeforces Round 15 - Problem D: Road to Post Office (https://codeforces.com/contest/702/problem/D)
+    2. Codeforces Round #643 (Div. 2) - Problem E: Restorer Distance (https://codeforces.com/contest/1355/problem/E) 
+ 
 
 
  
