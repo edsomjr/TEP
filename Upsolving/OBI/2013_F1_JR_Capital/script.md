@@ -34,7 +34,7 @@ lados do retângulo, tal que as quatro áreas formadas obedeçam às exigências
 
 \vspace{0.2in}
 
-\bbtext{A entrada consiste de uma única linha contendo quatro inteiros $A_1$, $A_2$, $A_3$, $A_4$, indicando a área de casa
+\bbtext{A entrada consiste de uma única linha contendo quatro inteiros $A_1$, $A_2$, $A_3$, $A_4$, indicando a área de cada
 uma das zonas.}
 
 \vspace{0.2in}
