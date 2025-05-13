@@ -608,13 +608,13 @@
             a multiplicação, neste caso, é termo a termo
 
         \item No domínio do tempo, onde estão os polinômios, a multiplicação polinomial é 
-            convolução, com complexidade $O(N^2)$, onde $N$ é o maior dentre os graus
+            convolução, com complexidade $O(NM)$, onde $N$ e $M$ são os graus dos polinômios
 
         \item No domínio das frequências, onde estão as transformadas, a convolução se torna
-            uma multiplicação termo a termo, com complexidade $O(N)$
+            uma multiplicação termo a termo, com complexidade $O(N)$, onde $N$ é o maior dentre os graus
 
         \item Assim, é possível realizar a multiplicação de polinômios indiretamente, computando
-            as transformadas $F(k)$ e $G(k)$, fazendo a multiplicação termo a termo, e computando
+            as transformadas $F(k)$ e $G(k)$, fazendo a multiplicação termo a termo e computando
             a inversa de $H(k)$
     \end{itemize}
 
@@ -630,21 +630,21 @@
             \draw (2, 3) rectangle (4, 5);
             \draw (0, -1) rectangle (4, 1);
 
-            \draw (6, 3) rectangle (8, 5);
-            \draw (8, 3) rectangle (10, 5);
-            \draw (6, -1) rectangle (10, 1);
+            \draw (7, 3) rectangle (9, 5);
+            \draw (7, 3) rectangle (11, 5);
+            \draw (7, -1) rectangle (11, 1);
 
-            \draw[->,very thick] (2, 2.8) -- node[anchor=east] { $O(N^2)$ } (2, 1.2);
-            \draw[->,very thick] (8, 2.8) -- node[anchor=west] { $O(N)$ } (8, 1.2);
-            \draw[->,very thick] (4.2, 4) -- node[anchor=south] { $O(N^2)$ } (5.8, 4);
-            \draw[<-,very thick] (4.2, 0) -- node[anchor=north] { $O(N^2)$ } (5.8, 0);
+            \draw[->,very thick] (2, 2.8) -- node[anchor=east] { $O(NM)$ } (2, 1.2);
+            \draw[->,very thick] (9, 2.8) -- node[anchor=west] { $O(N)$ } (9, 1.2);
+            \draw[->,very thick] (4.2, 4) -- node[anchor=south] { $O(N^2 + M^2)$ } (6.8, 4);
+            \draw[<-,very thick] (4.2, 0) -- node[anchor=north] { $O(N^2 + M^2)$ } (6.8, 0);
 
             \node at (1, 4) { $f(x)$ };
             \node at (3, 4) { $g(x)$ };
-            \node at (7, 4) { $F(k)$ };
-            \node at (9, 4) { $G(k)$ };
+            \node at (8, 4) { $F(k)$ };
+            \node at (10, 4) { $G(k)$ };
             \node at (2, 0) { $f(x)g(x)$ };
-            \node at (8, 0) { $F(k)G(k)$ };
+            \node at (9, 0) { $F(k)G(k)$ };
 
         \end{tikzpicture}
 
