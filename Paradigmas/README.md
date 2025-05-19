@@ -122,7 +122,11 @@ G. _Busca Ternária_
     1. Educational Codeforces Round 15 - Problem D: Road to Post Office (https://codeforces.com/contest/702/problem/D)
     2. Codeforces Round #643 (Div. 2) - Problem E: Restorer Distance (https://codeforces.com/contest/1355/problem/E) 
  
-
+H. _FFT_
+    1. SPOJ VFMUL - Very Fast Multiplication (https://www.spoj.com/problems/VFMUL/) 
+    2. Codeforces Round 390 (Div. 2) - Problem E: Dasha and cyclic table (https://codeforces.com/contest/754/problem/E)
+    3. Codechef - Power Sum (https://www.codechef.com/SEPT19A/problems/PSUM)
+    4. Kattis - A + B Problem (https://open.kattis.com/problems/aplusb)
 
  
 
