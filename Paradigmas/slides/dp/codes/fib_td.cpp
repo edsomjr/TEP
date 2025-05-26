@@ -2,7 +2,7 @@
 
 using namespace std;
 
-const int MAX { 200010 };
+constexpr int MAX { 200'010 };
 
 int st[MAX];
 

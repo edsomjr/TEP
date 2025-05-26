@@ -59,7 +59,7 @@
 
     \begin{itemize}
         \item Conforme comentado anteriormente, quando a relação de recorrência para valores da
-            linha seguinte dependem apenas da linha anterior, e não é preciso manter o registro
+            linha seguinte dependem apenas da linha anterior e não é preciso manter o registro
             do caminho ótimo, é possível reduzir a complexidade em memória de implementações
            \textit{bottom-up}
         \pause
@@ -71,10 +71,10 @@
         \item Os valores de \texttt{prev} são usados para computar os valores de \texttt{next}
         \pause
 
-        \item Em seguida, as referências são trocadas, e o processamento continua
+        \item Em seguida, as referências são trocadas e o processamento continua
         \pause
 
-        \item Também é comum usar uma matriz bidimensional, e trocar entre as linhas por meio
+        \item Também é comum usar uma matriz bidimensional e trocar entre as linhas por meio
             do valor associado à segunda dimensão
     \end{itemize}
 

@@ -2,8 +2,8 @@
 
 using namespace std;
 
-const int MAX { 2010 };
-const long long MOD { 1000000007 };
+constexpr int MAX { 2'010 };
+constexpr long long MOD { 1'000'000'007 };
 
 long long a[MAX], b[MAX];
 

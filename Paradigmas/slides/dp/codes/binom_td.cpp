@@ -1,7 +1,7 @@
 #include <bits/stdc++.h>
 
 using namespace std;
-const int MAX { 1010 };
+constexpr int MAX { 1'010 };
 
 long long st[MAX][MAX];
 
