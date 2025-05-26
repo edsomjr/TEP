@@ -55,7 +55,7 @@ a single space. It is preferable that Homer drinks as little beer as possible.
             $t$
         
         \item Para cada subproblema $p(t)$ a solução é caracterizada por um par de valores
-            $(b, h)$: o número mínimo de cervejas e o máximo de hambúrgeres a serem consumidos 
+            $(b, h)$: o tempo mínimo gasto bebendo cervejas e o máximo de hambúrgeres a serem consumidos 
 
         \item Para manter a ordenação das soluções ótimas e usar a função \texttt{max()} do 
             C++, o valor de $b$ será representado pelo seu simétrico
@@ -76,7 +76,7 @@ a single space. It is preferable that Homer drinks as little beer as possible.
             \item comer um hambúrguer durante $n$ minutos
         \end{enumerate}
 
-        \item Como há $O(T)$ estados distintos, e as transições tem custo $O(1)$, uma solução
+        \item Como há $O(T)$ estados distintos e as transições tem custo $O(1)$, uma solução
             baseada em programação dinâmica tem complexidade $O(T)$
 
         \item A complexidade em memória também é $O(T)$

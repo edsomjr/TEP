@@ -3,7 +3,7 @@
 using namespace std;
 using ii = pair<int, int>;
 
-const int MAX { 10010 };
+constexpr int MAX { 10'010 };
 
 ii st[MAX];
 
