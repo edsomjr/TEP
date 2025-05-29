@@ -128,7 +128,12 @@ H. _FFT_
     3. Codechef - Power Sum (https://www.codechef.com/SEPT19A/problems/PSUM)
     4. Kattis - A + B Problem (https://open.kattis.com/problems/aplusb)
 
- 
-
+I. DP
+    1. AtCoder Beginner Contest 044 - Problem C: Tak and Cards (https://atcoder.jp/contests/abc044/tasks/arc060_a)
+    2. AtCoder Beginner Contest 104 - Problema B: We Love ABC (https://abc104.contest.atcoder.jp/tasks/abc104_d)
+    3. AtCoder Beginner Contest 078 - Problem D: ABS (https://atcoder.jp/contests/abc078/tasks/arc085_b)
+    4. Codeforces Beta Round #5 - Problem E: Bindian Signalizing (https://codeforces.com/contest/5/problem/E)
+    5. Codeforces Beta Round #6 (Div. 2 Only) - Problem D: Lizards and Basements 2 (https://codeforces.com/contest/6/problem/D)
+    6. Codeforces Round 240 (Div. 1) - Problem B: Mashmokh and ACM (https://codeforces.com/problemset/problem/414/B)
 
 -->
