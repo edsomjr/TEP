@@ -1,7 +1,7 @@
 #include <bits/stdc++.h>
 
 using namespace std;
-const int oo { 1000000010 };
+const int oo { 1'000'000'010 };
 
 int kadane(int N, const vector<int>& as)
 {
