@@ -31,14 +31,14 @@
 
     \begin{itemize}
         \item Seja $S(i, j)$ a dimensão $k$ da submatriz $B_{k\times k}$ de maior área, cujos
-            elementos são todos iguais a 1, que tem o elemento $a_{ij}$ esta localizado no canto
+            elementos são todos iguais a 1, cujo elemento $a_{ij}$ esta localizado no canto
             inferior direito de $B$
 
         \item Naturalmente, $S(i, j) = 0$ se $a_{ij} = 0$
 
         \item Se $a_{ij} = 1$, então
         \[
-            S(i, j) = \min\{\ S[i][j - 1], S[i - 1][j], S[i - 1][j - 1]\ \} + 1
+            S(i, j) = \min\{\ S(i, j - 1), S(i - 1, j), S(i - 1, j - 1)\ \} + 1
         \]
 
         \item Esta transição tenta construir o maior quadrado possível com o canto inferior

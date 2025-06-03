@@ -17,7 +17,6 @@ int kadane(int N, const vector<int>& as)
 
 int MSR(int N, int M, const vector<vector<int>>& A)
 {
-    vector<vector<int>> p(N + 1, vector<int>(M + 1, 0));
     int ans = -oo;
 
     for (int i = 1; i <= M; ++i)

@@ -67,12 +67,12 @@
         \item A matriz abaixo ilustra esta situação:
         \[
             A = \begin{bmatrix}
-                    \textcolor{blue}{\underline{a_{11}}} & \textcolor{blue}{\underline{a_{12}}} &
-                        \ldots & \textcolor{blue}{\underline{a_{1(j - 1)}}} & \textcolor{blue}{a_{1j}} & \ldots & a_{1m} \\
-                    \textcolor{blue}{\underline{a_{21}}} & \textcolor{blue}{\underline{a_{22}}} &
-                        \ldots & \textcolor{blue}{\underline{a_{2(j - 1)}}} & \textcolor{blue}{a_{2j}} & \ldots & a_{2m} \\
-                    \textcolor{blue}{\underline{a_{(i - 1)1}}} & \textcolor{blue}{\underline{a_{(i - 1)2}}} &
-                        \ldots & \textcolor{blue}{\underline{a_{(i - 1)(j - 1)}}} & \textcolor{blue}{a_{(i - 1)j}} & \ldots & a_{(i - 1)m} \\
+                    \textcolor{magenta}{{a_{11}}} & \textcolor{magenta}{{a_{12}}} &
+                        \ldots & \textcolor{magenta}{{a_{1(j - 1)}}} & \textcolor{blue}{a_{1j}} & \ldots & a_{1m} \\
+                    \textcolor{magenta}{{a_{21}}} & \textcolor{magenta}{{a_{22}}} &
+                        \ldots & \textcolor{magenta}{{a_{2(j - 1)}}} & \textcolor{blue}{a_{2j}} & \ldots & a_{2m} \\
+                    \textcolor{magenta}{{a_{(i - 1)1}}} & \textcolor{magenta}{{a_{(i - 1)2}}} &
+                        \ldots & \textcolor{magenta}{{a_{(i - 1)(j - 1)}}} & \textcolor{blue}{a_{(i - 1)j}} & \ldots & a_{(i - 1)m} \\
                     \textcolor{red}{{a_{i1}}} & \textcolor{red}{{a_{i2}}} &
                         \ldots & \textcolor{red}{{a_{i(j - 1)}}} & \textcolor{green!60!black}{a_{ij}} & \ldots & a_{im} \\
                 \vdots & \vdots & \ddots & \vdots & \vdots & \ddots & \vdots \\
@@ -135,5 +135,5 @@
 \end{frame}
 
 \begin{frame}[fragile]{Implementação do max 2D range sum com kadane em $O(nm^2)$}
-    \inputsnippet{cpp}{18}{37}{codes/max-2D-range-sum_kadane.cpp}
+    \inputsnippet{cpp}{18}{36}{codes/max-2D-range-sum_kadane.cpp}
 \end{frame}
