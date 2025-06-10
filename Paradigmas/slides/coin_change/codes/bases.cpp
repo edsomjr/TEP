@@ -2,7 +2,7 @@
 
 using namespace std;
 
-const int oo { 2000000007 };
+const int oo { 2'000'000'007 };
 
 vector<int> greedy(int x, int N, const vector<int>& xs)
 {
