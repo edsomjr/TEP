@@ -34,4 +34,6 @@ Introdução à Programação Competitiva
 4. Análise de complexidade: exemplo do Donald Knuth
 5. Novos algoritmos de ordenação: https://github.com/scandum/quadsort e https://github.com/scandum/wolfsort
 
+Problemas:
+    a) https://codeforces.com/problemset/problem/1420/A - bubble sort
 -->
