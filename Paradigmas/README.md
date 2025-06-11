@@ -136,4 +136,11 @@ I. DP
     5. Codeforces Beta Round #6 (Div. 2 Only) - Problem D: Lizards and Basements 2 (https://codeforces.com/contest/6/problem/D)
     6. Codeforces Round 240 (Div. 1) - Problem B: Mashmokh and ACM (https://codeforces.com/problemset/problem/414/B)
 
+J. Max Range Sum, Coin Change e Knapsack
+    1. Codeforces Round #186 - Problem B: Ilya and Queries (http://codeforces.com/problemset/problem/313/B)
+    2. Codeforces Round #509 - Problem D: Glider (http://codeforces.com/contest/1041/problem/D)
+    3. AtCoder Beginner Contest 099 - Problem C: Strange Bank (https://abc099.contest.atcoder.jp/tasks/abc099_c)
+    4. Educational Codeforces Round 34 (Rated for Div. 2) - Problem A: Hungry Student Problem (https://codeforces.com/contest/903/problem/A)
+    5. AtCoder Beginner Contest 219 - Problem D: Strange Lunchbox (https://atcoder.jp/contests/abc219/tasks/abc219_d)
+    6. Codeforces Round #658 (Div. 2) - Problem A: Common Subsequence (https://codeforces.com/contest/1382/problem/A)
 -->
