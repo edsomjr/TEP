@@ -31,7 +31,7 @@ vector<int> LIS(int N, const vector<int>& xs)
     vector<int> ans;
 
     do {
-        ans.push_back(xs[k]);
+        ans.emplace_back(xs[k]);
         k = ps[k];
     } while (k != -1);
 

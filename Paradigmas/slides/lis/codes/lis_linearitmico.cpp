@@ -2,7 +2,7 @@
 
 using namespace std;
 
-const int oo { 2000000010 };
+const int oo { 2'000'000'010 };
 
 int LIS(int N, const vector<int>& as)
 {
