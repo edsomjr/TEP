@@ -1,9 +1,7 @@
 import java.util.Scanner;
 
 public class C4 {
-
     public static void main(String[] args) {
-
         Scanner scanner = new Scanner(System.in);
 
         while (scanner.hasNext()) {
@@ -13,5 +11,4 @@ public class C4 {
             System.out.println(X + Y);
         }
     }
-
 }

@@ -1,7 +1,6 @@
 while True:
     try:
-        line = input()
-        X, Y = [int(n) for n in line.split()]
+        X, Y = map(int, input().split())
 
         print(X + Y)
     except EOFError:

@@ -1,6 +1,5 @@
 while True:
-    line = input()
-    X, Y = [int(n) for n in line.split()]
+    X, Y = map(int, input().split())
 
     if X == -1 and Y == -1:
         break
