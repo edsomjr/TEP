@@ -13,10 +13,10 @@ Estruturas de Dados
     1. [Listas Auto-Organizáveis](slides/LE-4/LE-4.pdf)
 1. Pilhas e Filas
     1. [Pilhas](slides/pilhas/pilhas.pdf)
-        1. [CF 612C - _Replace To Make Regular Bracket Sequence_](problems/CF_612C/CF_612C.pdf)
-        1. [OJ 11111 - _Generalized Matrioshkas_](problems/OJ_11111/OJ_11111.pdf)
+        1. [CF 612C - _Replace To Make Regular Bracket Sequence_](https://codeforces.com/problemset/problem/612/C) [(_upsolving_)](../Upsolving/CF/612C/612C.pdf)
+        1. [OJ 11111 - _Generalized Matrioshkas_](https://onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&page=show_problem&problem=2052) [(_upsolving_)](../Upsolving/OJ/11111/11111.pdf)
     1. [Filas](slides/filas/filas.pdf)
-        1. [OJ 10935 - _Throwing Cards Away I_](problems/OJ_10935/OJ_10935.pdf)
+        1. [OJ 10935 - _Throwing Cards Away I_](https://onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&page=show_problem&problem=1876) [(_upsolving_)](../Upsolving/OJ/10935/10935.pdf)
         1. [LC 933 - _Number of Recent Calls_](problems/LC_933/LC_933.pdf)
 1. Árvores Binárias
     1. [Árvores Binárias: Definição](slides/arvore_binaria-definicao/arvore_binaria-definicao.pdf)
