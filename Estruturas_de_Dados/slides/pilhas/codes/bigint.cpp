@@ -6,10 +6,10 @@ string add(const string& a, const string& b)
 {
     stack<int> x, y, z;
     
-    for (const auto& c : a)
+    for (auto& c : a)
         x.push(c - '0');
     
-    for (const auto& c : b)
+    for (auto& c : b)
         y.push(c - '0');
     
     auto N = max(a.size(), b.size()), carry = 0ul;

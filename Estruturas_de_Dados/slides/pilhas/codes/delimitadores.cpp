@@ -6,7 +6,7 @@ using namespace std;
 
 bool is_valid(const string& expression)
 {
-    static map<char, char> open { {')', '('}, {']', '['}, {'}', '{'}, };
+    static map<char, char> open { { ')', '(' }, { ']', '[' }, { '}', '{' }, };
     stack<char> s;
         
     for (auto c : expression)
@@ -21,7 +21,7 @@ bool is_valid(const string& expression)
         case ')':
         case ']':
         case '}':
-            if (s.empty() || s.top() != open[c])
+            if (s.empty() or s.top() != open[c])
                 return false;
 
             s.pop();
