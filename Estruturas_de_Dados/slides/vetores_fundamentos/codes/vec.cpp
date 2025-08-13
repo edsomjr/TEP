@@ -9,7 +9,7 @@ int main() {
     std::cout << "ns tem " << ns.size() << " elementos\n";
 
     for (int i = 1; i <= 10; ++i)
-        ns.push_back(i);
+        ns.emplace_back(i);
 
     ns.pop_back();
 
