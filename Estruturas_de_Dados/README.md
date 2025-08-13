@@ -4,7 +4,7 @@ Estruturas de Dados
 1. Vetores
     1. [Fundamentos](slides/vetores_fundamentos/vetores_fundamentos.pdf)
         1. [OJ 11093 - _Just Finish it Up_](https://onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&page=show_problem&problem=2034) [(_upsolving_)](../Upsolving/OJ/11093/11093.pdf)
-        1. [CF 137B - _Permutation_](problems/CF_137B/CF_137B.pdf)
+        1. [CF 137B - _Permutation_](https://www.google.com/url?sa=t&source=web&rct=j&opi=89978449&url=https://codeforces.com/problemset/problem/137/B&ved=2ahUKEwjAzOXn2YiPAxVnHbkGHfTzMJYQFnoECBoQAQ&usg=AOvVaw1iEWhUsl8pZiYfZ7bG6tNS) [(_upsolving_)](../Upsolving/CF/137B/137B.pdf)
     1. [Implementação de um contêiner `vector` em C](slides/vetores_implementacao/vetores_implementacao.pdf) 
 1. Listas
     1. [Listas Encadeadas](slides/LE-1/LE-1.pdf)
