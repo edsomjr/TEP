@@ -2,7 +2,7 @@
 
 using namespace std;
 
-map<char, char> open { {'>', '<'}, {']', '['}, {'}', '{'}, {')', '('} };
+map<char, char> open { { '>', '<' }, { ']', '[' }, { '}', '{' }, { ')', '(' } };
 
 int solve(const string& S)
 {
