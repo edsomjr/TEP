@@ -17,7 +17,7 @@ Estruturas de Dados
         1. [OJ 11111 - _Generalized Matrioshkas_](https://onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&page=show_problem&problem=2052) [(_upsolving_)](../Upsolving/OJ/11111/11111.pdf)
     1. [Filas](slides/filas/filas.pdf)
         1. [OJ 10935 - _Throwing Cards Away I_](https://onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&page=show_problem&problem=1876) [(_upsolving_)](../Upsolving/OJ/10935/10935.pdf)
-        1. [LC 933 - _Number of Recent Calls_](problems/LC_933/LC_933.pdf)
+        1. [LC 933 - _Number of Recent Calls_](https://leetcode.com/problems/number-of-recent-calls/description/) [(_upsolving_)](../Upsolving/Leetcode/933/933.pdf)
 1. Árvores Binárias
     1. [Árvores Binárias: Definição](slides/arvore_binaria-definicao/arvore_binaria-definicao.pdf)
     1. [Árvores Binárias de Busca: Inserção e Remoção](slides/arvore_binaria_de_busca-insercao_e_remocao/arvore_binaria_de_busca-insercao_e_remocao.pdf)
