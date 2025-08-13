@@ -3,7 +3,7 @@ Estruturas de Dados
 
 1. Vetores
     1. [Fundamentos](slides/vetores_fundamentos/vetores_fundamentos.pdf)
-        1. [OJ 11093 - _Just Finish it Up_](problems/OJ_11093/OJ_11093.pdf)
+        1. [OJ 11093 - _Just Finish it Up_](https://onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&page=show_problem&problem=2034) [(_upsolving_)](../Upsolving/OJ/11093/11093.pdf)
         1. [CF 137B - _Permutation_](problems/CF_137B/CF_137B.pdf)
     1. [Implementação de um contêiner `vector` em C](slides/vetores_implementacao/vetores_implementacao.pdf) 
 1. Listas

@@ -62,7 +62,6 @@
 %]
 
 \setmonofont{Cousine}
-\setmonofont{Envy Code R}
 \setmonofont{Fantasque Sans Mono}
 
 % New commands
