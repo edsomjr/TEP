@@ -1,0 +1,303 @@
+\begin{frame}[fragile]{Exemplo de inserções em uma pilha não-decrescente}
+
+    \begin{tikzpicture}
+        \node[color=white] at (0, 7) { . };
+
+        \draw (2, 6) grid (9, 7);
+        \node[anchor=west] at (0.8, 6.5) { $a_n =$ };
+
+        \node at (2.5, 6.5) { $\mathrm{1}$ };
+        \node at (3.5, 6.5) { $\mathrm{4}$ };
+        \node at (4.5, 6.5) { $\mathrm{3}$ };
+        \node at (5.5, 6.5) { $\mathrm{4}$ };
+        \node at (6.5, 6.5) { $\mathrm{2}$ };
+        \node at (7.5, 6.5) { $\mathrm{1}$ };
+        \node at (8.5, 6.5) { $\mathrm{3}$ };
+
+        \draw (4, 1) to (7, 1);
+
+        \pause
+
+        \draw[-latex,thick] (2.5, 5.25) to (2.5, 5.75);
+
+        \pause
+
+        \draw (5, 1) rectangle (6, 2);
+        \node at (5.5, 1.5) { $\mathrm{1}$ };
+    \end{tikzpicture}
+
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de inserções em uma pilha não-decrescente}
+
+    \begin{tikzpicture}
+        \node[color=white] at (0, 7) { . };
+
+        \draw (2, 6) grid (9, 7);
+        \node[anchor=west] at (0.8, 6.5) { $a_n =$ };
+
+        \node at (2.5, 6.5) { $\mathrm{1}$ };
+        \node at (3.5, 6.5) { $\mathrm{4}$ };
+        \node at (4.5, 6.5) { $\mathrm{3}$ };
+        \node at (5.5, 6.5) { $\mathrm{4}$ };
+        \node at (6.5, 6.5) { $\mathrm{2}$ };
+        \node at (7.5, 6.5) { $\mathrm{1}$ };
+        \node at (8.5, 6.5) { $\mathrm{3}$ };
+
+        \draw (4, 1) to (7, 1);
+
+        \draw[-latex,thick] (3.5, 5.25) to (3.5, 5.75);
+
+        \draw (5, 1) rectangle (6, 2);
+        \node[color=blue] at (5.5, 1.5) { $\mathrm{1}$ };
+
+        \pause 
+
+        \draw (5, 2) rectangle (6, 3);
+        \node at (5.5, 2.5) { $\mathrm{4}$ };
+        \node[color=black] at (5.5, 1.5) { $\mathrm{1}$ };
+    \end{tikzpicture}
+
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de inserções em uma pilha não-decrescente}
+
+    \begin{tikzpicture}
+        \node[color=white] at (0, 7) { . };
+
+        \draw (2, 6) grid (9, 7);
+        \node[anchor=west] at (0.8, 6.5) { $a_n =$ };
+
+        \node at (2.5, 6.5) { $\mathrm{1}$ };
+        \node at (3.5, 6.5) { $\mathrm{4}$ };
+        \node at (4.5, 6.5) { $\mathrm{3}$ };
+        \node at (5.5, 6.5) { $\mathrm{4}$ };
+        \node at (6.5, 6.5) { $\mathrm{2}$ };
+        \node at (7.5, 6.5) { $\mathrm{1}$ };
+        \node at (8.5, 6.5) { $\mathrm{3}$ };
+
+        \draw (4, 1) to (7, 1);
+
+        \draw[-latex,thick] (4.5, 5.25) to (4.5, 5.75);
+
+        \draw (5, 1) rectangle (6, 2);
+        \draw (5, 2) rectangle (6, 3);
+        \node[color=red] at (5.5, 2.5) { $\mathrm{4}$ };
+        \node[color=black] at (5.5, 1.5) { $\mathrm{1}$ };
+    \end{tikzpicture}
+
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de inserções em uma pilha não-decrescente}
+
+    \begin{tikzpicture}
+        \node[color=white] at (0, 7) { . };
+
+        \draw (2, 6) grid (9, 7);
+        \node[anchor=west] at (0.8, 6.5) { $a_n =$ };
+
+        \node at (2.5, 6.5) { $\mathrm{1}$ };
+        \node at (3.5, 6.5) { $\mathrm{4}$ };
+        \node at (4.5, 6.5) { $\mathrm{3}$ };
+        \node at (5.5, 6.5) { $\mathrm{4}$ };
+        \node at (6.5, 6.5) { $\mathrm{2}$ };
+        \node at (7.5, 6.5) { $\mathrm{1}$ };
+        \node at (8.5, 6.5) { $\mathrm{3}$ };
+
+        \draw (4, 1) to (7, 1);
+
+        \draw[-latex,thick] (4.5, 5.25) to (4.5, 5.75);
+
+        \draw (5, 1) rectangle (6, 2);
+        \node[color=blue] at (5.5, 1.5) { $\mathrm{1}$ };
+
+        \pause
+        \draw (5, 2) rectangle (6, 3);
+        \node[color=black] at (5.5, 2.5) { $\mathrm{3}$ };
+        \node[color=black] at (5.5, 1.5) { $\mathrm{1}$ };
+
+    \end{tikzpicture}
+
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de inserções em uma pilha não-decrescente}
+
+    \begin{tikzpicture}
+        \node[color=white] at (0, 7) { . };
+
+        \draw (2, 6) grid (9, 7);
+        \node[anchor=west] at (0.8, 6.5) { $a_n =$ };
+
+        \node at (2.5, 6.5) { $\mathrm{1}$ };
+        \node at (3.5, 6.5) { $\mathrm{4}$ };
+        \node at (4.5, 6.5) { $\mathrm{3}$ };
+        \node at (5.5, 6.5) { $\mathrm{4}$ };
+        \node at (6.5, 6.5) { $\mathrm{2}$ };
+        \node at (7.5, 6.5) { $\mathrm{1}$ };
+        \node at (8.5, 6.5) { $\mathrm{3}$ };
+
+        \draw (4, 1) to (7, 1);
+
+        \draw[-latex,thick] (5.5, 5.25) to (5.5, 5.75);
+
+        \draw (5, 1) rectangle (6, 2);
+        \draw (5, 2) rectangle (6, 3);
+        \node[color=blue] at (5.5, 2.5) { $\mathrm{3}$ };
+        \node[color=black] at (5.5, 1.5) { $\mathrm{1}$ };
+
+        \pause
+        \draw (5, 3) rectangle (6, 4);
+        \node[color=black] at (5.5, 3.5) { $\mathrm{4}$ };
+        \node[color=black] at (5.5, 2.5) { $\mathrm{3}$ };
+    \end{tikzpicture}
+
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de inserções em uma pilha não-decrescente}
+
+    \begin{tikzpicture}
+        \node[color=white] at (0, 7) { . };
+
+        \draw (2, 6) grid (9, 7);
+        \node[anchor=west] at (0.8, 6.5) { $a_n =$ };
+
+        \node at (2.5, 6.5) { $\mathrm{1}$ };
+        \node at (3.5, 6.5) { $\mathrm{4}$ };
+        \node at (4.5, 6.5) { $\mathrm{3}$ };
+        \node at (5.5, 6.5) { $\mathrm{4}$ };
+        \node at (6.5, 6.5) { $\mathrm{2}$ };
+        \node at (7.5, 6.5) { $\mathrm{1}$ };
+        \node at (8.5, 6.5) { $\mathrm{3}$ };
+
+        \draw (4, 1) to (7, 1);
+
+        \draw[-latex,thick] (6.5, 5.25) to (6.5, 5.75);
+
+        \draw (5, 1) rectangle (6, 2);
+        \draw (5, 2) rectangle (6, 3);
+        \draw (5, 3) rectangle (6, 4);
+        \node[color=red] at (5.5, 3.5) { $\mathrm{4}$ };
+        \node[color=black] at (5.5, 2.5) { $\mathrm{3}$ };
+        \node[color=black] at (5.5, 1.5) { $\mathrm{1}$ };
+    \end{tikzpicture}
+
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de inserções em uma pilha não-decrescente}
+
+    \begin{tikzpicture}
+        \node[color=white] at (0, 7) { . };
+
+        \draw (2, 6) grid (9, 7);
+        \node[anchor=west] at (0.8, 6.5) { $a_n =$ };
+
+        \node at (2.5, 6.5) { $\mathrm{1}$ };
+        \node at (3.5, 6.5) { $\mathrm{4}$ };
+        \node at (4.5, 6.5) { $\mathrm{3}$ };
+        \node at (5.5, 6.5) { $\mathrm{4}$ };
+        \node at (6.5, 6.5) { $\mathrm{2}$ };
+        \node at (7.5, 6.5) { $\mathrm{1}$ };
+        \node at (8.5, 6.5) { $\mathrm{3}$ };
+
+        \draw (4, 1) to (7, 1);
+
+        \draw[-latex,thick] (6.5, 5.25) to (6.5, 5.75);
+
+        \draw (5, 1) rectangle (6, 2);
+        \draw (5, 2) rectangle (6, 3);
+        \node[color=red] at (5.5, 2.5) { $\mathrm{3}$ };
+        \node[color=black] at (5.5, 1.5) { $\mathrm{1}$ };
+    \end{tikzpicture}
+
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de inserções em uma pilha não-decrescente}
+
+    \begin{tikzpicture}
+        \node[color=white] at (0, 7) { . };
+
+        \draw (2, 6) grid (9, 7);
+        \node[anchor=west] at (0.8, 6.5) { $a_n =$ };
+
+        \node at (2.5, 6.5) { $\mathrm{1}$ };
+        \node at (3.5, 6.5) { $\mathrm{4}$ };
+        \node at (4.5, 6.5) { $\mathrm{3}$ };
+        \node at (5.5, 6.5) { $\mathrm{4}$ };
+        \node at (6.5, 6.5) { $\mathrm{2}$ };
+        \node at (7.5, 6.5) { $\mathrm{1}$ };
+        \node at (8.5, 6.5) { $\mathrm{3}$ };
+
+        \draw (4, 1) to (7, 1);
+
+        \draw[-latex,thick] (6.5, 5.25) to (6.5, 5.75);
+
+        \draw (5, 1) rectangle (6, 2);
+        \node[color=blue] at (5.5, 1.5) { $\mathrm{1}$ };
+
+        \pause
+        \draw (5, 2) rectangle (6, 3);
+        \node[color=black] at (5.5, 2.5) { $\mathrm{2}$ };
+        \node[color=black] at (5.5, 1.5) { $\mathrm{1}$ };
+    \end{tikzpicture}
+
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de inserções em uma pilha não-decrescente}
+
+    \begin{tikzpicture}
+        \node[color=white] at (0, 7) { . };
+
+        \draw (2, 6) grid (9, 7);
+        \node[anchor=west] at (0.8, 6.5) { $a_n =$ };
+
+        \node at (2.5, 6.5) { $\mathrm{1}$ };
+        \node at (3.5, 6.5) { $\mathrm{4}$ };
+        \node at (4.5, 6.5) { $\mathrm{3}$ };
+        \node at (5.5, 6.5) { $\mathrm{4}$ };
+        \node at (6.5, 6.5) { $\mathrm{2}$ };
+        \node at (7.5, 6.5) { $\mathrm{1}$ };
+        \node at (8.5, 6.5) { $\mathrm{3}$ };
+
+        \draw (4, 1) to (7, 1);
+
+        \draw[-latex,thick] (7.5, 5.25) to (7.5, 5.75);
+
+        \draw (5, 1) rectangle (6, 2);
+        \draw (5, 2) rectangle (6, 3);
+        \node[color=red] at (5.5, 2.5) { $\mathrm{2}$ };
+        \node[color=black] at (5.5, 1.5) { $\mathrm{1}$ };
+
+    \end{tikzpicture}
+
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de inserções em uma pilha não-decrescente}
+
+    \begin{tikzpicture}
+        \node[color=white] at (0, 7) { . };
+
+        \draw (2, 6) grid (9, 7);
+        \node[anchor=west] at (0.8, 6.5) { $a_n =$ };
+
+        \node at (2.5, 6.5) { $\mathrm{1}$ };
+        \node at (3.5, 6.5) { $\mathrm{4}$ };
+        \node at (4.5, 6.5) { $\mathrm{3}$ };
+        \node at (5.5, 6.5) { $\mathrm{4}$ };
+        \node at (6.5, 6.5) { $\mathrm{2}$ };
+        \node at (7.5, 6.5) { $\mathrm{1}$ };
+        \node at (8.5, 6.5) { $\mathrm{3}$ };
+
+        \draw (4, 1) to (7, 1);
+
+        \draw[-latex,thick] (7.5, 5.25) to (7.5, 5.75);
+
+        \draw (5, 1) rectangle (6, 2);
+        \node[color=blue] at (5.5, 1.5) { $\mathrm{1}$ };
+
+        \pause
+        \draw (5, 2) rectangle (6, 3);
+        \node[color=black] at (5.5, 2.5) { $\mathrm{1}$ };
+        \node[color=black] at (5.5, 1.5) { $\mathrm{1}$ };
+    \end{tikzpicture}
+
+\end{frame}

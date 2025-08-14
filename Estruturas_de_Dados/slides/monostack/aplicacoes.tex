@@ -1,0 +1,67 @@
+\section{Aplicações de Pilhas Monótonas}
+
+\begin{frame}[fragile]{Maior elemento à esquerda (ou a direita)}
+
+    \metroset{block=fill}
+    \begin{block}{Definição}
+        Seja $a_1, a_2, \ldots, a_N$ uma sequência de elementos. O \textbf{maior elemento à esquerda (à direita) de} $a_i$, se existir, é o elemento $a_j$ tal que $j$ é o menor (maior) índice tal que $j > i$
+        ($j < i$) e $a_j > a_i$.
+    \end{block}
+
+\end{frame}
+
+\begin{frame}[fragile]{Maior elemento à esquerda em $O(N)$}
+
+    \begin{itemize}
+        \item É possível determinar o maior elemento à esquerda para todos os elementos de uma
+            sequência $a_1, a_2, \ldots, a_N$ em $O(N^2)$ por meio de uma busca completa
+
+        \item Para cada índice $i$, é preciso avaliar todos os elementos $a_j$, com $j = 1, 2, \ldots, i -1$
+
+        \item Contudo, é possível determinar estes valores em $O(N)$ com uma modificação no método de
+            inserção de uma pilha não-crescente
+
+        \item A inserção em uma pilha não-crescente ocorre em duas etapas: manutenção do invariante e
+            inserção do novo elemento
+
+        \item Finalizada a manutenção do invariante, os elementos que restam na pilha são todos maiores
+            do que $a_i$ e o elemento do topo será o maior elemento à esquerda de $a_i$
+
+        \item Em algumas implementações são mantidos os índices e não os valores da sequência
+            propriamente ditos (ou pares com ambas informações)
+    \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{Implementação do maior elemento à esquerda em C++}
+    \inputsnippet{c++}{5}{23}{codes/pge.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Implementação do maior elemento à esquerda em C++}
+    \inputsnippet{c++}{25}{39}{codes/pge.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Implementação do maior elemento à esquerda em C++}
+    \inputsnippet{c++}{41}{53}{codes/pge.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Maior elemento à direita em $O(N)$}
+
+    \begin{itemize}
+        \item É possível determinar o maior elemento à direita usando estratégia semelhante
+
+        \item Basta inserir os elementos da direita para a esquerda em uma pilha não-crescente
+
+        \item Caso sejam usados os índices, é preciso iniciar o marcador de posição no índice 
+            $N - 1$ e decrementá-lo a cada inserção
+
+        \item Também é possível computar ambos elementos de uma só vez, caso os elementos da sequência
+            sejam todos distintos
+
+        \item Neste caso, o elemento mais à direita de
+            $a_i$ será o elemento $a_j$ que remove $a_i$ da pilha na manutenção do invariante
+
+        \item Em uma implementação direta, sem uso de classes, é possível obter ambos vetores
+            (\texttt{pge} -- \textit{previous greater element} -- e \texttt{nge} -- \textit{next
+            greater element}) com uma única chamada de função
+    \end{itemize}
+\end{frame}
