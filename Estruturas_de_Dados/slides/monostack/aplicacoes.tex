@@ -4,8 +4,8 @@
 
     \metroset{block=fill}
     \begin{block}{Definição}
-        Seja $a_1, a_2, \ldots, a_N$ uma sequência de elementos. O \textbf{maior elemento à esquerda (à direita) de} $a_i$, se existir, é o elemento $a_j$ tal que $j$ é o menor (maior) índice tal que $j > i$
-        ($j < i$) e $a_j > a_i$.
+        Seja $a_1, a_2, \ldots, a_N$ uma sequência de elementos. O \textbf{maior elemento à esquerda (à direita) de} $a_i$, se existir, é o elemento $a_j$ tal que $j$ é o maior (menor) índice tal que $j < i$
+        ($j > i$) e $a_j > a_i$.
     \end{block}
 
 \end{frame}
@@ -51,8 +51,9 @@
 
         \item Basta inserir os elementos da direita para a esquerda em uma pilha não-crescente
 
-        \item Caso sejam usados os índices, é preciso iniciar o marcador de posição no índice 
-            $N - 1$ e decrementá-lo a cada inserção
+        \item Construa a instância da classe \code{cpp}{MonoStack} com a seguinte expressão:
+
+            \inputsyntax{cpp}{codes/instanciacao.cpp}
 
         \item Também é possível computar ambos elementos de uma só vez, caso os elementos da sequência
             sejam todos distintos
@@ -64,4 +65,102 @@
             (\texttt{pge} -- \textit{previous greater element} -- e \texttt{nge} -- \textit{next
             greater element}) com uma única chamada de função
     \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{Implementação do maior elemento à esquerda e à direita em C++}
+    \inputsnippet{c++}{5}{24}{codes/ge.cpp}
+\end{frame}
+
+
+\begin{frame}[fragile]{Maior elemento à esquerda e Programação Dinâmica}
+
+    \begin{itemize}
+        \item As ideias apresentadas até o momento permitem o desenvolvimento de um algoritmo de 
+            programação dinâmica para determinar o maior elemento à esquerda de todos os elementos
+            da sequência $a_1, a_2, \ldots, a_N$ em $O(N)$
+
+        \item Seja $pge(i)$ o índice do maior elemento à esquerda de $a_i$, ou $0$, caso não exista
+
+        \item O caso base acontece quando $i = 1$: como não há elementos à esquerda de $a_1$, vale que
+            $pge(1) = 0$
+
+        \item Em relação à transição, há duas possibilidades:
+            \begin{enumerate}
+                \item se $a_{i - 1} > a_i$, então $pge(a_i) = i - 1$
+                \item caso contrário, $pge(a_i)$ será o menor elemento da sequência $pge(a_{i - 1}), 
+                    pge^2(a_{i - 1}), \ldots, pge^k(a_{i - 1}), \ldots, 0$
+            \end{enumerate}
+    \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{Implementação do maior elemento usando DP}
+    \inputsnippet{c++}{6}{22}{codes/dp.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Implementação do maior elemento usando DP}
+    \inputsnippet{c++}{24}{40}{codes/dp.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Soma dos elementos máximos de todos os intervalos}
+
+    \metroset{block=fill}
+    \begin{block}{Definição}
+        Seja $a_1, a_2, \ldots, a_N$ uma sequência. O problema da \textbf{soma dos elementos máximos
+            de todos os intervalos} da sequência consiste em determinar a soma
+        $$
+            S(a_N) = \sum_{i = 1}^N\sum_{j = i}^N \max(a_i, a_{i+1}, \ldots, a_j)
+        $$
+    \end{block}
+\end{frame}
+
+\begin{frame}[fragile]{Soma dos elementos máximos de todos os intervalos em $O(N)$}
+
+    \begin{itemize}
+        \item Como há $N(N + 1)/2$ intervalos válidos com índices em $[1, N]$, a princípio parece que
+            o problema só admite soluções com complexidade $O(N^2)$ ou maior
+
+        \item Contudo, conhecidos os vetores \code{cpp}{pge} e \code{cpp}{nge} (computados por pilhas
+            monótonas ou por DP), é possível resolver este problema em $O(N)$
+
+        \item Para tanto, é preciso fazer um ajuste em um dos dois vetores para que, ao invés do 
+            maior elemento, seja o elemento maior ou igual
+
+        \item Assuma, sem perda de generalidade, que o ajuste seja feito à direita, de modo que
+            obtenhamos o vetor \code{cpp}{ngee} (\textit{next greater or equal element})
+
+        \item Seja $L_i = pge(i)$ e $R_i = ngee(i)$ para um elemento $a_i$ qualquer
+    \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{Soma dos elementos máximos de todos os intervalos em $O(N)$}
+
+    \begin{itemize}
+        \item Temos que $a_i$ será o elemento máximo de todos os intervalos $[j, k]$ tais que
+            $L_i < j\leq i$ e $i\leq k < R_i$
+
+        \item O ajuste no vetor à direita é feito para evitar a duplicidade de intervalos na contagem:
+            $a_i$ será o máximo de todos os intervalos cujo máximo é $a_i$ e $a_i$ é o maior elemento,
+            à direita do intervalo, que tem este valor
+
+        \item Assim, $a_i$ contribuirá, para a soma, com a quantia $a_i(i - L_i)(R_i - i)$
+
+        \item Deste modo,
+            $$
+                S(a_N) = \sum_{i = 1}^N\sum_{j = i}^N \max(a_i, a_{i+1}, \ldots, a_j) 
+                    = \sum_{i = 1}^N a_i(i - L_i)(R_i - i)
+            $$
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Implementação da soma dos máximos dos intervalos em C++}
+    \inputsnippet{c++}{5}{23}{codes/sum.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Implementação da soma dos máximos dos intervalos em C++}
+    \inputsnippet{c++}{25}{41}{codes/sum.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Implementação da soma dos máximos dos intervalos em C++}
+    \inputsnippet{c++}{43}{53}{codes/sum.cpp}
 \end{frame}

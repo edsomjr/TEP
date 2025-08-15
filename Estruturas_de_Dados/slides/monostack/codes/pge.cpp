@@ -5,7 +5,7 @@ using namespace std;
 template<typename T>
 class MonoStack {
 public:
-    MonoStack(int start_idx = 0, inc = 1) : pos(start_idx), invalid(start_idx - 1) {}
+    MonoStack(int start_idx = 0, inc = 1) : pos(start_idx), invalid(start_idx - inc) {}
 
     int push(const T& x) {
         while (not st.empty() and st.top().second <= x)

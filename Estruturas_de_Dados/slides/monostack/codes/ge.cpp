@@ -6,13 +6,10 @@ auto ge(const vector<int>& as)
 {
     auto N = (int) as.size();
     vector<int> pge(N, -1), nge(N, N);
-
     stack<int> st;
 
-    for (int i = 0; i < N; ++i)
-    {
-        while (not st.empty() and as[st.top()] <= as[i])
-        {
+    for (int i = 0; i < N; ++i) {
+        while (not st.empty() and as[st.top()] <= as[i]) {
             nge[st.top()] = i;
             st.pop();
         }
