@@ -1,0 +1,118 @@
+\section{Aplicações de Filas Monótonas}
+
+\begin{frame}[fragile]{Menores elementos em uma janela móvel}
+
+    \metroset{block=fill}
+    \begin{block}{Definição}
+        Seja $a_1, a_2, \ldots, a_N$ uma sequência de elementos e $k$ um inteiro positivo. Os \textbf{menores elementos em uma janela móvel de tamanho} $k$ correspondem à sequência $b_1, b_2, \ldots, b_M$ tal que
+$M = N - K + 1$ e
+$$
+        b_i = \min(a_i, a_{i + 1}, \ldots, a_{i + k - 1})
+$$
+    \end{block}
+
+\end{frame}
+
+\begin{frame}[fragile]{Menores elementos em uma janela móvel em $O(1)$}
+
+    \begin{itemize}
+        \item Os menores elementos em uma janela móvel de tamanho $k$ de uma sequência $a_1, a_2, \ldots, a_N$ podem ser determinados em $O(1)$ por meio de uma fila não-decrescente $F$
+
+        \item Inicialmente, insira índices os primeiros $k$ elementos da sequência em $F$ (usando os
+            valores dos elementos para manter o invariante)
+
+        \item O elemento que ocupar a primeiro posição em $F$ será o índice do elemento mínimo de dentre 
+            os $k$ primeiros
+
+        \item Inicialize dois marcadores $L$ e $R$ com os valores $1$ e $K + 1$, respectivamente
+
+        \item  Enquanto $R \leq N$:
+            \begin{enumerate}
+                \item Remova o primeiro elemento da fila, se ele for igual a $L$
+                \item Insira $R$ em $F$
+                \item O elemento da primeira posição de $R$ será o índice do elemento mínimo de 
+                    $a_{L + 1}, a_{L + 2}, \ldots, a_R$
+                \item Incremente ambos marcadores
+            \end{enumerate}
+    \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{Menores elementos em uma janela móvel em C++}
+    \inputsnippet{c++}{5}{22}{codes/mesw.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Menores elementos em uma janela móvel em C++}
+    \inputsnippet{c++}{24}{32}{codes/mesw.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Menores elementos em uma janela móvel bidimensional}
+
+    \metroset{block=fill}
+    \begin{block}{Definição}
+        Seja $A_{N\times M}$ uma matriz. A matriz $B$ contém todos os menores elementos de $A$ para todas
+        as janelas de tamanho $H\times W$ se $B$ tem dimensões $(N - H + 1)\times(M - W + 1)$ e
+$$
+        b_{ij} = \min \begin{bmatrix} 
+            a_{ij} & a_{i(j + 1)} & \ldots & a_{i(j + W - 1)} \\
+            a_{(i + 1)j} & a_{(i + 1)(j + 1)} & \ldots & a_{(i + 1)(j + W - 1)} \\
+            \vdots & \vdots & \ddots & \vdots \\
+            a_{(i + H - 1)j} & a_{(i + H - 1)(j + 1)} & \ldots & a_{(i + H - 1)(j + W - 1)} \\
+        \end{bmatrix}
+$$
+    \end{block}
+
+\end{frame}
+
+\begin{frame}[fragile]{Menores elementos em uma janela móvel bidimensional em $O(NM)$}
+
+    \begin{itemize}
+        \item Para computar a matriz $B$ dos menores elementos de $A$ em uma janela móvel bidimensional
+            de tamanho $H\times B$, inicialmente aplique o algoritmo unidimensional em cada linha de
+            $A$, produzindo uma matriz intermediária $C$ com $N$ linhas  e $M - W + 1$ colunas
+
+        \item Em seguida, aplique o algoritmo unidimensional nas colunas de $C$ para obter a matriz $B$
+
+        \begin{footnotesize}
+        $$
+            \begin{bmatrix}
+                a_{11} & \ldots & a_{1M} \\
+                a_{21} & \ldots & a_{2M} \\
+                \vdots & \ddots & \vdots \\
+                a_{N1} & \ldots & a_{NM} \\
+            \end{bmatrix}
+            \Rightarrow
+            \begin{bmatrix}
+                c_{11} & \ldots & c_{1(M - W + 1)} \\
+                c_{21} & \ldots & c_{2(M - W + 1)} \\
+                \vdots & \ddots & \vdots \\
+                c_{N1} & \ldots & c_{N(M - W + 1)} \\
+            \end{bmatrix}
+            \Rightarrow
+            \begin{bmatrix}
+                b_{11} & \ldots & b_{1(M - W + 1)} \\
+                b_{21} & \ldots & b_{2(M - W + 1)} \\
+                \vdots & \ddots & \vdots \\
+                b_{(N - H + 1)1}  & \ldots & b_{(N - H + 1)(M - W + 1)} \\
+            \end{bmatrix}
+        $$
+        \end{footnotesize}
+
+    \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{Menores elementos em uma janela móvel bidimensional em C++}
+    \inputsnippet{c++}{16}{34}{codes/mesw2D.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Menores elementos em uma janela móvel bidimensional em C++}
+    \inputsnippet{c++}{36}{51}{codes/mesw2D.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Menores elementos em uma janela móvel bidimensional em C++}
+    \inputsnippet{c++}{53}{70}{codes/mesw2D.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Menores elementos em uma janela móvel bidimensional em C++}
+    \inputsnippet{c++}{75}{81}{codes/mesw2D.cpp}
+\end{frame}
+

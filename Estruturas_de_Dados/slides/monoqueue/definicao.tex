@@ -1,0 +1,36 @@
+\section{Definição}
+
+\begin{frame}[fragile]{Definição de fila monótona}
+
+    \metroset{block=fill}
+    \begin{block}{Fila monótona}
+        Seja $F$ uma fila de elementos do tipo $T$. A fila $F$ é dita \textbf{monótona} se, quando extraídos todos
+        os elementos de $F$, eles formam uma sequência $x_1, x_2, \ldots, x_N$, onde $x_i$ é o elemento
+        obtido na $i$-ésima extração, tais que a função $F : \mathbb{N}\to T$, com $f(i) = x_i$, é monótona.
+        \newline\newline
+        A fila $F$ será \textbf{não-decrescente} se $f$ for \textbf{não-decrescente}; caso contrário, $F$ será
+        não-decrescente.
+    \end{block}
+
+\end{frame}
+
+
+\begin{frame}[fragile]{Inserção em filas monótonas}
+
+    \begin{itemize}
+        \item Em filas monótonas é necessário manter a invariante da monotonicidade a cada inserção
+
+        \item Seja $F$ uma fila não-decrescente e $x$ um elemento a ser inserido em $F$
+
+        \item Se $F$ estiver vazia, basta inserir $x$ em $F$: o invariante estará preservado
+
+        \item Se $F$ não estiver vazia, o mesmo acontece se $x\leq y$, onde $y$ é o último de $F$ 
+
+        \item Contudo, se $x > y$, é preciso remover $y$ antes da inserção de $x$
+
+        \item Após a remoção de $y$, é preciso confrontar $x$ com o novo elemento que ocupará a última posição até que $x$ possa ser inserido na última posição de $F$
+    \end{itemize}
+\end{frame}
+
+\input{insercao}
+
