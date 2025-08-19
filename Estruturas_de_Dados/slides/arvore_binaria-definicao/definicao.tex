@@ -29,30 +29,30 @@
 \begin{frame}[fragile]{Visualização de uma árvore}
 
     \begin{tikzpicture}
-        \begin{scope}{shift={(3,0)}}
-            \node[opacity=0] (X) at (-1, 2) { $1$ };
-            \node[minimum size=0.8cm, fill=blue!30,circle,draw] (A) at (4, 8) { };
-            \node[minimum size=0.8cm, fill=blue!30,circle,draw] (A) at (4, 8) { };
-            \node[minimum size=0.8cm, fill=gray!30,circle,draw] (B) at (2, 6) { };
-            \node[minimum size=0.8cm, fill=gray!30,circle,draw] (C) at (6, 6) { };
-            \node[minimum size=0.8cm, fill=green!30,circle,draw] (D) at (2, 4) { };
-            \node[minimum size=0.8cm, fill=gray!30,circle,draw] (E) at (5, 4) { };
-            \node[minimum size=0.8cm, fill=green!30,circle,draw] (F) at (4, 2) { };
-            \node[minimum size=0.8cm, fill=green!30,circle,draw] (G) at (6, 2) { };
+        \node[opacity=0] at (0, 7) { x };
+        \node[opacity=0] at (14, 0) { x };
+        \node[minimum size=0.8cm, fill=blue!30,circle,draw] (A) at (7, 7.5) { };
+        \node[minimum size=0.8cm, fill=gray!30,circle,draw] (B) at (5, 5.5) { };
+        \node[minimum size=0.8cm, fill=gray!30,circle,draw] (C) at (9, 5.5) { };
+        \node[minimum size=0.8cm, fill=green!30,circle,draw] (D) at (4, 3.5) { };
+        \node[minimum size=0.8cm, fill=gray!30,circle,draw] (E) at (9, 3.5) { };
+        \node[minimum size=0.8cm, fill=green!30,circle,draw] (F) at (8, 1.5) { };
+        \node[minimum size=0.8cm, fill=green!30,circle,draw] (G) at (10, 1.5) { };
+        \node[minimum size=0.8cm, fill=green!30,circle,draw] (H) at (12, 3.5) { };
 
-            \draw (A) -- (B);
-            \draw (A) -- (C);
-            \draw (B) -- (D);
-            \draw (C) -- (E);
-            \draw (E) -- (F);
-            \draw (E) -- (G);
+        \draw (A) -- (B);
+        \draw (A) -- (C);
+        \draw (B) -- (D);
+        \draw (C) -- (E);
+        \draw (E) -- (F);
+        \draw (E) -- (G);
+        \draw (C) -- (H);
 
-            \draw[thick,->] (5.0, 8) -- (4.6, 8);
-            \node at (5.4, 8.05) { raíz };
+        \draw[thick,->] (8.2, 7.5) -- (7.7, 7.5);
+        \node at (8.6, 7.55) { raíz };
 
-            \draw[thick,->] (1.0, 4) -- (1.4, 4);
-            \node at (0.4, 4.05) { folha };
-        \end{scope}
+        \draw[thick,->] (3.0, 3.5) -- (3.4, 3.5);
+        \node at (2.4, 3.55) { folha };
     \end{tikzpicture}
 
 \end{frame}
