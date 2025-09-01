@@ -10,9 +10,32 @@ Para este problema, você receberá vários conjuntos de números e a partir de 
 
 \end{frame}
 
-
 \begin{frame}[fragile]{Problema}
-    \includegraphics[scale=1,center]{figures/UOJ_1195.png}
+
+    \begin{tikzpicture}
+            \node[opacity=0] at (0, 7) { . };
+            \node[opacity=0] at (14, 0) { . };
+
+            \node[circle,draw,fill=cyan!30,minimum size=1cm] (A) at (7, 6.5) { \Large \tt 8 };
+            \node[circle,draw,fill=cyan!30,minimum size=1cm] (B) at (5, 4.5) { \Large \tt 3 };
+            \node[circle,draw,fill=cyan!30,minimum size=1cm] (C) at (9, 4.5) { \Large \tt 10 };
+            \node[circle,draw,fill=cyan!30,minimum size=1cm] (D) at (3.5, 2.5) { \Large \tt 1 };
+            \node[circle,draw,fill=cyan!30,minimum size=1cm] (E) at (6.5, 2.5) { \Large \tt 6 };
+            \node[circle,draw,fill=cyan!30,minimum size=1cm] (F) at (10.5, 2.5) { \Large \tt 14 };
+            \node[circle,draw,fill=cyan!30,minimum size=1cm] (G) at (5.5, 0.5) { \Large \tt 4 };
+            \node[circle,draw,fill=cyan!30,minimum size=1cm] (H) at (7.5, 0.5) { \Large \tt 7 };
+            \node[circle,draw,fill=cyan!30,minimum size=1cm] (I) at (9.5, 0.5) { \Large \tt 13 };
+
+            \draw[-latex,thick] (A) to (B);
+            \draw[-latex,thick] (A) to (C);
+            \draw[-latex,thick] (B) to (D);
+            \draw[-latex,thick] (B) to (E);
+            \draw[-latex,thick] (C) to (F);
+            \draw[-latex,thick] (E) to (G);
+            \draw[-latex,thick] (E) to (H);
+            \draw[-latex,thick] (F) to (I);
+    \end{tikzpicture}
+
 \end{frame}
 
 \begin{frame}[fragile]{Entrada e saída}
