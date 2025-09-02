@@ -33,7 +33,7 @@ Estruturas de Dados
         1. [BEE 1195 - Árvore Binária de Busca](../Upsolving/BEE/1195/1195.pdf)
         1. [BEE 1466 - Percurso em Árvore por Nível](../Upsolving/BEE/1466/1466.pdf)
         1. [BEE 1191 - Recuperação de Árvore](../Upsolving/BEE/1191/1191.pdf)
-        1. [OJ 10077 - _The Stern-Brocot Number System_](OJ_10077/OJ_10077.pdf)
+        1. [OJ 10077 - _The Stern-Brocot Number System_](../Upsolving/OJ/10077/10077.pdf)
     1. [Árvores Binárias de Busca: Balanceamento](slides/TR-4/TR-4.pdf)
     1. [Árvores _Red-Black_: Definição e Inserção](slides/TR-5/TR-5.pdf)
     1. [Árvores _Red-Black_: Remoção](slides/TR-6/TR-6.pdf)
