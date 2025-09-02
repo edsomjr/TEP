@@ -31,7 +31,7 @@ Estruturas de Dados
     1. [Árvores Binárias de Busca: Inserção e Remoção](slides/arvore_binaria_de_busca-insercao_e_remocao/arvore_binaria_de_busca-insercao_e_remocao.pdf)
     1. [Árvores Binárias de Busca: Busca e Travessia](slides/arvore_binaria_de_busca-busca_e_travessia/arvore_binaria_de_busca-busca_e_travessia.pdf)
         1. [BEE 1195 - Árvore Binária de Busca](../Upsolving/BEE/1195/1195.pdf)
-        1. [BEE 1466 - Percurso em Árvore por Nível](problems/BEE_1466/BEE_1466.pdf)
+        1. [BEE 1466 - Percurso em Árvore por Nível](../Upsolving/BEE/1466.pdf)
         1. [BEE 1191 - Recuperação de Árvore](problems/BEE_1191/BEE_1191.pdf)
         1. [OJ 10077 - _The Stern-Brocot Number System_](OJ_10077/OJ_10077.pdf)
     1. [Árvores Binárias de Busca: Balanceamento](slides/TR-4/TR-4.pdf)

@@ -1,5 +1,3 @@
-%\section{BEE 1466 -- Percurso em Árvore por Nível}
-
 \begin{frame}[fragile]{Problema}
 
 Em uma árvore binária, o percurso por nível é um percurso denominado \textit{breadth first search} (BFS) ou em português, busca em largura, a qual seria não-recursiva por natureza. Este percurso utiliza uma fila ao invés de pilha para armazenar os próximos 2 nodos que devem ser pesquisados (filho à esquerda e à direita). Esta é a razão pela qual você deve percorrer os nodos na ordem FIFO ao invés da ordem LIFO, obtendo desta forma a recursão.
@@ -8,9 +6,32 @@ Portanto nossa tarefa aqui, após algumas operações de inserção sobre uma á
 
 \end{frame}
 
-
 \begin{frame}[fragile]{Problema}
-    \includegraphics[scale=1,center]{figures/UOJ_1466.png}
+
+    \begin{tikzpicture}
+            \node[opacity=0] at (0, 7) { . };
+            \node[opacity=0] at (14, 0) { . };
+
+            \node[circle,draw,fill=green!30,minimum size=1cm] (A) at (7, 6.5) { \Large \tt 8 };
+            \node[circle,draw,fill=green!30,minimum size=1cm] (B) at (5, 4.5) { \Large \tt 3 };
+            \node[circle,draw,fill=green!30,minimum size=1cm] (C) at (9, 4.5) { \Large \tt 10 };
+            \node[circle,draw,fill=green!30,minimum size=1cm] (D) at (3.5, 2.5) { \Large \tt 1 };
+            \node[circle,draw,fill=green!30,minimum size=1cm] (E) at (6.5, 2.5) { \Large \tt 6 };
+            \node[circle,draw,fill=green!30,minimum size=1cm] (F) at (10.5, 2.5) { \Large \tt 14 };
+            \node[circle,draw,fill=green!30,minimum size=1cm] (G) at (5.5, 0.5) { \Large \tt 4 };
+            \node[circle,draw,fill=green!30,minimum size=1cm] (H) at (7.5, 0.5) { \Large \tt 7 };
+            \node[circle,draw,fill=green!30,minimum size=1cm] (I) at (9.5, 0.5) { \Large \tt 13 };
+
+            \draw[-latex,thick] (A) to (B);
+            \draw[-latex,thick] (A) to (C);
+            \draw[-latex,thick] (B) to (D);
+            \draw[-latex,thick] (B) to (E);
+            \draw[-latex,thick] (C) to (F);
+            \draw[-latex,thick] (E) to (G);
+            \draw[-latex,thick] (E) to (H);
+            \draw[-latex,thick] (F) to (I);
+    \end{tikzpicture}
+
 \end{frame}
 
 \begin{frame}[fragile]{Entrada e saída}

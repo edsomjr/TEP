@@ -62,8 +62,8 @@
 %\setsansfont{Averia Sans Light}
 \setsansfont{Universalis ADF Std Cond}[
     BoldFont = Roboto Black,
-    ItalicFont = Roboto Light,
-    BoldItalicFont = Roboto Black
+    ItalicFont = FreeSans,
+    BoldItalicFont = Andika
 ]
 
 %\setmonofont{Cousine}
