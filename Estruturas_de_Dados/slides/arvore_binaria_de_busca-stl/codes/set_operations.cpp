@@ -5,7 +5,7 @@ int main()
     std::set<int> s;
 
     s.insert(3);            // s = { 3 }
-    s.insert(3);            // s = { 3 }
+    s.emplace(3);           // s = { 3 }
     s.insert( { 1, 2 } );   // s = { 1, 2, 3 }
 
     auto n = s.erase(3);    // n = 1

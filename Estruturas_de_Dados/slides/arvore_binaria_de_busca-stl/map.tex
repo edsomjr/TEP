@@ -9,7 +9,7 @@
         \item Cada elemento do \texttt{map} é composto de uma chave (\textit{key}) e um valor
             associado (\textit{value})
 
-        \item Tanto o tipo da chave quanto do valor são paramétricos, e podem ser distintos
+        \item Tanto o tipo da chave quanto do valor são paramétricos e podem ser distintos
 
         \item Os elementos são ordenados por meio de suas chaves
 
@@ -55,4 +55,74 @@
 
 \begin{frame}[fragile]{Exemplo de uso de \texttt{map} e \texttt{multimap}}
     \inputsnippet{cpp}{42}{62}{codes/map.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Árvores com estatísticas}
+
+    \begin{itemize}
+        \item As interfaces das estruturas baseadas em árvores binárias de busca da STL não fornecem,
+            em sua API, métodos que permitam extrair estatísticas sobre a ordenação dos nós
+
+        \item Contudo, o GCC implementa uma árvore binária oferece tais métodos
+
+        \item Para utilizar estas árvores em códigos, é preciso incluir os seguintes arquivos
+            \textit{header}:
+
+            \inputsyntax{cpp}{codes/headers.h}
+
+        \item Atente também ao uso do \code{cpp}{namespace __gnu_pbds}
+    \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{Declaração da árvore com estatísticas}
+
+    \inputsyntax{cpp}{codes/tree.h}
+\end{frame}
+
+\begin{frame}[fragile]{Parâmetros da árvore com estatísticas}
+
+    \begin{itemize}
+        \item \code{cpp}{typename Key} indica o tipo do elemento que será armazenado na árvore
+
+        \item \code{cpp}{typename Mapped} indica que a árvore seguirá a relação de chave-valor, como
+            em \code{cpp}{map}. Para usar a árvore como um conjunto, substitua este parâmetro pelo
+            valor \code{cpp}{null_type}
+
+        \item \code{cpp}{typename Tag} indica qual será o tipo de árvore balaceada que será implementada.
+            Valores possíveis são \code{cpp}{rb_tree_tag} para uma árvore \textit{red-black},
+            \code{cpp}{splay_tree_tag} para uma \textit{splay tree} e \code{cpp}{ov_tree_tag} para
+            uma \textit{ordered-vector tree}
+
+        \item Em competições deve se usar a árvore \textit{red-black}, pois as outras duas tem operações
+            de \textit{split} lineares
+
+        \item \code{cpp}{class Node_Update} indica se as estatísticas devem ser ou não adicionadas aos nós. O padrão é \code{cpp}{null_node_update}: para obter as estatísticas, use neste parâmetro o valor \code{cpp}{tree_order_statistics_node_update}
+    \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{Métodos para obtenção de estatísticas}
+
+    \begin{itemize}
+        \item Uma vez inicializada a árvore com os parâmetros apropriados, dois novos métodos se
+            tornam disponíveis na interface
+
+        \item O primeiro deles é o método \code{cpp}{find_by_order()}, que recebe como parâmetro um
+            número natural $n$ e que retorna o iterador para o $n$-ésimo elemento da árvore, de acordo
+            com a ordenação dos elementos, se existir
+
+        \item O segundo método é o \code{cpp}{order_by_key()}, que recebe um elemento $x$, do mesmo tipo
+            dos elementos armazenados na árvore, e que retorna o número de elementos que são estritamente
+            menores do que $x$
+
+        \item Ambos métodos tem complexidade $O(\log N)$, onde $N$ é o número de elemementos armazenados
+            na árvore
+    \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de uso da árvore com estatísticas do GCC}
+    \inputsnippet{cpp}{1}{19}{codes/tree.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de uso da árvore com estatísticas do GCC}
+    \inputsnippet{cpp}{21}{39}{codes/tree.cpp}
 \end{frame}

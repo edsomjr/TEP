@@ -19,7 +19,7 @@ int main()
     map<string, int> m;
 
     m["abc"] = 1;                               // m = { "abc": 1 }
-    m.insert(make_pair("xyz", 2));              // m = { "abc": 1, "xyz": 2 }
+    m.emplace("xyz", 2);                        // m = { "abc": 1, "xyz": 2 }
 
     m.erase("xyz");                             // m = { "abc": 1 }
 

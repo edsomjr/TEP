@@ -26,7 +26,7 @@
         \item O padrão C++11 oferece cinco construtores distintos para um \code{c}{set}
 
         \item O primeiro deles, denominado \textit{default constructor},
-                 não tem parâmetros, e constrói um conjunto vazio
+                 não tem parâmetros e constrói um conjunto vazio
 
         \item O segundo, \textit{range constructor}, permite a construção de um conjunto a partir 
             de dois iteradores,
@@ -63,6 +63,9 @@
         \item A inserção é feita através do método \code{c}{insert()}, que pode receber ou o
             valor a ser inserido ou uma lista de inicialização com os elementos a serem
             inseridos
+
+        \item Outro método de inserção é o \code{c}{emplace()}, que recebe como parâmetros os mesmos
+            parâmetros do construtor do elemento a ser inserido e constrói o elemento durante a inserção
 
         \item A inserção de um valor que já existe no conjunto não tem efeito
 
