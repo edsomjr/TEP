@@ -1353,16 +1353,16 @@
     \begin{itemize}
         \item Seja $h = \lfloor \log N\rfloor$ a altura da \textit{heap} binária
 
-        \item O número de nós no nível $h - i$ é tal que
+        \item O número de nós $V$ no nível $i$ é tal que
         \[
-            h - i \leq \frac{2^{\lfloor \log N\rfloor}}{2^{h - i}} \leq \frac{n}{2^{h - i}}
+            V(i) \leq 2^i \leq \frac{2^{\lfloor \log N\rfloor}}{2^{h - i}} \leq \frac{n}{2^{h - i}}
         \]
 
-        \item O número de trocas máximas para cada nó é $O(h)$
+        \item O número de trocas máximas para um nó no nível $i$ é $O(h - i)$
 
         \item Assim, o total $T$ de trocas feitas será dado por
         \begin{align*}
-            T &= \sum_{h - i = 0}^{\lfloor \log N\rfloor} \frac{n}{2^{h - i}}O(h - i) =
+            T &= \sum_{i = 0}^h V(i)O(h - i) = \sum_{i = 0}^{\lfloor \log N\rfloor} \frac{n}{2^{h - i}}O(h - i) =
                 \sum_{k = 0}^{\lfloor \log N\rfloor} \frac{n}{2^{k}}O(k) \\
               &=  O\left(n\sum_{k = 0}^{\lfloor \log N\rfloor} \frac{k}{2^{k}}\right)
               \leq  O\left(n\sum_{k = 0}^{\infty} \frac{k}{2^{k}}\right) = O(n),
