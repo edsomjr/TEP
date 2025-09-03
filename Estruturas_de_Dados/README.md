@@ -39,7 +39,7 @@ Estruturas de Dados
     1. [Árvores _Red-Black_: Remoção](slides/TR-6/TR-6.pdf)
     1. [Árvores Binárias de Busca na STL](slides/arvore_binaria_de_busca-stl/arvore_binaria_de_busca-stl.pdf) 
         1. [BEE 1897 - Jogo Esperto](../Upsolving/BEE/1897.pdf)
-        1. [OJ 12049 - _Just Prune The List_](problems/OJ_12049/OJ_12049.pdf)
+        1. [OJ 12049 - _Just Prune The List_](../Upsolving/OJ/12049/12049.pdf)
         1. [ABC 100C - _String Transformation_](problems/ABC_100C/ABC_100C.pdf)
         1. [CF 1004C - _Sonya and Robots_](problems/CF_1004C/CF_1004C.pdf)
     1. [_Heap_ binária](slides/heaps-definicao/heaps-definicao.pdf) 
