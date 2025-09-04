@@ -45,7 +45,7 @@ Estruturas de Dados
     1. [_Heap_ binária](slides/heaps-definicao/heaps-definicao.pdf) 
     1. [_Heaps_ binárias na STL](slides/heaps-stl/heaps-stl.pdf)
         1. [Timus 1306 - _Sequence Median_](../Upsolving/Timus/1306/1306.pdf)
-        1. [CF 994B - _Knights of a Polygonal Table_](problems/CF_994B/CF_994B.pdf)
+        1. [CF 994B - _Knights of a Polygonal Table_](../Upsolving/CF/994B/994B.pdf)
         1. [Codechef RRATING - _Restaurant Rating_](problems/Codechef_RRATING/Codechef_RRATING.pdf)
 1. Árvores _m_-árias
     1. [Árvores-B](slides/BT-1/BT-1.pdf)
