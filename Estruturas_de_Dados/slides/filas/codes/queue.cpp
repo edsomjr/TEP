@@ -21,7 +21,7 @@ public:
 
     void pop()
     {
-        if (_size == 0) throw "Lista vazia";
+        if (_size == 0) throw "Fila vazia";
 
         first = (first + 1) % N;
         _size--;
@@ -29,7 +29,7 @@ public:
 
     const T& front() const
     {
-        if (_size == 0) throw "Lista vazia";
+        if (_size == 0) throw "Fila vazia";
 
         return elems[first];
     }
