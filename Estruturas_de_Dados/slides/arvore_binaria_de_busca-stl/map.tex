@@ -82,10 +82,10 @@
 \begin{frame}[fragile]{Parâmetros da árvore com estatísticas}
 
     \begin{itemize}
-        \item \code{cpp}{typename Key} indica o tipo do elemento que será armazenado na árvore
+        \item \code{cpp}{typename Key} indica o tipo da chave da árvore
 
-        \item \code{cpp}{typename Mapped} indica que a árvore seguirá a relação de chave-valor, como
-            em \code{cpp}{map}. Para usar a árvore como um conjunto, substitua este parâmetro pelo
+        \item \code{cpp}{typename Mapped} indica o tipo do elemento que será mapeado pela chave. 
+            Para usar a árvore como um conjunto, substitua este parâmetro pelo
             valor \code{cpp}{null_type}
 
         \item \code{cpp}{typename Tag} indica qual será o tipo de árvore balaceada que será implementada.
@@ -125,4 +125,32 @@
 
 \begin{frame}[fragile]{Exemplo de uso da árvore com estatísticas do GCC}
     \inputsnippet{cpp}{21}{39}{codes/tree.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Mutiset com estatísticas}
+
+    \begin{itemize}
+        \item Para usar as estatísticas em um \code{cpp}{multiset} (ou em um \code{cpp}{multimap}),
+            é preciso utilizar, no parâmetro indicado por \code{cpp}{typename Cmp_Fn}, o valor
+            \code{cpp}{std::less_equal<Key>}
+
+        \item Este ajuste permite a inserção de elementos (ou chaves) repetidos (repetidas)
+
+        \item Contudo, a estrutura perde a capacidade de remover elementos usando o método
+            \code{cpp}{erase()}, seja passando como parâmetro um valor, seja passando um iterador
+
+        \item Isto pode ser corrigido usando uma combinação dos dois novos métodos
+
+        \item Basta passar, para o método \code{cpp}{erase()}, o ponteiro obtido pelo método
+            \code{cpp}{find_by_order()}, e a ordem pode ser obtida, a partir do valor,
+            pelo método \code{cpp}{order_of_key()}
+    \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de multiset com estatísticas}
+    \inputsnippet{cpp}{1}{19}{codes/multiset_stats.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de multiset com estatísticas}
+    \inputsnippet{cpp}{21}{40}{codes/multiset_stats.cpp}
 \end{frame}
