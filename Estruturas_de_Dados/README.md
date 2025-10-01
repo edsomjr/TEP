@@ -48,7 +48,7 @@ Estruturas de Dados
         1. [CF 994B - _Knights of a Polygonal Table_](../Upsolving/CF/994B/994B.pdf)
         1. [Codechef RRATING - _Restaurant Rating_](../Upsolving/Codechef/RRATING/RRATING.pdf)
 1. Árvores _m_-árias
-    1. [Árvores-B](slides/BT-1/BT-1.pdf)
+    1. [Árvores-B](slides/arvores_m-arias/arvores_m-arias.pdf)
     1. [_Union-Find Disjoint Sets_](slides/ufds/ufds.pdf)
         1. [SPOJ HERDING - _Herding_](problems/SPOJ_HERDING/SPOJ_HERDING.pdf)
         1. [OJ 1197 - _The Suspects_](problems/OJ_1197/OJ_1197.pdf)
