@@ -5,13 +5,8 @@ using namespace std;
 template<typename I, size_t T>
 class HashSet {
 private:
-    size_t mod(const I& a, int b)
-    {
-        return ((a % b) + b) % b;
-    }
-
+    size_t mod(const I& a, int b) { return ((a % b) + b) % b; }
     size_t h(const I& K) { return mod(K, T); }
-
     size_t N(const I& K, size_t i) { return mod(h(K) + i, T); }
 
     vector<I> xs;

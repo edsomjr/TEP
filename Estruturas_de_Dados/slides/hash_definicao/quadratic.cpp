@@ -6,7 +6,6 @@ template<typename I, size_t T>
 class HashSet {
 private:
     size_t mod(const I& a, int b) { return ((a % b) + b) % b; }
-
     size_t h(const I& K) { return mod(K, T); }
 
     size_t N(const I& K, size_t i)
@@ -31,8 +30,7 @@ public:
         {
             auto pos = N(K, i);
 
-            if (not used[pos])
-            {
+            if (not used[pos]) {
                 xs[pos] = K;
                 used[pos] = true;
                 break;
