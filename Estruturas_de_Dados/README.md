@@ -76,6 +76,8 @@ Estruturas de Dados
 2. Árvores AVL
 3. BITree: range query com range update
 4. Pilhas que retornam o max/min em O(1) com um campo extra: tal valor no momento da inserção (o próprio valor ou o do anterior, o que for melhor)
+
+Exercício sobre sondagem linear: https://atcoder.jp/contests/abc228/tasks/abc228_d
 -->
 
 <!-- Adicionar a implementação de set do GCC que tem operações extra: https://www.geeksforgeeks.org/ordered-set-gnu-c-pbds/ -->
