@@ -68,7 +68,7 @@ Estruturas de Dados
     1. [Definição, endereçamento aberto e encadeamento](slides/hash_definicao/hash_definicao.pdf)
     1. [_Hash_ universal e _hash_ perfeito](slides/hash_universal/hash_universal.pdf)
     1. [_Hash_ em C++](slides/hash_em_cpp/hash_em_cpp.pdf)
-        1. [CF 244A - _Dividing Orange_](problems/CF_244A/CF_244A.pdf)
+        1. [CF 244A - _Dividing Orange_](../Upsolving/CF/244A/244A.pdf)
         1. [BEE 1256 - Tabelas _Hash_](problems/BEE_1256/BEE_1256.pdf)
         1. [OJ 12504 - _Updating the Dictionary_](problems/OJ_12504/OJ_12504.pdf)
 <!-- Assuntos pendentes:
