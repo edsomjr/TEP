@@ -54,7 +54,7 @@ Estruturas de Dados
         1. [OJ 1197 - _The Suspects_](problems/OJ_1197/OJ_1197.pdf)
     1. [Árvores de Fenwick: Definição, _RSQ_ e _update_](slides/fenwick_tree-definicao/fenwick_tree-definicao.pdf)
         1. [SPOJ FENTREE - _Fenwick Trees_](../Upsolving/SPOJ/FENTREE/FENTREE.pdf)
-        1. [OJ 12798 - _Handball_](problems/OJ_12798/OJ_12798.pdf)
+        1. [OJ 12798 - _Handball_](../Upsolving/OJ/12798/12798.pdf)
     1. [Árvores de Fenwick: Aplicações e Variações](slides/fenwick_tree-aplicacoes/fenwick_tree-aplicacoes.pdf) 
         1. [OJ 12532 - _Interval Product_](problems/OJ_12532/OJ_12532.pdf)
         1. [SPOJ INVCNT - _Inversion Count_](problems/SPOJ_INVCNT/SPOJ_INVCNT.pdf)
