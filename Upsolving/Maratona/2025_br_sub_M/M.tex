@@ -1,0 +1,163 @@
+\begin{frame}[fragile]{Problema}
+
+Devido à sua localização privilegiada, com um relevo bem favorável, geralmente apenas muralhas
+frontais eram necessárias para a proteção de cidades medievais em Minas Gerais. Ainda hoje, é
+possível encontrar vestígios dessas construções ao admirar o belo horizonte da região.
+
+Cada uma dessas muralhas era composta por um número de segmentos consecutivos, cada um com
+uma altura inicial medida em unidades, correspondendo ao número de blocos usados para construí-lo.
+
+De tempos em tempos, os construtores reforçavam as muralhas escolhendo um segmento e empilhando blocos 
+extra em um padrão de escada: o segmento escolhido recebia $K$ blocos adicionais, o
+anterior $K - 1$, e assim sucessivamente até que apenas $1$ bloco fosse adicionado ou que não houvesse
+mais segmentos à esquerda.
+
+A solidez da defesa era determinada pela altura do segmento mais baixo da muralha.
+
+Dada a descrição inicial de uma muralha, seu objetivo é determinar qual é a maior altura mínima
+possível após a aplicação de um único reforço.
+
+\end{frame}
+
+\begin{frame}[fragile]{Entrada e saída}
+
+\textbf{Entrada}
+
+A primeira linha contém dois inteiros $N$ $(1 \leq N \leq 10^5)$, o número de segmentos da muralha, e 
+$K$ $(1 \leq K \leq N)$, o número de blocos adicionados ao segmento escolhido.
+
+A segunda linha contém $N$ inteiros $x_1, x_2, \ldots, x_N$ $(1 \leq x_i\leq 10^9)$, representando as 
+alturas iniciais dos segmentos.
+
+\vspace{0.2in}
+
+\textbf{Saída}
+
+Seu programa deve produzir uma única linha, contendo um único inteiro: a maior altura mínima
+possível da muralha após um único reforço.
+
+\end{frame}
+
+\begin{frame}[fragile]{Exemplos de entradas e saídas}
+
+\begin{minipage}[t]{0.5\textwidth}
+\textbf{Sample Input}
+\begin{verbatim}
+5 5
+5 4 3 2 1
+
+6 1
+3 3 1 3 3 3
+
+5 5
+3 4 7 8 7
+\end{verbatim}
+\end{minipage}
+\begin{minipage}[t]{0.45\textwidth}
+\textbf{Sample Output}
+\begin{verbatim}
+6
+
+
+2
+
+
+7
+\end{verbatim}
+\end{minipage}
+\end{frame}
+
+\begin{frame}[fragile]{Solução com complexidade $O(N\log N)$}
+
+    \begin{itemize}
+        \item Uma possível solução consiste em aplicar o reforço a partir de cada um dos elementos
+            $a_i$ e avaliar, em cada aplicação, o menor elemento $m_i$
+
+        \item A resposta do problema será o mínimo entre os elementos $m_1, m_2, \ldots, m_N$
+
+        \item Porém, a aplicação direta dos reforços, seguida de uma identificação \textit{naive} do
+            elemento mínimo, leva a uma solução com complexidade $O(N^2)$ e ao veredito TLE
+
+        \item É preciso, portanto, realizar duas tarefas de forma eficiente para reduz a
+            complexidade:
+
+            \begin{enumerate}
+                \item aplicar o reforço a partir do elemento $a_i$
+                \item identificar o menor elemento $m_i$ da muralha após a aplicação
+            \end{enumerate}
+
+        \item Em relação à tarefa 2, ela pode ser dividida em 3 subtarefas:
+            \begin{enumerate}[(a)]
+                \item Identificação do mínimo $r_i$ dentre os elementos $a_j$, com $i\in [1, i - K]$
+                \item Identificação do mínimo $s_i$ dentre os elementos
+                    $
+                        1 + a_{i - K + 1}, 2 + a_{i - K + 2}, \ldots, K + a_{i}
+                    $
+                \item Identificação do mínimo $t_i$ dentre os elementos $a_k$, com $k\in [i + 1, N]$
+            \end{enumerate}
+
+        \item Nessas condições, $m_i = \min(r_i, s_i, t_i)$
+   \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Solução com complexidade $O(N\log N)$}
+
+    \begin{itemize}
+        \item Se $[1, i - K]$ ou $[i + 1, N]$ forem intervalos degenerados, teremos $r_i = \infty$ ou
+            $t_i = \infty$, respectivamente
+
+        \item Nos demais casos, os valores de $s_i$ e $t_i$ podem ser determinado em $O(1)$, desde que
+            sejam pré-computados, em $O(N)$, dois vetores $p$ e $s$, onde $p(i)$ e $s(i)$ correspondem
+            aos mínimos dos prefixos $a[1..i]$ e dos sufixos $a[i..N]$, respectivamente
+
+        \item Para determinar o mínimo do cenário (b), que envolve a aplicação do reforço
+
+        \item Isto pode ser feito com o auxílio de um \textit{Venice Set}, uma estrutura de dados que
+            permite identificar o menor elemento armazenado, remover este elemento e adicionar igualmente
+            um valor $x$ em todos os elementos armazenados em $O(\log M)$, onde $M$ é o número de 
+            elementos armazenados
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Solução com complexidade $O(N\log N)$}
+
+    \begin{itemize}
+        \item Para manter, no máximo, $K$ elementos no conjunto de Veneza $v$, é preciso armazenar pares
+            $(y, i)$, onde $y$ é o valor a ser armazenado e $i$ o índice que esse valor ocupava no
+            vetor $a$, onde $v = a_i + K$
+
+        \item Se forem mantidos dois ponteiros $L, R$ para a identificação da janela móvel de tamanho
+            $K$ onde o reforço será aplicado, os mínimos $s_i$ em $[L, R]$ podem podem ser identificados
+            da seguinte maneira:
+            \begin{enumerate}
+                \item diminua os valores já armazenados em $v$ em uma unidade. Esta ação aproveita boa
+                    parte do reforço anterior pois teremos, em $v$, ao menos os valores
+                    $$
+                        a_{i - K + 1}, 1 + a_{i - K + 2}, \ldots, (K - 1) + a_{i - 1}
+                    $$
+                \item o reforço em $a_i$ fica completo ao adicionar $y_i = a_i + K$ em $v$
+                \item os elementos excedentes em $v$ devem ser removidos: basta remover os mínimos de 
+                    $v$ enquanto o segundo elemento do par for menor do que $L$
+                \item realizado este ajuste, o menor elemento de $v$ pode ser obtido em $O(\log M)$
+            \end{enumerate}
+    \end{itemize}
+
+\end{frame}
+ 
+\begin{frame}[fragile]{Solução AC}
+    \inputsnippet{cpp}{1}{19}{codes/M.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Solução AC}
+    \inputsnippet{cpp}{21}{39}{codes/M.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Solução AC}
+    \inputsnippet{cpp}{41}{60}{codes/M.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Solução AC}
+    \inputsnippet{cpp}{62}{80}{codes/M.cpp}
+\end{frame}
