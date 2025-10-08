@@ -70,7 +70,7 @@ Estruturas de Dados
     1. [_Hash_ em C++](slides/hash_em_cpp/hash_em_cpp.pdf)
         1. [CF 244A - _Dividing Orange_](../Upsolving/CF/244A/244A.pdf)
         1. [BEE 1256 - Tabelas _Hash_](../Upsolving/BEE/1256/1256.pdf)
-        1. [OJ 12504 - _Updating the Dictionary_](problems/OJ_12504/OJ_12504.pdf)
+        1. [OJ 12504 - _Updating the Dictionary_](../Upsolving/OJ/12504/12504.pdf)
 <!-- Assuntos pendentes:
 1. Filas monótonas: https://medium.com/algorithms-and-leetcode/monotonic-queue-explained-with-leetcode-problems-7db7c530c1d6
 2. Árvores AVL
