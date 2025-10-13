@@ -63,7 +63,7 @@ Estruturas de Dados
     1. [Árvores de segmentos: Definição e Implementação](slides/segtree/segtree.pdf)
         1. [CF 339D - _Xenia and Bit Operations_](../Upsolving/CF/339D/339D.pdf)
         1. [SPOJ KGSS - _Maximum Sum_](../Upsolving/SPOJ/KGSS/KGSS.pdf)
-        1. [LA 6139 - _Interval Product_](problems/LA_6139/LA_6139.pdf)
+        1. [LA 6139 - _Interval Product_](../Upsolving/LA/6139/6139.pdf)
 1. Hashes
     1. [Definição, endereçamento aberto e encadeamento](slides/hash_definicao/hash_definicao.pdf)
     1. [_Hash_ universal e _hash_ perfeito](slides/hash_universal/hash_universal.pdf)
