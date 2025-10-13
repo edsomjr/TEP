@@ -61,7 +61,7 @@ Estruturas de Dados
         1. [CF 295A - _Greg and Array_](problems/CF_295A/CF_295A.pdf)
         1. [POJ 1195 - _Mobile Phones_](problems/POJ_1195/POJ_1195.pdf)
     1. [Árvores de segmentos: Definição e Implementação](slides/segtree/segtree.pdf)
-        1. [CF 339D - _Xenia and Bit Operations_](problems/CF_339D/CF_339D.pdf)
+        1. [CF 339D - _Xenia and Bit Operations_](../Upsolving/CF/339D/339D.pdf)
         1. [SPOJ KGSS - _Maximum Sum_](problems/SPOJ_KGSS/SPOJ_KGSS.pdf)
         1. [LA 6139 - _Interval Product_](problems/LA_6139/LA_6139.pdf)
 1. Hashes
