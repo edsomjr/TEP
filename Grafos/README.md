@@ -4,8 +4,8 @@ Teoria dos Grafos
 1. Conceitos elementares
     1. [Fundamentos](slides/fundamentos/fundamentos.pdf)
     1. [Representação de grafos](slides/representacao/representacao.pdf)
-        1. [Codeforces Round #464 (Div. 2) - Problem A: Love Triangle](https://codeforces.com/problemset/problem/939/A) ([_upsolving_](problems/CF_939A/CF_939A.pdf))
-        1. [OJ 11991 - Easy Problem from Rujia Liu?](https://onlinejudge.org/index.php?option=onlinejudge&Itemid=8&page=show_problem&problem=3142) ([_upsolving_](problems/OJ_11991/OJ_11991.pdf))
+        1. [Codeforces Round #464 (Div. 2) - Problem A: Love Triangle](https://codeforces.com/problemset/problem/939/A) ([_upsolving_](../Upsolving/CF/939A/939A.pdf))
+        1. [OJ 11991 - Easy Problem from Rujia Liu?](https://onlinejudge.org/index.php?option=onlinejudge&Itemid=8&page=show_problem&problem=3142) ([_upsolving_](../Upsolving/OJ/11991/11991.pdf))
 1. Travessia
     1. [Travessia por profundidade](slides/dfs/dfs.pdf)
         1. [Codeforces Round #503 (by SIS, Div. 2) - Problem B: Badge](https://codeforces.com/problemset/problem/1020/B) ([_upsolving_](problems/CF_1020B/CF_1020B.pdf))
