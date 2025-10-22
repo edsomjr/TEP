@@ -58,7 +58,7 @@ Estruturas de Dados
     1. [Árvores de Fenwick: Aplicações e Variações](slides/fenwick_tree-aplicacoes/fenwick_tree-aplicacoes.pdf) 
         1. [OJ 12532 - _Interval Product_](../Upsolving/OJ/12532/12532.pdf)
         1. [SPOJ INVCNT - _Inversion Count_](../Upsolving/SPOJ/INVCNT/INVCNT.pdf)
-        1. [CF 295A - _Greg and Array_](problems/CF_295A/CF_295A.pdf)
+        1. [CF 295A - _Greg and Array_](../Upsolving/CF/295A/295A.pdf)
         1. [POJ 1195 - _Mobile Phones_](problems/POJ_1195/POJ_1195.pdf)
     1. [Árvores de segmentos: Definição e Implementação](slides/segtree/segtree.pdf)
         1. [CF 339D - _Xenia and Bit Operations_](../Upsolving/CF/339D/339D.pdf)

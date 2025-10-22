@@ -54,8 +54,8 @@ struct Op
     ll d;
 };
 
-vector<ll>
-solve(int N, int M, const vector<int>& as, const vector<Op>& ops, const vector<ii>& qs)
+vector<ll> solve(int N, int M, const vector<int>& as, 
+                 const vector<Op>& ops, const vector<ii>& qs)
 {
     BITree op_tree(M);
 
