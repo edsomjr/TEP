@@ -111,7 +111,8 @@ possível da muralha após um único reforço.
             sejam pré-computados, em $O(N)$, dois vetores $p$ e $s$, onde $p(i)$ e $s(i)$ correspondem
             aos mínimos dos prefixos $a[1..i]$ e dos sufixos $a[i..N]$, respectivamente
 
-        \item Para determinar o mínimo do cenário (b), que envolve a aplicação do reforço
+        \item Para determinar o mínimo do cenário (b), que envolve a aplicação do reforço, é preciso
+            atualizar os elementos do intervalo de forma eficiente
 
         \item Isto pode ser feito com o auxílio de um \textit{Venice Set}, uma estrutura de dados que
             permite identificar o menor elemento armazenado, remover este elemento e adicionar igualmente
