@@ -1,1 +1,1 @@
-../../../slides.cls
+../../slides.cls
