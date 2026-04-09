@@ -16,6 +16,7 @@ Material da disciplina Tópicos Especiais em Programação do Campus UnB Gama: F
 Roteiros de estudo para os cursos "Preparatório para a OBI 2025" e "Introdução à Programação Competitiva", e para a disciplina 
 "Programação para Competições".
 
+1. [Preparatório para a OBI 2026](OBI_2026.md)
 1. [Preparatório para a OBI 2025](OBI_2025.md)
 1. [Introdução à Programação Competitiva](IPC.md)
 1. [Programação para Competições](PPC.md)
