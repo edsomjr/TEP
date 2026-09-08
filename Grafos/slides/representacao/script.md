@@ -76,7 +76,7 @@
 ## Scene
 + \node[anchor=west] at (0, 7) { \Large \bbbold{Características das matrizes de adjacências} };
 
-+ \node[anchor=west] at (1, 6) { $\star$ \bbtext{Se $G$ é não poderado, $a_{ij} \in [0, 1]$ } };
++ \node[anchor=west] at (1, 6) { $\star$ \bbtext{Se $G$ é não ponderado, $a_{ij} \in [0, 1]$ } };
 
 + \node[anchor=west] at (1, 5) { $\star$ \bbtext{Se $G$ é multigrafo, $a_{ij}$ pode registrar o número de ocorrências de $(i, j)$ } };
 
